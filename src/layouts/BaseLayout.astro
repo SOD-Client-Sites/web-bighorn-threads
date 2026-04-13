@@ -1,0 +1,32 @@
+---
+import SEOHead from '@/components/SEOHead.astro'
+import Header from '@/components/Header.astro'
+import Footer from '@/components/Footer.astro'
+import '@/styles/global.css'
+
+interface Props {
+  title: string
+  description: string
+  canonical?: string
+  ogImage?: string
+  type?: 'website' | 'article'
+  publishedDate?: string
+  noindex?: boolean
+}
+
+const props = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <SEOHead {...props} />
+  </head>
+  <body class="min-h-screen bg-navy-950 text-white antialiased">
+    <Header />
+    <main class="pt-[65px]">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

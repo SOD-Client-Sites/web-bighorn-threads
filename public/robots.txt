@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bighornthreads.com/sitemap-index.xml

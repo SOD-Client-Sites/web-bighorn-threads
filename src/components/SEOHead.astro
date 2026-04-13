@@ -1,0 +1,87 @@
+---
+interface Props {
+  title: string
+  description: string
+  canonical?: string
+  ogImage?: string
+  type?: 'website' | 'article'
+  publishedDate?: string
+  noindex?: boolean
+}
+
+const {
+  title,
+  description,
+  canonical = Astro.url.href,
+  ogImage = '/images/og-default.jpg',
+  type = 'website',
+  publishedDate,
+  noindex = false,
+} = Astro.props
+
+const siteName = 'Bighorn Threads'
+const fullTitle = title === siteName ? title : `${title} | ${siteName}`
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+<!-- Open Graph -->
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={new URL(ogImage, Astro.site).href} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={new URL(ogImage, Astro.site).href} />
+
+{publishedDate && <meta property="article:published_time" content={publishedDate} />}
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+<!-- LocalBusiness Schema -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Bighorn Threads',
+  alternateName: 'VP Promos',
+  description: 'Branded apparel, screen printing, embroidery, and company stores for Las Vegas construction companies and trades.',
+  url: 'https://bighornthreads.com',
+  telephone: '+17252356196',
+  email: 'info@vp-promos.com',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Las Vegas',
+    addressRegion: 'NV',
+    addressCountry: 'US',
+  },
+  areaServed: [
+    { '@type': 'City', name: 'Las Vegas' },
+    { '@type': 'City', name: 'Henderson' },
+    { '@type': 'City', name: 'North Las Vegas' },
+  ],
+  priceRange: '$$',
+  openingHours: 'Mo-Fr 08:00-17:00',
+  sameAs: ['https://www.vp-promos.com'],
+  serviceType: [
+    'Screen Printing',
+    'Embroidery',
+    'Branded Apparel',
+    'Company Stores',
+    'Promotional Products',
+  ],
+})} />
