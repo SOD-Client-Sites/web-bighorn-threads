@@ -13,10 +13,11 @@
   --color-navy-100: #dce8f5;
   --color-navy-50: #f0f5fb;
 
-  --color-amber-500: #e8a019;
-  --color-amber-400: #f0b442;
-  --color-amber-600: #d4910a;
-  --color-amber-700: #b87a08;
+  --color-amber-500: #c8960e;
+  --color-amber-400: #daa520;
+  --color-amber-300: #e8b84a;
+  --color-amber-600: #b58508;
+  --color-amber-700: #9a7006;
 
   --font-heading: 'Space Grotesk', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;

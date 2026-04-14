@@ -1,4 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="4" fill="#0b1a2f"/>
-  <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="system-ui" font-weight="900" font-size="18" fill="#e8a019">BT</text>
+  <rect width="32" height="32" rx="6" fill="#0b1a2f"/>
+  <!-- Simplified ram horns -->
+  <path d="M11 10C9 7 6 7 5 9C4 11 5 14 7 15C6 13 6 11 7 10C8 9 10 9 11 11" stroke="#C8960E" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <path d="M21 10C23 7 26 7 27 9C28 11 27 14 25 15C26 13 26 11 25 10C24 9 22 9 21 11" stroke="#C8960E" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <!-- Head -->
+  <ellipse cx="16" cy="17" rx="5" ry="6.5" fill="#4a4a4a"/>
+  <!-- Eyes -->
+  <circle cx="14" cy="15.5" r="1" fill="#1a1a1a"/>
+  <circle cx="18" cy="15.5" r="1" fill="#1a1a1a"/>
+  <!-- Nose -->
+  <ellipse cx="16" cy="19" rx="1.5" ry="1" fill="#2a2a2a"/>
+  <!-- Text -->
+  <text x="16" y="29" font-family="system-ui" font-weight="900" font-size="5" fill="#C8960E" text-anchor="middle" letter-spacing="0.5">BT</text>
 </svg>
