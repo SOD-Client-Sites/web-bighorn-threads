@@ -7,14 +7,28 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
   description="In-house screen printing, embroidery, branded apparel, company stores, and promotional products for Las Vegas construction companies. Fast turnaround, no minimums on most products."
 >
   <!-- Hero -->
-  <section class="relative border-b border-navy-700/30 bg-navy-900/50 py-20 sm:py-28">
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_70%_-10%,_rgba(200,150,14,0.08),_transparent)]" />
+  <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
+    <!-- Product photo background -->
+    <div class="absolute inset-0">
+      <img
+        src="/images/generated/product-stack.jpg"
+        alt=""
+        aria-hidden="true"
+        class="h-full w-full object-cover opacity-40"
+        width="1024"
+        height="576"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/85 to-navy-950/40" />
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_70%_-10%,_rgba(193,155,61,0.12),_transparent)]" />
+    </div>
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Our Services</span>
       <h1 class="mb-4 max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
         Screen Printing, Embroidery & <span class="text-gold-500">Branded Gear</span> in Las Vegas
       </h1>
-      <p class="max-w-2xl text-lg text-navy-300 sm:text-xl">
+      <p class="max-w-2xl text-lg text-navy-200 sm:text-xl">
         One shop. In-house production. Fast turnaround. From a single embroidered hat to outfitting your entire crew — we handle it all.
       </p>
     </div>

@@ -6,14 +6,14 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
   title="Las Vegas Branded Apparel for Construction & Trades"
   description="Branded apparel, screen printing, embroidery, and company stores for Las Vegas construction companies and trades. 15+ years outfitting the crews that build Vegas."
 >
-  <!-- Hero — Full Viewport -->
-  <section class="relative flex min-h-[90vh] items-center overflow-hidden pt-20">
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
     <!-- Dark gradient background -->
     <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900" />
     <!-- Radial gold glow -->
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_40%,_rgba(193,155,61,0.06),_transparent)]" />
 
-    <div class="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+    <div class="relative mx-auto max-w-7xl px-4 pt-32 pb-16 sm:px-6 sm:pt-36 lg:px-8 lg:pt-40 lg:pb-24">
       <div class="grid items-center gap-12 lg:grid-cols-2">
         <div>
           <!-- Badge -->
@@ -71,8 +71,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
       </div>
     </div>
 
-    <!-- Bottom stats bar -->
-    <div class="absolute bottom-0 left-0 right-0 border-t border-gray-700/30 bg-navy-950/80 backdrop-blur-sm">
+    <!-- Bottom stats bar (normal flow, no overlap) -->
+    <div class="relative border-t border-gray-700/30 bg-navy-950/80 backdrop-blur-sm">
       <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-6 px-4 py-5 sm:px-6 lg:px-8">
         <div class="flex items-center gap-8">
           <div>
@@ -299,19 +299,35 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
           </div>
         </div>
 
-        <!-- Stats Grid -->
-        <div class="grid grid-cols-2 gap-4">
-          {[
-            { value: '24hr', label: 'Quote Turnaround' },
-            { value: '$0', label: 'Setup Fees' },
-            { value: '24pc', label: 'Minimums' },
-            { value: 'Free', label: 'Logo Digitizing' },
-          ].map((stat) => (
-            <div class="rounded-2xl border border-gray-700/40 bg-navy-800/30 p-6 text-center transition-all hover:border-gold-500/20">
-              <span class="block font-mono text-3xl font-bold text-gold-500 sm:text-4xl">{stat.value}</span>
-              <span class="mt-2 block text-sm text-gray-500">{stat.label}</span>
-            </div>
-          ))}
+        <!-- Crew Photo with floating stat badges -->
+        <div class="relative">
+          <div class="absolute -inset-4 rounded-3xl bg-gradient-to-br from-gold-500/10 to-transparent blur-2xl" />
+          <div class="relative overflow-hidden rounded-2xl border border-gold-500/20 shadow-2xl shadow-black/40">
+            <img
+              src="/images/generated/crew-vegas.jpg"
+              alt="Las Vegas construction crew wearing Bighorn Threads branded polos and hi-vis vests"
+              class="h-auto w-full"
+              width="1024"
+              height="576"
+              loading="lazy"
+            />
+            <!-- gradient overlay for badge contrast -->
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent" />
+          </div>
+
+          <!-- Floating stat badges -->
+          <div class="absolute -left-4 top-6 rounded-xl border border-gold-500/30 bg-navy-900/90 px-5 py-3 shadow-xl backdrop-blur-md">
+            <span class="block font-mono text-2xl font-bold text-gold-500">24hr</span>
+            <span class="mt-0.5 block text-xs text-gray-400">Quote Turnaround</span>
+          </div>
+          <div class="absolute -right-4 bottom-6 rounded-xl border border-gold-500/30 bg-navy-900/90 px-5 py-3 shadow-xl backdrop-blur-md">
+            <span class="block font-mono text-2xl font-bold text-gold-500">$0</span>
+            <span class="mt-0.5 block text-xs text-gray-400">Setup Fees</span>
+          </div>
+          <div class="absolute right-6 top-6 rounded-xl border border-gold-500/30 bg-navy-900/90 px-4 py-2.5 shadow-xl backdrop-blur-md">
+            <span class="block font-mono text-lg font-bold text-gold-500">Free</span>
+            <span class="mt-0.5 block text-[10px] uppercase tracking-wider text-gray-400">Digitizing</span>
+          </div>
         </div>
       </div>
     </div>
@@ -320,6 +336,14 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
   <!-- CTA -->
   <section class="relative overflow-hidden border-t border-gray-700/20 bg-navy-900/50 py-24 sm:py-32">
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_110%,_rgba(193,155,61,0.08),_transparent)]" />
+    <!-- Giant ghost ram watermark -->
+    <img
+      src="/images/logos/bighorn-logo-bw.png"
+      alt=""
+      aria-hidden="true"
+      class="pointer-events-none absolute left-1/2 top-1/2 w-[120%] max-w-[1100px] -translate-x-1/2 -translate-y-1/2 opacity-[0.04] invert"
+      loading="lazy"
+    />
     <div class="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <h2 class="mb-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
         Ready to Brand Your Crew?
