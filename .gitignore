@@ -8,3 +8,7 @@ dist/
 *.log
 .wrangler/
 .vercel/
+.playwright-mcp/
+.claude/settings.local.json
+/home-*.png
+/services-*.png
