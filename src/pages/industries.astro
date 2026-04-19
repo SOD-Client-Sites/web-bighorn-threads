@@ -1,0 +1,644 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const industries = [
+  {
+    slug: 'general-contractors',
+    name: 'General Contractors & Construction',
+    href: '#industry-general-contractors',
+  },
+  {
+    slug: 'electrical',
+    name: 'Electrical Contractors',
+    href: '#industry-electrical',
+  },
+  {
+    slug: 'plumbing-hvac',
+    name: 'Plumbing & HVAC',
+    href: '#industry-plumbing-hvac',
+  },
+  {
+    slug: 'roofing-solar',
+    name: 'Roofing & Solar',
+    href: '#industry-roofing-solar',
+  },
+  {
+    slug: 'landscaping',
+    name: 'Landscaping & Outdoor Services',
+    href: '#industry-landscaping',
+  },
+  {
+    slug: 'concrete-masonry',
+    name: 'Concrete & Masonry',
+    href: '#industry-concrete-masonry',
+  },
+  {
+    slug: 'steel-iron',
+    name: 'Steel & Iron Workers',
+    href: '#industry-steel-iron',
+  },
+  {
+    slug: 'oil-gas-mechanical',
+    name: 'Oil, Gas & Mechanical',
+    href: '#industry-oil-gas-mechanical',
+  },
+]
+
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Industries We Serve | Bighorn Threads',
+  description:
+    'Branded apparel, hi-vis safety gear, screen printing, embroidery, and promotional products for Las Vegas construction, electrical, plumbing, HVAC, roofing, solar, landscaping, concrete, steel, and oil & gas trades.',
+  url: 'https://bighornthreads.com/industries',
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: industries.map((industry, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'Service',
+        name: industry.name,
+        provider: {
+          '@type': 'LocalBusiness',
+          name: 'Bighorn Threads',
+        },
+        areaServed: {
+          '@type': 'City',
+          name: 'Las Vegas',
+        },
+        url: `https://bighornthreads.com/industries${industry.href}`,
+      },
+    })),
+  },
+}
+---
+
+<BaseLayout
+  title="Industries We Serve | Branded Apparel for Las Vegas Trades"
+  description="Branded apparel, hi-vis safety gear, screen printing, and embroidery for Las Vegas construction, electrical, plumbing, HVAC, roofing, solar, landscaping, concrete, steel, and oil & gas trades."
+>
+  <!-- Hero -->
+  <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-950 to-navy-900" />
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_70%_-10%,_rgba(193,155,61,0.15),_transparent)]" />
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_40%_30%_at_10%_110%,_rgba(193,155,61,0.08),_transparent)]" />
+    </div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Industries We Serve</span>
+      <h1 class="mb-6 max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+        Built for the Trades That <span class="text-gold-500">Build Vegas</span>
+      </h1>
+      <p class="mb-8 max-w-3xl text-lg text-navy-200 sm:text-xl">
+        We don't just slap a logo on a shirt. We specialize in outfitting construction crews, field technicians, and trade pros with gear that survives the job site, meets OSHA and NFPA standards, and keeps your brand visible from the curb to the cul-de-sac.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        {industries.map((industry) => (
+          <a
+            href={industry.href}
+            class="inline-flex items-center gap-2 rounded-full border border-navy-700/60 bg-navy-800/40 px-4 py-2 text-sm font-medium text-navy-200 transition-all hover:border-gold-500/60 hover:bg-gold-500/10 hover:text-gold-400 min-h-[44px]"
+          >
+            {industry.name}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Industry 1: General Contractors (Featured) -->
+  <section id="industry-general-contractors" class="scroll-mt-20 py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="rounded-3xl border-2 border-gold-500/40 bg-gradient-to-br from-navy-900/60 via-navy-900/40 to-navy-800/30 p-8 sm:p-12">
+        <div class="grid items-start gap-10 lg:grid-cols-[auto_1fr]">
+          <div class="flex h-20 w-20 flex-shrink-0 items-center justify-center rounded-2xl bg-gold-500/15 ring-1 ring-gold-500/30">
+            <svg class="h-10 w-10 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
+            </svg>
+          </div>
+          <div>
+            <div class="mb-3 flex flex-wrap items-center gap-3">
+              <span class="text-xs font-bold uppercase tracking-[0.2em] text-gold-500">General Contractors & Construction</span>
+              <span class="inline-flex items-center gap-1.5 rounded-full bg-gold-500 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-navy-950">
+                <svg class="h-3 w-3" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                Our Specialty
+              </span>
+            </div>
+            <h2 class="mb-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+              The crew that builds Vegas deserves gear that holds up.
+            </h2>
+            <div class="space-y-4 text-lg text-navy-200">
+              <p>
+                General contractors are the backbone of everything we do at Bighorn. If your crew is pouring foundations, framing walls, hanging drywall, or running a multi-site build, you need branded apparel that survives heat, sweat, concrete dust, and the kind of abuse office clothes never see. That means heavyweight 6oz+ tees with plastisol prints that don't crack after one wash, hi-vis safety shirts that meet ANSI Class 2 or Class 3 requirements, and hard hats printed or stickered with your company mark so your crew is identifiable on a shared job site.
+              </p>
+              <p>
+                The challenge most GCs bring us: ordering in waves. You need 50 shirts now for the summer crew, another 30 next month when a superintendent starts, and a one-off hoodie for the owner's nephew who just joined. We solve that with company stores — a private online portal where your team orders approved gear in approved colors with your logo, at your negotiated pricing. No more emails. No more spreadsheets. No more wrong sizes showing up the day before the OSHA walk.
+              </p>
+              <p>
+                Most common orders from GCs: hi-vis tees and long-sleeves, embroidered polos for PMs and estimators, hard hats and hard hat stickers, branded Carhartt-style jackets for winter, company-store reorders, and site-specific safety vests for subs and visitors.
+              </p>
+            </div>
+            <div class="mt-7 flex flex-wrap gap-2">
+              {['Hi-Vis ANSI Class 2/3', 'Hard Hats', 'Heavyweight Tees', 'Embroidered Polos', 'Branded Jackets', 'Company Stores', 'Safety Vests'].map((tag) => (
+                <span class="inline-flex items-center rounded-full border border-gold-500/40 bg-gold-500/5 px-3 py-1 text-sm font-medium text-gold-400">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <div class="mt-8">
+              <a href="/contact?industry=general-contractors" class="inline-flex items-center gap-2 rounded-lg bg-gold-500 px-6 py-3.5 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-xl hover:shadow-gold-500/25 hover:-translate-y-0.5 min-h-[44px]">
+                Get a Quote for General Contractors
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industry 2: Electrical -->
+  <section id="industry-electrical" class="scroll-mt-20 border-y border-navy-700/30 bg-navy-900/50 py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid items-start gap-10 lg:grid-cols-[auto_1fr]">
+        <div class="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl bg-gold-500/10">
+          <svg class="h-8 w-8 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+          </svg>
+        </div>
+        <div>
+          <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Electrical Contractors</span>
+          <h2 class="mb-5 text-3xl font-bold tracking-tight sm:text-4xl">
+            Arc-rated apparel that meets NFPA 70E. Branded the way you want it.
+          </h2>
+          <div class="space-y-4 text-lg text-navy-200">
+            <p>
+              Electrical contractors don't have the luxury of grabbing whatever shirt is on sale. NFPA 70E compliance isn't optional, and if your apparel isn't rated for the arc flash hazard of the task, your crew is exposed — and so is your liability. We source and brand FR (flame resistant) and AR (arc rated) apparel with CAT 1, CAT 2, and CAT 3 ratings that hold up to the real work your team does every day.
+            </p>
+            <p>
+              The tricky part is branding it right. Standard screen printing inks and vinyl heat transfers can actually compromise the FR rating of a garment. We use FR-compatible decoration methods — woven embroidered patches stitched to the garment, or FR-rated direct embroidery — so your brand shows up without voiding the certification. Beyond the field-grade FR gear, we also outfit electrical companies with regular embroidered polos for office staff and sales reps, branded beanies and knit caps for early morning service calls, and promotional leave-behinds like magnets and pens for residential panel upgrades and service work.
+            </p>
+            <p>
+              Common orders: FR/AR button-downs and tees, embroidered FR jackets, hi-vis FR hoodies, branded polos for service techs, beanies, and work hats.
+            </p>
+          </div>
+          <div class="mt-7 flex flex-wrap gap-2">
+            {['FR/AR Rated (NFPA 70E)', 'CAT 1 & CAT 2', 'Embroidered Polos', 'FR Patches', 'Branded Beanies', 'Service Tech Uniforms', 'Leave-Behind Promo'].map((tag) => (
+              <span class="inline-flex items-center rounded-full border border-gold-500/40 bg-gold-500/5 px-3 py-1 text-sm font-medium text-gold-400">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div class="mt-8">
+            <a href="/contact?industry=electrical" class="inline-flex items-center gap-2 rounded-lg bg-gold-500 px-6 py-3.5 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-xl hover:shadow-gold-500/25 hover:-translate-y-0.5 min-h-[44px]">
+              Get a Quote for Electrical
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industry 3: Plumbing & HVAC -->
+  <section id="industry-plumbing-hvac" class="scroll-mt-20 py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid items-start gap-10 lg:grid-cols-[auto_1fr]">
+        <div class="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl bg-gold-500/10">
+          <svg class="h-8 w-8 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1.5M12 19.5V21M4.22 4.22l1.06 1.06M18.72 18.72l1.06 1.06M3 12h1.5M19.5 12H21M4.22 19.78l1.06-1.06M18.72 5.28l1.06-1.06M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
+          </svg>
+        </div>
+        <div>
+          <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Plumbing & HVAC</span>
+          <h2 class="mb-5 text-3xl font-bold tracking-tight sm:text-4xl">
+            Moisture-wicking work shirts and branded trucks that win the driveway.
+          </h2>
+          <div class="space-y-4 text-lg text-navy-200">
+            <p>
+              Plumbing and HVAC techs spend half their day in attics that hit 140 degrees and the other half under sinks with their elbow in a puddle. Cotton tees aren't going to cut it. We outfit Vegas plumbing and HVAC companies with moisture-wicking performance work shirts that breathe, dry fast, and don't hold the smell of a crawlspace after a long call. Polos and button-downs with your logo embroidered on the chest create an instant "I'm a pro, not a handyman with a truck" first impression when your tech walks up to a homeowner's door.
+            </p>
+            <p>
+              Branded merch matters more in this trade than most. A homeowner who just got a $9,000 HVAC replacement is going to remember your truck magnet, your branded notepad, your company pen left on their kitchen counter — and they're going to hand your info to the neighbor three weeks later when their unit goes out. We build leave-behind promotional kits designed specifically for residential service trades: fridge magnets with your logo and 24/7 phone number, notepads, branded pens, water bottles for the crew, and embroidered service-tech jackets that look sharp in every driveway visit.
+            </p>
+            <p>
+              Common orders: performance work shirts, embroidered polos, branded service-tech jackets, truck magnets, notepads, pens, water bottles, and seasonal promo giveaways.
+            </p>
+          </div>
+          <div class="mt-7 flex flex-wrap gap-2">
+            {['Moisture-Wicking Shirts', 'Embroidered Polos', 'Service Tech Jackets', 'Truck Magnets', 'Branded Notepads', 'Promo Pens', 'Leave-Behind Kits'].map((tag) => (
+              <span class="inline-flex items-center rounded-full border border-gold-500/40 bg-gold-500/5 px-3 py-1 text-sm font-medium text-gold-400">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div class="mt-8">
+            <a href="/contact?industry=plumbing-hvac" class="inline-flex items-center gap-2 rounded-lg bg-gold-500 px-6 py-3.5 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-xl hover:shadow-gold-500/25 hover:-translate-y-0.5 min-h-[44px]">
+              Get a Quote for Plumbing & HVAC
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industry 4: Roofing & Solar -->
+  <section id="industry-roofing-solar" class="scroll-mt-20 border-y border-navy-700/30 bg-navy-900/50 py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid items-start gap-10 lg:grid-cols-[auto_1fr]">
+        <div class="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl bg-gold-500/10">
+          <svg class="h-8 w-8 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+          </svg>
+        </div>
+        <div>
+          <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Roofing & Solar</span>
+          <h2 class="mb-5 text-3xl font-bold tracking-tight sm:text-4xl">
+            Hi-vis on every rooftop. Sun-proof gear for 115-degree Vegas summers.
+          </h2>
+          <div class="space-y-4 text-lg text-navy-200">
+            <p>
+              OSHA doesn't make hi-vis a suggestion on a roof. If your crew is working at height where overhead lifts, material drops, or ground-level equipment is moving, ANSI Class 2 or Class 3 hi-vis gear is the law, and it's also just common sense. We supply branded hi-vis tees, long-sleeves, hoodies, and safety vests in sizes from S to 5XL with your logo screen-printed or embroidered so your crew is identifiable from the street and from the sky.
+            </p>
+            <p>
+              Vegas adds a second problem: UV. Roofing and solar installers spend 8 to 10 hours a day under direct sun at altitude, and standard cotton tees offer almost no UV protection. We source sun-protective long-sleeve performance shirts with UPF 30+ ratings that keep crews cool and shielded without sacrificing hi-vis visibility. Add custom-printed hard hats, branded trucker hats, and logo-embroidered softshell jackets for sales reps knocking doors, and you've got every touchpoint covered. Trade shows are big for solar — we handle branded giveaways, booth apparel, and lead-capture promo items.
+            </p>
+            <p>
+              Common orders: hi-vis ANSI tees and hoodies, UPF long-sleeves, custom hard hats, embroidered sales-rep softshells, trade show giveaways, and branded safety vests.
+            </p>
+          </div>
+          <div class="mt-7 flex flex-wrap gap-2">
+            {['ANSI Class 2/3 Hi-Vis', 'UPF 30+ Long-Sleeves', 'Custom Hard Hats', 'Sales Rep Softshells', 'Trade Show Swag', 'Branded Trucker Hats', 'Safety Vests'].map((tag) => (
+              <span class="inline-flex items-center rounded-full border border-gold-500/40 bg-gold-500/5 px-3 py-1 text-sm font-medium text-gold-400">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div class="mt-8">
+            <a href="/contact?industry=roofing-solar" class="inline-flex items-center gap-2 rounded-lg bg-gold-500 px-6 py-3.5 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-xl hover:shadow-gold-500/25 hover:-translate-y-0.5 min-h-[44px]">
+              Get a Quote for Roofing & Solar
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industry 5: Landscaping -->
+  <section id="industry-landscaping" class="scroll-mt-20 py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid items-start gap-10 lg:grid-cols-[auto_1fr]">
+        <div class="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl bg-gold-500/10">
+          <svg class="h-8 w-8 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+          </svg>
+        </div>
+        <div>
+          <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Landscaping & Outdoor Services</span>
+          <h2 class="mb-5 text-3xl font-bold tracking-tight sm:text-4xl">
+            Sun-proof, dust-proof gear for crews that live outside.
+          </h2>
+          <div class="space-y-4 text-lg text-navy-200">
+            <p>
+              Landscaping, lawn care, and outdoor service crews are in the sun six days a week. The gear has to work harder than a standard uniform. We outfit Vegas landscaping companies with wide-brim sun protection hats (not baseball caps — actual sun hats with neck coverage), moisture-wicking performance tees and tanks for the mowing crews, and embroidered polos for sales reps, account managers, and the crew lead who shows up to estimate.
+            </p>
+            <p>
+              Branded gear for landscaping isn't just about the crew — it's a rolling billboard. Every truck that drives through a neighborhood with branded team gear and a matching logo on the trailer wrap is a lead generator. We handle branded work gloves, logo water bottles and coolers for the crew (Vegas heat is a real safety issue and hydration gear with your logo is both useful and visible), embroidered quarter-zips for the office, and promo items for client gifting after a big install.
+            </p>
+            <p>
+              Common orders: wide-brim sun hats, performance tees and tanks, embroidered sales polos, branded work gloves, logo water bottles and coolers, embroidered quarter-zips, and client gifting sets.
+            </p>
+          </div>
+          <div class="mt-7 flex flex-wrap gap-2">
+            {['Wide-Brim Sun Hats', 'Performance Tees & Tanks', 'Embroidered Polos', 'Branded Work Gloves', 'Logo Coolers', 'Crew Water Bottles', 'Quarter-Zips'].map((tag) => (
+              <span class="inline-flex items-center rounded-full border border-gold-500/40 bg-gold-500/5 px-3 py-1 text-sm font-medium text-gold-400">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div class="mt-8">
+            <a href="/contact?industry=landscaping" class="inline-flex items-center gap-2 rounded-lg bg-gold-500 px-6 py-3.5 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-xl hover:shadow-gold-500/25 hover:-translate-y-0.5 min-h-[44px]">
+              Get a Quote for Landscaping
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industry 6: Concrete & Masonry -->
+  <section id="industry-concrete-masonry" class="scroll-mt-20 border-y border-navy-700/30 bg-navy-900/50 py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid items-start gap-10 lg:grid-cols-[auto_1fr]">
+        <div class="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl bg-gold-500/10">
+          <svg class="h-8 w-8 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+          </svg>
+        </div>
+        <div>
+          <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Concrete & Masonry</span>
+          <h2 class="mb-5 text-3xl font-bold tracking-tight sm:text-4xl">
+            Heavyweight workwear built to take a beating.
+          </h2>
+          <div class="space-y-4 text-lg text-navy-200">
+            <p>
+              Concrete and masonry work destroys cheap apparel. Portland cement eats cotton. Rebar snags sleeves. Knees go through pants in a week. If you're outfitting a concrete crew, the minimum spec isn't "a comfortable tee" — it's heavyweight 6oz+ cotton/poly blends, reinforced stitching, and prints that don't crack when the shirt gets stiff with dried mix. We source and brand heavyweight workwear in the weights and blends that actually survive the job.
+            </p>
+            <p>
+              Safety matters here too — concrete pours often happen around moving equipment, so branded ANSI Class 2 vests for anyone on the pour deck are standard. For the office side, embroidered polos and button-downs keep estimators and project managers looking sharp in client meetings. Reinforced knee pants and bib-overall style work pants with your company logo embroidered on the thigh or back pocket are a step up from the generic gear big-box stores sell. We can even handle branded knee pads and tool-belt add-ons for specialty crews.
+            </p>
+            <p>
+              Common orders: heavyweight branded tees, hi-vis concrete-pour vests, embroidered polos for office staff, branded reinforced work pants, company-logo knee pads, and hard hats with company decal.
+            </p>
+          </div>
+          <div class="mt-7 flex flex-wrap gap-2">
+            {['Heavyweight 6oz+ Tees', 'Reinforced Work Pants', 'ANSI Class 2 Vests', 'Embroidered Polos', 'Branded Knee Pads', 'Hard Hat Decals', 'Office Button-Downs'].map((tag) => (
+              <span class="inline-flex items-center rounded-full border border-gold-500/40 bg-gold-500/5 px-3 py-1 text-sm font-medium text-gold-400">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div class="mt-8">
+            <a href="/contact?industry=concrete-masonry" class="inline-flex items-center gap-2 rounded-lg bg-gold-500 px-6 py-3.5 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-xl hover:shadow-gold-500/25 hover:-translate-y-0.5 min-h-[44px]">
+              Get a Quote for Concrete & Masonry
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industry 7: Steel & Iron Workers -->
+  <section id="industry-steel-iron" class="scroll-mt-20 py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid items-start gap-10 lg:grid-cols-[auto_1fr]">
+        <div class="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl bg-gold-500/10">
+          <svg class="h-8 w-8 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
+          </svg>
+        </div>
+        <div>
+          <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Steel & Iron Workers / Structural Trades</span>
+          <h2 class="mb-5 text-3xl font-bold tracking-tight sm:text-4xl">
+            FR-rated gear for the trades that walk the iron.
+          </h2>
+          <div class="space-y-4 text-lg text-navy-200">
+            <p>
+              Structural steel and ironworking crews operate in one of the highest-hazard environments on any job site: open heights, welding arcs, cutting sparks, and molten splash risk. Standard cotton workwear here isn't just a bad idea — in certain hot-work zones it's a code violation. We supply FR-rated branded apparel that meets the thermal and arc flash standards these crews actually need, customized with your company logo via FR-compatible embroidery and woven patches.
+            </p>
+            <p>
+              Beyond the FR requirements, steel crews love heavy-duty branded gear that looks the part. Embroidered Carhartt-style canvas jackets, heavyweight branded tees, hard hat stickers with aggressive graphics (this is a crowd that takes pride in the hard hat build), and heavy-duty gloves with leather palms and embroidered logos on the cuffs. Most of our structural trade clients also outfit a small office and estimating staff with embroidered polos and quarter-zips for client visits and pre-con meetings.
+            </p>
+            <p>
+              Common orders: FR-rated work shirts and jackets, embroidered canvas jackets, hard hat stickers, heavy-duty branded gloves, heavyweight logo tees, and office-side embroidered polos.
+            </p>
+          </div>
+          <div class="mt-7 flex flex-wrap gap-2">
+            {['FR-Rated Shirts & Jackets', 'Embroidered Canvas Jackets', 'Hard Hat Stickers', 'Branded Heavy-Duty Gloves', 'Heavyweight Tees', 'Office Polos', 'Quarter-Zips'].map((tag) => (
+              <span class="inline-flex items-center rounded-full border border-gold-500/40 bg-gold-500/5 px-3 py-1 text-sm font-medium text-gold-400">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div class="mt-8">
+            <a href="/contact?industry=steel-iron" class="inline-flex items-center gap-2 rounded-lg bg-gold-500 px-6 py-3.5 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-xl hover:shadow-gold-500/25 hover:-translate-y-0.5 min-h-[44px]">
+              Get a Quote for Steel & Iron
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industry 8: Oil, Gas & Mechanical -->
+  <section id="industry-oil-gas-mechanical" class="scroll-mt-20 border-y border-navy-700/30 bg-navy-900/50 py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid items-start gap-10 lg:grid-cols-[auto_1fr]">
+        <div class="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl bg-gold-500/10">
+          <svg class="h-8 w-8 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003.001 2.48z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
+          </svg>
+        </div>
+        <div>
+          <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Oil, Gas & Mechanical</span>
+          <h2 class="mb-5 text-3xl font-bold tracking-tight sm:text-4xl">
+            FR/AR workwear and field-ready promo for high-hazard operations.
+          </h2>
+          <div class="space-y-4 text-lg text-navy-200">
+            <p>
+              Oil, gas, and mechanical field operations have the strictest FR/AR requirements of any industry we serve. Every garment has to be rated, every decoration method has to preserve the rating, and every crew member has to be identifiable on a facility that may have contractors from five different companies on site at the same time. We handle it all — from sourcing FR-rated coveralls and button-downs with the right CAT ratings to decorating them with FR-compatible embroidery and woven name badges that meet facility access requirements.
+            </p>
+            <p>
+              For field service techs who are in and out of trucks all day, branded hi-vis jackets, steel-toe-boot-compatible shoe covers, and embroidered ball caps give the crew a professional look at every stop. Safety-first promotional items are a smart add-on here: branded first aid kits for trucks, hard hat accessory kits, flashlight giveaways for trade shows and safety fairs, and branded water bottles for desert-climate crews. If your business operates anywhere in the Southern Nevada or Mojave region, we understand the heat and dust conditions your gear has to survive.
+            </p>
+            <p>
+              Common orders: FR/AR rated coveralls and work shirts, branded hi-vis field jackets, steel-toe boot covers, embroidered ball caps, branded first aid kits, and safety-themed promo items for trade shows and safety meetings.
+            </p>
+          </div>
+          <div class="mt-7 flex flex-wrap gap-2">
+            {['FR/AR Coveralls', 'FR Work Shirts', 'Hi-Vis Field Jackets', 'Steel-Toe Boot Covers', 'Embroidered Ball Caps', 'Branded First Aid Kits', 'Safety Promo Items'].map((tag) => (
+              <span class="inline-flex items-center rounded-full border border-gold-500/40 bg-gold-500/5 px-3 py-1 text-sm font-medium text-gold-400">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div class="mt-8">
+            <a href="/contact?industry=oil-gas-mechanical" class="inline-flex items-center gap-2 rounded-lg bg-gold-500 px-6 py-3.5 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-xl hover:shadow-gold-500/25 hover:-translate-y-0.5 min-h-[44px]">
+              Get a Quote for Oil, Gas & Mechanical
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why contractors stay with us -->
+  <section class="py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-14 max-w-3xl">
+        <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Why It Matters</span>
+        <h2 class="mb-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+          Why contractors stay with us after one order.
+        </h2>
+        <p class="text-lg text-navy-300">
+          Buying branded apparel shouldn't feel like pulling teeth. Here's what makes Bighorn different from the big online printers and the cheap promo brokers.
+        </p>
+      </div>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="rounded-2xl border border-navy-700/40 bg-navy-800/20 p-8">
+          <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gold-500/10">
+            <svg class="h-7 w-7 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
+            </svg>
+          </div>
+          <h3 class="mb-3 text-xl font-bold">We speak contractor.</h3>
+          <p class="text-navy-300">
+            We know OSHA 1926. We know ANSI 107 Class 2 vs Class 3. We know NFPA 70E and CAT ratings. We know what a plastisol print looks like after 30 washes in desert dust. When you call, you talk to people who have actually been on job sites — not a call-center rep reading from a script.
+          </p>
+        </div>
+        <div class="rounded-2xl border border-navy-700/40 bg-navy-800/20 p-8">
+          <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gold-500/10">
+            <svg class="h-7 w-7 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+            </svg>
+          </div>
+          <h3 class="mb-3 text-xl font-bold">Vegas local.</h3>
+          <p class="text-navy-300">
+            We're based in Las Vegas. Pickup is available. Job-site delivery is available. When your foreman calls at 3 pm saying he needs 12 extra hi-vis tees for tomorrow morning, we can actually help. Same time zone. Same city. No "let me forward you to our customer support team in another state."
+          </p>
+        </div>
+        <div class="rounded-2xl border border-navy-700/40 bg-navy-800/20 p-8">
+          <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gold-500/10">
+            <svg class="h-7 w-7 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+            </svg>
+          </div>
+          <h3 class="mb-3 text-xl font-bold">Crew-scale ready.</h3>
+          <p class="text-navy-300">
+            Most shops have a minimum. Most brokers have a "real order" threshold below which they just ignore you. We'll run a 5-piece embroidery order for a new superintendent and a 500-piece company-store restock the same week, with the same pricing structure and the same level of attention.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cross-industry solutions -->
+  <section class="border-y border-navy-700/30 bg-navy-900/30 py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-14 max-w-3xl">
+        <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Cross-Industry Solutions</span>
+        <h2 class="mb-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+          Whatever your trade, we handle the whole stack.
+        </h2>
+        <p class="text-lg text-navy-300">
+          Regardless of industry, every Bighorn client gets access to the same local production network, the same project managers, and the same full menu of services.
+        </p>
+      </div>
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <a href="/services#screen-printing" class="group rounded-2xl border border-navy-700/40 bg-navy-800/20 p-7 transition-all hover:border-gold-500/50 hover:bg-navy-800/40">
+          <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gold-500/10">
+            <svg class="h-6 w-6 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0110.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18" /></svg>
+          </div>
+          <h3 class="mb-2 text-lg font-bold text-white group-hover:text-gold-400">Screen Printing</h3>
+          <p class="text-sm text-navy-300">Multi-color prints that survive job-site conditions.</p>
+        </a>
+        <a href="/services#embroidery" class="group rounded-2xl border border-navy-700/40 bg-navy-800/20 p-7 transition-all hover:border-gold-500/50 hover:bg-navy-800/40">
+          <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gold-500/10">
+            <svg class="h-6 w-6 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128z" /></svg>
+          </div>
+          <h3 class="mb-2 text-lg font-bold text-white group-hover:text-gold-400">Embroidery</h3>
+          <p class="text-sm text-navy-300">Professional logo embroidery on polos, jackets, hats, and bags.</p>
+        </a>
+        <a href="/services#branded-apparel" class="group rounded-2xl border border-navy-700/40 bg-navy-800/20 p-7 transition-all hover:border-gold-500/50 hover:bg-navy-800/40">
+          <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gold-500/10">
+            <svg class="h-6 w-6 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5" /></svg>
+          </div>
+          <h3 class="mb-2 text-lg font-bold text-white group-hover:text-gold-400">Branded Apparel</h3>
+          <p class="text-sm text-navy-300">Hi-vis tees, polos, jackets, and full crew uniform packages.</p>
+        </a>
+        <a href="/services#promotional-products" class="group rounded-2xl border border-navy-700/40 bg-navy-800/20 p-7 transition-all hover:border-gold-500/50 hover:bg-navy-800/40">
+          <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gold-500/10">
+            <svg class="h-6 w-6 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5" /></svg>
+          </div>
+          <h3 class="mb-2 text-lg font-bold text-white group-hover:text-gold-400">Branded Promo Products</h3>
+          <p class="text-sm text-navy-300">Drinkware, truck magnets, notepads, giveaways, and client gifts.</p>
+        </a>
+        <a href="/services" class="group rounded-2xl border border-navy-700/40 bg-navy-800/20 p-7 transition-all hover:border-gold-500/50 hover:bg-navy-800/40">
+          <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gold-500/10">
+            <svg class="h-6 w-6 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>
+          </div>
+          <h3 class="mb-2 text-lg font-bold text-white group-hover:text-gold-400">Hi-Vis Safety Gear</h3>
+          <p class="text-sm text-navy-300">ANSI Class 2 and Class 3 hi-vis apparel branded to your spec.</p>
+        </a>
+        <a href="/services" class="group rounded-2xl border border-navy-700/40 bg-navy-800/20 p-7 transition-all hover:border-gold-500/50 hover:bg-navy-800/40">
+          <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gold-500/10">
+            <svg class="h-6 w-6 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72" /></svg>
+          </div>
+          <h3 class="mb-2 text-lg font-bold text-white group-hover:text-gold-400">Company Stores</h3>
+          <p class="text-sm text-navy-300">Private branded portals so your team self-serves on approved gear.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compliance callout -->
+  <section class="py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="relative overflow-hidden rounded-3xl border border-gold-500/30 bg-gradient-to-br from-navy-900 via-navy-900 to-navy-800 p-10 sm:p-14">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_90%_0%,_rgba(193,155,61,0.15),_transparent)]" />
+        <div class="relative grid items-start gap-10 lg:grid-cols-[auto_1fr]">
+          <div class="flex h-20 w-20 flex-shrink-0 items-center justify-center rounded-2xl bg-gold-500/15 ring-1 ring-gold-500/30">
+            <svg class="h-10 w-10 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+            </svg>
+          </div>
+          <div>
+            <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Compliance Matters</span>
+            <h2 class="mb-5 text-3xl font-bold tracking-tight sm:text-4xl">
+              We ask the compliance questions before the order goes to print.
+            </h2>
+            <div class="space-y-4 text-lg text-navy-200">
+              <p>
+                We understand what ANSI Class 2 hi-vis means versus Class 3. We know the difference between CAT 1 and CAT 2 FR, and which NFPA 70E task categories your crew is actually working in. We know that a vinyl heat transfer on an FR garment can void the rating, and we know which decoration methods keep the certification intact.
+              </p>
+              <p>
+                Our team asks the right questions about your job site before we source a single garment — because the wrong gear isn't just embarrassing, it can get your crew cited, fined, or hurt. If you don't know the answer to "what's your minimum rating spec?", we'll help you figure it out.
+              </p>
+            </div>
+            <div class="mt-8 grid gap-3 sm:grid-cols-3">
+              <div class="rounded-xl border border-navy-700/60 bg-navy-900/40 p-4">
+                <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Standard</div>
+                <div class="mt-1 font-bold">ANSI/ISEA 107</div>
+                <div class="text-sm text-navy-300">Hi-vis apparel</div>
+              </div>
+              <div class="rounded-xl border border-navy-700/60 bg-navy-900/40 p-4">
+                <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Standard</div>
+                <div class="mt-1 font-bold">NFPA 70E</div>
+                <div class="text-sm text-navy-300">Arc flash / electrical</div>
+              </div>
+              <div class="rounded-xl border border-navy-700/60 bg-navy-900/40 p-4">
+                <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Standard</div>
+                <div class="mt-1 font-bold">OSHA 1926</div>
+                <div class="text-sm text-navy-300">Construction PPE</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="relative overflow-hidden border-t border-navy-700/30 py-24 sm:py-32">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_110%,_rgba(200,150,14,0.12),_transparent)]" />
+    <div class="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Don't See Your Industry?</span>
+      <h2 class="mb-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+        Your industry isn't listed? <span class="text-gold-500">We probably serve it anyway.</span>
+      </h2>
+      <p class="mx-auto mb-10 max-w-2xl text-lg text-navy-300">
+        Pest control. Restoration. Demo. Fencing. Glass. Welding. Auto body. If your crew wears branded gear, uses promo products, or hands out swag at trade shows — we've done it. Tell us what you need and we'll put together a recommendation.
+      </p>
+      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a href="/contact" class="inline-flex items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-lg font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-xl hover:shadow-gold-500/25 hover:-translate-y-0.5 min-h-[44px]">
+          Get a Quote
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+        </a>
+        <a href="tel:+17252356196" class="inline-flex items-center gap-2 rounded-lg border-2 border-gold-500/50 px-8 py-4 text-lg font-bold text-white transition-all hover:border-gold-500 hover:bg-gold-500/10 min-h-[44px]">
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+          (725) 235-6196
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+</BaseLayout>

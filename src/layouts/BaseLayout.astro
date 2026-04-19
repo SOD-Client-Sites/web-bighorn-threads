@@ -21,6 +21,13 @@ const props = Astro.props
 <html lang="en">
   <head>
     <SEOHead {...props} />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZGGY24PN1Z"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZGGY24PN1Z');
+    </script>
   </head>
   <body class="min-h-screen bg-navy-950 text-white antialiased">
     <Header />

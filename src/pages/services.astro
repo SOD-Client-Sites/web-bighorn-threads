@@ -1,24 +1,79 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import { Picture } from 'astro:assets'
+import productStack from '@/assets/generated/product-stack.jpg'
+
+const services = [
+  {
+    name: 'Screen Printing',
+    serviceType: 'Screen printing for construction branded apparel',
+    description: 'Multi-color screen printing on tees, hi-vis vests, hoodies, and workwear. Plastisol and water-based inks. PMS color matching. 24-piece minimums, 5–7 business day standard turnaround, 48–72 hour rush available.',
+  },
+  {
+    name: 'Embroidery',
+    serviceType: 'Embroidery for construction uniforms, polos, headwear',
+    description: 'Commercial embroidery on polos, softshells, hats, beanies, and bags. Free digitizing on first order. Up to 15 thread colors per design. 12-piece minimums for most garments, no minimum for caps. 7–10 business day standard turnaround.',
+  },
+  {
+    name: 'Branded Apparel',
+    serviceType: 'Branded workwear & uniforms for Las Vegas trades',
+    description: 'Full uniform programs for construction and trades: hi-vis ANSI Class 2/3, FR-rated shirts (NFPA 70E CAT 1/2), polos, jackets, hard hats, beanies. Sourced from Carhartt, Port Authority, Red Kap, Bulwark, ML Kishigo, and other trade-trusted brands.',
+  },
+  {
+    name: 'Company Stores',
+    serviceType: 'Private branded apparel store for contractors',
+    description: 'Custom online storefront where each crew member orders their own gear on a per-employee credit or company-paid budget. Print-on-demand or stocked inventory. Ship to office, job site, or employee home. 5-day launch, no platform or per-seat fees.',
+  },
+  {
+    name: 'Promotional Products',
+    serviceType: 'Branded promotional products & corporate gifts',
+    description: 'Drinkware, safety gear, tech accessories, tote bags, awards, and trade show giveaways. 1M+ product catalog, branded to your specs. Ideal for client gifts, crew appreciation, open-house events, and networking.',
+  },
+]
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@graph': services.map((s, idx) => ({
+    '@type': 'Service',
+    '@id': `https://bighornthreads.com/services#${s.name.toLowerCase().replace(/\s+/g, '-')}`,
+    name: s.name,
+    serviceType: s.serviceType,
+    description: s.description,
+    provider: { '@id': 'https://bighornthreads.com/#organization' },
+    areaServed: [
+      { '@type': 'City', name: 'Las Vegas' },
+      { '@type': 'City', name: 'Henderson' },
+      { '@type': 'City', name: 'North Las Vegas' },
+      { '@type': 'City', name: 'Boulder City' },
+    ],
+    audience: {
+      '@type': 'BusinessAudience',
+      name: 'General contractors, electrical contractors, plumbing companies, HVAC service companies, roofing contractors, and trade businesses',
+    },
+  })),
+}
 ---
 
 <BaseLayout
   title="Screen Printing, Embroidery & Branded Apparel Services"
-  description="In-house screen printing, embroidery, branded apparel, company stores, and promotional products for Las Vegas construction companies. Fast turnaround, no minimums on most products."
+  description="Screen printing, embroidery, branded apparel, company stores, and promotional products for Las Vegas construction companies. Local Vegas production, fast turnaround, no minimums on most products."
 >
   <!-- Hero -->
   <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
     <!-- Product photo background -->
     <div class="absolute inset-0">
-      <img
-        src="/images/generated/product-stack.jpg"
+      <Picture
+        src={productStack}
         alt=""
         aria-hidden="true"
-        class="h-full w-full object-cover opacity-40"
-        width="1024"
-        height="576"
+        widths={[640, 1024, 1536, 1920]}
+        sizes="100vw"
+        formats={['avif', 'webp']}
+        fallbackFormat="jpg"
         loading="eager"
         fetchpriority="high"
+        decoding="async"
+        class="h-full w-full object-cover opacity-40"
       />
       <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/85 to-navy-950/40" />
       <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_70%_-10%,_rgba(193,155,61,0.12),_transparent)]" />
@@ -29,8 +84,71 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
         Screen Printing, Embroidery & <span class="text-gold-500">Branded Gear</span> in Las Vegas
       </h1>
       <p class="max-w-2xl text-lg text-navy-200 sm:text-xl">
-        One shop. In-house production. Fast turnaround. From a single embroidered hat to outfitting your entire crew — we handle it all.
+        One partner. Local Vegas production. Fast turnaround. From a single embroidered hat to outfitting your entire crew — we handle it all.
       </p>
+    </div>
+  </section>
+
+  <!-- Flagship: Company Stores -->
+  <section class="relative py-20 sm:py-28">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,_rgba(193,155,61,0.08),_transparent)]" aria-hidden="true"></div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="overflow-hidden rounded-3xl border-2 border-gold-500/30 bg-gradient-to-br from-gold-500/10 via-navy-800/40 to-navy-900">
+        <div class="grid gap-0 lg:grid-cols-[1.4fr_1fr]">
+          <div class="p-10 sm:p-14">
+            <div class="mb-4 inline-flex items-center gap-2 rounded-full bg-gold-500/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-gold-500">
+              Flagship Service
+            </div>
+            <h2 class="mb-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl font-heading">
+              Company Stores — <span class="text-gold-500">Private Online Storefronts for Your Crew</span>
+            </h2>
+            <p class="mb-5 text-lg leading-relaxed text-gray-400">
+              Your team logs into a branded storefront, picks their approved gear at sizes they actually want, and it ships direct. You set the catalog, the budget, and the spending rules. We handle decoration, fulfillment, and reporting.
+            </p>
+            <p class="mb-8 text-base leading-relaxed text-gray-400">
+              No inventory in your closet. No weekend runs to the shop for the new hire. No more guessing XL vs. 2XL for a foreman you've never met. 5-day launch, zero monthly platform fee, and setup is free for crews of 20 or more.
+            </p>
+            <div class="mb-8 flex flex-wrap gap-2">
+              <span class="rounded-full border border-gold-500/30 bg-gold-500/5 px-3 py-1 text-xs font-mono uppercase tracking-wider text-gold-400">5-day launch</span>
+              <span class="rounded-full border border-gold-500/30 bg-gold-500/5 px-3 py-1 text-xs font-mono uppercase tracking-wider text-gold-400">No monthly fee</span>
+              <span class="rounded-full border border-gold-500/30 bg-gold-500/5 px-3 py-1 text-xs font-mono uppercase tracking-wider text-gold-400">Per-employee credit</span>
+              <span class="rounded-full border border-gold-500/30 bg-gold-500/5 px-3 py-1 text-xs font-mono uppercase tracking-wider text-gold-400">Ship anywhere</span>
+              <span class="rounded-full border border-gold-500/30 bg-gold-500/5 px-3 py-1 text-xs font-mono uppercase tracking-wider text-gold-400">Quarterly reports</span>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <a href="/company-stores" class="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-gold-500 px-6 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25">
+                How company stores work
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+              </a>
+              <a href="/contact?interest=demo-store" class="inline-flex min-h-[44px] items-center gap-2 rounded-lg border-2 border-gold-500/40 px-6 py-3 text-base font-bold text-white transition-all hover:border-gold-500 hover:bg-gold-500/10">
+                Request a demo store
+              </a>
+            </div>
+          </div>
+          <div class="relative border-t border-gold-500/20 bg-navy-950/40 p-10 sm:p-14 lg:border-l lg:border-t-0">
+            <div class="mb-2 text-xs font-bold uppercase tracking-[0.15em] text-gold-500 font-mono">Who it's for</div>
+            <h3 class="mb-5 text-xl font-bold tracking-tight text-white font-heading">Multi-crew contractors &amp; service trades</h3>
+            <ul class="space-y-4 text-navy-200">
+              <li class="flex gap-3">
+                <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span>50+ employees across multiple job sites</span>
+              </li>
+              <li class="flex gap-3">
+                <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span>Regular new-hire onboarding that needs a starter kit</span>
+              </li>
+              <li class="flex gap-3">
+                <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span>Multi-location operations (Vegas, Henderson, regional yards)</span>
+              </li>
+              <li class="flex gap-3">
+                <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span>Per-employee annual apparel budgets you want to automate</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -45,11 +163,25 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
             </svg>
           </div>
           <h2 class="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">Screen Printing</h2>
-          <p class="mb-6 text-lg text-navy-300">
-            Bold, durable prints that survive the job site. In-house production means fast turnaround and consistent quality every time.
+          <p class="mb-4 text-lg text-gray-400">
+            Multi-color screen printing on tees, hi-vis vests, hoodies, and workwear. Bold, opaque prints that survive job-site abuse, industrial laundry cycles, and Nevada sun. Plastisol for punch and water-based for soft-hand crew tees — we pick the ink system that fits the job, not the one that's easiest.
           </p>
-          <div class="mb-6 inline-flex items-center gap-2 rounded-full bg-gold-500/10 px-4 py-1.5 text-sm font-medium text-gold-500">
-            In-house production — no middleman
+          <p class="mb-6 text-base text-gray-400">
+            PMS color matching on runs of 48+ pieces. Up to 8 ink colors per placement. Large-format back prints, left-chest, pocket, and sleeve hits all available. Specialty inks — metallic, glow-in-the-dark, puff, and high-density — for events, crew-pride orders, or brand activations.
+          </p>
+          <div class="mb-6 grid grid-cols-3 gap-3">
+            <div class="rounded-xl border border-navy-700/50 bg-navy-900/40 p-3">
+              <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Minimum</div>
+              <div class="mt-1 text-sm font-bold text-white">24 pieces</div>
+            </div>
+            <div class="rounded-xl border border-navy-700/50 bg-navy-900/40 p-3">
+              <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Turnaround</div>
+              <div class="mt-1 text-sm font-bold text-white">5–7 days</div>
+            </div>
+            <div class="rounded-xl border border-navy-700/50 bg-navy-900/40 p-3">
+              <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Rush</div>
+              <div class="mt-1 text-sm font-bold text-white">48–72 hrs</div>
+            </div>
           </div>
           <a href="/contact" class="inline-flex items-center gap-2 rounded-lg bg-gold-500 px-5 py-3 text-sm font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/20">
             Get a Quote
@@ -57,7 +189,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
           </a>
         </div>
         <div class="rounded-2xl border border-navy-700/50 bg-navy-800/30 p-8">
-          <h3 class="mb-5 text-xs font-bold uppercase tracking-[0.15em] text-navy-400">What's Included</h3>
+          <h3 class="mb-5 text-xs font-bold uppercase tracking-[0.15em] text-navy-300">What's Included</h3>
           <ul class="space-y-3">
             {['Multi-color prints up to 8 colors', 'Plastisol & water-based inks', 'Specialty inks (metallic, glow, puff)', 'Large format back prints', 'Left chest & pocket prints', 'As low as 24-piece minimums'].map((item) => (
               <li class="flex items-center gap-3 text-navy-200">
@@ -76,7 +208,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-start gap-12 lg:grid-cols-2">
         <div class="order-2 lg:order-1 rounded-2xl border border-navy-700/50 bg-navy-800/30 p-8">
-          <h3 class="mb-5 text-xs font-bold uppercase tracking-[0.15em] text-navy-400">What's Included</h3>
+          <h3 class="mb-5 text-xs font-bold uppercase tracking-[0.15em] text-navy-300">What's Included</h3>
           <ul class="space-y-3">
             {['Free logo digitizing on first order', 'Up to 15 thread colors', 'Left chest, sleeves, back placement', 'Hats, beanies & headwear', 'Bags & backpacks', 'No minimum order required'].map((item) => (
               <li class="flex items-center gap-3 text-navy-200">
@@ -93,11 +225,25 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
             </svg>
           </div>
           <h2 class="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">Embroidery</h2>
-          <p class="mb-6 text-lg text-navy-300">
-            Professional logo embroidery that looks sharp on polos, jackets, hats, and bags. We handle digitizing so you don't have to.
+          <p class="mb-4 text-lg text-gray-400">
+            Commercial embroidery on polos, softshells, caps, beanies, jackets, and bags. The decoration that reads "professional" the second somebody walks into a client meeting or picks up a permit. Sharp, durable, and a clear notch above heat-applied vinyl on gear your name tag is going to live on.
           </p>
-          <div class="mb-6 inline-flex items-center gap-2 rounded-full bg-gold-500/10 px-4 py-1.5 text-sm font-medium text-gold-500">
-            Free digitizing on first order
+          <p class="mb-6 text-base text-gray-400">
+            Up to 15 thread colors per design. Standard placements: left chest, right sleeve, back yoke, cap front, and cap back. Free logo digitizing on your first order (normally $45–$75). Tight trade tolerances — we match your logo within 1–2 Pantone shades using Madeira Classic threads.
+          </p>
+          <div class="mb-6 grid grid-cols-3 gap-3">
+            <div class="rounded-xl border border-navy-700/50 bg-navy-900/40 p-3">
+              <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Minimum</div>
+              <div class="mt-1 text-sm font-bold text-white">12 pieces</div>
+            </div>
+            <div class="rounded-xl border border-navy-700/50 bg-navy-900/40 p-3">
+              <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Turnaround</div>
+              <div class="mt-1 text-sm font-bold text-white">7–10 days</div>
+            </div>
+            <div class="rounded-xl border border-navy-700/50 bg-navy-900/40 p-3">
+              <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Digitizing</div>
+              <div class="mt-1 text-sm font-bold text-white">Free 1st order</div>
+            </div>
           </div>
           <a href="/contact" class="inline-flex items-center gap-2 rounded-lg bg-gold-500 px-5 py-3 text-sm font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/20">
             Get a Quote
@@ -119,11 +265,25 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
             </svg>
           </div>
           <h2 class="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">Branded Apparel</h2>
-          <p class="mb-6 text-lg text-navy-300">
-            From hi-vis tees on the job site to polos at the office — your brand on everything your team wears.
+          <p class="mb-4 text-lg text-gray-400">
+            Full crew uniform programs for construction and the trades. Hi-vis ANSI Class 2 and Class 3. FR-rated tees and shirts (NFPA 70E CAT 1 and CAT 2). Work pants, coveralls, softshell jackets, beanies, and caps. All sourced from brands your foremen already trust — Carhartt, Bulwark, Red Kap, Port Authority, ML Kishigo — and decorated to your spec.
           </p>
-          <div class="mb-6 inline-flex items-center gap-2 rounded-full bg-gold-500/10 px-4 py-1.5 text-sm font-medium text-gold-500">
-            Most popular with construction crews
+          <p class="mb-6 text-base text-gray-400">
+            We don't just ship you a box of shirts. We help you build a uniform spec that actually holds up: the right weight fabric for summer pours, the right cut for guys in a harness, the right hi-vis class for your job category. If you're running a mixed crew — office staff, field superintendents, tradespeople — we'll put together a tiered catalog so everyone's on-brand without forcing your office manager into a polo she won't wear.
+          </p>
+          <div class="mb-6 grid grid-cols-3 gap-3">
+            <div class="rounded-xl border border-navy-700/50 bg-navy-900/40 p-3">
+              <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Brands</div>
+              <div class="mt-1 text-sm font-bold text-white">Carhartt, Bulwark+</div>
+            </div>
+            <div class="rounded-xl border border-navy-700/50 bg-navy-900/40 p-3">
+              <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Compliance</div>
+              <div class="mt-1 text-sm font-bold text-white">ANSI / NFPA</div>
+            </div>
+            <div class="rounded-xl border border-navy-700/50 bg-navy-900/40 p-3">
+              <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Sizing</div>
+              <div class="mt-1 text-sm font-bold text-white">XS–6XL, Tall</div>
+            </div>
           </div>
           <a href="/contact" class="inline-flex items-center gap-2 rounded-lg bg-gold-500 px-5 py-3 text-sm font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/20">
             Get a Quote
@@ -131,7 +291,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
           </a>
         </div>
         <div class="rounded-2xl border border-navy-700/50 bg-navy-800/30 p-8">
-          <h3 class="mb-5 text-xs font-bold uppercase tracking-[0.15em] text-navy-400">What's Included</h3>
+          <h3 class="mb-5 text-xs font-bold uppercase tracking-[0.15em] text-navy-300">What's Included</h3>
           <ul class="space-y-3">
             {['T-shirts & tank tops', 'Polos & dress shirts', 'Hoodies & jackets', 'Hi-vis safety wear', 'Hard hats & beanies', 'Work pants & coveralls'].map((item) => (
               <li class="flex items-center gap-3 text-navy-200">
@@ -150,7 +310,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-start gap-12 lg:grid-cols-2">
         <div class="order-2 lg:order-1 rounded-2xl border border-navy-700/50 bg-navy-800/30 p-8">
-          <h3 class="mb-5 text-xs font-bold uppercase tracking-[0.15em] text-navy-400">What's Included</h3>
+          <h3 class="mb-5 text-xs font-bold uppercase tracking-[0.15em] text-navy-300">What's Included</h3>
           <ul class="space-y-3">
             {['Drinkware & tumblers', 'Tote bags & coolers', 'Pens & office supplies', 'Safety gear & first aid kits', 'Tech accessories', 'Awards & recognition'].map((item) => (
               <li class="flex items-center gap-3 text-navy-200">
@@ -167,11 +327,25 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
             </svg>
           </div>
           <h2 class="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">Promotional Products</h2>
-          <p class="mb-6 text-lg text-navy-300">
-            Branded swag that gets used, not tossed. Perfect for trade shows, client gifts, and networking events.
+          <p class="mb-4 text-lg text-gray-400">
+            Branded swag that actually gets used — not tossed in the back of a desk drawer. Access to a 1M+ product catalog through our SAGE distributor network, narrowed down to items that hold up and look sharp: insulated tumblers, branded hard hat stickers, power banks, ball caps, quality tote bags, safety kits, and trade-show-grade signage.
           </p>
-          <div class="mb-6 inline-flex items-center gap-2 rounded-full bg-gold-500/10 px-4 py-1.5 text-sm font-medium text-gold-500">
-            Perfect for trade shows & client gifts
+          <p class="mb-6 text-base text-gray-400">
+            Ideal for client gifts, crew appreciation, safety meetings, golf tournaments, open houses, and ribbon cuttings. We can run spec samples before you commit to a bulk buy, so you're not ordering 500 of something that feels cheap. Eco-friendly and made-in-USA options available on most categories.
+          </p>
+          <div class="mb-6 grid grid-cols-3 gap-3">
+            <div class="rounded-xl border border-navy-700/50 bg-navy-900/40 p-3">
+              <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Catalog</div>
+              <div class="mt-1 text-sm font-bold text-white">1M+ items</div>
+            </div>
+            <div class="rounded-xl border border-navy-700/50 bg-navy-900/40 p-3">
+              <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Samples</div>
+              <div class="mt-1 text-sm font-bold text-white">Available</div>
+            </div>
+            <div class="rounded-xl border border-navy-700/50 bg-navy-900/40 p-3">
+              <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Lead time</div>
+              <div class="mt-1 text-sm font-bold text-white">10–14 days</div>
+            </div>
           </div>
           <a href="/contact" class="inline-flex items-center gap-2 rounded-lg bg-gold-500 px-5 py-3 text-sm font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/20">
             Get a Quote
@@ -196,4 +370,6 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
       </a>
     </div>
   </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 </BaseLayout>

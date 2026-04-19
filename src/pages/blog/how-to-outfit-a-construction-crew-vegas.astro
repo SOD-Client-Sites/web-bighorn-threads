@@ -1,0 +1,294 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const post = {
+  title: 'How to Outfit a Construction Crew in Las Vegas (Without Losing Your Mind)',
+  description:
+    'A practical playbook for outfitting construction crews in Las Vegas — sizing, safety class, decoration, turnaround, and real logistics from a 200-person GC case study.',
+  category: 'Crew Outfitting',
+  readTime: '9 min read',
+  date: 'Mar 1, 2026',
+  isoDate: '2026-03-01',
+  image: '/images/generated/crew-vegas.jpg',
+  slug: 'how-to-outfit-a-construction-crew-vegas',
+}
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: post.title,
+      description: post.description,
+      image: `https://bighornthreads.com${post.image}`,
+      datePublished: post.isoDate,
+      dateModified: post.isoDate,
+      author: { '@type': 'Organization', name: 'Bighorn Threads Team' },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Bighorn Threads',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png',
+        },
+      },
+      mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/`,
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: post.title,
+          item: `https://bighornthreads.com/blog/${post.slug}/`,
+        },
+      ],
+    },
+  ],
+}
+---
+
+<BaseLayout
+  title={`${post.title} | Bighorn Threads`}
+  description={post.description}
+  canonical={`https://bighornthreads.com/blog/${post.slug}/`}
+  ogImage={post.image}
+  type="article"
+  publishedDate={post.isoDate}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <!-- Hero -->
+  <article class="bg-navy-950">
+    <header class="relative overflow-hidden border-b border-navy-800">
+      <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_30%,_rgba(193,155,61,0.06),_transparent)]"></div>
+
+      <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
+        <nav class="mb-6 font-mono text-xs text-gray-500" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-gold-400">Home</a>
+          <span class="px-2">/</span>
+          <a href="/blog/" class="hover:text-gold-400">Blog</a>
+        </nav>
+
+        <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">
+          {post.category}
+        </span>
+        <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+          {post.title}
+        </h1>
+        <p class="mb-8 text-xl leading-relaxed text-gray-400">
+          Sizing chaos. Rush orders. That back closet full of XL shirts nobody will ever wear. Here's how to outfit a crew the right way.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-500">
+          <span class="text-gold-500">Bighorn Threads Team</span>
+          <span aria-hidden="true">&middot;</span>
+          <span>{post.readTime}</span>
+          <span aria-hidden="true">&middot;</span>
+          <time datetime={post.isoDate}>{post.date}</time>
+        </div>
+      </div>
+    </header>
+
+    <!-- Featured image -->
+    <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8">
+      <img
+        src={post.image}
+        alt="Construction crew wearing branded high-visibility apparel on a Las Vegas jobsite"
+        width="1200"
+        height="675"
+        loading="eager"
+        class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl"
+      />
+    </div>
+
+    <!-- Body -->
+    <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+      <!-- Table of contents (sticky on desktop) -->
+      <aside class="mb-12 rounded-2xl border border-navy-700/50 bg-navy-900/40 p-6 lg:sticky lg:top-24">
+        <h2 class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-500">In this article</h2>
+        <ol class="space-y-2 font-mono text-sm text-navy-200">
+          <li><a href="#jobsite-needs" class="hover:text-gold-400">1. Start with your jobsite needs</a></li>
+          <li><a href="#apparel-categories" class="hover:text-gold-400">2. Choose your apparel categories</a></li>
+          <li><a href="#bulk-vs-store" class="hover:text-gold-400">3. Bulk order vs company store</a></li>
+          <li><a href="#artwork" class="hover:text-gold-400">4. Get your artwork right</a></li>
+          <li><a href="#timing" class="hover:text-gold-400">5. Timing & turnaround</a></li>
+          <li><a href="#vegas-example" class="hover:text-gold-400">6. A real Las Vegas example</a></li>
+        </ol>
+      </aside>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Outfitting a construction crew sounds easy until you've tried to do it for 50 people in a single week. Somebody needs XXL. Somebody else lost their jacket on day three. Your superintendent is asking why the hi-vis shirts don't match the ones from last year. The office staff wants polos, not tees. And the owner just told a client to expect branded gear on site tomorrow.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        We've been outfitting construction and trades crews in Las Vegas since 2010. The companies that do this well don't have bigger budgets — they have better systems. This playbook walks you through the six decisions that matter most, in the order they matter.
+      </p>
+
+      <h2 id="jobsite-needs" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">1. Start With Your Jobsite Needs</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Before you pick a shirt, pick a standard. Most crews skip this step and end up with a closet full of apparel that's almost-but-not-quite compliant with what GCs actually require on site.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">OSHA and hi-vis class requirements</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        If your crew is working anywhere near moving vehicles or heavy equipment, you're looking at ANSI/ISEA 107 Class 2 or Class 3 high-visibility gear. Class 2 is the baseline for most road-adjacent and jobsite work. Class 3 is required when workers are exposed to traffic over 50 mph or low-light conditions. Know which class your GCs require before ordering — we still get calls from contractors who ordered 100 Class 1 vests and can't use them on the strip.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Vegas weather reality</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Summer in Las Vegas isn't "hot." It's 115&deg;F with no shade for four months. Cotton shirts are a productivity problem. Moisture-wicking polyester hi-vis tees are non-negotiable from May through September. Then from November to February you need mid-weight hoodies and softshell jackets — especially for your early-morning pour crews.
+      </p>
+
+      <div class="my-10 rounded-2xl border-l-4 border-gold-500 bg-gold-500/5 p-6">
+        <p class="mb-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Key takeaway</p>
+        <p class="text-lg leading-relaxed text-navy-100">
+          Build your apparel standard <em>before</em> you build your order. Pick your hi-vis class, your summer fabric, and your winter layer once — then every reorder becomes a two-minute decision instead of a two-week project.
+        </p>
+      </div>
+
+      <h2 id="apparel-categories" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">2. Choose Your Apparel Categories</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        The crews we outfit usually land on four or five distinct categories. You probably need some version of all of them:
+      </p>
+
+      <ul class="mb-6 list-disc space-y-3 pl-6 text-lg leading-relaxed text-navy-200">
+        <li><strong class="text-white">Daily field wear.</strong> Moisture-wicking hi-vis tees and long sleeves. Every field employee gets 4-5 of these. Budget roughly $15-22 per piece decorated.</li>
+        <li><strong class="text-white">Safety layer.</strong> Class 2 or Class 3 vests for crews that need visibility over their field wear. Usually 1-2 per person.</li>
+        <li><strong class="text-white">Office & sales.</strong> Embroidered polos and button-downs for the people walking into client offices. Different garment, different decoration method, same brand identity.</li>
+        <li><strong class="text-white">Outerwear.</strong> Softshells, insulated jackets, and hoodies. These are the longest-lasting pieces your crew will own — spec them right.</li>
+        <li><strong class="text-white">Headwear.</strong> Branded hats are the single highest-impression item on your crew. They get worn every day, everywhere.</li>
+      </ul>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Our <a href="/services" class="text-gold-500 underline hover:text-gold-400">full services page</a> breaks down pricing ranges by category if you need a starting point.
+      </p>
+
+      <h2 id="bulk-vs-store" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">3. Bulk Order vs Company Store</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        This is the single biggest decision you'll make, and it depends almost entirely on crew size and turnover. The old-school approach — order 500 tees in bulk, stuff them in a closet, hand them out as needed — works fine for crews under 20 people. Above that it breaks down fast.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        For most crews over 30 people we now recommend a <a href="/company-stores" class="text-gold-500 underline hover:text-gold-400">branded company store</a>. Employees log in, pick their own sizes, and the gear ships direct to the jobsite or to their home. No closet. No size guessing. No dead inventory. We wrote a full breakdown in <a href="/blog/company-store-vs-bulk-ordering/" class="text-gold-500 underline hover:text-gold-400">Bulk Ordering vs Company Store: The Real Math for Contractors</a> if you want the numbers.
+      </p>
+
+      <blockquote class="my-8 border-l-4 border-gold-500 pl-6 italic text-navy-200">
+        "We had three sizes of hi-vis shirts stacked to the ceiling and still nobody could find a medium. After we switched to a company store, that problem disappeared in a week." &mdash; Superintendent, Vegas-based GC (280 field employees)
+      </blockquote>
+
+      <h2 id="artwork" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">4. Get Your Artwork Right</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Good decoration starts with good art files. We need three versions of your logo to do our job well:
+      </p>
+
+      <ol class="mb-6 list-decimal space-y-3 pl-6 text-lg leading-relaxed text-navy-200">
+        <li><strong class="text-white">Vector file</strong> (.ai, .eps, or .svg) — required for screen printing and embroidery digitizing.</li>
+        <li><strong class="text-white">Single-color version</strong> — for hi-vis tees where full color looks muddy or violates ANSI contrast rules.</li>
+        <li><strong class="text-white">Small-format version</strong> — simplified for hats and left-chest embroidery where detail gets lost.</li>
+      </ol>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Then pick your decoration method by garment. Screen printing is the right call for tees and high-volume runs. Embroidery is the right call for polos, hats, and outerwear. Read our full breakdown in <a href="/blog/screen-printing-vs-embroidery-construction/" class="text-gold-500 underline hover:text-gold-400">Screen Printing vs Embroidery for Construction Gear</a>.
+      </p>
+
+      <div class="my-10 rounded-2xl border border-navy-700 bg-navy-800/40 p-6">
+        <p class="mb-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-400">Pro tip</p>
+        <p class="text-lg leading-relaxed text-navy-100">
+          Send us your logo before you need to order anything. We'll digitize it for embroidery, prep the screen print separations, and save all three versions on file. The next time you place an order, setup is already done.
+        </p>
+      </div>
+
+      <h2 id="timing" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">5. Timing & Turnaround</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Standard turnaround for a bulk decorated order is 10-14 business days from artwork approval. Rush orders (3-5 days) are possible but cost 25-40% more and depend on garment availability. Here's how to avoid needing the rush lane:
+      </p>
+
+      <ul class="mb-6 list-disc space-y-3 pl-6 text-lg leading-relaxed text-navy-200">
+        <li><strong class="text-white">Onboarding bundles.</strong> Keep a standing pre-order of 15-20 starter kits (shirts, hat, vest in mixed sizes) for new hires. When you hire three people on a Tuesday, they're in gear by Thursday.</li>
+        <li><strong class="text-white">Seasonal pre-books.</strong> Order your summer hi-vis in March, not May. Order winter outerwear in August, not November. Vendor inventory crashes right when you need it most.</li>
+        <li><strong class="text-white">Reorder triggers.</strong> Set a minimum quantity threshold per SKU. When you drop below, reorder automatically. A company store can do this for you.</li>
+      </ul>
+
+      <h2 id="vegas-example" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">6. A Real Las Vegas Example</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        One of our clients is a mid-sized Las Vegas GC with roughly 200 field employees working across four active commercial projects. When they came to us, their process was: each project manager emailed the office with a size-and-quantity list, the office ordered from three different vendors, and gear arrived anywhere from 2 to 6 weeks later. They were carrying about $18,000 in "dead" apparel inventory — wrong sizes, discontinued colors, old logo versions.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        We built them a branded company store with four tiers of access: field, field-lead, office, and executive. Each tier has an annual gear allowance loaded to their account. New hires get an onboarding email with login instructions on day one and usually place their first order within 48 hours. The HR system triggers the invite — the company doesn't manage it manually.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Eighteen months in: zero dead inventory, 3-day average delivery to jobsite, and their total apparel spend dropped 22% despite equipping more people. The PM emails stopped. So did the storage closet.
+      </p>
+
+      <!-- Mid-article CTA -->
+      <div class="my-12 rounded-2xl border border-gold-500/30 bg-gradient-to-br from-gold-500/10 to-navy-900/40 p-8 text-center">
+        <h3 class="mb-3 font-heading text-2xl font-bold tracking-tight">Need help outfitting your crew?</h3>
+        <p class="mb-6 text-navy-200">
+          We've outfitted 100+ Las Vegas contractors. Tell us your crew size and we'll build you a plan.
+        </p>
+        <a
+          href="/contact"
+          class="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-gold-500 px-8 py-4 text-lg font-bold text-navy-950 transition-all hover:bg-gold-400"
+        >
+          Get a Free Quote
+        </a>
+      </div>
+
+      <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The Short Version</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Pick your safety standard first. Build a category list (field, safety, office, outerwear, headwear). Decide between bulk and company store based on crew size. Get three versions of your artwork. Pre-book seasonal items. And if you're over 30 people, stop ordering in bulk and set up a store.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Whether you run 10 people or 500, the companies that do this well treat apparel like any other operational system — standardized, automated where possible, and handled by people who know what works on a Vegas jobsite.
+      </p>
+
+      <!-- Author bio -->
+      <div class="mt-16 rounded-2xl border border-navy-700/50 bg-navy-900/40 p-6">
+        <div class="flex items-start gap-4">
+          <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-gold-500/30 bg-gold-500/10">
+            <span class="font-mono text-lg font-bold text-gold-500">BT</span>
+          </div>
+          <div>
+            <p class="mb-1 font-heading text-lg font-bold text-white">Bighorn Threads Team</p>
+            <p class="text-sm leading-relaxed text-navy-200">
+              We've been outfitting Las Vegas construction and trades crews since 2010. General contractors, electricians, roofers, mechanical, framing, concrete — we've branded them all. <a href="/industries" class="text-gold-500 underline hover:text-gold-400">See the industries we serve.</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- End CTA -->
+  <section class="border-t border-navy-800 bg-navy-900/60 py-16">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">
+        Let's build your apparel program.
+      </h2>
+      <p class="mb-8 text-lg text-gray-400">
+        Screen printing, embroidery, and company stores for Las Vegas trades — all under one roof.
+      </p>
+      <a
+        href="/contact"
+        class="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-gold-500 px-8 py-4 text-lg font-bold text-navy-950 transition-all hover:bg-gold-400"
+      >
+        Get Started
+      </a>
+    </div>
+  </section>
+</BaseLayout>

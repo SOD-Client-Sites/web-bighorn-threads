@@ -72,7 +72,15 @@ const ogImageHref = new URL(ogImage, Astro.site).href
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link
+  rel="preload"
+  as="style"
+  href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"
+/>
+<link
+  href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"
+  rel="stylesheet"
+/>
 
 <!-- LocalBusiness Schema -->
 <script type="application/ld+json" set:html={JSON.stringify({
@@ -86,7 +94,7 @@ const ogImageHref = new URL(ogImage, Astro.site).href
   logo: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png',
   image: 'https://bighornthreads.com/images/og-default.jpg',
   telephone: '+17252356196',
-  email: 'info@vp-promos.com',
+  email: 'info@bighornthreads.com',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Las Vegas',
@@ -105,13 +113,55 @@ const ogImageHref = new URL(ogImage, Astro.site).href
   ],
   priceRange: '$$',
   openingHours: 'Mo-Fr 08:00-17:00',
-  sameAs: ['https://www.vp-promos.com'],
+  sameAs: [
+    'https://www.vp-promos.com',
+    'https://www.facebook.com/VPPromotions/',
+    'https://www.linkedin.com/company/vp-promotions-vegas',
+  ],
   serviceType: [
     'Screen Printing',
     'Embroidery',
     'Branded Apparel',
     'Company Stores',
     'Promotional Products',
+  ],
+  knowsAbout: [
+    'ANSI/ISEA 107 hi-vis apparel',
+    'NFPA 70E flame-resistant clothing',
+    'Construction branded workwear',
+    'Company store platforms',
+    'Pantone color matching',
+    'Screen printing for trades',
+    'Embroidery for construction uniforms',
+  ],
+  slogan: 'The crews that build Vegas wear our gear.',
+  foundingDate: '2010',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5.0',
+    ratingCount: '8',
+    bestRating: '5',
+    worstRating: '1',
+  },
+  review: [
+    {
+      '@type': 'Review',
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      author: { '@type': 'Person', name: 'K. Stephens' },
+      reviewBody: "We've been working with VP Promos for years for our company uniforms and branded swag, and they've consistently delivered. Steve offers a perfect balance of professional and personal service, always going the extra mile.",
+    },
+    {
+      '@type': 'Review',
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      author: { '@type': 'Person', name: 'Luis Rascon' },
+      reviewBody: "We've consistently had a great experience working with VP Promos. They always deliver on time and maintain excellent quality in every order. Their reliability and attention to detail make them a trusted partner for our promotional needs.",
+    },
+    {
+      '@type': 'Review',
+      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+      author: { '@type': 'Person', name: 'Nadia Griffin' },
+      reviewBody: "I've worked with VP Promos for over 14 years, and they've been an incredible partner for all my event promotional needs. From branded apparel to unique giveaways, their products are always high-quality and delivered on time.",
+    },
   ],
   parentOrganization: {
     '@type': 'Organization',

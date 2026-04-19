@@ -1,0 +1,549 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const faqs = [
+  {
+    q: 'How long does it take to launch a store?',
+    a: 'Most stores are live within 5 to 7 business days. We build the storefront, load your approved products, apply your logo and colors, and run a test order with you before inviting your crew. Rush launches in 72 hours are possible for contractors who already have artwork ready.',
+  },
+  {
+    q: "What's the minimum crew size?",
+    a: 'We build stores for crews as small as 10 people, but the setup fee is waived at 20 or more active employees. Below 20, we usually recommend a simple bulk order instead — it saves you money. The company store model pays off when you have regular reorders and new hires.',
+  },
+  {
+    q: 'Do you charge a monthly fee?',
+    a: 'No monthly platform fee. No per-user fee. You pay per item at your contracted rates and nothing else. Shipping is calculated at checkout. That keeps the math simple for owners and predictable for your P&L.',
+  },
+  {
+    q: 'Can we limit what employees order?',
+    a: 'Yes. You control the full catalog — only products you approve will show up in your store. You can also set spending limits per employee, per role, or per pay period. If your superintendents need different gear than your field crew, we can set up tiered catalogs by role.',
+  },
+  {
+    q: 'Can you ship to job sites?',
+    a: 'Yes. Orders can ship to the employee\u2019s home, to your office, or directly to a job site trailer. Multi-location contractors often use the job site option for active projects and the home option for standard reorders. Each employee picks at checkout.',
+  },
+  {
+    q: 'How do we add new employees?',
+    a: 'Three options. Self-signup with a company code, admin-invite by email, or a CSV upload if you\u2019re onboarding a big group at once. New hires can get an automatic starter gear allowance the moment they\u2019re added, so their first order ships before day one.',
+  },
+  {
+    q: 'What if we want to change our approved products?',
+    a: 'Send us a note any time and we\u2019ll update the catalog within 1 to 2 business days. You can add seasonal items (jackets in winter, hi-vis tees in summer), swap vendors, or rotate new colors without rebuilding the whole store.',
+  },
+  {
+    q: 'Do you integrate with our payroll or benefits system?',
+    a: 'We can deduct from payroll, charge to a company card, or bill the company monthly — whichever fits your accounting. Direct API integration with ADP, Gusto, and Paychex is available on request. Most clients start with monthly billing and add payroll deduction later.',
+  },
+]
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+}
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Company Stores for Contractors',
+  serviceType: 'Branded Online Store for Crew Apparel',
+  provider: {
+    '@type': 'LocalBusiness',
+    name: 'Bighorn Threads',
+    areaServed: 'Las Vegas, NV',
+  },
+  description:
+    'Private branded online stores for construction and trades companies. Crew members log in and order their own uniforms, hi-vis, hats, and jackets — Bighorn Threads prints, embroiders, and ships direct. Zero inventory for the contractor.',
+  audience: {
+    '@type': 'BusinessAudience',
+    name: 'General contractors, HVAC, plumbing, electrical, and multi-location trade companies',
+  },
+  offers: {
+    '@type': 'Offer',
+    priceSpecification: {
+      '@type': 'PriceSpecification',
+      description: 'Per-item pricing at contracted rates. No monthly platform fee. Setup fee waived for crews of 20+.',
+    },
+  },
+}
+---
+
+<BaseLayout
+  title="Company Stores | Private Branded Apparel Stores for Contractors | Bighorn Threads"
+  description="Your own branded online store for crew gear. Each employee orders what they need — we print and ship. Zero inventory, no monthly fee. Built for Las Vegas contractors, HVAC, plumbing, and electrical companies."
+>
+  <!-- Hero -->
+  <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
+    <div class="absolute inset-0">
+      <img
+        src="/images/generated/crew-vegas.jpg"
+        alt=""
+        aria-hidden="true"
+        class="h-full w-full object-cover opacity-40"
+        width="1600"
+        height="900"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/85 to-navy-950/40"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_70%_-10%,_rgba(193,155,61,0.15),_transparent)]"></div>
+    </div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Our Flagship Service</span>
+      <h1 class="mb-6 max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+        Your Own Branded Store. <span class="text-gold-500">Zero Inventory.</span>
+      </h1>
+      <p class="mb-10 max-w-2xl text-lg text-navy-200 sm:text-xl">
+        Each crew member logs in, orders what they need, and it ships direct. Your company doesn't stock a single shirt. We handle production, fulfillment, reporting — everything.
+      </p>
+      <div class="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+        <a
+          href="/contact?interest=demo-store"
+          class="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-lg font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-xl hover:shadow-gold-500/25 hover:-translate-y-0.5"
+        >
+          Request a Demo Store
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+        </a>
+        <a
+          href="#how-it-works"
+          class="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-lg border border-navy-600 bg-navy-900/60 px-8 py-4 text-lg font-bold text-white transition-all hover:border-gold-500/60 hover:bg-navy-800/60 hover:-translate-y-0.5"
+        >
+          See How It Works
+        </a>
+      </div>
+      <div class="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-navy-300">
+        <div class="flex items-center gap-2">
+          <svg class="h-5 w-5 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <span>No monthly platform fee</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="h-5 w-5 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <span>Launch in 5 to 7 days</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="h-5 w-5 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <span>Print-on-demand, no warehousing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how-it-works" class="scroll-mt-20 py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-16 max-w-3xl">
+        <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">How It Works</span>
+        <h2 class="mb-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+          Five steps from kickoff to <span class="text-gold-500">crew in uniform</span>.
+        </h2>
+        <p class="text-lg text-navy-300">
+          We handle the build, the production, and the shipping. You pick the gear and invite your crew. That's it.
+        </p>
+      </div>
+
+      <ol class="relative grid gap-6 lg:grid-cols-5">
+        <!-- Connector line (desktop) -->
+        <div class="pointer-events-none absolute top-8 left-[10%] right-[10%] hidden h-px bg-gradient-to-r from-transparent via-gold-500/40 to-transparent lg:block" aria-hidden="true"></div>
+
+        {[
+          {
+            n: '01',
+            title: 'We build your storefront',
+            body: 'Your logo, your colors, your URL. We load only the products you\u2019ve approved — no off-brand gear, no surprises.',
+          },
+          {
+            n: '02',
+            title: 'You invite your crew',
+            body: 'Send email invites, share an employee code, or drop a CSV. Each person gets their own login in under a minute.',
+          },
+          {
+            n: '03',
+            title: 'Employees order gear',
+            body: 'Shirts, hats, hi-vis, jackets, pants. They pick size and quantity within the limits you set. No more sizing guesswork.',
+          },
+          {
+            n: '04',
+            title: 'We print and ship',
+            body: 'We produce locally in Las Vegas — embroidery or screen print — then ship to their home, the office, or the job site. Most orders land in 7 to 10 business days.',
+          },
+          {
+            n: '05',
+            title: 'You see the reports',
+            body: 'Quarterly dashboards on who ordered, who didn\u2019t, what moved, and what to rotate out. Built for owners, not IT.',
+          },
+        ].map((step) => (
+          <li class="relative rounded-2xl border border-navy-700/40 bg-navy-800/20 p-8 transition-all hover:border-gold-500/40 hover:bg-navy-800/40">
+            <div class="relative z-10 mb-5 flex h-16 w-16 items-center justify-center rounded-full border border-gold-500/40 bg-navy-950 font-mono text-lg font-bold text-gold-500 shadow-lg shadow-gold-500/10">
+              {step.n}
+            </div>
+            <h3 class="mb-3 text-lg font-bold tracking-tight text-white">{step.title}</h3>
+            <p class="text-sm leading-relaxed text-navy-300">{step.body}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- Who it's for -->
+  <section class="scroll-mt-20 border-y border-navy-700/30 bg-navy-900/50 py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-14 max-w-3xl">
+        <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Who It's For</span>
+        <h2 class="mb-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+          Built for contractors who are <span class="text-gold-500">done chasing shirts</span>.
+        </h2>
+        <p class="text-lg text-navy-300">
+          Three types of companies run our company stores. If you see yourself here, we should talk.
+        </p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <!-- Card 1: Multi-crew GCs -->
+        <article class="rounded-2xl border border-navy-700/40 bg-navy-800/20 p-8 transition-all hover:border-gold-500/40 hover:bg-navy-800/40">
+          <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gold-500/10">
+            <svg class="h-6 w-6 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+            </svg>
+          </div>
+          <h3 class="mb-2 text-xl font-bold tracking-tight text-white">Multi-crew GCs</h3>
+          <p class="mb-4 font-mono text-xs uppercase tracking-wider text-gold-500">50+ employees, multiple job sites</p>
+          <p class="text-navy-300">
+            When you're running three jobs across the valley, nobody has time to field uniform requests. Crew members get the right gear without calling HR, and your PMs stop playing quartermaster.
+          </p>
+        </article>
+
+        <!-- Card 2: Service trades -->
+        <article class="rounded-2xl border border-navy-700/40 bg-navy-800/20 p-8 transition-all hover:border-gold-500/40 hover:bg-navy-800/40">
+          <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gold-500/10">
+            <svg class="h-6 w-6 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
+            </svg>
+          </div>
+          <h3 class="mb-2 text-xl font-bold tracking-tight text-white">Service trades</h3>
+          <p class="mb-4 font-mono text-xs uppercase tracking-wider text-gold-500">HVAC, plumbing, electrical techs</p>
+          <p class="text-navy-300">
+            New hire onboarding includes an auto-order of starter gear — two polos, a jacket, a hat, name tape — shipped before their first day. Techs in the field show up uniformed, no scramble.
+          </p>
+        </article>
+
+        <!-- Card 3: Multi-location -->
+        <article class="rounded-2xl border border-navy-700/40 bg-navy-800/20 p-8 transition-all hover:border-gold-500/40 hover:bg-navy-800/40">
+          <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gold-500/10">
+            <svg class="h-6 w-6 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+            </svg>
+          </div>
+          <h3 class="mb-2 text-xl font-bold tracking-tight text-white">Multi-location contractors</h3>
+          <p class="mb-4 font-mono text-xs uppercase tracking-wider text-gold-500">Henderson, Vegas, Pahrump</p>
+          <p class="text-navy-300">
+            One store serves every yard with consistent branding and role-based catalogs. Your Henderson foremen and your Pahrump electricians order different gear from the same URL — no extra admin work.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- What you get -->
+  <section class="scroll-mt-20 py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-12 lg:grid-cols-[1fr,1.2fr] lg:items-start">
+        <div class="lg:sticky lg:top-24">
+          <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">What You Get</span>
+          <h2 class="mb-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+            Every feature, <span class="text-gold-500">no upsells</span>.
+          </h2>
+          <p class="mb-8 text-lg text-navy-300">
+            Every store ships with the full feature set. No tiered plans, no paywalls on the reporting, no extra charges for extra seats.
+          </p>
+          <div class="overflow-hidden rounded-2xl border border-navy-700/50 bg-navy-800/30">
+            <img
+              src="/images/generated/workwear-flatlay.jpg"
+              alt="Branded work apparel flat lay — hi-vis shirt, jacket, embroidered hat, and safety gear arranged on a worktop."
+              width="900"
+              height="900"
+              loading="lazy"
+              decoding="async"
+              class="h-auto w-full object-cover"
+            />
+          </div>
+        </div>
+
+        <ul class="grid gap-5 sm:grid-cols-2">
+          {[
+            {
+              title: 'Custom-branded storefront',
+              body: 'Your URL, your logo, your color theme. Employees log in and it feels like your site, not ours.',
+            },
+            {
+              title: 'Approved catalog &amp; spending rules',
+              body: 'You control what they can order and how much they can spend — per-employee, per-role, per-month or per-year caps.',
+            },
+            {
+              title: 'Employee credit allowances',
+              body: 'Load every employee with an annual or quarterly gear credit. They spend it, you don\u2019t touch the admin.',
+            },
+            {
+              title: 'Ship anywhere — home, office, or site',
+              body: 'Employee picks at checkout. Multi-location crews ship direct to each job site. Reorder alerts when core items run low.',
+            },
+            {
+              title: 'Reporting owners actually read',
+              body: 'Quarterly dashboards on who ordered, what sold, and which sizes to rotate in. Exportable for finance.',
+            },
+            {
+              title: 'Zero inventory for you',
+              body: 'Print-on-demand. You never warehouse, count, or write off a single shirt. We produce and ship as orders come in.',
+            },
+          ].map((f) => (
+            <li class="flex gap-4 rounded-2xl border border-navy-700/40 bg-navy-800/20 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-800/40">
+              <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-gold-500/10">
+                <svg class="h-5 w-5 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.25"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+              </div>
+              <div>
+                <h3 class="mb-1 font-bold tracking-tight text-white">{f.title}</h3>
+                <p class="text-sm leading-relaxed text-navy-300">{f.body}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing callout -->
+  <section class="scroll-mt-20 border-y border-navy-700/30 bg-navy-900/30 py-24 sm:py-32">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div class="relative overflow-hidden rounded-3xl border border-gold-500/40 bg-navy-900/60 p-10 shadow-2xl shadow-gold-500/10 sm:p-14">
+        <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_60%_at_100%_0%,_rgba(193,155,61,0.15),_transparent)]"></div>
+        <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_60%_at_0%_100%,_rgba(193,155,61,0.08),_transparent)]"></div>
+
+        <div class="relative">
+          <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Pricing</span>
+          <h2 class="mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+            No setup fee for crews of <span class="text-gold-500">20+</span>.
+          </h2>
+          <p class="mb-8 max-w-2xl text-lg text-navy-200">
+            Straightforward pricing. You pay per item at contracted rates, we handle everything else.
+            <span class="font-semibold text-white">No monthly platform fee. No hidden charges. No per-seat cost.</span>
+          </p>
+
+          <div class="grid gap-4 sm:grid-cols-3">
+            <div class="rounded-xl border border-navy-700/50 bg-navy-950/60 p-5">
+              <p class="font-mono text-xs uppercase tracking-wider text-gold-500">Setup</p>
+              <p class="mt-2 text-2xl font-bold text-white">$0</p>
+              <p class="mt-1 text-sm text-navy-300">For crews of 20 or more.</p>
+            </div>
+            <div class="rounded-xl border border-navy-700/50 bg-navy-950/60 p-5">
+              <p class="font-mono text-xs uppercase tracking-wider text-gold-500">Monthly</p>
+              <p class="mt-2 text-2xl font-bold text-white">$0</p>
+              <p class="mt-1 text-sm text-navy-300">No platform or seat fees, ever.</p>
+            </div>
+            <div class="rounded-xl border border-navy-700/50 bg-navy-950/60 p-5">
+              <p class="font-mono text-xs uppercase tracking-wider text-gold-500">Per item</p>
+              <p class="mt-2 text-2xl font-bold text-white">Your rate</p>
+              <p class="mt-1 text-sm text-navy-300">Negotiated once, locked in.</p>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <a
+              href="/contact?interest=pricing"
+              class="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-lg font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-xl hover:shadow-gold-500/25 hover:-translate-y-0.5"
+            >
+              Get Your Contracted Pricing
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Real use cases -->
+  <section class="scroll-mt-20 py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-14 max-w-3xl">
+        <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Real Use Cases</span>
+        <h2 class="mb-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+          What it looks like <span class="text-gold-500">in practice</span>.
+        </h2>
+        <p class="text-lg text-navy-300">
+          Three scenarios we see every month from Las Vegas contractors running crews in the field.
+        </p>
+      </div>
+
+      <div class="grid gap-8 lg:grid-cols-3">
+        <!-- Case 1: GC annual credit -->
+        <article class="flex flex-col overflow-hidden rounded-2xl border border-navy-700/40 bg-navy-800/20 transition-all hover:border-gold-500/40 hover:bg-navy-800/40">
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <img
+              src="/images/generated/crew-vegas.jpg"
+              alt="Construction crew in branded workwear on a Las Vegas job site."
+              width="800"
+              height="600"
+              loading="lazy"
+              decoding="async"
+              class="h-full w-full object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-navy-950/20 to-transparent"></div>
+            <span class="absolute top-4 left-4 rounded-full border border-gold-500/40 bg-navy-950/80 px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-gold-500">
+              General Contractor
+            </span>
+          </div>
+          <div class="flex flex-1 flex-col p-8">
+            <h3 class="mb-3 text-xl font-bold tracking-tight text-white">GC gives $250 annual credit</h3>
+            <p class="flex-1 leading-relaxed text-navy-300">
+              A general contractor wanted to phase out the annual "everyone gets two shirts" ritual. Half the shirts were the wrong size, half the guys hated the color, and the whole thing felt like an expense with no payoff.
+              We set up a store with a $250 per-year credit auto-loaded on January 1. Employees pick their own jackets, hoodies, hats, and tees across the year — from the approved catalog. Morale is up, waste is down, and the owner gets a quarterly report showing exactly how the budget got spent, line by line.
+            </p>
+            <div class="mt-6 flex flex-wrap gap-2">
+              <span class="rounded-full bg-navy-800/60 px-3 py-1 font-mono text-xs text-navy-200">$250/yr credit</span>
+              <span class="rounded-full bg-navy-800/60 px-3 py-1 font-mono text-xs text-navy-200">Approved catalog</span>
+              <span class="rounded-full bg-navy-800/60 px-3 py-1 font-mono text-xs text-navy-200">Quarterly reporting</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Case 2: GC multi-location nationwide -->
+        <article class="flex flex-col overflow-hidden rounded-2xl border border-navy-700/40 bg-navy-800/20 transition-all hover:border-gold-500/40 hover:bg-navy-800/40">
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <img
+              src="/images/generated/product-stack.jpg"
+              alt="Branded workwear packed and ready to ship to multiple job sites."
+              width="800"
+              height="600"
+              loading="lazy"
+              decoding="async"
+              class="h-full w-full object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-navy-950/20 to-transparent"></div>
+            <span class="absolute top-4 left-4 rounded-full border border-gold-500/40 bg-navy-950/80 px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-gold-500">
+              General Contractor
+            </span>
+          </div>
+          <div class="flex flex-1 flex-col p-8">
+            <h3 class="mb-3 text-xl font-bold tracking-tight text-white">GC services multiple locations nationwide</h3>
+            <p class="flex-1 leading-relaxed text-navy-300">
+              A general contractor running crews in several cities needed one storefront that could serve every yard without duplicating admin work. Instead of separate vendors at each location — and a different logo mockup floating around at every one — they consolidated into a single Bighorn store.
+              Same URL, same branded catalog, same approved products. Whether a foreman in Vegas orders hi-vis or a super in another state orders a jacket, it flows through one system and ships direct to their site. Corporate finally has one clean invoice and one consistent brand across the map.
+            </p>
+            <div class="mt-6 flex flex-wrap gap-2">
+              <span class="rounded-full bg-navy-800/60 px-3 py-1 font-mono text-xs text-navy-200">Multi-location</span>
+              <span class="rounded-full bg-navy-800/60 px-3 py-1 font-mono text-xs text-navy-200">Ships nationwide</span>
+              <span class="rounded-full bg-navy-800/60 px-3 py-1 font-mono text-xs text-navy-200">One brand, one store</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Case 3: Electrical intern program -->
+        <article class="flex flex-col overflow-hidden rounded-2xl border border-navy-700/40 bg-navy-800/20 transition-all hover:border-gold-500/40 hover:bg-navy-800/40">
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <img
+              src="/images/generated/foreman-closeup.jpg"
+              alt="Electrical worker in branded embroidered polo."
+              width="800"
+              height="600"
+              loading="lazy"
+              decoding="async"
+              class="h-full w-full object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-navy-950/20 to-transparent"></div>
+            <span class="absolute top-4 left-4 rounded-full border border-gold-500/40 bg-navy-950/80 px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-gold-500">
+              Electrical Contractor
+            </span>
+          </div>
+          <div class="flex flex-1 flex-col p-8">
+            <h3 class="mb-3 text-xl font-bold tracking-tight text-white">Electrical contractor outfits 300+ interns</h3>
+            <p class="flex-1 leading-relaxed text-navy-300">
+              An electrical contractor running a large intern program needed a way to get approved polos in the right sizes to over 300 interns every season — without the office team fielding 300 size questions or boxing up 300 shipments by hand.
+              We built them a locked-down intern catalog: the specific polo, in the specific colors, in every size, shipped directly to each intern's home address. HR adds the intern to the store and the rest takes care of itself. No closet full of mystery-size polos, no scramble at orientation, no lost gear in transit between offices.
+            </p>
+            <div class="mt-6 flex flex-wrap gap-2">
+              <span class="rounded-full bg-navy-800/60 px-3 py-1 font-mono text-xs text-navy-200">300+ interns</span>
+              <span class="rounded-full bg-navy-800/60 px-3 py-1 font-mono text-xs text-navy-200">Ship direct to home</span>
+              <span class="rounded-full bg-navy-800/60 px-3 py-1 font-mono text-xs text-navy-200">Locked catalog</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="scroll-mt-20 border-y border-navy-700/30 bg-navy-900/50 py-24 sm:py-32">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 text-center">
+        <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">FAQ</span>
+        <h2 class="mb-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+          Questions owners <span class="text-gold-500">actually ask</span>.
+        </h2>
+        <p class="text-lg text-navy-300">
+          Still not sure? Scroll through, then hit the button at the bottom and we'll answer whatever we missed.
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        {faqs.map((item) => (
+          <details class="group rounded-2xl border border-navy-700/40 bg-navy-800/20 transition-all hover:border-gold-500/40 hover:bg-navy-800/40">
+            <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 p-6 text-left font-semibold text-white">
+              <span class="text-base sm:text-lg">{item.q}</span>
+              <svg
+                class="h-5 w-5 flex-shrink-0 text-gold-500 transition-transform group-open:rotate-45"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2.5"
+                aria-hidden="true"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+            </summary>
+            <div class="border-t border-navy-700/40 px-6 py-5 text-navy-300 leading-relaxed">
+              {item.a}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="relative overflow-hidden py-24 sm:py-32">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_110%,_rgba(200,150,14,0.12),_transparent)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_40%_40%_at_50%_-20%,_rgba(193,155,61,0.08),_transparent)]"></div>
+    <div class="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Launch in 5 Days</span>
+      <h2 class="mb-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+        Ready to launch your <span class="text-gold-500">company store</span>?
+      </h2>
+      <p class="mx-auto mb-10 max-w-2xl text-lg text-navy-300">
+        Tell us about your crew — size, trades, locations — and we'll build you a demo store with your logo so you can click around before you commit.
+      </p>
+      <div class="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
+        <a
+          href="/contact?interest=quote"
+          class="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-lg font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-xl hover:shadow-gold-500/25 hover:-translate-y-0.5"
+        >
+          Get a Quote
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+        </a>
+        <a
+          href="tel:+17252356196"
+          class="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-lg border border-navy-600 bg-navy-900/60 px-8 py-4 text-lg font-bold text-white transition-all hover:border-gold-500/60 hover:bg-navy-800/60 hover:-translate-y-0.5"
+        >
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+          Call the Shop
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+</BaseLayout>

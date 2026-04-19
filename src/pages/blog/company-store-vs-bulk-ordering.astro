@@ -1,0 +1,355 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const post = {
+  title: 'Bulk Ordering vs Company Store: The Real Math for Contractors',
+  description:
+    'The true cost of bulk apparel ordering vs a branded company store for construction crews. Crew-size thresholds, dead inventory math, and when each approach actually wins.',
+  category: 'Operations',
+  readTime: '8 min read',
+  date: 'Apr 1, 2026',
+  isoDate: '2026-04-01',
+  image: '/images/generated/product-stack.jpg',
+  slug: 'company-store-vs-bulk-ordering',
+}
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: post.title,
+      description: post.description,
+      image: `https://bighornthreads.com${post.image}`,
+      datePublished: post.isoDate,
+      dateModified: post.isoDate,
+      author: { '@type': 'Organization', name: 'Bighorn Threads Team' },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Bighorn Threads',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png',
+        },
+      },
+      mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/`,
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: post.title,
+          item: `https://bighornthreads.com/blog/${post.slug}/`,
+        },
+      ],
+    },
+  ],
+}
+---
+
+<BaseLayout
+  title={`${post.title} | Bighorn Threads`}
+  description={post.description}
+  canonical={`https://bighornthreads.com/blog/${post.slug}/`}
+  ogImage={post.image}
+  type="article"
+  publishedDate={post.isoDate}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <article class="bg-navy-950">
+    <header class="relative overflow-hidden border-b border-navy-800">
+      <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_30%,_rgba(193,155,61,0.06),_transparent)]"></div>
+
+      <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
+        <nav class="mb-6 font-mono text-xs text-gray-500" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-gold-400">Home</a>
+          <span class="px-2">/</span>
+          <a href="/blog/" class="hover:text-gold-400">Blog</a>
+        </nav>
+
+        <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">
+          {post.category}
+        </span>
+        <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+          {post.title}
+        </h1>
+        <p class="mb-8 text-xl leading-relaxed text-gray-400">
+          "Order 500 tees in bulk" looks cheaper on paper. Once you add dead inventory, wrong sizes, and onboarding chaos, the spreadsheet lies.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-500">
+          <span class="text-gold-500">Bighorn Threads Team</span>
+          <span aria-hidden="true">&middot;</span>
+          <span>{post.readTime}</span>
+          <span aria-hidden="true">&middot;</span>
+          <time datetime={post.isoDate}>{post.date}</time>
+        </div>
+      </div>
+    </header>
+
+    <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8">
+      <img
+        src={post.image}
+        alt="Stack of folded branded construction apparel including polos, tees, and hats ready for distribution"
+        width="1200"
+        height="675"
+        loading="eager"
+        class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl"
+      />
+    </div>
+
+    <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+      <!-- TOC -->
+      <aside class="mb-12 rounded-2xl border border-navy-700/50 bg-navy-900/40 p-6 lg:sticky lg:top-24">
+        <h2 class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-500">In this article</h2>
+        <ol class="space-y-2 font-mono text-sm text-navy-200">
+          <li><a href="#hidden-costs" class="hover:text-gold-400">1. The hidden costs of bulk ordering</a></li>
+          <li><a href="#how-stores-work" class="hover:text-gold-400">2. How company stores actually work</a></li>
+          <li><a href="#thresholds" class="hover:text-gold-400">3. Crew size thresholds</a></li>
+          <li><a href="#onboarding" class="hover:text-gold-400">4. New-hire onboarding</a></li>
+          <li><a href="#real-numbers" class="hover:text-gold-400">5. Cost comparison with real numbers</a></li>
+          <li><a href="#still-bulk" class="hover:text-gold-400">6. When you should still bulk order</a></li>
+        </ol>
+      </aside>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        The "order in bulk and hand it out" model came from a time when printed apparel cost three times what it does today and "on-demand" didn't exist. It still works — for some crews. But we see contractors every month who have been doing it by default for a decade and are bleeding money without realizing it.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        The question isn't "bulk or company store." The question is "what does my actual cost per wearable piece look like once I account for everything that goes wrong." That's where the math gets interesting.
+      </p>
+
+      <h2 id="hidden-costs" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">1. The Hidden Costs of Bulk Ordering</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        The sticker price on a bulk order is never what you actually pay per worn piece. Four things eat into every bulk order we see:
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Wrong sizes</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        When you order 500 tees using a "best guess" size distribution (say, 15% S, 25% M, 30% L, 20% XL, 10% 2XL), you're almost always off by 10-20%. You run out of mediums in a month and end up with a permanent stack of XLs nobody wants. Those XLs are effectively worthless.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Shelf storage</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Apparel takes space. 500 tees is 15-20 banker boxes. Somebody has to fold it, stack it, inventory it, and pull from it. That's an hour a week of somebody's time — usually an office manager who has better things to do.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Turnover & dead inventory</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Construction turnover is real. You hire Juan in January and order him a hoodie. Juan leaves in April. That hoodie has his size on it and his dirt on it. Nobody else will wear it. At 25% annual turnover on a 50-person crew, you're writing off a meaningful portion of every bulk order you place.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Logo changes & discontinued colors</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        You rebrand. The manufacturer discontinues the color. Your old stack is now a rag pile. We've cleared out more than one $8,000 "rebrand closet" for clients over the years.
+      </p>
+
+      <div class="my-10 rounded-2xl border-l-4 border-gold-500 bg-gold-500/5 p-6">
+        <p class="mb-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Key takeaway</p>
+        <p class="text-lg leading-relaxed text-navy-100">
+          Across the contractor accounts we've audited, dead stock and wrong-size shrinkage averages <strong class="text-white">18-25% of every bulk order</strong>. That's the real number to plug into your cost comparison — not the invoice total.
+        </p>
+      </div>
+
+      <h2 id="how-stores-work" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">2. How Company Stores Actually Work</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        A <a href="/company-stores" class="text-gold-500 underline hover:text-gold-400">branded company store</a> is a private online storefront that only your employees can see. Every product is pre-approved — your logo, your garment choices, your color options. Employees log in, pick their size, and the gear ships.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        There are three main ways to fund the store:
+      </p>
+
+      <ul class="mb-6 list-disc space-y-3 pl-6 text-lg leading-relaxed text-navy-200">
+        <li><strong class="text-white">Company-paid.</strong> Company pays for everything, usually with an annual allowance per employee ($150-400 depending on role).</li>
+        <li><strong class="text-white">Employee-paid.</strong> Employees buy their own gear at cost or slight markup. Works well for discretionary items like hoodies and hats.</li>
+        <li><strong class="text-white">Hybrid.</strong> Core required items (safety vests, hi-vis tees, PM polos) are company-paid. Everything else is employee-paid.</li>
+      </ul>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Hybrid is what 80% of our contractor clients run. It covers what's required for the job and lets employees opt in for the stuff they actually want to wear off-hours.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Fulfillment model</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Most stores use a mix of stocked and on-demand inventory. High-volume core items (hi-vis tees, company polos) are printed in advance and held locally, ready to ship. Lower-volume or customized items are produced on demand, typically shipping in 5-7 business days. Either way, your office doesn't touch the box.
+      </p>
+
+      <h2 id="thresholds" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">3. Crew Size Thresholds — When Each Makes Sense</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        There's no universal answer, but after 15 years of doing this the ranges are pretty consistent:
+      </p>
+
+      <ul class="mb-6 list-disc space-y-3 pl-6 text-lg leading-relaxed text-navy-200">
+        <li><strong class="text-white">Under 20 people.</strong> Bulk ordering is fine. You probably know everyone's size. Shrinkage is manageable. Stores are overkill.</li>
+        <li><strong class="text-white">20-50 people.</strong> Grey zone. Depends on turnover. If you're stable, bulk still works. If you're growing or have seasonal flux, a light company store will pay for itself in year one.</li>
+        <li><strong class="text-white">50-200 people.</strong> Company store almost always wins. The logistical overhead of bulk (sizing, storage, tracking) outweighs the per-piece cost savings.</li>
+        <li><strong class="text-white">200+ people.</strong> Company store with HR integration. Anything else is burning money and time. This is the range where contractors typically see 15-25% reductions in total apparel spend after switching.</li>
+      </ul>
+
+      <h2 id="onboarding" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">4. New-Hire Onboarding — The Killer Use Case</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        This is where company stores earn their keep, and it's the thing nobody thinks about when they're doing the math.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        With bulk ordering, new-hire onboarding means somebody in the office walks to the closet, guesses at sizes, and hands the new hire a stack of gear on day one. Half the time the sizes are wrong and the office manager is back in the closet by lunch.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        With a company store, you can wire the HR system (ADP, Paychex, BambooHR, whatever you use) to send new hires an invite email the moment they're added to payroll. They log in, order their onboarding bundle in their actual sizes, and the gear ships to the jobsite. Zero office involvement. Zero closet. Zero wrong sizes.
+      </p>
+
+      <blockquote class="my-8 border-l-4 border-gold-500 pl-6 italic text-navy-200">
+        "Our HR lead got eight hours a month back the day we turned on the store. She didn't even know she was spending that much time on apparel." &mdash; Operations manager, Vegas electrical contractor
+      </blockquote>
+
+      <h2 id="real-numbers" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">5. Cost Comparison With Real Numbers</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Let's work through a 50-person crew for one year. Assumes five core items per person: 3 hi-vis tees, 1 hoodie, 1 hat. This is a composite of three real client accounts:
+      </p>
+
+      <!-- Comparison table -->
+      <div class="my-8 overflow-hidden rounded-2xl border border-navy-700">
+        <table class="w-full text-left">
+          <thead>
+            <tr class="bg-gold-500/15">
+              <th class="px-4 py-3 font-heading text-sm font-bold uppercase tracking-wider text-gold-300">Line item</th>
+              <th class="px-4 py-3 font-heading text-sm font-bold uppercase tracking-wider text-gold-300">Bulk order</th>
+              <th class="px-4 py-3 font-heading text-sm font-bold uppercase tracking-wider text-gold-300">Company store</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-navy-800 text-navy-100">
+            <tr class="bg-navy-900/40">
+              <td class="px-4 py-3">Units ordered</td>
+              <td class="px-4 py-3">313 (with 25% buffer)</td>
+              <td class="px-4 py-3">250 (actual demand)</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3">Gross apparel spend</td>
+              <td class="px-4 py-3 font-mono">$7,500</td>
+              <td class="px-4 py-3 font-mono">$8,200</td>
+            </tr>
+            <tr class="bg-navy-900/40">
+              <td class="px-4 py-3">Dead / wrong-size stock</td>
+              <td class="px-4 py-3 font-mono text-red-400">~$1,500 (20%)</td>
+              <td class="px-4 py-3 font-mono text-gold-400">$0</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3">Admin time (year)</td>
+              <td class="px-4 py-3">~40 hours</td>
+              <td class="px-4 py-3">~4 hours</td>
+            </tr>
+            <tr class="bg-navy-900/40">
+              <td class="px-4 py-3">Rush reorder fees</td>
+              <td class="px-4 py-3 font-mono text-red-400">~$800</td>
+              <td class="px-4 py-3 font-mono">$0</td>
+            </tr>
+            <tr class="border-t-2 border-gold-500/30 bg-navy-800/60">
+              <td class="px-4 py-3 font-bold text-white">True cost per worn piece</td>
+              <td class="px-4 py-3 font-mono font-bold text-white">~$39</td>
+              <td class="px-4 py-3 font-mono font-bold text-gold-400">~$33</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        The gross spend is actually higher with the company store. But the cost <em>per piece that gets worn</em> is 15% lower, and the admin hours drop by 90%. On larger crews that gap widens — at 200 people the bulk-order inefficiency compounds fast.
+      </p>
+
+      <div class="my-10 rounded-2xl border border-navy-700 bg-navy-800/40 p-6">
+        <p class="mb-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-400">Pro tip</p>
+        <p class="text-lg leading-relaxed text-navy-100">
+          Run the numbers on your last bulk order. Count the pieces still sitting on the shelf. Divide the invoice total by the number that actually got worn. Most contractors are surprised by what they find.
+        </p>
+      </div>
+
+      <h2 id="still-bulk" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">6. When You Should Still Bulk Order</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Company stores aren't always the answer. You're better off with a straight bulk order when:
+      </p>
+
+      <ul class="mb-6 list-disc space-y-3 pl-6 text-lg leading-relaxed text-navy-200">
+        <li><strong class="text-white">One-off events.</strong> Groundbreakings, topping-outs, company BBQs, and charity walks. Order 50 tees, hand them out, done.</li>
+        <li><strong class="text-white">Seasonal promotional runs.</strong> Giveaway gear for trade shows or community events where the logo is the point and nobody cares about fit.</li>
+        <li><strong class="text-white">Small, stable crews.</strong> Under 15 people, low turnover, same sizes year after year. A store is more overhead than it's worth.</li>
+        <li><strong class="text-white">Specialty items.</strong> A premium jacket run for leadership or a limited-edition company anniversary piece.</li>
+      </ul>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Most of our contractor accounts do both: a company store for day-to-day field and office gear, plus periodic bulk orders for events and special runs. The two models coexist fine.
+      </p>
+
+      <!-- Mid-article CTA -->
+      <div class="my-12 rounded-2xl border border-gold-500/30 bg-gradient-to-br from-gold-500/10 to-navy-900/40 p-8 text-center">
+        <h3 class="mb-3 font-heading text-2xl font-bold tracking-tight">Curious if a company store makes sense for your crew?</h3>
+        <p class="mb-6 text-navy-200">
+          We'll run the numbers on your current spend and tell you honestly — no pressure.
+        </p>
+        <a
+          href="/company-stores"
+          class="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-gold-500 px-8 py-4 text-lg font-bold text-navy-950 transition-all hover:bg-gold-400"
+        >
+          Explore Company Stores
+        </a>
+      </div>
+
+      <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The Short Version</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Bulk ordering looks cheaper because the invoice is smaller. Once you add wrong sizes, dead inventory, rush fees, and admin time, a company store usually comes out ahead somewhere around the 30-40 person mark. Over 50 people it's almost always the right call.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        If you're growing, hiring, or just tired of managing an apparel closet, stop measuring by invoice and start measuring by worn-piece cost. The answer changes.
+      </p>
+
+      <!-- Author bio -->
+      <div class="mt-16 rounded-2xl border border-navy-700/50 bg-navy-900/40 p-6">
+        <div class="flex items-start gap-4">
+          <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-gold-500/30 bg-gold-500/10">
+            <span class="font-mono text-lg font-bold text-gold-500">BT</span>
+          </div>
+          <div>
+            <p class="mb-1 font-heading text-lg font-bold text-white">Bighorn Threads Team</p>
+            <p class="text-sm leading-relaxed text-navy-200">
+              We build and run branded company stores for Las Vegas contractors, with local screen printing, embroidery, and fulfillment. <a href="/services" class="text-gold-500 underline hover:text-gold-400">See how we work.</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- End CTA -->
+  <section class="border-t border-navy-800 bg-navy-900/60 py-16">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">
+        Ready to ditch the apparel closet?
+      </h2>
+      <p class="mb-8 text-lg text-gray-400">
+        Let's design a branded company store that fits your crew, your budget, and your HR system.
+      </p>
+      <a
+        href="/contact"
+        class="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-gold-500 px-8 py-4 text-lg font-bold text-navy-950 transition-all hover:bg-gold-400"
+      >
+        Get Started
+      </a>
+    </div>
+  </section>
+</BaseLayout>

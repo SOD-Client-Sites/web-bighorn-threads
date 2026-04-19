@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets'
+import logoColor from '@/assets/logos/bighorn-logo-color.png'
+
 const serviceLinks = [
   { href: '/services#screen-printing', label: 'Screen Printing' },
   { href: '/services#embroidery', label: 'Embroidery' },
@@ -29,7 +32,7 @@ const year = new Date().getFullYear()
       <!-- Brand Column -->
       <div class="lg:col-span-4">
         <a href="/" class="flex items-center gap-3">
-          <img src="/images/logos/bighorn-logo-color.png" alt="Bighorn Threads" class="h-12 w-12" width="48" height="48" />
+          <Image src={logoColor} alt="Bighorn Threads" width={96} height={96} densities={[1, 2]} format="webp" loading="lazy" decoding="async" class="h-12 w-12" />
           <div>
             <span class="block font-heading text-lg font-bold text-white">BIGHORN <span class="text-gold-500">THREADS</span></span>
             <span class="block text-[11px] font-medium uppercase tracking-[0.2em] text-gray-400">A VP Promos Brand</span>
@@ -45,11 +48,11 @@ const year = new Date().getFullYear()
             </svg>
             <span class="font-mono">725.235.6196</span>
           </a>
-          <a href="mailto:info@vp-promos.com" class="flex items-center gap-3 text-sm text-gray-400 transition-colors hover:text-gold-500">
+          <a href="mailto:info@bighornthreads.com" class="flex items-center gap-3 text-sm text-gray-400 transition-colors hover:text-gold-500">
             <svg class="h-4 w-4 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
-            info@vp-promos.com
+            info@bighornthreads.com
           </a>
           <div class="flex items-center gap-3 text-sm text-gray-400">
             <svg class="h-4 w-4 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

@@ -1,0 +1,501 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const values = [
+  {
+    title: "If it doesn't survive the job site, we don't sell it",
+    body: "We've seen the tees that fall apart after two washes and the hi-vis vests where the print peels off in a week. That junk doesn't leave our production floor. Every garment we offer has been worn, washed, and scuffed up in real Nevada conditions before it earns a spot in our catalog.",
+    icon: 'shield',
+  },
+  {
+    title: 'A phone call beats a contact form',
+    body: "Promo is a relationship business. You want to reach a human who knows your account, your artwork, and your rush history — not a ticket queue. Our number rings a real person at a real desk in Las Vegas. Pick up the phone. We'll pick up ours.",
+    icon: 'phone',
+  },
+  {
+    title: 'Your deadline is our deadline',
+    body: "Job walks don't wait. Ribbon cuttings don't wait. Neither do new hires showing up Monday. When you give us a date, we treat it like a pour schedule — hit or miss, no in-between. If we can't make it, we'll tell you before you commit.",
+    icon: 'clock',
+  },
+  {
+    title: "We'd rather be the Vegas local than the cheapest online option",
+    body: "There's always a website out there a few bucks cheaper. Go use them once — you'll understand why we're still here. Local means pickup, local means proofs in hand, local means we drive the order out to your office if the courier drops the ball.",
+    icon: 'pin',
+  },
+]
+
+const stats = [
+  { number: '15+', label: 'Years in business' },
+  { number: '100+', label: 'Active accounts' },
+  { number: '50K+', label: 'Items printed annually' },
+  { number: '24hr', label: 'Average quote turnaround' },
+]
+
+const comparison = [
+  { category: 'Who you talk to', online: 'A chatbot and a ticket queue', bighorn: 'A local rep who knows your account by name' },
+  { category: 'Customization', online: 'Pre-built templates you drop a logo into', bighorn: 'Dedicated art team that builds your design from scratch' },
+  { category: 'Proofing', online: 'No proof — you approve a thumbnail', bighorn: 'Free digital mockups before anything hits the press' },
+  { category: 'Rush orders', online: '"Not guaranteed" or 3x upcharge', bighorn: 'Regularly turned in 3–5 days without freaking out' },
+  { category: 'Delivery', online: 'Ships from a warehouse three states away', bighorn: 'Local Las Vegas delivery to your office, job trailer, or crew addresses' },
+  { category: 'Industry knowledge', online: 'Generic — sells to everyone from dentists to daycares', bighorn: 'Construction-specific: hi-vis classes, FR ratings, OSHA compliance' },
+  { category: 'Pricing', online: 'Setup fees, color fees, art fees hidden at checkout', bighorn: 'Flat, transparent quote — what we quote is what you pay' },
+  { category: 'Long-term fit', online: 'Transactional — one order, then forgotten', bighorn: 'Ongoing partnership — company stores, reorders, new hires' },
+]
+
+const founder = {
+  initials: 'SD',
+  name: 'Steven Dodson',
+  role: 'Founder',
+  bio: "Built VP Promos in Las Vegas from a one-desk operation into one of the city's go-to promotional apparel shops. Bighorn Threads is the construction-focused arm — same shop, same presses, same 15 years of experience, rebuilt for the crews pouring foundations and wiring high-rises.",
+  quote: "Fifteen years in, I still pick up the phone myself. If your crew needs gear, you're talking to me.",
+  phone: '725.235.6196',
+}
+
+const serviceAreas = ['Las Vegas', 'Henderson', 'North Las Vegas', 'Boulder City', 'Pahrump', 'Summerlin', 'Spring Valley', 'Enterprise']
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'AboutPage',
+      '@id': 'https://bighornthreads.com/about#aboutpage',
+      url: 'https://bighornthreads.com/about',
+      name: 'About Bighorn Threads — Las Vegas Branded Apparel for Construction',
+      description: "Bighorn Threads is a DBA of VP Promos — a 15-year Las Vegas promotional apparel shop specialized for the construction vertical. Screen printing, embroidery, branded workwear, and company stores.",
+      isPartOf: { '@id': 'https://bighornthreads.com/#website' },
+      about: { '@id': 'https://bighornthreads.com/#organization' },
+    },
+    {
+      '@type': 'Organization',
+      '@id': 'https://bighornthreads.com/#organization',
+      name: 'Bighorn Threads',
+      alternateName: 'VP Promos',
+      url: 'https://bighornthreads.com',
+      logo: 'https://bighornthreads.com/images/logo.png',
+      foundingDate: '2010',
+      description: "Las Vegas branded apparel and promotional products for the construction industry. Screen printing, embroidery, hi-vis gear, and company stores built for crews that actually work for a living.",
+      areaServed: [
+        { '@type': 'City', name: 'Las Vegas' },
+        { '@type': 'City', name: 'Henderson' },
+        { '@type': 'City', name: 'North Las Vegas' },
+        { '@type': 'City', name: 'Boulder City' },
+        { '@type': 'City', name: 'Pahrump' },
+      ],
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Las Vegas',
+        addressRegion: 'NV',
+        addressCountry: 'US',
+      },
+      knowsAbout: [
+        'Screen printing',
+        'Embroidery',
+        'Branded apparel',
+        'Hi-vis workwear',
+        'Flame-resistant clothing',
+        'Company stores',
+        'Promotional products',
+        'Construction apparel',
+      ],
+    },
+  ],
+}
+---
+
+<BaseLayout
+  title="About Bighorn Threads — Las Vegas Branded Apparel for Construction"
+  description="How a 15-year Las Vegas promo shop became the go-to for Vegas construction crews. Our story, our values, how we're different from online catalogs, and the team behind Bighorn Threads."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
+    <div class="absolute inset-0">
+      <img
+        src="/images/generated/foreman-closeup.jpg"
+        alt=""
+        aria-hidden="true"
+        class="h-full w-full object-cover opacity-30"
+        width="1600"
+        height="900"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/50" />
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_70%_-10%,_rgba(193,155,61,0.12),_transparent)]" />
+    </div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Our Story</span>
+      <h1 class="mb-6 max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl font-heading">
+        We Outfit the Crews That <span class="text-gold-500">Build Vegas</span>
+      </h1>
+      <p class="max-w-2xl text-lg text-navy-200 sm:text-xl">
+        Fifteen years of promo work taught us what actually survives a job site — and what doesn't. Bighorn Threads is the construction-focused arm of VP Promos, built for the crews pouring foundations, framing high-rises, and wiring up the Strip.
+      </p>
+      <div class="mt-8 flex flex-wrap items-center gap-3 text-sm text-navy-300">
+        <span class="inline-flex items-center gap-2 rounded-full border border-navy-700/60 bg-navy-900/60 px-3 py-1.5">
+          <span class="h-1.5 w-1.5 rounded-full bg-gold-500"></span>
+          Las Vegas, NV
+        </span>
+        <span class="inline-flex items-center gap-2 rounded-full border border-navy-700/60 bg-navy-900/60 px-3 py-1.5">
+          <span class="h-1.5 w-1.5 rounded-full bg-gold-500"></span>
+          A DBA of VP Promos
+        </span>
+        <span class="inline-flex items-center gap-2 rounded-full border border-navy-700/60 bg-navy-900/60 px-3 py-1.5">
+          <span class="h-1.5 w-1.5 rounded-full bg-gold-500"></span>
+          Local Vegas production
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Origin Story -->
+  <section class="relative py-24 sm:py-32">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_20%_0%,_rgba(193,155,61,0.06),_transparent)]" />
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <div class="lg:col-span-7">
+          <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">How we got here</span>
+          <h2 class="mb-8 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl font-heading">
+            From general promo to the <span class="text-gold-500">construction specialists</span>
+          </h2>
+          <div class="space-y-6 text-lg leading-relaxed text-navy-200">
+            <p>
+              VP Promos opened in Las Vegas more than fifteen years ago doing what most promo shops do — branded pens for real estate offices, logo polos for insurance brokers, tradeshow giveaways for anybody with a booth to fill. We printed for dentists, daycares, gyms, and half the HOAs in Henderson. Good work, steady work, never the same thing twice.
+            </p>
+            <p>
+              Then the construction accounts started stacking up. A framing crew here, a concrete contractor there, an electrical shop that needed hi-vis for a Strip project. And something got obvious fast: these weren't the same customers as everyone else. They needed gear that survived 115-degree summers and 30-degree night pours. They needed ink that didn't peel after the first wash with a month of drywall dust in it. They needed rush turns when a new hire showed up Monday and OSHA said "PPE first day." And they needed somebody who could tell Class 2 from Class 3 without Googling it.
+            </p>
+            <p>
+              Most online promo catalogs couldn't do that. Heck, most local shops couldn't either — they'd sell a construction company the same 4.2-ounce soft cotton tee they sold to a yoga studio, and then act surprised when it came back destroyed. We started keeping a different inventory for our construction clients. Then a different workflow. Then a different quoting process that accounted for rush-hire timelines and multi-crew sizing grids.
+            </p>
+            <p>
+              By the time we were doing more construction than everything else combined, it stopped making sense to hide it inside a generic promo brand. So we built Bighorn Threads — same shop, same team, same presses, same fifteen years of experience — but purpose-built for the trades. Hi-vis that meets ANSI. FR-rated layers that meet NFPA 2112. Moisture-wicking crew tees that don't look like corporate golf shirts. Screen printing ink formulas that actually survive the wash cycle at a tradesman's apartment laundry room, where detergent is cheap and the water runs hot.
+            </p>
+          </div>
+        </div>
+        <div class="lg:col-span-5">
+          <div class="sticky top-24 space-y-6">
+            <div class="overflow-hidden rounded-2xl border border-navy-700/40 bg-navy-800/20">
+              <img
+                src="/images/generated/crew-vegas.jpg"
+                alt="Las Vegas construction crew wearing branded hi-vis workwear on a jobsite with the Strip in the background"
+                width="1200"
+                height="800"
+                loading="lazy"
+                class="h-auto w-full"
+              />
+            </div>
+            <blockquote class="rounded-2xl border-l-4 border-gold-500 bg-navy-900/60 p-6 pl-8">
+              <p class="text-lg italic leading-relaxed text-navy-100 font-heading">
+                "The shirt that works for a software company at a lunch-and-learn is not the shirt that works for a concrete crew in July. We stopped pretending it was."
+              </p>
+              <footer class="mt-4 text-sm font-semibold uppercase tracking-[0.15em] text-gold-500">
+                — Steven Dodson, Founder
+              </footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="relative border-y border-navy-700/30 bg-navy-900/30 py-24 sm:py-32">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_80%_100%,_rgba(193,155,61,0.08),_transparent)]" />
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-14 max-w-3xl">
+        <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">What we believe</span>
+        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl font-heading">
+          Four rules we don't break
+        </h2>
+        <p class="mt-4 text-lg text-navy-300">
+          These aren't wall posters. They're how we pick inventory, quote jobs, hire staff, and fire the accounts that don't fit. If you've worked with a promo shop that didn't operate this way — yeah, that's why.
+        </p>
+      </div>
+
+      <div class="grid gap-6 sm:grid-cols-2">
+        {values.map((v) => (
+          <article class="group rounded-2xl border border-navy-700/40 bg-navy-800/20 p-8 transition-all hover:border-gold-500/40 hover:bg-navy-800/40">
+            <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gold-500/10 transition-all group-hover:bg-gold-500/20">
+              {v.icon === 'shield' && (
+                <svg class="h-7 w-7 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+                </svg>
+              )}
+              {v.icon === 'phone' && (
+                <svg class="h-7 w-7 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                </svg>
+              )}
+              {v.icon === 'clock' && (
+                <svg class="h-7 w-7 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              )}
+              {v.icon === 'pin' && (
+                <svg class="h-7 w-7 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                </svg>
+              )}
+            </div>
+            <h3 class="mb-3 text-xl font-bold text-white font-heading">{v.title}</h3>
+            <p class="leading-relaxed text-navy-300">{v.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="relative py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-3xl">
+        <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">By the numbers</span>
+        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl font-heading">
+          Fifteen years. One shop. <span class="text-gold-500">A lot of shirts.</span>
+        </h2>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {stats.map((s) => (
+          <div class="rounded-2xl border border-navy-700/40 bg-navy-800/20 p-8 transition-all hover:border-gold-500/40 hover:bg-navy-800/40">
+            <div class="mb-2 text-4xl font-bold tracking-tight text-gold-500 sm:text-5xl font-mono">{s.number}</div>
+            <div class="text-xs font-bold uppercase tracking-[0.15em] text-navy-300">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section class="relative border-y border-navy-700/30 bg-navy-900/50 py-24 sm:py-32">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,_rgba(193,155,61,0.08),_transparent)]" />
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-14 max-w-3xl">
+        <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">How we're different</span>
+        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl font-heading">
+          Online promo catalogs vs. <span class="text-gold-500">Bighorn Threads</span>
+        </h2>
+        <p class="mt-4 text-lg text-navy-300">
+          We're not the cheapest option and we never will be. Here's what you get instead.
+        </p>
+      </div>
+
+      <div class="overflow-hidden rounded-2xl border border-navy-700/40 bg-navy-800/20">
+        <!-- Header row -->
+        <div class="grid grid-cols-1 gap-px bg-navy-700/30 md:grid-cols-3">
+          <div class="bg-navy-900/80 p-5 md:p-6">
+            <div class="text-xs font-bold uppercase tracking-[0.15em] text-navy-300">Category</div>
+          </div>
+          <div class="bg-navy-900/80 p-5 md:p-6">
+            <div class="flex items-center gap-2">
+              <svg class="h-5 w-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              <div class="text-xs font-bold uppercase tracking-[0.15em] text-navy-300">Online promo catalogs</div>
+            </div>
+          </div>
+          <div class="bg-gold-500/10 p-5 md:p-6">
+            <div class="flex items-center gap-2">
+              <svg class="h-5 w-5 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+              <div class="text-xs font-bold uppercase tracking-[0.15em] text-gold-400">Bighorn Threads</div>
+            </div>
+          </div>
+        </div>
+        <!-- Body rows -->
+        {comparison.map((row, i) => (
+          <div class={`grid grid-cols-1 gap-px bg-navy-700/20 md:grid-cols-3 ${i % 2 === 0 ? 'bg-navy-900/20' : 'bg-navy-900/40'}`}>
+            <div class="bg-navy-950/60 p-5 md:p-6">
+              <div class="text-sm font-semibold text-white">{row.category}</div>
+            </div>
+            <div class="bg-navy-950/40 p-5 md:p-6">
+              <div class="flex items-start gap-2">
+                <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-red-400/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <div class="text-sm text-navy-300">{row.online}</div>
+              </div>
+            </div>
+            <div class="bg-navy-950/40 p-5 md:p-6">
+              <div class="flex items-start gap-2">
+                <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <div class="text-sm text-navy-100">{row.bighorn}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Founder -->
+  <section class="relative py-24 sm:py-32">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_30%_20%,_rgba(193,155,61,0.08),_transparent)]" />
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-14 max-w-3xl">
+        <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Meet the founder</span>
+        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl font-heading">
+          The guy who <span class="text-gold-500">picks up the phone</span>
+        </h2>
+        <p class="mt-4 text-lg text-navy-300">
+          Bighorn Threads isn't a call center and it isn't a template site. It's Steve, fifteen years in, still running the shop.
+        </p>
+      </div>
+
+      <article class="overflow-hidden rounded-3xl border border-gold-500/30 bg-gradient-to-br from-navy-800/40 via-navy-900/60 to-navy-900 shadow-2xl shadow-gold-500/5">
+        <div class="grid gap-0 lg:grid-cols-[minmax(280px,_380px)_1fr]">
+          <!-- Avatar column -->
+          <div class="relative flex flex-col items-center justify-center gap-5 border-b border-navy-700/40 bg-gradient-to-br from-gold-500/15 via-navy-800/30 to-navy-900/50 p-10 lg:border-b-0 lg:border-r lg:p-14">
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,_rgba(193,155,61,0.12),_transparent)]" aria-hidden="true"></div>
+            <div class="relative flex h-40 w-40 items-center justify-center rounded-full border-2 border-gold-500/50 bg-gradient-to-br from-gold-500/30 to-gold-500/5 shadow-xl shadow-gold-500/10">
+              <span class="text-5xl font-bold tracking-tight text-gold-500 font-heading">{founder.initials}</span>
+            </div>
+            <div class="relative text-center">
+              <div class="text-xs font-bold uppercase tracking-[0.15em] text-gold-500">{founder.role}</div>
+              <h3 class="mt-1 text-2xl font-bold tracking-tight text-white font-heading">{founder.name}</h3>
+              <div class="mt-2 text-xs text-navy-300 font-mono">Las Vegas, NV · Est. 2010</div>
+            </div>
+          </div>
+
+          <!-- Bio column -->
+          <div class="flex flex-col justify-center gap-6 p-10 lg:p-14">
+            <blockquote class="relative text-xl leading-relaxed text-white sm:text-2xl font-heading">
+              <svg class="mb-4 h-8 w-8 text-gold-500/60" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
+              </svg>
+              {founder.quote}
+            </blockquote>
+            <p class="leading-relaxed text-navy-200">{founder.bio}</p>
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+              <a href="tel:+17252356196" class="inline-flex min-h-[44px] items-center gap-2 rounded-lg border-2 border-gold-500/40 px-5 py-2.5 text-sm font-bold text-white transition-all hover:border-gold-500 hover:bg-gold-500/10">
+                <svg class="h-4 w-4 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                </svg>
+                <span class="font-mono">{founder.phone}</span>
+              </a>
+              <span class="text-sm text-navy-300">Direct line — no voicemail loop.</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Workwear flatlay image strip -->
+      <div class="mt-16 overflow-hidden rounded-2xl border border-navy-700/40 bg-navy-800/20">
+        <img
+          src="/images/generated/workwear-flatlay.jpg"
+          alt="Overhead flatlay of branded construction workwear — hi-vis safety shirts, embroidered caps, and printed work tees laid out on a concrete surface"
+          width="1600"
+          height="700"
+          loading="lazy"
+          class="h-auto w-full"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Location -->
+  <section class="relative border-y border-navy-700/30 bg-navy-900/50 py-24 sm:py-32">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_20%_80%,_rgba(193,155,61,0.08),_transparent)]" />
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-center">
+        <div>
+          <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Based in Las Vegas</span>
+          <h2 class="mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl font-heading">
+            We're down the street, <span class="text-gold-500">not across the country</span>
+          </h2>
+          <p class="mb-6 text-lg leading-relaxed text-navy-200">
+            Everything's produced and shipped locally from Las Vegas. That means fast delivery to your office or job trailer, and a local team that can actually meet you for a coffee to walk through an artwork concept.
+          </p>
+          <p class="mb-8 text-lg leading-relaxed text-navy-300">
+            We regularly deliver to job sites all over the Vegas metro — from Strip high-rises to Henderson masterplans to out-of-town projects in Pahrump and Boulder City. If your crew's working it, we're probably already shipping there.
+          </p>
+
+          <div class="mb-8 flex items-start gap-4 rounded-2xl border border-navy-700/40 bg-navy-800/30 p-6">
+            <div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-gold-500/10">
+              <svg class="h-6 w-6 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+              </svg>
+            </div>
+            <div>
+              <div class="mb-1 text-xs font-bold uppercase tracking-[0.15em] text-navy-300">Shop location</div>
+              <div class="text-lg font-semibold text-white">Las Vegas, Nevada</div>
+              <div class="mt-1 text-sm text-navy-300">Local Las Vegas production and delivery throughout the Vegas Valley.</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="mb-6 text-xs font-bold uppercase tracking-[0.15em] text-navy-300">Service area</div>
+          <div class="grid grid-cols-2 gap-3">
+            {serviceAreas.map((area) => (
+              <div class="flex items-center gap-3 rounded-xl border border-navy-700/40 bg-navy-800/20 px-5 py-4 transition-all hover:border-gold-500/40 hover:bg-navy-800/40">
+                <svg class="h-5 w-5 flex-shrink-0 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span class="text-base font-semibold text-white">{area}</span>
+              </div>
+            ))}
+          </div>
+          <p class="mt-6 text-sm text-navy-300">
+            Outside the Vegas metro? We ship nationwide too.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative overflow-hidden py-24 sm:py-32">
+    <div class="absolute inset-0">
+      <img
+        src="/images/generated/product-stack.jpg"
+        alt=""
+        aria-hidden="true"
+        class="h-full w-full object-cover opacity-20"
+        width="1600"
+        height="700"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-950/90 to-navy-950" />
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,_rgba(193,155,61,0.15),_transparent)]" />
+    </div>
+    <div class="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Let's work</span>
+      <h2 class="mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl font-heading">
+        Ready to work with a team that <span class="text-gold-500">actually gets construction?</span>
+      </h2>
+      <p class="mx-auto mb-10 max-w-2xl text-lg text-navy-200">
+        Send over your logo, your rough quantities, and your deadline. We'll come back with a transparent quote, digital mockups, and a real date we can hit — usually inside 24 hours.
+      </p>
+      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a
+          href="/contact"
+          class="inline-flex min-h-[56px] items-center justify-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-lg font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-xl hover:shadow-gold-500/25 hover:-translate-y-0.5"
+        >
+          Get a Quote
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+        <a
+          href="tel:+17252356196"
+          class="inline-flex min-h-[56px] items-center justify-center gap-2 rounded-lg border border-navy-700/60 bg-navy-900/60 px-8 py-4 text-lg font-bold text-white transition-all hover:border-gold-500/40 hover:bg-navy-800/60"
+        >
+          <svg class="h-5 w-5 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+          </svg>
+          Call the shop
+        </a>
+      </div>
+      <p class="mt-8 text-sm text-navy-300">
+        No voicemail loop, no chatbot. You'll get a human on the first try during business hours.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
