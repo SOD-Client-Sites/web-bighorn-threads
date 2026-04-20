@@ -105,6 +105,7 @@ const jsonLd = {
 <BaseLayout
   title="About Bighorn Threads — Las Vegas Branded Apparel for Construction"
   description="How a 15-year Las Vegas promo shop became the go-to for Vegas construction crews. Our story, our values, how we're different from online catalogs, and the team behind Bighorn Threads."
+  heroImage="/images/generated/foreman-closeup.jpg"
 >
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
@@ -352,8 +353,16 @@ const jsonLd = {
           <!-- Avatar column -->
           <div class="relative flex flex-col items-center justify-center gap-5 border-b border-navy-700/40 bg-gradient-to-br from-gold-500/15 via-navy-800/30 to-navy-900/50 p-10 lg:border-b-0 lg:border-r lg:p-14">
             <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,_rgba(193,155,61,0.12),_transparent)]" aria-hidden="true"></div>
-            <div class="relative flex h-40 w-40 items-center justify-center rounded-full border-2 border-gold-500/50 bg-gradient-to-br from-gold-500/30 to-gold-500/5 shadow-xl shadow-gold-500/10">
-              <span class="text-5xl font-bold tracking-tight text-gold-500 font-heading">{founder.initials}</span>
+            <div class="relative h-48 w-48 overflow-hidden rounded-full border-2 border-gold-500/60 shadow-2xl shadow-gold-500/20 sm:h-56 sm:w-56">
+              <img
+                src="/images/generated/founder-steve-v1.jpg"
+                alt="Steven Dodson, Founder of Bighorn Threads, wearing a navy embroidered polo at a Las Vegas construction site"
+                width="448"
+                height="448"
+                loading="eager"
+                class="h-full w-full object-cover"
+              />
+              <div class="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-t from-navy-950/20 to-transparent" aria-hidden="true"></div>
             </div>
             <div class="relative text-center">
               <div class="text-xs font-bold uppercase tracking-[0.15em] text-gold-500">{founder.role}</div>
@@ -475,7 +484,7 @@ const jsonLd = {
       </p>
       <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a
-          href="/contact"
+          href="/contact/"
           class="inline-flex min-h-[56px] items-center justify-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-lg font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-xl hover:shadow-gold-500/25 hover:-translate-y-0.5"
         >
           Get a Quote

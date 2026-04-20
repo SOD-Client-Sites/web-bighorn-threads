@@ -3,11 +3,12 @@ import { Image } from 'astro:assets'
 import logoColor from '@/assets/logos/bighorn-logo-color.png'
 
 const navLinks = [
-  { href: '/services', label: 'Services' },
-  { href: '/company-stores', label: 'Company Stores' },
-  { href: '/industries', label: 'Industries' },
-  { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/services/', label: 'Services' },
+  { href: '/company-stores/', label: 'Company Stores' },
+  { href: '/industries/', label: 'Industries' },
+  { href: '/blog/', label: 'Field Notes' },
+  { href: '/about/', label: 'About' },
+  { href: '/contact/', label: 'Contact' },
 ]
 
 const currentPath = Astro.url.pathname
@@ -63,7 +64,7 @@ const currentPath = Astro.url.pathname
         725.235.6196
       </a>
       <a
-        href="/contact"
+        href="/contact/"
         class="inline-flex items-center gap-2 rounded-lg bg-gold-500 px-4 py-2.5 text-sm font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/20"
       >
         Get a Quote

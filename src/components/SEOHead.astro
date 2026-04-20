@@ -22,7 +22,9 @@ const {
 } = Astro.props
 
 const siteName = 'Bighorn Threads'
-const fullTitle = title === siteName ? title : `${title} | ${siteName}`
+const fullTitle = title === siteName || title.includes(`| ${siteName}`) || title.endsWith(siteName)
+  ? title
+  : `${title} | ${siteName}`
 const canonicalHref = canonical ?? new URL(Astro.url.pathname, Astro.site).href
 const ogImageHref = new URL(ogImage, Astro.site).href
 ---
