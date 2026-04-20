@@ -1,0 +1,283 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const page = {
+  title: 'Concrete and Masonry Crew Apparel | Las Vegas',
+  description:
+    'Heavy-wear branded shirts, cement-resistant fabrics, and hi-vis for Las Vegas concrete and masonry crews. Built for crews who trash polos in a week. 24-hour quotes.',
+  h1Pre: 'Concrete & Masonry',
+  hero: '/images/generated/kit-concrete.jpg',
+}
+
+const challenges = [
+  {
+    code: 'Heavy-Wear Fabrics',
+    title: 'Built to take the abuse, not just look the part',
+    body: 'A concrete finisher trashes a Port Authority polo in a week. We swap in heavyweight cotton-poly blends, double-needle stitching, and Carhartt-grade tees that survive a full season instead of a month.',
+  },
+  {
+    code: 'Cement Resistance',
+    title: 'Fabrics that don\'t stain to the seam on the first pour',
+    body: 'Cement burns through cotton over time. Poly-blend shirts release wet concrete cleaner in the wash and don\'t go stiff after exposure. We pick fabrics that survive the splash zone.',
+  },
+  {
+    code: 'ANSI/ISEA 107 Class 2',
+    title: 'Hi-vis that meets the spec for street and night pours',
+    body: 'Class 2 vests, t-shirts, and long-sleeve hi-vis for night pours, street work, and DOT-adjacent jobs. We follow the 72-square-inch logo limit so branding doesn\'t break the cert.',
+  },
+]
+
+const gear = [
+  { name: 'Heavyweight branded tees', detail: 'Carhartt K87 or Gildan 2000 · 6.1oz cotton or poly-blend · screen-printed back', img: '/images/generated/kit-concrete.jpg' },
+  { name: 'Hi-vis Class 2 shirts', detail: 'Lime or orange · ANSI 107 · poly mesh for breathability', img: '/images/generated/service-screen-printing.jpg' },
+  { name: 'Foreman + supervisor polos', detail: 'Differentiated colorway · embroidered chest · for client walk-throughs', img: '/images/generated/service-embroidery.jpg' },
+  { name: 'Branded crew hoodies', detail: 'Heavyweight · for early-morning pours + winter mornings', img: '/images/generated/service-company-stores.jpg' },
+]
+
+const useCases = [
+  'Flatwork and finisher crews in heavyweight tees that survive cement splash',
+  'Night-pour crews in branded hi-vis with reflective striping (street and DOT-adjacent)',
+  'Foreman differentiation by color and polo vs tee — visibility from across the slab',
+  'Masonry crews running consistent crew tees for residential blockwork and commercial veneer',
+  'Pump operators and tailgate finishers in branded hi-vis with company name on the back',
+  'New-hire kits with 5 tees, hat, hi-vis vest — built around the gear that\'ll actually survive',
+]
+
+const faqs = [
+  {
+    q: 'Why do my polos last a week on concrete crews?',
+    a: 'Two reasons: lightweight cotton can\'t survive abrasion against concrete, rebar, and forms — and the cement burns the fabric over time. Switch to heavyweight cotton-poly blends (6.1oz+), or skip polos entirely for the field crew and put them on the foremen instead.',
+  },
+  {
+    q: 'What\'s the best brand for crews that destroy everything?',
+    a: 'Carhartt K87 (Workwear Pocket Tee) is the workhorse — heavyweight, double-stitched, holds up. Gildan 2000 ultra-cotton is the budget option for high-rotation crews. For hi-vis, ML Kishigo and Pioneer survive the abuse where cheaper imports don\'t.',
+  },
+  {
+    q: 'Can you handle hi-vis branding for night pours and DOT-adjacent work?',
+    a: 'Yes. ANSI Class 2 in lime or orange, with reflective striping intact. We follow the 72-square-inch logo limit so the cert stays valid. Standard placement: company on back yoke, name or logo on left chest.',
+  },
+  {
+    q: 'How do you handle reorders when shirts get destroyed mid-season?',
+    a: 'We keep the spec, art files, and stock on hand. Reorders for active accounts ship in 5-7 business days. For shops where attrition runs heavy, a company store with monthly allowances per crew member solves the budget conversation.',
+  },
+  {
+    q: 'Do you stock heavyweight long-sleeves for masonry crews working in cooler months?',
+    a: 'Yes — Carhartt long-sleeve tees and quarter-zips, plus heavyweight branded hoodies for January desert mornings (it\'s 38° at 6 AM in Pahrump in winter, contrary to what people think about Vegas).',
+  },
+  {
+    q: 'Can a foreman or office manager order direct without going through ownership?',
+    a: 'Yes — that\'s exactly what company stores are for. Set per-user budgets, approval rules, and PO tagging. Foreman orders, you approve, we ship. Read more on company stores.',
+  },
+]
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Industries', item: 'https://bighornthreads.com/industries/' },
+    { '@type': 'ListItem', position: 3, name: 'Concrete & Masonry', item: 'https://bighornthreads.com/industries/concrete-masonry-las-vegas/' },
+  ],
+}
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Custom Workwear for Concrete and Masonry Crews',
+  serviceType: 'Heavy-wear branded apparel and crew uniforms',
+  provider: { '@id': 'https://bighornthreads.com/#organization' },
+  areaServed: [
+    { '@type': 'City', name: 'Las Vegas' },
+    { '@type': 'City', name: 'Henderson' },
+    { '@type': 'City', name: 'North Las Vegas' },
+  ],
+  audience: { '@type': 'BusinessAudience', audienceType: 'Concrete and Masonry Contractors' },
+}
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+}
+---
+
+<BaseLayout
+  title={page.title}
+  description={page.description}
+  canonical="https://bighornthreads.com/industries/concrete-masonry-las-vegas/"
+  heroImage={page.hero}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
+    <div class="absolute inset-0">
+      <img src={page.hero} alt="" aria-hidden="true" class="h-full w-full object-cover opacity-30" width="1600" height="900" loading="eager" fetchpriority="high" />
+      <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/40" />
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_75%_-10%,_rgba(193,155,61,0.15),_transparent)]" />
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-gold-400">Home</a>
+        <span class="px-2 text-gray-600">/</span>
+        <a href="/industries/" class="hover:text-gold-400">Industries</a>
+        <span class="px-2 text-gray-600">/</span>
+        <span class="text-gold-500">Concrete &amp; Masonry</span>
+      </nav>
+
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">{page.h1Pre}</span>
+      <h1 class="mb-6 max-w-4xl font-heading text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+        Heavy-Wear Crew Shirts <span class="text-gold-500">for Crews That Trash Polos in a Week.</span>
+      </h1>
+      <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+        Heavyweight tees that survive cement splash. Hi-vis that meets ANSI 107 for night pours. Foreman polos that hold up for client walk-throughs. We outfit Vegas concrete and masonry shops from 5-person crews to 50-person commercial flatwork operations.
+      </p>
+
+      <div class="mt-10 flex flex-wrap items-center gap-3">
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25">
+          Get a Quote
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+        <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gold-500/40 px-6 py-3 font-mono text-sm font-medium text-gold-500 transition-all hover:border-gold-500 hover:bg-gold-500/5">
+          725.235.6196
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Challenges / specs -->
+  <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">What We Solve</span>
+        <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Concrete is the most punishing trade for apparel. We pick gear that survives.</h2>
+        <p class="mt-4 text-lg leading-relaxed text-gray-300">
+          Most workwear catalogs spec their lifespan against light service work. Concrete and masonry crews destroy that gear in a third of the expected wear cycle. We stock the heavier-weight options that actually last.
+        </p>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-3">
+        {challenges.map((c) => (
+          <div class="group relative overflow-hidden rounded-2xl border border-navy-700/50 bg-navy-900/40 p-7 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+            <span class="mb-4 inline-block rounded-md border border-gold-500/30 bg-gold-500/5 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-gold-500">{c.code}</span>
+            <h3 class="mb-3 font-heading text-xl font-bold leading-tight tracking-tight text-white">{c.title}</h3>
+            <p class="text-sm leading-relaxed text-gray-300">{c.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Gear -->
+  <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">The Gear</span>
+        <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">What we make for concrete and masonry crews.</h2>
+        <p class="mt-4 text-lg leading-relaxed text-gray-300">
+          Field-tested combinations from World of Concrete attendees and the Vegas commercial pour scene. The fabrics here are picked because they survived the trade, not because they looked good on a sales sheet.
+        </p>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {gear.map((g) => (
+          <div class="overflow-hidden rounded-2xl border border-navy-700/40 bg-navy-900/40 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+            <div class="aspect-[4/3] overflow-hidden bg-navy-800">
+              <img src={g.img} alt={g.name} class="h-full w-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" decoding="async" width="600" height="450" />
+            </div>
+            <div class="p-5">
+              <h3 class="mb-2 font-heading text-lg font-bold tracking-tight text-white">{g.name}</h3>
+              <p class="text-sm leading-relaxed text-gray-400">{g.detail}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Use cases -->
+  <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
+        <div>
+          <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Typical Orders</span>
+          <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Crew configurations we run for concrete and masonry shops.</h2>
+          <p class="mt-4 text-lg leading-relaxed text-gray-300">
+            Most operations skip polos for the field crew (they don't survive) and put them on foremen and estimators instead. Field crews run on heavyweight tees + hi-vis when the job calls for it.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="/services/" class="inline-flex items-center gap-2 rounded-lg border border-gray-600 px-5 py-2.5 text-sm font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">All Services →</a>
+            <a href="/company-stores/" class="inline-flex items-center gap-2 rounded-lg border border-gray-600 px-5 py-2.5 text-sm font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">Company Stores →</a>
+          </div>
+        </div>
+
+        <ul class="space-y-3">
+          {useCases.map((u, i) => (
+            <li class="flex items-start gap-4 rounded-xl border border-navy-700/30 bg-navy-900/30 p-4 transition-all hover:border-gold-500/30 hover:bg-navy-900/50">
+              <span class="flex-shrink-0 font-mono text-xs font-bold text-gold-500">{String(i + 1).padStart(2, '0')}</span>
+              <span class="text-base leading-relaxed text-gray-200">{u}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">FAQ</span>
+      <h2 class="mb-12 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Questions concrete and masonry shops ask us.</h2>
+
+      <div class="space-y-3">
+        {faqs.map((f) => (
+          <details class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-5 transition-all hover:border-gold-500/30 open:border-gold-500/40">
+            <summary class="flex cursor-pointer items-start justify-between gap-4 list-none">
+              <h3 class="font-heading text-lg font-bold leading-tight tracking-tight text-white">{f.q}</h3>
+              <span class="mt-1 flex-shrink-0 text-gold-500 transition-transform group-open:rotate-45">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+              </span>
+            </summary>
+            <p class="mt-4 text-base leading-relaxed text-gray-300">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Related -->
+  <section class="border-b border-navy-800 bg-navy-950 py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-6 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Related</span>
+      <div class="grid gap-5 md:grid-cols-3">
+        <a href="/industries/general-contractors-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">General Contractors</h3>
+          <p class="mt-2 text-sm text-gray-400">Crew uniforms, sub branding, and onboarding kits for Vegas GCs.</p>
+        </a>
+        <a href="/industries/electrical-contractors-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Electrical Contractors</h3>
+          <p class="mt-2 text-sm text-gray-400">FR shirts, hi-vis, and code-compliant decoration.</p>
+        </a>
+        <a href="/blog/screen-printing-vs-embroidery-construction/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Screen Print vs Embroidery</h3>
+          <p class="mt-2 text-sm text-gray-400">Which decoration method survives concrete crew abuse.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-navy-900/60 py-20">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Stop replacing shirts every month. Start with gear that lasts.</h2>
+      <p class="mb-8 text-lg text-gray-300">Quote in 24 hours. Stocked heavyweight tees and hi-vis ship same week.</p>
+      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>
+        <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gray-600 px-8 py-4 font-mono text-base font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">725.235.6196</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

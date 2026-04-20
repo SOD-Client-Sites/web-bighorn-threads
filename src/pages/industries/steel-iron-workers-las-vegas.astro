@@ -1,0 +1,283 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const page = {
+  title: 'Steel and Iron Worker Apparel | Las Vegas',
+  description:
+    'Hi-vis at height, FR-considered shirts for welding-adjacent work, and branded ironworker apparel for Las Vegas steel and rebar crews. Built for height, fire, and Vegas heat.',
+  h1Pre: 'Steel & Iron Workers',
+  hero: '/images/generated/kit-steel.jpg',
+}
+
+const compliance = [
+  {
+    code: 'ANSI/ISEA 107 Class 2',
+    title: 'Hi-vis at height — visible from the crane and the ground',
+    body: 'Ironworkers walking iron need to be visible to the crane op, the signal, and the rest of the crew. Class 2 long-sleeves with reflective striping placed for upright visibility, not just back-of-truck.',
+  },
+  {
+    code: 'NFPA 2112 / ASTM F1506',
+    title: 'FR-rated for welding and cutting-adjacent work',
+    body: 'When crews are welding, cutting, or working downwind of hot work, FR shirts protect against arc and flash. We carry Bulwark and Carhartt FR rated to NFPA 2112 with FR-compatible decoration.',
+  },
+  {
+    code: 'OSHA 1926 Subpart R',
+    title: 'Steel erection PPE that meets the spec',
+    body: 'Hard hat decals, branded harness gear identifiers, and apparel that pairs with fall protection without interference. Layered correctly so the harness sits right and the hi-vis still reads.',
+  },
+]
+
+const gear = [
+  { name: 'Hi-vis Class 2 long-sleeves', detail: 'For walking iron · poly mesh · reflective striping placed for height visibility', img: '/images/generated/kit-steel.jpg' },
+  { name: 'FR-rated welding shirts', detail: 'Bulwark or Carhartt FR · NFPA 2112 · FR-compatible embroidery', img: '/images/generated/service-embroidery.jpg' },
+  { name: 'Heavyweight crew tees', detail: 'For rebar and rough-iron crews · 6.1oz cotton · screen-printed back', img: '/images/generated/service-screen-printing.jpg' },
+  { name: 'Hard hat stickers + decals', detail: 'Local 433 / Local 416 ironworker decals · vinyl cut · OSHA-compliant placement', img: '/images/generated/service-company-stores.jpg' },
+]
+
+const useCases = [
+  'Erection crews in Class 2 hi-vis long-sleeves with reflective striping for crane visibility',
+  'Welder-fitter teams in NFPA 2112 FR shirts with embroidered company name + cert badge',
+  'Rebar crews and rod busters in heavyweight branded tees that survive the abuse',
+  'Foreman and connector differentiation by colorway or sleeve embroidery',
+  'Hard hat decals — company logo, ironworker local affiliation, journeyman vs apprentice',
+  'Apparel for IW Local 433 events, AISC conferences, and ironworker training programs',
+]
+
+const faqs = [
+  {
+    q: 'Can you embroider on FR welding shirts without voiding the rating?',
+    a: 'Yes — we use FR-compatible thread (Nomex or aramid blend) and follow garment-specific placement rules from Bulwark and Carhartt FR. The NFPA 2112 cert stays valid as long as decoration meets the manufacturer spec, which we verify before every FR run.',
+  },
+  {
+    q: 'What\'s the right hi-vis spec for ironworkers walking iron?',
+    a: 'ANSI Class 2 minimum, with reflective striping placed for upright visibility — not just back-of-truck patterns. Long-sleeve preferred over vests for sun protection at height. We stock ML Kishigo and Pioneer in lime and orange, S-4XL.',
+  },
+  {
+    q: 'Do you do hard hat decals for IW Local 433 and Local 416?',
+    a: 'Yes — vinyl-cut decals with the local number, journeyman/apprentice designation, and company logo. Bulk pricing on 100+. We don\'t alter, drill, or apply heat to the shell. Stickers only, OSHA-compliant placement.',
+  },
+  {
+    q: 'How fast can you turn around 30 hi-vis shirts for an erection job starting Monday?',
+    a: 'Standard rush is 72 hours when files are on hand. New artwork adds a day. Call before 10am Tuesday and Friday delivery is realistic for a 30-shirt run.',
+  },
+  {
+    q: 'What FR brands do you stock for welding-adjacent work?',
+    a: 'Bulwark FR (most common in our orders), Carhartt FR, and Wrangler Riggs FR. CAT 1 and CAT 2 ratings, NFPA 2112 and ASTM F1506 certified. We match whatever\'s on your safety officer\'s spec sheet.',
+  },
+  {
+    q: 'Can you do branded gear for ironworker apprenticeship or training programs?',
+    a: 'Yes. We outfit local apprentice kits, JATC swag, and training-program apparel. Bulk pricing, durable fabrics, and we keep the spec on file for repeat program orders year over year.',
+  },
+]
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Industries', item: 'https://bighornthreads.com/industries/' },
+    { '@type': 'ListItem', position: 3, name: 'Steel & Iron Workers', item: 'https://bighornthreads.com/industries/steel-iron-workers-las-vegas/' },
+  ],
+}
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Custom Workwear for Steel and Iron Worker Crews',
+  serviceType: 'Hi-vis, FR-rated, and branded ironworker apparel',
+  provider: { '@id': 'https://bighornthreads.com/#organization' },
+  areaServed: [
+    { '@type': 'City', name: 'Las Vegas' },
+    { '@type': 'City', name: 'Henderson' },
+    { '@type': 'City', name: 'North Las Vegas' },
+  ],
+  audience: { '@type': 'BusinessAudience', audienceType: 'Steel Erectors and Ironworkers' },
+}
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+}
+---
+
+<BaseLayout
+  title={page.title}
+  description={page.description}
+  canonical="https://bighornthreads.com/industries/steel-iron-workers-las-vegas/"
+  heroImage={page.hero}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
+    <div class="absolute inset-0">
+      <img src={page.hero} alt="" aria-hidden="true" class="h-full w-full object-cover opacity-30" width="1600" height="900" loading="eager" fetchpriority="high" />
+      <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/40" />
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_75%_-10%,_rgba(193,155,61,0.15),_transparent)]" />
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-gold-400">Home</a>
+        <span class="px-2 text-gray-600">/</span>
+        <a href="/industries/" class="hover:text-gold-400">Industries</a>
+        <span class="px-2 text-gray-600">/</span>
+        <span class="text-gold-500">Steel &amp; Iron Workers</span>
+      </nav>
+
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">{page.h1Pre}</span>
+      <h1 class="mb-6 max-w-4xl font-heading text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+        Hi-Vis at Height. FR for the Welder. <span class="text-gold-500">Built for Vegas Iron.</span>
+      </h1>
+      <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+        Class 2 long-sleeves with reflective striping placed for crane visibility. NFPA 2112 FR shirts with embroidery that doesn't void the rating. Hard hat decals for Local 433 and Local 416. We outfit Vegas steel erection, rebar, and ironworking crews.
+      </p>
+
+      <div class="mt-10 flex flex-wrap items-center gap-3">
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25">
+          Get a Quote
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+        <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gold-500/40 px-6 py-3 font-mono text-sm font-medium text-gold-500 transition-all hover:border-gold-500 hover:bg-gold-500/5">
+          725.235.6196
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compliance -->
+  <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Compliance &amp; Spec</span>
+        <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Three specs that govern ironworker apparel.</h2>
+        <p class="mt-4 text-lg leading-relaxed text-gray-300">
+          Steel erection has more PPE overlap than most trades — hi-vis, FR, fall-protection compatibility. We stock the brands that meet all three on the same garment line and keep the spec sheets on file for safety audits.
+        </p>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-3">
+        {compliance.map((c) => (
+          <div class="group relative overflow-hidden rounded-2xl border border-navy-700/50 bg-navy-900/40 p-7 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+            <span class="mb-4 inline-block rounded-md border border-gold-500/30 bg-gold-500/5 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-gold-500">{c.code}</span>
+            <h3 class="mb-3 font-heading text-xl font-bold leading-tight tracking-tight text-white">{c.title}</h3>
+            <p class="text-sm leading-relaxed text-gray-300">{c.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Gear -->
+  <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">The Gear</span>
+        <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">What we make for steel and iron crews.</h2>
+        <p class="mt-4 text-lg leading-relaxed text-gray-300">
+          From Strip high-rise erection crews to commercial rebar shops. Most outfits run a hi-vis program for connectors and an FR program for welder-fitters, with branded crew tees as the daily driver.
+        </p>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {gear.map((g) => (
+          <div class="overflow-hidden rounded-2xl border border-navy-700/40 bg-navy-900/40 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+            <div class="aspect-[4/3] overflow-hidden bg-navy-800">
+              <img src={g.img} alt={g.name} class="h-full w-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" decoding="async" width="600" height="450" />
+            </div>
+            <div class="p-5">
+              <h3 class="mb-2 font-heading text-lg font-bold tracking-tight text-white">{g.name}</h3>
+              <p class="text-sm leading-relaxed text-gray-400">{g.detail}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Use cases -->
+  <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
+        <div>
+          <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Typical Orders</span>
+          <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Configurations we run for steel and iron crews.</h2>
+          <p class="mt-4 text-lg leading-relaxed text-gray-300">
+            Erection crews split gear by role — connectors and walkers in hi-vis long-sleeves, welder-fitters in FR, ground crews in branded tees. Rebar shops standardize across the crew with hi-vis where the job calls for it.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="/services/" class="inline-flex items-center gap-2 rounded-lg border border-gray-600 px-5 py-2.5 text-sm font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">All Services →</a>
+            <a href="/company-stores/" class="inline-flex items-center gap-2 rounded-lg border border-gray-600 px-5 py-2.5 text-sm font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">Company Stores →</a>
+          </div>
+        </div>
+
+        <ul class="space-y-3">
+          {useCases.map((u, i) => (
+            <li class="flex items-start gap-4 rounded-xl border border-navy-700/30 bg-navy-900/30 p-4 transition-all hover:border-gold-500/30 hover:bg-navy-900/50">
+              <span class="flex-shrink-0 font-mono text-xs font-bold text-gold-500">{String(i + 1).padStart(2, '0')}</span>
+              <span class="text-base leading-relaxed text-gray-200">{u}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">FAQ</span>
+      <h2 class="mb-12 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Questions steel and iron crews ask us.</h2>
+
+      <div class="space-y-3">
+        {faqs.map((f) => (
+          <details class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-5 transition-all hover:border-gold-500/30 open:border-gold-500/40">
+            <summary class="flex cursor-pointer items-start justify-between gap-4 list-none">
+              <h3 class="font-heading text-lg font-bold leading-tight tracking-tight text-white">{f.q}</h3>
+              <span class="mt-1 flex-shrink-0 text-gold-500 transition-transform group-open:rotate-45">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+              </span>
+            </summary>
+            <p class="mt-4 text-base leading-relaxed text-gray-300">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Related -->
+  <section class="border-b border-navy-800 bg-navy-950 py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-6 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Related</span>
+      <div class="grid gap-5 md:grid-cols-3">
+        <a href="/industries/electrical-contractors-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Electrical Contractors</h3>
+          <p class="mt-2 text-sm text-gray-400">FR shirts, hi-vis, and code-compliant decoration.</p>
+        </a>
+        <a href="/industries/general-contractors-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">General Contractors</h3>
+          <p class="mt-2 text-sm text-gray-400">Crew uniforms, sub branding, and onboarding kits for Vegas GCs.</p>
+        </a>
+        <a href="/blog/screen-printing-vs-embroidery-construction/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Screen Print vs Embroidery</h3>
+          <p class="mt-2 text-sm text-gray-400">Which decoration method holds up on hi-vis and FR.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-navy-900/60 py-20">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Quote in 24 hours. FR-compatible decoration on every run.</h2>
+      <p class="mb-8 text-lg text-gray-300">Talk to a real human who knows ironworker spec sheets.</p>
+      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>
+        <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gray-600 px-8 py-4 font-mono text-base font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">725.235.6196</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,283 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const page = {
+  title: 'Oil, Gas, and Mechanical Contractor Apparel | Las Vegas',
+  description:
+    'NFPA 2112 FR coveralls, mechanical service tech uniforms, and data center crew apparel for Las Vegas oil, gas, and mission-critical mechanical contractors. 24-hour quotes.',
+  h1Pre: 'Oil, Gas & Mechanical',
+  hero: '/images/generated/kit-datacenter.jpg',
+}
+
+const compliance = [
+  {
+    code: 'NFPA 2112',
+    title: 'FR coveralls and shirts for oil, gas, and process work',
+    body: 'Bulwark and Carhartt FR coveralls, shirts, and pants rated NFPA 2112 for flash-fire protection. We embroider with FR-compatible thread that preserves the certification through the wash cycle and the working life of the garment.',
+  },
+  {
+    code: 'NFPA 70E',
+    title: 'Arc-rated apparel for mission-critical electrical work',
+    body: 'Mechanical contractors working data center MEP, switchgear maintenance, or generator service need arc-rated layers. CAT 1 and CAT 2 shirts and coveralls in stock, plus FR-rated outerwear for cool overnight work.',
+  },
+  {
+    code: 'Mission-Critical Standards',
+    title: 'Data center & mission-critical apparel programs',
+    body: 'Vegas\'s data center corridor (Henderson, North Las Vegas) runs 24/7 service. Mechanical and electrical contractors working those facilities need consistent, badge-able uniforms that pass site security and brand the company on every shift.',
+  },
+]
+
+const gear = [
+  { name: 'NFPA 2112 FR coveralls', detail: 'Bulwark or Carhartt FR · embroidered chest with FR thread · stocked S–4XL', img: '/images/generated/kit-datacenter.jpg' },
+  { name: 'FR work shirts (CAT 1 / CAT 2)', detail: 'Button-down or henley · arc-rated · embroidered name + company', img: '/images/generated/service-embroidery.jpg' },
+  { name: 'Mechanical service polos', detail: 'For commissioning + service techs · Port Authority · embroidered chest', img: '/images/generated/service-screen-printing.jpg' },
+  { name: 'Branded jackets + outerwear', detail: 'For overnight cuts in data centers + cool desert nights · embroidered logo', img: '/images/generated/service-company-stores.jpg' },
+]
+
+const useCases = [
+  'Data center MEP service techs in branded polos with embroidered name + cert badges',
+  'Generator and switchgear service crews in NFPA 70E arc-rated shirts and coveralls',
+  'Pipeline and process mechanical crews in NFPA 2112 FR coveralls with company logo',
+  'Commissioning teams in branded jackets for cool overnight cutover work',
+  'Field service supervisors in differentiated polos or jacket colorway',
+  'Apparel for ASHRAE, AMCA, and mechanical-trade events around the valley',
+]
+
+const faqs = [
+  {
+    q: 'Can you embroider on NFPA 2112 FR coveralls without voiding the rating?',
+    a: 'Yes — we use FR-compatible thread (Nomex or aramid blend) and follow Bulwark and Carhartt FR placement guidelines. The NFPA 2112 cert stays valid through the working life of the garment as long as the decoration meets the manufacturer spec, which we verify before every FR run.',
+  },
+  {
+    q: 'Do you handle data center and mission-critical contractor apparel programs?',
+    a: 'Yes. Common setup for Henderson and North Las Vegas data center mechanical contractors: branded polos and jackets for commissioning and service techs, FR layers for switchgear and generator work, plus embroidered cert badges (NICET, ASHRAE, manufacturer training) on the sleeve.',
+  },
+  {
+    q: 'What\'s the difference between NFPA 2112 and NFPA 70E garments?',
+    a: 'NFPA 2112 is for flash-fire protection (oil, gas, process) — short-duration thermal events. NFPA 70E is for arc flash (electrical work) — different test and rating system. Many garments are dual-rated. We carry both and can match the spec your safety officer requires.',
+  },
+  {
+    q: 'How fast can you turn around 30 FR coveralls for a new pipeline crew?',
+    a: 'Stocked sizes ship in 5-7 days. FR coveralls in non-stocked sizes (XS, 5XL+) typically run 2 weeks. Embroidery adds 2-3 days on top of garment lead time. Call before 10am for same-day quote turnaround.',
+  },
+  {
+    q: 'Do you offer pricing tiers for accounts spending $25K+ annually?',
+    a: 'Yes. Annual contracts at $25K+ lock pricing, waive setup fees on reorders, and assign a dedicated production schedule. Mechanical contractors with 50+ field employees usually qualify on FR program spend alone.',
+  },
+  {
+    q: 'Can you set up a company store with FR-only filtering for field crews?',
+    a: 'Yes. Each employee logs in based on role — field crews see only FR-rated options with their allowance, office and commissioning staff see polos and jackets, supervisors see both. You set the rules; we enforce them at the order level.',
+  },
+]
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Industries', item: 'https://bighornthreads.com/industries/' },
+    { '@type': 'ListItem', position: 3, name: 'Oil, Gas & Mechanical', item: 'https://bighornthreads.com/industries/oil-gas-mechanical-las-vegas/' },
+  ],
+}
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Custom Workwear for Oil, Gas, and Mechanical Contractors',
+  serviceType: 'FR-rated and mission-critical branded apparel',
+  provider: { '@id': 'https://bighornthreads.com/#organization' },
+  areaServed: [
+    { '@type': 'City', name: 'Las Vegas' },
+    { '@type': 'City', name: 'Henderson' },
+    { '@type': 'City', name: 'North Las Vegas' },
+  ],
+  audience: { '@type': 'BusinessAudience', audienceType: 'Oil, Gas, and Mechanical Contractors' },
+}
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+}
+---
+
+<BaseLayout
+  title={page.title}
+  description={page.description}
+  canonical="https://bighornthreads.com/industries/oil-gas-mechanical-las-vegas/"
+  heroImage={page.hero}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
+    <div class="absolute inset-0">
+      <img src={page.hero} alt="" aria-hidden="true" class="h-full w-full object-cover opacity-30" width="1600" height="900" loading="eager" fetchpriority="high" />
+      <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/40" />
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_75%_-10%,_rgba(193,155,61,0.15),_transparent)]" />
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-gold-400">Home</a>
+        <span class="px-2 text-gray-600">/</span>
+        <a href="/industries/" class="hover:text-gold-400">Industries</a>
+        <span class="px-2 text-gray-600">/</span>
+        <span class="text-gold-500">Oil, Gas &amp; Mechanical</span>
+      </nav>
+
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">{page.h1Pre}</span>
+      <h1 class="mb-6 max-w-4xl font-heading text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+        FR Coveralls, Service Polos, and Mission-Critical <span class="text-gold-500">Apparel for Vegas Mechanical Contractors.</span>
+      </h1>
+      <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+        NFPA 2112 FR coveralls with FR-compatible embroidery. Branded polos for data center service techs. Arc-rated layers for switchgear and generator crews. We outfit Vegas oil, gas, and mission-critical mechanical operations.
+      </p>
+
+      <div class="mt-10 flex flex-wrap items-center gap-3">
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25">
+          Get a Quote
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+        <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gold-500/40 px-6 py-3 font-mono text-sm font-medium text-gold-500 transition-all hover:border-gold-500 hover:bg-gold-500/5">
+          725.235.6196
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compliance -->
+  <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Compliance &amp; Spec</span>
+        <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">We speak NFPA, ASTM, and your safety officer's language.</h2>
+        <p class="mt-4 text-lg leading-relaxed text-gray-300">
+          Mechanical contractors working oil, gas, and mission-critical sites operate under stricter PPE specs than most trades. We carry the brands and ratings the safety officer wants on file, and we keep the spec sheets so reorders match the original certification.
+        </p>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-3">
+        {compliance.map((c) => (
+          <div class="group relative overflow-hidden rounded-2xl border border-navy-700/50 bg-navy-900/40 p-7 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+            <span class="mb-4 inline-block rounded-md border border-gold-500/30 bg-gold-500/5 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-gold-500">{c.code}</span>
+            <h3 class="mb-3 font-heading text-xl font-bold leading-tight tracking-tight text-white">{c.title}</h3>
+            <p class="text-sm leading-relaxed text-gray-300">{c.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Gear -->
+  <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">The Gear</span>
+        <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">What we make for oil, gas, and mechanical crews.</h2>
+        <p class="mt-4 text-lg leading-relaxed text-gray-300">
+          From data center MEP service contractors to pipeline and process mechanical operations. Most accounts run a tiered program — FR for the field, polos for service techs and commissioning, jackets for the overnight work.
+        </p>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {gear.map((g) => (
+          <div class="overflow-hidden rounded-2xl border border-navy-700/40 bg-navy-900/40 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+            <div class="aspect-[4/3] overflow-hidden bg-navy-800">
+              <img src={g.img} alt={g.name} class="h-full w-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" decoding="async" width="600" height="450" />
+            </div>
+            <div class="p-5">
+              <h3 class="mb-2 font-heading text-lg font-bold tracking-tight text-white">{g.name}</h3>
+              <p class="text-sm leading-relaxed text-gray-400">{g.detail}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Use cases -->
+  <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
+        <div>
+          <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Typical Orders</span>
+          <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Configurations we run for mechanical and process contractors.</h2>
+          <p class="mt-4 text-lg leading-relaxed text-gray-300">
+            Data center mechanical contractors usually run two programs — branded polos and jackets for the customer-facing service techs, FR layers for anyone touching switchgear or generators. Pipeline and oil/gas operations standardize across the field crew with NFPA 2112 coveralls.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="/services/" class="inline-flex items-center gap-2 rounded-lg border border-gray-600 px-5 py-2.5 text-sm font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">All Services →</a>
+            <a href="/company-stores/" class="inline-flex items-center gap-2 rounded-lg border border-gray-600 px-5 py-2.5 text-sm font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">Company Stores →</a>
+          </div>
+        </div>
+
+        <ul class="space-y-3">
+          {useCases.map((u, i) => (
+            <li class="flex items-start gap-4 rounded-xl border border-navy-700/30 bg-navy-900/30 p-4 transition-all hover:border-gold-500/30 hover:bg-navy-900/50">
+              <span class="flex-shrink-0 font-mono text-xs font-bold text-gold-500">{String(i + 1).padStart(2, '0')}</span>
+              <span class="text-base leading-relaxed text-gray-200">{u}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">FAQ</span>
+      <h2 class="mb-12 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Questions oil, gas, and mechanical contractors ask us.</h2>
+
+      <div class="space-y-3">
+        {faqs.map((f) => (
+          <details class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-5 transition-all hover:border-gold-500/30 open:border-gold-500/40">
+            <summary class="flex cursor-pointer items-start justify-between gap-4 list-none">
+              <h3 class="font-heading text-lg font-bold leading-tight tracking-tight text-white">{f.q}</h3>
+              <span class="mt-1 flex-shrink-0 text-gold-500 transition-transform group-open:rotate-45">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+              </span>
+            </summary>
+            <p class="mt-4 text-base leading-relaxed text-gray-300">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Related -->
+  <section class="border-b border-navy-800 bg-navy-950 py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-6 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Related</span>
+      <div class="grid gap-5 md:grid-cols-3">
+        <a href="/industries/electrical-contractors-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Electrical Contractors</h3>
+          <p class="mt-2 text-sm text-gray-400">FR shirts, hi-vis, and code-compliant decoration.</p>
+        </a>
+        <a href="/industries/plumbing-hvac-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Plumbing &amp; HVAC</h3>
+          <p class="mt-2 text-sm text-gray-400">Service tech uniforms with embroidered name + title.</p>
+        </a>
+        <a href="/blog/screen-printing-vs-embroidery-construction/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Screen Print vs Embroidery</h3>
+          <p class="mt-2 text-sm text-gray-400">Which decoration method works on FR garments.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-navy-900/60 py-20">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Quote in 24 hours. FR-compatible decoration on every run.</h2>
+      <p class="mb-8 text-lg text-gray-300">Talk to a real human who knows NFPA spec sheets.</p>
+      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>
+        <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gray-600 px-8 py-4 font-mono text-base font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">725.235.6196</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
