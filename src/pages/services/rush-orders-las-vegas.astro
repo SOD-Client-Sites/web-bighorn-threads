@@ -1,0 +1,264 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const page = {
+  title: 'Rush Custom Apparel Orders in Las Vegas',
+  description:
+    '72-hour rush screen printing and embroidery in Las Vegas. 48-hour rush for repeat clients. Same-day quote turnaround. No surprise rush fees on standard production hours.',
+  hero: '/images/generated/cta-bluehour.jpg',
+}
+
+const tiers = [
+  { time: '24 hours', desc: 'Same-day quote, next-day proof. Limited availability — typically embroidery on stocked items, single-color prints under 50 pieces.', who: 'Best for: emergency replacement orders, on-stock items only' },
+  { time: '48 hours', desc: 'Repeat clients with files on hand. Up to 200 pieces. Standard production rates — no rush surcharge for our top accounts.', who: 'Best for: ongoing accounts, time-sensitive reorders' },
+  { time: '72 hours', desc: 'Standard rush window. Up to 500 pieces. New artwork allowed (digitizing or screen burn adds prep time but fits the window).', who: 'Best for: new orders with a hard deadline' },
+  { time: '5 days', desc: 'Comfortable rush — most multi-color, multi-location, or specialty-substrate work fits here. No rush charge.', who: 'Best for: planned orders with normal lead time' },
+]
+
+const eligible = [
+  { yes: true, item: 'Single + multi-color screen printing on cotton tees' },
+  { yes: true, item: 'Embroidery on stocked Port Authority polos' },
+  { yes: true, item: 'Hi-vis ANSI Class 2 (stocked sizes)' },
+  { yes: true, item: 'Hat embroidery (most common styles)' },
+  { yes: true, item: 'FR shirts (Bulwark / Carhartt FR — stocked)' },
+  { yes: false, item: 'Specialty fabrics requiring custom ink (24hr only with overlap)' },
+  { yes: false, item: 'Multi-process jobs (screen + embroidery + DTF combined)' },
+  { yes: false, item: 'Items not on hand requiring 2+ day shipping from supplier' },
+]
+
+const realStories = [
+  { time: '72hr', detail: '200-piece hi-vis tee order for a Friday job walk. Order placed Tuesday morning, delivered Thursday afternoon.' },
+  { time: '48hr', detail: 'Repeat client needed 50 embroidered polos for a CONEXPO booth. Files on hand, shipped in two days.' },
+  { time: '24hr', detail: 'GC had 25 new hires showing up Monday — placed order Friday at 9am, picked up Saturday afternoon.' },
+]
+
+const faqs = [
+  {
+    q: 'Do you charge a rush fee?',
+    a: 'Most rush orders run at standard rates — including 72-hour. Rush surcharge only applies when we have to overlap shifts or push other production back. We tell you upfront if a job needs overtime to hit your date.',
+  },
+  {
+    q: 'What\'s the absolute fastest you can do?',
+    a: 'We\'ve hit same-day for repeat clients with stocked items and files already on hand. Order in by 9am, pick up by 5pm same day. Not common, but possible.',
+  },
+  {
+    q: 'Can you rush orders with new artwork?',
+    a: 'Yes — new artwork adds about a day for digitizing (embroidery) or screen burn (printing). A 72-hour rush with new art realistically becomes 4 days. We\'ll be straight about it on the quote.',
+  },
+  {
+    q: 'How big can a rush order be?',
+    a: 'Up to 500 pieces in 72 hours, depending on the work involved. Single-color screen prints scale fastest. Multi-color or multi-location adds time per piece. We\'ll tell you the realistic max for your specific job.',
+  },
+  {
+    q: 'What if my deadline is impossible?',
+    a: 'We\'ll tell you. We don\'t take orders we can\'t deliver. If 200 pieces of multi-color in 24 hours isn\'t real, we\'ll say so and propose a 48-hour split (half now, half tomorrow) or a single-color version that hits the date.',
+  },
+  {
+    q: 'Will rush production lower the quality?',
+    a: 'No. Same press, same operators, same QC. We move the order ahead in the queue, we don\'t cut corners on production. The only difference is the schedule.',
+  },
+]
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://bighornthreads.com/services/' },
+    { '@type': 'ListItem', position: 3, name: 'Rush Orders', item: 'https://bighornthreads.com/services/rush-orders-las-vegas/' },
+  ],
+}
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Rush Custom Apparel Production',
+  serviceType: 'Rush screen printing and embroidery',
+  provider: { '@id': 'https://bighornthreads.com/#organization' },
+  areaServed: [
+    { '@type': 'City', name: 'Las Vegas' },
+    { '@type': 'City', name: 'Henderson' },
+    { '@type': 'City', name: 'North Las Vegas' },
+  ],
+}
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+}
+---
+
+<BaseLayout
+  title={page.title}
+  description={page.description}
+  canonical="https://bighornthreads.com/services/rush-orders-las-vegas/"
+  heroImage={page.hero}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
+    <div class="absolute inset-0">
+      <img src={page.hero} alt="" aria-hidden="true" class="h-full w-full object-cover opacity-30" width="1600" height="900" loading="eager" fetchpriority="high" />
+      <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/40" />
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_75%_-10%,_rgba(193,155,61,0.15),_transparent)]" />
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-gold-400">Home</a>
+        <span class="px-2 text-gray-600">/</span>
+        <a href="/services/" class="hover:text-gold-400">Services</a>
+        <span class="px-2 text-gray-600">/</span>
+        <span class="text-gold-500">Rush Orders</span>
+      </nav>
+
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Service</span>
+      <h1 class="mb-6 max-w-4xl font-heading text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+        Rush Custom Apparel <span class="text-gold-500">Without the Panic Surcharge.</span>
+      </h1>
+      <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+        72-hour standard rush. 48 hours for repeat clients. Same-day quote turnaround on every order. Most rush jobs ship at standard rates — we tell you upfront if your timeline pushes us into overtime.
+      </p>
+
+      <div class="mt-10 flex flex-wrap items-center gap-3">
+        <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25">
+          Call Now: 725.235.6196
+        </a>
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gold-500/40 px-6 py-3 text-sm font-medium text-gold-500 transition-all hover:border-gold-500 hover:bg-gold-500/5">
+          Submit Rush Quote
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tiers -->
+  <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Turnaround Tiers</span>
+        <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Realistic timelines, by tier.</h2>
+        <p class="mt-4 text-lg leading-relaxed text-gray-300">
+          We don't promise things we can't deliver. These are the actual windows we run, with what fits in each.
+        </p>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-2">
+        {tiers.map((t) => (
+          <div class="rounded-2xl border border-navy-700/50 bg-navy-900/40 p-7 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+            <div class="mb-3 flex items-baseline gap-3">
+              <span class="font-heading text-3xl font-bold text-gold-500">{t.time}</span>
+              <span class="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gray-300">Window</span>
+            </div>
+            <p class="mb-3 text-base leading-relaxed text-gray-200">{t.desc}</p>
+            <p class="text-sm italic text-gold-400">{t.who}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What works rush -->
+  <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">What Fits Rush</span>
+        <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">What we can — and can't — turn fast.</h2>
+      </div>
+
+      <div class="overflow-hidden rounded-2xl border border-navy-700/40">
+        <ul class="divide-y divide-navy-800 bg-navy-900/30">
+          {eligible.map((e) => (
+            <li class="flex items-start gap-4 px-6 py-4 transition-colors hover:bg-navy-900/60">
+              <span class={e.yes ? 'mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gold-500/20 text-gold-500' : 'mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-700/40 text-gray-500'}>
+                {e.yes ? (
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                ) : (
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                )}
+              </span>
+              <span class={e.yes ? 'text-base text-gray-200' : 'text-base text-gray-400 line-through decoration-gray-600'}>{e.item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Real examples -->
+  <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Real Jobs</span>
+        <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Rush orders we've actually delivered.</h2>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-3">
+        {realStories.map((s) => (
+          <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-7">
+            <span class="mb-3 inline-block rounded-md border border-gold-500/30 bg-gold-500/5 px-2.5 py-1 font-mono text-xs font-bold tracking-wider text-gold-500">{s.time}</span>
+            <p class="text-base leading-relaxed text-gray-200">{s.detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">FAQ</span>
+      <h2 class="mb-12 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Rush order questions.</h2>
+
+      <div class="space-y-3">
+        {faqs.map((f) => (
+          <details class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-5 transition-all hover:border-gold-500/30 open:border-gold-500/40">
+            <summary class="flex cursor-pointer items-start justify-between gap-4 list-none">
+              <h3 class="font-heading text-lg font-bold leading-tight tracking-tight text-white">{f.q}</h3>
+              <span class="mt-1 flex-shrink-0 text-gold-500 transition-transform group-open:rotate-45">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+              </span>
+            </summary>
+            <p class="mt-4 text-base leading-relaxed text-gray-300">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Related -->
+  <section class="border-b border-navy-800 bg-navy-950 py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-6 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Related</span>
+      <div class="grid gap-5 md:grid-cols-3">
+        <a href="/services/screen-printing-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Screen Printing</h3>
+          <p class="mt-2 text-sm text-gray-400">Standard 7-day production. Rush in 72 hours.</p>
+        </a>
+        <a href="/services/embroidery-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Embroidery</h3>
+          <p class="mt-2 text-sm text-gray-400">Free digitizing. 7-day standard. Rush available.</p>
+        </a>
+        <a href="/industries/general-contractors-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">For GCs</h3>
+          <p class="mt-2 text-sm text-gray-400">Crew uniforms and onboarding kits with built-in rush.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-navy-900/60 py-20">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Got a deadline? Pick up the phone.</h2>
+      <p class="mb-8 text-lg text-gray-300">Same-day quote turnaround. We'll tell you the truth about what fits the window.</p>
+      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Call 725.235.6196</a>
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gray-600 px-8 py-4 font-mono text-base font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">Submit Quote Form</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

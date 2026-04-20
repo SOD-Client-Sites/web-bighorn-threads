@@ -1,0 +1,262 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const page = {
+  title: 'General Contractor Uniforms and Crew Apparel | Las Vegas',
+  description:
+    'Branded workwear, company stores, and onboarding kits for Las Vegas general contractors. Crew uniforms, sub branding, foreman differentiation, and reorder portals. 24-hour quotes.',
+  h1Pre: 'General Contractors',
+  hero: '/images/generated/kit-gc.jpg',
+}
+
+const challenges = [
+  { num: '01', title: 'Sub-crew identification', body: 'On a 200-person job site, knowing who works for which sub matters for safety and accountability. Branded gear puts company identity on every back.' },
+  { num: '02', title: 'New-hire turnover', body: 'When you hire 5 people a month, an HR manager managing sizing in a spreadsheet burns hours. We build standard kits per role so onboarding ships in 48 hours.' },
+  { num: '03', title: 'Foreman vs field differentiation', body: 'Color, embroidery vs print, hi-vis class — small visual differences make the chain of command obvious from across the lot.' },
+  { num: '04', title: 'Trade show + ribbon cutting deadlines', body: 'When you commit to outfit a 30-person crew for a Friday job walk, missing the date is not an option. Rush production is built into how we run the floor.' },
+]
+
+const kits = [
+  { role: 'Field Crew Standard', items: '5 polos · 3 hi-vis tees · 1 hoodie · 1 hat', notes: 'Embroidered logo + name. Most-ordered configuration for crews of 20+.' },
+  { role: 'Foreman / Supervisor', items: '5 collared shirts · branded jacket · upgraded hi-vis', notes: 'Different color or treatment from field crew so authority is visible on site.' },
+  { role: 'Office / Project Manager', items: '5 polos · 1 zip-up · branded notebook', notes: 'Lighter-weight options for on-site visits without losing brand consistency.' },
+  { role: 'New Hire Onboarding', items: '3 tees · 2 polos · 1 hat · safety vest', notes: 'Pre-built and stocked. Ships in 48 hours when payroll signals a new hire.' },
+]
+
+const proof = [
+  { stat: '15+', label: 'Years outfitting Vegas GCs' },
+  { stat: '100+', label: 'Active contractor accounts' },
+  { stat: '50K+', label: 'Garments produced annually' },
+  { stat: '72hr', label: 'Standard rush turnaround' },
+]
+
+const faqs = [
+  {
+    q: 'Can you outfit our subs in our brand without going through their procurement?',
+    a: 'Yes. We set up sub-tier company stores or do bulk orders billed to your account, with each sub getting their own size pull. Common arrangement: GC pays for the gear, subs distribute it.',
+  },
+  {
+    q: 'How fast can you turn around 100 polos for a Monday job walk?',
+    a: 'If we get the order Wednesday morning with files on hand, we ship Monday delivery. New artwork adds a day for digitizing or screen burn. Call before 10am Tuesday and we can usually still hit Friday.',
+  },
+  {
+    q: 'Do you stock common Carhartt and Port Authority items?',
+    a: 'Yes — Carhartt K87 and K84 t-shirts, Port Authority K500 polos, Carhartt SUP01 hoodies, in stocked sizes S–4XL. We carry the items GCs reorder most without lead time.',
+  },
+  {
+    q: 'Can a company store handle multiple cost centers (jobs, divisions)?',
+    a: 'Yes. We tag orders by job number, division, or PO so your accounting team can split costs without re-asking employees for the info every order.',
+  },
+  {
+    q: 'What about World of Concrete, CONEXPO, or local AGC events?',
+    a: 'We outfit booths and trade-show crews every year. Branded polos, jackets, and giveaway swag with rush production timed to the event week.',
+  },
+  {
+    q: 'Do you offer pricing tiers based on annual spend?',
+    a: 'For accounts spending $25K+ annually, we lock pricing for the year and waive setup fees on reorders. Bigger accounts get dedicated sales rep + production scheduling.',
+  },
+]
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Industries', item: 'https://bighornthreads.com/industries/' },
+    { '@type': 'ListItem', position: 3, name: 'General Contractors', item: 'https://bighornthreads.com/industries/general-contractors-las-vegas/' },
+  ],
+}
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Custom Workwear for General Contractors',
+  serviceType: 'Branded apparel and crew uniforms',
+  provider: { '@id': 'https://bighornthreads.com/#organization' },
+  areaServed: [
+    { '@type': 'City', name: 'Las Vegas' },
+    { '@type': 'City', name: 'Henderson' },
+    { '@type': 'City', name: 'North Las Vegas' },
+  ],
+  audience: { '@type': 'BusinessAudience', audienceType: 'General Contractors' },
+}
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+}
+---
+
+<BaseLayout
+  title={page.title}
+  description={page.description}
+  canonical="https://bighornthreads.com/industries/general-contractors-las-vegas/"
+  heroImage={page.hero}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
+    <div class="absolute inset-0">
+      <img src={page.hero} alt="" aria-hidden="true" class="h-full w-full object-cover opacity-30" width="1600" height="900" loading="eager" fetchpriority="high" />
+      <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/40" />
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_75%_-10%,_rgba(193,155,61,0.15),_transparent)]" />
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-gold-400">Home</a>
+        <span class="px-2 text-gray-600">/</span>
+        <a href="/industries/" class="hover:text-gold-400">Industries</a>
+        <span class="px-2 text-gray-600">/</span>
+        <span class="text-gold-500">General Contractors</span>
+      </nav>
+
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">{page.h1Pre}</span>
+      <h1 class="mb-6 max-w-4xl font-heading text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+        Crew Uniforms, Sub Branding, and Onboarding Kits <span class="text-gold-500">for Vegas GCs.</span>
+      </h1>
+      <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+        Whether you're running a 20-person framing outfit or a 200-person commercial GC, we keep your crew, your subs, and your foremen branded — with the rush production and reorder portals to match.
+      </p>
+
+      <div class="mt-10 flex flex-wrap items-center gap-3">
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25">
+          Get a Quote
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+        <a href="/company-stores/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gold-500/40 px-6 py-3 text-sm font-medium text-gold-500 transition-all hover:border-gold-500 hover:bg-gold-500/5">
+          See Company Stores
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats strip -->
+  <section class="border-b border-navy-800 bg-navy-950 py-10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 gap-6 md:grid-cols-4">
+        {proof.map((p) => (
+          <div class="text-center sm:text-left">
+            <span class="block font-mono text-3xl font-bold text-gold-500 sm:text-4xl">{p.stat}</span>
+            <span class="mt-1 block text-xs uppercase tracking-wider text-gray-300">{p.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why GCs hire us -->
+  <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Why GCs Hire Us</span>
+        <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Four problems we solve every week.</h2>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-2">
+        {challenges.map((c) => (
+          <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-7 transition-all hover:border-gold-500/30 hover:bg-navy-900/60">
+            <span class="mb-4 inline-block font-mono text-xs font-bold tracking-wider text-gold-500">{c.num}</span>
+            <h3 class="mb-3 font-heading text-xl font-bold leading-tight tracking-tight text-white">{c.title}</h3>
+            <p class="text-base leading-relaxed text-gray-300">{c.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Standard kits -->
+  <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Standard Kits</span>
+        <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Pre-built kits by role. Ship in 48 hours.</h2>
+        <p class="mt-4 text-lg leading-relaxed text-gray-300">
+          We build these once with your branding, then store the spec. New hire? Send us the role + sizes. The kit ships from our floor without anyone re-thinking the configuration.
+        </p>
+      </div>
+
+      <div class="overflow-hidden rounded-2xl border border-navy-700/40">
+        <table class="w-full">
+          <thead class="bg-navy-900/60">
+            <tr class="border-b border-navy-700/40">
+              <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500">Role</th>
+              <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500">Standard Items</th>
+              <th class="hidden px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500 lg:table-cell">Notes</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-navy-800 bg-navy-900/30">
+            {kits.map((k) => (
+              <tr class="transition-colors hover:bg-navy-900/60">
+                <td class="px-6 py-5 align-top">
+                  <span class="font-heading text-base font-bold text-white">{k.role}</span>
+                </td>
+                <td class="px-6 py-5 align-top text-sm text-gray-200">{k.items}</td>
+                <td class="hidden px-6 py-5 align-top text-sm text-gray-400 lg:table-cell">{k.notes}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">FAQ</span>
+      <h2 class="mb-12 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Questions GCs ask us.</h2>
+
+      <div class="space-y-3">
+        {faqs.map((f) => (
+          <details class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-5 transition-all hover:border-gold-500/30 open:border-gold-500/40">
+            <summary class="flex cursor-pointer items-start justify-between gap-4 list-none">
+              <h3 class="font-heading text-lg font-bold leading-tight tracking-tight text-white">{f.q}</h3>
+              <span class="mt-1 flex-shrink-0 text-gold-500 transition-transform group-open:rotate-45">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+              </span>
+            </summary>
+            <p class="mt-4 text-base leading-relaxed text-gray-300">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Related -->
+  <section class="border-b border-navy-800 bg-navy-950 py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-6 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Related</span>
+      <div class="grid gap-5 md:grid-cols-3">
+        <a href="/industries/electrical-contractors-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Electrical Contractors</h3>
+          <p class="mt-2 text-sm text-gray-400">FR shirts, hi-vis, and service uniforms with code compliance.</p>
+        </a>
+        <a href="/industries/roofing-solar-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Roofing &amp; Solar</h3>
+          <p class="mt-2 text-sm text-gray-400">Sun-protective branded gear for crews working the rooftops.</p>
+        </a>
+        <a href="/blog/how-to-outfit-a-construction-crew-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">How to Outfit a Crew</h3>
+          <p class="mt-2 text-sm text-gray-400">A practical playbook for outfitting 10, 50, or 500 people.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-navy-900/60 py-20">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Ready to standardize your crew's gear?</h2>
+      <p class="mb-8 text-lg text-gray-300">Quote in 24 hours. Stock items ship same week.</p>
+      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>
+        <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gray-600 px-8 py-4 font-mono text-base font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">725.235.6196</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

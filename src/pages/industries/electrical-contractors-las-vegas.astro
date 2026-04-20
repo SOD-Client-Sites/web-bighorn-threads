@@ -1,0 +1,291 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const page = {
+  title: 'Custom Workwear for Electrical Contractors in Las Vegas',
+  description:
+    'NFPA 70E flame-resistant shirts, ANSI hi-vis, and embroidered service uniforms for Las Vegas electrical contractors. FR-compatible decoration that doesn\'t void the rating. 24-hour quotes.',
+  h1Pre: 'Electrical Contractors',
+  hero: '/images/generated/kit-electrical.jpg',
+}
+
+const compliance = [
+  {
+    code: 'NFPA 70E',
+    title: 'Arc-rated apparel for the field',
+    body: 'Bulwark, Carhartt FR, and FRC shirts in CAT 1 and CAT 2 ratings. We embroider on FR garments using FR-compatible thread and placement techniques that preserve the certification.',
+  },
+  {
+    code: 'ANSI/ISEA 107 Class 2',
+    title: 'Hi-vis for service crews and roadside work',
+    body: 'Class 2 vests, t-shirts, and long-sleeve hi-vis with reflective striping. Logo placement follows the 72-square-inch limit so your branding never breaks compliance.',
+  },
+  {
+    code: 'OSHA 1910.269',
+    title: 'PPE that meets the spec sheet',
+    body: 'We carry the gear your safety manager already knows — PIP, ML Kishigo, Bulwark, Wrangler Riggs. Every spec sheet on file. Reorders match the original lot every time.',
+  },
+]
+
+const gear = [
+  { name: 'FR work shirts', detail: 'CAT 1 / CAT 2 rated · button-down or polo · embroidered chest', img: '/images/generated/kit-electrical.jpg' },
+  { name: 'Hi-vis Class 2 t-shirts', detail: 'Lime or orange · screen-printed back · ANSI-compliant placement', img: '/images/generated/service-screen-printing.jpg' },
+  { name: 'Branded service polos', detail: 'Port Authority K500 · embroidered chest + sleeve · 8 stocked colors', img: '/images/generated/service-embroidery.jpg' },
+  { name: 'Hard hat stickers + decals', detail: 'Vinyl cut · OSHA-compliant placement · bulk pricing on 100+', img: '/images/generated/kit-office-sales.jpg' },
+]
+
+const useCases = [
+  'Service truck crew uniforms with embroidered name + company logo',
+  'New-hire onboarding kits (5 shirts, hat, hoodie, FR layer)',
+  'Apprentice gear allowances tied to hour milestones',
+  'Foreman and supervisor differentiation (color, embroidery vs print)',
+  'Trade show + IBEW event apparel for Las Vegas locals',
+  'Branded swag for journeyman recruiting drives',
+]
+
+const faqs = [
+  {
+    q: 'Can you embroider on FR shirts without voiding the NFPA 70E rating?',
+    a: 'Yes — we use FR-compatible thread (Nomex or aramid blend) and follow garment-specific placement rules. The certification stays valid as long as the decoration meets the manufacturer\'s spec, which we verify before every FR run.',
+  },
+  {
+    q: 'What\'s the minimum order for hi-vis Class 2 shirts?',
+    a: '24 pieces for screen printing, 12 for embroidery. We stock ANSI 107 Class 2 in lime and orange in adult sizes S–4XL, ready for same-week production.',
+  },
+  {
+    q: 'Do you do rush orders for service trucks getting wrapped or new fleets?',
+    a: 'Standard rush is 72 hours on orders up to 200 pieces. We\'ve hit 48 hours for repeat clients with files already on hand. Call before 10am for same-day quote turnaround.',
+  },
+  {
+    q: 'What brands do you stock for electrical contractors specifically?',
+    a: 'Bulwark FR, Carhartt FR, Wrangler Riggs, Port Authority, ML Kishigo, PIP, Pioneer. We\'ll match whatever\'s on your existing safety spec sheet.',
+  },
+  {
+    q: 'Can you set up a company store so my apprentices can order their own gear?',
+    a: 'Yes. Each employee logs in, sees only the gear you\'ve approved (with allowances if you set them), and orders direct. We print and ship — no inventory on your end. Read more on company stores.',
+  },
+  {
+    q: 'Do you handle hard hat customization to OSHA standards?',
+    a: 'Yes — vinyl decals in any size up to manufacturer placement limits. We don\'t alter the shell, drill, or apply heat. Stickers only. Bulk discounts on 100+.',
+  },
+]
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Industries', item: 'https://bighornthreads.com/industries/' },
+    { '@type': 'ListItem', position: 3, name: 'Electrical Contractors', item: 'https://bighornthreads.com/industries/electrical-contractors-las-vegas/' },
+  ],
+}
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Custom Workwear for Electrical Contractors',
+  serviceType: 'Branded apparel and FR-compliant uniforms',
+  provider: { '@id': 'https://bighornthreads.com/#organization' },
+  areaServed: [
+    { '@type': 'City', name: 'Las Vegas' },
+    { '@type': 'City', name: 'Henderson' },
+    { '@type': 'City', name: 'North Las Vegas' },
+  ],
+  audience: {
+    '@type': 'BusinessAudience',
+    audienceType: 'Electrical Contractors',
+  },
+}
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+}
+---
+
+<BaseLayout
+  title={page.title}
+  description={page.description}
+  canonical="https://bighornthreads.com/industries/electrical-contractors-las-vegas/"
+  heroImage={page.hero}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
+    <div class="absolute inset-0">
+      <img src={page.hero} alt="" aria-hidden="true" class="h-full w-full object-cover opacity-30" width="1600" height="900" loading="eager" fetchpriority="high" />
+      <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/40" />
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_75%_-10%,_rgba(193,155,61,0.15),_transparent)]" />
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-gold-400">Home</a>
+        <span class="px-2 text-gray-600">/</span>
+        <a href="/industries/" class="hover:text-gold-400">Industries</a>
+        <span class="px-2 text-gray-600">/</span>
+        <span class="text-gold-500">Electrical Contractors</span>
+      </nav>
+
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">{page.h1Pre}</span>
+      <h1 class="mb-6 max-w-4xl font-heading text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+        FR Shirts, Hi-Vis, and Service Uniforms <span class="text-gold-500">Built for Vegas Electrical Crews.</span>
+      </h1>
+      <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+        NFPA 70E-rated shirts that hold up in 110° heat. ANSI Class 2 hi-vis with logo placement that doesn't break the cert. Service polos a journeyman will actually wear.
+      </p>
+
+      <div class="mt-10 flex flex-wrap items-center gap-3">
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25">
+          Get a Quote
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+        <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gold-500/40 px-6 py-3 font-mono text-sm font-medium text-gold-500 transition-all hover:border-gold-500 hover:bg-gold-500/5">
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          725.235.6196
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compliance hero strip -->
+  <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Compliance &amp; Spec</span>
+        <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">We speak your safety manager's language.</h2>
+        <p class="mt-4 text-lg leading-relaxed text-gray-300">
+          Every electrical contractor we work with operates under specs from a safety officer, a master electrician, or both. We carry the brands, ratings, and certifications they want on file — and we keep the spec sheets so reorders match.
+        </p>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-3">
+        {compliance.map((c) => (
+          <div class="group relative overflow-hidden rounded-2xl border border-navy-700/50 bg-navy-900/40 p-7 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+            <span class="mb-4 inline-block rounded-md border border-gold-500/30 bg-gold-500/5 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-gold-500">{c.code}</span>
+            <h3 class="mb-3 font-heading text-xl font-bold leading-tight tracking-tight text-white">{c.title}</h3>
+            <p class="text-sm leading-relaxed text-gray-300">{c.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What we make -->
+  <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">The Gear</span>
+        <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">What we make for electrical crews.</h2>
+        <p class="mt-4 text-lg leading-relaxed text-gray-300">
+          Field-tested combinations we run for working electrical contractors across Las Vegas, Henderson, and North Las Vegas. Mix and match — most crews end up with two or three of these.
+        </p>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {gear.map((g) => (
+          <div class="overflow-hidden rounded-2xl border border-navy-700/40 bg-navy-900/40 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+            <div class="aspect-[4/3] overflow-hidden bg-navy-800">
+              <img src={g.img} alt={g.name} class="h-full w-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" decoding="async" width="600" height="450" />
+            </div>
+            <div class="p-5">
+              <h3 class="mb-2 font-heading text-lg font-bold tracking-tight text-white">{g.name}</h3>
+              <p class="text-sm leading-relaxed text-gray-400">{g.detail}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Use cases / typical orders -->
+  <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
+        <div>
+          <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Typical Orders</span>
+          <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">What we run every week for electrical shops.</h2>
+          <p class="mt-4 text-lg leading-relaxed text-gray-300">
+            From two-person service trucks to 80-person commercial electrical contractors. The sweet spot for a company store is around 25 employees — under that, bulk reorders work fine.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="/services/" class="inline-flex items-center gap-2 rounded-lg border border-gray-600 px-5 py-2.5 text-sm font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">All Services →</a>
+            <a href="/company-stores/" class="inline-flex items-center gap-2 rounded-lg border border-gray-600 px-5 py-2.5 text-sm font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">Company Stores →</a>
+          </div>
+        </div>
+
+        <ul class="space-y-3">
+          {useCases.map((u, i) => (
+            <li class="flex items-start gap-4 rounded-xl border border-navy-700/30 bg-navy-900/30 p-4 transition-all hover:border-gold-500/30 hover:bg-navy-900/50">
+              <span class="flex-shrink-0 font-mono text-xs font-bold text-gold-500">{String(i + 1).padStart(2, '0')}</span>
+              <span class="text-base leading-relaxed text-gray-200">{u}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">FAQ</span>
+      <h2 class="mb-12 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Questions electrical contractors ask us.</h2>
+
+      <div class="space-y-3">
+        {faqs.map((f) => (
+          <details class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-5 transition-all hover:border-gold-500/30 open:border-gold-500/40">
+            <summary class="flex cursor-pointer items-start justify-between gap-4 list-none">
+              <h3 class="font-heading text-lg font-bold leading-tight tracking-tight text-white">{f.q}</h3>
+              <span class="mt-1 flex-shrink-0 text-gold-500 transition-transform group-open:rotate-45">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+              </span>
+            </summary>
+            <p class="mt-4 text-base leading-relaxed text-gray-300">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Related -->
+  <section class="border-b border-navy-800 bg-navy-950 py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-6 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Related Reading</span>
+      <div class="grid gap-5 md:grid-cols-3">
+        <a href="/industries/general-contractors-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">General Contractors</h3>
+          <p class="mt-2 text-sm text-gray-400">Crew gear, sub branding, and onboarding kits for Vegas GCs.</p>
+        </a>
+        <a href="/industries/roofing-solar-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Roofing &amp; Solar</h3>
+          <p class="mt-2 text-sm text-gray-400">Sun-protective gear and hi-vis for crews that work the rooftops.</p>
+        </a>
+        <a href="/blog/screen-printing-vs-embroidery-construction/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Screen Print vs Embroidery</h3>
+          <p class="mt-2 text-sm text-gray-400">Which method actually holds up on construction gear.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-navy-900/60 py-20">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Quote in 24 hours. No setup fees over 25 pieces.</h2>
+      <p class="mb-8 text-lg text-gray-300">Talk to a real human who knows FR ratings and ANSI placement.</p>
+      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>
+        <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gray-600 px-8 py-4 font-mono text-base font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">725.235.6196</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

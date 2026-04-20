@@ -1,0 +1,265 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const page = {
+  title: 'Custom Carhartt Embroidery and Printing in Las Vegas',
+  description:
+    'Custom Carhartt for Las Vegas contractors. Embroidered Carhartt polos, screen-printed K87 tees, branded SUP01 hoodies, FR Carhartt for electrical. 6-piece embroidery minimum.',
+  hero: '/images/generated/workwear-flatlay.jpg',
+}
+
+const products = [
+  { sku: 'K87', name: 'Carhartt Workwear Pocket T-Shirt', detail: 'The crew workhorse. Cotton, durable, takes screen printing beautifully. Stocked S–4XL.', method: 'Screen print preferred (full back or chest)' },
+  { sku: 'K84', name: 'Carhartt Force Cotton Long-Sleeve T-Shirt', detail: 'Moisture-wicking long-sleeve for sun protection. Best for outdoor crews.', method: 'Screen print or embroidery (chest)' },
+  { sku: 'K500', name: 'Carhartt Workwear Pique Polo', detail: 'Customer-facing roles. Embroidered logo + name. Holds up wash after wash.', method: 'Embroidery (left chest, optional sleeve)' },
+  { sku: 'SUP01', name: 'Carhartt Sweater Knit Pullover', detail: 'Heavyweight quarter-zip. Premium look for ops, sales, project managers.', method: 'Embroidery (left chest)' },
+  { sku: 'CTK122', name: 'Carhartt Loose Fit Heavyweight Hoodie', detail: 'The go-to crew hoodie for 5 AM Vegas job-site starts.', method: 'Screen print or embroidery (chest, sleeve)' },
+  { sku: 'FRSH13', name: 'Carhartt FR Force Henley', detail: 'NFPA 70E compliant. CAT 2 rated. For electrical and oil-and-gas crews.', method: 'FR-safe embroidery only' },
+]
+
+const why = [
+  { title: 'Recognized brand on the jobsite', body: 'A Carhartt logo on a polo or hoodie reads as quality before a single stitch goes in. Customers and subs see Carhartt and assume the company invested in real gear.' },
+  { title: 'Built for what crews actually do', body: 'Reinforced seams, heavier fabrics, deeper pockets. Not athleisure with a logo — workwear designed for daily abuse.' },
+  { title: 'Holds decoration well', body: 'Carhartt cotton takes screen printing crisply. The Pique knit on K500 polos embroiders cleanly without distortion. We dial the press for each garment.' },
+  { title: 'Stocked, fast, available', body: 'We carry Carhartt K87, K84, K500, SUP01, and CTK122 in adult S–4XL. Most orders ship in 7 days. Stock items can rush in 72 hours.' },
+]
+
+const faqs = [
+  {
+    q: 'What\'s the minimum order for custom Carhartt?',
+    a: '6 pieces for embroidery, 24 for screen printing. We can do smaller embroidery runs at a per-piece premium for one-off promo or sample orders.',
+  },
+  {
+    q: 'How is your pricing compared to Carhartt Company Gear (their direct site)?',
+    a: 'Carhartt Company Gear has a higher minimum (typically 12+) and longer lead times (3–4 weeks). Local pricing is competitive once you factor in delivery and the ability to pick up same-week stocked items.',
+  },
+  {
+    q: 'Can you embroider on Carhartt FR (flame-resistant) shirts without voiding the rating?',
+    a: 'Yes — using FR-compatible thread (Nomex or aramid blend) and following Carhartt\'s placement spec for the FRSH13 and FR shirt line. We verify the spec sheet before each FR run.',
+  },
+  {
+    q: 'What Carhartt items do you keep in stock?',
+    a: 'K87 t-shirts, K84 long-sleeves, K500 polos, SUP01 quarter-zips, and CTK122 hoodies — all in adult sizes S–4XL, in the most-ordered colors. Other Carhartt items (FR, jackets, bibs, boots) we order in for your project.',
+  },
+  {
+    q: 'How fast can you turn around a Carhartt order?',
+    a: 'Stocked items: 7 days standard, 72 hours rush. Special-order items (specific colors, FR garments, jackets): 10–14 days. We\'ll quote both options if your timeline is tight.',
+  },
+  {
+    q: 'Do you set up Carhartt company stores?',
+    a: 'Yes. We build private branded stores stocked with your approved Carhartt items, decoration on file, and per-employee allowances if you want them. See company stores for the full breakdown.',
+  },
+]
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Brands', item: 'https://bighornthreads.com/brands/' },
+    { '@type': 'ListItem', position: 3, name: 'Carhartt', item: 'https://bighornthreads.com/brands/carhartt-custom-las-vegas/' },
+  ],
+}
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Custom Carhartt Apparel — Las Vegas',
+  description: page.description,
+  brand: { '@type': 'Brand', name: 'Carhartt' },
+  manufacturer: { '@type': 'Organization', name: 'Carhartt' },
+  offers: {
+    '@type': 'AggregateOffer',
+    priceCurrency: 'USD',
+    lowPrice: 18,
+    highPrice: 95,
+    offerCount: products.length,
+    seller: { '@id': 'https://bighornthreads.com/#organization' },
+  },
+}
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+}
+---
+
+<BaseLayout
+  title={page.title}
+  description={page.description}
+  canonical="https://bighornthreads.com/brands/carhartt-custom-las-vegas/"
+  heroImage={page.hero}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+  <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
+    <div class="absolute inset-0">
+      <img src={page.hero} alt="" aria-hidden="true" class="h-full w-full object-cover opacity-30" width="1600" height="900" loading="eager" fetchpriority="high" />
+      <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/40" />
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_75%_-10%,_rgba(193,155,61,0.15),_transparent)]" />
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-gold-400">Home</a>
+        <span class="px-2 text-gray-600">/</span>
+        <span class="text-gray-500">Brands</span>
+        <span class="px-2 text-gray-600">/</span>
+        <span class="text-gold-500">Carhartt</span>
+      </nav>
+
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Brand</span>
+      <h1 class="mb-6 max-w-4xl font-heading text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+        Custom Carhartt <span class="text-gold-500">for Vegas Crews That Actually Work.</span>
+      </h1>
+      <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+        Embroidered K500 polos. Screen-printed K87 tees. Branded SUP01 quarter-zips for ops. FR Henleys for electrical. We stock the items Vegas contractors reorder — local production, week-long turnaround.
+      </p>
+
+      <div class="mt-10 flex flex-wrap items-center gap-3">
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25">
+          Get a Quote
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+        <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gold-500/40 px-6 py-3 font-mono text-sm font-medium text-gold-500 transition-all hover:border-gold-500 hover:bg-gold-500/5">
+          725.235.6196
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Carhartt -->
+  <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Why Carhartt</span>
+        <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Four reasons crews ask for it by name.</h2>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-2">
+        {why.map((w) => (
+          <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-7 transition-all hover:border-gold-500/30 hover:bg-navy-900/60">
+            <h3 class="mb-3 font-heading text-xl font-bold leading-tight tracking-tight text-white">{w.title}</h3>
+            <p class="text-base leading-relaxed text-gray-300">{w.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Most-Ordered</span>
+        <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">The Carhartt items we run every week.</h2>
+        <p class="mt-4 text-lg leading-relaxed text-gray-300">
+          We stock the SKUs Vegas contractors actually reorder. Other Carhartt items (jackets, bibs, FR specialty) we order in to match your project specs.
+        </p>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {products.map((p) => (
+          <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+            <div class="mb-3 flex items-center justify-between">
+              <span class="font-mono text-xs font-bold tracking-wider text-gold-500">{p.sku}</span>
+            </div>
+            <h3 class="mb-2 font-heading text-lg font-bold leading-tight tracking-tight text-white">{p.name}</h3>
+            <p class="mb-4 text-sm leading-relaxed text-gray-300">{p.detail}</p>
+            <div class="mt-4 border-t border-navy-700/50 pt-3">
+              <span class="font-mono text-[10px] font-bold uppercase tracking-wider text-gold-400">Decoration</span>
+              <p class="mt-1 text-sm text-gray-200">{p.method}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- vs Carhartt Direct -->
+  <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">vs Carhartt Company Gear</span>
+      <h2 class="mb-8 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Why local beats Carhartt's direct portal for most contractors.</h2>
+
+      <div class="overflow-hidden rounded-2xl border border-navy-700/40">
+        <table class="w-full">
+          <thead class="bg-navy-900/60">
+            <tr class="border-b border-navy-700/40">
+              <th class="px-5 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gray-400">&nbsp;</th>
+              <th class="px-5 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gray-400">Carhartt Direct</th>
+              <th class="px-5 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500">Bighorn Threads</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-navy-800 bg-navy-900/30">
+            <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-gray-300">Minimum order</td><td class="px-5 py-4 text-sm text-gray-200">12 pieces</td><td class="px-5 py-4 text-sm text-white">6 (embroidery), 24 (print)</td></tr>
+            <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-gray-300">Lead time</td><td class="px-5 py-4 text-sm text-gray-200">3–4 weeks</td><td class="px-5 py-4 text-sm text-white">7 days standard, 72hr rush</td></tr>
+            <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-gray-300">Local delivery</td><td class="px-5 py-4 text-sm text-gray-200">No</td><td class="px-5 py-4 text-sm text-white">Free in Las Vegas metro</td></tr>
+            <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-gray-300">FR-safe decoration</td><td class="px-5 py-4 text-sm text-gray-200">Limited</td><td class="px-5 py-4 text-sm text-white">Yes — verified per garment</td></tr>
+            <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-gray-300">Reorder file storage</td><td class="px-5 py-4 text-sm text-gray-200">Account-based</td><td class="px-5 py-4 text-sm text-white">On file forever, no re-setup</td></tr>
+            <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-gray-300">Talk to a human</td><td class="px-5 py-4 text-sm text-gray-200">Ticket queue</td><td class="px-5 py-4 text-sm text-white">Direct phone line</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">FAQ</span>
+      <h2 class="mb-12 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Carhartt customization questions.</h2>
+
+      <div class="space-y-3">
+        {faqs.map((f) => (
+          <details class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-5 transition-all hover:border-gold-500/30 open:border-gold-500/40">
+            <summary class="flex cursor-pointer items-start justify-between gap-4 list-none">
+              <h3 class="font-heading text-lg font-bold leading-tight tracking-tight text-white">{f.q}</h3>
+              <span class="mt-1 flex-shrink-0 text-gold-500 transition-transform group-open:rotate-45">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+              </span>
+            </summary>
+            <p class="mt-4 text-base leading-relaxed text-gray-300">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Related -->
+  <section class="border-b border-navy-800 bg-navy-950 py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-6 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Related</span>
+      <div class="grid gap-5 md:grid-cols-3">
+        <a href="/services/embroidery-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Embroidery</h3>
+          <p class="mt-2 text-sm text-gray-400">Best decoration method for Carhartt polos and outerwear.</p>
+        </a>
+        <a href="/industries/electrical-contractors-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Carhartt FR for Electrical</h3>
+          <p class="mt-2 text-sm text-gray-400">NFPA 70E compliant Carhartt FR with FR-safe stitching.</p>
+        </a>
+        <a href="/company-stores/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Carhartt Company Stores</h3>
+          <p class="mt-2 text-sm text-gray-400">Private portals stocked with your approved Carhartt items.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-navy-900/60 py-20">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Quote on custom Carhartt in 24 hours.</h2>
+      <p class="mb-8 text-lg text-gray-300">Stocked items ship in a week. Talk to a real human.</p>
+      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>
+        <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gray-600 px-8 py-4 font-mono text-base font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">725.235.6196</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

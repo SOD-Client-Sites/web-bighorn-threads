@@ -1,0 +1,268 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const page = {
+  title: 'Custom Embroidery in Las Vegas',
+  description:
+    'Custom embroidery in Las Vegas for polos, hats, jackets, and uniforms. Free digitizing on first run, FR-safe stitching, thread-color matching, 12-piece minimum.',
+  hero: '/images/generated/service-embroidery.jpg',
+}
+
+const process = [
+  { step: '01', title: 'Quote + digitizing', body: 'Send your logo. We digitize it for embroidery — converting the artwork into a stitch file. First-time digitizing is free with order.' },
+  { step: '02', title: 'Sew-out + approval', body: 'We do a test sew on a similar fabric to verify thread density, color, and detail. You approve before production starts.' },
+  { step: '03', title: 'Production run', body: '12-head and 6-head machines depending on count. Inline color matching ensures consistency from piece to piece.' },
+  { step: '04', title: 'Trim, fold, deliver', body: 'Backing trimmed, threads cleaned, pieces folded and sorted by size. Local delivery, pickup, or split-ship to employees.' },
+]
+
+const placements = [
+  { name: 'Left chest', detail: 'The standard. ~3.5" wide. Fits 95% of polo and shirt programs.' },
+  { name: 'Right chest', detail: 'Mirror to LC, often used for name embroidery alongside left-chest logo.' },
+  { name: 'Sleeve', detail: 'Cap sleeve or full sleeve. Good for cert badges or secondary brand marks.' },
+  { name: 'Back yoke / center back', detail: 'For larger logos on jackets, hoodies, and outerwear.' },
+  { name: 'Hat front', detail: 'Standard 2.5" tall × 4.5" wide. Curved or flat bill.' },
+  { name: 'Hat side / back', detail: 'Smaller secondary marks on cap side panels or rear strap area.' },
+]
+
+const stitchTypes = [
+  { count: 'Up to 7,000 stitches', label: 'Standard logo', notes: 'Most company logos fall in this range. Quick run, cleanest look.' },
+  { count: '7,000 – 12,000 stitches', label: 'Detailed logo', notes: 'Logos with multiple colors, fine type, or complex shapes. Slight upcharge.' },
+  { count: '12,000+ stitches', label: 'Heavy / large designs', notes: 'Big back logos, dense fills. Custom quote.' },
+]
+
+const faqs = [
+  {
+    q: 'What\'s the minimum order for embroidery?',
+    a: '12 pieces. Below 12, we still produce but charge a small per-piece premium. Most ongoing accounts run 24+ at a time for the cost-per-piece break.',
+  },
+  {
+    q: 'How much does digitizing cost?',
+    a: 'Free on the first order with us. After that, it\'s on file forever — every reorder uses the same stitch file with no setup. If your logo changes, we re-digitize at the standard rate ($35–$75 depending on complexity).',
+  },
+  {
+    q: 'Can you embroider on FR (flame-resistant) shirts without voiding the rating?',
+    a: 'Yes — using FR-compatible thread (Nomex or aramid blend) and following the garment manufacturer\'s placement rules. We verify the spec before each FR run. See our electrical contractors page for more on FR.',
+  },
+  {
+    q: 'How long does an embroidery order take?',
+    a: 'Standard production is 7 business days from approval. Rush turnaround is 72 hours for repeat orders, 5 days for new artwork (digitizing adds a day). Stocked items can ship in 48 hours if files are on hand.',
+  },
+  {
+    q: 'What thread colors can you match?',
+    a: 'We carry the full Madeira and Robison-Anton thread libraries — over 400 colors between them. Pantone matching to within ~2 shades on most colors. Brand colors get locked on file once approved.',
+  },
+  {
+    q: 'Do you do name embroidery for service uniforms?',
+    a: 'Yes. Name + title runs about $5/piece additional. Common for HVAC, plumbing, electrical service techs. We can store name lists per crew and reorder by employee — useful for high-turnover roles.',
+  },
+]
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://bighornthreads.com/services/' },
+    { '@type': 'ListItem', position: 3, name: 'Embroidery', item: 'https://bighornthreads.com/services/embroidery-las-vegas/' },
+  ],
+}
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Custom Embroidery in Las Vegas',
+  serviceType: 'Embroidery on apparel and headwear',
+  provider: { '@id': 'https://bighornthreads.com/#organization' },
+  areaServed: [
+    { '@type': 'City', name: 'Las Vegas' },
+    { '@type': 'City', name: 'Henderson' },
+    { '@type': 'City', name: 'North Las Vegas' },
+  ],
+  offers: { '@type': 'Offer', priceCurrency: 'USD', priceSpecification: { '@type': 'PriceSpecification', minPrice: 12 } },
+}
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+}
+---
+
+<BaseLayout
+  title={page.title}
+  description={page.description}
+  canonical="https://bighornthreads.com/services/embroidery-las-vegas/"
+  heroImage={page.hero}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
+    <div class="absolute inset-0">
+      <img src={page.hero} alt="" aria-hidden="true" class="h-full w-full object-cover opacity-30" width="1600" height="900" loading="eager" fetchpriority="high" />
+      <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/40" />
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_75%_-10%,_rgba(193,155,61,0.15),_transparent)]" />
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-gold-400">Home</a>
+        <span class="px-2 text-gray-600">/</span>
+        <a href="/services/" class="hover:text-gold-400">Services</a>
+        <span class="px-2 text-gray-600">/</span>
+        <span class="text-gold-500">Embroidery</span>
+      </nav>
+
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Service</span>
+      <h1 class="mb-6 max-w-4xl font-heading text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+        Custom Embroidery <span class="text-gold-500">on Polos, Hats, and Service Uniforms.</span>
+      </h1>
+      <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+        Free digitizing on first orders. FR-safe stitching that holds the rating. 12-piece minimum. Pantone-matched thread. Standard 7-day production.
+      </p>
+
+      <div class="mt-10 flex flex-wrap items-center gap-3">
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25">
+          Get a Quote
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+        <a href="/services/screen-printing-las-vegas/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gold-500/40 px-6 py-3 text-sm font-medium text-gold-500 transition-all hover:border-gold-500 hover:bg-gold-500/5">
+          Compare to Screen Printing
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">How It Works</span>
+        <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">From logo to delivery in 7 days.</h2>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        {process.map((p) => (
+          <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/30 hover:bg-navy-900/60">
+            <span class="mb-4 block font-mono text-xs font-bold tracking-wider text-gold-500">{p.step}</span>
+            <h3 class="mb-3 font-heading text-lg font-bold leading-tight tracking-tight text-white">{p.title}</h3>
+            <p class="text-sm leading-relaxed text-gray-300">{p.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Placements -->
+  <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Placements</span>
+        <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Where the logo goes.</h2>
+        <p class="mt-4 text-lg leading-relaxed text-gray-300">
+          Standard placements that look right on every garment we produce. Custom positions available — we'll spec it on the mockup.
+        </p>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {placements.map((p) => (
+          <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+            <h3 class="mb-2 font-heading text-lg font-bold tracking-tight text-white">{p.name}</h3>
+            <p class="text-sm leading-relaxed text-gray-300">{p.detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Stitch counts -->
+  <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-10 max-w-2xl">
+        <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Pricing Logic</span>
+        <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Embroidery is priced by stitch count.</h2>
+        <p class="mt-4 text-lg leading-relaxed text-gray-300">
+          Bigger or denser logos take more thread + more machine time. Most company marks fall under 7,000 stitches.
+        </p>
+      </div>
+
+      <div class="overflow-hidden rounded-2xl border border-navy-700/40">
+        <table class="w-full">
+          <thead class="bg-navy-900/60">
+            <tr class="border-b border-navy-700/40">
+              <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500">Stitches</th>
+              <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500">Category</th>
+              <th class="hidden px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500 lg:table-cell">Notes</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-navy-800 bg-navy-900/30">
+            {stitchTypes.map((s) => (
+              <tr class="transition-colors hover:bg-navy-900/60">
+                <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-400">{s.count}</td>
+                <td class="px-6 py-5 align-top font-heading text-base font-bold text-white">{s.label}</td>
+                <td class="hidden px-6 py-5 align-top text-sm text-gray-300 lg:table-cell">{s.notes}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">FAQ</span>
+      <h2 class="mb-12 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Embroidery questions, answered.</h2>
+
+      <div class="space-y-3">
+        {faqs.map((f) => (
+          <details class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-5 transition-all hover:border-gold-500/30 open:border-gold-500/40">
+            <summary class="flex cursor-pointer items-start justify-between gap-4 list-none">
+              <h3 class="font-heading text-lg font-bold leading-tight tracking-tight text-white">{f.q}</h3>
+              <span class="mt-1 flex-shrink-0 text-gold-500 transition-transform group-open:rotate-45">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+              </span>
+            </summary>
+            <p class="mt-4 text-base leading-relaxed text-gray-300">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Related -->
+  <section class="border-b border-navy-800 bg-navy-950 py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-6 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Related</span>
+      <div class="grid gap-5 md:grid-cols-3">
+        <a href="/services/screen-printing-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Screen Printing</h3>
+          <p class="mt-2 text-sm text-gray-400">For volume t-shirt orders and bold graphic prints.</p>
+        </a>
+        <a href="/services/rush-orders-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Rush Orders</h3>
+          <p class="mt-2 text-sm text-gray-400">72-hour embroidery on repeat orders.</p>
+        </a>
+        <a href="/blog/screen-printing-vs-embroidery-construction/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Embroidery vs Screen Print</h3>
+          <p class="mt-2 text-sm text-gray-400">Decision guide for picking the right method.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-navy-900/60 py-20">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Ready to embroider your crew's gear?</h2>
+      <p class="mb-8 text-lg text-gray-300">Free digitizing. Quote in 24 hours. Production in a week.</p>
+      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>
+        <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gray-600 px-8 py-4 font-mono text-base font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">725.235.6196</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
