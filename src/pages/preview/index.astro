@@ -1,0 +1,295 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { demoProducts } from '@/data/demoCatalog'
+
+function subcatOf(name: string): string {
+  const n = name.toLowerCase()
+  if (n.includes('hoodie') || n.includes('pullover') || n.includes('1/2-zip') || n.includes('1/4-snap') || n.includes('1/4-zip')) return 'Outerwear'
+  if (n.includes('long sleeve')) return 'Long Sleeve'
+  if (n.includes('work shirt')) return 'Work Shirts'
+  return 'Polos'
+}
+
+const tagged = demoProducts.map((p) => ({ ...p, subcat: subcatOf(p.name) }))
+const subcats = Array.from(new Set(tagged.map((p) => p.subcat)))
+---
+
+<BaseLayout
+  title="Your Branded Apparel Store — Bighorn Threads"
+  description="Private preview of what your company's branded apparel store would look like. Powered by Bighorn Threads."
+  canonical="https://bighornthreads.com/preview/"
+  noindex={true}
+>
+  <!-- Loading shell -->
+  <section id="preview-loading" class="relative flex min-h-[70vh] items-center justify-center bg-white px-4 py-24">
+    <div class="mx-auto max-w-xl text-center">
+      <div class="mx-auto mb-4 h-8 w-8 animate-pulse rounded-full bg-gold-500/60"></div>
+      <p class="font-mono text-xs font-bold uppercase tracking-[0.3em] text-gold-600">Building your store…</p>
+    </div>
+  </section>
+
+  <!-- Not-found shell -->
+  <section id="preview-notfound" class="relative hidden min-h-[70vh] items-center justify-center bg-white px-4 py-24">
+    <div class="mx-auto max-w-xl text-center">
+      <p class="mb-3 font-mono text-xs font-bold uppercase tracking-[0.3em] text-gold-600">Preview Not Found</p>
+      <h1 class="mb-5 font-heading text-4xl font-bold tracking-tight text-navy-950 sm:text-5xl">This link's expired or invalid.</h1>
+      <p class="mb-8 text-base leading-relaxed text-gray-600">Build a fresh preview — takes 30 seconds.</p>
+      <a href="/demo/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 hover:bg-gold-400">Build a New Preview</a>
+    </div>
+  </section>
+
+  <!-- Branded store (populated by JS) -->
+  <div id="preview-content" class="hidden bg-white text-navy-950">
+
+    <!-- DEMO banner -->
+    <div class="border-b border-gold-500/50 bg-gold-500/15 px-4 py-2.5 text-center">
+      <p class="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-gold-700">
+        Demo Preview · Sample Products · Your real store is built after conversion
+      </p>
+    </div>
+
+    <!-- Store header -->
+    <header class="border-b border-gray-200 bg-white">
+      <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-5 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-4">
+          <div id="store-logo" class="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg border border-gray-300 bg-white font-heading text-xl font-bold text-navy-900">
+            <span id="store-logo-initials">—</span>
+          </div>
+          <div>
+            <p class="font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-gold-600">Company Store · 2026</p>
+            <h1 id="store-title" class="font-heading text-xl font-bold tracking-tight text-navy-950 sm:text-2xl"></h1>
+          </div>
+        </div>
+        <div class="hidden text-right sm:block">
+          <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-gray-500">Powered by</p>
+          <a href="/" class="font-heading text-base font-bold text-gold-600 hover:text-gold-500">Bighorn Threads</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Category/subcategory tabs -->
+    <nav class="sticky top-[65px] z-10 border-b border-gray-200 bg-white/95 backdrop-blur-md">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <ul id="subcat-nav" class="flex flex-wrap items-center gap-x-6 gap-y-2 py-3 font-mono text-[11px] font-bold uppercase tracking-[0.15em]">
+          <li>
+            <button type="button" data-subcat="all" aria-pressed="true" class="text-navy-950 hover:text-gold-600">All Gear ({tagged.length})</button>
+          </li>
+          {subcats.map((s) => {
+            const count = tagged.filter((p) => p.subcat === s).length
+            return (
+              <li>
+                <button type="button" data-subcat={s} aria-pressed="false" class="text-gray-500 hover:text-gold-600">{s} ({count})</button>
+              </li>
+            )
+          })}
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Product grid -->
+    <section class="bg-gray-50 py-8 sm:py-10">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-5 flex items-baseline justify-between">
+          <h2 class="font-heading text-lg font-bold tracking-tight text-navy-950 sm:text-xl">Men's</h2>
+          <span id="visible-count" class="font-mono text-[11px] uppercase tracking-wider text-gray-500">{tagged.length} items</span>
+        </div>
+
+        <div id="product-grid" class="grid gap-4 sm:gap-5 grid-cols-2 lg:grid-cols-3">
+          {tagged.map((p) => (
+            <article data-subcat={p.subcat} class="group flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white transition-all hover:border-gold-500/60 hover:shadow-lg">
+              <div class="relative aspect-square overflow-hidden bg-white">
+                <img
+                  src={p.image}
+                  alt={p.name}
+                  loading="lazy"
+                  decoding="async"
+                  width="276"
+                  height="276"
+                  class="h-full w-full object-contain p-2 transition-transform duration-500 group-hover:scale-105"
+                />
+                <!-- Logo watermark slot — JS swaps in uploaded logo or company initials -->
+                <div data-logo-slot class="pointer-events-none absolute right-2 top-2 rounded border border-dashed border-gold-600/60 bg-white/95 px-1.5 py-0.5">
+                  <span data-company-logo-text class="font-mono text-[9px] font-bold uppercase tracking-wider text-navy-900">Your Logo</span>
+                </div>
+              </div>
+              <div class="flex flex-1 flex-col gap-2 p-3 sm:p-4">
+                <h3 class="line-clamp-2 font-heading text-sm font-semibold leading-snug tracking-tight text-navy-950">{p.name}</h3>
+                <div class="mt-auto flex items-center justify-between pt-2">
+                  <span class="font-mono text-base font-bold text-navy-950">${p.price.toFixed(2)}</span>
+                  {p.colors > 1 && (
+                    <span class="font-mono text-[10px] uppercase tracking-wider text-gray-500">{p.colors} colors</span>
+                  )}
+                </div>
+                <button type="button" class="mt-1 w-full rounded-md bg-navy-950 py-2 font-mono text-[11px] font-bold uppercase tracking-wider text-white transition-colors hover:bg-navy-900">
+                  Select Options
+                </button>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <p class="mt-8 text-center font-mono text-[11px] uppercase tracking-[0.15em] text-gray-500">
+          Sample products · Your real store gets curated gear & pricing for your crew
+        </p>
+      </div>
+    </section>
+
+    <!-- Convert CTA -->
+    <section class="border-t border-gray-200 bg-navy-950 py-16 text-white sm:py-20">
+      <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+        <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Make This Real</span>
+        <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          Want <span id="cta-company"></span>'s real ordering portal?
+        </h2>
+        <p class="mb-8 text-lg leading-relaxed text-gray-300">
+          We'll build your private branded store with your logo, your colors, your crew's gear and pricing locked in. Your team logs in, picks sizes, gear ships direct. Live in 5 business days.
+        </p>
+        <div class="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+          <a id="cta-email" href="#" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-base font-bold text-navy-950 hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25">
+            Convert to a Real Portal
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          </a>
+          <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gray-500 px-8 py-4 font-mono text-base font-medium text-white hover:border-gold-500 hover:text-gold-500">
+            Or call 725.235.6196
+          </a>
+        </div>
+        <p class="mt-8 font-mono text-[11px] uppercase tracking-[0.15em] text-gray-400">Bookmark this page · Forward to your team · No login required</p>
+      </div>
+    </section>
+
+    <!-- Powered-by band -->
+    <section class="border-t border-gray-200 bg-white py-5">
+      <div class="mx-auto max-w-6xl px-4 text-center sm:px-6 lg:px-8">
+        <p class="font-mono text-[10px] uppercase tracking-[0.25em] text-gray-500">
+          <span id="powered-company"></span> Branded Store Demo · Powered by
+          <a href="/" class="text-gold-600 hover:text-gold-500">Bighorn Threads</a>
+        </p>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<script>
+  type Lead = {
+    company: string
+    contact: string
+    email: string
+    phone: string | null
+    trade: string
+    crewSize: number | null
+    logoDataUrl?: string | null
+  }
+  type Payload = { v: number; createdAt: string; lead: Lead }
+
+  const loadingEl = document.getElementById('preview-loading')
+  const notFoundEl = document.getElementById('preview-notfound')
+  const contentEl = document.getElementById('preview-content')
+
+  function hide(el: HTMLElement | null) { el?.classList.add('hidden'); el?.classList.remove('flex') }
+  function showFlex(el: HTMLElement | null) { el?.classList.remove('hidden'); el?.classList.add('flex') }
+
+  function showNotFound() { hide(loadingEl); hide(contentEl); showFlex(notFoundEl) }
+  function showContent() { hide(loadingEl); hide(notFoundEl); contentEl?.classList.remove('hidden') }
+
+  function decodeSlug(s: string): Payload | null {
+    try {
+      const b64 = s.replace(/-/g, '+').replace(/_/g, '/')
+      const padded = b64 + '='.repeat((4 - (b64.length % 4)) % 4)
+      const json = decodeURIComponent(escape(atob(padded)))
+      const data = JSON.parse(json)
+      if (!data?.lead?.company) return null
+      return data as Payload
+    } catch { return null }
+  }
+
+  function initials(name: string): string {
+    return name.trim().split(/\s+/).slice(0, 2).map((w) => w[0] || '').join('').toUpperCase() || '—'
+  }
+
+  function buildConvertEmailUrl(slug: string, lead: Lead): string {
+    const subject = `Convert preview to real store for ${lead.company}`
+    const body = [
+      'Hi Steve,',
+      '',
+      `I built a branded store preview at https://bighornthreads.com/preview/?s=${slug} and want to convert it to a real ordering portal.`,
+      '',
+      `Company: ${lead.company}`,
+      `Contact: ${lead.contact}`,
+      `Email: ${lead.email}`,
+      lead.phone ? `Phone: ${lead.phone}` : '',
+      `Trade: ${lead.trade}`,
+      lead.crewSize ? `Crew size: ${lead.crewSize}` : '',
+      '',
+      'Please reach out.',
+    ].filter(Boolean).join('\n')
+    return `mailto:steve@vp-promos.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+  }
+
+  // Safe: build an <img> via createElement, set src/alt via DOM APIs. Never use innerHTML with untrusted content.
+  function replaceSlotWithLogoImage(slot: HTMLElement, dataUrl: string, company: string, className: string) {
+    while (slot.firstChild) slot.removeChild(slot.firstChild)
+    const img = document.createElement('img')
+    img.src = dataUrl
+    img.alt = `${company} logo`
+    img.className = className
+    slot.appendChild(img)
+  }
+
+  const slug = new URLSearchParams(location.search).get('s')
+  const data = slug ? decodeSlug(slug) : null
+
+  if (!data) {
+    showNotFound()
+  } else {
+    const { lead } = data
+    document.title = `${lead.company} — Branded Apparel Store · Bighorn Threads`
+    const setText = (id: string, t: string) => { const el = document.getElementById(id); if (el) el.textContent = t }
+    setText('store-title', `${lead.company} Branded Store`)
+    setText('cta-company', lead.company)
+    setText('powered-company', lead.company)
+
+    const logoBox = document.getElementById('store-logo')
+    if (lead.logoDataUrl && logoBox) {
+      replaceSlotWithLogoImage(logoBox, lead.logoDataUrl, lead.company, 'h-full w-full rounded-lg object-contain p-1')
+      document.querySelectorAll<HTMLElement>('[data-logo-slot]').forEach((slot) => {
+        slot.className = 'pointer-events-none absolute right-2 top-2 rounded bg-white p-0.5 shadow-sm'
+        replaceSlotWithLogoImage(slot, lead.logoDataUrl!, lead.company, 'h-4 w-auto')
+      })
+    } else {
+      // No logo uploaded — initials in the square header badge, full company name on product watermarks
+      setText('store-logo-initials', initials(lead.company))
+      document.querySelectorAll<HTMLElement>('[data-company-logo-text]').forEach((el) => {
+        el.textContent = lead.company.toUpperCase()
+        el.classList.add('max-w-[110px]', 'truncate')
+      })
+    }
+
+    const cta = document.getElementById('cta-email') as HTMLAnchorElement | null
+    if (cta && slug) cta.href = buildConvertEmailUrl(slug, lead)
+
+    showContent()
+
+    // Subcategory filter
+    const nav = document.getElementById('subcat-nav')
+    const visibleCount = document.getElementById('visible-count')
+    const cards = document.querySelectorAll<HTMLElement>('#product-grid [data-subcat]')
+    nav?.addEventListener('click', (e) => {
+      const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-subcat]')
+      if (!btn) return
+      const want = btn.dataset.subcat!
+      nav.querySelectorAll<HTMLButtonElement>('[data-subcat]').forEach((b) => {
+        const active = b.dataset.subcat === want
+        b.setAttribute('aria-pressed', String(active))
+        b.classList.toggle('text-navy-950', active)
+        b.classList.toggle('text-gray-500', !active)
+      })
+      let shown = 0
+      cards.forEach((c) => {
+        const match = want === 'all' || c.dataset.subcat === want
+        c.classList.toggle('hidden', !match)
+        if (match) shown++
+      })
+      if (visibleCount) visibleCount.textContent = `${shown} item${shown === 1 ? '' : 's'}`
+    })
+  }
+</script>

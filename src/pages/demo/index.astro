@@ -1,0 +1,280 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const trades = [
+  'General Contractor',
+  'Electrical Contractor',
+  'Plumbing / HVAC',
+  'Roofing / Solar',
+  'Landscaping',
+  'Concrete / Masonry',
+  'Steel / Ironworkers',
+  'Oil / Gas / Mechanical',
+  'Other',
+]
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Preview Your Branded Store', item: 'https://bighornthreads.com/demo/' },
+  ],
+}
+---
+
+<BaseLayout
+  title="Preview Your Branded Apparel Store — Bighorn Threads"
+  description="See what your company's branded apparel store would look like. Free preview built in 30 seconds — your company name, your gear, no commitment. For Las Vegas trades and contractors."
+  canonical="https://bighornthreads.com/demo/"
+  noindex={true}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+
+  <!-- Hero + Form combined -->
+  <section class="relative min-h-[100svh] overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_30%,_rgba(193,155,61,0.12),_transparent)]"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-gold-400">Home</a>
+        <span class="px-2 text-gray-600">/</span>
+        <span class="text-gold-500">Preview Your Branded Store</span>
+      </nav>
+
+      <div class="grid items-start gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
+
+        <!-- Left: pitch -->
+        <div>
+          <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Free Preview · 30 Seconds</span>
+          <h1 class="mb-6 font-heading text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+            See What <span class="text-gold-500">Your Branded Store</span> Would Look Like.
+          </h1>
+          <p class="mb-8 text-lg leading-relaxed text-navy-200 sm:text-xl">
+            We'll build a private preview page with your company name on the header, your gear in the catalog, and a private URL you can share with your team. No commitment, no setup fee.
+          </p>
+
+          <ul class="mb-8 space-y-3 text-base text-gray-200">
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold-500"></span>
+              <span><strong class="text-white">Branded for your company</strong> — your name throughout, ready to share with your foreman or ops manager</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold-500"></span>
+              <span><strong class="text-white">Curated to your trade</strong> — workwear, hi-vis, FR, and gear that fits how your crew actually works</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold-500"></span>
+              <span><strong class="text-white">Convert when you're ready</strong> — one click turns your preview into a real ordering portal in 5 days</span>
+            </li>
+          </ul>
+
+          <p class="font-mono text-xs uppercase tracking-[0.15em] text-gray-300">No password · No account · Private link emailed to you</p>
+        </div>
+
+        <!-- Right: form card -->
+        <div class="rounded-2xl border border-gold-500/30 bg-navy-900/60 p-7 shadow-2xl shadow-gold-500/5 sm:p-8">
+          <h2 class="mb-2 font-heading text-2xl font-bold tracking-tight text-white">Build my preview</h2>
+          <p class="mb-6 text-sm text-gray-300">Tell us about your crew. We'll generate your branded store page instantly.</p>
+
+          <form id="preview-form" class="space-y-4" novalidate>
+            <div>
+              <label for="company" class="mb-1 block font-mono text-[11px] font-bold uppercase tracking-[0.15em] text-gold-500">Company name *</label>
+              <input id="company" name="company" type="text" required maxlength="80" class="w-full rounded-lg border border-navy-700 bg-navy-950 px-4 py-2.5 text-base text-white placeholder:text-gray-500 focus:border-gold-500 focus:outline-none" placeholder="ABC Electrical, LLC" />
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div>
+                <label for="contact" class="mb-1 block font-mono text-[11px] font-bold uppercase tracking-[0.15em] text-gold-500">Your name *</label>
+                <input id="contact" name="contact" type="text" required maxlength="80" class="w-full rounded-lg border border-navy-700 bg-navy-950 px-4 py-2.5 text-base text-white placeholder:text-gray-500 focus:border-gold-500 focus:outline-none" placeholder="John Doe" />
+              </div>
+              <div>
+                <label for="phone" class="mb-1 block font-mono text-[11px] font-bold uppercase tracking-[0.15em] text-gold-500">Phone</label>
+                <input id="phone" name="phone" type="tel" inputmode="tel" maxlength="20" class="w-full rounded-lg border border-navy-700 bg-navy-950 px-4 py-2.5 text-base text-white placeholder:text-gray-500 focus:border-gold-500 focus:outline-none" placeholder="725.555.0123" />
+              </div>
+            </div>
+
+            <div>
+              <label for="email" class="mb-1 block font-mono text-[11px] font-bold uppercase tracking-[0.15em] text-gold-500">Email *</label>
+              <input id="email" name="email" type="email" required maxlength="120" class="w-full rounded-lg border border-navy-700 bg-navy-950 px-4 py-2.5 text-base text-white placeholder:text-gray-500 focus:border-gold-500 focus:outline-none" placeholder="john@abcelectrical.com" />
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div>
+                <label for="trade" class="mb-1 block font-mono text-[11px] font-bold uppercase tracking-[0.15em] text-gold-500">Trade *</label>
+                <select id="trade" name="trade" required class="w-full rounded-lg border border-navy-700 bg-navy-950 px-4 py-2.5 text-base text-white focus:border-gold-500 focus:outline-none">
+                  <option value="">Select…</option>
+                  {trades.map((t) => <option value={t}>{t}</option>)}
+                </select>
+              </div>
+              <div>
+                <label for="crewSize" class="mb-1 block font-mono text-[11px] font-bold uppercase tracking-[0.15em] text-gold-500">Crew size</label>
+                <input id="crewSize" name="crewSize" type="number" min="1" max="9999" inputmode="numeric" class="w-full rounded-lg border border-navy-700 bg-navy-950 px-4 py-2.5 text-base text-white placeholder:text-gray-500 focus:border-gold-500 focus:outline-none" placeholder="25" />
+              </div>
+            </div>
+
+            <!-- Logo upload (optional) -->
+            <div>
+              <label for="logo" class="mb-1 flex items-center justify-between font-mono text-[11px] font-bold uppercase tracking-[0.15em] text-gold-500">
+                <span>Logo <span class="text-gray-400">(optional)</span></span>
+                <span id="logo-status" class="text-[10px] text-gray-300">PNG, JPG, WEBP · max 5MB</span>
+              </label>
+
+              <div class="flex items-center gap-3">
+                <label for="logo" class="inline-flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-lg border border-dashed border-navy-700 bg-navy-950 px-4 py-2.5 text-sm text-gray-300 transition-all hover:border-gold-500/50 hover:text-gold-400">
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+                  <span id="logo-label">Choose a logo file</span>
+                </label>
+                <button type="button" id="logo-clear" class="hidden rounded-lg border border-navy-700 bg-navy-900 px-3 py-2.5 text-sm text-gray-300 transition-colors hover:border-gold-500/40 hover:text-gold-400" aria-label="Remove logo">
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+              </div>
+              <input id="logo" name="logo" type="file" accept="image/png,image/jpeg,image/webp" class="sr-only" />
+
+              <!-- Logo preview -->
+              <div id="logo-preview-wrap" class="mt-3 hidden items-center gap-3 rounded-lg border border-gold-500/30 bg-gold-500/5 p-3">
+                <img id="logo-preview" alt="Logo preview" class="h-12 w-12 rounded-md border border-navy-700/60 bg-white object-contain" />
+                <div class="flex-1 text-xs">
+                  <p class="font-bold text-gold-400">Logo ready</p>
+                  <p class="text-gray-300">Will appear on every product card.</p>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" id="submit-btn" class="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-gold-500 px-6 py-3.5 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25 disabled:cursor-not-allowed disabled:opacity-60">
+              <span id="submit-label">Generate my branded store →</span>
+            </button>
+
+            <p class="text-center font-mono text-[10px] uppercase tracking-[0.15em] text-gray-300">Takes 5 seconds · Private URL · Share with your team</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const form = document.getElementById('preview-form') as HTMLFormElement | null
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement | null
+  const submitLabel = document.getElementById('submit-label')
+  const logoInput = document.getElementById('logo') as HTMLInputElement | null
+  const logoLabel = document.getElementById('logo-label')
+  const logoStatus = document.getElementById('logo-status')
+  const logoPreview = document.getElementById('logo-preview') as HTMLImageElement | null
+  const logoPreviewWrap = document.getElementById('logo-preview-wrap')
+  const logoClear = document.getElementById('logo-clear')
+
+  let logoDataUrl: string | null = null
+  const MAX_FILE_BYTES = 5 * 1024 * 1024 // 5MB raw cap before compression
+  // Keep tiny — full data URL goes into URL slug. 120×120 q0.6 ≈ 2-4KB base64.
+  const TARGET_DIMENSION = 120
+  const JPEG_QUALITY = 0.6
+
+  function setLogoStatus(text: string, isError = false) {
+    if (!logoStatus) return
+    logoStatus.textContent = text
+    logoStatus.className = `text-[10px] ${isError ? 'text-red-400' : 'text-gray-300'}`
+  }
+
+  function clearLogo() {
+    logoDataUrl = null
+    if (logoInput) logoInput.value = ''
+    if (logoLabel) logoLabel.textContent = 'Choose a logo file'
+    logoPreviewWrap?.classList.add('hidden')
+    logoPreviewWrap?.classList.remove('flex')
+    logoClear?.classList.add('hidden')
+    setLogoStatus('PNG, JPG, WEBP · max 5MB')
+  }
+
+  async function processLogoFile(file: File): Promise<void> {
+    if (file.size > MAX_FILE_BYTES) {
+      setLogoStatus('File too large (max 5MB)', true)
+      clearLogo()
+      return
+    }
+
+    const url = URL.createObjectURL(file)
+    try {
+      const img = await new Promise<HTMLImageElement>((resolve, reject) => {
+        const i = new Image()
+        i.onload = () => resolve(i)
+        i.onerror = () => reject(new Error('Could not read image'))
+        i.src = url
+      })
+
+      // Resize to fit within TARGET_DIMENSION × TARGET_DIMENSION, preserve aspect ratio
+      const scale = Math.min(TARGET_DIMENSION / img.width, TARGET_DIMENSION / img.height, 1)
+      const w = Math.round(img.width * scale)
+      const h = Math.round(img.height * scale)
+
+      const canvas = document.createElement('canvas')
+      canvas.width = w
+      canvas.height = h
+      const ctx = canvas.getContext('2d')
+      if (!ctx) throw new Error('Canvas not supported')
+      // White background to preserve transparent PNG visibility against any bg
+      ctx.fillStyle = '#ffffff'
+      ctx.fillRect(0, 0, w, h)
+      ctx.drawImage(img, 0, 0, w, h)
+
+      logoDataUrl = canvas.toDataURL('image/jpeg', JPEG_QUALITY)
+      if (logoPreview) logoPreview.src = logoDataUrl
+      logoPreviewWrap?.classList.remove('hidden')
+      logoPreviewWrap?.classList.add('flex')
+      logoClear?.classList.remove('hidden')
+      if (logoLabel) logoLabel.textContent = file.name.length > 32 ? file.name.slice(0, 29) + '…' : file.name
+
+      // Approximate URL impact
+      const sizeKb = Math.round(logoDataUrl.length / 1024)
+      setLogoStatus(`Resized to ${w}×${h} · ~${sizeKb}KB`)
+    } catch (err) {
+      console.error('[demo] logo processing failed:', err)
+      setLogoStatus(`Error: ${err instanceof Error ? err.message : 'could not read image'}`, true)
+      clearLogo()
+    } finally {
+      URL.revokeObjectURL(url)
+    }
+  }
+
+  logoInput?.addEventListener('change', async (e) => {
+    const file = (e.target as HTMLInputElement).files?.[0]
+    console.log('[demo] file picked:', file?.name, file?.size, file?.type)
+    if (file) await processLogoFile(file)
+  })
+  logoClear?.addEventListener('click', clearLogo)
+
+  function encodeSlug(payload: object): string {
+    const json = JSON.stringify(payload)
+    return btoa(unescape(encodeURIComponent(json)))
+      .replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '')
+  }
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault()
+    if (!form.checkValidity()) { form.reportValidity(); return }
+    if (submitBtn) submitBtn.disabled = true
+    if (submitLabel) submitLabel.textContent = 'Building your store…'
+
+    const fd = new FormData(form)
+    const payload = {
+      v: 1,
+      createdAt: new Date().toISOString(),
+      lead: {
+        company: String(fd.get('company') || '').trim(),
+        contact: String(fd.get('contact') || '').trim(),
+        email: String(fd.get('email') || '').trim(),
+        phone: String(fd.get('phone') || '').trim() || null,
+        trade: String(fd.get('trade') || '').trim(),
+        crewSize: fd.get('crewSize') ? Number(fd.get('crewSize')) : null,
+        logoDataUrl, // null if user didn't upload one
+      },
+    }
+    const slug = encodeSlug(payload)
+    const finalUrl = `/preview/?s=${slug}`
+    console.log('[demo] submit URL length:', finalUrl.length, '· logo present:', !!logoDataUrl)
+    window.location.href = finalUrl
+  })
+</script>
