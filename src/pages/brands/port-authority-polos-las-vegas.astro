@@ -1,0 +1,265 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const page = {
+  title: 'Custom Port Authority Polos and Embroidery in Las Vegas',
+  description:
+    'Custom Port Authority polos for Vegas office staff, sales reps, and project managers. Embroidered K500 silk-touch, K420 pique, K540 performance — stocked S–4XL, 6-piece minimum, week-long turnaround.',
+  hero: '/images/generated/workwear-flatlay.jpg',
+}
+
+const products = [
+  { sku: 'K500', name: 'Port Authority Silk Touch Polo', detail: 'The corporate workhorse. Pique knit, anti-snag finish, holds embroidery flat. Stocked S–4XL in core colors.', method: 'Embroidery (left chest, optional sleeve)' },
+  { sku: 'K420', name: 'Port Authority Pique Knit Polo', detail: 'Heavier 7 oz pique. The traditional country-club fit for sales reps and PMs who want substance over softness.', method: 'Embroidery (left chest)' },
+  { sku: 'K540', name: 'Port Authority Silk Touch Performance Polo', detail: 'Snag-resistant moisture-wicking. For outdoor field staff and trade-show booth crews in Vegas summer.', method: 'Embroidery (left chest)' },
+  { sku: 'L500', name: 'Port Authority Ladies Silk Touch Polo', detail: 'Cut for women — the K500 in a tailored silhouette. Same fabric, same color matching, no awkward unisex fit.', method: 'Embroidery (left chest)' },
+  { sku: 'K100', name: 'Port Authority Core Classic Pique Polo', detail: 'Budget-friendly entry polo. Used for events, volunteers, and high-volume promotional rollouts.', method: 'Embroidery or screen print (chest)' },
+  { sku: 'K8000', name: 'Port Authority EZCotton Polo', detail: 'Soft cotton-poly blend. Premium hand-feel for executive teams and client-facing roles.', method: 'Embroidery (left chest)' },
+]
+
+const why = [
+  { title: 'Embroiders cleanly every time', body: 'Port Authority pique knit is dense and stable. Logos stay flat — no puckering, no distortion, no thread sinking into the weave. The K500 is what we run when the customer says "make it look corporate."' },
+  { title: 'Color matching across SKUs', body: 'Port Authority colors hold across the K500, K420, K540, and L500. Order the men\'s and ladies\' polos at the same time and they actually match — not "close enough" match.' },
+  { title: 'Stocked, sized, and ready', body: 'We carry K500 and L500 in adult and ladies S–4XL in the most-ordered corporate colors. New hire? Polo on their desk in 7 days. Forgot to order for a tradeshow? 72-hour rush on stocked items.' },
+  { title: 'Corporate quality at workwear pricing', body: 'Port Authority gives you a $35 polo that looks like the $70 one from a golf brand. For 50-person sales teams and trade-show rollouts, the math just works.' },
+]
+
+const faqs = [
+  {
+    q: 'What\'s the minimum order for custom Port Authority polos?',
+    a: '6 pieces for embroidery, 24 for screen printing. Most polo orders run embroidery — that\'s the right decoration for the garment and what the corporate look calls for.',
+  },
+  {
+    q: 'How does Port Authority compare to Cutter & Buck or Nike Golf?',
+    a: 'Cutter & Buck and Nike Golf carry brand cachet and are 2–3x the cost. Port Authority gives you the same corporate look and fit at a price that works for 50-person rollouts. Use the premium brands for executive teams; use Port Authority for the broader org.',
+  },
+  {
+    q: 'What\'s the difference between K500, K420, and K540?',
+    a: 'K500 is the silk-touch — soft hand, mid-weight, the most popular for office staff. K420 is heavier 7 oz pique with a more traditional fit, better for outdoor wear and PMs. K540 is the performance version — moisture-wicking, snag-resistant, for trade shows and field reps in the Vegas heat.',
+  },
+  {
+    q: 'Can you match women\'s and men\'s polo colors for a mixed team?',
+    a: 'Yes. The L500 ladies polo color-matches the K500 men\'s polo across all core colors. Same dye lot reliability when ordered together. We also offer the L420 and L540 for the K420/K540 equivalents.',
+  },
+  {
+    q: 'Do you keep Port Authority in stock or order each time?',
+    a: 'We stock K500 and L500 in adult and ladies S–4XL in core colors (navy, black, white, royal, red, charcoal). Other colors and SKUs are special order at 7–10 days.',
+  },
+  {
+    q: 'Can you set up a Port Authority company store for a sales team?',
+    a: 'Yes — that\'s one of our most common stores. Approved Port Authority SKUs, your logo locked in, men\'s + ladies versions, optional name personalization. Reps order what they need, you set the budget. See company stores for the full setup.',
+  },
+]
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Brands', item: 'https://bighornthreads.com/brands/' },
+    { '@type': 'ListItem', position: 3, name: 'Port Authority', item: 'https://bighornthreads.com/brands/port-authority-polos-las-vegas/' },
+  ],
+}
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Custom Port Authority Polos — Las Vegas',
+  description: page.description,
+  brand: { '@type': 'Brand', name: 'Port Authority' },
+  manufacturer: { '@type': 'Organization', name: 'Port Authority' },
+  offers: {
+    '@type': 'AggregateOffer',
+    priceCurrency: 'USD',
+    lowPrice: 18,
+    highPrice: 55,
+    offerCount: products.length,
+    seller: { '@id': 'https://bighornthreads.com/#organization' },
+  },
+}
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+}
+---
+
+<BaseLayout
+  title={page.title}
+  description={page.description}
+  canonical="https://bighornthreads.com/brands/port-authority-polos-las-vegas/"
+  heroImage={page.hero}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+  <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
+    <div class="absolute inset-0">
+      <img src={page.hero} alt="" aria-hidden="true" class="h-full w-full object-cover opacity-30" width="1600" height="900" loading="eager" fetchpriority="high" />
+      <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/40" />
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_75%_-10%,_rgba(193,155,61,0.15),_transparent)]" />
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-gold-400">Home</a>
+        <span class="px-2 text-gray-600">/</span>
+        <span class="text-gray-500">Brands</span>
+        <span class="px-2 text-gray-600">/</span>
+        <span class="text-gold-500">Port Authority</span>
+      </nav>
+
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Brand</span>
+      <h1 class="mb-6 max-w-4xl font-heading text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+        Custom Port Authority Polos <span class="text-gold-500">for Vegas Sales Teams and Office Staff.</span>
+      </h1>
+      <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+        Embroidered K500 silk-touch. K420 pique for the traditional fit. K540 performance for trade shows and field reps. Stocked S–4XL in core corporate colors — week-long turnaround, color-matched men's and ladies' versions.
+      </p>
+
+      <div class="mt-10 flex flex-wrap items-center gap-3">
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25">
+          Get a Quote
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+        <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gold-500/40 px-6 py-3 font-mono text-sm font-medium text-gold-500 transition-all hover:border-gold-500 hover:bg-gold-500/5">
+          725.235.6196
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Port Authority -->
+  <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Why Port Authority</span>
+        <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Four reasons it's the corporate-polo default.</h2>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-2">
+        {why.map((w) => (
+          <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-7 transition-all hover:border-gold-500/30 hover:bg-navy-900/60">
+            <h3 class="mb-3 font-heading text-xl font-bold leading-tight tracking-tight text-white">{w.title}</h3>
+            <p class="text-base leading-relaxed text-gray-300">{w.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Most-Ordered</span>
+        <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">The Port Authority polos we run every week.</h2>
+        <p class="mt-4 text-lg leading-relaxed text-gray-300">
+          We stock the SKUs Vegas sales teams and corporate offices reorder. Other Port Authority items (woven shirts, jackets, headwear) we order in to match your spec.
+        </p>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {products.map((p) => (
+          <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+            <div class="mb-3 flex items-center justify-between">
+              <span class="font-mono text-xs font-bold tracking-wider text-gold-500">{p.sku}</span>
+            </div>
+            <h3 class="mb-2 font-heading text-lg font-bold leading-tight tracking-tight text-white">{p.name}</h3>
+            <p class="mb-4 text-sm leading-relaxed text-gray-300">{p.detail}</p>
+            <div class="mt-4 border-t border-navy-700/50 pt-3">
+              <span class="font-mono text-[10px] font-bold uppercase tracking-wider text-gold-400">Decoration</span>
+              <p class="mt-1 text-sm text-gray-200">{p.method}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- vs Premium Polo Brands -->
+  <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">vs Cutter &amp; Buck / Nike Golf</span>
+      <h2 class="mb-8 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Where Port Authority wins for team rollouts.</h2>
+
+      <div class="overflow-hidden rounded-2xl border border-navy-700/40">
+        <table class="w-full">
+          <thead class="bg-navy-900/60">
+            <tr class="border-b border-navy-700/40">
+              <th class="px-5 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gray-400">&nbsp;</th>
+              <th class="px-5 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gray-400">Cutter &amp; Buck / Nike Golf</th>
+              <th class="px-5 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500">Port Authority</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-navy-800 bg-navy-900/30">
+            <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-gray-300">Per-piece cost (decorated)</td><td class="px-5 py-4 text-sm text-gray-200">$60–$95</td><td class="px-5 py-4 text-sm text-white">$28–$45</td></tr>
+            <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-gray-300">Minimum order</td><td class="px-5 py-4 text-sm text-gray-200">12+ pieces</td><td class="px-5 py-4 text-sm text-white">6 (embroidery)</td></tr>
+            <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-gray-300">Lead time</td><td class="px-5 py-4 text-sm text-gray-200">2–4 weeks</td><td class="px-5 py-4 text-sm text-white">7 days, 72hr rush on stock</td></tr>
+            <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-gray-300">Men's + ladies' color match</td><td class="px-5 py-4 text-sm text-gray-200">Inconsistent</td><td class="px-5 py-4 text-sm text-white">Reliable across SKUs</td></tr>
+            <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-gray-300">Embroidery quality on garment</td><td class="px-5 py-4 text-sm text-gray-200">Excellent</td><td class="px-5 py-4 text-sm text-white">Excellent — pique stable</td></tr>
+            <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-gray-300">Best fit for</td><td class="px-5 py-4 text-sm text-gray-200">Executive teams, client gifts</td><td class="px-5 py-4 text-sm text-white">Sales orgs, full-staff rollouts</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">FAQ</span>
+      <h2 class="mb-12 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Port Authority customization questions.</h2>
+
+      <div class="space-y-3">
+        {faqs.map((f) => (
+          <details class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-5 transition-all hover:border-gold-500/30 open:border-gold-500/40">
+            <summary class="flex cursor-pointer items-start justify-between gap-4 list-none">
+              <h3 class="font-heading text-lg font-bold leading-tight tracking-tight text-white">{f.q}</h3>
+              <span class="mt-1 flex-shrink-0 text-gold-500 transition-transform group-open:rotate-45">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+              </span>
+            </summary>
+            <p class="mt-4 text-base leading-relaxed text-gray-300">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Related -->
+  <section class="border-b border-navy-800 bg-navy-950 py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-6 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Related</span>
+      <div class="grid gap-5 md:grid-cols-3">
+        <a href="/services/embroidery-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Embroidery</h3>
+          <p class="mt-2 text-sm text-gray-400">The right decoration for K500 and the rest of the Port Authority line.</p>
+        </a>
+        <a href="/company-stores/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Sales Team Company Stores</h3>
+          <p class="mt-2 text-sm text-gray-400">Stocked Port Authority polos with your logo on file. Reps order on demand.</p>
+        </a>
+        <a href="/blog/logo-digitizing-101-embroidery/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Logo Digitizing 101</h3>
+          <p class="mt-2 text-sm text-gray-400">How a clean digitized file makes Port Authority polo embroidery look sharp.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-navy-900/60 py-20">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Quote on custom Port Authority in 24 hours.</h2>
+      <p class="mb-8 text-lg text-gray-300">Stocked K500s ship in a week. Talk to a real human.</p>
+      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>
+        <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gray-600 px-8 py-4 font-mono text-base font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">725.235.6196</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

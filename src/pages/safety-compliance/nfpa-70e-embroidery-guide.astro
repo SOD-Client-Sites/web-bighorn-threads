@@ -1,0 +1,304 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const post = {
+  title: 'NFPA 70E Embroidery Guide: How to Brand FR Shirts Without Voiding the Rating',
+  description:
+    'A step-by-step guide to embroidering NFPA 70E arc-rated shirts. FR-compatible thread, brand-specific placement spec for Bulwark and Carhartt FR, backing material requirements, and how a safety officer verifies the work.',
+  category: 'NFPA 70E',
+  readTime: '12 min read',
+  date: 'Apr 19, 2026',
+  isoDate: '2026-04-19',
+  image: '/images/generated/service-embroidery.jpg',
+  slug: 'nfpa-70e-embroidery-guide',
+}
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: post.title,
+      description: post.description,
+      image: `https://bighornthreads.com${post.image}`,
+      datePublished: post.isoDate,
+      dateModified: post.isoDate,
+      author: { '@type': 'Organization', name: 'Bighorn Threads Team' },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Bighorn Threads',
+        logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' },
+      },
+      mainEntityOfPage: `https://bighornthreads.com/safety-compliance/${post.slug}/`,
+      about: { '@type': 'Thing', name: 'NFPA 70E arc-rated apparel decoration' },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Safety & Compliance', item: 'https://bighornthreads.com/safety-compliance/' },
+        { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/safety-compliance/${post.slug}/` },
+      ],
+    },
+  ],
+}
+---
+
+<BaseLayout
+  title={post.title}
+  description={post.description}
+  canonical={`https://bighornthreads.com/safety-compliance/${post.slug}/`}
+  ogImage={post.image}
+  type="article"
+  publishedDate={post.isoDate}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <article class="bg-navy-950">
+    <header class="relative overflow-hidden border-b border-navy-800">
+      <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_30%,_rgba(193,155,61,0.06),_transparent)]"></div>
+
+      <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
+        <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-gold-400">Home</a>
+          <span class="px-2">/</span>
+          <a href="/safety-compliance/" class="hover:text-gold-400">Safety &amp; Compliance</a>
+        </nav>
+
+        <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
+        <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
+        <p class="mb-8 text-xl leading-relaxed text-gray-300">
+          What "arc-rated" actually means. Why standard polyester thread voids the certification. The exact placement rules per brand. And how a safety officer verifies your decoration on a job-site walk.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400">
+          <span class="text-gold-500">Bighorn Threads Team</span>
+          <span aria-hidden="true">&middot;</span>
+          <span>{post.readTime}</span>
+          <span aria-hidden="true">&middot;</span>
+          <time datetime={post.isoDate}>{post.date}</time>
+        </div>
+      </div>
+    </header>
+
+    <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8">
+      <img src={post.image} alt="Embroidery on FR-rated shirt with FR-compatible Nomex thread" width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" />
+    </div>
+
+    <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+      <aside class="mb-12 rounded-2xl border border-navy-700/50 bg-navy-900/40 p-6 lg:sticky lg:top-24">
+        <h2 class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-500">In this guide</h2>
+        <ol class="space-y-2 font-mono text-sm text-navy-200">
+          <li><a href="#what-is-nfpa-70e" class="hover:text-gold-400">1. What NFPA 70E covers</a></li>
+          <li><a href="#arc-rated-vs-fr" class="hover:text-gold-400">2. Arc-rated vs flame-retardant</a></li>
+          <li><a href="#thread" class="hover:text-gold-400">3. FR-compatible thread (Nomex / aramid)</a></li>
+          <li><a href="#placement" class="hover:text-gold-400">4. Placement spec per brand</a></li>
+          <li><a href="#backing" class="hover:text-gold-400">5. Backing material requirements</a></li>
+          <li><a href="#screen-print" class="hover:text-gold-400">6. Screen printing as an alternative</a></li>
+          <li><a href="#verification" class="hover:text-gold-400">7. How a safety officer verifies</a></li>
+          <li><a href="#summary" class="hover:text-gold-400">8. The short version</a></li>
+        </ol>
+      </aside>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        We get the same call every month. A contractor sent his crew\'s FR shirts to a generic uniform shop, the shop embroidered them with standard polyester thread, and now the safety officer is refusing to accept the shirts on site. Fifty pieces, three weeks of lead time, and the whole batch has to be redone — because the shop didn\'t know that decoration on FR is a regulated act, not a service add-on.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        This guide is the version we wish every uniform shop had read before quoting an FR job. If you\'re a contractor, it\'ll help you ask the right questions before you hand over a $4,000 batch of Bulwark to whoever Googles cheapest. If you\'re a shop, this is the playbook we run on every NFPA 70E order.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        For a working-electrician\'s view of the broader NFPA 70E standard — CAT ratings, brand picks, what to actually buy — see our companion piece, <a href="/blog/nfpa-70e-fr-shirts-vegas-electricians/" class="text-gold-500 underline hover:text-gold-400">FR Shirt Compliance for Vegas Electricians</a>. This guide goes deep on the decoration side specifically.
+      </p>
+
+      <h2 id="what-is-nfpa-70e" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">1. What NFPA 70E Covers</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        NFPA 70E is the National Fire Protection Association\'s standard for electrical safety in the workplace. It defines the apparel and PPE required to protect workers from arc flash and arc blast hazards — events where energized electrical equipment fails catastrophically and releases a burst of plasma, light, and pressure.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        OSHA references NFPA 70E as the consensus standard for compliance with 29 CFR 1910.269 (electric power generation, transmission, and distribution) and Subpart S (electrical). In practical terms: if a worker can be exposed to incident energy greater than 1.2 cal/cm², the employer is required to provide arc-rated PPE. That covers most journeyman electrical work in commercial settings.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        The key word for our purposes is <em>system</em>. NFPA 70E doesn\'t certify a shirt — it certifies the apparel system the worker is wearing, including the original garment, any modifications, and any layered components. Decoration is a modification. Done wrong, it changes the rating.
+      </p>
+
+      <h2 id="arc-rated-vs-fr" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">2. Arc-Rated vs Flame-Retardant — They\'re Not the Same</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        "FR" gets thrown around like it means one thing. It doesn\'t. Flame-retardant means the fabric resists ignition and self-extinguishes. Arc-rated means the garment has been tested under arc-flash conditions and assigned a measured thermal protection value in cal/cm². All arc-rated garments are FR. Not all FR garments are arc-rated.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        For NFPA 70E compliance, you need arc-rated, not just FR. The label on a compliant garment will show its arc rating in cal/cm² (often 8.7, 12, or higher) and reference NFPA 2112 or ASTM F1506. If the label only says "flame-resistant" or "FR" with no cal value, it doesn\'t meet 70E for arc-flash work.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        This matters for decoration because the arc rating includes the assumption that the garment surface hasn\'t been modified with non-rated materials. Stitch a polyester logo across the chest and you\'ve introduced a fuel source into a system designed to not have one. The polyester ignites at temperatures the FR fabric is designed to suppress, and now the rating is effectively void in the area of the decoration.
+      </p>
+
+      <h2 id="thread" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">3. FR-Compatible Thread (Nomex / Aramid)</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Standard embroidery thread is polyester or rayon. Both are flammable. Both melt under arc-flash conditions. Both are explicitly excluded from FR-compatible decoration by every major FR garment manufacturer. If you\'re embroidering on an arc-rated shirt with anything other than FR-compatible thread, you\'ve failed the modification.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Nomex thread</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Nomex (DuPont aramid) is the gold-standard FR-compatible embroidery thread. It\'s inherently flame-resistant — the FR property is in the fiber itself, not a treatment that washes out. Nomex thread is used by every major FR garment decorator we know of, and it\'s the thread we run on every NFPA 70E job in our shop.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        The trade-off: Nomex comes in a smaller color library than polyester. Roughly 60–80 standard colors versus the 400+ available in polyester. Brand-color matching can require a Pantone discussion before production. We\'ll work with you to find the closest Nomex match for your logo before we run the job.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Other aramid blends</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Kevlar (also DuPont aramid) and several Indian/Korean aramid blends are also FR-compatible. We use Madeira FireFighter and Coats FR threads as alternates when Nomex isn\'t available in a needed color. All are inherently FR aramid, all meet the same standards.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Cotton thread (do not use)</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Some shops will tell you "cotton is fine for FR because it\'s natural." It\'s not. Untreated cotton ignites at lower temperatures than the FR fabric is designed to protect against. Cotton thread on FR is not compliant and not safe.
+      </p>
+
+      <div class="my-10 rounded-2xl border-l-4 border-gold-500 bg-gold-500/5 p-6">
+        <p class="mb-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-500">The thread rule</p>
+        <p class="text-lg leading-relaxed text-navy-100">
+          If your current decorator can\'t answer "what thread do you use on FR?" with the words "Nomex" or "FR-compatible aramid," they\'re running polyester. Period. There are no shortcuts here. Ask, verify, and switch shops if the answer is wrong.
+        </p>
+      </div>
+
+      <h2 id="placement" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">4. Placement Spec Per Brand</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Every major FR garment manufacturer publishes a decoration spec sheet — exact placement rules for embroidery, screen print, and heat transfer on their garments. The spec varies by brand, garment line, and sometimes by individual SKU. Following the spec keeps the warranty and the certification intact. Ignoring it voids both.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Bulwark FR</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Bulwark publishes one of the most detailed decoration spec sheets in the industry. Standard rules for the Excel-FR ComforTouch line: embroidery up to 4" x 4" on the left chest with FR-compatible thread, 12" x 4" name strip on the back yoke, no embroidery within 2" of any garment seam or hem. Heat transfer is permitted with FR-rated transfer film only.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        We keep current Bulwark spec sheets on file for every line we run. If you\'re placing a Bulwark order with us, we\'ll verify the decoration plan against the spec before production. If your design exceeds the placement budget, we\'ll either reduce it or recommend a sewn-on FR-rated woven label as an alternative.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Carhartt FR</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Carhartt FR spec is similar to Bulwark with a few line-specific differences. The FRSH13 Force Henley allows up to 4" x 3.5" left chest embroidery with FR-compatible thread. The FRK293 button-up allows 4" x 4" left chest plus a 2" x 4" sleeve embroidery on the right cuff. No embroidery on pocket flaps.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Carhartt also requires that any decoration use FR-compatible backing material — a non-FR cutaway backing left in the garment after production is technically a violation. We use FR-rated water-soluble backing that washes out completely, removing the backing question entirely.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Wrangler Riggs FR</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Riggs FR spec is the most permissive of the three — typically 4" x 4" chest plus 12" x 4" back across most of the line. Same thread and backing rules apply.
+      </p>
+
+      <h2 id="backing" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">5. Backing Material Requirements</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Embroidery requires backing — a stabilizing material placed behind the fabric during stitching to keep the design clean and prevent puckering. On standard garments we use cutaway polyester backing. That backing stays in the garment after production.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        On FR garments, polyester backing left in place is non-compliant. The backing introduces a flammable layer behind the FR fabric exactly where the embroidery sits. Two options for compliance:
+      </p>
+
+      <ul class="mb-6 list-disc space-y-2 pl-6 text-lg leading-relaxed text-navy-200">
+        <li><strong>FR-rated cutaway backing:</strong> Aramid or Nomex backing material, left in place after production. Stays compliant but adds material cost and slight stiffness behind the design.</li>
+        <li><strong>Water-soluble backing:</strong> Backing that dissolves completely in the first wash. The garment ships with backing in place, customer launders, backing is gone. Our preferred method for most FR jobs.</li>
+      </ul>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        We use water-soluble backing on the majority of our FR embroidery work. It removes the backing question from the customer\'s side entirely — they wash the shirts before first wear (which their laundry process should already include) and the design is left clean against the FR fabric with no extra material in the system.
+      </p>
+
+      <h2 id="screen-print" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">6. Screen Printing as an Alternative</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Screen printing on FR is possible but more constrained than embroidery. The ink itself has to be FR-rated, the placement spec is typically tighter, and the maximum coverage area is smaller. For most FR work we recommend embroidery — same compliance level, more durable through industrial laundry, and a better fit for the typically smaller logos used on service-call gear.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        When screen print on FR makes sense: large, simple back graphics for a crew name or job site, where embroidery would be cost-prohibitive at the size needed. We use water-based FR-rated inks (typically Wilflex FR or equivalent) and verify the manufacturer spec before production. Read more on our <a href="/services/screen-printing-las-vegas/" class="text-gold-500 underline hover:text-gold-400">screen printing service page</a>.
+      </p>
+
+      <h2 id="verification" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">7. How a Safety Officer Verifies the Decoration</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Safety officers don\'t inspect every garment with a magnifying glass. They do a few quick checks on a job-site walk and they ask for documentation when something looks off. Here\'s what they\'re actually looking at:
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Visual check on the embroidery</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Standard polyester thread has a distinctive sheen that\'s easy to spot once you\'ve seen Nomex side by side. Nomex is matte. If the embroidery is shiny or "plastic-looking," it\'s probably polyester. A safety officer who\'s seen 100 FR shirts knows the difference at five feet.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Burn test (if it gets serious)</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        For high-stakes verification — post-incident review, large utility customer audit — a safety officer can have a small thread sample tested at a third-party lab, or perform a quick controlled-flame test on a thread sample to see if it ignites or self-extinguishes. Polyester ignites and burns. Nomex doesn\'t.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Documentation request</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        The cleanest verification: the safety officer asks the contractor for the decoration shop\'s certification or invoice line specifying FR-compatible thread. We provide this documentation on every NFPA 70E order. If your current shop can\'t produce it, that\'s the answer.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Placement check against manufacturer spec</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Less common but valid. A diligent safety officer can pull up the Bulwark or Carhartt spec sheet for the garment and measure the actual decoration. If your logo is 5" wide on a Bulwark shirt with a 4" max, that\'s a documented non-conformity.
+      </p>
+
+      <div class="my-10 rounded-2xl border-l-4 border-gold-500 bg-gold-500/5 p-6">
+        <p class="mb-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Why this matters</p>
+        <p class="text-lg leading-relaxed text-navy-100">
+          A safety officer\'s job is to find the documentation gap, not to be helpful. If the wrong thread is on a shirt during a routine walk, that\'s a write-up. If it\'s on a shirt during a post-incident investigation, it\'s evidence the employer didn\'t maintain compliant PPE. The decoration shop won\'t be in the room — the contractor will.
+        </p>
+      </div>
+
+      <div class="my-12 rounded-2xl border border-gold-500/30 bg-gold-500/5 p-8 text-center">
+        <h3 class="mb-3 font-heading text-2xl font-bold text-white">Need FR shirts decorated correctly?</h3>
+        <p class="mb-6 text-base text-gray-300">Send your roster, brand spec, and logo. We verify against the manufacturer spec sheet and quote in 24 hours.</p>
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Quote</a>
+      </div>
+
+      <h2 id="summary" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">8. The Short Version</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Use FR-compatible thread (Nomex or aramid) on every NFPA 70E job. Verify the placement against the manufacturer spec sheet — Bulwark, Carhartt FR, and Wrangler Riggs each publish their own. Use water-soluble or FR-rated backing material. Document the decoration method on the invoice so the contractor can produce it during an audit.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        For the broader NFPA 70E picture — CAT ratings, brand selection, the five compliance mistakes we see weekly — see our <a href="/blog/nfpa-70e-fr-shirts-vegas-electricians/" class="text-gold-500 underline hover:text-gold-400">working contractor\'s NFPA 70E guide</a>. For ANSI/ISEA 107 hi-vis decoration rules, see the <a href="/safety-compliance/ansi-107-hi-vis-guide/" class="text-gold-500 underline hover:text-gold-400">hi-vis guide</a>. To see what we make for electrical and oil/gas crews specifically, see our <a href="/industries/electrical-contractors-las-vegas/" class="text-gold-500 underline hover:text-gold-400">electrical contractors</a> and <a href="/industries/oil-gas-mechanical-las-vegas/" class="text-gold-500 underline hover:text-gold-400">oil, gas &amp; mechanical</a> pages.
+      </p>
+
+      <div class="mt-16 rounded-2xl border border-navy-700/50 bg-navy-900/40 p-6">
+        <div class="flex items-start gap-4">
+          <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-gold-500/30 bg-gold-500/10">
+            <span class="font-mono text-lg font-bold text-gold-500">BT</span>
+          </div>
+          <div>
+            <p class="mb-1 font-heading text-lg font-bold text-white">Bighorn Threads Team</p>
+            <p class="text-sm leading-relaxed text-navy-200">FR-safe embroidery for Las Vegas electrical, oil, gas, and mechanical contractors since 2010. Nomex thread, manufacturer spec verification, decoration documentation on every order. <a href="/safety-compliance/" class="text-gold-500 underline hover:text-gold-400">Back to the safety &amp; compliance hub.</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <section class="border-t border-navy-800 bg-navy-900/60 py-16">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">FR decoration that holds the rating.</h2>
+      <p class="mb-8 text-lg text-gray-400">Nomex thread, manufacturer-spec placement, water-soluble FR backing — documented on every order.</p>
+      <a href="/contact/" class="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-gold-500 px-8 py-4 text-lg font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>
+    </div>
+  </section>
+</BaseLayout>

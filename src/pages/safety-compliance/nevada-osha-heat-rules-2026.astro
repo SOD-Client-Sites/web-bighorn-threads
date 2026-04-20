@@ -1,0 +1,313 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const post = {
+  title: 'Nevada OSHA Heat-Illness Rules 2026: How Uniform Choice Affects Compliance',
+  description:
+    'A working guide to Nevada\'s heat-illness prevention regulation and SB427. The 5 AM construction-start allowance, UPF spec for outdoor uniforms, fabrics to avoid on Vegas rooftops, and what employers need to document.',
+  category: 'Nevada OSHA',
+  readTime: '13 min read',
+  date: 'Apr 19, 2026',
+  isoDate: '2026-04-19',
+  image: '/images/generated/kit-roofing.jpg',
+  slug: 'nevada-osha-heat-rules-2026',
+}
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: post.title,
+      description: post.description,
+      image: `https://bighornthreads.com${post.image}`,
+      datePublished: post.isoDate,
+      dateModified: post.isoDate,
+      author: { '@type': 'Organization', name: 'Bighorn Threads Team' },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Bighorn Threads',
+        logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' },
+      },
+      mainEntityOfPage: `https://bighornthreads.com/safety-compliance/${post.slug}/`,
+      about: { '@type': 'Thing', name: 'Nevada heat-illness prevention regulation' },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Safety & Compliance', item: 'https://bighornthreads.com/safety-compliance/' },
+        { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/safety-compliance/${post.slug}/` },
+      ],
+    },
+  ],
+}
+---
+
+<BaseLayout
+  title={post.title}
+  description={post.description}
+  canonical={`https://bighornthreads.com/safety-compliance/${post.slug}/`}
+  ogImage={post.image}
+  type="article"
+  publishedDate={post.isoDate}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <article class="bg-navy-950">
+    <header class="relative overflow-hidden border-b border-navy-800">
+      <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_30%,_rgba(193,155,61,0.06),_transparent)]"></div>
+
+      <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
+        <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-gold-400">Home</a>
+          <span class="px-2">/</span>
+          <a href="/safety-compliance/" class="hover:text-gold-400">Safety &amp; Compliance</a>
+        </nav>
+
+        <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
+        <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
+        <p class="mb-8 text-xl leading-relaxed text-gray-300">
+          What Nevada\'s heat-illness regulation actually requires. The 5 AM construction-start allowance and how it changes your apparel mix. UPF rating, fabric choice, and the documentation employers need on file.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400">
+          <span class="text-gold-500">Bighorn Threads Team</span>
+          <span aria-hidden="true">&middot;</span>
+          <span>{post.readTime}</span>
+          <span aria-hidden="true">&middot;</span>
+          <time datetime={post.isoDate}>{post.date}</time>
+        </div>
+      </div>
+    </header>
+
+    <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8">
+      <img src={post.image} alt="Roofing crew wearing UPF-rated long-sleeve sun shirts during early-morning Las Vegas summer work" width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" />
+    </div>
+
+    <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+      <aside class="mb-12 rounded-2xl border border-navy-700/50 bg-navy-900/40 p-6 lg:sticky lg:top-24">
+        <h2 class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-500">In this guide</h2>
+        <ol class="space-y-2 font-mono text-sm text-navy-200">
+          <li><a href="#overview" class="hover:text-gold-400">1. Nevada SB427 and the heat regulation</a></li>
+          <li><a href="#five-am" class="hover:text-gold-400">2. The 5 AM construction start</a></li>
+          <li><a href="#what-employers-must-do" class="hover:text-gold-400">3. What employers must do</a></li>
+          <li><a href="#upf" class="hover:text-gold-400">4. UPF rating — what it means</a></li>
+          <li><a href="#fabrics" class="hover:text-gold-400">5. Fabrics that work in Vegas heat</a></li>
+          <li><a href="#avoid" class="hover:text-gold-400">6. Fabrics to avoid on rooftops</a></li>
+          <li><a href="#documentation" class="hover:text-gold-400">7. Documentation employers need</a></li>
+          <li><a href="#brands" class="hover:text-gold-400">8. Brand-specific recommendations</a></li>
+          <li><a href="#summary" class="hover:text-gold-400">9. The short version</a></li>
+        </ol>
+      </aside>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        For decades, Nevada\'s heat-illness response was "drink water, take breaks, don\'t die." The state had no specific heat-illness prevention regulation — the federal OSHA general duty clause was the only enforcement hook, and it took a fatality to invoke it. That changed with SB427 and the resulting Nevada heat-illness regulation, which set explicit requirements for outdoor employers in a state where summer rooftop temperatures hit 165°F by 11 AM.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        We outfit Vegas roofing, solar, framing, concrete, and outdoor service crews — the trades most exposed to the rule. This guide is what we\'ve learned from sitting in safety-program meetings, decoding the regulation with safety officers, and updating uniform mixes for clients trying to comply without losing daylight productivity.
+      </p>
+
+      <h2 id="overview" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">1. Nevada SB427 and the Heat Regulation</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Senate Bill 427 (passed 2023) directed the Nevada Division of Industrial Relations to adopt a heat-illness prevention standard for both indoor and outdoor work. The resulting regulation took effect in phases, with full enforcement on outdoor employers in heat-exposure industries by mid-2024. As of 2026, the rule is fully active and Nevada OSHA is conducting heat-specific inspections through the summer months.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        The core trigger: any time the heat index reaches 80°F or above, employers in covered industries must implement a written heat-illness prevention plan. At 90°F, additional acclimatization, monitoring, and rest-cycle requirements kick in. At 95°F, mandatory cool-down breaks become enforceable.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        For Las Vegas, that means: from roughly mid-April through mid-October, every outdoor trades crew is operating under the rule. From late June through mid-September, the 95°F threshold is hit before noon almost every day. The regulation is not theoretical here — it shapes daily workflow.
+      </p>
+
+      <h2 id="five-am" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">2. The 5 AM Construction Start</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        One of the most practical responses to the regulation has been Clark County\'s allowance for construction work to begin at 5 AM during summer months. Standard noise ordinance restrictions normally prohibit construction noise before 6 AM in residential-adjacent areas, but during posted summer schedule periods (typically June 1 through September 30) the start time moves to 5 AM specifically to let crews work the cooler hours.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        For roofing and solar especially, the 5 AM start is the difference between getting a roof dried in by 11 AM heat or carrying the work into the worst part of the day. Most established Vegas crews now treat 5 AM start as standard during summer — and the apparel mix has to support that.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">What this means for uniforms</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        5 AM in Vegas during summer is around 75–80°F. By 11 AM the same crew is in 100–110°F ambient with rooftop surface temps 30–50°F higher. A uniform that works at 5 AM and works at 11 AM is a different garment than one that only works at one or the other. The right answer is layering: a long-sleeve UPF-rated sun shirt as the base layer, with the option to roll sleeves or add hi-vis depending on the moment.
+      </p>
+
+      <h2 id="what-employers-must-do" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">3. What Employers Must Do Under the Rule</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        We\'re not lawyers and this isn\'t legal advice. But here\'s the working summary of what every Vegas outdoor employer should have in place for the 2026 season, based on the current regulation:
+      </p>
+
+      <ul class="mb-6 list-disc space-y-2 pl-6 text-lg leading-relaxed text-navy-200">
+        <li><strong>Written heat-illness prevention plan</strong> — site-specific, available on each job site, in the languages spoken by the crew.</li>
+        <li><strong>Acclimatization protocol</strong> — new hires and returning workers gradually built up to full-day exposure over 4–14 days.</li>
+        <li><strong>Water access</strong> — at least one quart per worker per hour, accessible within reasonable distance of the work area.</li>
+        <li><strong>Shade access</strong> — natural or constructed shade large enough for required rest groups, when temperatures hit 80°F.</li>
+        <li><strong>Rest cycles</strong> — mandatory cool-down breaks at defined heat-index thresholds (typically 10 minutes per 2 hours at 95°F+).</li>
+        <li><strong>Heat-illness training</strong> — every worker trained on recognition of heat exhaustion, heat stroke, and the response protocol.</li>
+        <li><strong>Emergency response plan</strong> — documented protocol for getting an affected worker to medical care, including the address of the work site for EMS.</li>
+      </ul>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Apparel isn\'t formally required as a control measure under most heat regulations, but it\'s a documented "engineering or administrative control" that supports compliance. The right uniform reduces the heat load on the worker and extends safe working time. The wrong uniform actively works against your other controls.
+      </p>
+
+      <h2 id="upf" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">4. UPF Rating — What It Actually Means</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        UPF (Ultraviolet Protection Factor) measures how much UV radiation a fabric blocks. UPF 30 blocks about 96.7% of UV. UPF 50 blocks 98%. UPF 50+ (the maximum rating) blocks 98%+ and is the standard target for outdoor work apparel.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        UPF is determined by fabric weave density, fiber type, color, and treatment. Tighter weaves block more UV. Darker colors block more than lighter ones (with a heat trade-off). Synthetic fibers like polyester and nylon naturally block more UV than untreated cotton. A standard cotton t-shirt has roughly UPF 5 — meaning 17% of UV passes through. A purpose-built UPF 50+ sun shirt blocks 50 times more UV than that cotton tee.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Why this matters in Vegas</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        UV index in Las Vegas hits 11+ (extreme) for most of the summer day. Skin exposure under those conditions causes burn in 10–15 minutes for unprotected skin. A roofer in a regular cotton tee is being burned through the shirt every shift. Long-term: skin cancer rates among outdoor workers in the Southwest run measurably above national averages, and the Nevada workers\' comp data reflects that.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Long-sleeve UPF instead of sunscreen</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Sunscreen requires constant reapplication, runs into the eyes when crews sweat, and is rarely actually used to manufacturer spec. A UPF 50+ long-sleeve sun shirt provides equivalent or better UV protection passively, doesn\'t wash off, and stays effective for the entire shift. For Vegas outdoor crews, the long-sleeve UPF shirt is the single most impactful PPE upgrade you can make.
+      </p>
+
+      <h2 id="fabrics" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">5. Fabrics That Actually Work in Vegas Heat</h2>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Polyester moisture-wicking blends</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        The default for Vegas outdoor work. 100% polyester (or polyester-spandex blends) wicks sweat off the skin to the outer fabric surface where evaporation does the cooling. Native UPF rating in tight-weave polyester runs 30–50 without treatment. Lightweight (4–5 oz) polyester long-sleeve sun shirts are the workhorse of Vegas roofing and solar uniform programs.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Polyester-cotton blends</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        50/50 or 65/35 poly-cotton blends work for moderate heat conditions but lose to pure polyester above about 95°F. The cotton component absorbs sweat instead of wicking it, leaving the shirt heavy and the worker hotter. Acceptable for spring and fall, marginal for summer.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Nylon</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Common in higher-end outdoor brands (Carhartt Force, some Columbia PFG). Strong UPF, fast-drying, durable. Tends to be more expensive than polyester equivalents and can hold odor more aggressively. Good for foreman-grade gear, overkill for full-crew rollouts.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Modacrylic blends (FR + heat)</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Where heat compliance overlaps with FR compliance — utility workers, oil/gas service techs — modacrylic-blend FR fabrics are the answer. Lighter than traditional cotton FR, with better moisture management. Bulwark iQ Series and Carhartt FR knit fabrics fall in this category. See our <a href="/blog/nfpa-70e-fr-shirts-vegas-electricians/" class="text-gold-500 underline hover:text-gold-400">FR guide</a> for more on this overlap.
+      </p>
+
+      <h2 id="avoid" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">6. Fabrics to Avoid on Vegas Rooftops</h2>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Heavy cotton</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        100% cotton t-shirts, especially heavyweight (6+ oz). Cotton soaks up sweat, gets heavy, stops evaporating, and traps heat against the body. The classic "wet cotton tee" of a Vegas summer work shift is actively dangerous — a worker is hotter in a wet cotton shirt than they would be shirtless in many cases. UPF rating on untreated cotton is low (5–10). This is the #1 fabric we tell crews to drop.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Dark colors on rooftops</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Black and navy absorb solar heat. On a 110°F day with a roofing crew on dark-colored gear, surface fabric temp can reach 130°F or higher. We recommend lighter colors (lime, gold, light gray, white, light blue) for summer outdoor work. Dark colors are fine for fall through spring or for crews working in shade.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Untreated cotton FR (heavy weight)</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Traditional cotton FR (Indura, Westex UltraSoft) at 9 oz weight is too hot for Vegas summer rooftop work. The compliance value is real but the wearability collapses, and crews end up swapping out for non-FR cotton tees underneath — which voids the entire point. For Vegas, spec the lighter-weight modacrylic FR blends instead.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Synthetic without breathability</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Cheap polyester without moisture-wicking treatment can be worse than cotton. Look for explicit moisture-management language on the spec sheet — "moisture-wicking," "Cool Touch," "PosiCharge," or similar — not just "polyester."
+      </p>
+
+      <h2 id="documentation" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">7. Documentation Employers Need</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Apparel doesn\'t typically generate its own documentation requirement under the heat regulation, but it shows up indirectly in two places:
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Heat-illness prevention plan</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Most plans we\'ve seen include a section on "engineering and administrative controls" — and uniform spec is one of those. Documenting that the company provides UPF-rated long-sleeve sun shirts as standard issue strengthens the plan and gives the safety officer a defensible position in an audit. We can provide spec sheets for any garment we sell that lists UPF rating, fabric weight, and moisture-management properties.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Acclimatization records</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        For new hires going through the 4–14 day acclimatization protocol, the apparel they\'re issued is part of the controlled exposure environment. Issuing the proper UPF/moisture-management gear at day one and documenting it (typical issue receipt or inventory record) supports the acclimatization documentation.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Post-incident review</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        If a heat-illness incident occurs, OSHA will look at the controls in place. The uniform the worker was wearing is part of that record. Wrong fabric in heat conditions is a contributing finding the same way wrong thread on FR is — not the original cause, but a documented gap.
+      </p>
+
+      <div class="my-10 rounded-2xl border-l-4 border-gold-500 bg-gold-500/5 p-6">
+        <p class="mb-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Practical answer</p>
+        <p class="text-lg leading-relaxed text-navy-100">
+          For most Vegas outdoor crews: spec UPF 50+ long-sleeve sun shirts in light colors as the summer baseline, polyester or polyester-blend moisture-wicking fabric, with hi-vis Class 2 added wherever the work zone requires it. Document the spec in your heat-illness prevention plan. That covers your apparel side of the rule for the entire summer season.
+        </p>
+      </div>
+
+      <h2 id="brands" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">8. Brand-Specific Recommendations for Heat Conditions</h2>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Sport-Tek PosiCharge</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Our most-ordered Vegas summer uniform line. Sport-Tek PosiCharge long-sleeve tees (ST350LS and similar) are 100% polyester, UPF 50+, moisture-wicking, and cost-effective at scale. Light colors hold up well under industrial laundry. Embroidery and screen print both work.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Carhartt Force</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Heavier-grade option for crews who prefer a more workwear feel. Force long-sleeves are nylon-poly blend, FastDry, UPF 30+. More durable than Sport-Tek under abrasion (good for roofing where the shirt drags across shingle). Higher cost per piece. See <a href="/brands/carhartt-custom-las-vegas/" class="text-gold-500 underline hover:text-gold-400">our custom Carhartt page</a> for what we stock.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Bulwark iQ Series</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Where heat and FR overlap. iQ Series is Bulwark\'s lighter-weight modacrylic FR line — CAT 2 protection in a fabric weight that can actually be worn through a Vegas summer shift. The right pick for utility, oil/gas, and electrical service crews working outdoors.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">ML Kishigo Class 2 long-sleeve</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        For crews that need both heat protection and ANSI Class 2 hi-vis in one garment. Polyester mesh construction, UPF 30+, breathes better than most hi-vis options. Cross-references our <a href="/safety-compliance/ansi-107-hi-vis-guide/" class="text-gold-500 underline hover:text-gold-400">ANSI 107 guide</a> for the hi-vis side.
+      </p>
+
+      <div class="my-12 rounded-2xl border border-gold-500/30 bg-gold-500/5 p-8 text-center">
+        <h3 class="mb-3 font-heading text-2xl font-bold text-white">Need a heat-rule-ready uniform spec?</h3>
+        <p class="mb-6 text-base text-gray-300">Send your crew size, work environment, and any existing FR or hi-vis requirements. We come back with brands, specs, and pricing in 24 hours.</p>
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Quote</a>
+      </div>
+
+      <h2 id="summary" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">9. The Short Version</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Nevada\'s heat-illness regulation is real, enforced, and triggers at 80°F heat index. Apparel isn\'t a formal control but supports your prevention plan. Spec UPF 50+ long-sleeve polyester or polyester-blend moisture-wicking shirts in light colors as the Vegas summer baseline. Drop heavy cotton, dark colors, and traditional cotton FR for outdoor work above 95°F. Document the spec in your heat-illness prevention plan.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        For the broader compliance picture across the standards your crews work under, see the <a href="/safety-compliance/" class="text-gold-500 underline hover:text-gold-400">safety &amp; compliance hub</a>, the <a href="/safety-compliance/ansi-107-hi-vis-guide/" class="text-gold-500 underline hover:text-gold-400">ANSI 107 hi-vis guide</a>, or the <a href="/safety-compliance/nfpa-70e-embroidery-guide/" class="text-gold-500 underline hover:text-gold-400">NFPA 70E embroidery guide</a>. To see what we make for the trades most affected by Nevada heat rules, see our <a href="/industries/roofing-solar-las-vegas/" class="text-gold-500 underline hover:text-gold-400">roofing &amp; solar</a> and <a href="/industries/general-contractors-las-vegas/" class="text-gold-500 underline hover:text-gold-400">general contractors</a> pages.
+      </p>
+
+      <div class="mt-16 rounded-2xl border border-navy-700/50 bg-navy-900/40 p-6">
+        <div class="flex items-start gap-4">
+          <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-gold-500/30 bg-gold-500/10">
+            <span class="font-mono text-lg font-bold text-gold-500">BT</span>
+          </div>
+          <div>
+            <p class="mb-1 font-heading text-lg font-bold text-white">Bighorn Threads Team</p>
+            <p class="text-sm leading-relaxed text-navy-200">Heat-rule-aware uniform programs for Las Vegas roofing, solar, framing, and outdoor service crews since 2010. Sport-Tek, Carhartt Force, Bulwark iQ, and ML Kishigo — specced to your job conditions. <a href="/safety-compliance/" class="text-gold-500 underline hover:text-gold-400">Back to the safety &amp; compliance hub.</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <section class="border-t border-navy-800 bg-navy-900/60 py-16">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Heat-rule-ready uniforms for Vegas crews.</h2>
+      <p class="mb-8 text-lg text-gray-400">UPF 50+ sun shirts, moisture-wicking polyester, ANSI hi-vis options — specced for Vegas summer.</p>
+      <a href="/contact/" class="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-gold-500 px-8 py-4 text-lg font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>
+    </div>
+  </section>
+</BaseLayout>

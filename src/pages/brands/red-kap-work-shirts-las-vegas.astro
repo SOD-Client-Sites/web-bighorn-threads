@@ -1,0 +1,265 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const page = {
+  title: 'Custom Red Kap Work Shirts and Industrial Uniforms in Las Vegas',
+  description:
+    'Custom Red Kap for Vegas mechanic shops, fleet operators, and industrial trades. Embroidered SP14 work shirts, PT20 industrial pants, CS10 coveralls. Reinforced construction, name and logo patches, week-long turnaround.',
+  hero: '/images/generated/workwear-flatlay.jpg',
+}
+
+const products = [
+  { sku: 'SP14', name: 'Red Kap Industrial Work Shirt', detail: 'The mechanic-shop standard. Stain-release fabric, two chest pockets, banded collar. Stocked S–4XL in navy, charcoal, light blue.', method: 'Embroidery (left chest + name patch)' },
+  { sku: 'PT20', name: 'Red Kap Industrial Work Pant', detail: 'Wrinkle-resistant, stain-release. Reinforced pockets and seat. Pairs with SP14 for a full uniform set.', method: 'No decoration (paired with shirt)' },
+  { sku: 'CS10', name: 'Red Kap Specialized Cotton Coverall', detail: 'Long-sleeve cotton coverall for fleet techs and mechanics. Action back, brass zipper, bi-swing shoulders.', method: 'Embroidery (left chest + name patch)' },
+  { sku: 'SC30', name: 'Red Kap Industrial Short-Sleeve Work Shirt', detail: 'Summer version of the SP14. Same stain-release fabric, short sleeves for Vegas July through September.', method: 'Embroidery (left chest + name patch)' },
+  { sku: 'JT22', name: 'Red Kap Perma-Lined Panel Jacket', detail: 'Quilted-lined jacket for early morning shop starts. Brass snaps, side-entry pockets, knit collar.', method: 'Embroidery (left chest + back panel)' },
+  { sku: 'SY24', name: 'Red Kap Hi-Vis Class 2 Work Shirt', detail: 'ANSI 107 Class 2 in the Red Kap industrial cut. For shop-and-yard fleet techs working near moving equipment.', method: 'Embroidery + heat-press (off the reflective tape)' },
+]
+
+const why = [
+  { title: 'The mechanic-shop standard', body: 'Walk into any honest fleet shop in Vegas — Red Kap SP14 hanging on the rack. The brand has been the industrial uniform default for 100 years for a reason: the shirts hold up to grease, solvents, and 200 wash cycles.' },
+  { title: 'Reinforced construction where it matters', body: 'Bartacked stress points, double-needle seams, brass-finish snaps on coveralls. Not "workwear-styled" — actually built for trades that beat on their clothes.' },
+  { title: 'Name patch + logo workflow on file', body: 'Most Red Kap orders are uniforms with company logo on left chest and employee name on right chest. We keep the patch placement spec on file so reorders ship the same way every time.' },
+  { title: 'Stain-release fabric earns its keep', body: 'The SP14 and SC30 use Touchtex with stain-release finish. Grease stains lift in a regular wash — uniforms last 18+ months instead of 9. Real cost-per-wear math, not marketing.' },
+]
+
+const faqs = [
+  {
+    q: 'What\'s the minimum order for custom Red Kap?',
+    a: '6 pieces for embroidery, 24 for screen printing. Most Red Kap orders run embroidery with company logo and name patches — the uniform standard for fleet and shop work.',
+  },
+  {
+    q: 'How does Red Kap compare to Dickies?',
+    a: 'Both are industrial workwear standards. Red Kap is the spec brand for fleet uniforms, mechanic shops, and rental-laundry uniform programs — heavier construction, true-to-size cuts, longer pocket life. Dickies skews more general-purpose and casual. For uniform programs we recommend Red Kap; for one-off crew shirts Dickies works.',
+  },
+  {
+    q: 'Can you do name patches with Red Kap orders?',
+    a: 'Yes — embroidered name patches on the right chest are standard on most Red Kap uniform orders. We sew them on directly or use the woven patch route for crews that swap garments. Spec stays on file for reorders.',
+  },
+  {
+    q: 'What\'s your turnaround on Red Kap orders?',
+    a: 'Stocked SP14 and SC30 in core colors and S–4XL: 7 days. Coveralls (CS10), JT22 jackets, and hi-vis (SY24): 10–14 days special-order. We rush stocked items in 72 hours when shop staffing requires it.',
+  },
+  {
+    q: 'Do you set up uniform rental-style programs?',
+    a: 'Yes — without the rental fees. We stock your approved Red Kap SKUs in a private store, embroider your logo and tech names on file, and ship per-employee or by location. You own the garments outright and reorder when techs need them.',
+  },
+  {
+    q: 'Can you do FR or specialty Red Kap items?',
+    a: 'Yes. Red Kap carries an FR line (NFPA 70E) for shops that work on energized equipment. We order it in to your spec and decorate with FR-safe Nomex thread. For most general fleet work, the standard SP14 is the right call.',
+  },
+]
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Brands', item: 'https://bighornthreads.com/brands/' },
+    { '@type': 'ListItem', position: 3, name: 'Red Kap', item: 'https://bighornthreads.com/brands/red-kap-work-shirts-las-vegas/' },
+  ],
+}
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Custom Red Kap Industrial Workwear — Las Vegas',
+  description: page.description,
+  brand: { '@type': 'Brand', name: 'Red Kap' },
+  manufacturer: { '@type': 'Organization', name: 'Red Kap' },
+  offers: {
+    '@type': 'AggregateOffer',
+    priceCurrency: 'USD',
+    lowPrice: 22,
+    highPrice: 90,
+    offerCount: products.length,
+    seller: { '@id': 'https://bighornthreads.com/#organization' },
+  },
+}
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+}
+---
+
+<BaseLayout
+  title={page.title}
+  description={page.description}
+  canonical="https://bighornthreads.com/brands/red-kap-work-shirts-las-vegas/"
+  heroImage={page.hero}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+  <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
+    <div class="absolute inset-0">
+      <img src={page.hero} alt="" aria-hidden="true" class="h-full w-full object-cover opacity-30" width="1600" height="900" loading="eager" fetchpriority="high" />
+      <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/40" />
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_75%_-10%,_rgba(193,155,61,0.15),_transparent)]" />
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-gold-400">Home</a>
+        <span class="px-2 text-gray-600">/</span>
+        <span class="text-gray-500">Brands</span>
+        <span class="px-2 text-gray-600">/</span>
+        <span class="text-gold-500">Red Kap</span>
+      </nav>
+
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Brand</span>
+      <h1 class="mb-6 max-w-4xl font-heading text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+        Custom Red Kap <span class="text-gold-500">for Vegas Fleets, Shops, and Trades.</span>
+      </h1>
+      <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+        SP14 work shirts. PT20 industrial pants. CS10 coveralls for fleet techs. Embroidered logo on the left, name patch on the right. The uniform standard for Vegas mechanic shops and trade fleets — without the rental-program markup.
+      </p>
+
+      <div class="mt-10 flex flex-wrap items-center gap-3">
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25">
+          Get a Quote
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+        <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gold-500/40 px-6 py-3 font-mono text-sm font-medium text-gold-500 transition-all hover:border-gold-500 hover:bg-gold-500/5">
+          725.235.6196
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Red Kap -->
+  <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Why Red Kap</span>
+        <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Four reasons fleet shops pick it every time.</h2>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-2">
+        {why.map((w) => (
+          <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-7 transition-all hover:border-gold-500/30 hover:bg-navy-900/60">
+            <h3 class="mb-3 font-heading text-xl font-bold leading-tight tracking-tight text-white">{w.title}</h3>
+            <p class="text-base leading-relaxed text-gray-300">{w.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Most-Ordered</span>
+        <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">The Red Kap items we run every week.</h2>
+        <p class="mt-4 text-lg leading-relaxed text-gray-300">
+          We stock the SP14, PT20, and SC30 in core colors and adult sizes S–4XL. Coveralls, jackets, FR, and hi-vis we order in for your project.
+        </p>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {products.map((p) => (
+          <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+            <div class="mb-3 flex items-center justify-between">
+              <span class="font-mono text-xs font-bold tracking-wider text-gold-500">{p.sku}</span>
+            </div>
+            <h3 class="mb-2 font-heading text-lg font-bold leading-tight tracking-tight text-white">{p.name}</h3>
+            <p class="mb-4 text-sm leading-relaxed text-gray-300">{p.detail}</p>
+            <div class="mt-4 border-t border-navy-700/50 pt-3">
+              <span class="font-mono text-[10px] font-bold uppercase tracking-wider text-gold-400">Decoration</span>
+              <p class="mt-1 text-sm text-gray-200">{p.method}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- vs Dickies -->
+  <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">vs Dickies / Generic Industrial</span>
+      <h2 class="mb-8 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Why Red Kap holds up where Dickies wears out.</h2>
+
+      <div class="overflow-hidden rounded-2xl border border-navy-700/40">
+        <table class="w-full">
+          <thead class="bg-navy-900/60">
+            <tr class="border-b border-navy-700/40">
+              <th class="px-5 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gray-400">&nbsp;</th>
+              <th class="px-5 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gray-400">Dickies / Generic</th>
+              <th class="px-5 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500">Red Kap</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-navy-800 bg-navy-900/30">
+            <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-gray-300">Built for</td><td class="px-5 py-4 text-sm text-gray-200">General workwear / casual</td><td class="px-5 py-4 text-sm text-white">Industrial fleet uniforms</td></tr>
+            <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-gray-300">Stain-release fabric</td><td class="px-5 py-4 text-sm text-gray-200">Some SKUs</td><td class="px-5 py-4 text-sm text-white">Standard on SP14, SC30</td></tr>
+            <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-gray-300">Wash cycles before retirement</td><td class="px-5 py-4 text-sm text-gray-200">~75–100</td><td class="px-5 py-4 text-sm text-white">200+</td></tr>
+            <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-gray-300">Name patch workflow</td><td class="px-5 py-4 text-sm text-gray-200">Add-on</td><td class="px-5 py-4 text-sm text-white">Standard, on file forever</td></tr>
+            <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-gray-300">Coverall + jacket coverage</td><td class="px-5 py-4 text-sm text-gray-200">Limited</td><td class="px-5 py-4 text-sm text-white">Full line (CS10, JT22, SY24)</td></tr>
+            <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-gray-300">Lead time on stocked items</td><td class="px-5 py-4 text-sm text-gray-200">2–3 weeks</td><td class="px-5 py-4 text-sm text-white">7 days, 72hr rush</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">FAQ</span>
+      <h2 class="mb-12 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Red Kap customization questions.</h2>
+
+      <div class="space-y-3">
+        {faqs.map((f) => (
+          <details class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-5 transition-all hover:border-gold-500/30 open:border-gold-500/40">
+            <summary class="flex cursor-pointer items-start justify-between gap-4 list-none">
+              <h3 class="font-heading text-lg font-bold leading-tight tracking-tight text-white">{f.q}</h3>
+              <span class="mt-1 flex-shrink-0 text-gold-500 transition-transform group-open:rotate-45">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+              </span>
+            </summary>
+            <p class="mt-4 text-base leading-relaxed text-gray-300">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Related -->
+  <section class="border-b border-navy-800 bg-navy-950 py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-6 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Related</span>
+      <div class="grid gap-5 md:grid-cols-3">
+        <a href="/industries/plumbing-hvac-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Plumbing &amp; HVAC Fleets</h3>
+          <p class="mt-2 text-sm text-gray-400">Red Kap SP14 + name patches for service techs in customer homes.</p>
+        </a>
+        <a href="/company-stores/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Fleet Uniform Stores</h3>
+          <p class="mt-2 text-sm text-gray-400">Own your uniforms instead of renting. Logo and names on file.</p>
+        </a>
+        <a href="/blog/how-to-outfit-a-construction-crew-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Outfitting a Vegas Crew</h3>
+          <p class="mt-2 text-sm text-gray-400">How many shirts, pants, and coveralls per tech — the real math.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-navy-900/60 py-20">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Quote on custom Red Kap in 24 hours.</h2>
+      <p class="mb-8 text-lg text-gray-300">Stocked SP14s ship in a week. Talk to a real human.</p>
+      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>
+        <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gray-600 px-8 py-4 font-mono text-base font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">725.235.6196</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,307 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const page = {
+  title: 'Custom Workwear and Branded Apparel in North Las Vegas',
+  description:
+    'FR shirts, ANSI hi-vis, and embroidered crew uniforms for North Las Vegas industrial, warehouse, and data center contractors. Apex, VVSEP, and the I-15 data center alley. 24-hour quotes.',
+  h1Pre: 'North Las Vegas',
+  hero: '/images/generated/cta-bluehour.jpg',
+}
+
+const localContext = [
+  {
+    code: 'Major Projects',
+    title: 'Industrial, warehouse, and data center heavy',
+    body: 'Apex Industrial Park keeps adding tenants. Valley View / VVSEP and the I-15 corridor are the data center alley of the Southwest — Switch, Google, Vantage, EdgeConnex, and the contractors building and maintaining them. Big-box warehouse, e-comm fulfillment, cold storage. The work is industrial and the safety spec is real.',
+  },
+  {
+    code: 'Active Trades',
+    title: 'Who we already outfit out here',
+    body: 'Industrial electrical contractors running data center fit-out (medium voltage, switchgear). Mechanical and process piping subs on warehouse builds. Steel erectors, concrete tilt-up crews, fire-protection sprinkler shops. Anything pulling permits in NLV is on a tight schedule and needs gear that arrives when promised.',
+  },
+  {
+    code: 'What Crews Need Locally',
+    title: 'Compliance-first, not aesthetics-first',
+    body: 'Data center general contractors and warehouse owners run tight safety programs. ANSI Class 2 hi-vis, NFPA 70E FR for the electrical, OSHA-spec hard hat decals, and clean uniformed sub identification at the gate. We carry every brand the safety officer wants on file and we lay decoration up to the spec.',
+  },
+]
+
+const trades = [
+  {
+    name: 'Electrical Contractors',
+    detail: 'NFPA 70E FR shirts and ANSI hi-vis for medium-voltage, switchgear, and data center fit-out crews.',
+    href: '/industries/electrical-contractors-las-vegas/',
+    img: '/images/generated/kit-electrical.jpg',
+  },
+  {
+    name: 'General Contractors',
+    detail: 'Sub identification, foreman differentiation, and onboarding kits for industrial and warehouse builds.',
+    href: '/industries/general-contractors-las-vegas/',
+    img: '/images/generated/kit-office-sales.jpg',
+  },
+  {
+    name: 'Plumbing & HVAC',
+    detail: 'Mechanical and process piping crews on Apex and VVSEP warehouse and data center mechanical packages.',
+    href: '/industries/plumbing-hvac-las-vegas/',
+    img: '/images/generated/kit-plumbing-hvac.jpg',
+  },
+  {
+    name: 'Roofing & Solar',
+    detail: 'TPO and rooftop solar crews on industrial and warehouse roof systems across NLV.',
+    href: '/industries/roofing-solar-las-vegas/',
+    img: '/images/generated/service-screen-printing.jpg',
+  },
+]
+
+const useCases = [
+  'Data center electrical subs in FR layers, ANSI hi-vis, and gate-visible sub-ID polos',
+  'Steel erection crews in heavy hi-vis tees + branded long-sleeves for Apex tilt-up sites',
+  'Warehouse mechanical contractors in embroidered work shirts with name patches',
+  'Fire sprinkler crews in branded button-downs with license number on the sleeve',
+  'GC superintendents in differentiated polos walking VVSEP and I-15 corridor jobs',
+  'Onboarding kits — 5 shirts, hat, hoodie, FR layer — for new hires on long industrial builds',
+]
+
+const faqs = [
+  {
+    q: 'We\'re running an electrical crew at a Switch or Vantage data center. Can you do FR-rated gear with our company branding?',
+    a: 'Yes. We embroider on Bulwark, Carhartt FR, and other CAT 1/CAT 2 garments using FR-compatible thread (Nomex/aramid blend) and placement that preserves the certification. We also keep the spec sheet on file so the safety manager has documentation.',
+  },
+  {
+    q: 'How fast can you turn around hi-vis for a North Las Vegas industrial crew that just landed a new contract?',
+    a: '24-hour quote. Standard production is 7–10 business days. Rush is 72 hours on orders up to 200 pieces — we\'ve hit 48 hours for repeat NLV industrial clients with files already on hand.',
+  },
+  {
+    q: 'Do you stock ANSI Class 2 hi-vis in bulk? We need 80+ shirts at once.',
+    a: 'Yes. ML Kishigo, PIP, and Pioneer in adult S–4XL, lime and orange. 80 shirts is a normal weekly run for us — no waiting on backorder.',
+  },
+  {
+    q: 'Can you do gate-visible sub identification — different shirts for each subcontractor on the same data center build?',
+    a: 'Yes. We run sub-specific colorways and embroidery so each company\'s crew is identifiable at the gate and on-site. GC keeps the spec on file with us so identifying new sub crews mid-project is a 24-hour turn.',
+  },
+  {
+    q: 'Do you deliver to Apex Industrial Park and the VVSEP corridor?',
+    a: 'Yes — free delivery on orders over $250 to North Las Vegas commercial addresses including Apex, Speedway industrial, and the VVSEP / I-15 corridor. Otherwise pickup at our Las Vegas shop is 15–20 min from most NLV job sites.',
+  },
+  {
+    q: 'What\'s the minimum for branded crew gear?',
+    a: '24 pieces for screen printing, 12 for embroidery. Most NLV industrial crews we work with run 50–150 pieces per order and reorder every 60–90 days as new hires roll on.',
+  },
+]
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Service Areas', item: 'https://bighornthreads.com/service-areas/' },
+    { '@type': 'ListItem', position: 3, name: 'North Las Vegas', item: 'https://bighornthreads.com/service-areas/north-las-vegas/' },
+  ],
+}
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Custom Workwear and Branded Apparel in North Las Vegas',
+  serviceType: 'Branded apparel, FR-rated workwear, and ANSI hi-vis for industrial trades',
+  provider: { '@id': 'https://bighornthreads.com/#organization' },
+  areaServed: {
+    '@type': 'City',
+    name: 'North Las Vegas',
+    address: { '@type': 'PostalAddress', addressRegion: 'NV', addressCountry: 'US' },
+  },
+}
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+}
+---
+
+<BaseLayout
+  title={page.title}
+  description={page.description}
+  canonical="https://bighornthreads.com/service-areas/north-las-vegas/"
+  heroImage={page.hero}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
+    <div class="absolute inset-0">
+      <img src={page.hero} alt="" aria-hidden="true" class="h-full w-full object-cover opacity-30" width="1600" height="900" loading="eager" fetchpriority="high" />
+      <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/40" />
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_75%_-10%,_rgba(193,155,61,0.15),_transparent)]" />
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-gold-400">Home</a>
+        <span class="px-2 text-gray-600">/</span>
+        <a href="/service-areas/" class="hover:text-gold-400">Service Areas</a>
+        <span class="px-2 text-gray-600">/</span>
+        <span class="text-gold-500">North Las Vegas</span>
+      </nav>
+
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">{page.h1Pre}</span>
+      <h1 class="mb-6 max-w-4xl font-heading text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+        Custom Workwear and Branded Apparel <span class="text-gold-500">in North Las Vegas.</span>
+      </h1>
+      <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+        FR shirts, ANSI hi-vis, and embroidered crew uniforms for the industrial trades running Apex, VVSEP, and the I-15 data center alley. We speak data center safety spec — Switch, Vantage, EdgeConnex — and we deliver free to NLV commercial addresses.
+      </p>
+
+      <div class="mt-10 flex flex-wrap items-center gap-3">
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25">
+          Get a Quote
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+        <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gold-500/40 px-6 py-3 font-mono text-sm font-medium text-gold-500 transition-all hover:border-gold-500 hover:bg-gold-500/5">
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          725.235.6196
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Local context -->
+  <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Local Context</span>
+        <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">North Las Vegas is industrial Vegas.</h2>
+        <p class="mt-4 text-lg leading-relaxed text-gray-300">
+          Different rhythm than the Strip or Henderson tracts. Apex, VVSEP, the I-15 data center corridor — this is industrial fit-out, warehouse, and data center construction. Safety spec is non-negotiable and gear has to arrive on schedule.
+        </p>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-3">
+        {localContext.map((c) => (
+          <div class="group relative overflow-hidden rounded-2xl border border-navy-700/50 bg-navy-900/40 p-7 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+            <span class="mb-4 inline-block rounded-md border border-gold-500/30 bg-gold-500/5 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-gold-500">{c.code}</span>
+            <h3 class="mb-3 font-heading text-xl font-bold leading-tight tracking-tight text-white">{c.title}</h3>
+            <p class="text-sm leading-relaxed text-gray-300">{c.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Trades we serve here -->
+  <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">The Trades</span>
+        <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Trades we serve in North Las Vegas.</h2>
+        <p class="mt-4 text-lg leading-relaxed text-gray-300">
+          Industrial-heavy mix: electrical and mechanical lead, with GC and roofing/solar filling out the data center and warehouse work. Click through for trade-specific gear, brands, and compliance.
+        </p>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {trades.map((t) => (
+          <a href={t.href} class="group block overflow-hidden rounded-2xl border border-navy-700/40 bg-navy-900/40 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+            <div class="aspect-[4/3] overflow-hidden bg-navy-800">
+              <img src={t.img} alt={t.name} class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="600" height="450" />
+            </div>
+            <div class="p-5">
+              <h3 class="mb-2 font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">{t.name}</h3>
+              <p class="text-sm leading-relaxed text-gray-400">{t.detail}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Typical orders -->
+  <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
+        <div>
+          <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Typical Orders</span>
+          <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">What we run for NLV industrial crews.</h2>
+          <p class="mt-4 text-lg leading-relaxed text-gray-300">
+            Bigger orders, longer schedules, tighter safety specs. Most NLV crews reorder every 60–90 days as new hires roll on for the next phase.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="/services/" class="inline-flex items-center gap-2 rounded-lg border border-gray-600 px-5 py-2.5 text-sm font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">All Services →</a>
+            <a href="/company-stores/" class="inline-flex items-center gap-2 rounded-lg border border-gray-600 px-5 py-2.5 text-sm font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">Company Stores →</a>
+          </div>
+        </div>
+
+        <ul class="space-y-3">
+          {useCases.map((u, i) => (
+            <li class="flex items-start gap-4 rounded-xl border border-navy-700/30 bg-navy-900/30 p-4 transition-all hover:border-gold-500/30 hover:bg-navy-900/50">
+              <span class="flex-shrink-0 font-mono text-xs font-bold text-gold-500">{String(i + 1).padStart(2, '0')}</span>
+              <span class="text-base leading-relaxed text-gray-200">{u}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">FAQ</span>
+      <h2 class="mb-12 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Questions NLV industrial contractors ask us.</h2>
+
+      <div class="space-y-3">
+        {faqs.map((f) => (
+          <details class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-5 transition-all hover:border-gold-500/30 open:border-gold-500/40">
+            <summary class="flex cursor-pointer items-start justify-between gap-4 list-none">
+              <h3 class="font-heading text-lg font-bold leading-tight tracking-tight text-white">{f.q}</h3>
+              <span class="mt-1 flex-shrink-0 text-gold-500 transition-transform group-open:rotate-45">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+              </span>
+            </summary>
+            <p class="mt-4 text-base leading-relaxed text-gray-300">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Related -->
+  <section class="border-b border-navy-800 bg-navy-950 py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-6 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Nearby &amp; Related</span>
+      <div class="grid gap-5 md:grid-cols-3">
+        <a href="/service-areas/henderson-nv/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Henderson, NV</h3>
+          <p class="mt-2 text-sm text-gray-400">Master-planned community build-out — Cadence, Inspirada, Skye Canyon.</p>
+        </a>
+        <a href="/service-areas/spring-valley/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Spring Valley</h3>
+          <p class="mt-2 text-sm text-gray-400">Service-trade dense — HVAC, plumbing, electrical residential and commercial.</p>
+        </a>
+        <a href="/industries/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">All Industries</h3>
+          <p class="mt-2 text-sm text-gray-400">Trade-specific gear, brands, and compliance — pick your industry.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-navy-900/60 py-20">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Free delivery to NLV. 24-hour quotes.</h2>
+      <p class="mb-8 text-lg text-gray-300">Talk to a real human who knows data center fit-out and industrial safety spec.</p>
+      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>
+        <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gray-600 px-8 py-4 font-mono text-base font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">725.235.6196</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

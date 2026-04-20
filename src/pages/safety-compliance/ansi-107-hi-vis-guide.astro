@@ -1,0 +1,308 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const post = {
+  title: 'ANSI/ISEA 107 Hi-Vis Guide: Class 1, 2, and 3 Explained for Vegas Trades',
+  description:
+    'A working contractor\'s guide to ANSI/ISEA 107 hi-visibility apparel. Class 1 vs Class 2 vs Class 3 coverage requirements, when each applies, the 72 sq-in logo limit, and decoration techniques that don\'t void the cert.',
+  category: 'ANSI/ISEA 107',
+  readTime: '12 min read',
+  date: 'Apr 19, 2026',
+  isoDate: '2026-04-19',
+  image: '/images/generated/service-screen-printing.jpg',
+  slug: 'ansi-107-hi-vis-guide',
+}
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: post.title,
+      description: post.description,
+      image: `https://bighornthreads.com${post.image}`,
+      datePublished: post.isoDate,
+      dateModified: post.isoDate,
+      author: { '@type': 'Organization', name: 'Bighorn Threads Team' },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Bighorn Threads',
+        logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' },
+      },
+      mainEntityOfPage: `https://bighornthreads.com/safety-compliance/${post.slug}/`,
+      about: { '@type': 'Thing', name: 'ANSI/ISEA 107 high-visibility safety apparel' },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Safety & Compliance', item: 'https://bighornthreads.com/safety-compliance/' },
+        { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/safety-compliance/${post.slug}/` },
+      ],
+    },
+  ],
+}
+---
+
+<BaseLayout
+  title={post.title}
+  description={post.description}
+  canonical={`https://bighornthreads.com/safety-compliance/${post.slug}/`}
+  ogImage={post.image}
+  type="article"
+  publishedDate={post.isoDate}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <article class="bg-navy-950">
+    <header class="relative overflow-hidden border-b border-navy-800">
+      <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_30%,_rgba(193,155,61,0.06),_transparent)]"></div>
+
+      <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
+        <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-gold-400">Home</a>
+          <span class="px-2">/</span>
+          <a href="/safety-compliance/" class="hover:text-gold-400">Safety &amp; Compliance</a>
+        </nav>
+
+        <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
+        <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
+        <p class="mb-8 text-xl leading-relaxed text-gray-300">
+          What each hi-vis class actually requires. When you need Class 2 vs Class 3. The 72 sq-in logo placement limit nobody talks about. And the decoration techniques that keep your branding from breaking the cert.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400">
+          <span class="text-gold-500">Bighorn Threads Team</span>
+          <span aria-hidden="true">&middot;</span>
+          <span>{post.readTime}</span>
+          <span aria-hidden="true">&middot;</span>
+          <time datetime={post.isoDate}>{post.date}</time>
+        </div>
+      </div>
+    </header>
+
+    <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8">
+      <img src={post.image} alt="Hi-vis Class 2 t-shirts with reflective striping for Las Vegas construction crews" width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" />
+    </div>
+
+    <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+      <aside class="mb-12 rounded-2xl border border-navy-700/50 bg-navy-900/40 p-6 lg:sticky lg:top-24">
+        <h2 class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-500">In this guide</h2>
+        <ol class="space-y-2 font-mono text-sm text-navy-200">
+          <li><a href="#what-is-ansi-107" class="hover:text-gold-400">1. What ANSI/ISEA 107 actually is</a></li>
+          <li><a href="#class-1" class="hover:text-gold-400">2. Class 1 — parking lots and low-speed areas</a></li>
+          <li><a href="#class-2" class="hover:text-gold-400">3. Class 2 — the trades default</a></li>
+          <li><a href="#class-3" class="hover:text-gold-400">4. Class 3 — highway and high-speed</a></li>
+          <li><a href="#when-each-applies" class="hover:text-gold-400">5. When each class applies on a Vegas site</a></li>
+          <li><a href="#logo-limit" class="hover:text-gold-400">6. The 72 sq-in logo placement limit</a></li>
+          <li><a href="#decoration" class="hover:text-gold-400">7. Decoration that doesn\'t break the cert</a></li>
+          <li><a href="#brands" class="hover:text-gold-400">8. Brands we trust on Vegas crews</a></li>
+          <li><a href="#summary" class="hover:text-gold-400">9. The short version</a></li>
+        </ol>
+      </aside>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        ANSI/ISEA 107 is the standard nobody reads but everybody buys against. The label says "Class 2" or "Class 3" and most shops stop there. The actual standard is a 60-page document that covers background fabric area, retroreflective material totals, color, washing performance, and — the part that trips up most uniform orders — how much of that surface area you\'re allowed to cover with a logo before the garment is no longer compliant.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        We decorate ANSI 107 garments every week for Las Vegas trades. This guide is the working version: what each class actually means, when you need it, and how to get your branding on without breaking the rating. If you want the full text of the standard, ISEA sells it. If you want to know how to actually buy and decorate hi-vis correctly, keep reading.
+      </p>
+
+      <h2 id="what-is-ansi-107" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">1. What ANSI/ISEA 107 Actually Is</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        ANSI/ISEA 107 is the American National Standard for High-Visibility Safety Apparel, published by the International Safety Equipment Association. The current edition (107-2020) breaks hi-vis garments into three performance classes based on the minimum amount of fluorescent background material and retroreflective trim, plus a separate "Type" designation that tells you what environment the garment is rated for.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Type O, R, and P</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Type O ("off-road") covers workers in environments separated from public traffic — warehouse yards, oil and gas sites, rail yards. Type R ("roadway") covers workers exposed to traffic from public roads, work zones, or construction equipment moving on the site. Type P ("public safety") is for first responders. Most trades work in Vegas falls under Type R.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Background and retroreflective requirements</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Each class specifies a minimum square inch area of fluorescent background fabric (the lime, orange, or red-orange you see) and a minimum total area of retroreflective tape. The numbers are based on the smallest size in the run — meaning a Class 2 garment in size Small has different minimums than the same garment in 4XL, but both must meet the floor for their respective class.
+      </p>
+
+      <h2 id="class-1" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">2. Class 1 — Parking Lots and Low-Speed Areas</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Class 1 is the lowest tier. Minimum 217 sq-in of background material and 155 sq-in of retroreflective trim. Visually, it looks like a hi-vis vest with a single horizontal stripe — that\'s the bare-minimum compliance shape.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Class 1 is appropriate for workers who have full attention from drivers, traffic moving under 25 mph, and ample sight distance — think parking-lot attendants, valet, cart pushers at retail centers, or warehouse staff working in yard areas with controlled traffic.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        For most trades work in Las Vegas, Class 1 is too low. We rarely sell Class 1 to anyone with "contractor" in the company name — the moment a service vehicle is on the site or a forklift is moving, you\'re past Class 1 territory.
+      </p>
+
+      <h2 id="class-2" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">3. Class 2 — The Trades Default</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Class 2 is the workhorse for Vegas trades. Minimum 775 sq-in of fluorescent background, 201 sq-in of retroreflective tape, with the tape arranged in two horizontal bands plus over-the-shoulder striping (or equivalent geometry) so the worker is identifiable from any angle.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Class 2 covers most situations where workers are exposed to traffic moving 25–50 mph or working near moving equipment. That covers virtually every commercial construction site, most utility work, service-truck crews working roadside, surveyors, parking-structure framing crews, and anyone in a Vegas work zone that isn\'t a freeway.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Class 2 garments we stock</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Vests, t-shirts (short and long sleeve), polos, and lightweight long-sleeve sun shirts. ML Kishigo, Pioneer, and PIP are our three most-requested brands for Class 2. We carry lime and orange in adult sizes S–4XL, with replenishment cycles short enough that we rarely stock-out for repeat customers.
+      </p>
+
+      <div class="my-10 rounded-2xl border-l-4 border-gold-500 bg-gold-500/5 p-6">
+        <p class="mb-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Practical answer</p>
+        <p class="text-lg leading-relaxed text-navy-100">
+          If you\'re a Vegas commercial trade — electrical, plumbing, HVAC, roofing, solar, framing, drywall, mechanical, oil and gas — Class 2 is your baseline. Buy Class 2 by default, step up to Class 3 only where the work zone or speed demands it. Step down to Class 1 only for non-traffic-exposed indoor work.
+        </p>
+      </div>
+
+      <h2 id="class-3" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">4. Class 3 — Highway, Night, and High-Speed</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Class 3 is the highest performance level under ANSI 107. Minimum 1,240 sq-in of background material and 310 sq-in of retroreflective tape, distributed to define the full human form — head to ankle visibility from any approach angle.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        That coverage requirement effectively forces Class 3 to be a long-sleeve garment with sleeves striped, or a vest worn over a long-sleeve hi-vis layer that meets the geometry. A Class 3 short-sleeve t-shirt isn\'t a thing — the sleeve coverage is part of how the standard achieves the form-defining requirement.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Class 3 is required for work near traffic at 50+ mph, all roadway work in poor visibility (fog, rain, dust), and most night work in or near active traffic. NDOT spec for highway work routinely calls for Class 3, and any serious flagger work in Las Vegas is Class 3 territory.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Class E pants — the missing piece</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        ANSI 107 also defines a separate "Class E" for hi-vis pants, gaiters, and overshorts. A Class 2 or Class 3 garment combined with Class E lower-body coverage gets you a "Class 3 ensemble" — useful when the work environment requires the highest visibility but the worker can\'t wear a long-sleeve hi-vis top (like FR situations where the FR layer is on top).
+      </p>
+
+      <h2 id="when-each-applies" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">5. When Each Class Applies on a Vegas Site</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Two questions decide your class: how fast is the nearest traffic moving, and how visible is the worker to the operator of that traffic. Use this as a working table:
+      </p>
+
+      <ul class="mb-6 list-disc space-y-2 pl-6 text-lg leading-relaxed text-navy-200">
+        <li><strong>Class 1:</strong> Parking lots, retail loading docks, low-speed yard work — under 25 mph, no construction equipment within 10 feet of worker.</li>
+        <li><strong>Class 2:</strong> All commercial construction sites, service-truck crews, utility work in residential areas, roadside service, anything with equipment movement or 25–50 mph adjacent traffic.</li>
+        <li><strong>Class 3:</strong> Highway work, night work, flagger positions, any work zone with 50+ mph traffic, low-light conditions (fog, dust storms, rain).</li>
+        <li><strong>Class E pants/lower:</strong> Add to a Class 2 top to create a Class 3 ensemble where the worker needs high-vis lower-body coverage but can\'t wear a hi-vis long-sleeve.</li>
+      </ul>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        For Las Vegas specifically: any work on the 215, 95, 15, or any signed state highway is Class 3 territory. Most local arterial work (Sahara, Eastern, Tropicana, Charleston) is Class 2 unless you\'re inside an active work zone with a posted reduced speed. Indoor commercial buildouts can drop to Class 1 if there\'s no equipment movement on the working level — but most superintendents we work with require Class 2 sitewide regardless.
+      </p>
+
+      <h2 id="logo-limit" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">6. The 72 sq-in Logo Placement Limit</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Here\'s the part most uniform shops will not tell you. ANSI/ISEA 107 specifies a maximum logo or decoration area on the front and back of a hi-vis garment: typically 72 square inches per side. Cover more than that with non-fluorescent material and you\'ve effectively reduced the background area below the class minimum — the garment is no longer compliant for the class on the label.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        That 72 sq-in figure is the working maximum for most Class 2 and Class 3 garments. It accounts for company name, logo, and typical "Safety First" or job-title text on the back. A standard 12" wide x 6" tall back print is exactly 72 sq-in — that\'s why so many compliant hi-vis shirts cap out around there.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Where the 72 sq-in limit applies</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        The limit applies to non-fluorescent decoration on the high-visibility background. Logos printed inside an existing non-hi-vis panel (like a contrasting-color shoulder yoke) don\'t count against the limit. Reflective heat-transfer logos can be placed on the existing reflective tape without breaking the cert, but they have to be ANSI-compliant reflective material themselves.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">What happens if you exceed it</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Two things. One: the garment is no longer compliant for its labeled class. Two: in an OSHA inspection or after an incident, the garment becomes evidence that the employer wasn\'t maintaining ANSI-compliant PPE. We\'ve seen contractors get hit on this in post-incident reviews — not the original cause, but a contributing finding.
+      </p>
+
+      <div class="my-10 rounded-2xl border-l-4 border-gold-500 bg-gold-500/5 p-6">
+        <p class="mb-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Why this matters</p>
+        <p class="text-lg leading-relaxed text-navy-100">
+          Print a 14" x 8" company name across the back of a Class 2 t-shirt and you\'ve covered 112 sq-in — 40 over the limit. The label still says Class 2, but the garment isn\'t. That\'s why we cap our standard back design at 12" x 6" on Class 2 unless we\'re working with a garment that has extra background area to spare.
+        </p>
+      </div>
+
+      <h2 id="decoration" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">7. Decoration Techniques That Don\'t Break the Cert</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        You can decorate hi-vis. You just have to do it within the placement budget and use techniques that don\'t damage the background fabric or the reflective tape. Here\'s what works.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Screen printing</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        The default for hi-vis. Plastisol ink prints cleanly on lime and orange, holds up through industrial laundry, and lets us hit large coverage areas economically. We screen-print the back logo on most Class 2 t-shirts — keeps the cost down and the design within the 72 sq-in limit. See our <a href="/services/screen-printing-las-vegas/" class="text-gold-500 underline hover:text-gold-400">screen printing service</a> page for what we run.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Embroidery</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Works on Class 2 polos, button-downs, and softshell jackets. Limited on t-shirts because the stitch density can pull the lightweight hi-vis fabric. We use lower-density fills and stable backing for hi-vis embroidery — full <a href="/services/embroidery-las-vegas/" class="text-gold-500 underline hover:text-gold-400">embroidery details</a> on our service page.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Heat transfer (HTV)</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Useful for small left-chest logos and individual names — applied to the background fabric or to a designated non-hi-vis panel. Avoid heat transfers across reflective tape; the heat can damage the retroreflective beads and reduce performance.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Reflective HTV (special case)</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Reflective heat transfer can be used to add company branding without subtracting from the retroreflective area total — because it\'s adding more reflective area. We use this for sleeve striping, badge-style chest logos, and night-work upgrades to standard Class 2 garments.
+      </p>
+
+      <h2 id="brands" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">8. Brands We Trust on Vegas Crews</h2>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">ML Kishigo</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Our default for Class 2 t-shirts and vests. The Brilliant Series mesh tee breathes well in Vegas summer and washes 50+ cycles without losing fluorescence. Reasonable cost per piece, broad size range, lime and orange always in stock.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Pioneer</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Strong on Class 2 long-sleeve and Class 3 button-down shirts. Pioneer\'s segmented retroreflective tape (instead of solid) drains better in rain and dust and tends to outlast solid tape on Vegas job sites where dust is constant.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">PIP</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Industrial-grade vests and Class E pants. PIP tends to be the brand a safety officer specs when they want a recognizable label on every spec sheet. We stock the Bisley Workwear and standard PIP lines.
+      </p>
+
+      <h2 id="summary" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">9. The Short Version</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Spec Class 2 as your default for Vegas trades. Step up to Class 3 for highway, night, or 50+ mph adjacent traffic. Cap your back logo at 12" x 6" (72 sq-in) so you stay inside the placement limit. Decorate with plastisol screen print, embroidery on heavier garments, or reflective HTV when you want to add visibility instead of subtract from it.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        For a full breakdown of what we make under hi-vis spec, see the related industry pages: <a href="/industries/electrical-contractors-las-vegas/" class="text-gold-500 underline hover:text-gold-400">electrical contractors</a>, <a href="/industries/roofing-solar-las-vegas/" class="text-gold-500 underline hover:text-gold-400">roofing and solar</a>, and <a href="/industries/general-contractors-las-vegas/" class="text-gold-500 underline hover:text-gold-400">general contractors</a>. Or jump to the related compliance guides on <a href="/safety-compliance/nfpa-70e-embroidery-guide/" class="text-gold-500 underline hover:text-gold-400">NFPA 70E embroidery</a> and <a href="/safety-compliance/nevada-osha-heat-rules-2026/" class="text-gold-500 underline hover:text-gold-400">Nevada heat-illness rules</a>.
+      </p>
+
+      <div class="my-12 rounded-2xl border border-gold-500/30 bg-gold-500/5 p-8 text-center">
+        <h3 class="mb-3 font-heading text-2xl font-bold text-white">Need ANSI 107 hi-vis for your crew?</h3>
+        <p class="mb-6 text-base text-gray-300">Send your roster, the class you need, and your design. We\'ll quote in 24 hours with brand picks and decoration plan.</p>
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Quote</a>
+      </div>
+
+      <div class="mt-16 rounded-2xl border border-navy-700/50 bg-navy-900/40 p-6">
+        <div class="flex items-start gap-4">
+          <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-gold-500/30 bg-gold-500/10">
+            <span class="font-mono text-lg font-bold text-gold-500">BT</span>
+          </div>
+          <div>
+            <p class="mb-1 font-heading text-lg font-bold text-white">Bighorn Threads Team</p>
+            <p class="text-sm leading-relaxed text-navy-200">ANSI 107-compliant hi-vis decoration for Las Vegas trades since 2010. We stock ML Kishigo, Pioneer, and PIP — and we keep the spec sheets on file so reorders match. <a href="/safety-compliance/" class="text-gold-500 underline hover:text-gold-400">Back to the safety &amp; compliance hub.</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <section class="border-t border-navy-800 bg-navy-900/60 py-16">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Hi-vis for your crew, decorated to spec.</h2>
+      <p class="mb-8 text-lg text-gray-400">Class 1, 2, or 3 — placement-compliant decoration, brand-name garments, stocked locally.</p>
+      <a href="/contact/" class="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-gold-500 px-8 py-4 text-lg font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>
+    </div>
+  </section>
+</BaseLayout>

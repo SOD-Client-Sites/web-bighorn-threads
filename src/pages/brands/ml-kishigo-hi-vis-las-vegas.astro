@@ -1,0 +1,265 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const page = {
+  title: 'Custom ML Kishigo Hi-Vis Vests and Apparel in Las Vegas',
+  description:
+    'Custom ML Kishigo hi-vis for Vegas road, utility, and DOT contractors. ANSI 107 Class 2 and Class 3. Stocked 1571/1572 vests, 1085/1086 t-shirts, 9114 jackets — heat-press and embroidery on file.',
+  hero: '/images/generated/workwear-flatlay.jpg',
+}
+
+const products = [
+  { sku: '1571', name: 'ML Kishigo Class 2 Solid Vest (Lime)', detail: 'The DOT-spec workhorse. ANSI 107 Class 2, hook-and-loop closure, breathable solid panels. Sized M–5XL.', method: 'Heat-press transfer (chest + back) or embroidery (chest)' },
+  { sku: '1572', name: 'ML Kishigo Class 2 Solid Vest (Orange)', detail: 'Orange version of the 1571. Required spec on most municipal road jobs in Clark County.', method: 'Heat-press transfer (chest + back) or embroidery (chest)' },
+  { sku: '1085', name: 'ML Kishigo Class 2 Hi-Vis T-Shirt (Lime)', detail: 'Birdseye mesh wicks heat. Worn solo on Class 2 daytime work — keeps crews compliant without the vest layer.', method: 'Screen print or heat-press (chest + back)' },
+  { sku: '1086', name: 'ML Kishigo Class 2 Hi-Vis T-Shirt (Orange)', detail: 'Same garment as 1085 in DOT orange. Pairs with safety pants for full Class 2 coverage.', method: 'Screen print or heat-press (chest + back)' },
+  { sku: '9114', name: 'ML Kishigo Class 3 Lined Bomber Jacket', detail: 'ANSI 107 Class 3 for night work and low-light conditions. Quilted lining for winter morning starts.', method: 'Embroidery (left chest) + heat-press back panel' },
+  { sku: 'B200', name: 'ML Kishigo Brilliant Series Class 2 Vest', detail: 'Premium reflective tape, contrast trim, multi-pocket. For PMs and supervisors who want a step up from the 1571.', method: 'Embroidery (left chest, optional sleeve)' },
+]
+
+const why = [
+  { title: 'ANSI 107 spec coverage end-to-end', body: 'Kishigo carries Class 2 and Class 3 across vests, shirts, jackets, and rainwear. One brand, one spec sheet, one approval cycle for the safety officer.' },
+  { title: 'Built for road and DOT work', body: 'Kishigo is the standard on Clark County and NDOT contracts. The 1571/1572 vests and 9114 jacket pass municipal inspections without arguments.' },
+  { title: 'Vegas-heat fabrics', body: 'Birdseye mesh on the 1085/1086 t-shirts moves air. Solid vests use breathable panels instead of solid polyester. Crews actually keep them on through August.' },
+  { title: 'Decoration that survives the wash', body: 'We heat-press hi-vis with reflective-safe transfers (no over-press on tape) and embroider where it makes sense. Logos still readable after 50+ wash cycles.' },
+]
+
+const faqs = [
+  {
+    q: 'What\'s the difference between Class 2 and Class 3 hi-vis?',
+    a: 'Class 2 is for daytime work near traffic under 50 mph (vests, t-shirts, polos with reflective tape). Class 3 adds sleeves with reflective tape and is required for night work, freeway speeds above 50 mph, and low-light conditions. Most road crews carry both — Class 2 by day, Class 3 jacket for early starts and night punch lists.',
+  },
+  {
+    q: 'How does ML Kishigo compare to Pyramex or Radians?',
+    a: 'All three meet ANSI 107. Kishigo is the spec-by-name brand on most Vegas road and utility contracts because the cert paperwork is clean and the cuts run true to size. Pyramex is competitive on price for non-spec work. We stock Kishigo because crews don\'t get sent home over it.',
+  },
+  {
+    q: 'Can you screen-print or heat-press over the reflective tape?',
+    a: 'No — covering reflective tape voids the ANSI rating. We place logos on the solid panels (chest, back upper, sleeves) per the Kishigo decoration guide. We send a mockup with the placement before approval so the safety officer can sign off.',
+  },
+  {
+    q: 'What\'s your minimum order for Kishigo hi-vis?',
+    a: '6 pieces for embroidery and heat-press, 24 for screen printing. Stocked 1571, 1572, 1085, and 1086 ship in a week. Class 3 jackets and Brilliant Series we order in (10–14 days).',
+  },
+  {
+    q: 'Do you stock Kishigo or order it in for each job?',
+    a: 'We stock 1571/1572 vests in M–4XL and 1085/1086 t-shirts in S–4XL — the most-ordered SKUs and sizes. Anything beyond that we order in. If you\'re running a large rollout, we can pre-stock your specific SKUs and decoration on file.',
+  },
+  {
+    q: 'Can you set up a hi-vis program with per-employee allowances?',
+    a: 'Yes. We build private portals stocked with your approved Kishigo SKUs, decoration locked in, and per-employee credit if you want it. New hires get fitted out in 48 hours instead of waiting for a quote cycle. See company stores for the breakdown.',
+  },
+]
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Brands', item: 'https://bighornthreads.com/brands/' },
+    { '@type': 'ListItem', position: 3, name: 'ML Kishigo', item: 'https://bighornthreads.com/brands/ml-kishigo-hi-vis-las-vegas/' },
+  ],
+}
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Custom ML Kishigo Hi-Vis Apparel — Las Vegas',
+  description: page.description,
+  brand: { '@type': 'Brand', name: 'ML Kishigo' },
+  manufacturer: { '@type': 'Organization', name: 'ML Kishigo' },
+  offers: {
+    '@type': 'AggregateOffer',
+    priceCurrency: 'USD',
+    lowPrice: 14,
+    highPrice: 110,
+    offerCount: products.length,
+    seller: { '@id': 'https://bighornthreads.com/#organization' },
+  },
+}
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+}
+---
+
+<BaseLayout
+  title={page.title}
+  description={page.description}
+  canonical="https://bighornthreads.com/brands/ml-kishigo-hi-vis-las-vegas/"
+  heroImage={page.hero}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+  <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
+    <div class="absolute inset-0">
+      <img src={page.hero} alt="" aria-hidden="true" class="h-full w-full object-cover opacity-30" width="1600" height="900" loading="eager" fetchpriority="high" />
+      <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/40" />
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_75%_-10%,_rgba(193,155,61,0.15),_transparent)]" />
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-gold-400">Home</a>
+        <span class="px-2 text-gray-600">/</span>
+        <span class="text-gray-500">Brands</span>
+        <span class="px-2 text-gray-600">/</span>
+        <span class="text-gold-500">ML Kishigo</span>
+      </nav>
+
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Brand</span>
+      <h1 class="mb-6 max-w-4xl font-heading text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+        Custom ML Kishigo Hi-Vis <span class="text-gold-500">for Vegas Road and Utility Crews.</span>
+      </h1>
+      <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+        ANSI 107 Class 2 and Class 3. Stocked 1571 and 1572 vests, 1085 and 1086 t-shirts, 9114 night jackets. Decoration placed off the reflective tape so the rating holds — and the safety officer signs off the first time.
+      </p>
+
+      <div class="mt-10 flex flex-wrap items-center gap-3">
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25">
+          Get a Quote
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+        <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gold-500/40 px-6 py-3 font-mono text-sm font-medium text-gold-500 transition-all hover:border-gold-500 hover:bg-gold-500/5">
+          725.235.6196
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why ML Kishigo -->
+  <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Why ML Kishigo</span>
+        <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Four reasons it's the spec brand on Clark County jobs.</h2>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-2">
+        {why.map((w) => (
+          <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-7 transition-all hover:border-gold-500/30 hover:bg-navy-900/60">
+            <h3 class="mb-3 font-heading text-xl font-bold leading-tight tracking-tight text-white">{w.title}</h3>
+            <p class="text-base leading-relaxed text-gray-300">{w.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Most-Ordered</span>
+        <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">The Kishigo items we run every week.</h2>
+        <p class="mt-4 text-lg leading-relaxed text-gray-300">
+          We stock the SKUs Vegas DOT and utility crews actually reorder. Anything beyond stock — Class E pants, rainwear, FR hi-vis — we order in to your spec.
+        </p>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {products.map((p) => (
+          <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+            <div class="mb-3 flex items-center justify-between">
+              <span class="font-mono text-xs font-bold tracking-wider text-gold-500">{p.sku}</span>
+            </div>
+            <h3 class="mb-2 font-heading text-lg font-bold leading-tight tracking-tight text-white">{p.name}</h3>
+            <p class="mb-4 text-sm leading-relaxed text-gray-300">{p.detail}</p>
+            <div class="mt-4 border-t border-navy-700/50 pt-3">
+              <span class="font-mono text-[10px] font-bold uppercase tracking-wider text-gold-400">Decoration</span>
+              <p class="mt-1 text-sm text-gray-200">{p.method}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- vs Other Hi-Vis Brands -->
+  <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">vs Pyramex / Generic Hi-Vis</span>
+      <h2 class="mb-8 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Why Kishigo wins when the inspector shows up.</h2>
+
+      <div class="overflow-hidden rounded-2xl border border-navy-700/40">
+        <table class="w-full">
+          <thead class="bg-navy-900/60">
+            <tr class="border-b border-navy-700/40">
+              <th class="px-5 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gray-400">&nbsp;</th>
+              <th class="px-5 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gray-400">Generic / Pyramex</th>
+              <th class="px-5 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500">Bighorn + Kishigo</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-navy-800 bg-navy-900/30">
+            <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-gray-300">Minimum order</td><td class="px-5 py-4 text-sm text-gray-200">Often 25+ pieces</td><td class="px-5 py-4 text-sm text-white">6 (embroidery), 24 (print)</td></tr>
+            <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-gray-300">Lead time</td><td class="px-5 py-4 text-sm text-gray-200">2–3 weeks</td><td class="px-5 py-4 text-sm text-white">7 days standard, 72hr rush</td></tr>
+            <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-gray-300">Local delivery</td><td class="px-5 py-4 text-sm text-gray-200">No</td><td class="px-5 py-4 text-sm text-white">Free in Las Vegas metro</td></tr>
+            <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-gray-300">ANSI cert paperwork</td><td class="px-5 py-4 text-sm text-gray-200">Inconsistent across SKUs</td><td class="px-5 py-4 text-sm text-white">Clean — included on request</td></tr>
+            <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-gray-300">Reorder file storage</td><td class="px-5 py-4 text-sm text-gray-200">Account-based</td><td class="px-5 py-4 text-sm text-white">On file forever, no re-setup</td></tr>
+            <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-gray-300">Talk to a human</td><td class="px-5 py-4 text-sm text-gray-200">Ticket queue</td><td class="px-5 py-4 text-sm text-white">Direct phone line</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">FAQ</span>
+      <h2 class="mb-12 font-heading text-3xl font-bold tracking-tight sm:text-4xl">ML Kishigo customization questions.</h2>
+
+      <div class="space-y-3">
+        {faqs.map((f) => (
+          <details class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-5 transition-all hover:border-gold-500/30 open:border-gold-500/40">
+            <summary class="flex cursor-pointer items-start justify-between gap-4 list-none">
+              <h3 class="font-heading text-lg font-bold leading-tight tracking-tight text-white">{f.q}</h3>
+              <span class="mt-1 flex-shrink-0 text-gold-500 transition-transform group-open:rotate-45">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+              </span>
+            </summary>
+            <p class="mt-4 text-base leading-relaxed text-gray-300">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Related -->
+  <section class="border-b border-navy-800 bg-navy-950 py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-6 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Related</span>
+      <div class="grid gap-5 md:grid-cols-3">
+        <a href="/industries/concrete-masonry-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Concrete and Masonry Crews</h3>
+          <p class="mt-2 text-sm text-gray-400">Kishigo Class 2 vests and t-shirts for road and slab work.</p>
+        </a>
+        <a href="/industries/general-contractors-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">General Contractors</h3>
+          <p class="mt-2 text-sm text-gray-400">Hi-vis kits for super, PMs, and field staff on Clark County jobs.</p>
+        </a>
+        <a href="/services/embroidery-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Embroidery</h3>
+          <p class="mt-2 text-sm text-gray-400">Crisp logo placement on Kishigo vests, jackets, and Brilliant Series.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-navy-900/60 py-20">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Quote on custom Kishigo hi-vis in 24 hours.</h2>
+      <p class="mb-8 text-lg text-gray-300">Stocked 1571s and 1085s ship in a week. Talk to a real human.</p>
+      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>
+        <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gray-600 px-8 py-4 font-mono text-base font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">725.235.6196</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
