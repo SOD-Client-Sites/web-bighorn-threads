@@ -9,6 +9,7 @@ const posts = [
     excerpt: 'The single biggest predictor of how good your embroidered shirts will look isn\'t your logo, your fabric, or your shop. It\'s the digitizing file behind it.',
     readTime: '7 min read',
     date: 'Apr 28, 2026',
+    image: '/images/generated/service-embroidery.jpg',
   },
   {
     slug: 'plastisol-vs-water-based-ink-workwear',
@@ -17,6 +18,7 @@ const posts = [
     excerpt: 'Two ink families behind almost every printed work shirt in Vegas. Different chemistry, different feel, very different lifespan.',
     readTime: '9 min read',
     date: 'Apr 21, 2026',
+    image: '/images/generated/service-screen-printing.jpg',
   },
   {
     slug: 'how-many-shirts-per-crew-member-vegas',
@@ -25,6 +27,7 @@ const posts = [
     excerpt: 'A field-tested formula for outfitting construction crews in Las Vegas — by role, by season, with realistic wash rotations.',
     readTime: '8 min read',
     date: 'Apr 14, 2026',
+    image: '/images/generated/product-stack.jpg',
   },
   {
     slug: 'nfpa-70e-fr-shirts-vegas-electricians',
@@ -33,6 +36,7 @@ const posts = [
     excerpt: 'CAT 1 vs CAT 2, the brands that actually hold up in Vegas heat, and how to embroider on FR without voiding the certification.',
     readTime: '11 min read',
     date: 'Apr 7, 2026',
+    image: '/images/generated/kit-electrical.jpg',
   },
   {
     slug: 'company-store-vs-bulk-ordering',
@@ -42,6 +46,7 @@ const posts = [
       'Ordering 500 tees at once still looks cheaper on paper. Here\'s why the spreadsheet lies — and the actual cost per wearable piece when you add shrinkage and dead stock.',
     readTime: '8 min read',
     date: 'Apr 1, 2026',
+    image: '/images/generated/service-company-stores.jpg',
   },
   {
     slug: 'screen-printing-vs-embroidery-construction',
@@ -51,6 +56,7 @@ const posts = [
       'The real difference isn\'t price — it\'s durability, garment type, and how your logo reads on a jobsite. A straight-talk comparison from 15 years of Vegas crews.',
     readTime: '7 min read',
     date: 'Mar 15, 2026',
+    image: '/images/generated/workwear-flatlay.jpg',
   },
   {
     slug: 'how-to-outfit-a-construction-crew-vegas',
@@ -60,6 +66,7 @@ const posts = [
       'Sizing chaos, rush orders, dead inventory in a back closet. A practical playbook for outfitting 10, 50, or 500 people — built for Vegas contractors.',
     readTime: '9 min read',
     date: 'Mar 1, 2026',
+    image: '/images/generated/kit-gc.jpg',
   },
 ]
 
@@ -140,24 +147,38 @@ const itemListSchema = {
         {posts.map((post) => (
           <a
             href={`/blog/${post.slug}/`}
-            class="group flex flex-col rounded-2xl border border-navy-700/50 bg-navy-900/40 p-6 transition-all hover:-translate-y-1 hover:border-gold-500/40 hover:bg-navy-800/60"
+            class="group flex flex-col overflow-hidden rounded-2xl border border-navy-700/50 bg-navy-900/40 transition-all hover:-translate-y-1 hover:border-gold-500/40 hover:bg-navy-800/60"
           >
-            <span class="mb-3 inline-block w-fit rounded-full border border-gold-500/30 bg-gold-500/5 px-3 py-1 text-xs font-bold uppercase tracking-wider text-gold-500">
-              {post.category}
-            </span>
-            <h2 class="mb-3 font-heading text-xl font-bold leading-tight tracking-tight text-white group-hover:text-gold-300">
-              {post.title}
-            </h2>
-            <p class="mb-6 line-clamp-2 text-sm leading-relaxed text-gray-400">
-              {post.excerpt}
-            </p>
-            <div class="mt-auto flex items-center justify-between border-t border-navy-800 pt-4">
-              <span class="font-mono text-xs uppercase tracking-wider text-gray-500">
-                {post.readTime}
+            <div class="relative aspect-[16/10] overflow-hidden bg-navy-950/60">
+              <img
+                src={post.image}
+                alt=""
+                width="800"
+                height="500"
+                loading="lazy"
+                decoding="async"
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-navy-950/50 via-transparent to-transparent"></div>
+              <span class="absolute left-4 top-4 inline-block rounded-full border border-gold-500/30 bg-navy-950/80 px-3 py-1 text-xs font-bold uppercase tracking-wider text-gold-400 backdrop-blur-sm">
+                {post.category}
               </span>
-              <span class="text-sm font-bold text-gold-500 group-hover:text-gold-400">
-                Read more &rarr;
-              </span>
+            </div>
+            <div class="flex flex-1 flex-col p-6">
+              <h2 class="mb-3 font-heading text-xl font-bold leading-tight tracking-tight text-white group-hover:text-gold-300">
+                {post.title}
+              </h2>
+              <p class="mb-6 line-clamp-2 text-sm leading-relaxed text-gray-400">
+                {post.excerpt}
+              </p>
+              <div class="mt-auto flex items-center justify-between border-t border-navy-800 pt-4">
+                <span class="font-mono text-xs uppercase tracking-wider text-gray-500">
+                  {post.readTime}
+                </span>
+                <span class="text-sm font-bold text-gold-500 group-hover:text-gold-400">
+                  Read more &rarr;
+                </span>
+              </div>
             </div>
           </a>
         ))}
