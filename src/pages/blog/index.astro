@@ -3,13 +3,45 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const posts = [
   {
-    slug: 'how-to-outfit-a-construction-crew-vegas',
-    category: 'Crew Outfitting',
-    title: 'How to Outfit a Construction Crew in Las Vegas (Without Losing Your Mind)',
-    excerpt:
-      'Sizing chaos, rush orders, dead inventory in a back closet. A practical playbook for outfitting 10, 50, or 500 people — built for Vegas contractors.',
+    slug: 'logo-digitizing-101-embroidery',
+    category: 'Decoration Methods',
+    title: 'Logo Digitizing 101: Why Your First File Matters More Than Your Tenth Order',
+    excerpt: 'The single biggest predictor of how good your embroidered shirts will look isn\'t your logo, your fabric, or your shop. It\'s the digitizing file behind it.',
+    readTime: '7 min read',
+    date: 'Apr 28, 2026',
+  },
+  {
+    slug: 'plastisol-vs-water-based-ink-workwear',
+    category: 'Decoration Methods',
+    title: 'Plastisol vs Water-Based Ink for Workwear: What Holds Up on a Vegas Job Site',
+    excerpt: 'Two ink families behind almost every printed work shirt in Vegas. Different chemistry, different feel, very different lifespan.',
     readTime: '9 min read',
-    date: 'Mar 1, 2026',
+    date: 'Apr 21, 2026',
+  },
+  {
+    slug: 'how-many-shirts-per-crew-member-vegas',
+    category: 'Operations',
+    title: 'How Many Shirts Should You Order Per Crew Member? (Vegas GC Rule of Thumb)',
+    excerpt: 'A field-tested formula for outfitting construction crews in Las Vegas — by role, by season, with realistic wash rotations.',
+    readTime: '8 min read',
+    date: 'Apr 14, 2026',
+  },
+  {
+    slug: 'nfpa-70e-fr-shirts-vegas-electricians',
+    category: 'Compliance',
+    title: 'FR Shirt Compliance for Vegas Electricians: NFPA 70E Without the Headache',
+    excerpt: 'CAT 1 vs CAT 2, the brands that actually hold up in Vegas heat, and how to embroider on FR without voiding the certification.',
+    readTime: '11 min read',
+    date: 'Apr 7, 2026',
+  },
+  {
+    slug: 'company-store-vs-bulk-ordering',
+    category: 'Operations',
+    title: 'Bulk Ordering vs Company Store: The Real Math for Contractors',
+    excerpt:
+      'Ordering 500 tees at once still looks cheaper on paper. Here\'s why the spreadsheet lies — and the actual cost per wearable piece when you add shrinkage and dead stock.',
+    readTime: '8 min read',
+    date: 'Apr 1, 2026',
   },
   {
     slug: 'screen-printing-vs-embroidery-construction',
@@ -21,13 +53,13 @@ const posts = [
     date: 'Mar 15, 2026',
   },
   {
-    slug: 'company-store-vs-bulk-ordering',
-    category: 'Operations',
-    title: 'Bulk Ordering vs Company Store: The Real Math for Contractors',
+    slug: 'how-to-outfit-a-construction-crew-vegas',
+    category: 'Crew Outfitting',
+    title: 'How to Outfit a Construction Crew in Las Vegas (Without Losing Your Mind)',
     excerpt:
-      'Ordering 500 tees at once still looks cheaper on paper. Here\'s why the spreadsheet lies — and the actual cost per wearable piece when you add shrinkage and dead stock.',
-    readTime: '8 min read',
-    date: 'Apr 1, 2026',
+      'Sizing chaos, rush orders, dead inventory in a back closet. A practical playbook for outfitting 10, 50, or 500 people — built for Vegas contractors.',
+    readTime: '9 min read',
+    date: 'Mar 1, 2026',
   },
 ]
 
@@ -131,9 +163,9 @@ const itemListSchema = {
         ))}
       </div>
 
-      <!-- Empty state footer -->
+      <!-- Cadence footer -->
       <div class="mt-16 border-t border-navy-800 pt-10 text-center">
-        <p class="font-mono text-xs uppercase tracking-[0.2em] text-gray-500">More posts coming soon</p>
+        <p class="font-mono text-xs uppercase tracking-[0.2em] text-gray-300">New posts every two weeks</p>
       </div>
     </div>
   </section>

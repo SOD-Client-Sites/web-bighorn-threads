@@ -1,0 +1,241 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const post = {
+  title: 'Logo Digitizing 101: Why Your First File Matters More Than Your Tenth Order',
+  description:
+    'A practical guide to logo digitizing for embroidery — what it is, why it matters, what to send your shop, and how to avoid the rework spiral that wastes money on every reorder.',
+  category: 'Decoration Methods',
+  readTime: '7 min read',
+  date: 'Apr 28, 2026',
+  isoDate: '2026-04-28',
+  image: '/images/generated/service-embroidery.jpg',
+  slug: 'logo-digitizing-101-embroidery',
+}
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: post.title,
+      description: post.description,
+      image: `https://bighornthreads.com${post.image}`,
+      datePublished: post.isoDate,
+      dateModified: post.isoDate,
+      author: { '@type': 'Organization', name: 'Bighorn Threads Team' },
+      publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } },
+      mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/`,
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' },
+        { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` },
+      ],
+    },
+  ],
+}
+---
+
+<BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <article class="bg-navy-950">
+    <header class="relative overflow-hidden border-b border-navy-800">
+      <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_30%,_rgba(193,155,61,0.06),_transparent)]"></div>
+
+      <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
+        <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-gold-400">Home</a>
+          <span class="px-2">/</span>
+          <a href="/blog/" class="hover:text-gold-400">Blog</a>
+        </nav>
+
+        <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
+        <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
+        <p class="mb-8 text-xl leading-relaxed text-gray-300">
+          The single biggest predictor of how good your embroidered shirts will look isn't your logo, your fabric, or your shop. It's the digitizing file behind it. Here's why it matters and how to get it right the first time.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400">
+          <span class="text-gold-500">Bighorn Threads Team</span>
+          <span aria-hidden="true">&middot;</span>
+          <span>{post.readTime}</span>
+          <span aria-hidden="true">&middot;</span>
+          <time datetime={post.isoDate}>{post.date}</time>
+        </div>
+      </div>
+    </header>
+
+    <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8">
+      <img src={post.image} alt="Embroidery machine stitching a digitized logo onto a Carhartt polo" width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" />
+    </div>
+
+    <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+      <aside class="mb-12 rounded-2xl border border-navy-700/50 bg-navy-900/40 p-6 lg:sticky lg:top-24">
+        <h2 class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-500">In this article</h2>
+        <ol class="space-y-2 font-mono text-sm text-navy-200">
+          <li><a href="#what-it-is" class="hover:text-gold-400">1. What digitizing actually is</a></li>
+          <li><a href="#why-matters" class="hover:text-gold-400">2. Why a bad file haunts every reorder</a></li>
+          <li><a href="#what-to-send" class="hover:text-gold-400">3. What to send your embroidery shop</a></li>
+          <li><a href="#what-good-looks-like" class="hover:text-gold-400">4. What a good digitizing file looks like</a></li>
+          <li><a href="#sew-out" class="hover:text-gold-400">5. Why we always do a sew-out</a></li>
+          <li><a href="#owning" class="hover:text-gold-400">6. Who owns the file?</a></li>
+        </ol>
+      </aside>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Embroidery is the only decoration method where the file you send to the machine is fundamentally different from the file you sent the shop. Screen printing? You send a vector logo, the shop burns a screen, the screen makes the print. Embroidery? You send a vector logo, the shop has to <em>convert</em> it into a stitch file — and the conversion is where 90% of the quality difference between shops lives.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        That conversion is called <em>digitizing</em>. It's not a software click. It's a craft. And once it's done right, your logo embroiders the same way every time forever — but if it's done wrong, every reorder is going to look slightly off until somebody re-does it.
+      </p>
+
+      <h2 id="what-it-is" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">1. What Digitizing Actually Is</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        An embroidery machine doesn't read a JPG, a PDF, or even a vector AI file. It reads a <em>stitch file</em> — typically a `.dst`, `.emb`, `.exp`, or `.pes` format depending on the machine. The stitch file tells the machine: drop the needle here, then here, then here, this color thread, this stitch type, this density.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Digitizing is the process of converting your logo into that stitch file. A digitizer (a person, not a script) decides:
+      </p>
+
+      <ul class="mb-6 list-disc space-y-2 pl-6 text-lg leading-relaxed text-navy-200">
+        <li>What stitch type to use for each section (satin, fill, run)</li>
+        <li>Stitch density and direction</li>
+        <li>The order operations run in (so the design doesn't pucker or warp)</li>
+        <li>Underlay (foundation stitches that stabilize the fabric)</li>
+        <li>Where the machine starts and ends</li>
+        <li>How to handle small details, type, and gradients</li>
+      </ul>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        A 2-inch left-chest logo that looks simple in your brand guide might require 5,000 individual stitch decisions. Auto-digitizing software exists. The output is universally bad. Real digitizing is done by a person at a workstation, usually in 30–90 minutes per logo.
+      </p>
+
+      <h2 id="why-matters" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">2. Why a Bad File Haunts Every Reorder</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Here's the trap. Your first order with a new shop comes back, and the logo looks "fine." Not great, but fine. The lettering is a little uneven, the fill stitch on the icon has a gap on one side, the polo puckers slightly under the embroidery. You shrug, take the order, move on.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Six months later you reorder. Same shop, same logo. They pull the file. Same flaws — because they're stitched into the file forever. Now you've embroidered 200 polos with a slightly off logo. Year three: 600 polos. Eventually somebody at a trade show points out the puckering and now you have to fix it — which means re-digitizing, re-running test stitches, and the next reorder costs you a digitizing fee for the second time.
+      </p>
+
+      <div class="my-10 rounded-2xl border-l-4 border-gold-500 bg-gold-500/5 p-6">
+        <p class="mb-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-500">The compounding cost</p>
+        <p class="text-lg leading-relaxed text-navy-100">
+          A bad first digitizing file costs you on every reorder for the life of the brand. A good first file gives you crisp embroidery for the next five years without anyone touching it again.
+        </p>
+      </div>
+
+      <h2 id="what-to-send" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">3. What to Send Your Embroidery Shop</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        The single best thing you can do is send a <strong>vector logo file</strong> — `.ai`, `.eps`, or `.svg`. Vectors scale infinitely without quality loss, which means the digitizer can size your logo to the exact embroidery dimensions without guessing.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        If you only have a JPG or PNG, send it at the highest resolution you have — 300 DPI minimum, 600 DPI ideal. We can work from raster files, but the digitizer is making more interpretive decisions. Vector eliminates ambiguity.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Also send:
+      </p>
+
+      <ul class="mb-6 list-disc space-y-2 pl-6 text-lg leading-relaxed text-navy-200">
+        <li><strong>Pantone colors</strong> for every part of the logo (PMS coated and uncoated if you have both)</li>
+        <li><strong>The actual size</strong> you want it embroidered (most chest logos are 3–3.5" wide)</li>
+        <li><strong>The fabric</strong> we'll be embroidering on (canvas vs polyester pique vs FR fabric all behave differently)</li>
+        <li><strong>Any "do not touch" rules</strong> — minimum logo widths, brand colors that can't shift, type that must remain readable</li>
+      </ul>
+
+      <h2 id="what-good-looks-like" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">4. What a Good Digitizing File Looks Like (When You See It on a Shirt)</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        You'll know good digitizing by what you don't see. A well-digitized logo has:
+      </p>
+
+      <ul class="mb-6 list-disc space-y-2 pl-6 text-lg leading-relaxed text-navy-200">
+        <li><strong>Clean satin stitch edges</strong> — no fraying, no gaps where two colors meet</li>
+        <li><strong>Even fill density</strong> — the center of a filled shape doesn't look thin or patchy</li>
+        <li><strong>Type that reads clearly</strong> at the actual size, with no clumped or broken letters</li>
+        <li><strong>No fabric puckering</strong> around the embroidery — the shirt sits flat</li>
+        <li><strong>Crisp registration</strong> — colors line up exactly where they should, no overlap or gap</li>
+      </ul>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Bad digitizing has the opposite — uneven edges, thin fill, illegible small text, fabric that bunches under the embroidery, and colors that don't quite line up. Some of those are a press operator issue. Most of them trace back to the file.
+      </p>
+
+      <h2 id="sew-out" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">5. Why We Always Do a Sew-Out Before Production</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        After digitizing, before we run your 50-piece polo order, we sew the digitized logo onto a single test garment in the same fabric. This is the sew-out. We send a photo, you approve, we run production.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        The sew-out catches issues you'd never see on a digitizer's screen — a logo that looks perfect on the simulation but puckers on actual canvas, type that's legible at 4" but blurs at 3", thread color that shifted slightly on the fabric. We'd rather find that on one shirt than on a hundred.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Shops that skip the sew-out are gambling. We don't gamble.
+      </p>
+
+      <h2 id="owning" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">6. Who Owns the File?</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Important question, often missed in the first conversation. Some shops digitize at their cost, sew at their cost, and consider the stitch file their property. If you ever want to leave that shop, you start over.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Our position: the file is yours. We do free digitizing on first orders, store the file on our system for instant reorders, and if you ever want a copy of the `.dst` we'll send it. You're paying for the work, you should own the output.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Worth confirming with whatever shop you work with, before they have your logo on file.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        For the full breakdown of how we run embroidery, see our <a href="/services/embroidery-las-vegas/" class="text-gold-500 underline hover:text-gold-400">embroidery service page</a>. And if you're trying to decide whether to embroider or screen print in the first place, our <a href="/blog/screen-printing-vs-embroidery-construction/" class="text-gold-500 underline hover:text-gold-400">screen vs embroidery breakdown</a> covers when each one is the right call.
+      </p>
+
+      <div class="my-12 rounded-2xl border border-gold-500/30 bg-gold-500/5 p-8 text-center">
+        <h3 class="mb-3 font-heading text-2xl font-bold text-white">Want a quote on embroidery for your crew?</h3>
+        <p class="mb-6 text-base text-gray-300">Free digitizing on first orders. Stitch file is yours forever, no lock-in.</p>
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Quote</a>
+      </div>
+
+      <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The Short Version</h2>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Send a vector file. Specify exact size and Pantone colors. Insist on a sew-out before production. Ask who owns the digitized file. The first run sets the quality of every order after it — get the file right once and your brand looks consistent for years.
+      </p>
+
+      <div class="mt-16 rounded-2xl border border-navy-700/50 bg-navy-900/40 p-6">
+        <div class="flex items-start gap-4">
+          <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-gold-500/30 bg-gold-500/10">
+            <span class="font-mono text-lg font-bold text-gold-500">BT</span>
+          </div>
+          <div>
+            <p class="mb-1 font-heading text-lg font-bold text-white">Bighorn Threads Team</p>
+            <p class="text-sm leading-relaxed text-navy-200">Embroidery for Vegas trades since 2010. Free digitizing on first orders, file is yours. <a href="/services/embroidery-las-vegas/" class="text-gold-500 underline hover:text-gold-400">See our embroidery service.</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <section class="border-t border-navy-800 bg-navy-900/60 py-16">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Send your logo. We'll digitize it free.</h2>
+      <p class="mb-8 text-lg text-gray-400">First-order digitizing is on us. Stitch file is yours forever.</p>
+      <a href="/contact/" class="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-gold-500 px-8 py-4 text-lg font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>
+    </div>
+  </section>
+</BaseLayout>

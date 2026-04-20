@@ -1,0 +1,280 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const post = {
+  title: 'FR Shirt Compliance for Vegas Electricians: NFPA 70E Without the Headache',
+  description:
+    'A working contractor\'s guide to NFPA 70E flame-resistant apparel for Las Vegas electrical crews. CAT 1 vs CAT 2, brand picks, decoration that doesn\'t void the rating, and what your safety officer actually checks.',
+  category: 'Compliance',
+  readTime: '11 min read',
+  date: 'Apr 7, 2026',
+  isoDate: '2026-04-07',
+  image: '/images/generated/kit-electrical.jpg',
+  slug: 'nfpa-70e-fr-shirts-vegas-electricians',
+}
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: post.title,
+      description: post.description,
+      image: `https://bighornthreads.com${post.image}`,
+      datePublished: post.isoDate,
+      dateModified: post.isoDate,
+      author: { '@type': 'Organization', name: 'Bighorn Threads Team' },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Bighorn Threads',
+        logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' },
+      },
+      mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/`,
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' },
+        { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` },
+      ],
+    },
+  ],
+}
+---
+
+<BaseLayout
+  title={post.title}
+  description={post.description}
+  canonical={`https://bighornthreads.com/blog/${post.slug}/`}
+  ogImage={post.image}
+  type="article"
+  publishedDate={post.isoDate}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <article class="bg-navy-950">
+    <header class="relative overflow-hidden border-b border-navy-800">
+      <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_30%,_rgba(193,155,61,0.06),_transparent)]"></div>
+
+      <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
+        <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-gold-400">Home</a>
+          <span class="px-2">/</span>
+          <a href="/blog/" class="hover:text-gold-400">Blog</a>
+        </nav>
+
+        <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
+        <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
+        <p class="mb-8 text-xl leading-relaxed text-gray-300">
+          What CAT rating you actually need. The brands that hold up in Vegas heat. How to embroider on FR without voiding the certification. And what your safety officer is going to check.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400">
+          <span class="text-gold-500">Bighorn Threads Team</span>
+          <span aria-hidden="true">&middot;</span>
+          <span>{post.readTime}</span>
+          <span aria-hidden="true">&middot;</span>
+          <time datetime={post.isoDate}>{post.date}</time>
+        </div>
+      </div>
+    </header>
+
+    <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8">
+      <img src={post.image} alt="Electrical contractor wearing FR-rated work shirt with embroidered company logo" width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" />
+    </div>
+
+    <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+      <aside class="mb-12 rounded-2xl border border-navy-700/50 bg-navy-900/40 p-6 lg:sticky lg:top-24">
+        <h2 class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-500">In this article</h2>
+        <ol class="space-y-2 font-mono text-sm text-navy-200">
+          <li><a href="#what-is-nfpa-70e" class="hover:text-gold-400">1. What NFPA 70E actually covers</a></li>
+          <li><a href="#cat-ratings" class="hover:text-gold-400">2. CAT 1 vs CAT 2 vs CAT 4</a></li>
+          <li><a href="#brands" class="hover:text-gold-400">3. Brands that hold up in Vegas</a></li>
+          <li><a href="#decoration" class="hover:text-gold-400">4. Embroidery without voiding the rating</a></li>
+          <li><a href="#mistakes" class="hover:text-gold-400">5. Five mistakes we see weekly</a></li>
+          <li><a href="#what-to-buy" class="hover:text-gold-400">6. What to actually buy</a></li>
+        </ol>
+      </aside>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Every electrical contractor we work with has been burned (figuratively, sometimes literally) by FR apparel they thought was compliant. Either the rating was for a different hazard class, the embroidery voided the certification, or the shirt was too hot to actually wear in Vegas summer and the crew swapped it out for a regular tee. The compliance becomes a checkbox instead of protection.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        This isn't a re-write of the NFPA 70E standard. We're contractors who decorate FR garments — we're going to tell you what holds up in real Vegas conditions, what your safety officer actually checks, and how we keep your branding from breaking your CAT rating.
+      </p>
+
+      <h2 id="what-is-nfpa-70e" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">1. What NFPA 70E Actually Covers</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        NFPA 70E is the National Fire Protection Association standard for electrical safety in the workplace — specifically, the apparel and PPE required to protect workers from arc flash and arc blast hazards. OSHA references it as the consensus standard for compliance with 29 CFR 1910.269 and Subpart S.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        The short version: any worker who could be exposed to an arc flash hazard greater than 1.2 cal/cm² needs FR-rated apparel. That covers most journeyman electrical work — switchgear, panel work, anything energized over 50 volts where there's a measurable arc rating.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        The standard isn't about flame-retardant treatment. It's about <em>arc-rated</em> garments — fabric that won't ignite, won't melt onto skin, and provides a measured level of thermal protection. "FR" and "arc-rated" are used interchangeably in conversation, but the formal label on a garment is its arc rating in cal/cm² (calories per square centimeter).
+      </p>
+
+      <h2 id="cat-ratings" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">2. CAT 1 vs CAT 2 vs CAT 4 — What Your Crew Actually Needs</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        NFPA 70E divides arc flash PPE into four categories based on incident energy. For most general electrical contractor work in Las Vegas, you're operating in CAT 1 or CAT 2 territory.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">CAT 1 (4 cal/cm² minimum)</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        The baseline. A single-layer FR shirt + FR pants gets you here. Best for service techs, light commercial, residential, and panel work under 600V where your arc-flash risk assessment lands at 4 cal or under.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">CAT 2 (8 cal/cm² minimum)</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Where most commercial electrical work in Vegas should land. A heavier-weight FR shirt (around 7 oz) or a CAT 1 layer plus an FR undergarment gets you to CAT 2. This is the right baseline for journeymen working on switchgear, motor control centers, or anything with serious incident energy.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">CAT 3 and CAT 4 (25 cal/cm² and 40 cal/cm²)</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Rare in Vegas commercial work — mostly utility, substation, and high-energy industrial. Requires multi-layer FR systems with arc-rated suits, hoods, and face shields. If you're in this territory you already have a safety program, and we're not the first place you're sourcing the suits.
+      </p>
+
+      <div class="my-10 rounded-2xl border-l-4 border-gold-500 bg-gold-500/5 p-6">
+        <p class="mb-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Practical answer</p>
+        <p class="text-lg leading-relaxed text-navy-100">
+          For most Vegas electrical contractors outfitting a service or commercial crew: spec CAT 2 as your baseline shirt rating, then add CAT 1 layers for warmer conditions. That gets you covered for 90% of the work and stays within an Apparel budget you can defend.
+        </p>
+      </div>
+
+      <h2 id="brands" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">3. Brands That Actually Hold Up in Vegas Heat</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Most FR fabric is engineered for moderate climates. Pull a 9 oz canvas FR shirt onto a roof at 11am in July and you'll see why the standard advice ("layer your FR") doesn't always apply. Vegas needs lighter-weight FR that still hits the cal rating.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Bulwark FR</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        The default brand for commercial electrical. The Bulwark Excel-FR ComforTouch line in 7 oz fabric gives you CAT 2 protection without feeling like a tarp. Wash durability is excellent — we've seen them last 18 months on a journeyman.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Carhartt FR</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        The FRSH13 Force Henley is the sleeper pick. CAT 2 rated, lighter than most Bulwark options, and the moisture-wicking interior actually works. Crews who hate FR shirts usually accept the Carhartt FR Henley. See our <a href="/brands/carhartt-custom-las-vegas/" class="text-gold-500 underline hover:text-gold-400">custom Carhartt page</a> for what we stock.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Wrangler Riggs FR</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Underrated. Riggs is what we recommend when crews want something that looks like a regular work shirt — button-down collar, Western styling — but holds CAT 2. Less common in Vegas, but available.
+      </p>
+
+      <h2 id="decoration" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">4. Embroidery Without Voiding the Rating</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Here's the part most shops get wrong. You can absolutely embroider on FR shirts — but only with FR-compatible thread and following the garment manufacturer's placement spec. The wrong thread or the wrong placement voids the certification.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">FR-compatible thread</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Standard polyester embroidery thread (Madeira Polyneon, etc.) is not FR. We use Nomex or aramid-blend thread for any FR garment. The colors are slightly limited compared to the polyester library but cover all standard brand colors.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Placement rules</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Most FR manufacturers spec a maximum decoration size (typically 4" × 4" left chest) and require backing materials to be FR-rated as well. We verify the spec sheet for each garment before running. If the placement breaks the spec, we either reduce the design or use an FR-rated woven label sewn on rather than embroidering.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Screen printing on FR</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Possible but limited. Specialty FR-rated water-based ink exists but the placement and coverage area are tightly limited. For most FR work we recommend embroidery — same compliance, more durable, looks more professional on service-call gear.
+      </p>
+
+      <div class="my-10 rounded-2xl border-l-4 border-gold-500 bg-gold-500/5 p-6">
+        <p class="mb-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Why this matters</p>
+        <p class="text-lg leading-relaxed text-navy-100">
+          A safety officer doing a job-site walk can spot non-compliant decoration in 10 seconds. Standard polyester thread on an FR shirt is a documentation failure. Worse, in an actual arc event, the polyester melts and contributes to burn injury — voiding the rating in the worst possible way.
+        </p>
+      </div>
+
+      <h2 id="mistakes" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">5. Five Mistakes We See Weekly</h2>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">1. Buying FR shirts but skipping FR pants</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        The CAT rating system assumes the worker is fully covered. A CAT 2 shirt with non-FR cargo pants doesn't give you CAT 2 protection — the pants ignite and the shirt becomes irrelevant. Spec FR shirts <em>and</em> FR pants together.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">2. Layering a non-FR cotton tee under an FR shirt</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Cotton ignites at lower temperatures than the FR shirt protects against. You're not "doubling up" — you're carrying a fuel source against your skin. Either go bare or use an FR base layer.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">3. Treating the rating as permanent</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        FR garments lose protection after enough washes — typically 50–100 industrial washes depending on the brand. Inspect for fading, thinning, and any tears. Replace before the rating is in question. Bulwark and Carhartt both publish wash-cycle guidance per garment.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">4. Using consumer detergent</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Fabric softeners and chlorine bleach destroy FR treatment. If you launder in-house, switch to an FR-safe detergent (UniFirst, Cintas, and several commercial laundry services offer compatible options). Most of our crews use a contracted FR laundry service.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">5. Embroidering with standard polyester thread</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Already covered, but worth repeating. If your current vendor isn't asking what thread they're using on your FR shirts, ask them. If they don't know, that's your answer — find a shop that does. We do the verification on every FR run; that's not optional.
+      </p>
+
+      <h2 id="what-to-buy" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">6. What to Actually Buy</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        For a typical Vegas commercial electrical crew of 10–30 journeymen and apprentices, here's the kit we recommend as a starting point:
+      </p>
+
+      <ul class="mb-6 list-disc space-y-2 pl-6 text-lg leading-relaxed text-navy-200">
+        <li><strong>5 CAT 2 button-down FR shirts</strong> per journeyman (Bulwark Excel-FR or Carhartt FRSH13)</li>
+        <li><strong>3 CAT 2 FR pants</strong> per journeyman (Bulwark or Wrangler Riggs FR)</li>
+        <li><strong>1 FR hoodie or jacket layer</strong> for early starts (CAT 2 minimum)</li>
+        <li><strong>2 ANSI Class 2 hi-vis vests</strong> for service-truck visibility (separate from FR layer)</li>
+        <li><strong>Embroidered company logo + name</strong> on chest with FR-compatible thread</li>
+      </ul>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        For a full breakdown of what we make for electrical contractors, see our <a href="/industries/electrical-contractors-las-vegas/" class="text-gold-500 underline hover:text-gold-400">electrical contractors page</a>. We can also set up a <a href="/company-stores/" class="text-gold-500 underline hover:text-gold-400">company store</a> stocked with your approved FR options so apprentices can order their own kits without anyone re-thinking the spec.
+      </p>
+
+      <div class="my-12 rounded-2xl border border-gold-500/30 bg-gold-500/5 p-8 text-center">
+        <h3 class="mb-3 font-heading text-2xl font-bold text-white">Want a quote on FR for your crew?</h3>
+        <p class="mb-6 text-base text-gray-300">Send your roster + roles. We'll come back with brand recommendations and pricing in 24 hours.</p>
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Quote</a>
+      </div>
+
+      <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The Short Version</h2>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Spec CAT 2 as your baseline. Use Bulwark or Carhartt FR. Embroider with FR-compatible thread only. Verify placement against the manufacturer spec. Replace garments before the rating expires.
+      </p>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        FR isn't a paperwork drill — it's the difference between a near miss and a burn injury. Get it right at the apparel level and the rest of your safety program holds together.
+      </p>
+
+      <div class="mt-16 rounded-2xl border border-navy-700/50 bg-navy-900/40 p-6">
+        <div class="flex items-start gap-4">
+          <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-gold-500/30 bg-gold-500/10">
+            <span class="font-mono text-lg font-bold text-gold-500">BT</span>
+          </div>
+          <div>
+            <p class="mb-1 font-heading text-lg font-bold text-white">Bighorn Threads Team</p>
+            <p class="text-sm leading-relaxed text-navy-200">FR-safe embroidery and screen printing for Las Vegas electrical contractors since 2010. <a href="/industries/electrical-contractors-las-vegas/" class="text-gold-500 underline hover:text-gold-400">See what we make for electrical crews.</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <section class="border-t border-navy-800 bg-navy-900/60 py-16">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">FR for your electrical crew, done right.</h2>
+      <p class="mb-8 text-lg text-gray-400">FR-safe embroidery, code-compliant placement, brand-name garments stocked locally.</p>
+      <a href="/contact/" class="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-gold-500 px-8 py-4 text-lg font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>
+    </div>
+  </section>
+</BaseLayout>

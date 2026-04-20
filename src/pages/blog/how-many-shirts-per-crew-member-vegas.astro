@@ -1,0 +1,239 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const post = {
+  title: 'How Many Shirts Should You Order Per Crew Member? (Vegas GC Rule of Thumb)',
+  description:
+    'A practical formula for how many branded shirts to order per construction employee in Las Vegas. By role, by season, with realistic wash rotations. Avoid both shortages and dead inventory.',
+  category: 'Operations',
+  readTime: '8 min read',
+  date: 'Apr 14, 2026',
+  isoDate: '2026-04-14',
+  image: '/images/generated/workwear-flatlay.jpg',
+  slug: 'how-many-shirts-per-crew-member-vegas',
+}
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: post.title,
+      description: post.description,
+      image: `https://bighornthreads.com${post.image}`,
+      datePublished: post.isoDate,
+      dateModified: post.isoDate,
+      author: { '@type': 'Organization', name: 'Bighorn Threads Team' },
+      publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } },
+      mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/`,
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' },
+        { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` },
+      ],
+    },
+  ],
+}
+---
+
+<BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <article class="bg-navy-950">
+    <header class="relative overflow-hidden border-b border-navy-800">
+      <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_30%,_rgba(193,155,61,0.06),_transparent)]"></div>
+
+      <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
+        <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-gold-400">Home</a>
+          <span class="px-2">/</span>
+          <a href="/blog/" class="hover:text-gold-400">Blog</a>
+        </nav>
+
+        <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
+        <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
+        <p class="mb-8 text-xl leading-relaxed text-gray-300">
+          A field-tested formula for outfitting construction crews in Las Vegas — broken down by role, by season, and by how often the laundry actually gets done.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400">
+          <span class="text-gold-500">Bighorn Threads Team</span>
+          <span aria-hidden="true">&middot;</span>
+          <span>{post.readTime}</span>
+          <span aria-hidden="true">&middot;</span>
+          <time datetime={post.isoDate}>{post.date}</time>
+        </div>
+      </div>
+    </header>
+
+    <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8">
+      <img src={post.image} alt="Stack of folded branded construction shirts in various sizes" width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" />
+    </div>
+
+    <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+      <aside class="mb-12 rounded-2xl border border-navy-700/50 bg-navy-900/40 p-6 lg:sticky lg:top-24">
+        <h2 class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-500">In this article</h2>
+        <ol class="space-y-2 font-mono text-sm text-navy-200">
+          <li><a href="#the-formula" class="hover:text-gold-400">1. The 5-3-1 starting formula</a></li>
+          <li><a href="#by-role" class="hover:text-gold-400">2. By role: field, foreman, office</a></li>
+          <li><a href="#vegas-summer" class="hover:text-gold-400">3. Vegas summer adjustment</a></li>
+          <li><a href="#turnover" class="hover:text-gold-400">4. Building in turnover</a></li>
+          <li><a href="#actual-math" class="hover:text-gold-400">5. The actual math for a 30-person crew</a></li>
+        </ol>
+      </aside>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        We've been outfitting Vegas construction crews since 2010 and there's one question we get more than any other: <em>how many shirts do we actually need per person?</em> The honest answer is that most contractors order too few of the things crews wear daily, too many of the things they don't, and end up with a closet full of dead inventory plus a constant scramble for the right sizes.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Here's the formula we recommend after fifteen years of watching crews wear and trash gear in 110° conditions.
+      </p>
+
+      <h2 id="the-formula" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">1. The 5-3-1 Starting Formula</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        For a working field crew member in Las Vegas, the baseline kit per employee is:
+      </p>
+
+      <ul class="mb-6 list-disc space-y-2 pl-6 text-lg leading-relaxed text-navy-200">
+        <li><strong>5 daily-wear tees or polos</strong> — one per workday with one in the wash</li>
+        <li><strong>3 secondary garments</strong> — long-sleeves, hi-vis layers, hoodies</li>
+        <li><strong>1 outerwear piece</strong> — branded jacket, vest, or pullover</li>
+      </ul>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        That's 9 pieces total. It assumes the crew member does laundry once a week, has one hot-swap shirt for emergencies, and rotates through the kit so individual pieces last 6–12 months.
+      </p>
+
+      <div class="my-10 rounded-2xl border-l-4 border-gold-500 bg-gold-500/5 p-6">
+        <p class="mb-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Reality check</p>
+        <p class="text-lg leading-relaxed text-navy-100">
+          Most contractors we onboard are running on 2 shirts per crew member. Two shirts means daily washing. Daily washing means crews wear out gear in 4 months instead of 12. Doubling your front-end order cuts your annual replacement spend by ~40%.
+        </p>
+      </div>
+
+      <h2 id="by-role" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">2. By Role: Field, Foreman, Office</h2>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Field crew (laborers, journeymen, apprentices)</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Standard 5-3-1 kit. Cotton or poly-blend tees, hi-vis layers, branded hoodies. The shirts will be filthy by Friday — they're consumables, not heirlooms. Spec for durability and washability over premium feel.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Foreman / Superintendent</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Bump to 5 polos + 3 button-downs + 1 jacket. Foremen are visible to clients, GCs, and inspectors. They need a slightly elevated kit — embroidered polos beat printed tees here. Differentiate visually from the field crew (different color, embroidery vs print) so authority is obvious from across the lot.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Office / Project Manager</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        3 polos + 2 button-downs + 1 zip-up. Office staff don't burn through shirts the way field crews do. Quarterly orders make sense here, not the annual replacement cycle.
+      </p>
+
+      <h2 id="vegas-summer" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">3. The Vegas Summer Adjustment</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Standard apparel formulas come from people working in Ohio. Vegas changes the math. From May through September, your crew member is sweating through gear in 4 hours instead of 8. Some shops do mid-day shirt swaps. That doubles your daily-wear rotation.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        The summer-adjusted kit:
+      </p>
+
+      <ul class="mb-6 list-disc space-y-2 pl-6 text-lg leading-relaxed text-navy-200">
+        <li><strong>7 daily-wear tees</strong> instead of 5 (covers mid-day swaps + Monday hand-out delays)</li>
+        <li><strong>2 long-sleeve UPF</strong> for sun protection — counterintuitive but actually keeps crews cooler than direct sun on bare arms</li>
+        <li>Drop the heavyweight hoodie to a single piece — it sits in the truck May through September anyway</li>
+      </ul>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Switch fabric choice in summer too. Polyester or poly-cotton blends wick instead of trapping. Pure cotton becomes wet-and-stays-wet by 10am.
+      </p>
+
+      <h2 id="turnover" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">4. Building Turnover Into the Order</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Construction turnover in Vegas runs around 25% annually for field crew. If you order for the headcount you have today, you're going to be short by Q2 and bleeding on dead inventory by Q4.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Two approaches work:
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Option A: Order +20%, accept some waste</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        For a 30-person crew, order kits for 36. The extras absorb new hires for 4–6 months. You'll write off some leftover gear when you rebrand or change vendors, but the cushion is worth it for crews ordering once a year.
+      </p>
+
+      <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Option B: Stand up a company store and order on demand</h3>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Above 25 employees, this almost always wins. Each new hire gets a kit in 48 hours, sized to them, no closet inventory, no waste. We wrote a full breakdown in <a href="/blog/company-store-vs-bulk-ordering/" class="text-gold-500 underline hover:text-gold-400">Bulk Ordering vs Company Store: The Real Math for Contractors</a> — short version, the math flips around 25–30 employees.
+      </p>
+
+      <h2 id="actual-math" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">5. The Actual Math for a 30-Person Crew</h2>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        For a typical Vegas GC running 25 field, 4 foremen, 1 office:
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        <strong>Field (25 × 9 pieces + 20% buffer):</strong> 270 pieces total — 175 daily-wear tees, 75 secondary, 30 outerwear
+      </p>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        <strong>Foreman (4 × 9 pieces):</strong> 36 pieces — 20 polos, 12 button-downs, 4 jackets
+      </p>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        <strong>Office (1 × 6 pieces):</strong> 6 pieces — 3 polos, 2 button-downs, 1 zip-up
+      </p>
+
+      <div class="my-10 rounded-2xl border-l-4 border-gold-500 bg-gold-500/5 p-6">
+        <p class="mb-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Total annual</p>
+        <p class="text-lg leading-relaxed text-navy-100">
+          ~310 garments to outfit a 30-person Vegas GC for the year. At our typical $14–$22 per piece (decoration included), that's $4,500–$7,000 annual apparel spend. Compared to the $9–12K most under-supplied crews end up spending on emergency reorders, it pays for itself.
+        </p>
+      </div>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        For a more detailed breakdown by trade — electrical, roofing, plumbing — see our <a href="/industries/" class="text-gold-500 underline hover:text-gold-400">industries pages</a>. Each trade has a standard kit specific to the work and the gear we recommend by role.
+      </p>
+
+      <div class="my-12 rounded-2xl border border-gold-500/30 bg-gold-500/5 p-8 text-center">
+        <h3 class="mb-3 font-heading text-2xl font-bold text-white">Need help speccing your crew's kit?</h3>
+        <p class="mb-6 text-base text-gray-300">Send us your roster and we'll build out a recommended kit + quote in 24 hours.</p>
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Quote</a>
+      </div>
+
+      <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The Short Version</h2>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Field crew: 5 daily + 3 secondary + 1 outer = 9 pieces. Foremen: bump to embroidered polos with a jacket. Add 20% for turnover, or skip the buffer entirely with a company store. Adjust up by 30% in summer for sweat-through and mid-day swaps.
+      </p>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Order too few and you bleed on emergency reorders all year. Order right once and you stop thinking about apparel until next April.
+      </p>
+
+      <div class="mt-16 rounded-2xl border border-navy-700/50 bg-navy-900/40 p-6">
+        <div class="flex items-start gap-4">
+          <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-gold-500/30 bg-gold-500/10">
+            <span class="font-mono text-lg font-bold text-gold-500">BT</span>
+          </div>
+          <div>
+            <p class="mb-1 font-heading text-lg font-bold text-white">Bighorn Threads Team</p>
+            <p class="text-sm leading-relaxed text-navy-200">Outfitting Vegas crews since 2010. <a href="/industries/general-contractors-las-vegas/" class="text-gold-500 underline hover:text-gold-400">See what we make for general contractors.</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <section class="border-t border-navy-800 bg-navy-900/60 py-16">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Spec your crew's kit. We'll build the order.</h2>
+      <p class="mb-8 text-lg text-gray-400">Send your roster, we'll send back recommended kits and a quote.</p>
+      <a href="/contact/" class="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-gold-500 px-8 py-4 text-lg font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>
+    </div>
+  </section>
+</BaseLayout>
