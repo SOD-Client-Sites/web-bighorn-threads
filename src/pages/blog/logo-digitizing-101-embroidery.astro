@@ -23,7 +23,12 @@ const schema = {
       image: `https://bighornthreads.com${post.image}`,
       datePublished: post.isoDate,
       dateModified: post.isoDate,
-      author: { '@type': 'Organization', name: 'Bighorn Threads Team' },
+      author: {
+        '@type': 'Person',
+        name: 'Steve Dodson',
+        url: 'https://bighornthreads.com/about/',
+        sameAs: ['https://www.linkedin.com/company/vp-promotions-vegas'],
+      },
       publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } },
       mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/`,
     },
@@ -37,10 +42,24 @@ const schema = {
     },
   ],
 }
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How to Prepare a Logo for Embroidery Digitizing',
+  description: 'A step-by-step guide to getting your logo ready for embroidery digitizing so the first run produces a crisp, durable stitch file with no rework.',
+  step: [
+    { '@type': 'HowToStep', name: 'Understand what digitizing is', text: 'Learn that digitizing converts your logo into a machine-readable stitch file (.dst, .emb, .pes) — a craft decision made by a person, not auto-software.' },
+    { '@type': 'HowToStep', name: 'Send a vector logo file', text: 'Provide your logo as an .ai, .eps, or .svg file. If only a raster file is available, send it at 300 DPI minimum. Also include Pantone colors, exact embroidery size, and fabric type.' },
+    { '@type': 'HowToStep', name: 'Review what a good digitizing file looks like', text: 'Know the signs of quality: clean satin stitch edges, even fill density, readable type at size, no fabric puckering, and crisp color registration.' },
+    { '@type': 'HowToStep', name: 'Approve the sew-out before production', text: 'Require a physical sew-out on the actual fabric before the full order runs. Catch puckering, thread color shifts, or illegible small text at the one-piece stage, not on 100 shirts.' },
+    { '@type': 'HowToStep', name: 'Confirm file ownership', text: 'Ask your shop who owns the digitized stitch file. Confirm you receive a copy of the .dst so you are not locked to a single vendor for every reorder.' },
+  ],
+}
 ---
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
 
   <article class="bg-navy-950">
     <header class="relative overflow-hidden border-b border-navy-800">

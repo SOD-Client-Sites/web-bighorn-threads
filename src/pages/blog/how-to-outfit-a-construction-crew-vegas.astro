@@ -23,7 +23,12 @@ const schema = {
       image: `https://bighornthreads.com${post.image}`,
       datePublished: post.isoDate,
       dateModified: post.isoDate,
-      author: { '@type': 'Organization', name: 'Bighorn Threads Team' },
+      author: {
+        '@type': 'Person',
+        name: 'Steve Dodson',
+        url: 'https://bighornthreads.com/about/',
+        sameAs: ['https://www.linkedin.com/company/vp-promotions-vegas'],
+      },
       publisher: {
         '@type': 'Organization',
         name: 'Bighorn Threads',
@@ -49,6 +54,20 @@ const schema = {
     },
   ],
 }
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How to Outfit a Construction Crew in Las Vegas',
+  description: 'A practical six-step playbook for setting up a branded apparel program for Las Vegas construction and trades crews — from safety standards through company stores.',
+  step: [
+    { '@type': 'HowToStep', name: 'Start with your jobsite safety standard', text: 'Identify the ANSI/ISEA 107 hi-vis class (Class 2 or 3) required by your GCs before selecting any apparel. Account for Vegas summer heat when specifying fabric weight and moisture-wicking performance.' },
+    { '@type': 'HowToStep', name: 'Choose your apparel categories', text: 'Build a category list: daily field wear (moisture-wicking hi-vis tees), safety layer (vests), office and sales (embroidered polos), outerwear (softshells and jackets), and headwear (branded hats).' },
+    { '@type': 'HowToStep', name: 'Decide between bulk ordering and a company store', text: 'For crews under 20 people, bulk ordering works. For crews over 30, a branded company store eliminates size guessing, dead inventory, and closet management.' },
+    { '@type': 'HowToStep', name: 'Get your artwork ready', text: 'Prepare a vector file (.ai, .eps, .svg), a single-color version for hi-vis tees, and a simplified small-format version for hats and left-chest embroidery.' },
+    { '@type': 'HowToStep', name: 'Plan timing and turnaround', text: 'Allow 10-14 business days for standard orders. Pre-book summer hi-vis in March and winter outerwear in August. Keep onboarding bundles stocked for immediate new-hire kitting.' },
+    { '@type': 'HowToStep', name: 'Use a company store for ongoing management', text: 'For crews over 30, set up a branded store with HR integration so new hires order their own kits on day one — eliminating the storage closet and emergency reorders.' },
+  ],
+}
 ---
 
 <BaseLayout
@@ -60,6 +79,7 @@ const schema = {
   publishedDate={post.isoDate}
 >
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
 
   <!-- Hero -->
   <article class="bg-navy-950">

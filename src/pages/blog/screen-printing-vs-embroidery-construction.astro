@@ -23,7 +23,12 @@ const schema = {
       image: `https://bighornthreads.com${post.image}`,
       datePublished: post.isoDate,
       dateModified: post.isoDate,
-      author: { '@type': 'Organization', name: 'Bighorn Threads Team' },
+      author: {
+        '@type': 'Person',
+        name: 'Steve Dodson',
+        url: 'https://bighornthreads.com/about/',
+        sameAs: ['https://www.linkedin.com/company/vp-promotions-vegas'],
+      },
       publisher: {
         '@type': 'Organization',
         name: 'Bighorn Threads',
@@ -49,6 +54,19 @@ const schema = {
     },
   ],
 }
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How to Choose Between Screen Printing and Embroidery for Workwear',
+  description: 'A decision framework for picking the right decoration method for each garment in a construction or trades apparel program.',
+  step: [
+    { '@type': 'HowToStep', name: 'Identify the garment type', text: 'T-shirts, long sleeves, hi-vis tees, and hoodies with bold art default to screen printing. Polos, hats, softshells, jackets, button-downs, and anything client-facing default to embroidery.' },
+    { '@type': 'HowToStep', name: 'Evaluate your order quantity', text: 'Screen printing has higher setup costs that amortize at volume (24+ pieces). Embroidery has a one-time digitizing fee but lower minimums — under 12-18 pieces, embroidery often wins on total cost.' },
+    { '@type': 'HowToStep', name: 'Consider durability requirements', text: 'Embroidery outlasts the garment on quality outerwear. Screen printing survives 40-50 industrial washes. If the gear will be worn for years in tough conditions, spec embroidery on outerwear.' },
+    { '@type': 'HowToStep', name: 'Match the decoration method to the surface', text: 'Never embroider on lightweight moisture-wicking tees — the needle perforates the fabric. Never screen print on curved surfaces like hat fronts. Each method has physical limits.' },
+    { '@type': 'HowToStep', name: 'Run a hybrid program for most crews', text: 'Screen print field tees and hoodie art. Embroider polos, hats, softshells, and anything a client or superintendent sees up close. Use the same logo file — only the method changes by garment.' },
+  ],
+}
 ---
 
 <BaseLayout
@@ -60,6 +78,7 @@ const schema = {
   publishedDate={post.isoDate}
 >
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
 
   <article class="bg-navy-950">
     <header class="relative overflow-hidden border-b border-navy-800">

@@ -9,23 +9,25 @@ export function publicizeProduct(product) {
   if (Array.isArray(out.options)) {
     out.options = out.options.map(({ priceCode: _pc, ...rest }) => rest)
   }
+  // Normalize prc: expose scalar lowest price + minQty from first tier
+  if (Array.isArray(out.prc) && out.prc.length > 0) {
+    out.minQty = out.prc[0].qty ?? null
+    out.prc = out.prc[0].price ?? null
+  }
   return out
 }
 
 export function resolveAuth(env, kind = 'public') {
   const acctId = Number(env.SAGE_ACCT_ID || 266315)
   if (kind === 'admin') {
-    return {
-      acctId,
-      loginId: String(env.SAGE_CONNECT_ADMIN_LOGIN || ''),
-      key: String(env.SAGE_CONNECT_ADMIN_KEY || ''),
-    }
+    const key = String(env.SAGE_CONNECT_ADMIN_KEY || '')
+    const loginId = String(env.SAGE_CONNECT_ADMIN_LOGIN || '')
+    if (!key) throw new Error('SAGE_CONNECT_ADMIN_KEY env var not set')
+    return { acctId, loginId, key }
   }
-  return {
-    acctId,
-    loginId: '',
-    key: String(env.SAGE_CONNECT_AUTH_KEY || ''),
-  }
+  const key = String(env.SAGE_CONNECT_AUTH_KEY || '')
+  if (!key) throw new Error('SAGE_CONNECT_AUTH_KEY env var not set')
+  return { acctId, loginId: '', key }
 }
 
 // Expected top-level keys per serviceId we call. If SAGE renames/removes one,

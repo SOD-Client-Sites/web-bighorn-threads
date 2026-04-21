@@ -1,5 +1,9 @@
 ---
+import { Image } from 'astro:assets'
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import crewVegas from '@/assets/generated/crew-vegas.jpg'
+import foremanCloseup from '@/assets/generated/foreman-closeup.jpg'
+import productStack from '@/assets/generated/product-stack.jpg'
 
 const values = [
   {
@@ -112,13 +116,11 @@ const jsonLd = {
   <!-- Hero -->
   <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-24 pb-14 sm:pt-36 sm:pb-28">
     <div class="absolute inset-0">
-      <img
-        src="/images/generated/foreman-closeup.jpg"
+      <Image
+        src={foremanCloseup}
         alt=""
         aria-hidden="true"
         class="h-full w-full object-cover opacity-30"
-        width="1600"
-        height="900"
         loading="eager"
         fetchpriority="high"
       />
@@ -178,11 +180,9 @@ const jsonLd = {
         <div class="lg:col-span-5">
           <div class="sticky top-24 space-y-6">
             <div class="overflow-hidden rounded-2xl border border-navy-700/40 bg-navy-800/20">
-              <img
-                src="/images/generated/crew-vegas.jpg"
+              <Image
+                src={crewVegas}
                 alt="Las Vegas construction crew wearing branded hi-vis workwear on a jobsite with the Strip in the background"
-                width="1200"
-                height="800"
                 loading="lazy"
                 class="h-auto w-full"
               />
@@ -395,11 +395,9 @@ const jsonLd = {
 
       <!-- Production partners photo strip -->
       <div class="mt-16 overflow-hidden rounded-2xl border border-navy-700/40 bg-navy-800/20">
-        <img
-          src="/images/generated/crew-vegas.jpg"
+        <Image
+          src={crewVegas}
           alt="Las Vegas construction crew in branded hi-vis and embroidered work shirts on a Strip-adjacent job site"
-          width="1600"
-          height="700"
           loading="lazy"
           class="h-[280px] w-full object-cover sm:h-[320px]"
         />
@@ -462,13 +460,11 @@ const jsonLd = {
   <!-- CTA -->
   <section class="relative overflow-hidden py-24 sm:py-32">
     <div class="absolute inset-0">
-      <img
-        src="/images/generated/product-stack.jpg"
+      <Image
+        src={productStack}
         alt=""
         aria-hidden="true"
         class="h-full w-full object-cover opacity-20"
-        width="1600"
-        height="700"
         loading="lazy"
       />
       <div class="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-950/90 to-navy-950" />

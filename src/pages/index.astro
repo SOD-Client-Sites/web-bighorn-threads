@@ -739,4 +739,18 @@ const faqSchema = {
   </section>
 
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json">{`{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Bighorn Threads",
+  "url": "https://bighornthreads.com",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://bighornthreads.com/catalog/search/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}`}</script>
 </BaseLayout>

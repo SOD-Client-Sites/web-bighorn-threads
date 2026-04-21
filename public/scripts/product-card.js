@@ -60,6 +60,14 @@ export function renderProductCard(p) {
       text: prc,
     }))
   }
+  // MOQ from lowest price tier (exposed as minQty by publicizeProduct)
+  const moq = p.minQty ?? null
+  if (moq && moq > 1) {
+    meta.appendChild(el('p', {
+      class: 'font-mono text-[10px] text-gray-500',
+      text: `Min. ${moq} pcs`,
+    }))
+  }
   anchor.appendChild(meta)
 
   return anchor

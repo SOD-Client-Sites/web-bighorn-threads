@@ -32,11 +32,12 @@ const { heroImage } = Astro.props
       gtag('config', 'G-ZGGY24PN1Z');
     </script>
   </head>
-  <body class="min-h-screen bg-navy-950 text-white antialiased">
+  <body class="min-h-screen bg-navy-950 pb-[60px] text-white antialiased lg:pb-0">
     <Header />
     <main class="pt-[65px]">
       <slot />
     </main>
     <Footer />
+    <script src="https://api.salesondemand.io/js/external-tracking.js" data-tracking-id="tk_4f091433d8a94642b790fd3fbc56afa7"></script>
   </body>
 </html>

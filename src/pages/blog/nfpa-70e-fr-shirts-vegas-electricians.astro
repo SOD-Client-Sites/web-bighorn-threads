@@ -23,7 +23,12 @@ const schema = {
       image: `https://bighornthreads.com${post.image}`,
       datePublished: post.isoDate,
       dateModified: post.isoDate,
-      author: { '@type': 'Organization', name: 'Bighorn Threads Team' },
+      author: {
+        '@type': 'Person',
+        name: 'Steve Dodson',
+        url: 'https://bighornthreads.com/about/',
+        sameAs: ['https://www.linkedin.com/company/vp-promotions-vegas'],
+      },
       publisher: {
         '@type': 'Organization',
         name: 'Bighorn Threads',
