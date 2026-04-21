@@ -27,27 +27,28 @@
   --color-gray-400: #9ca3af;
   --color-gray-300: #c5cad3;
 
-  --font-heading: 'Space Grotesk', 'Space Grotesk Fallback', system-ui, sans-serif;
-  --font-body: 'Inter', 'Inter Fallback', system-ui, sans-serif;
+  --font-heading: 'Big Shoulders Display', 'Big Shoulders Fallback', system-ui, sans-serif;
+  --font-subheading: 'Barlow Condensed', 'Barlow', system-ui, sans-serif;
+  --font-body: 'Barlow', 'Barlow Fallback', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 }
 
 /* Metric-adjusted fallbacks to reduce CLS on font-display: swap */
 @font-face {
-  font-family: 'Space Grotesk Fallback';
-  src: local('Arial');
-  size-adjust: 103%;
-  ascent-override: 93%;
-  descent-override: 24%;
+  font-family: 'Big Shoulders Fallback';
+  src: local('Arial Black');
+  size-adjust: 88%;
+  ascent-override: 110%;
+  descent-override: 28%;
   line-gap-override: 0%;
 }
 
 @font-face {
-  font-family: 'Inter Fallback';
+  font-family: 'Barlow Fallback';
   src: local('Arial');
-  size-adjust: 107%;
-  ascent-override: 90%;
-  descent-override: 22%;
+  size-adjust: 105%;
+  ascent-override: 92%;
+  descent-override: 23%;
   line-gap-override: 0%;
 }
 
