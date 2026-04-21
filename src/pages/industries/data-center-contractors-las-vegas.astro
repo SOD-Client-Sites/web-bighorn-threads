@@ -2,71 +2,81 @@
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const page = {
-  title: 'Custom Workwear for Electrical Contractors in Las Vegas',
+  title: 'Custom Workwear for Data Center Contractors in Las Vegas',
   description:
-    'NFPA 70E flame-resistant shirts, ANSI hi-vis, and embroidered service uniforms for Las Vegas electrical contractors. FR-compatible decoration that doesn\'t void the rating. 24-hour quotes.',
-  h1Pre: 'Electrical Contractors',
+    'FR shirts, hi-vis, and mission-critical uniforms for Las Vegas data center construction. NFPA 70E arc-rated apparel for high-voltage electrical work, NDA-friendly branding options, and tour-ready polos for commissioning. 24-hour quotes.',
+  h1Pre: 'Data Center Contractors',
   hero: '/images/generated/kit-electrical.jpg',
 }
 
 const compliance = [
   {
     code: 'NFPA 70E',
-    title: 'Arc-rated apparel for the field',
-    body: 'Bulwark, Carhartt FR, and FRC shirts in CAT 1 and CAT 2 ratings. We embroider on FR garments using FR-compatible thread and placement techniques that preserve the certification.',
+    title: 'Arc-rated apparel for switchgear and medium-voltage work',
+    body: 'Bulwark, Carhartt FR, and FRC shirts in CAT 1 and CAT 2 ratings for the high-voltage phase of data center buildouts. We embroider on FR garments with FR-compatible thread that preserves the certification.',
   },
   {
-    code: 'ANSI/ISEA 107 Class 2',
-    title: 'Hi-vis for service crews and roadside work',
-    body: 'Class 2 vests, t-shirts, and long-sleeve hi-vis with reflective striping. Logo placement follows the 72-square-inch limit so your branding never breaks compliance.',
+    code: 'NFPA 2112',
+    title: 'Flash-fire rated garments for energized work',
+    body: '2112-compliant shirts and coveralls for electricians working on energized gear during commissioning. Matched to your prime\'s safety spec, with spec sheets kept on file for reorders.',
   },
   {
-    code: 'OSHA 1910.269',
-    title: 'PPE that meets the spec sheet',
-    body: 'We carry the gear your safety manager already knows — PIP, ML Kishigo, Bulwark, Wrangler Riggs. Every spec sheet on file. Reorders match the original lot every time.',
+    code: 'ANSI/ISEA 107 Class 2 + 3',
+    title: 'Hi-vis for the civil and steel phases',
+    body: 'Class 2 and Class 3 vests, shirts, and jackets for the heavy-civil, steel, and enclosure phases. Logo placement follows the ANSI square-inch limits so your branding never breaks compliance.',
   },
 ]
 
 const gear = [
-  { name: 'FR work shirts', detail: 'CAT 1 / CAT 2 rated · button-down or polo · embroidered chest', img: '/images/generated/kit-electrical.jpg' },
-  { name: 'Hi-vis Class 2 t-shirts', detail: 'Lime or orange · screen-printed back · ANSI-compliant placement', img: '/images/generated/service-screen-printing.jpg' },
-  { name: 'Branded service polos', detail: 'Port Authority K500 · embroidered chest + sleeve · 8 stocked colors', img: '/images/generated/service-embroidery.jpg' },
-  { name: 'Hard hat stickers + decals', detail: 'Vinyl cut · OSHA-compliant placement · bulk pricing on 100+', img: '/images/generated/kit-office-sales.jpg' },
+  { name: 'FR work shirts — CAT 1 / CAT 2', detail: 'Bulwark and Carhartt FR · button-down or henley · embroidered chest + sleeve', img: '/images/generated/kit-electrical.jpg' },
+  { name: 'Hi-vis Class 2 + Class 3', detail: 'Lime or orange · ANSI 107-compliant placement · reflective striping', img: '/images/generated/service-screen-printing.jpg' },
+  { name: 'Commissioning polos', detail: 'Port Authority K500 · embroidered chest · tour-ready for client walkthroughs', img: '/images/generated/service-embroidery.jpg' },
+  { name: 'Hard hat + decal customization', detail: 'Vinyl cut · OSHA-compliant placement · bulk pricing on 100+ hats', img: '/images/generated/kit-office-sales.jpg' },
 ]
 
 const useCases = [
-  'Service truck crew uniforms with embroidered name + company logo',
-  'New-hire onboarding kits (5 shirts, hat, hoodie, FR layer)',
-  'Apprentice gear allowances tied to hour milestones',
-  'Foreman and supervisor differentiation (color, embroidery vs print)',
-  'Trade show + IBEW event apparel for Las Vegas locals',
-  'Branded swag for journeyman recruiting drives',
+  'Multi-trade GC crews on new build — electrical, mechanical, controls, fiber',
+  'High-voltage electricians on FR rotation (medium-voltage phase)',
+  'Commissioning teams transitioning from hi-vis to clean polos at turnover',
+  'NDA-controlled orders with job-site-only branding (no public company marks)',
+  '24/7 ops crews for colo tenants running day/night shift uniforms',
+  'Visitor / vendor badged polos for controlled-access facility tours',
+  'Foreman and superintendent differentiation across dozens of subs',
+  'Repeat runs across Switch, Apple, Google, Meta, Microsoft, and colo campuses',
 ]
 
 const faqs = [
   {
-    q: 'Can you embroider on FR shirts without voiding the NFPA 70E rating?',
-    a: 'Yes — we use FR-compatible thread (Nomex or aramid blend) and follow garment-specific placement rules. The certification stays valid as long as the decoration meets the manufacturer\'s spec, which we verify before every FR run.',
+    q: 'Can you meet NFPA 70E CAT 2 for medium-voltage electrical work on data center builds?',
+    a: 'Yes — Bulwark and Carhartt FR shirts rated at 8 cal/cm² (CAT 2) with FR-compatible aramid thread. We verify the garment-specific decoration spec with the manufacturer before every run. The certification stays valid through decoration.',
   },
   {
-    q: 'What\'s the minimum order for hi-vis Class 2 shirts?',
-    a: '24 pieces for screen printing, 12 for embroidery. We stock ANSI 107 Class 2 in lime and orange in adult sizes S–4XL, ready for same-week production.',
+    q: 'Some of our data center clients have NDAs — can we order without showing the end-client\'s name?',
+    a: 'All the time. We can run shirts with only your company logo, or with a project code instead of a client name, or completely blank for controlled distribution. Every order stays in our system under your account, not the end client\'s.',
   },
   {
-    q: 'Do you do rush orders for service trucks getting wrapped or new fleets?',
-    a: 'Standard rush is 72 hours on orders up to 200 pieces. We\'ve hit 48 hours for repeat clients with files already on hand. Call before 10am for same-day quote turnaround.',
+    q: 'What\'s the difference between construction-phase uniforms and operations uniforms for a data center?',
+    a: 'Construction phase is hi-vis Class 2/3 plus FR shirts for electrical. Commissioning shifts to clean embroidered polos that read well on a client walkthrough. Ops phase is typically 24/7 shift uniforms — branded polos or work shirts with name + shift color coding. We run all three.',
   },
   {
-    q: 'What brands do you stock for electrical contractors specifically?',
-    a: 'Bulwark FR, Carhartt FR, Wrangler Riggs, Port Authority, ML Kishigo, PIP, Pioneer. We\'ll match whatever\'s on your existing safety spec sheet.',
+    q: 'Do you handle ESD-safe or cleanroom-adjacent apparel?',
+    a: 'We don\'t stock cleanroom garments — those are a specialized category from cleanroom suppliers. For ESD-control work outside the white space (electrical rooms, telecom closets), standard FR garments work. Ask and we\'ll tell you if a job needs something we don\'t cover.',
   },
   {
-    q: 'Can you set up a company store so my apprentices can order their own gear?',
-    a: 'Yes. Each employee logs in, sees only the gear you\'ve approved (with allowances if you set them), and orders direct. We print and ship — no inventory on your end. Read more on company stores.',
+    q: 'Our GC runs multiple data center projects at once. Can you standardize uniforms across job sites?',
+    a: 'That\'s exactly the company store use case. Every crew member logs in, sees only the approved gear for their role and trade, and orders direct. Foreman can order for their crew. Reorders match the original run every time. One account, multiple sites, consistent branding.',
   },
   {
-    q: 'Do you handle hard hat customization to OSHA standards?',
-    a: 'Yes — vinyl decals in any size up to manufacturer placement limits. We don\'t alter the shell, drill, or apply heat. Stickers only. Bulk discounts on 100+.',
+    q: 'We\'ve got a commissioning deadline. What\'s your rush turnaround on embroidered polos?',
+    a: '72-hour rush is standard on up to 200 pieces. 48 hours on repeat clients with files on file. Call before 10am for same-day quote turnaround — we\'ll tell you on the call whether your deadline is realistic and what it costs.',
+  },
+  {
+    q: 'Can you brand hard hats and decals to OSHA placement rules?',
+    a: 'Vinyl decals in any size up to the manufacturer\'s placement limits. We don\'t drill, heat-transfer, or alter the shell. Stickers only — the only OSHA-compliant method. Bulk pricing on 100+ hats.',
+  },
+  {
+    q: 'Do you work with the GCs building the major Vegas data center campuses?',
+    a: 'Yes — we\'ve outfitted crews on data center projects across Las Vegas, Henderson, and Summerlin for the last several years. We won\'t name clients publicly for NDA reasons, but ask Steve on a call and he\'ll walk you through projects similar to yours.',
   },
 ]
 
@@ -76,24 +86,25 @@ const breadcrumb = {
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
     { '@type': 'ListItem', position: 2, name: 'Industries', item: 'https://bighornthreads.com/industries/' },
-    { '@type': 'ListItem', position: 3, name: 'Electrical Contractors', item: 'https://bighornthreads.com/industries/electrical-contractors-las-vegas/' },
+    { '@type': 'ListItem', position: 3, name: 'Data Center Contractors', item: 'https://bighornthreads.com/industries/data-center-contractors-las-vegas/' },
   ],
 }
 
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Custom Workwear for Electrical Contractors',
-  serviceType: 'Branded apparel and FR-compliant uniforms',
+  name: 'Custom Workwear for Data Center Contractors',
+  serviceType: 'Branded apparel and FR-compliant uniforms for data center construction and operations',
   provider: { '@id': 'https://bighornthreads.com/#organization' },
   areaServed: [
     { '@type': 'City', name: 'Las Vegas' },
     { '@type': 'City', name: 'Henderson' },
     { '@type': 'City', name: 'North Las Vegas' },
+    { '@type': 'City', name: 'Summerlin' },
   ],
   audience: {
     '@type': 'BusinessAudience',
-    audienceType: 'Electrical Contractors',
+    audienceType: 'Data Center Contractors and Mission-Critical Builders',
   },
 }
 
@@ -111,7 +122,7 @@ const faqSchema = {
 <BaseLayout
   title={page.title}
   description={page.description}
-  canonical="https://bighornthreads.com/industries/electrical-contractors-las-vegas/"
+  canonical="https://bighornthreads.com/industries/data-center-contractors-las-vegas/"
   heroImage={page.hero}
 >
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
@@ -132,15 +143,15 @@ const faqSchema = {
         <span class="px-2 text-gray-600">/</span>
         <a href="/industries/" class="hover:text-gold-400">Industries</a>
         <span class="px-2 text-gray-600">/</span>
-        <span class="text-gold-500">Electrical Contractors</span>
+        <span class="text-gold-500">Data Center Contractors</span>
       </nav>
 
-      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">{page.h1Pre}</span>
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">{page.h1Pre} · Las Vegas #1 Growth Sector</span>
       <h1 class="mb-6 max-w-4xl font-heading text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
-        FR Shirts, Hi-Vis, and Service Uniforms <span class="text-gold-500">Built for Vegas Electrical Crews.</span>
+        Mission-Critical Uniforms for <span class="text-gold-500">Vegas Data Center Builds.</span>
       </h1>
       <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
-        NFPA 70E-rated shirts that hold up in 110° heat. ANSI Class 2 hi-vis with logo placement that doesn't break the cert. Service polos a journeyman will actually wear.
+        NFPA 70E-rated shirts for the electrical phase. Hi-vis Class 2 + 3 for civil and steel. Tour-ready polos for commissioning. NDA-friendly branding when the end client stays off the shirt.
       </p>
 
       <div class="mt-10 flex flex-wrap items-center gap-3">
@@ -156,14 +167,31 @@ const faqSchema = {
     </div>
   </section>
 
+  <!-- Vegas DC context -->
+  <section class="border-b border-navy-800 bg-navy-900/20 py-16 sm:py-20">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Vegas Market Context</span>
+      <h2 class="mb-6 font-heading text-3xl font-bold tracking-tight sm:text-4xl">The data center wave is here.</h2>
+      <p class="mb-5 text-lg leading-relaxed text-gray-300">
+        Las Vegas and the surrounding valley have become one of the largest hyperscale + colocation hubs in the U.S. Between Switch, Google, Apple, Meta, Microsoft, and the Henderson and Summerlin campuses coming online, the data center construction pipeline dwarfs anything Vegas has seen outside the Strip.
+      </p>
+      <p class="mb-5 text-lg leading-relaxed text-gray-300">
+        Data center contractors operate under a specific mix: very high voltage (arc-flash country), heavy civil + steel, mission-critical mechanical, telecom/fiber, and building controls — all under aggressive commissioning timelines with NDAs layered on top. The apparel needs across those phases don't match a standard commercial GC's needs.
+      </p>
+      <p class="text-lg leading-relaxed text-gray-300">
+        We've been outfitting Vegas data center crews across multiple prime contractors and colo tenants for several years. We know the FR rotations, the commissioning-week polo runs, the "no end-client logo on the shirt" NDA pattern, and the hard hat decal rules. You won't need to explain the job to us.
+      </p>
+    </div>
+  </section>
+
   <!-- Compliance hero strip -->
   <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 max-w-2xl">
         <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Compliance &amp; Spec</span>
-        <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">We speak your safety manager's language.</h2>
+        <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">We speak your safety officer's language.</h2>
         <p class="mt-4 text-lg leading-relaxed text-gray-300">
-          Every electrical contractor we work with operates under specs from a safety officer, a master electrician, or both. We carry the brands, ratings, and certifications they want on file — and we keep the spec sheets so reorders match.
+          Every data center build operates under a safety spec from the prime, the client, and sometimes both. We carry the brands, ratings, and certifications they want on file — and we keep spec sheets so reorders match exactly.
         </p>
       </div>
 
@@ -184,9 +212,9 @@ const faqSchema = {
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 max-w-2xl">
         <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">The Gear</span>
-        <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">What we make for electrical crews.</h2>
+        <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">What we run for data center builds.</h2>
         <p class="mt-4 text-lg leading-relaxed text-gray-300">
-          Field-tested combinations we run for working electrical contractors across Las Vegas, Henderson, and North Las Vegas. Mix and match — most crews end up with two or three of these.
+          The sequence we see most often: hi-vis on civil, FR through electrical and commissioning, embroidered polos for client walk-throughs, branded ops gear once the building turns over.
         </p>
       </div>
 
@@ -206,19 +234,19 @@ const faqSchema = {
     </div>
   </section>
 
-  <!-- Use cases / typical orders -->
+  <!-- Use cases -->
   <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
           <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Typical Orders</span>
-          <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">What we run every week for electrical shops.</h2>
+          <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">What we run every month for data center contractors.</h2>
           <p class="mt-4 text-lg leading-relaxed text-gray-300">
-            From two-person service trucks to 80-person commercial electrical contractors. The sweet spot for a company store is around 25 employees — under that, bulk reorders work fine.
+            From 20-person subs to 300-person prime contractor crews. The moment a data center project hits commissioning, apparel volume ramps hard — company stores handle the scale without the admin overhead.
           </p>
           <div class="mt-8 flex flex-wrap gap-3">
-            <a href="/services/" class="inline-flex items-center gap-2 rounded-lg border border-gray-600 px-5 py-2.5 text-sm font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">All Services →</a>
             <a href="/company-stores/" class="inline-flex items-center gap-2 rounded-lg border border-gray-600 px-5 py-2.5 text-sm font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">Company Stores →</a>
+            <a href="/services/rush-orders-las-vegas/" class="inline-flex items-center gap-2 rounded-lg border border-gray-600 px-5 py-2.5 text-sm font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">Rush Orders →</a>
           </div>
         </div>
 
@@ -238,7 +266,7 @@ const faqSchema = {
   <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">FAQ</span>
-      <h2 class="mb-12 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Questions electrical contractors ask us.</h2>
+      <h2 class="mb-12 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Questions data center contractors ask us.</h2>
 
       <div class="space-y-3">
         {faqs.map((f) => (
@@ -261,9 +289,9 @@ const faqSchema = {
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <span class="mb-6 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Related Reading</span>
       <div class="grid gap-5 md:grid-cols-3">
-        <a href="/industries/data-center-contractors-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
-          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Data Center Contractors</h3>
-          <p class="mt-2 text-sm text-gray-400">FR + NDA-friendly branding for Vegas&rsquo; fastest-growing construction sector.</p>
+        <a href="/industries/electrical-contractors-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+          <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Electrical Contractors</h3>
+          <p class="mt-2 text-sm text-gray-400">FR shirts, hi-vis, and service uniforms for Vegas electrical crews.</p>
         </a>
         <a href="/industries/general-contractors-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
           <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">General Contractors</h3>
@@ -280,8 +308,8 @@ const faqSchema = {
   <!-- CTA -->
   <section class="bg-navy-900/60 py-20">
     <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-      <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Quote in 24 hours. No setup fees over 25 pieces.</h2>
-      <p class="mb-8 text-lg text-gray-300">Talk to a real human who knows FR ratings and ANSI placement.</p>
+      <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Quote in 24 hours. NDA-friendly. Rush options available.</h2>
+      <p class="mb-8 text-lg text-gray-300">Talk to a real human who has outfitted Vegas data center crews across multiple primes.</p>
       <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>
         <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gray-600 px-8 py-4 font-mono text-base font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">725.235.6196</a>

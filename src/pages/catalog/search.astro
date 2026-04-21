@@ -1,0 +1,49 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import SearchBar from '@/components/SearchBar.astro'
+import { bighornCategories } from '@/data/sage-categories'
+---
+
+<BaseLayout
+  title="Search Products — Bighorn Threads"
+  description="Search 1.7M+ branded apparel and promotional products custom-decorated for Las Vegas trades."
+  canonical="https://bighornthreads.com/catalog/search/"
+  noindex={true}
+>
+  <section class="relative border-b border-navy-800/40 bg-navy-900/60 pt-20 pb-10 sm:pt-24">
+    <div class="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-900 to-navy-950/50"></div>
+    <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-gold-400">Home</a>
+        <span class="px-2 text-gray-600">/</span>
+        <a href="/catalog/" class="hover:text-gold-400">Catalog</a>
+        <span class="px-2 text-gray-600">/</span>
+        <span class="text-gold-500">Search</span>
+      </nav>
+      <h1 id="search-title" class="mb-5 font-heading text-2xl font-bold tracking-tight sm:text-3xl">Search Products</h1>
+      <SearchBar action="/catalog/search/" size="lg" />
+    </div>
+  </section>
+
+  <section class="bg-navy-950 py-10">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <p id="result-meta" class="mb-5 font-mono text-xs text-gray-400"></p>
+      <div id="products-grid" class="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"></div>
+      <div id="empty-state" class="hidden rounded-xl border border-navy-800/60 bg-navy-900/40 p-8 text-center">
+        <p class="font-heading text-lg text-white">Enter a keyword to search</p>
+        <p class="mt-2 text-sm text-gray-400">Try "hi-vis vest", "polo shirt", "tumbler", or a supplier name.</p>
+        <p class="mt-6 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500">Or Browse Categories</p>
+        <div class="mt-4 flex flex-wrap justify-center gap-2">
+          {bighornCategories.slice(0, 8).map((c) => (
+            <a href={`/catalog/${c.slug}/`} class="rounded-full border border-navy-700 bg-navy-900 px-4 py-1.5 text-xs text-gray-300 hover:border-gold-500/40 hover:text-gold-400">
+              {c.shortTitle}
+            </a>
+          ))}
+        </div>
+      </div>
+      <div id="pagination" class="mt-10 flex items-center justify-center gap-2"></div>
+    </div>
+  </section>
+
+  <script type="module" src="/scripts/catalog-search.js"></script>
+</BaseLayout>

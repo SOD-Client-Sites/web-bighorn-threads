@@ -13,3 +13,11 @@ dist/
 portal/
 /*.png
 !/public/**/*.png
+.dev.vars
+
+# Raw SAGE scrape (47MB of HTML + PDFs — reference only, not shipped)
+docs/sage-raw/
+
+# Scratch: agent audit output + playwright review screenshots
+.audit/
+.playwright-review/

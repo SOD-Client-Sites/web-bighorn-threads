@@ -1,0 +1,71 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import SearchBar from '@/components/SearchBar.astro'
+import { bighornCategories } from '@/data/sage-categories'
+---
+
+<BaseLayout
+  title="Catalog — Branded Apparel & Promotional Products for Las Vegas Trades | Bighorn Threads"
+  description="Browse 1.7 million+ branded apparel and promotional products. Hi-vis, FR, workwear, polos, caps, and drinkware custom-decorated for Las Vegas construction and trades crews."
+  canonical="https://bighornthreads.com/catalog/"
+>
+  <section class="relative border-b border-navy-800/40 bg-navy-900/60 pt-20 pb-12 sm:pt-24 sm:pb-16">
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-900 to-navy-950/50"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,_rgba(193,155,61,0.1),_transparent)]"></div>
+    </div>
+    <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-gold-400">Home</a>
+        <span class="px-2 text-gray-600">/</span>
+        <span class="text-gold-500">Catalog</span>
+      </nav>
+      <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Catalog · Real-Time</span>
+      <h1 class="mb-4 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+        Branded Apparel &amp; Gear for <span class="text-gold-500">the Crews that Build Las Vegas</span>
+      </h1>
+      <p class="mb-8 max-w-3xl text-base leading-relaxed text-navy-200 sm:text-lg">
+        1.7 million products, filtered to what actually works on a jobsite. Search by keyword or browse by category. Pricing and availability update live.
+      </p>
+      <SearchBar size="lg" action="/catalog/search/" />
+    </div>
+  </section>
+
+  <section class="border-b border-navy-800/40 bg-navy-950 py-16">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-8">
+        <h2 class="font-heading text-2xl font-bold text-white sm:text-3xl">Browse by Category</h2>
+        <p class="mt-2 text-sm text-gray-400">Curated for construction, trades, and industrial work.</p>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {bighornCategories.map((cat) => (
+          <a
+            href={`/catalog/${cat.slug}/`}
+            class="group rounded-xl border border-navy-800/60 bg-navy-900/40 p-5 transition-all hover:border-gold-500/40 hover:shadow-lg hover:shadow-gold-500/5"
+          >
+            <h3 class="font-heading text-base font-bold text-white transition-colors group-hover:text-gold-400">{cat.title}</h3>
+            <p class="mt-2 line-clamp-2 text-xs leading-relaxed text-gray-400">{cat.blurb}</p>
+            <span class="mt-3 inline-block font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500/80 group-hover:text-gold-400">Browse {cat.shortTitle} →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-navy-900/30 py-16">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-6">
+        <h2 class="font-heading text-2xl font-bold text-white sm:text-3xl">Featured Picks</h2>
+        <p class="mt-2 text-sm text-gray-400">Popular with Las Vegas contractors right now.</p>
+      </div>
+      <div id="featured-grid" class="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
+        <div class="col-span-full flex items-center justify-center py-12 text-sm text-gray-400">
+          <svg class="mr-3 h-4 w-4 animate-spin text-gold-500" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-opacity="0.25"/><path d="M12 2a10 10 0 0110 10" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+          Loading featured products…
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script type="module" src="/scripts/catalog-home.js"></script>
+</BaseLayout>

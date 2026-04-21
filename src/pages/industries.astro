@@ -42,6 +42,12 @@ const industries = [
     name: 'Oil, Gas & Mechanical',
     href: '#industry-oil-gas-mechanical',
   },
+  {
+    slug: 'data-center',
+    name: 'Data Center & Mission-Critical',
+    href: '/industries/data-center-contractors-las-vegas/',
+    badge: 'Vegas #1 growth sector',
+  },
 ]
 
 const collectionSchema = {
@@ -97,9 +103,19 @@ const collectionSchema = {
         {industries.map((industry) => (
           <a
             href={industry.href}
-            class="inline-flex items-center gap-2 rounded-full border border-navy-700/60 bg-navy-800/40 px-4 py-2 text-sm font-medium text-navy-200 transition-all hover:border-gold-500/60 hover:bg-gold-500/10 hover:text-gold-400 min-h-[44px]"
+            class:list={[
+              'inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all min-h-[44px]',
+              industry.badge
+                ? 'border-gold-500/50 bg-gold-500/5 text-gold-400 hover:border-gold-500 hover:bg-gold-500/10'
+                : 'border-navy-700/60 bg-navy-800/40 text-navy-200 hover:border-gold-500/60 hover:bg-gold-500/10 hover:text-gold-400',
+            ]}
           >
             {industry.name}
+            {industry.badge && (
+              <span class="ml-1 rounded-full bg-gold-500/20 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider text-gold-400">
+                {industry.badge}
+              </span>
+            )}
           </a>
         ))}
       </div>

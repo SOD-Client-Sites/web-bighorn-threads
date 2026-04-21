@@ -3,6 +3,7 @@ import { Image } from 'astro:assets'
 import logoColor from '@/assets/logos/bighorn-logo-color.png'
 
 const navLinks = [
+  { href: '/catalog/', label: 'Catalog' },
   { href: '/services/', label: 'Services' },
   { href: '/company-stores/', label: 'Company Stores' },
   { href: '/industries/', label: 'Industries' },
@@ -54,6 +55,16 @@ const currentPath = Astro.url.pathname
 
     <!-- Right Cluster -->
     <div class="flex items-center gap-3">
+      <a
+        href="/catalog/search/"
+        class="inline-flex items-center justify-center rounded-lg p-2 text-navy-200 transition-colors hover:bg-navy-800/50 hover:text-gold-500"
+        aria-label="Search products"
+        title="Search catalog"
+      >
+        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </a>
       <a
         href="tel:+17252356196"
         class="hidden items-center gap-2 font-mono text-sm font-medium text-navy-200 transition-colors hover:text-gold-500 md:flex"

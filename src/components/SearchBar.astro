@@ -1,0 +1,42 @@
+---
+interface Props {
+  action?: string
+  placeholder?: string
+  initialValue?: string
+  size?: 'sm' | 'md' | 'lg'
+}
+
+const {
+  action = '/catalog/search',
+  placeholder = 'Search 1.7M+ branded apparel & promotional products…',
+  initialValue = '',
+  size = 'md',
+} = Astro.props
+
+const heightClass = size === 'lg' ? 'h-14 text-base' : size === 'sm' ? 'h-10 text-sm' : 'h-12 text-sm'
+---
+
+<form method="get" action={action} class="w-full" role="search">
+  <label class="sr-only" for="catalog-search">Search products</label>
+  <div class={`relative flex items-center ${heightClass}`}>
+    <svg class="pointer-events-none absolute left-4 h-4 w-4 text-gold-500/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+    </svg>
+    <input
+      id="catalog-search"
+      name="q"
+      type="search"
+      value={initialValue}
+      placeholder={placeholder}
+      maxlength="120"
+      autocomplete="off"
+      class="h-full w-full rounded-lg border border-navy-700/80 bg-navy-950/90 pl-11 pr-28 text-white placeholder:text-gray-500 focus:border-gold-500 focus:outline-none focus:ring-1 focus:ring-gold-500/40"
+    />
+    <button
+      type="submit"
+      class="absolute right-1.5 inline-flex items-center gap-1 rounded-md bg-gold-500 px-4 py-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.15em] text-navy-950 transition-colors hover:bg-gold-400"
+    >
+      Search
+    </button>
+  </div>
+</form>

@@ -10,14 +10,19 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "gsc:submit": "node scripts/gsc-submit.mjs",
+    "deploy": "npm run build && npx wrangler pages deploy dist --project-name=bighorn-threads --branch=main --commit-dirty=true && npm run gsc:submit"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^13.1.10",
     "@astrojs/sitemap": "^3.7.2",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.2",
     "astro": "^6.1.5",
     "tailwindcss": "^4.2.2"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.8",
+    "typescript": "^5.9.3"
   }
 }
