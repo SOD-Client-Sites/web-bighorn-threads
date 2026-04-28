@@ -3,6 +3,16 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const posts = [
   {
+    slug: 'nevada-osha-heat-rules-2026-workwear',
+    category: 'Compliance',
+    title: 'Nevada OSHA Heat Rules 2026: What Las Vegas Contractors Need to Know About Workwear',
+    excerpt: "Nevada's heat illness standard takes effect in 2026 and changes what construction crews must wear. A practical guide for Las Vegas contractors — fabric weight, color, hi-vis, FR, and what your safety officer will ask about.",
+    readTime: '12 min read',
+    date: 'Apr 27, 2026',
+    image: '/images/generated/workwear-flatlay.jpg',
+    imageAlt: 'Breathable hi-vis and FR workwear flat-lay for Nevada OSHA heat rule compliance',
+  },
+  {
     slug: 'logo-digitizing-101-embroidery',
     category: 'Decoration Methods',
     title: 'Logo Digitizing 101: Why Your First File Matters More Than Your Tenth Order',
@@ -10,6 +20,7 @@ const posts = [
     readTime: '7 min read',
     date: 'Apr 28, 2026',
     image: '/images/generated/service-embroidery.jpg',
+    imageAlt: 'Industrial embroidery machine stitching a contractor logo onto a navy work polo',
   },
   {
     slug: 'plastisol-vs-water-based-ink-workwear',
@@ -19,6 +30,7 @@ const posts = [
     readTime: '9 min read',
     date: 'Apr 21, 2026',
     image: '/images/generated/service-screen-printing.jpg',
+    imageAlt: 'Screen printing press laying down ink on a heavyweight cotton work tee',
   },
   {
     slug: 'how-many-shirts-per-crew-member-vegas',
@@ -28,6 +40,7 @@ const posts = [
     readTime: '8 min read',
     date: 'Apr 14, 2026',
     image: '/images/generated/product-stack.jpg',
+    imageAlt: 'Stacked folded branded work shirts ready for delivery to a Las Vegas construction crew',
   },
   {
     slug: 'nfpa-70e-fr-shirts-vegas-electricians',
@@ -37,6 +50,7 @@ const posts = [
     readTime: '11 min read',
     date: 'Apr 7, 2026',
     image: '/images/generated/kit-electrical.jpg',
+    imageAlt: 'NFPA 70E flame-resistant electrical contractor kit with FR shirt and arc-rated gloves',
   },
   {
     slug: 'company-store-vs-bulk-ordering',
@@ -47,6 +61,7 @@ const posts = [
     readTime: '8 min read',
     date: 'Apr 1, 2026',
     image: '/images/generated/service-company-stores.jpg',
+    imageAlt: 'Branded company-store apparel program — folded polos and tees on shelves',
   },
   {
     slug: 'screen-printing-vs-embroidery-construction',
@@ -57,6 +72,7 @@ const posts = [
     readTime: '7 min read',
     date: 'Mar 15, 2026',
     image: '/images/generated/workwear-flatlay.jpg',
+    imageAlt: 'Flat-lay of branded construction workwear including shirts hi-vis vest cap and tape measure',
   },
   {
     slug: 'how-to-outfit-a-construction-crew-vegas',
@@ -67,6 +83,7 @@ const posts = [
     readTime: '9 min read',
     date: 'Mar 1, 2026',
     image: '/images/generated/kit-gc.jpg',
+    imageAlt: 'General contractor crew outfit kit with embroidered polo softshell jacket and hard hat',
   },
 ]
 
@@ -152,7 +169,7 @@ const itemListSchema = {
             <div class="relative aspect-[16/10] overflow-hidden bg-navy-950/60">
               <img
                 src={post.image}
-                alt=""
+                alt={post.imageAlt}
                 width="800"
                 height="500"
                 loading="lazy"

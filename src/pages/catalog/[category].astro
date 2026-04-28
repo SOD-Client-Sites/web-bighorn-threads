@@ -57,6 +57,38 @@ const sortVal = category.sort || 'BESTMATCH'
     </div>
   </section>
 
+  <!-- Static SEO intro — indexable above the JS-rendered grid -->
+  <section class="border-b border-navy-800/40 bg-navy-950 py-10 sm:py-14">
+    <div class="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-3 lg:gap-12 lg:px-8">
+      <div class="lg:col-span-2">
+        <h2 class="mb-4 font-heading text-2xl font-bold tracking-tight text-white sm:text-3xl">
+          Custom <span class="text-gold-500">{category.shortTitle}</span> for Las Vegas Crews
+        </h2>
+        <p class="text-base leading-relaxed text-gray-300 sm:text-[17px]">
+          {category.seoIntro}
+        </p>
+      </div>
+      <aside class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-6">
+        <div class="mb-4 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-gold-400">
+          What You Get
+        </div>
+        <ul class="space-y-3">
+          {category.seoBullets.map((b) => (
+            <li class="flex gap-2.5 text-sm leading-relaxed text-gray-300">
+              <svg class="mt-0.5 h-4 w-4 shrink-0 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>{b}</span>
+            </li>
+          ))}
+        </ul>
+        <a href="/contact/" class="mt-5 inline-flex w-full items-center justify-center min-h-[44px] rounded-lg bg-gold-500 px-5 py-3 text-sm font-bold uppercase tracking-[0.1em] text-navy-950 transition-all hover:bg-gold-400">
+          Get a Quote
+        </a>
+      </aside>
+    </div>
+  </section>
+
   <section class="bg-navy-950 py-12">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       <div class="mb-6 flex flex-wrap items-center justify-between gap-3">

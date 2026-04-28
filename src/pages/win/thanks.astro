@@ -1,0 +1,137 @@
+---
+import '@/styles/global.css'
+
+const title = "You're In — Bighorn Threads"
+const description = "Thanks for signing up. Grab your free gift at the Bighorn Threads tent."
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="theme-color" content="#00182a" />
+  </head>
+  <body class="min-h-dvh bg-navy-950 text-white antialiased">
+    <main class="relative isolate min-h-dvh overflow-hidden">
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,theme(colors.gold.500/0.12),transparent_60%)]"
+      >
+      </div>
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold-500/40 to-transparent"
+      >
+      </div>
+
+      <div class="relative mx-auto flex min-h-dvh max-w-xl flex-col px-5 pb-12 pt-10 sm:px-6 sm:pt-14">
+        <!-- Brand -->
+        <div class="mb-10 flex items-center justify-center">
+          <a href="/" class="flex items-center gap-2.5">
+            <img
+              src="/images/logo-mark.svg"
+              alt=""
+              width="32"
+              height="32"
+              class="h-8 w-8"
+              onerror="this.style.display='none'"
+            />
+            <span class="font-heading text-lg font-bold uppercase tracking-[0.18em] text-white">
+              Bighorn <span class="text-gold-500">Threads</span>
+            </span>
+          </a>
+        </div>
+
+        <!-- Confirmation -->
+        <section class="flex flex-1 flex-col items-center justify-center text-center">
+          <div
+            class="mb-7 flex h-20 w-20 items-center justify-center rounded-full bg-gold-500 text-navy-950 shadow-2xl shadow-gold-500/40 animate-[pop_0.5s_ease-out]"
+            aria-hidden="true"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+
+          <span
+            class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.22em] text-gold-500"
+          >
+            You're On The List
+          </span>
+
+          <h1
+            class="font-heading text-5xl font-bold leading-[0.95] tracking-tight sm:text-6xl"
+          >
+            Thanks!<br />
+            <span class="text-gold-500">Now grab your gift.</span>
+          </h1>
+
+          <p class="mx-auto mt-6 max-w-md text-base leading-relaxed text-gray-300 sm:text-lg">
+            Walk over to the <span class="font-semibold text-white">Bighorn Threads tent</span> and show this screen.
+            Your free gift is waiting.
+          </p>
+
+          <!-- Featured CTA: Demo Company Store -->
+          <div
+            class="mt-10 w-full overflow-hidden rounded-2xl border border-gold-500/40 bg-gradient-to-br from-navy-800/70 to-navy-900/70 p-7 text-left shadow-2xl shadow-black/30 sm:p-8"
+          >
+            <div class="font-mono text-[10px] uppercase tracking-[0.22em] text-gold-400">
+              While You're Here
+            </div>
+            <h2 class="mt-2 font-heading text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl">
+              Want to see what <span class="text-gold-500">your own custom company store</span> would look like on our platform?
+            </h2>
+            <p class="mt-3 text-base leading-relaxed text-gray-300">
+              Branded online storefront for your crew. Employees order direct, you get monthly reporting, no inventory headaches. Check it out below.
+            </p>
+
+            <a
+              href="/demo"
+              class="group mt-6 inline-flex w-full items-center justify-center gap-2 min-h-[60px] rounded-lg bg-gold-500 px-8 py-5 text-lg font-bold uppercase tracking-[0.12em] text-navy-950 transition-all hover:bg-gold-400 hover:shadow-2xl hover:shadow-gold-500/30 hover:-translate-y-0.5 sm:text-xl"
+            >
+              Demo Company Store Now
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Secondary CTAs -->
+          <div class="mt-5 flex w-full flex-col gap-3 sm:flex-row sm:justify-center">
+            <a
+              href="https://bighornthreads.com"
+              class="inline-flex flex-1 items-center justify-center min-h-[48px] rounded-lg border border-navy-700/60 bg-navy-900/60 px-6 py-3 text-sm font-semibold text-white transition-colors hover:border-gold-500/60 hover:bg-navy-800"
+            >
+              See What We Do
+            </a>
+            <a
+              href="tel:+17252356196"
+              class="inline-flex flex-1 items-center justify-center min-h-[48px] rounded-lg border border-navy-700/60 bg-navy-900/60 px-6 py-3 text-sm font-semibold text-white transition-colors hover:border-gold-500/60 hover:bg-navy-800"
+            >
+              Call 725.235.6196
+            </a>
+          </div>
+        </section>
+
+        <footer class="mt-auto pt-10 text-center">
+          <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-gray-500">
+            Bighorn Threads · Screen Print · Embroidery · Promo
+          </p>
+        </footer>
+      </div>
+    </main>
+
+    <style>
+      @keyframes pop {
+        0% { transform: scale(0); opacity: 0; }
+        60% { transform: scale(1.15); opacity: 1; }
+        100% { transform: scale(1); }
+      }
+    </style>
+  </body>
+</html>

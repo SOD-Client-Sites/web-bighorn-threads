@@ -1,0 +1,315 @@
+---
+import '@/styles/global.css'
+
+// Bighorn Threads — Event opt-in landing page (QR target).
+// Hardcoded for the current event. To repurpose: change EVENT_TAG + EVENT_LABEL + headline copy.
+const EVENT_TAG = 'event-golf-tournament'
+const EVENT_LABEL = 'Golf Tournament 2026'
+const HEADLINE_LINE_1 = "Drop your info."
+const HEADLINE_LINE_2 = "Grab your free gift."
+const SUBHEAD =
+  "Quick form. No spam. We'll text you when your gift's ready at the Bighorn Threads tent — plus a heads-up on what's new for your crew."
+
+const title = 'Free Gift — Bighorn Threads'
+const description = 'Sign up for your free gift from Bighorn Threads at the event.'
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="theme-color" content="#00182a" />
+  </head>
+  <body class="min-h-dvh bg-navy-950 text-white antialiased">
+    <main class="relative isolate min-h-dvh overflow-hidden">
+      <!-- Background atmosphere -->
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,theme(colors.gold.500/0.10),transparent_60%)]"
+      >
+      </div>
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold-500/30 to-transparent"
+      >
+      </div>
+
+      <div class="relative mx-auto flex min-h-dvh max-w-xl flex-col px-5 pb-12 pt-10 sm:px-6 sm:pt-14">
+        <!-- Brand -->
+        <div class="mb-8 flex items-center justify-between">
+          <a href="/" class="flex items-center gap-2.5">
+            <img
+              src="/images/logo-mark.svg"
+              alt=""
+              width="32"
+              height="32"
+              class="h-8 w-8"
+              onerror="this.style.display='none'"
+            />
+            <span class="font-heading text-lg font-bold uppercase tracking-[0.18em] text-white">
+              Bighorn <span class="text-gold-500">Threads</span>
+            </span>
+          </a>
+          <span
+            class="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-400"
+          >
+            {EVENT_LABEL}
+          </span>
+        </div>
+
+        <!-- Headline -->
+        <header class="mb-8">
+          <span
+            class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.22em] text-gold-500"
+          >
+            Free Gift · While Supplies Last
+          </span>
+          <h1
+            class="font-heading text-4xl font-bold leading-[0.95] tracking-tight sm:text-5xl"
+          >
+            {HEADLINE_LINE_1}<br />
+            <span class="text-gold-500">{HEADLINE_LINE_2}</span>
+          </h1>
+          <p class="mt-5 text-base leading-relaxed text-gray-300 sm:text-lg">
+            {SUBHEAD}
+          </p>
+        </header>
+
+        <!-- Form -->
+        <form
+          id="optinForm"
+          class="rounded-2xl border border-navy-700/40 bg-navy-800/30 p-5 shadow-2xl shadow-black/30 backdrop-blur sm:p-6"
+          novalidate
+        >
+          <!-- Honeypot -->
+          <div class="absolute -left-[9999px]" aria-hidden="true">
+            <label for="website">Website</label>
+            <input type="text" name="website" id="website" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <input type="hidden" name="eventTag" value={EVENT_TAG} />
+          <input type="hidden" name="eventLabel" value={EVENT_LABEL} />
+
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="sm:col-span-1">
+              <label for="firstName" class="block text-xs font-bold uppercase tracking-[0.15em] text-gray-300">
+                First name
+              </label>
+              <input
+                type="text"
+                name="firstName"
+                id="firstName"
+                required
+                autocomplete="given-name"
+                inputmode="text"
+                class="mt-1.5 block w-full min-h-[48px] rounded-lg border border-navy-700/60 bg-navy-950/70 px-4 py-3 text-base text-white placeholder-gray-500 transition-colors focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/30"
+                placeholder="Jordan"
+              />
+            </div>
+            <div class="sm:col-span-1">
+              <label for="lastName" class="block text-xs font-bold uppercase tracking-[0.15em] text-gray-300">
+                Last name
+              </label>
+              <input
+                type="text"
+                name="lastName"
+                id="lastName"
+                required
+                autocomplete="family-name"
+                class="mt-1.5 block w-full min-h-[48px] rounded-lg border border-navy-700/60 bg-navy-950/70 px-4 py-3 text-base text-white placeholder-gray-500 transition-colors focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/30"
+                placeholder="Reyes"
+              />
+            </div>
+            <div class="sm:col-span-2">
+              <label for="phone" class="block text-xs font-bold uppercase tracking-[0.15em] text-gray-300">
+                Phone
+              </label>
+              <input
+                type="tel"
+                name="phone"
+                id="phone"
+                required
+                autocomplete="tel"
+                inputmode="tel"
+                class="mt-1.5 block w-full min-h-[48px] rounded-lg border border-navy-700/60 bg-navy-950/70 px-4 py-3 text-base text-white placeholder-gray-500 transition-colors focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/30"
+                placeholder="(702) 555-0187"
+              />
+            </div>
+            <div class="sm:col-span-2">
+              <label for="email" class="block text-xs font-bold uppercase tracking-[0.15em] text-gray-300">
+                Email
+              </label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                required
+                autocomplete="email"
+                inputmode="email"
+                class="mt-1.5 block w-full min-h-[48px] rounded-lg border border-navy-700/60 bg-navy-950/70 px-4 py-3 text-base text-white placeholder-gray-500 transition-colors focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/30"
+                placeholder="jordan@reyesgrading.com"
+              />
+            </div>
+            <div class="sm:col-span-2">
+              <label for="business" class="block text-xs font-bold uppercase tracking-[0.15em] text-gray-300">
+                Business
+              </label>
+              <input
+                type="text"
+                name="business"
+                id="business"
+                required
+                autocomplete="organization"
+                class="mt-1.5 block w-full min-h-[48px] rounded-lg border border-navy-700/60 bg-navy-950/70 px-4 py-3 text-base text-white placeholder-gray-500 transition-colors focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/30"
+                placeholder="Reyes Concrete & Grading"
+              />
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="mt-6 inline-flex w-full items-center justify-center min-h-[52px] rounded-lg bg-gold-500 px-6 py-4 text-base font-bold uppercase tracking-[0.12em] text-navy-950 transition-all hover:bg-gold-400 hover:shadow-xl hover:shadow-gold-500/25 hover:-translate-y-0.5 disabled:opacity-60"
+          >
+            Claim My Free Gift
+          </button>
+
+          <p class="mt-4 text-center text-xs text-gray-500">
+            We won't share your info. Unsubscribe anytime.
+          </p>
+
+          <div
+            id="formStatus"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+            class="mt-4 text-center text-sm"
+          >
+          </div>
+        </form>
+
+        <!-- Success state (hidden by default) -->
+        <div
+          id="successState"
+          class="hidden rounded-2xl border border-gold-500/40 bg-navy-800/40 p-8 text-center shadow-2xl shadow-black/30"
+        >
+          <div
+            class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-gold-500 text-navy-950 shadow-lg shadow-gold-500/30"
+            aria-hidden="true"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h2 class="font-heading text-3xl font-bold tracking-tight">
+            You're <span class="text-gold-500">In.</span>
+          </h2>
+          <p class="mx-auto mt-3 max-w-sm text-base text-gray-300">
+            Walk over to the Bighorn Threads tent and grab your gift. Show this screen if anyone asks.
+          </p>
+          <a
+            href="https://bighornthreads.com"
+            class="mt-6 inline-flex items-center justify-center min-h-[44px] rounded-lg border border-navy-700/60 bg-navy-900/60 px-6 py-3 text-sm font-semibold text-white transition-colors hover:border-gold-500/60 hover:bg-navy-800"
+          >
+            See What We Do →
+          </a>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-auto pt-10 text-center">
+          <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-gray-500">
+            Bighorn Threads · Las Vegas
+          </p>
+          <a
+            href="tel:+17252356196"
+            class="mt-1 inline-block font-mono text-sm text-gray-400 hover:text-gold-400"
+          >
+            725.235.6196
+          </a>
+        </footer>
+      </div>
+    </main>
+
+    <script is:inline>
+      (function () {
+        const form = document.getElementById('optinForm')
+        const status = document.getElementById('formStatus')
+        const success = document.getElementById('successState')
+        if (!form || !status || !success) return
+
+        const setStatus = (msg, tone) => {
+          status.textContent = msg
+          status.className =
+            'mt-4 text-center text-sm ' +
+            (tone === 'error' ? 'text-red-400' : tone === 'success' ? 'text-gold-400' : 'text-gray-400')
+        }
+
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault()
+
+          const hp = form.querySelector('input[name="website"]')
+          if (hp && hp.value) {
+            window.location.href = '/win/thanks'
+            return
+          }
+
+          const required = ['firstName', 'lastName', 'phone', 'email', 'business']
+          for (const field of required) {
+            const el = form.elements.namedItem(field)
+            if (!el || !el.value.trim()) {
+              setStatus('Please fill in every field so we can reach you.', 'error')
+              if (el && typeof el.focus === 'function') el.focus()
+              return
+            }
+          }
+
+          const email = form.elements.namedItem('email')
+          if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+            setStatus("That email doesn't look right — mind double-checking?", 'error')
+            email.focus()
+            return
+          }
+
+          setStatus('Sending...', 'info')
+          const submitBtn = form.querySelector('button[type="submit"]')
+          if (submitBtn) submitBtn.disabled = true
+
+          const payload = {
+            firstName: form.firstName.value.trim(),
+            lastName: form.lastName.value.trim(),
+            phone: form.phone.value.trim(),
+            email: form.email.value.trim(),
+            business: form.business.value.trim(),
+            eventTag: form.eventTag.value,
+            eventLabel: form.eventLabel.value,
+            website: hp ? hp.value : '',
+          }
+
+          try {
+            const res = await fetch('/api/event-optin', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+              body: JSON.stringify(payload),
+            })
+            if (res.ok) {
+              window.location.href = '/win/thanks'
+            } else {
+              throw new Error('Request failed')
+            }
+          } catch (err) {
+            setStatus(
+              "Couldn't submit. Try again, or text us at 725.235.6196.",
+              'error'
+            )
+          } finally {
+            if (submitBtn) submitBtn.disabled = false
+          }
+        })
+      })()
+    </script>
+  </body>
+</html>
