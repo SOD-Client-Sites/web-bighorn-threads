@@ -1,0 +1,130 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const post = {
+  title: 'ANSI 107 Class 2 vs Class 3: What Las Vegas Road, Utility, and Night-Shift Crews Actually Need',
+  description:
+    "Class 2 vs Class 3 vs Class E hi-vis — which one your crew needs, when, and why. A practical guide for Las Vegas road, utility, paving, and night-shift contractors with the real spec that passes inspection.",
+  category: 'Compliance',
+  readTime: '9 min read',
+  date: 'Apr 28, 2026',
+  isoDate: '2026-04-28',
+  image: '/images/generated/workwear-flatlay.jpg',
+  imageAlt: 'ANSI 107 Class 2 and Class 3 hi-vis safety apparel comparison flat-lay',
+  slug: 'ansi-107-class-2-vs-class-3-hi-vis-las-vegas',
+}
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: post.title,
+      description: post.description,
+      image: `https://bighornthreads.com${post.image}`,
+      datePublished: post.isoDate,
+      dateModified: post.isoDate,
+      author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/about/' },
+      publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } },
+      mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/`,
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        { '@type': 'Question', name: 'What is the difference between ANSI 107 Class 2 and Class 3?', acceptedAnswer: { '@type': 'Answer', text: 'Class 2 covers daytime work near traffic moving up to 50 mph and requires a minimum of 775 sq inches of background fabric and 201 sq inches of retroreflective tape. Class 3 covers work near traffic over 50 mph or in low-visibility conditions and requires 1,240 sq inches of background fabric, 310 sq inches of retroreflective tape, and full sleeve coverage.' } },
+        { '@type': 'Question', name: 'When is Class E required?', acceptedAnswer: { '@type': 'Answer', text: 'Class E is the supplemental classification for high-visibility pants and shorts. When worn with a Class 2 vest, Class E pants together create a Class 3 ensemble. Class E is required for federal highway work zones and many night-shift utility programs.' } },
+        { '@type': 'Question', name: 'Can ANSI 107 hi-vis be embroidered or screen-printed?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, but the decoration must preserve the minimum retroreflective tape coverage and background fabric area required by the class. Decoration cannot cover or interrupt retroreflective tape, and screen-print or heat-transfer area is limited to specific zones on the garment. Embroidery on the chest panel or back yoke between tape strips is the standard compliant placement.' } },
+      ],
+    },
+  ],
+}
+---
+
+<BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <article class="bg-navy-950">
+    <header class="relative overflow-hidden border-b border-navy-800">
+      <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_30%,_rgba(193,155,61,0.06),_transparent)]"></div>
+      <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
+        <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-gold-400">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-400">Blog</a>
+        </nav>
+        <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
+        <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
+        <p class="mb-8 text-xl leading-relaxed text-gray-300">
+          What each class actually means, when you need each one, and how to spec a hi-vis program that passes Nevada DOT, federal highway, and utility-contractor inspections.
+        </p>
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400">
+          <span class="text-gold-500">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time>
+        </div>
+      </div>
+    </header>
+
+    <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8">
+      <img src={post.image} alt={post.imageAlt} width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" />
+    </div>
+
+    <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        ANSI 107 is the American National Standard for High-Visibility Safety Apparel, and it's the standard your hi-vis crew gear is measured against on Nevada DOT projects, federal highway zones, and any project where vehicle traffic is the primary hazard. Most contractors think of hi-vis as binary — "lime-yellow vest, you're good" — but the standard actually defines three performance classes plus a supplemental class for pants, and getting it wrong on a project inspection can shut a crew down.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Bighorn Threads supplies and decorates ANSI 107 hi-vis for road contractors, NDOT subs, paving crews, traffic control, utility line workers, signal techs, and night-shift utility ties. We carry ML Kishigo, Bulwark, Radians, OccuNomix, and Tingley — the brands that actually meet ANSI 107 spec on day one and stay compliant after decoration. Here's the practical breakdown of which class you need, when.
+      </p>
+
+      <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Class 2: The Default for Daytime Work</h2>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Class 2 is the workhorse classification — daytime work near traffic moving up to 50 mph. The standard requires a minimum of 775 sq inches of background fluorescent fabric (lime-yellow or orange-red) and 201 sq inches of retroreflective tape. Most Class 2 garments are vests, short-sleeve shirts, or polos with two horizontal tape strips around the torso and two vertical strips over the shoulders.
+      </p>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Class 2 is the right spec for parking lot work, daytime road maintenance under 50 mph, daytime utility ties, signal flagging in moderate traffic, and most commercial construction sites where vehicle traffic is present but speeds are managed. The most-ordered Class 2 SKUs in our shop are the ML Kishigo 9100 series mesh-back tee, the 1191/1193 Premium Black Series polo, and the Radians ST21 mesh tee for crews working in 110° Vegas summer where ventilation matters.
+      </p>
+
+      <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Class 3: Required for Highway Speeds and Night Work</h2>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Class 3 is the higher-visibility classification — required for work near traffic over 50 mph, low-visibility conditions, and most night-shift highway and utility work. The standard requires 1,240 sq inches of background fabric, 310 sq inches of retroreflective tape, and full sleeve coverage with retroreflective tape encircling the upper and lower arm. The garment has to be a long-sleeve shirt, jacket, or coverall — short-sleeve and vest-only configurations don't qualify.
+      </p>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Class 3 is the right spec for highway construction over 50 mph, night-shift road maintenance, utility line work in low-visibility conditions, NDOT detour and emergency response, and any project where the prime contractor's safety plan calls for Class 3 sitewide. The most-ordered Class 3 SKUs are the ML Kishigo 1565 long-sleeve performance tee, the 2024 Class 3 contrast color block jacket, and the Bulwark JLR8 hi-vis lined bomber for crews that need both Class 3 visibility and NFPA 2112 flame-resistance.
+      </p>
+
+      <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Class E: Hi-Vis Pants</h2>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Class E is the supplemental classification for high-visibility pants and shorts — required as part of the ensemble for federal highway work zones (per the MUTCD) and many utility-contractor safety programs. When Class E pants are worn with a Class 2 vest, the combined ensemble is rated as Class 3 for the worker. This is the cheapest path to Class 3 compliance for crews that don't want to commit to long-sleeve hi-vis shirts in Vegas summer heat — Class 2 mesh tee on top, Class E hi-vis pants on the bottom, and you've got a compliant Class 3 ensemble that breathes.
+      </p>
+
+      <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Decoration That Stays Compliant</h2>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        ANSI 107 has explicit decoration rules. Embroidery, screen-print, and heat-transfer decoration cannot reduce the minimum background fabric area or cover/interrupt the retroreflective tape coverage required for the class. In practice, this means decoration is restricted to specific zones — the chest panel between tape strips, the back yoke, and the upper sleeve. Oversized full-back logos, decoration that crosses tape strips, or decoration that exceeds the published area limits voids the rating.
+      </p>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        We follow the published Kishigo and Radians decoration guides on every order, place embroidery and screen-print decoration in compliant zones, and document the compliance review on the certification sheet that ships with every batch. Most catalog suppliers skip this — they'll happily decorate a hi-vis vest in a way that voids the Class 2 rating, and you find out at inspection. Our decoration certification sheet goes in your safety binder so an inspector can see the placement was reviewed.
+      </p>
+
+      <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Quick Reference Spec</h2>
+      <ul class="mb-8 ml-6 list-disc space-y-2 text-lg leading-relaxed text-navy-200">
+        <li><strong>Daytime work, traffic under 50 mph:</strong> Class 2 vest, polo, or short-sleeve mesh tee.</li>
+        <li><strong>Daytime work, traffic over 50 mph:</strong> Class 3 long-sleeve tee or jacket.</li>
+        <li><strong>Night work, any speed:</strong> Class 3 long-sleeve or Class 2 + Class E pants combined.</li>
+        <li><strong>Federal highway work zones:</strong> Class 3 ensemble (per MUTCD).</li>
+        <li><strong>Vegas summer daytime:</strong> Class 2 mesh-back tee + Class E pants for breathability.</li>
+        <li><strong>Electrical work near traffic:</strong> Class 3 hi-vis FR (Bulwark JLR8) for combined ANSI 107 + NFPA 2112.</li>
+      </ul>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        For deeper coverage on hi-vis selection and Nevada-specific compliance, see our <a href="/safety-compliance/ansi-107-hi-vis-guide/" class="text-gold-400 underline hover:text-gold-300">ANSI 107 hi-vis selection guide</a> and the <a href="/blog/nevada-osha-heat-rules-2026-workwear/" class="text-gold-400 underline hover:text-gold-300">Nevada OSHA heat rules 2026</a> post for how the new heat standard affects hi-vis fabric selection in Vegas summer.
+      </p>
+
+      <div class="my-12 rounded-2xl border border-gold-500/40 bg-gradient-to-br from-navy-800/60 to-navy-900/60 p-8">
+        <h3 class="mb-3 font-heading text-2xl font-bold tracking-tight">Need ANSI 107 hi-vis with compliant decoration?</h3>
+        <p class="mb-6 text-lg text-gray-300">
+          Free quote in 24 hours. Compliance documentation included with every order. Free Vegas Valley delivery on orders over $500.
+        </p>
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center justify-center rounded-lg bg-gold-500 px-7 py-4 text-base font-bold uppercase tracking-[0.1em] text-navy-950 transition-all hover:bg-gold-400">Request a Hi-Vis Quote</a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

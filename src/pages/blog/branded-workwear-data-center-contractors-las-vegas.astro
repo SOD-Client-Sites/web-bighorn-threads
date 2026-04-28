@@ -1,0 +1,134 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const post = {
+  title: 'Branded Workwear for Data Center Contractors in Las Vegas: FR, Hi-Vis, and the Real Spec',
+  description:
+    'Las Vegas is in a data center construction boom — Switch, Google, Microsoft, and the cluster of hyperscalers. Here\'s what each trade actually wears on these projects, by phase, by role, with FR and hi-vis specs that pass inspection.',
+  category: 'Industries',
+  readTime: '11 min read',
+  date: 'Apr 28, 2026',
+  isoDate: '2026-04-28',
+  image: '/images/generated/kit-electrical.jpg',
+  imageAlt: 'FR-rated electrical contractor kit for Las Vegas data center construction',
+  slug: 'branded-workwear-data-center-contractors-las-vegas',
+}
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: post.title,
+      description: post.description,
+      image: `https://bighornthreads.com${post.image}`,
+      datePublished: post.isoDate,
+      dateModified: post.isoDate,
+      author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/about/' },
+      publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } },
+      mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/`,
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' },
+        { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` },
+      ],
+    },
+  ],
+}
+---
+
+<BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <article class="bg-navy-950">
+    <header class="relative overflow-hidden border-b border-navy-800">
+      <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_30%,_rgba(193,155,61,0.06),_transparent)]"></div>
+
+      <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
+        <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-gold-400">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-400">Blog</a>
+        </nav>
+        <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
+        <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
+        <p class="mb-8 text-xl leading-relaxed text-gray-300">
+          What civil, structural, electrical, mechanical, and commissioning crews actually wear on a hyperscaler build in Vegas. By phase, by role, with the FR and hi-vis specs that hold up.
+        </p>
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400">
+          <span class="text-gold-500">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time>
+        </div>
+      </div>
+    </header>
+
+    <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8">
+      <img src={post.image} alt={post.imageAlt} width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" />
+    </div>
+
+    <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Las Vegas is in the middle of a multi-year data center construction boom — Switch's Citadel campus, Google's Henderson facility, Microsoft's North Las Vegas site, and a continuing cluster of hyperscaler builds along the Apex industrial corridor north of the Strip. Every one of these projects runs hundreds of trades on site at peak: GC field crews, electrical primes, MEP subs, structural steel teams, low-voltage cabling crews, fire suppression installers, and the commissioning agents who land in the building during the final 90 days. Every one of them shows up in branded apparel that has to clear security, identify the trade, and meet the project's PPE spec from day one.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        We outfit the trades on these projects from our Las Vegas shop — Carhartt and Bayside for the GC field crews, Bulwark Excel-FR for electrical, ML Kishigo Class 2 and Class 3 hi-vis for civil and night work, Port Authority and Cutter & Buck performance polos for the commissioning teams. Here's the real spec by phase, by role, with the brands and SKUs that actually hold up on a hyperscaler build.
+      </p>
+
+      <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Phase 1: Civil and Structural</h2>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        The civil and structural phase — excavation, foundations, structural steel, mechanical rough-in — runs heavy on hi-vis and traditional construction workwear. Every body on site needs ANSI 107 Class 2 minimum, and large data center projects with concurrent crane operations or material delivery often spec Class 3. The standard package per crew member: 5× Class 2 mesh-back hi-vis tees (ML Kishigo Premium Black Series 9100 series or Radians Cooling Series for daytime crews), 5× Carhartt B11 work pants or B324 carpenter pants, 1× ML Kishigo Class 3 long-sleeve hi-vis jacket for night shifts, and a Carhartt Acrylic Watch Hat for cold mornings.
+      </p>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Decoration on hi-vis preserves retroreflective tape coverage — a detail most catalog suppliers skip. We follow the published Kishigo and Radians decoration guides on every order and document the compliance review on the certification sheet that ships with every batch. Mesh-back hi-vis is essential in Vegas summer; standard polyester hi-vis becomes a heat-illness risk in 110° July weather and crews quietly swap to non-rated tees, which is the worst possible outcome from a safety perspective.
+      </p>
+
+      <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Phase 2: Electrical</h2>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        The electrical phase is where FR compliance gets serious. Data center power distribution runs at 480V minimum, often higher on substation tie-ins and transformer work. Every electrical contractor on a hyperscaler project must spec NFPA 70E CAT 2 minimum FR shirts and pants. The Vegas standard for this is Bulwark Excel-FR ComforTouch SLU2 (5× per electrician) paired with PEW2 Excel-FR pants (5× per electrician), with a JLR8 hi-vis lined bomber for night switchgear ties.
+      </p>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Decoration on FR has to use Nomex (aramid) thread; standard polyester thread melts in arc events and voids the rating. We use Nomex thread on every Bulwark, Carhartt FR, and Wrangler FR garment we decorate and document the thread spec on the certification sheet that ships with every order. This is the document your safety officer needs in the binder when a project safety inspector arrives. Without it, the FR rating is on the honor system — and on a hyperscaler project where the prime contractor is auditing every sub, "honor system" is not a defense.
+      </p>
+
+      <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Phase 3: Mechanical, Plumbing, Low-Voltage</h2>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Mechanical and plumbing crews on data centers run a more typical commercial spec — Carhartt heavyweight cotton tees or Bayside performance tees with embroidered or screen-printed company logos, paired with Carhartt or Dickies work pants, with Class 2 hi-vis vests over the top in active-traffic zones. Industrial and commercial mechanical contractors processing through industrial laundry programs lean toward Red Kap SP14 industrial work shirts with embroidered company logo and woven name patches — the standard service-trade uniform spec.
+      </p>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Low-voltage and structured cabling crews — the trades pulling fiber, copper, and BMS infrastructure — have a lighter apparel spec. Performance polos with embroidered logos for client-facing techs, branded performance tees for field crews, and standard Class 2 hi-vis when working in active-construction zones. The volume on these crews ramps fast in the final 60-90 days as cabling and commissioning take over from electrical rough-in.
+      </p>
+
+      <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Phase 4: Commissioning and Turnover</h2>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Commissioning agents, controls technicians, BMS integrators, and OEM service reps show up in the final 60-90 days for client walk-throughs, system testing, and final inspections. The standard apparel spec here is a moisture-wicking performance polo (Port Authority K540 Silk Touch Performance or Cutter & Buck DryTec Performance) with a left-chest logo and an embroidered project ID on the sleeve. Hi-vis is no longer mandatory in most areas at this phase; the emphasis shifts to professional appearance for executive and client walkthroughs.
+      </p>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        We turn commissioning-phase apparel orders around in 7-10 days because commissioning timelines slip both directions and last-minute orders are the norm. Polos in stock colorways (navy, charcoal, white, gray) ship in 5-7 days; specialty colorways add a few days for blank order-in.
+      </p>
+
+      <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Company-Store Programs for Hyperscaler Projects</h2>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Once a project hits 100+ crew, the apparel program needs structure. <a href="/company-stores/" class="text-gold-400 underline hover:text-gold-300">Company-store programs</a> let your trades order direct against pre-approved SKU catalogs with per-employee allowances and HR-integrated onboarding. New hires get fully decorated apparel on day one shipped to their home address; project-specific kit (project tees for ribbon cuttings, branded gear for safety milestone events) runs through the same store. Monthly reporting shows you exactly where the apparel budget is going by trade, by role, and by project phase.
+      </p>
+
+      <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Phase-Specific Spec Summary</h2>
+      <ul class="mb-8 ml-6 list-disc space-y-2 text-lg leading-relaxed text-navy-200">
+        <li><strong>Civil/Structural:</strong> ANSI 107 Class 2-3 hi-vis, Carhartt work pants, mesh-back tees in summer.</li>
+        <li><strong>Electrical:</strong> Bulwark SLU2 + PEW2 (NFPA 70E CAT 2), Nomex-decorated, JLR8 for nights.</li>
+        <li><strong>Mechanical/Plumbing:</strong> Carhartt heavyweight tees + Class 2 hi-vis vests, Red Kap for laundry programs.</li>
+        <li><strong>Low-Voltage/Cabling:</strong> Performance polos, embroidered logos, Class 2 hi-vis in active zones.</li>
+        <li><strong>Commissioning:</strong> Performance polos with project IDs, no hi-vis required, professional spec.</li>
+      </ul>
+
+      <div class="my-12 rounded-2xl border border-gold-500/40 bg-gradient-to-br from-navy-800/60 to-navy-900/60 p-8">
+        <h3 class="mb-3 font-heading text-2xl font-bold tracking-tight">Outfitting a hyperscaler project crew?</h3>
+        <p class="mb-6 text-lg text-gray-300">
+          We've supplied apparel for trades on every major Vegas hyperscaler since 2019. Free quote in 24 hours, sample kits available, FR documentation included.
+        </p>
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center justify-center rounded-lg bg-gold-500 px-7 py-4 text-base font-bold uppercase tracking-[0.1em] text-navy-950 transition-all hover:bg-gold-400">Request a Project Quote</a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

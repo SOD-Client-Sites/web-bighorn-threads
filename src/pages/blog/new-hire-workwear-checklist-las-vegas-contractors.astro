@@ -1,0 +1,186 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const post = {
+  title: "New Hire Workwear Checklist for Las Vegas Contractors: What to Order Before Day One",
+  description:
+    "A practical day-one workwear checklist for new construction hires in Las Vegas. By trade — GC, electrical, HVAC, plumbing, hi-vis road, solar, fleet — with brand specs, sizing tips, and the real cost of a complete kit.",
+  category: 'Operations',
+  readTime: '10 min read',
+  date: 'Apr 28, 2026',
+  isoDate: '2026-04-28',
+  image: '/images/generated/kit-gc.jpg',
+  imageAlt: 'New hire construction crew kit with embroidered shirts hi-vis vest and Carhartt pants',
+  slug: 'new-hire-workwear-checklist-las-vegas-contractors',
+}
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: post.title,
+      description: post.description,
+      image: `https://bighornthreads.com${post.image}`,
+      datePublished: post.isoDate,
+      dateModified: post.isoDate,
+      author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/about/' },
+      publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } },
+      mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/`,
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' },
+        { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` },
+      ],
+    },
+  ],
+}
+---
+
+<BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <article class="bg-navy-950">
+    <header class="relative overflow-hidden border-b border-navy-800">
+      <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_30%,_rgba(193,155,61,0.06),_transparent)]"></div>
+      <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
+        <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-gold-400">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-400">Blog</a>
+        </nav>
+        <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
+        <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
+        <p class="mb-8 text-xl leading-relaxed text-gray-300">
+          The day-one workwear kit that gets a new hire on the jobsite looking like they've been on the team for six months. By trade, by role, with realistic costs and sizing tips.
+        </p>
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400">
+          <span class="text-gold-500">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time>
+        </div>
+      </div>
+    </header>
+
+    <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8">
+      <img src={post.image} alt={post.imageAlt} width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" />
+    </div>
+
+    <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        New hires show up Monday. The job started Friday. Your operations manager forwards you their size, hopes for the best, and the new hire spends week one looking like the odd one out — the only person on the crew without branded apparel, while everyone else looks like a unified professional team. That's the gap this checklist exists to close.
+      </p>
+
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Bighorn Threads runs <a href="/company-stores/" class="text-gold-400 underline hover:text-gold-300">company-store programs</a> for Las Vegas trades that automate this entirely — pre-approved SKUs, sizing on file, fully decorated apparel shipped to the new hire's home address before day one. For everyone not yet on a company store, here's the spec by trade for what to actually order. Realistic budgets, realistic timelines, the brands that hold up.
+      </p>
+
+      <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">General Contractor Field Crew</h2>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        For framers, concrete crews, finish carpenters, and general field labor, the day-one kit is straightforward but should be complete enough that the new hire isn't borrowing or buying their own gear in week one.
+      </p>
+      <ul class="mb-8 ml-6 list-disc space-y-2 text-lg leading-relaxed text-navy-200">
+        <li>5× Carhartt K87 heavyweight cotton tees, embroidered or screen-printed left chest, in your company colorway</li>
+        <li>2× Carhartt B11 work pants or B324 carpenter pants (hemmed if specified)</li>
+        <li>1× Carhartt K121 pullover hoodie (for fall/winter starts)</li>
+        <li>1× Carhartt 100286 FastDry Logo Cap or Richardson 112 trucker hat with embroidered logo</li>
+        <li>Hard hat sticker (vinyl decal for ANSI Z89-rated hard hat)</li>
+      </ul>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Realistic kit cost: $180-240 per hire fully decorated. Lead time on stock blanks: 5-7 days from artwork approval. For Vegas summer hires, swap heavyweight tees for Carhartt Force performance tees at the same price point.
+      </p>
+
+      <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Electrical Contractor (FR-Required)</h2>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Electrical hires need the FR baseline on day one — no exceptions. Apprentices and journeymen working anywhere near energized panels, switchgear, or commercial 480V systems must have NFPA 70E CAT 2 minimum.
+      </p>
+      <ul class="mb-8 ml-6 list-disc space-y-2 text-lg leading-relaxed text-navy-200">
+        <li>5× Bulwark SLU2 Excel-FR ComforTouch work shirts (CAT 2, 6.5 oz, dual NFPA 70E + 2112)</li>
+        <li>5× Bulwark PEW2 Excel-FR work pants</li>
+        <li>1× Bulwark JLR8 hi-vis lined bomber (for night utility work)</li>
+        <li>1× embroidered Carhartt cap with company logo</li>
+        <li>FR-safe certification sheet for safety binder (we include this with every order)</li>
+      </ul>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Realistic kit cost: $650-850 per electrician fully decorated. Lead time: 10-14 days standard, 7 days rush when SLU2 is in stock. <a href="/blog/nfpa-70e-fr-shirts-vegas-electricians/" class="text-gold-400 underline hover:text-gold-300">More on NFPA 70E FR selection here</a>.
+      </p>
+
+      <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">HVAC, Plumbing, Mechanical Service</h2>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Service-trade hires need a clean professional uniform from day one because their first impression is at a customer's front door. Industrial work shirts with embroidered logos and woven name patches are the Vegas standard.
+      </p>
+      <ul class="mb-8 ml-6 list-disc space-y-2 text-lg leading-relaxed text-navy-200">
+        <li>5× Red Kap SP14 industrial work shirts (short sleeve summer / long sleeve winter)</li>
+        <li>2× Red Kap PT20 industrial work pants (hemmed)</li>
+        <li>1× Red Kap JT22 insulated duck work jacket (for fall/winter hires)</li>
+        <li>Embroidered company logo (left chest) + woven name patch (right chest)</li>
+        <li>1× Richardson 112 trucker hat with embroidered logo</li>
+      </ul>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Realistic kit cost: $220-280 per service tech fully decorated. Lead time: 7-10 days. For shops on industrial laundry programs, we coordinate with your laundry partner so the apparel ships pre-tagged.
+      </p>
+
+      <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Hi-Vis Road, Utility, Paving Crews</h2>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Road and utility hires need ANSI 107-compliant hi-vis decorated with embroidered company logo that preserves retroreflective tape coverage. The class depends on the work — daytime traffic under 50 mph is Class 2; highway work over 50 mph or night-shift utility is Class 3.
+      </p>
+      <ul class="mb-8 ml-6 list-disc space-y-2 text-lg leading-relaxed text-navy-200">
+        <li>5× ML Kishigo Class 2 mesh-back tees (Premium Black Series 9100 series for daytime / 1565 long-sleeve Class 3 for night)</li>
+        <li>2× Carhartt B11 work pants or Class E hi-vis pants</li>
+        <li>1× ML Kishigo 2024 Class 3 contrast color block jacket (for night/winter)</li>
+        <li>Embroidered company logo, compliant placement (we follow Kishigo decoration guides)</li>
+        <li>ANSI 107 compliance certification sheet for safety binder</li>
+      </ul>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Realistic kit cost: $200-320 per crew member fully decorated. Lead time: 7-10 days. <a href="/blog/ansi-107-class-2-vs-class-3-hi-vis-las-vegas/" class="text-gold-400 underline hover:text-gold-300">More on Class 2 vs Class 3 selection here</a>.
+      </p>
+
+      <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Solar EPC and PV Maintenance</h2>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Solar hires need FR for combiner and inverter work, lightweight UPF performance for sun protection, and (for crews working remote sites near vehicle traffic) hi-vis FR for combined ANSI 107 + NFPA 2112 protection.
+      </p>
+      <ul class="mb-8 ml-6 list-disc space-y-2 text-lg leading-relaxed text-navy-200">
+        <li>5× Bulwark Excel-FR shirts (CAT 2 minimum) or Carhartt FR Lightweight</li>
+        <li>5× FR-rated work pants</li>
+        <li>3× lightweight UPF performance long-sleeve shirts (for non-electrical day work)</li>
+        <li>1× Bulwark JLR8 hi-vis lined bomber (for vehicle-traffic remote sites)</li>
+        <li>Hard hat with embroidered company decal</li>
+      </ul>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Realistic kit cost: $700-900 per solar tech fully decorated. Lead time: 10-14 days.
+      </p>
+
+      <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Project Manager / Office / Client-Facing</h2>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        PMs, estimators, business development, and ownership need a different baseline — sharp, professional, jobsite-walkable. The Vegas standard is embroidered performance polos with optional name embroidery.
+      </p>
+      <ul class="mb-8 ml-6 list-disc space-y-2 text-lg leading-relaxed text-navy-200">
+        <li>5× Port Authority K540 Silk Touch Performance polos with embroidered logo + name</li>
+        <li>1× Carhartt or Eddie Bauer softshell jacket (for cold-weather walkthroughs)</li>
+        <li>1× Carhartt FastDry cap with embroidered logo</li>
+        <li>1× embroidered tote bag or backpack for trade-show season</li>
+      </ul>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Realistic kit cost: $250-380 per PM/office hire fully decorated. Lead time: 5-7 days.
+      </p>
+
+      <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Sizing Tips</h2>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        Get the new hire's t-shirt size and the size of the work pants they currently wear. Carhartt and Bulwark run "loose fit" generally — most hires order their normal size and the fit works. Red Kap industrial shirts run slightly large because they're designed to layer; size down one if the hire is between sizes. Hi-vis Class 2 garments are sized for over-shirt wear; size to fit over a t-shirt comfortably. For FR pants, the waist and inseam matter — get both numbers, don't guess.
+      </p>
+
+      <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The Company-Store Solution</h2>
+      <p class="mb-6 text-lg leading-relaxed text-navy-200">
+        For shops hiring more than a few new crew members per quarter, the company-store program eliminates this entire workflow. Pre-approved SKUs, sizing on file, per-employee allowances, and direct shipping to the new hire's home address before day one — all triggered by your HR onboarding checklist. New hires show up Monday in a fully-decorated kit that matches the existing crew, and your operations manager doesn't spend Friday afternoon chasing apparel orders.
+      </p>
+
+      <div class="my-12 rounded-2xl border border-gold-500/40 bg-gradient-to-br from-navy-800/60 to-navy-900/60 p-8">
+        <h3 class="mb-3 font-heading text-2xl font-bold tracking-tight">Set up a new-hire kit program</h3>
+        <p class="mb-6 text-lg text-gray-300">
+          Free workshop call to spec your trade-specific kit. Free quote in 24 hours. Free Vegas Valley delivery on orders over $500.
+        </p>
+        <a href="/contact/" class="inline-flex min-h-[48px] items-center justify-center rounded-lg bg-gold-500 px-7 py-4 text-base font-bold uppercase tracking-[0.1em] text-navy-950 transition-all hover:bg-gold-400">Spec a New Hire Kit</a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
