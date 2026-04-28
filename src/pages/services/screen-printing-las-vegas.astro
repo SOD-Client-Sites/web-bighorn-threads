@@ -4,19 +4,19 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 const page = {
   title: 'Custom Screen Printing in Las Vegas',
   description:
-    'Custom screen printing in Las Vegas for construction crews, contractors, and trades. Plastisol and water-based ink, Pantone matching, no setup fee over 25 pieces, 72-hour rush.',
+    'Custom screen printing in Las Vegas for construction crews, contractors, and trades. Plastisol and water-based ink, Pantone matching, no setup fee over 25 pieces, rush options.',
   hero: '/images/generated/service-screen-printing.jpg',
 }
 
 const process = [
-  { step: '01', title: 'Quote + artwork', body: 'Send your logo + counts. We send back a quote in 24 hours with mockup, garment recommendations, and any artwork notes (color separations, ink choices).' },
+  { step: '01', title: 'Quote + artwork', body: 'Send your logo + counts. We send back a Fast quote with mockup, garment recommendations, and any artwork notes (color separations, ink choices).' },
   { step: '02', title: 'Approval + screen burn', body: 'Once you approve, we separate colors, burn the screens, and lock in Pantone-matched inks. New artwork adds a day for screen prep.' },
   { step: '03', title: 'Production + cure', body: 'Manual or auto press depending on count. Cure tunnel locks the ink. Inline QC pulls anything off-register or off-color before fold.' },
   { step: '04', title: 'Fold, pack, deliver', body: 'Folded, polybagged if requested, sorted by size. Local Vegas pickup or we deliver to your office, jobsite, or split-ship to employees.' },
 ]
 
 const inkTypes = [
-  { name: 'Plastisol', best: 'Bold, punchy graphics on cotton or blended tees. Most jobs.', notes: 'Sits on top of the fabric. Bright, opaque, durable through 100+ washes.' },
+  { name: 'Plastisol', best: 'Bold, punchy graphics on cotton or blended tees. Most jobs.', notes: 'Sits on top of the fabric. Bright, opaque, durable through rough use.' },
   { name: 'Water-based', best: 'Soft hand-feel, vintage / faded look, super-soft tees.', notes: 'Sinks into the fabric. Slightly less opaque on dark garments. Premium feel.' },
   { name: 'Discharge', best: 'Dark cotton tees where you want zero ink feel.', notes: 'Removes the dye and replaces it with new color. Cotton only. Soft as untreated.' },
   { name: 'Athletic / nylon-safe', best: 'Performance polyester, nylon, hi-vis, and FR garments.', notes: 'Specialty inks that bond to synthetics without bleeding or cracking.' },
@@ -27,7 +27,7 @@ const garments = ['T-shirts (cotton + blends)', 'Long-sleeve tees', 'Hoodies + c
 const minimums = [
   { count: '24 pieces', best: 'Standard minimum for screen printing. Setup fees apply under 25.' },
   { count: '50 pieces', best: 'Sweet spot for cost-per-piece on most single-color prints.' },
-  { count: '100+ pieces', best: 'Multi-color, multi-location, or complex jobs make economic sense.' },
+  { count: 'larger orders', best: 'Multi-color, multi-location, or complex jobs make economic sense.' },
   { count: '500+ pieces', best: 'Auto-press production. Lowest per-piece cost. Rush still possible.' },
 ]
 
@@ -38,7 +38,7 @@ const faqs = [
   },
   {
     q: 'How fast can you turn around a rush order?',
-    a: '72 hours standard rush, 48 hours for repeat clients with files on hand. Call before 10am for same-day quote turnaround. We don\'t panic-charge for rush — most are at standard rates if your timeline allows real production hours.',
+    a: 'Rush options available. Call early in the day for fast quote turnaround. We don\'t panic-charge for rush — most are at standard rates if your timeline allows real production hours.',
   },
   {
     q: 'Can you Pantone-match exact brand colors?',
@@ -54,7 +54,7 @@ const faqs = [
   },
   {
     q: 'Will the print last?',
-    a: 'Plastisol holds up through 100+ industrial washes when properly cured. Water-based fades earlier (intentionally, for the soft look). Discharge lasts the life of the garment. We pick the right method for how the gear will be used.',
+    a: 'Plastisol holds up through extensive industrial washes when properly cured. Water-based fades earlier (intentionally, for the soft look). Discharge lasts the life of the garment. We pick the right method for how the gear will be used.',
   },
 ]
 
@@ -121,7 +121,7 @@ const faqSchema = {
         Custom Screen Printing <span class="text-gold-500">for Vegas Crews and Contractors.</span>
       </h1>
       <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
-        Plastisol, water-based, and FR-safe inks. Pantone-matched. No setup fee over 25 pieces. Standard 7-day production, 72-hour rush, same-day quote turnaround.
+        Plastisol, water-based, and FR-safe inks. Pantone-matched. No setup fee over 25 pieces. Standard 7-day production, rush options, fast quote turnaround.
       </p>
 
       <div class="mt-10 flex flex-wrap items-center gap-3">
@@ -225,19 +225,19 @@ const faqSchema = {
 
       <div class="space-y-5 text-lg leading-relaxed text-navy-200">
         <p>
-          Screen printing is the most cost-effective decoration method for high-volume orders — t-shirts, hoodies, sweatshirts, and any garment where the design is going on flat fabric in 1-6 ink colors. Bighorn Threads runs automatic screen-printing presses from our Las Vegas production shop, printing for construction crews, sports teams, schools, trade shows, fundraising events, and brand merchandise programs. Minimum order is 24 pieces per design — under that we switch you to DTF transfers, which carry no minimum and no setup fee. Above 24 pieces, screen printing is almost always the cheaper option per shirt, and the durability is unmatched: a properly cured plastisol print survives 100+ industrial wash cycles without cracking, fading, or peeling.
+          Screen printing is the most cost-effective decoration method for high-volume orders — t-shirts, hoodies, sweatshirts, and any garment where the design is going on flat fabric in 1-6 ink colors. Bighorn Threads runs automatic screen-printing presses from our Las Vegas production shop, printing for construction crews, sports teams, schools, trade shows, fundraising events, and brand merchandise programs. Minimum order is 24 pieces per design — under that we switch you to DTF transfers, which carry no minimum and no setup fee. Above 24 pieces, screen printing is almost always the cheaper option per shirt, and the durability is unmatched: a properly cured plastisol print survives extensive industrial wash cycles without cracking, fading, or peeling.
         </p>
         <p>
           The right ink type depends on the garment and the look you want. Plastisol — the standard workhorse — is a thick, opaque ink that sits on top of the fabric. It produces vivid colors, blocks underlying fabric color, and survives every wash cycle. Water-based inks soak into the fabric instead of sitting on top, producing a softer hand and a more vintage look — preferred for fashion-forward apparel and softer-feel brand merch but less durable on heavy work shirts. Discharge inks (a specialty water-based variant) actually remove dye from dark cotton and replace it with the print color, leaving zero hand. We carry all three and we'll recommend by use case, not by what's easiest to set up.
         </p>
         <p>
-          Setup is where most catalog screen printers add cost. Every color in your design requires a separate screen burned at the shop — a one-time setup that catalog suppliers charge $25-50 per screen for. We charge zero setup fees on every screen-print order. Your one-color logo on a 100-shirt run is the same per-piece price as your one-color logo on a 500-shirt run, with no surprise screen charges added at invoice. For multi-color designs we batch the screens efficiently, and for repeat orders we save the screens for 90 days so reorders skip the setup time entirely.
+          Setup is where most catalog screen printers add cost. Every color in your design requires a separate screen burned at the shop. We keep setup fees transparent and quote them up front — no surprise screen charges added at invoice. For multi-color designs we batch the screens efficiently, and for repeat orders we save the screens so reorders skip the setup time entirely.
         </p>
         <p>
           For Las Vegas construction trades, the most-printed item is the heavyweight cotton work tee — Carhartt K87, Bayside 5100, Hanes Beefy-T — in heavyweight 6.75 oz cotton with a left-chest or full-front print. Hi-vis tees and safety apparel can be screen-printed but the print area is restricted by ANSI 107 retroreflective tape coverage rules; we follow the published decoration guides on every hi-vis order so the certification stays intact. FR-rated garments cannot be screen-printed with standard plastisol — the ink melts in arc events. For FR, we use FR-safe inks on the rare order that requires print decoration, but embroidery with Nomex thread is the standard FR decoration spec.
         </p>
         <p>
-          Turnaround is 7-10 business days from artwork approval on standard orders. Rush orders down to 48-72 hours are available most weeks when blank inventory cooperates — we keep the high-volume garments (Carhartt K87, Bayside 5100, Gildan G500, Port & Company PC54) in stock locally so rush orders for trade shows, ribbon cuttings, and last-minute new-hire onboardings are realistic. Free delivery inside the Las Vegas Valley on orders over $500.
+          Turnaround is fast from artwork approval on standard orders. Rush orders are available most weeks when blank inventory cooperates — we keep the high-volume garments (Carhartt K87, Bayside 5100, Gildan G500, Port & Company PC54) in stock locally so rush orders for trade shows, ribbon cuttings, and last-minute new-hire onboardings are realistic. Free delivery inside the Las Vegas Valley on qualifying orders.
         </p>
       </div>
     </div>
@@ -276,7 +276,7 @@ const faqSchema = {
         </a>
         <a href="/services/rush-orders-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
           <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Rush Orders</h3>
-          <p class="mt-2 text-sm text-gray-400">72-hour turnaround on most jobs. 48 for repeat clients.</p>
+          <p class="mt-2 text-sm text-gray-400">rush turnaround on most jobs. 48 for repeat clients.</p>
         </a>
         <a href="/blog/screen-printing-vs-embroidery-construction/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
           <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Screen Print vs Embroidery</h3>
@@ -289,7 +289,7 @@ const faqSchema = {
   <!-- CTA -->
   <section class="bg-navy-900/60 py-20">
     <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-      <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Send your logo. We'll send a quote in 24 hours.</h2>
+      <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Send your logo. We'll send a Fast quote.</h2>
       <p class="mb-8 text-lg text-gray-300">No setup fee over 25 pieces. Pantone-matched. Built to last.</p>
       <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>

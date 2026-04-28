@@ -7,12 +7,12 @@ const services = [
   {
     name: 'Screen Printing',
     serviceType: 'Screen printing for construction branded apparel',
-    description: 'Multi-color screen printing on tees, hi-vis vests, hoodies, and workwear. Plastisol and water-based inks. PMS color matching. 24-piece minimums, 5–7 business day standard turnaround, 48–72 hour rush available.',
+    description: 'Multi-color screen printing on tees, hi-vis vests, hoodies, and workwear. Plastisol and water-based inks. PMS color matching. 24-piece minimums. Rush options available.',
   },
   {
     name: 'Embroidery',
     serviceType: 'Embroidery for construction uniforms, polos, headwear',
-    description: 'Commercial embroidery on polos, softshells, hats, beanies, and bags. Free digitizing on first order. Up to 15 thread colors per design. 12-piece minimums for most garments, no minimum for caps. 7–10 business day standard turnaround.',
+    description: 'Commercial embroidery on polos, softshells, hats, beanies, and bags. Free digitizing on first order. Up to 15 thread colors per design. 12-piece minimums for most garments, no minimum for caps.',
   },
   {
     name: 'Branded Apparel',
@@ -22,7 +22,7 @@ const services = [
   {
     name: 'Company Stores',
     serviceType: 'Private branded apparel store for contractors',
-    description: 'Custom online storefront where each crew member orders their own gear on a per-employee credit or company-paid budget. Print-on-demand or stocked inventory. Ship to office, job site, or employee home. 5-day launch, no platform or per-seat fees.',
+    description: 'Custom online storefront where each crew member orders their own gear on a per-employee credit or company-paid budget. Print-on-demand or stocked inventory. Ship to office, job site, or employee home. No platform or per-seat fees.',
   },
   {
     name: 'Promotional Products',
@@ -106,14 +106,14 @@ const serviceSchema = {
               Your team logs into a branded storefront, picks their approved gear at sizes they actually want, and it ships direct. You set the catalog, the budget, and the spending rules. We handle decoration, fulfillment, and reporting.
             </p>
             <p class="mb-8 text-base leading-relaxed text-gray-400">
-              No inventory in your closet. No weekend runs to the shop for the new hire. No more guessing XL vs. 2XL for a foreman you've never met. 5-day launch, zero monthly platform fee, and setup is free for crews of 20 or more.
+              No inventory in your closet. No weekend runs to the shop for the new hire. No more guessing XL vs. 2XL for a crew lead you've never met. Zero monthly platform fee, and setup is free for qualifying crews.
             </p>
             <div class="mb-8 flex flex-wrap gap-2">
-              <span class="rounded-full border border-gold-500/30 bg-gold-500/5 px-3 py-1 text-xs font-mono uppercase tracking-wider text-gold-400">5-day launch</span>
+              <span class="rounded-full border border-gold-500/30 bg-gold-500/5 px-3 py-1 text-xs font-mono uppercase tracking-wider text-gold-400">Quick launch</span>
               <span class="rounded-full border border-gold-500/30 bg-gold-500/5 px-3 py-1 text-xs font-mono uppercase tracking-wider text-gold-400">No monthly fee</span>
               <span class="rounded-full border border-gold-500/30 bg-gold-500/5 px-3 py-1 text-xs font-mono uppercase tracking-wider text-gold-400">Per-employee credit</span>
               <span class="rounded-full border border-gold-500/30 bg-gold-500/5 px-3 py-1 text-xs font-mono uppercase tracking-wider text-gold-400">Ship anywhere</span>
-              <span class="rounded-full border border-gold-500/30 bg-gold-500/5 px-3 py-1 text-xs font-mono uppercase tracking-wider text-gold-400">Quarterly reports</span>
+              <span class="rounded-full border border-gold-500/30 bg-gold-500/5 px-3 py-1 text-xs font-mono uppercase tracking-wider text-gold-400">Reports included</span>
             </div>
             <div class="flex flex-wrap gap-3">
               <a href="/company-stores/" class="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-gold-500 px-6 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25">
@@ -148,22 +148,22 @@ const serviceSchema = {
             </ul>
 
             <div class="mt-8 border-t border-gold-500/20 pt-6">
-              <div class="mb-3 font-mono text-xs font-bold uppercase tracking-[0.15em] text-gold-500">Typical setup timeline</div>
+              <div class="mb-3 font-mono text-xs font-bold uppercase tracking-[0.15em] text-gold-500">Setup steps</div>
               <ul class="space-y-2.5 text-sm text-navy-200">
                 <li class="flex gap-3">
-                  <span class="flex-shrink-0 font-mono text-xs font-bold text-gold-400 w-16">Day 1</span>
+                  <span class="flex-shrink-0 font-mono text-xs font-bold text-gold-400 w-20">Kickoff</span>
                   <span>Kickoff call + logo files locked in</span>
                 </li>
                 <li class="flex gap-3">
-                  <span class="flex-shrink-0 font-mono text-xs font-bold text-gold-400 w-16">Day 2–3</span>
+                  <span class="flex-shrink-0 font-mono text-xs font-bold text-gold-400 w-20">Catalog</span>
                   <span>Catalog review + negotiated pricing</span>
                 </li>
                 <li class="flex gap-3">
-                  <span class="flex-shrink-0 font-mono text-xs font-bold text-gold-400 w-16">Day 4</span>
+                  <span class="flex-shrink-0 font-mono text-xs font-bold text-gold-400 w-20">QA</span>
                   <span>Test order run + QA sign-off</span>
                 </li>
                 <li class="flex gap-3">
-                  <span class="flex-shrink-0 font-mono text-xs font-bold text-gold-400 w-16">Day 5</span>
+                  <span class="flex-shrink-0 font-mono text-xs font-bold text-gold-400 w-20">Launch</span>
                   <span>Store live, invite your crew</span>
                 </li>
               </ul>
@@ -198,11 +198,11 @@ const serviceSchema = {
             </div>
             <div class="rounded-xl border border-navy-700/50 bg-navy-900/40 p-3">
               <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Turnaround</div>
-              <div class="mt-1 text-sm font-bold text-white">5–7 days</div>
+              <div class="mt-1 text-sm font-bold text-white">Fast</div>
             </div>
             <div class="rounded-xl border border-navy-700/50 bg-navy-900/40 p-3">
               <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Rush</div>
-              <div class="mt-1 text-sm font-bold text-white">48–72 hrs</div>
+              <div class="mt-1 text-sm font-bold text-white">Available</div>
             </div>
           </div>
           <a href="/contact/" class="inline-flex items-center gap-2 rounded-lg bg-gold-500 px-5 py-3 text-sm font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/20">
@@ -251,7 +251,7 @@ const serviceSchema = {
             Commercial embroidery on polos, softshells, caps, beanies, jackets, and bags. The decoration that reads "professional" the second somebody walks into a client meeting or picks up a permit. Sharp, durable, and a clear notch above heat-applied vinyl on gear your name tag is going to live on.
           </p>
           <p class="mb-6 text-base text-gray-400">
-            Up to 15 thread colors per design. Standard placements: left chest, right sleeve, back yoke, cap front, and cap back. Free logo digitizing on your first order (normally $45–$75). Tight trade tolerances — we match your logo within 1–2 Pantone shades using Madeira Classic threads.
+            Up to 15 thread colors per design. Standard placements: left chest, right sleeve, back yoke, cap front, and cap back. Free logo digitizing on your first order. Tight trade tolerances — we match your logo within 1–2 Pantone shades using Madeira Classic threads.
           </p>
           <div class="mb-6 grid grid-cols-3 gap-3">
             <div class="rounded-xl border border-navy-700/50 bg-navy-900/40 p-3">
@@ -260,7 +260,7 @@ const serviceSchema = {
             </div>
             <div class="rounded-xl border border-navy-700/50 bg-navy-900/40 p-3">
               <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Turnaround</div>
-              <div class="mt-1 text-sm font-bold text-white">7–10 days</div>
+              <div class="mt-1 text-sm font-bold text-white">Fast</div>
             </div>
             <div class="rounded-xl border border-navy-700/50 bg-navy-900/40 p-3">
               <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Digitizing</div>
@@ -366,7 +366,7 @@ const serviceSchema = {
             </div>
             <div class="rounded-xl border border-navy-700/50 bg-navy-900/40 p-3">
               <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Lead time</div>
-              <div class="mt-1 text-sm font-bold text-white">10–14 days</div>
+              <div class="mt-1 text-sm font-bold text-white">By item</div>
             </div>
           </div>
           <a href="/contact/" class="inline-flex items-center gap-2 rounded-lg bg-gold-500 px-5 py-3 text-sm font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/20">

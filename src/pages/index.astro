@@ -8,11 +8,11 @@ import foremanPhoto from '@/assets/generated/foreman-closeup.jpg'
 const faqs = [
   {
     q: "What's the minimum order?",
-    a: '24 pieces for screen printing, 12 for embroidery. No setup fee on orders over 25.',
+    a: '24 pieces for screen printing, 12 for embroidery. Setup fees waived on qualifying orders — ask when you quote.',
   },
   {
     q: 'How fast can you turn around a rush job?',
-    a: "We've hit 72-hour rush on 200-piece hi-vis orders. Call before 10am and we can usually commit same-day.",
+    a: "Rush options are available — call us with your deadline and we'll tell you straight if we can hit it.",
   },
   {
     q: 'Do you handle hi-vis and FR compliance?',
@@ -53,7 +53,7 @@ const faqSchema = {
 
 <BaseLayout
   title="Las Vegas Branded Apparel for Construction & Trades"
-  description="Branded apparel, screen printing, embroidery, and company stores for Las Vegas construction companies and trades. 15+ years outfitting the crews that build Vegas."
+  description="Branded apparel, screen printing, embroidery, and company stores for Las Vegas construction companies and trades. Outfitting the crews that build Vegas."
 >
   <!-- Hero -->
   <section class="relative overflow-hidden">
@@ -80,7 +80,7 @@ const faqSchema = {
           <!-- Badge -->
           <div class="mb-8 inline-flex items-center gap-3 rounded-full border border-gold-500/20 bg-gold-500/5 px-5 py-2">
             <span class="h-2 w-2 rounded-full bg-gold-500 animate-pulse" />
-            <span class="text-sm font-medium text-gold-500">Outfitting Las Vegas Construction Since 2010</span>
+            <span class="text-sm font-medium text-gold-500">Outfitting Las Vegas Construction</span>
           </div>
 
           <h1 class="mb-6 font-heading text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
@@ -135,26 +135,10 @@ const faqSchema = {
       </div>
     </div>
 
-    <!-- Bottom stats bar (normal flow, no overlap) -->
+    <!-- Bottom location bar -->
     <div class="relative border-t border-gray-700/30 bg-navy-950/80 backdrop-blur-sm">
-      <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-6 px-4 py-5 sm:px-6 lg:px-8">
-        <div class="flex items-center gap-8">
-          <div>
-            <span class="block font-mono text-2xl font-bold text-gold-500">15+</span>
-            <span class="text-xs font-medium uppercase tracking-wider text-gray-500">Years</span>
-          </div>
-          <div class="h-8 w-px bg-gray-700/50" />
-          <div>
-            <span class="block font-mono text-2xl font-bold text-gold-500">100+</span>
-            <span class="text-xs font-medium uppercase tracking-wider text-gray-500">Contractors</span>
-          </div>
-          <div class="h-8 w-px bg-gray-700/50" />
-          <div>
-            <span class="block font-mono text-2xl font-bold text-gold-500">50K+</span>
-            <span class="text-xs font-medium uppercase tracking-wider text-gray-500">Items/Year</span>
-          </div>
-        </div>
-        <div class="hidden items-center gap-2 text-sm text-gray-500 sm:flex">
+      <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-end gap-6 px-4 py-5 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-2 text-sm text-gray-500">
           <svg class="h-4 w-4 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
             <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -191,7 +175,7 @@ const faqSchema = {
         {[
           {
             title: 'Screen Printing',
-            desc: 'Prints that hold up to sun, sweat, concrete, and 100 washes. Multi-color, hi-vis-compatible inks, 24-piece minimum. Screens held on file so reorders match.',
+            desc: 'Prints that hold up to sun, sweat, and concrete. Multi-color, hi-vis-compatible inks, 24-piece minimum. Screens held on file so reorders match.',
             icon: 'M8 3L4.5 4.5 2 8l3 2v10a1 1 0 001 1h12a1 1 0 001-1V10l3-2-2.5-3.5L16 3l-2.5 1a3 3 0 01-3 0z M9 11h6v5H9z M10 13h4 M10 15h4',
             href: '/services#screen-printing',
           },
@@ -279,7 +263,7 @@ const faqSchema = {
 
       <ol class="grid gap-6 md:grid-cols-3">
         {[
-          { n: '01', title: 'We Build Your Portal', meta: 'Week 1', desc: 'Your logo. Your colors. Your approved garments. Your price rules. Free setup on your first portal.' },
+          { n: '01', title: 'We Build Your Portal', meta: 'Setup', desc: 'Your logo. Your colors. Your approved garments. Your price rules. Free setup on your first portal.' },
           { n: '02', title: 'Your Crew Orders', meta: 'Ongoing', desc: 'New hires get a login and a gift-card balance. They pick sizes, submit orders, and we print and ship. You see every order in one dashboard.' },
           { n: '03', title: 'You Never Touch Inventory', meta: 'Ongoing', desc: 'No stockroom, no size guessing, no reorder headaches. Gear ships direct to office, job trailer, or employee\u2019s home — your call per order.' },
         ].map((step) => (
@@ -384,9 +368,9 @@ const faqSchema = {
           <div class="space-y-6">
             {[
               { title: 'Trades-Only. Not Generalists.', desc: "We don't do wedding swag or fashion drops. We outfit the trades — construction, electrical, plumbing, HVAC, roofing, landscaping — and we know the garments, compliance, and reorder patterns of each." },
-              { title: 'Your Deadline Was Yesterday.', desc: "Quote in 24 hours. Mockups in 48. Rush orders turned in 72. We've outfitted 200-piece hi-vis orders for OSHA audits inside a week." },
+              { title: 'Your Deadline Was Yesterday.', desc: "Quick quotes, quick mockups, rush options when you need them. Tell us your deadline and we'll tell you straight if we can hit it." },
               { title: 'Reorders Without the Phone Tag.', desc: 'Your company store holds your logo, your colors, your approved products. New hires get a gift-card allowance, pick their sizes, and gear ships direct. No admin, no mis-orders, no wrong logos showing up on the jobsite.' },
-              { title: 'Vegas Local. 15+ Years Deep.', desc: "We've outfitted crews at World of Concrete and CONEXPO. Our production partners are in Vegas. When a blank supplier jacks prices mid-quarter, we know before you do — and we hedge with annual-lock pricing." },
+              { title: 'Vegas Local. Vegas Production.', desc: "Our production partners are in Vegas. When a blank supplier jacks prices mid-quarter, we know before you do — and we hedge with annual-lock pricing." },
             ].map((item) => (
               <div class="flex gap-4">
                 <div class="mt-1 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-gold-500/15">
@@ -420,15 +404,6 @@ const faqSchema = {
             />
           </div>
 
-          <!-- Floating stat badges (placed to avoid covering face/hardhat) -->
-          <div class="absolute -left-4 bottom-8 rounded-xl border border-gold-500/30 bg-navy-900/95 px-5 py-3 shadow-xl backdrop-blur-md">
-            <span class="block font-mono text-2xl font-bold text-gold-500">24hr</span>
-            <span class="mt-0.5 block text-xs text-gray-400">Quote Turnaround</span>
-          </div>
-          <div class="absolute -right-4 bottom-24 rounded-xl border border-gold-500/30 bg-navy-900/95 px-5 py-3 shadow-xl backdrop-blur-md">
-            <span class="block font-mono text-2xl font-bold text-gold-500">$0</span>
-            <span class="mt-0.5 block text-xs text-gray-400">Setup Fees</span>
-          </div>
         </div>
       </div>
     </div>
@@ -552,26 +527,26 @@ const faqSchema = {
           {
             n: '01',
             title: 'Scope the Job',
-            desc: 'Tell us crew size, gear types, deadline, and any compliance requirements (ANSI, FR, Pantone match). We quote within 24 hours.',
-            meta: 'Day 1',
+            desc: 'Tell us crew size, gear types, deadline, and any compliance requirements (ANSI, FR, Pantone match). We quote quickly.',
+            meta: 'Quote',
           },
           {
             n: '02',
             title: 'Free Mockups',
             desc: 'We send digital proofs showing exactly where your logo sits, thread colors for embroidery, and ink placement for screen print.',
-            meta: 'Day 2–3',
+            meta: 'Proofs',
           },
           {
             n: '03',
             title: 'Local Production',
-            desc: 'Printed and embroidered through our Las Vegas production partners. Every piece quality-checked for logo placement, stitch density, and cure — the same standard across first order and reorder number fifty.',
-            meta: 'Day 4–10',
+            desc: 'Printed and embroidered through our Las Vegas production partners. Every piece quality-checked for logo placement, stitch density, and cure — the same standard on the first order and every reorder.',
+            meta: 'Production',
           },
           {
             n: '04',
             title: 'Direct Delivery',
             desc: 'Shipped to your office, job trailer, or each employee\u2019s home — your call at checkout. Rush timeline? We run the schedule tighter to hit your deadline.',
-            meta: 'Day 10–14',
+            meta: 'Delivery',
           },
         ].map((step) => (
           <li class="group relative rounded-2xl border border-gray-700/40 bg-navy-800/20 p-8 transition-all duration-300 hover:border-gold-500/40 hover:bg-navy-800/40">
@@ -588,8 +563,8 @@ const faqSchema = {
       <div class="mt-12 rounded-2xl border-2 border-gold-500/30 bg-gradient-to-r from-gold-500/10 via-navy-800/40 to-navy-800/20 p-8 sm:p-10">
         <div class="flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h3 class="mb-2 text-xl font-bold text-white sm:text-2xl">Rush order? OSHA deadline next week?</h3>
-            <p class="text-gray-400">Call us direct. We've turned 200-piece hi-vis orders in 72 hours. No sales forms, no email chains — just a crew ready on time.</p>
+            <h3 class="mb-2 text-xl font-bold text-white sm:text-2xl">Rush order? OSHA deadline looming?</h3>
+            <p class="text-gray-400">Call us direct. Rush options available. No sales forms, no email chains — just a crew ready on time.</p>
           </div>
           <a href="tel:+17252356196" class="inline-flex items-center gap-2 rounded-lg border-2 border-gold-500/50 px-6 py-3.5 text-base font-bold text-white transition-all hover:border-gold-500 hover:bg-gold-500/10 min-h-[44px]">
             <svg class="h-5 w-5 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -715,7 +690,7 @@ const faqSchema = {
         Ready to Standardize Your Crew?
       </h2>
       <p class="mx-auto mb-10 max-w-2xl text-lg text-gray-400">
-        Get a quote in 24 hours. Real mockups, real pricing, a human on the phone. If you're ready to stop chasing down uniform orders, we're ready to start building your program.
+        Get a quick quote. Real mockups, real pricing, a human on the phone. If you're ready to stop chasing down uniform orders, we're ready to start building your program.
       </p>
       <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a
