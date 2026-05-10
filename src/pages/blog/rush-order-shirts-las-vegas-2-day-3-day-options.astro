@@ -1,0 +1,141 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const post = {
+ title: 'Rush Order Shirts in Las Vegas: 2-Day vs 3-Day vs Same-Day Options',
+ description:
+ 'A decision matrix for rush order shirts in Las Vegas — same-day, 2-day, and 3-day turnaround. What each tier actually means, what breaks rush orders, and how to pick the right speed for your event, trade show, or crew launch.',
+ category: 'Operational',
+ readTime: '8 min read',
+ date: 'May 9, 2026',
+ isoDate: '2026-05-09',
+ image: '/images/generated/service-screen-printing.jpg',
+ slug: 'rush-order-shirts-las-vegas-2-day-3-day-options',
+}
+
+const faqs = [
+ { q: 'What\'s the difference between same-day, 2-day, and 3-day rush shirts?', a: 'Same-day means art approved and shirts in your hands within 24 hours, usually via DTF or HTV on stock blanks. 2-day rush adds time for screen burning or larger DTG runs (24-72 hours). 3-day rush is the standard "expedited" tier most Vegas shops can hit reliably for screen printing or embroidery on in-stock blanks.' },
+ { q: 'Can I really get custom shirts same-day in Las Vegas?', a: 'Yes, for small batches (typically under 24-48 pieces) on stock blank tees with a print-ready vector logo, decorated with DTF or heat transfer vinyl. Same-day breaks down on embroidery (digitizing time), large quantities (press capacity), unusual blanks (no stock), or complex multi-color screen printing (screen burn time).' },
+ { q: 'How much does rush order printing cost extra?', a: 'Rush surcharges in Las Vegas typically range from 15-50% over standard pricing depending on tier. Same-day commands the highest premium because it bumps existing scheduled work. 3-day usually carries a smaller premium because most shops can absorb it with overtime instead of schedule disruption.' },
+ { q: 'What breaks a rush order?', a: 'Five things: (1) raster logos that need vectorization, (2) embroidery without an existing digitized file, (3) blanks that aren\'t in local stock, (4) art revisions after approval, and (5) order quantity exceeding press capacity for that decoration method. Each of these can add 24-72 hours.' },
+ { q: 'Can you embroider shirts same-day?', a: 'Rarely. Embroidery requires a digitized stitch file (.DST, .EXP, .PES), and digitizing takes 4-24 hours unless the shop already has your file from a prior order. Same-day embroidery is realistic only for repeat customers with a stored file. First-time embroidery typically needs 3-5 business days minimum.' },
+ { q: '2-day vs 3-day — when does each one matter?', a: 'Pick 2-day when your event is locked and you can\'t move it. Pick 3-day when you have a single buffer day on the front end. The price gap between 2-day and 3-day is usually meaningful (15-25% in our market), so 3-day is the better default if your timeline allows it.' },
+ { q: 'What\'s the largest rush order quantity that\'s realistic?', a: 'Same-day caps around 24-100 pieces depending on shop capacity. 2-day rush can typically hit 200-500 pieces. 3-day rush handles up to 1,000+ on screen printing or DTF. Beyond that, you\'re looking at standard 7-10 day production no matter what surcharge you\'re willing to pay — the press only runs so fast.' },
+ { q: 'Should I rush order or just plan ahead?', a: 'Plan ahead if you can. Rush surcharges (15-50%), substitution risk on blanks, and fewer decoration options make rush orders meaningfully more expensive and constrained. Use rush when an event date is locked or a job pivots — not as a default workflow. Standard 7-10 day production gives you full vendor and decoration options.' },
+]
+
+const schema = {
+ '@context': 'https://schema.org',
+ '@graph': [
+ { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: post.isoDate, author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
+ { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' }, { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` }] },
+ { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+ ],
+}
+---
+
+<BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
+ <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <article class="bg-navy-950">
+ <header class="relative overflow-hidden border-b border-navy-800">
+ <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
+ <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-400">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-400">Blog</a></nav>
+ <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
+ <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
+ <p class="mb-8 text-xl leading-relaxed text-gray-300">A decision matrix for rush order custom shirts in Las Vegas — what same-day, 2-day, and 3-day turnaround actually mean, what breaks them, and how to pick the right tier for your event.</p>
+ <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400"><span class="text-gold-500">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
+ </div>
+ </header>
+ <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Rush order custom shirts in production at a Las Vegas screen printing shop" width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" /></div>
+ <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+
+ <aside class="mb-10 rounded-2xl border border-gold-500/30 bg-navy-900/60 p-7">
+ <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Quick Answer</p>
+ <p class="text-lg leading-relaxed text-white sm:text-xl">Same-day rush handles small DTF or HTV runs on stock blanks. 2-day rush covers larger screen printing or DTG batches. 3-day rush is the most reliable tier for screen printing and embroidery on standard blanks. Embroidery rarely runs same-day. Plan ahead when you can — rush surcharges run 15-50% over standard.</p>
+ </aside>
+
+ <h2 id="three-tiers" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The Three Rush Tiers Explained</h2>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">Las Vegas custom apparel shops generally offer three rush speeds. Each one has a different physical bottleneck:</p>
+ <div class="my-6 overflow-x-auto rounded-2xl border border-navy-700/40 bg-navy-900/40">
+ <table class="w-full text-base text-navy-200">
+ <thead class="bg-navy-900/60 text-left text-xs font-mono uppercase tracking-wider text-gold-500">
+ <tr><th class="px-5 py-3">Tier</th><th class="px-5 py-3">Realistic Quantity</th><th class="px-5 py-3">Best Decoration</th><th class="px-5 py-3">Surcharge</th></tr>
+ </thead>
+ <tbody class="divide-y divide-navy-800">
+ <tr><td class="px-5 py-3 font-bold">Same-day (24h)</td><td class="px-5 py-3">1-100 pieces</td><td class="px-5 py-3">DTF, HTV, single-color screen</td><td class="px-5 py-3">35-50%</td></tr>
+ <tr><td class="px-5 py-3 font-bold">2-day (48h)</td><td class="px-5 py-3">1-500 pieces</td><td class="px-5 py-3">Screen print, DTG, DTF</td><td class="px-5 py-3">20-35%</td></tr>
+ <tr><td class="px-5 py-3 font-bold">3-day (72h)</td><td class="px-5 py-3">1-1,000+ pieces</td><td class="px-5 py-3">Screen print, embroidery (with digitized file), DTG</td><td class="px-5 py-3">10-20%</td></tr>
+ </tbody>
+ </table>
+ </div>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">For the broader picture on what\'s physically possible, see our companion piece on <a href="/blog/rush-order-shirts-las-vegas-whats-possible/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">rush order shirts in Las Vegas — what\'s actually possible</a>.</p>
+
+ <h2 id="same-day" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">When Same-Day Rush Wins</h2>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <li><strong>Last-minute trade show booth crew.</strong> The keynote shifted, the booth setup is tonight, and you need 12 polos by 6 PM tomorrow.</li>
+ <li><strong>Emergency replacement order.</strong> Crew member ruined their uniform, has a customer site visit in the morning.</li>
+ <li><strong>Charity run / event shirts.</strong> Vegas has dozens of last-minute trade-association charity events where someone forgot to order shirts until 24 hours out.</li>
+ <li><strong>Single-color logo on a stock blank.</strong> The simpler the art, the more realistic same-day becomes.</li>
+ </ul>
+
+ <h2 id="two-day" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">When 2-Day Rush Wins</h2>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <li><strong>New crew launch with a hard start date.</strong> First day of work is Monday, you remembered Friday.</li>
+ <li><strong>Larger event runs (100-500 pieces).</strong> Race events, fundraisers, trade show giveaways.</li>
+ <li><strong>Multi-color screen printing.</strong> 2 days gives the shop time to burn screens, mix Pantone-matched ink, and run color separations cleanly.</li>
+ <li><strong>DTG photographic prints.</strong> 2 days lets a DTG operator pre-treat, print, and cure properly without rushing the cure cycle.</li>
+ </ul>
+
+ <h2 id="three-day" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">When 3-Day Rush Wins (and Why It\'s Often the Right Pick)</h2>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <li><strong>Large screen-printed orders (500-1,000+).</strong> Press capacity becomes the binding constraint, not setup time.</li>
+ <li><strong>Embroidery with a stored digitized file.</strong> Repeat customers can hit 3-day on embroidery; first-timers usually can\'t.</li>
+ <li><strong>Mixed orders.</strong> Some embroidered polos, some screen-printed tees, some hi-vis vests — 3 days lets a shop sequence the work without stalling other jobs.</li>
+ <li><strong>Substitution-tolerant orders.</strong> If your blank is out of stock, 3 days gives time to source from a secondary distributor.</li>
+ </ul>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">3-day is the sweet spot for most Vegas crew launches. Surcharge is small, decoration options stay open, and shops can usually absorb the work with overtime instead of schedule disruption.</p>
+
+ <h2 id="what-breaks-rush" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">What Breaks a Rush Order</h2>
+ <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <li><strong>Raster logo files.</strong> A JPG or PNG has to be vectorized. That\'s 1-4 hours minimum. Send vector — see our <a href="/blog/vector-logo-file-setup-for-embroidery/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">vector logo setup guide</a>.</li>
+ <li><strong>First-time embroidery.</strong> Digitizing takes 4-24 hours. See <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">logo digitizing 101</a>.</li>
+ <li><strong>Out-of-stock blanks.</strong> Distributor authorities like <a href="https://www.ssactivewear.com/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500" rel="noopener" target="_blank">S&S Activewear</a> and <a href="https://www.alphabroder.com/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500" rel="noopener" target="_blank">alphabroder</a> stock most local Vegas shops; if your blank is out, expect a substitution or a delay.</li>
+ <li><strong>Art revisions after approval.</strong> Each revision adds 4-24 hours.</li>
+ <li><strong>Order size beyond press capacity.</strong> A single automatic carousel does ~600-800 pieces per shift. Bigger orders need multiple shifts.</li>
+ </ol>
+
+ <h2 id="decision-matrix" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The Decision Matrix</h2>
+ <div class="my-6 overflow-x-auto rounded-2xl border border-navy-700/40 bg-navy-900/40">
+ <table class="w-full text-base text-navy-200">
+ <thead class="bg-navy-900/60 text-left text-xs font-mono uppercase tracking-wider text-gold-500">
+ <tr><th class="px-5 py-3">Use Case</th><th class="px-5 py-3">Recommended Tier</th></tr>
+ </thead>
+ <tbody class="divide-y divide-navy-800">
+ <tr><td class="px-5 py-3">12 booth polos for tomorrow\'s trade show</td><td class="px-5 py-3 font-bold">Same-day (DTF or HTV)</td></tr>
+ <tr><td class="px-5 py-3">200 event tees, hard date 2 days out</td><td class="px-5 py-3 font-bold">2-day screen print</td></tr>
+ <tr><td class="px-5 py-3">500 crew tees, 3-day runway</td><td class="px-5 py-3 font-bold">3-day screen print</td></tr>
+ <tr><td class="px-5 py-3">50 embroidered polos, first-time order</td><td class="px-5 py-3 font-bold">3-day minimum (digitizing time)</td></tr>
+ <tr><td class="px-5 py-3">50 embroidered polos, repeat customer</td><td class="px-5 py-3 font-bold">2-day with stored file</td></tr>
+ <tr><td class="px-5 py-3">FR shirts with embroidery</td><td class="px-5 py-3 font-bold">Standard 7-10 day (FR sourcing)</td></tr>
+ <tr><td class="px-5 py-3">1,000+ pieces, multi-color screen</td><td class="px-5 py-3 font-bold">3-day rush or standard</td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <h2 id="related" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Related Reading</h2>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <li><a href="/blog/rush-order-shirts-las-vegas-whats-possible/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Rush order shirts: what\'s actually possible</a></li>
+ <li><a href="/blog/dtf-printing-vs-screen-printing-custom-apparel/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">DTF vs screen printing — when to use which</a></li>
+ <li><a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">MOQ for embroidery and screen printing</a></li>
+ <li><a href="/blog/trade-show-apparel-booth-crew/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Trade show apparel for booth crews</a></li>
+ </ul>
+
+ <div class="mt-12 rounded-2xl border border-gold-500/40 bg-gold-500/5 p-7 sm:p-9">
+ <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-white">Need rush order shirts in Las Vegas?</h2>
+ <p class="mb-5 text-lg leading-relaxed text-navy-200">Tell us your event date, quantity, and decoration method. We\'ll tell you straight up which rush tier is realistic and whether your timeline saves money by waiting one more day.</p>
+ <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Quote →</a>
+ </div>
+ </div>
+ </article>
+</BaseLayout>

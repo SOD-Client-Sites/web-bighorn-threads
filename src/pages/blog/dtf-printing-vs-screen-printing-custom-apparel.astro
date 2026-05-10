@@ -1,0 +1,126 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const post = {
+ title: 'DTF Printing vs Screen Printing for Custom Apparel: When to Use Which',
+ description:
+ 'DTF (direct-to-film) printing is the small-batch alternative to screen printing — works on any fabric color, no minimum, slight surface feel. Screen printing wins at volume on cotton with bold designs. Here\'s the actual decision matrix.',
+ category: 'Decoration Methods',
+ readTime: '8 min read',
+ date: 'May 9, 2026',
+ isoDate: '2026-05-09',
+ image: '/images/generated/service-screen-printing.jpg',
+ slug: 'dtf-printing-vs-screen-printing-custom-apparel',
+}
+
+const faqs = [
+ { q: 'What is DTF printing?', a: 'DTF (direct-to-film) printing prints your design onto a transfer film using specialized DTF inks, applies adhesive powder to the back of the film, then heat-presses the film onto fabric at 320°F. The design transfers permanently with a slight raised surface feel. DTF works on any fabric color and any blend including cotton, polyester, and rayon.' },
+ { q: 'DTF vs screen printing — which is better?', a: 'For runs of 1-24 pieces or designs with full-color gradients, DTF wins because there\'s no setup cost per color. For runs of 50+ pieces with bold simple designs on cotton tees, screen printing wins on per-piece cost because the setup amortizes. DTF transfers can lift over time after many washes; properly cured screen prints survive 50+ washes without issue.' },
+ { q: 'How long does DTF last?', a: 'A well-applied DTF transfer typically survives 30-50 wash cycles before showing wear. The transfer adhesive eventually breaks down, especially under high-heat dryer conditions. Lifespan is comparable to heat-transfer vinyl but less than properly cured plastisol screen printing.' },
+ { q: 'Does DTF work on dark fabrics?', a: 'Yes — this is one of DTF\'s biggest advantages over sublimation. DTF prints with white-ink underlayers that allow color saturation on black, navy, and dark gray fabrics. Sublimation can\'t do this; screen printing requires extra "underbase" steps that add cost. DTF handles dark fabrics natively.' },
+ { q: 'Can DTF print on cotton?', a: 'Yes — DTF works on 100% cotton, cotton-poly blends, polyester, tri-blends, performance fabrics, and even some leather. The adhesive bonds to the fabric surface regardless of fiber composition. This is the key advantage over sublimation, which only works on polyester.' },
+ { q: 'What\'s the minimum order for DTF?', a: 'As low as 1 piece. Like sublimation, DTF has minimal setup cost per design — the printer prints whatever quantity you need with the same per-piece cost. This makes DTF the practical choice for one-off custom shirts, replacement runs, and 4-12 piece orders that don\'t justify screen printing setup.' },
+ { q: 'How much does DTF cost compared to screen printing?', a: 'Per-piece cost for DTF stays roughly the same regardless of quantity. Screen printing per-piece cost falls dramatically with volume. At 12 pieces, DTF and screen printing are comparable. At 50 pieces, screen printing is roughly 30-40% cheaper. At 200 pieces, screen printing is dramatically cheaper. The crossover point is typically around 24-36 pieces.' },
+ { q: 'Does DTF have a feel on the fabric?', a: 'Yes — DTF prints have a slight raised surface feel because the adhesive layer sits on top of the fabric. It\'s less pronounced than heat-transfer vinyl but more noticeable than properly cured screen-printed plastisol or sublimation. For most apparel users this is unnoticeable; for premium soft-feel programs, screen printing with discharge or water-based inks delivers a softer hand.' },
+]
+
+const schema = {
+ '@context': 'https://schema.org',
+ '@graph': [
+ { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: post.isoDate, author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
+ { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' }, { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` }] },
+ { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+ ],
+}
+---
+
+<BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
+ <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <article class="bg-navy-950">
+ <header class="relative overflow-hidden border-b border-navy-800">
+ <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
+ <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-400">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-400">Blog</a></nav>
+ <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
+ <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
+ <p class="mb-8 text-xl leading-relaxed text-gray-300">A working buyer's guide to DTF (direct-to-film) printing — when it wins on small-batch and dark fabrics, and when to switch back to screen printing for volume runs.</p>
+ <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400"><span class="text-gold-500">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
+ </div>
+ </header>
+ <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="DTF transfer being heat-pressed onto a black cotton tee shirt for small-batch custom apparel" width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" /></div>
+ <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+
+ <aside class="mb-10 rounded-2xl border border-gold-500/30 bg-navy-900/60 p-7">
+ <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Quick Answer</p>
+ <p class="text-lg leading-relaxed text-white sm:text-xl">DTF (direct-to-film) printing wins for small-batch custom apparel (1-24 pieces), full-color gradients, and any fabric color including dark cotton. Screen printing wins for high-volume runs (50+) on cotton tees with bold simple designs because per-piece cost falls with volume. The crossover is typically around 24-36 pieces.</p>
+ </aside>
+
+ <h2 id="how-dtf-works" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">How DTF Printing Works</h2>
+ <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <li><strong>Design printed on transfer film</strong> using specialized DTF inks (CMYK + white) on a DTF-equipped printer.</li>
+ <li><strong>Hot-melt adhesive powder applied</strong> to the back of the printed film while the ink is still wet.</li>
+ <li><strong>Powder is cured</strong> in a heat tunnel or oven at 320°F to bond it to the ink.</li>
+ <li><strong>Cured film is heat-pressed onto the garment</strong> at 320°F for 15-20 seconds.</li>
+ <li><strong>Cold-peel the film</strong> after pressing, leaving the design permanently bonded to the fabric.</li>
+ </ol>
+
+ <h2 id="when-dtf-wins" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">When DTF Wins Over Screen Printing</h2>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <li><strong>Small-batch orders (1-24 pieces).</strong> DTF has minimal per-design setup; screen printing setup adds significant per-piece cost at low quantities.</li>
+ <li><strong>Full-color photographic designs.</strong> DTF handles gradients and photographic detail natively. Screen printing requires elaborate halftone separation.</li>
+ <li><strong>Dark fabric colors.</strong> DTF prints with white-ink underlayers that saturate on black/navy/dark gray. Screen printing requires extra underbase steps that add cost and time.</li>
+ <li><strong>Mixed-fabric orders.</strong> DTF works the same on cotton, polyester, blends, tri-blends, and even some leather. Screen printing has different ink/cure requirements per fabric.</li>
+ <li><strong>One-off replacement runs.</strong> Need 3 replacement shirts for a 100-shirt order? DTF makes that economical. Screen printing doesn't.</li>
+ </ul>
+
+ <h2 id="when-screen-wins" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">When Screen Printing Wins Over DTF</h2>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <li><strong>High-volume runs (50+ pieces).</strong> Screen printing per-piece cost drops dramatically; DTF stays roughly flat per piece.</li>
+ <li><strong>Bold simple designs on cotton tees.</strong> Block letters, bold logos, simple shapes — screen printing handles these at scale better than DTF.</li>
+ <li><strong>Maximum durability programs.</strong> Properly cured plastisol screen printing survives 50+ washes; DTF typically lasts 30-50 cycles before showing wear.</li>
+ <li><strong>Premium soft-feel.</strong> Discharge and water-based screen printing inks soak into fibers — minimal surface feel. DTF always has a slight raised feel.</li>
+ <li><strong>Hi-vis safety apparel.</strong> ANSI 107 placement compliance is well-established for screen printing; DTF on hi-vis is less proven.</li>
+ </ul>
+
+ <h2 id="cost-comparison" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Cost Comparison Across Quantities</h2>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">The crossover point between DTF and screen printing depends on garment cost, design complexity, and number of colors, but a rough rule of thumb:</p>
+ <div class="my-6 overflow-x-auto rounded-2xl border border-navy-700/40 bg-navy-900/40">
+ <table class="w-full text-base text-navy-200">
+ <thead class="bg-navy-900/60 text-left text-xs font-mono uppercase tracking-wider text-gold-500">
+ <tr><th class="px-5 py-3">Quantity</th><th class="px-5 py-3">DTF</th><th class="px-5 py-3">Screen Printing</th><th class="px-5 py-3">Winner</th></tr>
+ </thead>
+ <tbody class="divide-y divide-navy-800">
+ <tr><td class="px-5 py-3">1-12 pieces</td><td class="px-5 py-3">Same per piece</td><td class="px-5 py-3">High setup penalty</td><td class="px-5 py-3 font-bold">DTF</td></tr>
+ <tr><td class="px-5 py-3">12-24 pieces</td><td class="px-5 py-3">Same per piece</td><td class="px-5 py-3">Setup amortizing</td><td class="px-5 py-3 font-bold">DTF (slightly)</td></tr>
+ <tr><td class="px-5 py-3">24-50 pieces</td><td class="px-5 py-3">Same per piece</td><td class="px-5 py-3">Setup nearly amortized</td><td class="px-5 py-3 font-bold">~Tie</td></tr>
+ <tr><td class="px-5 py-3">50-150 pieces</td><td class="px-5 py-3">Same per piece</td><td class="px-5 py-3">~30% cheaper per piece</td><td class="px-5 py-3 font-bold">Screen Print</td></tr>
+ <tr><td class="px-5 py-3">150+ pieces</td><td class="px-5 py-3">Same per piece</td><td class="px-5 py-3">~50%+ cheaper</td><td class="px-5 py-3 font-bold">Screen Print</td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <h2 id="bighorn-trade-context" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">For Vegas Trade Crews</h2>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">For Bighorn's typical customer (24-200 employee trade contractor), screen printing usually wins on the main crew tee program because the volumes hit the sweet spot. DTF wins for:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <li>Replacement runs when 3-5 shirts get damaged mid-program</li>
+ <li>Specialty one-off shirts for new hires before a full reorder</li>
+ <li>Project-specific tees for ribbon cuttings or trade-show booths (12-24 pieces)</li>
+ <li>Full-color graphics on dark crew tees where screen printing underbase would balloon cost</li>
+ </ul>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">For broader pricing context see <a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">minimum order quantity for embroidery and screen printing</a>.</p>
+
+ <h2 id="related" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Related Reading</h2>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <li><a href="/blog/what-is-screen-printing/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">What is screen printing</a></li>
+ <li><a href="/blog/sublimation-printing-custom-apparel-guide/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Sublimation printing guide</a></li>
+ <li><a href="/blog/plastisol-vs-water-based-ink-workwear/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Plastisol vs water-based ink for workwear</a></li>
+ </ul>
+
+ <div class="mt-12 rounded-2xl border border-gold-500/40 bg-gold-500/5 p-7 sm:p-9">
+ <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-white">Custom apparel decoration in Las Vegas</h2>
+ <p class="mb-5 text-lg leading-relaxed text-navy-200">Bighorn Threads runs screen printing and embroidery for Vegas trade contractors. For DTF-specific projects (small batch, dark fabrics, full-color gradients), we coordinate with DTF-equipped partner shops.</p>
+ <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Quote →</a>
+ </div>
+ </div>
+ </article>
+</BaseLayout>

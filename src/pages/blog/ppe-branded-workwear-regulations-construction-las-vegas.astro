@@ -1,0 +1,285 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const post = {
+ title: 'PPE and Branded Workwear Regulations for Construction Site Workers: A Las Vegas Field Guide',
+ description:
+  'A working contractor\'s guide to PPE regulations on Las Vegas construction sites. Hi-vis, FR, hard hats, footwear, eye protection — what OSHA requires, what Nevada adds, and how to brand your apparel without voiding the rating.',
+ category: 'Compliance',
+ readTime: '12 min read',
+ date: 'May 7, 2026',
+ isoDate: '2026-05-07',
+ image: '/images/generated/kit-electrical.jpg',
+ imageAlt: 'Construction crew in compliant PPE — hi-vis, hard hat, FR work shirt with embroidered company logo',
+ slug: 'ppe-branded-workwear-regulations-construction-las-vegas',
+}
+
+const schema = {
+ '@context': 'https://schema.org',
+ '@graph': [
+  {
+   '@type': 'Article',
+   headline: post.title,
+   description: post.description,
+   image: `https://bighornthreads.com${post.image}`,
+   datePublished: post.isoDate,
+   dateModified: post.isoDate,
+   author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/about/' },
+   publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } },
+   mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/`,
+  },
+  {
+   '@type': 'BreadcrumbList',
+   itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' },
+    { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` },
+   ],
+  },
+  {
+   '@type': 'FAQPage',
+   mainEntity: [
+    {
+     '@type': 'Question',
+     name: 'What PPE is required on a construction site under OSHA rules?',
+     acceptedAnswer: {
+      '@type': 'Answer',
+      text: 'OSHA 29 CFR 1926 Subpart E sets the baseline: hard hats meeting ANSI Z89.1, eye and face protection meeting ANSI Z87.1, hearing protection where exposure exceeds 85 dB time-weighted average, foot protection meeting ASTM F2413, and high-visibility apparel meeting ANSI/ISEA 107 for any worker exposed to vehicle traffic. Trade-specific additions include NFPA 70E flame-resistant clothing for electrical work near energized parts, and NFPA 2112 for oil and gas work with flash-fire exposure.',
+     },
+    },
+    {
+     '@type': 'Question',
+     name: 'Can company logos be embroidered or printed on PPE without voiding the rating?',
+     acceptedAnswer: {
+      '@type': 'Answer',
+      text: 'Yes, but with strict rules. On hi-vis (ANSI/ISEA 107), decoration must not reduce minimum required background fabric or retroreflective tape coverage and must follow the manufacturer\'s decoration guidelines. On FR clothing (NFPA 70E and 2112), decoration thread must be aramid (Nomex) — standard polyester thread melts in arc events and voids the rating. Heat transfer and screen-print inks must be FR-rated as well; standard plastisol on FR fabric voids certification.',
+     },
+    },
+    {
+     '@type': 'Question',
+     name: 'Does Nevada have additional PPE rules beyond federal OSHA?',
+     acceptedAnswer: {
+      '@type': 'Answer',
+      text: 'Yes. Nevada is a state-plan state operating under Nevada OSHA, which adopts federal standards plus state-specific additions. The most consequential for Las Vegas construction is the Nevada heat illness prevention rule effective 2026, which requires written heat illness prevention plans, mandatory rest in shade, water access, and acclimatization protocols when the heat index reaches specified thresholds. Mesh-back hi-vis and moisture-wicking FR options have become operationally necessary, not just preferred.',
+     },
+    },
+    {
+     '@type': 'Question',
+     name: 'What hi-vis class is required for road and utility work?',
+     acceptedAnswer: {
+      '@type': 'Answer',
+      text: 'ANSI/ISEA 107 Class 2 is the minimum for daytime workers exposed to traffic under 50 mph. Class 3 is required for highway work over 50 mph, night-shift utility work, and any work where a flagger or worker needs to be visible at greater distances. Class E is for pants only and pairs with a Class 2 or Class 3 top to create a "Class 3 ensemble." On large data center and industrial construction sites, prime contractors increasingly spec Class 3 site-wide regardless of speed limits because of concurrent crane operations and material delivery traffic.',
+     },
+    },
+    {
+     '@type': 'Question',
+     name: 'What CAT rating do FR shirts need for electrical work?',
+     acceptedAnswer: {
+      '@type': 'Answer',
+      text: 'NFPA 70E specifies arc-rated clothing by hazard category. CAT 1 (minimum 4 cal/cm²) covers most general electrical work. CAT 2 (minimum 8 cal/cm²) is the most common spec for commercial and industrial electricians working on 480V systems and switchgear. CAT 3 (25 cal/cm²) and CAT 4 (40 cal/cm²) are required for higher-energy substation, transformer, and utility work. The hazard analysis of the specific task drives the spec — a journeyman wiring a panel needs different protection than a tech doing live switchgear maintenance.',
+     },
+    },
+   ],
+  },
+ ],
+}
+---
+
+<BaseLayout
+ title={post.title}
+ description={post.description}
+ canonical={`https://bighornthreads.com/blog/${post.slug}/`}
+ ogImage={post.image}
+ type="article"
+ publishedDate={post.isoDate}
+>
+ <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+ <article class="bg-navy-950">
+  <header class="relative overflow-hidden border-b border-navy-800">
+   <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
+   <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_30%,_rgba(193,155,61,0.06),_transparent)]"></div>
+
+   <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
+    <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+     <a href="/" class="hover:text-gold-400">Home</a>
+     <span class="px-2">/</span>
+     <a href="/blog/" class="hover:text-gold-400">Blog</a>
+    </nav>
+
+    <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
+    <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
+    <p class="mb-8 text-xl leading-relaxed text-gray-300">
+     What OSHA actually requires. What Nevada layers on top. And how to put your company logo on it without voiding the rating your safety officer is going to check.
+    </p>
+
+    <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400">
+     <span class="text-gold-500">Bighorn Threads Team</span>
+     <span aria-hidden="true">&middot;</span>
+     <span>{post.readTime}</span>
+     <span aria-hidden="true">&middot;</span>
+     <time datetime={post.isoDate}>{post.date}</time>
+    </div>
+   </div>
+  </header>
+
+  <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8">
+   <img src={post.image} alt={post.imageAlt} width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" />
+  </div>
+
+  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+
+   <div class="mb-10 rounded-2xl border border-navy-800 bg-navy-900/40 p-6">
+    <h2 class="mb-3 font-heading text-lg font-bold uppercase tracking-[0.15em] text-gold-500">TL;DR</h2>
+    <ul class="ml-5 list-disc space-y-2 text-base text-navy-200">
+     <li>OSHA 29 CFR 1926 Subpart E is the baseline: hard hat (ANSI Z89), eyes (ANSI Z87.1), feet (ASTM F2413), hi-vis (ANSI/ISEA 107) for traffic exposure, hearing protection above 85 dB.</li>
+     <li>Trade-specific layers: <a href="/safety-compliance/nfpa-70e-embroidery-guide/" class="text-gold-400 underline hover:text-gold-300">NFPA 70E for electrical</a>, NFPA 2112 for oil & gas, ANSI Z89 Type II side-impact for elevated work.</li>
+     <li>Nevada adds the <a href="/safety-compliance/nevada-osha-heat-rules-2026/" class="text-gold-400 underline hover:text-gold-300">2026 heat illness rule</a> — written plan, water, shade, acclimatization required when heat thresholds hit.</li>
+     <li>You can absolutely brand PPE — but FR decoration must use Nomex thread and FR-rated inks, hi-vis decoration cannot reduce required tape coverage, and a certification sheet from your decorator is what your safety officer wants in the binder.</li>
+    </ul>
+   </div>
+
+   <p class="mb-6 text-lg leading-relaxed text-navy-200">
+    Every construction site walk in Las Vegas eventually surfaces the same question: what does the apparel actually have to comply with, and what can I put a logo on without making my safety officer twitch? The answers live across multiple federal standards (OSHA, ANSI, NFPA, ASTM), one Nevada-specific rule, and a fair amount of manufacturer-published decoration guidance most catalogs don't bother to surface. Here's the working contractor's version, by category, with the citations and the pitfalls.
+   </p>
+
+   <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The OSHA Baseline (29 CFR 1926 Subpart E)</h2>
+   <p class="mb-6 text-lg leading-relaxed text-navy-200">
+    Subpart E of 1926 is the construction-specific PPE rule. It requires the employer to perform a written hazard assessment per task, then provide PPE that meets the consensus standards referenced in the rule. The categories every Vegas job site touches:
+   </p>
+   <ul class="mb-8 ml-6 list-disc space-y-3 text-lg leading-relaxed text-navy-200">
+    <li><strong>Head protection (1926.100):</strong> hard hats meeting <strong>ANSI/ISEA Z89.1</strong>. Type I (top impact) is the legal minimum. Type II (top + side impact) is increasingly specified by general contractors on data center and high-rise jobs because of falling-object risk from concurrent trades overhead.</li>
+    <li><strong>Eye and face protection (1926.102):</strong> safety glasses meeting <strong>ANSI Z87.1</strong>, with side shields. Welding, grinding, and chemical work require additional protection per task.</li>
+    <li><strong>Foot protection (1926.96):</strong> safety footwear meeting <strong>ASTM F2413</strong>. Composite or steel toe is contractor's choice; the standard sets the impact and compression rating, not the material.</li>
+    <li><strong>Hearing protection (1926.101 + 1910.95):</strong> required when 8-hour time-weighted average exceeds 85 dB. Most concrete pours, demo work, and structural steel exceed this — protection should be on the truck for everyone.</li>
+    <li><strong>High-visibility apparel:</strong> required for any worker exposed to vehicle traffic per <strong>ANSI/ISEA 107</strong>. The class depends on speed and shift — see the <a href="/blog/ansi-107-class-2-vs-class-3-hi-vis-las-vegas/" class="text-gold-400 underline hover:text-gold-300">Class 2 vs Class 3 breakdown</a>.</li>
+   </ul>
+
+   <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Trade-Specific PPE Layers</h2>
+
+   <h3 class="mt-8 mb-3 font-heading text-2xl font-bold tracking-tight">Electrical: NFPA 70E</h3>
+   <p class="mb-6 text-lg leading-relaxed text-navy-200">
+    Anywhere energized electrical parts are exposed or could become exposed, NFPA 70E requires arc-rated clothing matched to the calculated incident energy of the task. Hazard categories run CAT 1 (4 cal/cm²) through CAT 4 (40 cal/cm²). The most common spec on Vegas commercial and industrial electrical work is <strong>CAT 2 (8 cal/cm²)</strong>, which covers most 480V switchgear, panel, and motor control work. Common base garments: <a href="/brands/bulwark-fr-custom-las-vegas/" class="text-gold-400 underline hover:text-gold-300">Bulwark Excel-FR</a> SLU2 shirts and PEW2 pants, Carhartt FR Lightweight, Wrangler FR. <a href="/blog/nfpa-70e-fr-shirts-vegas-electricians/" class="text-gold-400 underline hover:text-gold-300">Full breakdown of FR shirt selection here</a>.
+   </p>
+
+   <h3 class="mt-8 mb-3 font-heading text-2xl font-bold tracking-tight">Oil, Gas, Refining: NFPA 2112</h3>
+   <p class="mb-6 text-lg leading-relaxed text-navy-200">
+    For workers exposed to flash-fire hazards (oil and gas, refining, certain mechanical contractors on industrial projects), NFPA 2112 is the governing standard. It tests for self-extinguishing behavior and limited burn injury under 3-second flash-fire exposure. Many garments hold dual NFPA 70E + NFPA 2112 certification, so a single CAT 2 base layer covers both compliance regimes — Bulwark Excel-FR ComforTouch SLU2 is the typical example.
+   </p>
+
+   <h3 class="mt-8 mb-3 font-heading text-2xl font-bold tracking-tight">Roadway and Utility: ANSI/ISEA 107</h3>
+   <p class="mb-6 text-lg leading-relaxed text-navy-200">
+    ANSI 107 sets the high-visibility apparel standard. Class 2 covers daytime workers in traffic under 50 mph; Class 3 is required above 50 mph, on night shifts, and for flaggers needing visibility at greater distances. Class E is supplementary pants — paired with a Class 2 or 3 top, the ensemble is rated Class 3. ML Kishigo, Radians, and Bulwark JLR8 (hi-vis FR bomber) are the most common Vegas specs.
+   </p>
+
+   <h3 class="mt-8 mb-3 font-heading text-2xl font-bold tracking-tight">Hand Protection (1926.95)</h3>
+   <p class="mb-6 text-lg leading-relaxed text-navy-200">
+    Construction gloves are governed by ANSI/ISEA 105 for cut, puncture, and abrasion ratings. Spec varies wildly by task: A2 cut for general handling, A4-A5 for sheet metal and demo, dielectric ASTM D120 for electrical, chemical-resistant per task. Logo decoration is uncommon on gloves but feasible via heat transfer on cotton-blend backs.
+   </p>
+
+   <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Nevada-Specific: The 2026 Heat Illness Rule</h2>
+   <p class="mb-6 text-lg leading-relaxed text-navy-200">
+    Nevada operates under a state-plan that adopts federal OSHA standards and adds state-specific rules. The most consequential 2026 addition for Las Vegas construction is the <strong>heat illness prevention rule</strong> requiring a written prevention plan, mandatory rest in shade, water access, and worker acclimatization protocols once the heat index hits specified thresholds. <a href="/safety-compliance/nevada-osha-heat-rules-2026/" class="text-gold-400 underline hover:text-gold-300">Full breakdown of the rule and what your written plan needs to cover</a>.
+   </p>
+   <p class="mb-6 text-lg leading-relaxed text-navy-200">
+    The apparel implication: standard polyester hi-vis becomes a heat-illness risk in 110°+ Vegas summers, and crews quietly swap to non-rated tees — which violates the hi-vis requirement at the same time it solves the heat problem. The compliant answer is mesh-back ANSI 107 hi-vis (ML Kishigo Premium Black Series, Radians Cooling Series) and moisture-wicking FR (Bulwark Excel-FR ComforTouch). Both maintain ratings while keeping the body temperature manageable.
+   </p>
+
+   <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Branding PPE: What's Allowed, What Voids the Rating</h2>
+   <p class="mb-6 text-lg leading-relaxed text-navy-200">
+    The cleanest summary: <strong>you can absolutely brand PPE</strong> — almost every major manufacturer publishes decoration guidelines specifically because crews need company identification. The rules vary by garment type.
+   </p>
+
+   <h3 class="mt-8 mb-3 font-heading text-2xl font-bold tracking-tight">Hi-Vis (ANSI/ISEA 107)</h3>
+   <ul class="mb-6 ml-6 list-disc space-y-2 text-lg leading-relaxed text-navy-200">
+    <li>Decoration must not reduce minimum required background fabric coverage (square inches per the standard's class table).</li>
+    <li>Decoration must not cover or interrupt retroreflective tape — most manufacturers publish a placement diagram for compliant logo locations (typically left chest, upper back center, or below tape).</li>
+    <li>Embroidery is preferred for durability; screen-print inks must not interfere with reflectivity if applied near tape.</li>
+    <li>Retain the manufacturer's <strong>compliance certification</strong> for each garment (the small woven label or attached card) — your safety binder needs it.</li>
+   </ul>
+
+   <h3 class="mt-8 mb-3 font-heading text-2xl font-bold tracking-tight">FR / Arc-Rated (NFPA 70E and 2112)</h3>
+   <p class="mb-6 text-lg leading-relaxed text-navy-200">
+    This is where most crews get burned (literally and figuratively). FR garments are tested as a system — fabric, thread, decoration ink. Standard polyester thread <em>melts in an arc event</em> and voids the rating. The compliance requirements:
+   </p>
+   <ul class="mb-6 ml-6 list-disc space-y-2 text-lg leading-relaxed text-navy-200">
+    <li><strong>Thread:</strong> aramid (Nomex) only. Bulwark, Carhartt FR, and Wrangler FR all publish this in their decoration spec sheets. Standard polyester voids.</li>
+    <li><strong>Screen-print inks:</strong> must be FR-rated. Standard plastisol melts and voids the rating. Specialty FR plastisols and silicone-based FR inks are available.</li>
+    <li><strong>Heat transfers and patches:</strong> must be FR-tested as a system with the base garment. Untested transfers void.</li>
+    <li><strong>Certification documentation:</strong> your decorator should provide a sheet documenting Nomex thread used, FR ink (if applicable), and decoration placement. This is what a safety inspector or prime contractor's compliance officer will ask for.</li>
+   </ul>
+   <p class="mb-6 text-lg leading-relaxed text-navy-200">
+    See the <a href="/safety-compliance/nfpa-70e-embroidery-guide/" class="text-gold-400 underline hover:text-gold-300">full NFPA 70E embroidery compliance guide</a> for the technical specs and the Bulwark/Carhartt/Wrangler decoration rules.
+   </p>
+
+   <h3 class="mt-8 mb-3 font-heading text-2xl font-bold tracking-tight">Hard Hats (ANSI Z89.1)</h3>
+   <ul class="mb-6 ml-6 list-disc space-y-2 text-lg leading-relaxed text-navy-200">
+    <li>Vinyl decals and printed shells are explicitly allowed — most manufacturers (MSA, Bullard, Lift Safety, Pyramex) sell direct-printed shells for company branding.</li>
+    <li>Solvent-based markers, paint, and adhesives that aren't manufacturer-approved <strong>can degrade the shell</strong> — read your hard hat manufacturer's care guide before custom-decorating.</li>
+    <li>Stickers and decals near the brim are common; large back-of-head decals are typical for rank or trade ID.</li>
+   </ul>
+
+   <h3 class="mt-8 mb-3 font-heading text-2xl font-bold tracking-tight">Standard Workwear (Non-Rated)</h3>
+   <p class="mb-6 text-lg leading-relaxed text-navy-200">
+    Heavyweight tees, polos, hoodies, work pants, jackets — anything not carrying an ANSI or NFPA rating — has no compliance requirements on decoration. Embroidery, screen print, vinyl, DTF, patches, all fair game. The <a href="/services/embroidery-las-vegas/" class="text-gold-400 underline hover:text-gold-300">embroidery</a> and <a href="/services/screen-printing-las-vegas/" class="text-gold-400 underline hover:text-gold-300">screen printing</a> options for crew apparel are wide open here.
+   </p>
+
+   <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">What Your Safety Officer Actually Checks</h2>
+   <p class="mb-6 text-lg leading-relaxed text-navy-200">
+    The documents safety officers and prime contractors' compliance teams typically ask for in a binder are predictable:
+   </p>
+   <ol class="mb-6 ml-6 list-decimal space-y-2 text-lg leading-relaxed text-navy-200">
+    <li>The garment manufacturer's compliance certification (ANSI 107 label, NFPA 70E/2112 ATPV rating tag, ASTM F2413 sole stamp, etc.).</li>
+    <li>Decoration certification from the apparel decorator — Nomex thread documented for FR, FR ink documented for FR screen prints, compliant decoration placement for hi-vis.</li>
+    <li>Per-employee size and assignment record (especially on company-store programs).</li>
+    <li>Replacement schedule — FR garments degrade with washing and chemical exposure; the inspection and replacement schedule is part of a defensible compliance program.</li>
+   </ol>
+   <p class="mb-6 text-lg leading-relaxed text-navy-200">
+    A <a href="/company-stores/" class="text-gold-400 underline hover:text-gold-300">company-store program</a> consolidates all of this into one paper trail per employee, which is the operational reason most large GCs and electrical primes move to one as soon as their headcount justifies it.
+   </p>
+
+   <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">By Trade: Quick-Reference Compliance Spec</h2>
+   <ul class="mb-8 ml-6 list-disc space-y-2 text-lg leading-relaxed text-navy-200">
+    <li><strong><a href="/industries/general-contractors-las-vegas/" class="text-gold-400 underline hover:text-gold-300">General Contractor field crews</a>:</strong> ANSI Z89 hard hat, ANSI Z87.1 eyes, ASTM F2413 boots, ANSI 107 Class 2 hi-vis if traffic-exposed, hearing protection on truck.</li>
+    <li><strong><a href="/industries/electrical-contractors-las-vegas/" class="text-gold-400 underline hover:text-gold-300">Electrical contractors</a>:</strong> all of the above + NFPA 70E CAT 2 minimum FR shirts and pants, Nomex thread on all decoration, dielectric gloves per ASTM D120 for hot work.</li>
+    <li><strong><a href="/industries/plumbing-hvac-las-vegas/" class="text-gold-400 underline hover:text-gold-300">Plumbing, HVAC, mechanical</a>:</strong> baseline OSHA + Class 2 hi-vis vests in active zones; FR not required unless near energized panels or torch work.</li>
+    <li><strong><a href="/industries/roofing-solar-las-vegas/" class="text-gold-400 underline hover:text-gold-300">Roofing and solar</a>:</strong> baseline OSHA + fall protection (ANSI Z359 harness), UPF performance for sun exposure, FR for combiner and inverter work.</li>
+    <li><strong><a href="/industries/data-center-contractors-las-vegas/" class="text-gold-400 underline hover:text-gold-300">Data center contractors</a>:</strong> elevated baseline — Class 2-3 hi-vis site-wide, CAT 2 FR for electrical primes, performance polos for commissioning agents in client-facing phase.</li>
+    <li><strong><a href="/industries/concrete-masonry-las-vegas/" class="text-gold-400 underline hover:text-gold-300">Concrete and masonry</a>:</strong> baseline OSHA + heavy hearing protection, alkali-resistant gloves, knee protection per task.</li>
+    <li><strong><a href="/industries/landscaping-las-vegas/" class="text-gold-400 underline hover:text-gold-300">Landscaping</a>:</strong> baseline OSHA + sun-protective UPF performance, Class 2 hi-vis for road-adjacent work, hearing protection for power equipment.</li>
+   </ul>
+
+   <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Where Decoration Programs Go Wrong</h2>
+   <p class="mb-6 text-lg leading-relaxed text-navy-200">
+    The two failure modes we see most often on Vegas crews:
+   </p>
+   <ul class="mb-6 ml-6 list-disc space-y-2 text-lg leading-relaxed text-navy-200">
+    <li><strong>FR with polyester thread.</strong> The garment was bought correctly. The shop that decorated it used standard thread. The crew wore it on a 480V job. The arc event flashed, the thread melted, the garment went from rated to a polyester pool against the skin. This is the single most common void-the-rating failure and it's usually invisible until something goes wrong.</li>
+    <li><strong>Hi-vis with tape-overlapping decoration.</strong> A logo placed where it covers retroreflective tape — even partially — drops the garment below the ANSI 107 minimum coverage and voids the certification. The garment looks compliant; it isn't.</li>
+   </ul>
+   <p class="mb-6 text-lg leading-relaxed text-navy-200">
+    The fix on both is upstream — choose a decorator that publishes their FR thread spec and follows manufacturer decoration diagrams as a default, not an upcharge. We document Nomex thread and ANSI 107-compliant placement on every batch and ship the certification sheet with the order. That's the baseline a compliance-conscious contractor should expect from any apparel partner.
+   </p>
+
+   <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">References (the standards themselves)</h2>
+   <ul class="mb-8 ml-6 list-disc space-y-2 text-base leading-relaxed text-navy-300">
+    <li>OSHA 29 CFR 1926 Subpart E — Personal Protective and Life Saving Equipment</li>
+    <li>ANSI/ISEA 107 — High-Visibility Safety Apparel</li>
+    <li>ANSI/ISEA Z89.1 — Industrial Head Protection</li>
+    <li>ANSI Z87.1 — Eye and Face Protection</li>
+    <li>ASTM F2413 — Standard Specification for Performance Requirements for Protective Footwear</li>
+    <li>NFPA 70E — Standard for Electrical Safety in the Workplace</li>
+    <li>NFPA 2112 — Standard on Flame-Resistant Clothing for Protection of Industrial Personnel Against Short-Duration Thermal Exposures from Fire</li>
+    <li>Nevada OSHA — adopted federal standards plus state-specific heat illness prevention rule (2026)</li>
+   </ul>
+
+   <div class="my-12 rounded-2xl border border-gold-500/40 bg-gradient-to-br from-navy-800/60 to-navy-900/60 p-8">
+    <h3 class="mb-3 font-heading text-2xl font-bold tracking-tight">Outfitting a crew with compliant, branded PPE?</h3>
+    <p class="mb-6 text-lg text-gray-300">
+     We document Nomex thread, ANSI 107-compliant decoration placement, and per-garment certification on every batch. Talk to us about your program.
+    </p>
+    <a href="/contact/" class="inline-flex min-h-[48px] items-center justify-center rounded-lg bg-gold-500 px-7 py-4 text-base font-bold uppercase tracking-[0.1em] text-navy-950 transition-all hover:bg-gold-400">Request a Compliance-Ready Quote</a>
+   </div>
+  </div>
+ </article>
+</BaseLayout>

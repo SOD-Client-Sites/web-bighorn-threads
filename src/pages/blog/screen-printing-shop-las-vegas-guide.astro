@@ -1,0 +1,106 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const post = {
+ title: 'Screen Printing in Las Vegas: How to Pick the Right Shop for Your Business',
+ description:
+ 'Looking for a Las Vegas screen printing shop? Here\'s what separates a commercial print operation from a small-batch garage shop — press capacity, ink chemistry, cure verification, garment selection, and what to ask before you order.',
+ category: 'Local Guides',
+ readTime: '8 min read',
+ date: 'May 9, 2026',
+ isoDate: '2026-05-09',
+ image: '/images/generated/service-screen-printing.jpg',
+ slug: 'screen-printing-shop-las-vegas-guide',
+}
+
+const faqs = [
+ { q: 'Where can I get screen printing near me in Las Vegas?', a: 'Bighorn Threads runs commercial screen printing for Las Vegas contractors, trade businesses, event organizers, and crew programs. We stock standard blanks (Carhartt K87, Bayside 5100, Gildan 2000, ML Kishigo hi-vis) and decorate with cured plastisol or water-based ink depending on the substrate. Send your design and quantity for a quote.' },
+ { q: 'What\'s the difference between a commercial screen printing shop and a small-batch operation?', a: 'A commercial shop runs automatic carousel presses (typically 6-12 stations) with conveyor cure tunnels that hit and verify cure temperature. Small-batch operations run manual presses, sometimes without temperature-controlled cure, which leads to undercured prints that crack within 5-10 washes. The output looks similar at first; the durability is dramatically different.' },
+ { q: 'How fast can a Las Vegas screen printing shop turn around an order?', a: 'For repeat customers with screens on file, standard runs typically ship within a week of order confirmation. New artwork adds prep time for color separation and screen burning — typically a day. Rush options are available; the constraints are blank availability, screen burning queue, and press time.' },
+ { q: 'What\'s the minimum order for screen printing?', a: 'Most commercial shops set 24 pieces as the practical minimum because setup costs (screens, ink, registration) don\'t amortize well below that. For very small orders (12-24), expect higher per-piece pricing. Below 12, screen printing rarely makes financial sense compared to embroidery, heat transfer, or DTF (direct-to-film) printing.' },
+ { q: 'What kind of ink does a screen printing shop use?', a: 'Two main families: plastisol (the industry standard, durable, vivid, sits on top of the fabric) and water-based (softer hand, ink soaks into fibers, slightly less vivid on dark fabrics). Some shops also offer discharge printing for cotton-only soft-feel prints. Ask what the shop uses by default and whether they can switch.' },
+ { q: 'How do I send a design to a screen printing shop?', a: 'Vector format (.ai, .eps, .pdf) is best — that gives the shop control over color separation. JPG/PNG works for simple designs but limits the shop\'s ability to optimize colors. Specify the placements (left chest, full back), the size for each placement, and the garment colors you\'re running on. Most shops will quote and send a digital proof before the press runs.' },
+ { q: 'Can a Las Vegas screen printing shop do hi-vis ANSI 107 shirts?', a: 'Yes — but ask about ANSI placement compliance before ordering. The decoration has to follow the 72-square-inch logo limit on ANSI 107 Class 2 garments to keep the certification valid. A commercial shop that handles trade work knows these rules; a generic screen printer may not.' },
+]
+
+const schema = {
+ '@context': 'https://schema.org',
+ '@graph': [
+ { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: post.isoDate, author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
+ { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' }, { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` }] },
+ { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+ ],
+}
+---
+
+<BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
+ <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <article class="bg-navy-950">
+ <header class="relative overflow-hidden border-b border-navy-800">
+ <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
+ <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-400">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-400">Blog</a></nav>
+ <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
+ <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
+ <p class="mb-8 text-xl leading-relaxed text-gray-300">A practical guide to picking a Las Vegas screen printing shop for your crew, business, or event — what separates a commercial press from a garage operation, and what to ask before you order.</p>
+ <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400"><span class="text-gold-500">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
+ </div>
+ </header>
+ <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Automatic carousel screen printing press running production for Las Vegas crew apparel" width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" /></div>
+ <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+
+ <aside class="mb-10 rounded-2xl border border-gold-500/30 bg-navy-900/60 p-7">
+ <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Quick Answer</p>
+ <p class="text-lg leading-relaxed text-white sm:text-xl">A commercial Las Vegas screen printing shop should run automatic carousel presses with conveyor cure tunnels that verify ink cure temperature, stock common blanks (Carhartt K87, Bayside 5100, Gildan 2000, ML Kishigo hi-vis), keep screens on file for reorders, and follow ANSI 107 placement rules on hi-vis garments. Manual press operations without cure verification produce prints that crack within 5-10 washes.</p>
+ </aside>
+
+ <h2 id="commercial-vs-garage" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Commercial vs Garage Screen Printing</h2>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">Not every screen printing operation is built to handle business work. The split:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <li><strong>Garage / hobby operation</strong> — manual press, flash dryer instead of cure tunnel, limited ink and blank inventory. Output looks similar to commercial at first; the durability is dramatically lower because cure verification isn't reliable.</li>
+ <li><strong>Commercial screen printing shop</strong> — automatic carousel press (M&R, ROQ, Workhorse), conveyor cure tunnel with temperature monitoring, stocked blank inventory, in-house art and color separation. Runs 200-500 garments per hour at production rates.</li>
+ <li><strong>Industrial / contract printing</strong> — multiple automatic presses, thousands of pieces per day, dedicated to bulk retail and uniform contracts. Higher minimums, lowest cost at scale.</li>
+ </ul>
+
+ <h2 id="evaluation" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">What to Evaluate When Picking a Shop</h2>
+
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">1. Press type</h3>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">Ask whether the shop runs manual or automatic presses. Manual presses (1-station, hand-operated) work fine for small batches and high-end specialty work but they're slow. Automatic carousel presses (6-12 stations, controlled by computer) handle production runs at 200-500 garments per hour with consistent registration. <a href="https://www.mrprint.com/" rel="noopener" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">M&R</a> and <a href="https://roq.us/" rel="noopener" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">ROQ</a> are the two most common automatic press brands in commercial shops.</p>
+
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">2. Cure tunnel + verification</h3>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">This is the make-or-break detail most buyers don't ask about. Plastisol ink has to reach 320°F (160°C) at the fabric surface for the polymer to bond. Underdose either temperature or time and the ink cracks within 5-10 wash cycles. Commercial shops run conveyor cure tunnels with temperature monitoring; garage operations rely on flash dryers and don't always verify cure.</p>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">Ask: do you verify cure temperature with a donut probe or temp strip? A shop that does, knows. A shop that doesn't, doesn't.</p>
+
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">3. Ink chemistry</h3>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">Two main families: plastisol (the industry standard, vivid, durable, sits on top) and water-based (softer hand, soaks into fibers, slightly less vivid on dark fabrics). Some shops also offer discharge printing for ultra-soft cotton prints. See our <a href="/blog/plastisol-vs-water-based-ink-workwear/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">plastisol vs water-based</a> piece for the full comparison.</p>
+
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">4. Blank garment inventory</h3>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">A commercial shop stocks common SKUs locally — Carhartt K87, Bayside 5100, Gildan 2000, Port Authority polos, ML Kishigo hi-vis. If they have to order every blank from a wholesaler before they can start, your turnaround time doubles.</p>
+
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">5. Color separation + art capability</h3>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">Commercial shops have in-house art capability — they can separate colors, optimize artwork for screen printing, and proof your design before screens are burned. Shops that outsource art are slower to fix problems and have less control over print quality.</p>
+
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">6. ANSI 107 hi-vis compliance</h3>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">For hi-vis trade work, decoration has to follow the <a href="https://safetyequipment.org/standards/ansi-isea-107/" rel="noopener" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">ANSI/ISEA 107</a> 72-square-inch logo limit to keep the certification valid. A commercial shop that handles trade work knows this rule. See our <a href="/blog/ansi-107-class-2-vs-class-3-hi-vis-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">ANSI 107 hi-vis</a> compliance guide for the full spec.</p>
+
+ <h2 id="vegas-context" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Vegas-Specific Screen Printing Demand</h2>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">Las Vegas screen printing shops serve a wide range of buyers: trade contractors needing crew tees and hi-vis, event organizers running thousands of conference tees, casino marketing teams, and the city's vibrant music and event scene. The demands vary — but commercial-grade press capacity, ink quality, and cure verification are non-negotiable across all of them.</p>
+
+ <h2 id="industries" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Common Vegas Industries Served</h2>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <li><a href="/industries/general-contractors-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">General contractors</a> — crew tees and hi-vis</li>
+ <li><a href="/industries/concrete-masonry-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Concrete and masonry crews</a></li>
+ <li><a href="/industries/roofing-solar-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Roofing and solar crews</a></li>
+ <li><a href="/industries/landscaping-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Landscaping and grounds maintenance</a></li>
+ <li>Event organizers, conference crews, music festivals</li>
+ <li>Restaurants, retail brands, and small businesses</li>
+ </ul>
+
+ <div class="mt-12 rounded-2xl border border-gold-500/40 bg-gold-500/5 p-7 sm:p-9">
+ <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-white">Looking for a screen printing shop in Las Vegas?</h2>
+ <p class="mb-5 text-lg leading-relaxed text-navy-200">Bighorn Threads runs commercial screen printing for Vegas contractors, trade businesses, event crews, and small businesses. Automatic press production, conveyor-cured plastisol or water-based ink, screens kept on file for reorders.</p>
+ <a href="/services/screen-printing-las-vegas/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">See Our Screen Printing Service →</a>
+ </div>
+ </div>
+ </article>
+</BaseLayout>

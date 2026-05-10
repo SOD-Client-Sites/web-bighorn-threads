@@ -5,14 +5,14 @@ import Footer from '@/components/Footer.astro'
 import '@/styles/global.css'
 
 interface Props {
-  title: string
-  description: string
-  canonical?: string
-  ogImage?: string
-  type?: 'website' | 'article'
-  publishedDate?: string
-  noindex?: boolean
-  heroImage?: string
+ title: string
+ description: string
+ canonical?: string
+ ogImage?: string
+ type?: 'website' | 'article'
+ publishedDate?: string
+ noindex?: boolean
+ heroImage?: string
 }
 
 const props = Astro.props
@@ -21,23 +21,55 @@ const { heroImage } = Astro.props
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <SEOHead {...props} />
-    {heroImage && <link rel="preload" as="image" href={heroImage} fetchpriority="high" />}
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZGGY24PN1Z"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-ZGGY24PN1Z');
-    </script>
-  </head>
-  <body class="min-h-screen bg-navy-950 pb-[60px] text-white antialiased lg:pb-0">
-    <Header />
-    <main class="pt-[65px]">
-      <slot />
-    </main>
-    <Footer />
-    <script src="https://api.salesondemand.io/js/external-tracking.js" data-tracking-id="tk_4f091433d8a94642b790fd3fbc56afa7"></script>
-  </body>
+ <head>
+ <SEOHead {...props} />
+ {heroImage && <link rel="preload" as="image" href={heroImage} fetchpriority="high" />}
+ <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZGGY24PN1Z"></script>
+ <script is:inline>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ gtag('config', 'G-ZGGY24PN1Z');
+
+ // Conversion tracking
+ document.addEventListener('click', function (e) {
+ const a = e.target.closest('a[href^="tel:"]');
+ if (a) {
+ gtag('event', 'phone_click', {
+ phone_number: a.getAttribute('href').replace('tel:', ''),
+ link_text: (a.textContent || '').trim().slice(0, 80),
+ page_path: window.location.pathname,
+ });
+ }
+ const mailto = e.target.closest('a[href^="mailto:"]');
+ if (mailto) {
+ gtag('event', 'email_click', {
+ email: mailto.getAttribute('href').replace('mailto:', ''),
+ page_path: window.location.pathname,
+ });
+ }
+ });
+
+ document.addEventListener('submit', function (e) {
+ const form = e.target;
+ if (!form || form.tagName !== 'FORM') return;
+ const id = form.id || form.getAttribute('name') || 'unknown';
+ if (id === 'quoteForm') {
+ gtag('event', 'generate_lead', { form: 'contact_quote', page_path: window.location.pathname });
+ } else if (id === 'optinForm') {
+ gtag('event', 'event_optin', { form: 'event_opt_in', page_path: window.location.pathname });
+ } else {
+ gtag('event', 'form_submit', { form_id: id, page_path: window.location.pathname });
+ }
+ }, true);
+ </script>
+ </head>
+ <body class="min-h-screen bg-navy-950 pb-[60px] text-white antialiased lg:pb-0">
+ <Header />
+ <main class="pt-[65px]">
+ <slot />
+ </main>
+ <Footer />
+ <script src="https://api.salesondemand.io/js/external-tracking.js" data-tracking-id="tk_4f091433d8a94642b790fd3fbc56afa7"></script>
+ </body>
 </html>

@@ -1,0 +1,111 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const post = {
+ title: 'Custom Embroidered T-Shirts: When They\'re the Right Choice',
+ description:
+ 'Embroidered t-shirts are the right choice when you want a premium textured logo on a casual garment — but there are tradeoffs vs screen printing. Here\'s when to embroider tees, when to print, and which blanks take embroidery cleanly.',
+ category: 'Products',
+ readTime: '7 min read',
+ date: 'May 9, 2026',
+ isoDate: '2026-05-09',
+ image: '/images/generated/service-embroidery.jpg',
+ slug: 'custom-embroidered-t-shirts-buyer-guide',
+}
+
+const faqs = [
+ { q: 'Can you embroider on a t-shirt?', a: 'Yes — t-shirts embroider cleanly with the right approach. The fabric needs proper stabilizer backing because knit cotton stretches around the stitch area, and the stitch density should be moderate (not the heavy fills used on woven fabrics). Most commercial shops embroider on the standard heavyweight tee blanks (Carhartt K87, Bayside 5100, Gildan 5000).' },
+ { q: 'Should I embroider or screen print my custom t-shirts?', a: 'Embroidery for chest-only logo programs at moderate quantities. Screen printing for large designs, full-back prints, high-volume runs, and where per-piece cost matters most. For a left-chest 3-inch logo at 24-100 pieces, the cost difference is small and embroidery looks more premium. Beyond 100 pieces with simple chest logos, screen printing wins on per-piece economics.' },
+ { q: 'What\'s the best t-shirt for embroidery?', a: 'Heavyweight cotton tees (6+ oz) embroider cleanest because the fabric has body that supports the stitching. Carhartt K87 (6.75 oz), Bayside 5100 (6.1 oz), and Hanes Beefy-T (6.1 oz) are the most-ordered for embroidered tees. Lighter weight fashion tees (3-4 oz) can pucker around dense embroidery; not recommended for crew programs.' },
+ { q: 'Will embroidered t-shirts pucker over time?', a: 'Properly digitized embroidery on a heavyweight tee with appropriate stabilizer rarely puckers. Puckering happens when the stitch density is too high for the fabric weight, when stabilizer is omitted, or when the garment is stretched repeatedly around the stitch area. Commercial embroidery shops know how to avoid this.' },
+ { q: 'How does embroidered t-shirt cost compare to screen printed?', a: 'At 24 pieces, embroidered tees and screen-printed tees are typically within 10-15% of each other on per-piece cost. At 100 pieces, screen printing pulls ahead because most of the screen-print cost was in setup. At 500+ pieces, screen printing is dramatically cheaper per piece. Embroidery remains the same per-piece across volumes because machine time is fixed.' },
+ { q: 'Can you embroider a back design on a t-shirt?', a: 'Technically yes, but rarely cost-effective. A full-back design takes 25,000-40,000 stitches versus 5,000-8,000 for a chest logo, which means 5-8x the per-piece cost and machine time. For full-back designs on tees, screen printing is dramatically more cost-effective and visually appropriate.' },
+ { q: 'Where can I get custom embroidered t-shirts in Las Vegas?', a: 'Bighorn Threads runs commercial embroidery on standard heavyweight tee blanks for Vegas contractors, service businesses, and trade companies. We stock Carhartt K87, Bayside 5100, and Hanes Beefy-T in standard sizes S-4XL with embroidery turned around quickly when artwork is ready.' },
+]
+
+const schema = {
+ '@context': 'https://schema.org',
+ '@graph': [
+ { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: post.isoDate, author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
+ { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' }, { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` }] },
+ { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+ ],
+}
+---
+
+<BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
+ <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <article class="bg-navy-950">
+ <header class="relative overflow-hidden border-b border-navy-800">
+ <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
+ <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-400">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-400">Blog</a></nav>
+ <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
+ <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
+ <p class="mb-8 text-xl leading-relaxed text-gray-300">When embroidered tees are worth the cost, when to screen print instead, and which blanks take embroidery cleanly.</p>
+ <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400"><span class="text-gold-500">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
+ </div>
+ </header>
+ <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Custom embroidered Carhartt K87 heavyweight t-shirt with company logo on left chest" width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" /></div>
+ <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+
+ <aside class="mb-10 rounded-2xl border border-gold-500/30 bg-navy-900/60 p-7">
+ <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Quick Answer</p>
+ <p class="text-lg leading-relaxed text-white sm:text-xl">Custom embroidered t-shirts work best on heavyweight cotton blanks (Carhartt K87, Bayside 5100, Hanes Beefy-T) for chest-logo-only programs at moderate quantities (24-100 pieces). At those volumes, embroidered tees look more premium than screen-printed equivalents at comparable per-piece cost. For full-back designs or high-volume runs, screen printing is the right call.</p>
+ </aside>
+
+ <h2 id="when-to-embroider" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">When Embroidered Tees Make Sense</h2>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">Embroidery on tees is the right pick for:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <li><strong>Premium-feel crew programs.</strong> A heavyweight Carhartt K87 with a 3-inch embroidered chest logo reads more premium than a screen-printed equivalent.</li>
+ <li><strong>Small batches (24-50 pieces).</strong> At these quantities, embroidery is comparable on per-piece cost to screen printing.</li>
+ <li><strong>Service tech tees.</strong> When the tech is customer-facing and the chest logo is the trust signal, embroidery looks the part better than print.</li>
+ <li><strong>FR-rated tees and base layers.</strong> All FR-garment decoration uses Nomex-thread embroidery; screen printing isn\'t an option.</li>
+ <li><strong>Tees with chest-only designs.</strong> When there's no need for a back logo or large design.</li>
+ </ul>
+
+ <h2 id="when-to-print" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">When Screen Printing Wins on Tees</h2>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <li><strong>Full-back designs.</strong> Embroidery on a full back is cost-prohibitive — switch to <a href="/services/screen-printing-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">screen printing</a>.</li>
+ <li><strong>High volumes (200+ pieces).</strong> Screen printing per-piece cost falls dramatically with volume; embroidery stays roughly the same.</li>
+ <li><strong>Large bold designs.</strong> Block letters, simple shapes, oversized graphics print well and look intentional.</li>
+ <li><strong>Multi-color complex designs.</strong> Designs with gradients, fine detail, or many colors translate better to screen printing.</li>
+ <li><strong>Field crew tees.</strong> Heavy abrasive trade work — concrete, masonry, demo — wears out shirts faster regardless of decoration; per-piece cost matters more than premium feel.</li>
+ </ul>
+
+ <h2 id="best-blanks" class="mt-12 mb-4 font-heading text-3xl function-bold tracking-tight">Best T-Shirt Blanks for Embroidery</h2>
+
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Carhartt K87 Workwear Pocket Tee</h3>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">6.75 oz cotton, double-needle stitching, chest pocket. The default for trade and service crews. Embroidery sits cleanly on the chest panel; the fabric weight supports the stitching without puckering. See our deeper piece on <a href="/blog/carhartt-custom-embroidery-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Carhartt custom embroidery</a>.</p>
+
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Bayside 5100 Heavyweight Tee</h3>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">6.1 oz cotton, made in USA. Comparable embroidery profile to the Carhartt K87 at slightly lower per-piece cost. Strong second choice; the made-in-USA story matters to some buyers.</p>
+
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Hanes Beefy-T (5180)</h3>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">6.1 oz cotton, classic everyday tee. Less expensive than Carhartt or Bayside, takes embroidery cleanly. Common for crew programs where cost is a factor.</p>
+
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Performance / Moisture-Wicking Tees</h3>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">Carhartt Force, Sport-Tek PosiCharge, and similar performance polyester tees embroider cleanly without dye-migration concerns. Right pick for Vegas summer service crews where a heavy cotton tee soaks through.</p>
+
+ <h2 id="placement" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Placement and Sizing</h2>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">Standard placements:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <li><strong>Left chest:</strong> 3-3.5 inches wide, 5,000-8,000 stitches typical</li>
+ <li><strong>Right chest:</strong> Employee name (for service tech roles)</li>
+ <li><strong>Sleeve:</strong> Optional secondary mark</li>
+ <li><strong>Back yoke:</strong> Possible but uncommon — embroidery scaled to a back logo gets expensive</li>
+ </ul>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">Avoid placements that put dense embroidery on stretchy fabric panels — sides, lower back — where pucker risk is higher.</p>
+
+ <h2 id="costs" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">What Embroidered Tees Cost</h2>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">At 24 pieces with a standard chest logo, embroidered tees on a Carhartt K87 typically run comparable to screen-printed versions of the same shirt. Pricing is driven by the same five factors as any embroidery — see <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">how much it costs to embroider a shirt</a>.</p>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">Volume discount on embroidered tees is more modest than on screen-printed tees because embroidery cost is mostly machine time, which scales linearly with quantity.</p>
+
+ <div class="mt-12 rounded-2xl border border-gold-500/40 bg-gold-500/5 p-7 sm:p-9">
+ <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-white">Custom embroidered tees in Las Vegas</h2>
+ <p class="mb-5 text-lg leading-relaxed text-navy-200">Bighorn Threads runs custom embroidered t-shirts on Carhartt K87, Bayside 5100, and Hanes Beefy-T blanks for Vegas crews and service businesses.</p>
+ <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Quote →</a>
+ </div>
+ </div>
+ </article>
+</BaseLayout>

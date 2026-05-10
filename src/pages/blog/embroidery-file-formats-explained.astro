@@ -1,0 +1,144 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const post = {
+ title: 'Embroidery File Formats Explained: DST, EXP, JEF, PES',
+ description:
+ 'Embroidery machines read stitch files, not vector logos. DST is the universal commercial format. EXP, JEF, and PES are brand-specific. Here\'s what each format does, which machines use them, and how to know if your file is right.',
+ category: 'How-To',
+ readTime: '8 min read',
+ date: 'May 9, 2026',
+ isoDate: '2026-05-09',
+ image: '/images/generated/service-embroidery.jpg',
+ slug: 'embroidery-file-formats-explained',
+}
+
+const faqs = [
+ { q: 'What is an embroidery file format?', a: 'An embroidery file is a machine-readable stitch sequence that tells an embroidery machine exactly where to put each stitch, in what order, what stitch type, what color, and where to trim. Unlike a vector logo (.ai, .eps, .svg) that describes shapes, an embroidery file describes physical stitches. The machine can\'t read a logo — it needs the stitch file.' },
+ { q: 'What is DST?', a: 'DST (Tajima Data Stitch) is the universal commercial embroidery format. Created by Tajima for their commercial machines, it became the de facto industry standard. Almost every commercial embroidery machine — Tajima, Barudan, ZSK, Brother, Melco — reads DST. If your shop only sends one format, send DST.' },
+ { q: 'What is EXP?', a: 'EXP (Melco Expanded) is the native format for Melco/Amaya commercial embroidery machines. It supports more advanced stitch information than DST including color stops and trims. Most Melco shops accept DST but produce slightly cleaner output from native EXP files.' },
+ { q: 'What is JEF?', a: 'JEF (Janome Embroidery Format) is the native format for Janome home and semi-commercial machines. JEF files include color information that DST doesn\'t. If you\'re embroidering on a Janome MB-4, MB-7, or similar machine, JEF is the right format.' },
+ { q: 'What is PES?', a: 'PES (Brother Embroidery System) is the native format for Brother and Babylock home embroidery machines. PES includes color and design information. PES files are the most common home-embroidery format on the consumer market — but commercial shops typically convert PES to DST for production.' },
+ { q: 'Which file format should I send my embroidery shop?', a: 'DST is the safe answer — every commercial shop reads it. If your shop runs Melco machines, EXP produces marginally better output. If your shop runs Janome or Brother semi-commercial setups, JEF or PES respectively. Ask your shop directly: "What\'s your preferred file format?" and provide that.' },
+ { q: 'Can I just send a JPG or PNG of my logo?', a: 'No — that\'s a logo, not a stitch file. The shop has to digitize it (convert it to a stitch file) before they can run it. Digitizing is a one-time service typically running $40-150 depending on logo complexity. After digitizing, the shop owns a DST/EXP/JEF/PES of your logo for all future orders.' },
+ { q: 'Do I get to keep the digitized embroidery file?', a: 'Industry practice varies. Some shops include the file with the digitizing fee, some keep it as their working file. Best practice: ask upfront. If you change shops or want to embroider somewhere else, having the .DST file in hand saves $40-150 on re-digitizing. Get it in writing.' },
+]
+
+const schema = {
+ '@context': 'https://schema.org',
+ '@graph': [
+ { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: post.isoDate, author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
+ { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' }, { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` }] },
+ { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+ ],
+}
+---
+
+<BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
+ <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <article class="bg-navy-950">
+ <header class="relative overflow-hidden border-b border-navy-800">
+ <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
+ <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-400">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-400">Blog</a></nav>
+ <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
+ <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
+ <p class="mb-8 text-xl leading-relaxed text-gray-300">A working technical guide to embroidery stitch file formats — what each one does, which machines use them, and how to know your file is right.</p>
+ <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400"><span class="text-gold-500">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
+ </div>
+ </header>
+ <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Commercial embroidery machine reading a DST stitch file with thread cones loaded" width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" /></div>
+ <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+
+ <aside class="mb-10 rounded-2xl border border-gold-500/30 bg-navy-900/60 p-7">
+ <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Quick Answer</p>
+ <p class="text-lg leading-relaxed text-white sm:text-xl">Embroidery files are stitch sequences, not logo files. DST (Tajima) is the universal commercial format and the safe default. EXP is for Melco machines, JEF is for Janome, PES is for Brother. A shop needs the right format for their machine — ask which they prefer before sending.</p>
+ </aside>
+
+ <h2 id="what-is-stitch-file" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">What an Embroidery Stitch File Actually Is</h2>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">An embroidery machine doesn't see your logo. It sees a sequence of instructions:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <li>Move the needle to coordinate (X, Y).</li>
+ <li>Drop the needle, lay a stitch.</li>
+ <li>Move to next coordinate.</li>
+ <li>At stitch #1,247, pause and wait for thread color change.</li>
+ <li>At stitch #2,930, trim and jump to next location.</li>
+ </ul>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">The stitch file is that instruction sequence — sometimes 10,000+ stitches for a complex chest logo. Different machine brands invented different file formats to encode these instructions. The four common ones: DST, EXP, JEF, PES.</p>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">For the upstream side — turning a logo into a stitch file in the first place — see our <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">logo digitizing 101 guide</a>.</p>
+
+ <h2 id="dst" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">DST — The Universal Commercial Standard</h2>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200"><strong>Format:</strong> Tajima Data Stitch (.dst)</p>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200"><strong>Origin:</strong> <a href="https://www.tajima.com/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500" rel="noopener">Tajima</a> — the dominant commercial embroidery machine maker.</p>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200"><strong>What it stores:</strong> Stitch coordinates, stitch types (running, satin, fill), color change stops, jump stitches, trim commands.</p>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200"><strong>What it doesn't store:</strong> Specific thread colors. DST stores "color stop" markers but the operator picks the actual thread.</p>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">DST became the universal commercial format because Tajima dominated the high-volume embroidery market for decades. Almost every commercial machine — Tajima, Barudan, ZSK, SWF, Melco, Brother PR-series — reads DST natively or via direct conversion. If you only know one format, know DST.</p>
+
+ <h2 id="exp" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">EXP — Melco Native</h2>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200"><strong>Format:</strong> Melco Expanded (.exp)</p>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200"><strong>Origin:</strong> <a href="https://www.melco.com/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500" rel="noopener">Melco</a> — Denver-based commercial embroidery machine manufacturer.</p>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200"><strong>What it stores:</strong> Everything DST does, plus more granular trim and color information specific to Melco's Acti-Feed thread tensioning system.</p>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">Melco's Amaya, EMT, and Bravo X commercial machines run native EXP. Most Melco shops also accept DST and convert. The difference in output between native EXP and converted DST on a Melco machine is small but noticeable on tight-tolerance work.</p>
+
+ <h2 id="jef" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">JEF — Janome Native</h2>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200"><strong>Format:</strong> Janome Embroidery Format (.jef)</p>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200"><strong>Origin:</strong> <a href="https://www.janome.com/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500" rel="noopener">Janome</a> — Japanese sewing and embroidery machine maker.</p>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200"><strong>What it stores:</strong> Stitch data plus specific color references mapped to Janome thread color codes.</p>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">JEF is the native format for Janome home and semi-commercial machines (MB-4, MB-7, Memory Craft series). Janome multi-needle setups in small commercial shops use JEF natively. Most don't accept DST without conversion.</p>
+
+ <h2 id="pes" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">PES — Brother Native</h2>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200"><strong>Format:</strong> Brother Embroidery System (.pes)</p>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200"><strong>Origin:</strong> <a href="https://www.brother-usa.com/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500" rel="noopener">Brother</a> and Babylock home embroidery lines.</p>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200"><strong>What it stores:</strong> Stitch data plus thread color information mapped to Brother's color library.</p>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">PES is the most common home-embroidery format. Brother PE-series and Babylock machines are the dominant home-machine brands, so the format proliferated. Brother's PR-series commercial machines also accept PES, but most professional shops use DST for commercial production and PES only for home-machine work.</p>
+
+ <h2 id="format-table" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Format Quick-Reference Table</h2>
+ <div class="my-6 overflow-x-auto rounded-2xl border border-navy-700/40 bg-navy-900/40">
+ <table class="w-full text-base text-navy-200">
+ <thead class="bg-navy-900/60 text-left text-xs font-mono uppercase tracking-wider text-gold-500">
+ <tr><th class="px-5 py-3">Format</th><th class="px-5 py-3">Native Brand</th><th class="px-5 py-3">Stores Color?</th><th class="px-5 py-3">Universal?</th></tr>
+ </thead>
+ <tbody class="divide-y divide-navy-800">
+ <tr><td class="px-5 py-3 font-bold">DST</td><td class="px-5 py-3">Tajima</td><td class="px-5 py-3">No (color stops only)</td><td class="px-5 py-3 font-bold text-gold-400">Yes — universal</td></tr>
+ <tr><td class="px-5 py-3 font-bold">EXP</td><td class="px-5 py-3">Melco</td><td class="px-5 py-3">Yes (Melco palette)</td><td class="px-5 py-3">Most commercial accept</td></tr>
+ <tr><td class="px-5 py-3 font-bold">JEF</td><td class="px-5 py-3">Janome</td><td class="px-5 py-3">Yes (Janome palette)</td><td class="px-5 py-3">Janome only natively</td></tr>
+ <tr><td class="px-5 py-3 font-bold">PES</td><td class="px-5 py-3">Brother / Babylock</td><td class="px-5 py-3">Yes (Brother palette)</td><td class="px-5 py-3">Brother + some commercial</td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <h2 id="other-formats" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Other Formats You'll See</h2>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <li><strong>EMB</strong> — Wilcom, the dominant digitizing software. EMB is the working/source format with full design data. Most shops digitize in EMB and export to DST for production.</li>
+ <li><strong>VP3 / VP4</strong> — Husqvarna Viking / Pfaff home machines.</li>
+ <li><strong>XXX</strong> — Singer Futura.</li>
+ <li><strong>HUS</strong> — older Husqvarna Viking format.</li>
+ <li><strong>SEW</strong> — Janome legacy format, predecessor to JEF.</li>
+ <li><strong>VIP</strong> — older Viking format used on some Pfaff machines.</li>
+ </ul>
+
+ <h2 id="what-to-send" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">What to Send Your Shop</h2>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">If your shop already digitized your logo, ask what format they kept. If you're sending a logo for first-time digitizing, send the highest-quality vector you have — see our <a href="/blog/vector-logo-file-setup-for-embroidery/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">vector logo file setup guide</a>.</p>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">After digitizing:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <li><strong>Get the DST file in your inbox.</strong> This is the portable, universal version of your logo.</li>
+ <li><strong>Optionally get the EMB working file.</strong> If you ever need edits, EMB is what an embroidery digitizer needs to work from.</li>
+ <li><strong>Get clarity on ownership.</strong> Some shops include files with digitizing, some treat them as proprietary. Clarify before paying.</li>
+ </ul>
+
+ <h2 id="related" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Related Reading</h2>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <li><a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Logo digitizing 101 for embroidery</a></li>
+ <li><a href="/blog/vector-logo-file-setup-for-embroidery/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Vector logo file setup for embroidery</a></li>
+ <li><a href="/blog/what-is-embroidery-buyers-guide/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">What is embroidery — a buyer's guide</a></li>
+ <li><a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">How much does it cost to embroider a shirt</a></li>
+ </ul>
+
+ <div class="mt-12 rounded-2xl border border-gold-500/40 bg-gold-500/5 p-7 sm:p-9">
+ <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-white">Embroidery digitizing in Las Vegas</h2>
+ <p class="mb-5 text-lg leading-relaxed text-navy-200">Bighorn Threads digitizes logos and delivers DST files alongside production runs. We run Tajima commercial heads — DST native, no conversion overhead.</p>
+ <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Quote →</a>
+ </div>
+ </div>
+ </article>
+</BaseLayout>

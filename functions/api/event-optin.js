@@ -17,7 +17,7 @@ export async function onRequestPost({ request, env }) {
   }
   if (!body || typeof body !== 'object') return errorResponse('Invalid body', 400)
 
-  if (body.website && String(body.website).trim()) {
+  if (body.bh_hp_field && String(body.bh_hp_field).trim()) {
     return jsonResponse({ ok: true, contactId: null, spam: true })
   }
 
@@ -82,6 +82,18 @@ export async function onRequestPost({ request, env }) {
     })
   } catch (err) {
     console.warn('[event-optin] tag add failed (non-fatal)', err)
+  }
+
+  // Append a note so every opt-in leaves its own timestamped record,
+  // even when upsert merges into an existing contact.
+  try {
+    const noteBody = `Opt-in: ${eventLabel} (${eventTag}) — ${new Date().toISOString()}\nName: ${firstName} ${lastName}\nPhone: ${phone}\nEmail: ${email}\nBusiness: ${business}`
+    await ghlFetch(`${GHL_BASE}/contacts/${contactId}/notes`, token, {
+      method: 'POST',
+      body: JSON.stringify({ body: noteBody }),
+    })
+  } catch (err) {
+    console.warn('[event-optin] note add failed (non-fatal)', err)
   }
 
   return jsonResponse({ ok: true, contactId })

@@ -1,0 +1,105 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const post = {
+ title: 'Bulwark FR Shirts: What Works in Vegas Heat',
+ description:
+ 'Bulwark Excel-FR ComforTouch is the industry-standard FR base layer for electrical, oil/gas, and welding-adjacent work. Here\'s the actual SLU2 vs PEW2 spec, what fabric weight handles 110°+ Vegas summer, and how to embroider without voiding the rating.',
+ category: 'Brands',
+ readTime: '8 min read',
+ date: 'May 9, 2026',
+ isoDate: '2026-05-09',
+ image: '/images/generated/kit-electrical.jpg',
+ slug: 'bulwark-fr-shirts-vegas-heat',
+}
+
+const faqs = [
+ { q: 'What FR rating do Bulwark Excel-FR shirts have?', a: 'Bulwark Excel-FR ComforTouch SLU2 is dual-rated: NFPA 70E CAT 2 (8 cal/cm² arc rating) and NFPA 2112 (flash-fire). The dual rating covers both electrical arc-flash and process flash-fire hazards in a single garment, which is why it\'s the industry standard for crews working both exposures.' },
+ { q: 'Is Bulwark FR breathable enough for Las Vegas summer?', a: 'The 6.5 oz Excel-FR ComforTouch SLU2 is the lightest dual-rated option that hits CAT 2 — light enough that Vegas electrical and mechanical crews actually keep it on through 110° summer days. Heavier-weight FR (9 oz canvas) is overkill for most Vegas commercial work and gets shed by 11 AM in July.' },
+ { q: 'Can you embroider on Bulwark FR shirts?', a: 'Yes — using FR-compatible Nomex (aramid) thread that preserves the rating through industrial laundering and arc events. Standard polyester thread melts in flash-fire and arc-flash events and voids the FR certification. Decoration placement follows Bulwark\'s published guides — typically left chest, optional right chest or sleeve, no oversized back logos that change the protective fabric area.' },
+ { q: 'What\'s the difference between Bulwark Excel-FR and CoolTouch 2?', a: 'Excel-FR is the cotton-nylon blend that\'s the brand\'s flagship — durable, washable, comfortable. CoolTouch 2 is a moisture-wicking poly-blend FR fabric designed for hotter environments. CoolTouch wicks better but doesn\'t feel as natural; most Vegas crews prefer Excel-FR even in summer.' },
+ { q: 'How much does a Bulwark FR shirt cost?', a: 'Wholesale pricing on the Bulwark Excel-FR ComforTouch SLU2 typically runs $50-80 per shirt depending on color and style, plus embroidery (FR thread) and any digitizing fees. Pricing climbs for hi-vis FR variants like the JLR8 (Class 3 hi-vis FR jacket).' },
+ { q: 'How long do Bulwark FR shirts last?', a: 'Bulwark publishes their FR fabric retains its rating through 100+ industrial wash cycles when laundered per the manufacturer\'s spec. Crew members typically retire shirts after 12-18 months of daily wear due to fabric wear — not loss of FR rating. Loss of rating typically requires either chemical contamination or improper laundering.' },
+ { q: 'What other Bulwark FR garments do crews need?', a: 'Beyond the SLU2 base shirt, common companion items: PEW2 Excel-FR work pant for full Class 2 PPE coverage, JLR8 hi-vis FR jacket for night utility work, CT11 long-sleeve henley as a base layer, and FR coveralls (CLB6 or LFR6) for oil/gas and turnaround work. See our piece on <a href="/blog/welder-uniforms-fr-shirts-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">welder uniforms</a> for the welding-specific layering.' },
+]
+
+const schema = {
+ '@context': 'https://schema.org',
+ '@graph': [
+ { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: post.isoDate, author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
+ { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' }, { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` }] },
+ { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+ ],
+}
+---
+
+<BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
+ <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <article class="bg-navy-950">
+ <header class="relative overflow-hidden border-b border-navy-800">
+ <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
+ <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-400">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-400">Blog</a></nav>
+ <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
+ <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
+ <p class="mb-8 text-xl leading-relaxed text-gray-300">The dual-rated FR base shirt that handles Vegas commercial electrical and mechanical work without overcooking the crew in summer.</p>
+ <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400"><span class="text-gold-500">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
+ </div>
+ </header>
+ <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Bulwark Excel-FR ComforTouch SLU2 FR shirt with embroidered company logo for Las Vegas electrical contractor" width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" /></div>
+ <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+
+ <aside class="mb-10 rounded-2xl border border-gold-500/30 bg-navy-900/60 p-7">
+ <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Quick Answer</p>
+ <p class="text-lg leading-relaxed text-white sm:text-xl"><a href="https://www.bulwarkprotection.com/" rel="noopener" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Bulwark</a> Excel-FR ComforTouch SLU2 is the industry-standard FR base shirt for Vegas electrical, mechanical, and welding-adjacent crews — dual NFPA 70E CAT 2 + NFPA 2112 rated, 6.5 oz cotton-nylon, light enough to keep on through 110° summer. Decoration uses Nomex (aramid) thread to preserve the rating through industrial laundering.</p>
+ </aside>
+
+ <h2 id="why-bulwark" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Why Bulwark Is the Industry Standard</h2>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">Bulwark Excel-FR has been the dominant FR base layer in commercial electrical and oil/gas crews for decades. The reasons are practical: dual-rated certification covers both arc-flash and flash-fire hazards in a single garment, the cotton-nylon blend feels closer to a standard work shirt than other FR fabrics, and the durability through industrial laundry programs is well-documented. Most Vegas safety officers spec Bulwark by default unless there's a specific reason to deviate.</p>
+
+ <h2 id="key-skus" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Key Bulwark SKUs for Vegas Crews</h2>
+
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">SLU2 Excel-FR ComforTouch (button-down work shirt)</h3>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">The flagship base shirt. 6.5 oz cotton-nylon blend, NFPA 70E CAT 2 (8 cal/cm²) and NFPA 2112 dual-rated. Available short or long sleeve, in trade-standard colors (postman blue, charcoal, navy). Most-ordered FR base for commercial electrical, mechanical, and oil/gas.</p>
+
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">PEW2 Excel-FR Pant</h3>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">The matching FR work pant. Pair with the SLU2 shirt for full NFPA 70E Class 2 PPE coverage. Same fabric weight, same ComforTouch hand. Standard for journeymen working medium-voltage electrical.</p>
+
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">CT11 Excel-FR Long-Sleeve Henley</h3>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">FR knit henley used as a base layer or worn solo on warmer days. Lighter-feeling than the woven SLU2; popular for service techs working residential and light commercial.</p>
+
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">JLR8 Excel-FR Hi-Vis Class 3 Jacket</h3>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">Combination FR + ANSI 107 Class 3 hi-vis jacket. The dual-compliance solution for crews working near vehicle traffic at night — utility crews, road work, and night-shift commercial mechanical. Eliminates the layering compromise of an FR shirt + non-FR hi-vis vest.</p>
+
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">CLB6 / LFR6 FR Coveralls</h3>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">Full-coverage NFPA 2112 coveralls for oil/gas, process work, and industrial mechanical. Standard for pipefitters and turnaround crews. See our piece on <a href="/industries/oil-gas-mechanical-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">oil, gas, and mechanical contractors</a> for the full coverall context.</p>
+
+ <h2 id="vegas-fit" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Vegas-Specific Fit and Heat Considerations</h2>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">FR fabric is heavier than standard cotton or poly work shirts because the protective fabric weight is what stops thermal transfer. The lighter the fabric, the lower the protection. The 6.5 oz Excel-FR is the lightest dual-rated option that hits CAT 2 — heavier-weight FR (9 oz canvas) provides more protection but gets shed by 11 AM in Vegas summer because crews can't physically work in it past mid-morning.</p>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">For most Vegas commercial work — switchgear up to 600V, mechanical service, and pipefitting — the SLU2 + PEW2 combination is the right balance of protection and wearability. Higher cal-rated environments (substation work, utility transmission) require multi-layer FR systems regardless of comfort.</p>
+
+ <h2 id="decoration" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Embroidering Bulwark FR</h2>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">Decoration on FR garments is where most catalog suppliers compromise the rating. <a href="https://www.nfpa.org/codes-and-standards/all-codes-and-standards/list-of-codes-and-standards/detail?code=70E" rel="noopener" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">NFPA 70E</a> and Bulwark's published decoration guidelines require:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <li><strong>FR-compatible thread.</strong> Nomex (aramid) is the standard. Standard polyester melts in arc events and voids the rating.</li>
+ <li><strong>Approved placements.</strong> Left chest, optional right chest, optional sleeve. No oversized back logos that change protective fabric area.</li>
+ <li><strong>Documented certification.</strong> Each FR run should ship with a certification sheet documenting the thread spec used.</li>
+ </ul>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">For deeper context see <a href="/blog/nfpa-70e-fr-shirts-vegas-electricians/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">NFPA 70E FR shirt compliance</a>.</p>
+
+ <h2 id="alternatives" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Bulwark vs Carhartt FR vs Wrangler Riggs FR</h2>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <li><strong>Bulwark</strong> — industry standard, most-spec'd by safety officers, durable through laundry, slightly more institutional aesthetic.</li>
+ <li><strong>Carhartt FR Lightweight</strong> — softer hand, more popular with crews who reject heavier FR, comparable ratings. Often the second choice when crews push back on Bulwark.</li>
+ <li><strong>Wrangler Riggs FR</strong> — button-down work-shirt styling, dual-rated, less common in commercial Vegas but well-regarded for crews who want a "regular work shirt" aesthetic.</li>
+ </ul>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">All three accept FR-safe Nomex thread embroidery. We carry all three on Bighorn FR programs.</p>
+
+ <div class="mt-12 rounded-2xl border border-gold-500/40 bg-gold-500/5 p-7 sm:p-9">
+ <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-white">Bulwark FR for Vegas crews</h2>
+ <p class="mb-5 text-lg leading-relaxed text-navy-200">Bighorn Threads supplies and decorates Bulwark Excel-FR garments for Vegas electrical, mechanical, and oil/gas crews — using FR-safe Nomex thread that preserves the certification.</p>
+ <a href="/industries/electrical-contractors-las-vegas/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">See Electrical Contractor Apparel →</a>
+ </div>
+ </div>
+ </article>
+</BaseLayout>

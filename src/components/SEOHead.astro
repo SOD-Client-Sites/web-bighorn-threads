@@ -1,30 +1,30 @@
 ---
 interface Props {
-  title: string
-  description: string
-  canonical?: string
-  ogImage?: string
-  ogImageAlt?: string
-  type?: 'website' | 'article'
-  publishedDate?: string
-  noindex?: boolean
+ title: string
+ description: string
+ canonical?: string
+ ogImage?: string
+ ogImageAlt?: string
+ type?: 'website' | 'article'
+ publishedDate?: string
+ noindex?: boolean
 }
 
 const {
-  title,
-  description,
-  canonical,
-  ogImage = '/images/og-default.jpg',
-  ogImageAlt = 'Bighorn Threads — Las Vegas branded apparel and promotional products',
-  type = 'website',
-  publishedDate,
-  noindex = false,
+ title,
+ description,
+ canonical,
+ ogImage = '/images/og-default.jpg',
+ ogImageAlt = 'Bighorn Threads — Las Vegas branded apparel and promotional products',
+ type = 'website',
+ publishedDate,
+ noindex = false,
 } = Astro.props
 
 const siteName = 'Bighorn Threads'
 const fullTitle = title === siteName || title.includes(`| ${siteName}`) || title.endsWith(siteName)
-  ? title
-  : `${title} | ${siteName}`
+ ? title
+ : `${title} | ${siteName}`
 const canonicalHref = canonical ?? new URL(Astro.url.pathname, Astro.site).href
 const ogImageHref = new URL(ogImage, Astro.site).href
 ---
@@ -79,73 +79,51 @@ const ogImageHref = new URL(ogImage, Astro.site).href
 
 <!-- LocalBusiness Schema -->
 <script type="application/ld+json" set:html={JSON.stringify({
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  '@id': 'https://bighornthreads.com/#organization',
-  name: 'Bighorn Threads',
-  description: 'Branded apparel, screen printing, embroidery, and company stores for Las Vegas construction companies and trades.',
-  url: 'https://bighornthreads.com',
-  logo: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png',
-  image: 'https://bighornthreads.com/images/og-default.jpg',
-  telephone: '+17252356196',
-  email: 'info@bighornthreads.com',
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Las Vegas',
-    addressRegion: 'NV',
-    addressCountry: 'US',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: 36.1699,
-    longitude: -115.1398,
-  },
-  areaServed: [
-    { '@type': 'City', name: 'Las Vegas' },
-    { '@type': 'City', name: 'Henderson' },
-    { '@type': 'City', name: 'North Las Vegas' },
-  ],
-  priceRange: '$$',
-  openingHours: 'Mo-Fr 08:00-17:00',
-  sameAs: [
-    'https://www.facebook.com/bighornthreads',
-    'https://www.linkedin.com/company/bighorn-threads',
-  ],
-  serviceType: [
-    'Screen Printing',
-    'Embroidery',
-    'Branded Apparel',
-    'Company Stores',
-    'Promotional Products',
-  ],
-  knowsAbout: [
-    'ANSI/ISEA 107 hi-vis apparel',
-    'NFPA 70E flame-resistant clothing',
-    'Construction branded workwear',
-    'Company store platforms',
-    'Pantone color matching',
-    'Screen printing for trades',
-    'Embroidery for construction uniforms',
-  ],
-  slogan: 'The crews that build Vegas wear our gear.',
-  review: [
-    {
-      '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-      author: { '@type': 'Person', name: 'K. Stephens' },
-      reviewBody: "We've been working with Bighorn for years for our company uniforms and branded swag, and they've consistently delivered. Steve offers a perfect balance of professional and personal service, always going the extra mile.",
-    },
-    {
-      '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-      author: { '@type': 'Person', name: 'Luis Rascon' },
-      reviewBody: "We've consistently had a great experience working with Bighorn. They always deliver on time and maintain excellent quality in every order. Their reliability and attention to detail make them a trusted partner for our promotional needs.",
-    },
-    {
-      '@type': 'Review',
-      reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-      author: { '@type': 'Person', name: 'Nadia Griffin' },
-      reviewBody: "I've worked with Steve and his team for over 14 years, and they've been an incredible partner for all my event promotional needs. From branded apparel to unique giveaways, their products are always high-quality and delivered on time.",
-    },
-  ],
+ '@context': 'https://schema.org',
+ '@type': 'LocalBusiness',
+ '@id': 'https://bighornthreads.com/#organization',
+ name: 'Bighorn Threads',
+ description: 'Branded apparel, screen printing, embroidery, and company stores for Las Vegas construction companies and trades.',
+ url: 'https://bighornthreads.com',
+ logo: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png',
+ image: 'https://bighornthreads.com/images/og-default.jpg',
+ telephone: '+17252356196',
+ email: 'info@bighornthreads.com',
+ address: {
+ '@type': 'PostalAddress',
+ addressLocality: 'Las Vegas',
+ addressRegion: 'NV',
+ addressCountry: 'US',
+ },
+ geo: {
+ '@type': 'GeoCoordinates',
+ latitude: 36.1699,
+ longitude: -115.1398,
+ },
+ areaServed: [
+ { '@type': 'City', name: 'Las Vegas' },
+ { '@type': 'City', name: 'Henderson' },
+ { '@type': 'City', name: 'North Las Vegas' },
+ ],
+ openingHours: 'Mo-Fr 08:00-17:00',
+ sameAs: [
+ 'https://www.facebook.com/bighornthreads',
+ 'https://www.linkedin.com/company/bighorn-threads',
+ ],
+ serviceType: [
+ 'Screen Printing',
+ 'Embroidery',
+ 'Branded Apparel',
+ 'Company Stores',
+ 'Promotional Products',
+ ],
+ knowsAbout: [
+ 'ANSI/ISEA 107 hi-vis apparel',
+ 'NFPA 70E flame-resistant clothing',
+ 'Construction branded workwear',
+ 'Company store platforms',
+ 'Pantone color matching',
+ 'Screen printing for trades',
+ 'Embroidery for construction uniforms',
+ ],
 })} />

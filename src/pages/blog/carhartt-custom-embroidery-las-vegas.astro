@@ -1,0 +1,104 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const post = {
+ title: 'Carhartt Custom Embroidery: What to Know Before You Order',
+ description:
+ 'Carhartt is the most-requested brand for trade and contractor crew apparel. Here\'s how to spec custom embroidered Carhartt — the K87 tee, B11 work pants, J131 jacket, FR line — and what to ask before ordering.',
+ category: 'Brands',
+ readTime: '8 min read',
+ date: 'May 9, 2026',
+ isoDate: '2026-05-09',
+ image: '/images/generated/service-embroidery.jpg',
+ slug: 'carhartt-custom-embroidery-las-vegas',
+}
+
+const faqs = [
+ { q: 'Can you embroider on Carhartt?', a: 'Yes — Carhartt apparel embroiders cleanly on the standard placements (left chest, sleeve, back yoke). Carhartt FR garments require FR-compatible Nomex thread to preserve the certification through industrial laundering. Standard polyester thread melts in arc and flash-fire events and voids the FR rating.' },
+ { q: 'What\'s the most popular Carhartt for custom embroidery?', a: 'The K87 Workwear Pocket T-Shirt and the SUP01 Midweight Hooded Sweatshirt are the two most-ordered Carhartt blanks for custom decoration. Both are heavyweight, take embroidery cleanly, and read as trade-friendly. Pair with Carhartt B11 work pants for a complete crew uniform.' },
+ { q: 'Are Carhartt FR garments embroiderable?', a: 'Yes — Carhartt FR Lightweight, FR Force, and FR Henley shirts all accept embroidery using FR-compatible Nomex (aramid) thread. Decoration follows Carhartt\'s published placement guides. The certification stays valid as long as decoration meets the manufacturer spec.' },
+ { q: 'How does Carhartt custom apparel cost compare to Port Authority?', a: 'Carhartt blanks run roughly 50-100% higher per piece than Port Authority equivalents. The premium is real — heavier-weight fabric, more durable construction, and the brand recognition is meaningful for trade-buyer audiences. For client-facing service techs, the Carhartt look reads as "established trade business" in a way generic blanks don\'t.' },
+ { q: 'Where can I get Carhartt custom embroidery in Las Vegas?', a: 'Bighorn Threads runs custom embroidery on Carhartt apparel for Vegas contractors, trade businesses, and service crews. We stock K87 tees, SUP01 hoodies, B11 work pants, J131 jackets, and the Carhartt FR line in standard sizes S-4XL with FR-safe thread when applications require it.' },
+ { q: 'How long does it take to embroider Carhartt?', a: 'Carhartt fabric has the same embroidery throughput as other commercial blanks — about 30-45 finished pieces per hour on a 6-head machine at standard stitch counts. Standard runs ship within a week of order confirmation; rush options are available.' },
+]
+
+const schema = {
+ '@context': 'https://schema.org',
+ '@graph': [
+ { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: post.isoDate, author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
+ { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' }, { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` }] },
+ { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+ ],
+}
+---
+
+<BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
+ <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <article class="bg-navy-950">
+ <header class="relative overflow-hidden border-b border-navy-800">
+ <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
+ <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-400">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-400">Blog</a></nav>
+ <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
+ <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
+ <p class="mb-8 text-xl leading-relaxed text-gray-300">A working buyer's guide to custom embroidered Carhartt — which SKUs to spec, what FR-rated decoration requires, and how Carhartt compares to other crew-apparel brands.</p>
+ <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400"><span class="text-gold-500">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
+ </div>
+ </header>
+ <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Custom embroidered Carhartt K87 work tee with company logo on the chest" width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" /></div>
+ <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+
+ <aside class="mb-10 rounded-2xl border border-gold-500/30 bg-navy-900/60 p-7">
+ <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Quick Answer</p>
+ <p class="text-lg leading-relaxed text-white sm:text-xl"><a href="https://www.carhartt.com/" rel="noopener" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Carhartt</a> embroiders cleanly using standard polyester thread for non-FR garments and FR-compatible Nomex thread for the Carhartt FR line. The K87 Workwear Pocket Tee and SUP01 Midweight Hoodie are the two most-ordered blanks for trade and contractor crews. Carhartt runs about 50-100% higher per piece than Port Authority equivalents but reads as more credible to trade-buyer audiences.</p>
+ </aside>
+
+ <h2 id="why-carhartt" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Why Carhartt for Crew Apparel</h2>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">Carhartt has a 130-year reputation as the workwear brand for American trades and the brand recognition is meaningful when you're outfitting a crew that interacts with customers. A homeowner opening the door to a service tech in a Carhartt embroidered work shirt forms a different impression than the same tech in a generic blank. The brand premium is real and most trade buyers consider it worth the cost.</p>
+
+ <h2 id="popular-skus" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Most-Ordered Carhartt SKUs for Custom Decoration</h2>
+
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Carhartt K87 Workwear Pocket T-Shirt</h3>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">The default Carhartt tee for trade crews. Heavyweight 6.75 oz cotton, double-needle stitching, chest pocket, available in 25+ colors. Embroidered left-chest logo is the standard placement. The chest pocket is functional for pens, badges, and small tools.</p>
+
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Carhartt SUP01 Midweight Hooded Sweatshirt</h3>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">The most-ordered Carhartt hoodie for crew programs. 10.5 oz cotton-poly fleece, durable, takes embroidery cleanly. See our deeper guide on <a href="/blog/custom-embroidered-hoodies-sweatshirts/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">custom embroidered hoodies</a> for the full hoodie comparison.</p>
+
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Carhartt B11 Loose Fit Work Pant</h3>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">Cotton duck work pant — the standard for general construction, trades, and outdoor work. Embroidery on work pants typically goes on the back pocket for fleet-vehicle visibility when crew members are bent over working.</p>
+
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Carhartt B324 Carpenter Pant — double-knee</h3>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">For trades that work on knees — concrete, plumbing, electrical pulling under floors — the B324 with reinforced double-knee panels lasts dramatically longer than a standard work pant. Common in <a href="/industries/concrete-masonry-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">concrete crew programs</a> and <a href="/industries/steel-iron-workers-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">structural steel crews</a>.</p>
+
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Carhartt J131 Duck Work Jacket</h3>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">The original blanket-lined duck work jacket. Embroidered company logo on the left chest is the standard decoration; some crews add a back-yoke screen-printed company name for fleet visibility.</p>
+
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Carhartt FR Line</h3>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">The flame-resistant line — Carhartt FR Lightweight, FR Force, FR Henley, FR Coveralls — covers electrical, oil/gas, mechanical, and welding-adjacent trades. All require FR-compatible Nomex thread for embroidery. See our deeper piece on <a href="/blog/nfpa-70e-fr-shirts-vegas-electricians/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">NFPA 70E FR shirt compliance</a>.</p>
+
+ <h2 id="decoration" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Embroidery on Carhartt</h2>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">Standard placements:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <li><strong>Left chest:</strong> Primary logo placement — 3-3.5 inches wide, 5,000-8,000 stitches typical.</li>
+ <li><strong>Right chest:</strong> Employee name (especially for service techs in customer-facing roles).</li>
+ <li><strong>Back yoke:</strong> Larger company name or service line phone number for fleet-vehicle visibility.</li>
+ <li><strong>Sleeve:</strong> Trade certification, license number, or secondary mark.</li>
+ </ul>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">For pricing context see <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">how much it costs to embroider a shirt</a>.</p>
+
+ <h2 id="vs-alternatives" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Carhartt vs Alternatives</h2>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <li><strong>Port Authority</strong> — 50-60% cheaper, comparable durability for office and lighter trade use, less brand recognition. Best for non-customer-facing roles.</li>
+ <li><strong>Bayside</strong> — comparable to Carhartt on durability, made in USA, slightly less recognition. Strong second choice.</li>
+ <li><strong>Dickies</strong> — direct trade competitor to Carhartt, similar durability, slightly different aesthetic. Worth quoting alongside Carhartt for trade programs.</li>
+ <li><strong>Red Kap</strong> — industrial-laundry standard for service trades; different aesthetic, designed specifically for industrial laundry rotation.</li>
+ </ul>
+
+ <div class="mt-12 rounded-2xl border border-gold-500/40 bg-gold-500/5 p-7 sm:p-9">
+ <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-white">Custom Carhartt embroidery in Las Vegas</h2>
+ <p class="mb-5 text-lg leading-relaxed text-navy-200">Bighorn Threads runs custom embroidery on Carhartt apparel for Vegas contractors, service businesses, and trade companies. K87, SUP01, B324, FR line — send your logo and crew sizes for a quote.</p>
+ <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Quote →</a>
+ </div>
+ </div>
+ </article>
+</BaseLayout>

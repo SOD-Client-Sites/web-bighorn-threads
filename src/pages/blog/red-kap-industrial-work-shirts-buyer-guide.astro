@@ -1,0 +1,110 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const post = {
+ title: 'Red Kap Industrial Work Shirts: A Buyer\'s Guide for Service Trades',
+ description:
+ 'Red Kap is the industrial-laundry standard for plumbing, HVAC, mechanical, and service trade uniforms. Here\'s the actual SP14 vs SP24 vs SY24 spec, why industrial laundries spec Red Kap by default, and how to brand them for crew programs.',
+ category: 'Brands',
+ readTime: '7 min read',
+ date: 'May 9, 2026',
+ isoDate: '2026-05-09',
+ image: '/images/generated/kit-plumbing-hvac.jpg',
+ slug: 'red-kap-industrial-work-shirts-buyer-guide',
+}
+
+const faqs = [
+ { q: 'What is Red Kap?', a: 'Red Kap is a Workwear Outfitters (formerly VF Imagewear) brand specializing in industrial-laundry workwear for service trades. The brand is the de facto standard for HVAC, plumbing, mechanical, and refrigeration service techs because the major industrial laundry companies process Red Kap on standard programs without special handling.' },
+ { q: 'Why do industrial laundries prefer Red Kap?', a: 'Red Kap garments are designed specifically for industrial laundry rotation — durable construction, fade-resistant dyes, consistent sizing across runs, and standard pocket/closure configurations the laundry equipment handles cleanly. Other workwear brands can be processed but often require special handling that adds incremental cost per garment.' },
+ { q: 'What\'s the most popular Red Kap shirt?', a: 'The Red Kap SP14 Industrial Work Shirt — short sleeve in summer, long sleeve in winter. Cotton-poly blend, button-front, two chest pockets, available in dozens of colors S-6XL. Pair with PT20 Industrial Work Pant or PT88 Touchtex pant for a complete coordinated uniform.' },
+ { q: 'Can you do name patches and embroidery on Red Kap?', a: 'Yes — Red Kap supports both. Standard placement is woven name patches on the right chest and embroidered company logo on the left chest. Industrial laundries typically prefer woven patches because they handle the wash cycle better than direct embroidery on the work shirt fabric.' },
+ { q: 'What\'s the difference between SP14 and SY24?', a: 'SP14 is the standard cotton-poly Industrial Work Shirt — comfortable, durable, classic work shirt feel. SY24 is the Performance Plus version with moisture-wicking fabric — same cut, same decoration spec, dramatically better for Vegas summer rooftop and attic work where the standard SP14 soaks through. We typically recommend SY24 for service crews working June-September.' },
+ { q: 'How does Red Kap compare to Carhartt for crew uniforms?', a: 'Different aesthetics for different roles. Red Kap is the industrial-laundry-friendly standard for service techs — looks like a "service tech" instantly. Carhartt is the trade-friendly brand for general construction and skilled trades. Many companies run Red Kap for service crews on a laundry program plus Carhartt for project managers and customer-facing roles.' },
+ { q: 'Where can I get custom Red Kap work shirts in Las Vegas?', a: 'Bighorn Threads supplies and decorates Red Kap apparel for Vegas service trades, mechanical contractors, and HVAC/plumbing shops. We integrate with industrial laundry programs and pre-decorate shirts to match laundry partner inventory codes when needed.' },
+]
+
+const schema = {
+ '@context': 'https://schema.org',
+ '@graph': [
+ { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: post.isoDate, author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
+ { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' }, { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` }] },
+ { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+ ],
+}
+---
+
+<BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
+ <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <article class="bg-navy-950">
+ <header class="relative overflow-hidden border-b border-navy-800">
+ <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
+ <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-400">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-400">Blog</a></nav>
+ <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
+ <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
+ <p class="mb-8 text-xl leading-relaxed text-gray-300">The industrial-laundry standard for service trades — what makes Red Kap the default for HVAC, plumbing, and mechanical service techs.</p>
+ <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400"><span class="text-gold-500">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
+ </div>
+ </header>
+ <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Red Kap SP14 Industrial Work Shirt with embroidered company logo and name patch for HVAC service tech" width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" /></div>
+ <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+
+ <aside class="mb-10 rounded-2xl border border-gold-500/30 bg-navy-900/60 p-7">
+ <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Quick Answer</p>
+ <p class="text-lg leading-relaxed text-white sm:text-xl">Red Kap is the industrial-laundry standard for service trades — HVAC, plumbing, mechanical, refrigeration. The SP14 Industrial Work Shirt is the most-ordered SKU; the SY24 Performance Plus version is the moisture-wicking pick for Vegas summer. Major industrial laundries process Red Kap on standard programs, which is why most service-trade shops standardize on the brand.</p>
+ </aside>
+
+ <h2 id="why-red-kap" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Why Red Kap Dominates Service Trade Uniforms</h2>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">If you've called for plumbing, HVAC, mechanical, or refrigeration service in the last decade and the tech showed up in a button-down work shirt with a name patch on the right chest, it was probably Red Kap. The brand has effectively become the industrial-laundry standard for service-trade uniforms because the major laundry processors (Cintas, Vestis, Prudential) process Red Kap on default programs without special handling. That standardization makes the per-piece economics work for shops running 10-50 service techs on rotating laundry programs.</p>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">For shops that don't run industrial laundry, Red Kap still works — the durability and aesthetic translate to in-house laundry or shirt-rental programs. The brand isn't strictly required for service trade work; it's just the path of least resistance.</p>
+
+ <h2 id="key-skus" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Key Red Kap SKUs</h2>
+
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">SP14 Industrial Work Shirt</h3>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">The flagship work shirt. Cotton-poly blend, button-front, two chest pockets, available short or long sleeve in dozens of colors. Sizes S-6XL. The default spec for residential and light commercial service techs across the trades.</p>
+
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">SY24 Performance Plus Work Shirt</h3>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">Same cut and decoration profile as the SP14 but with moisture-wicking poly fabric. The right swap for Vegas summer service work where the standard SP14 soaks through by 11 AM. Same per-piece price; same industrial laundry compatibility.</p>
+
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">SK24 Snap-Front Work Shirt</h3>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">Pearl-snap front instead of buttons — easier to take on and off in a service van between calls. Popular with techs who change layers frequently during the day. The embroidery sits clean on the chest panel above the snaps.</p>
+
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">PT20 / PT88 Industrial Work Pants</h3>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">The matching work pants. PT20 is the standard industrial work pant; PT88 Touchtex has reinforced fabric for trades with heavier wear (plumbing on knees, HVAC in attics). Both pair with the SP14/SY24 shirts on industrial laundry programs.</p>
+
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">JT22 / JT38 Work Jackets</h3>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">Cool-weather coverage. JT22 is the insulated duck work jacket; JT38 is the lighter-weight Hydro Shield rain-resistant jacket. Both decorate cleanly with embroidered company logo on the chest.</p>
+
+ <h2 id="branding" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Branding Red Kap for Service Crews</h2>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">Standard service-trade decoration on Red Kap:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <li><strong>Right chest:</strong> Woven name patch with employee first name. Industrial laundries prefer woven patches over direct embroidery because they handle wash cycles better.</li>
+ <li><strong>Left chest:</strong> Embroidered company logo, 3-3.5 inches wide, typically 5,000-8,000 stitches.</li>
+ <li><strong>Sleeve:</strong> Optional — license number on the sleeve for trades where customers expect to see it (Nevada-licensed contractors).</li>
+ <li><strong>Back yoke or hem tag:</strong> Service phone number. Visible from the back of a tech bent over a fixture or tool.</li>
+ </ul>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">Name patches are velcro-swappable for shops that want to handle tech turnover without re-stitching shirts.</p>
+
+ <h2 id="vs-alternatives" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Red Kap vs Alternatives</h2>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <li><strong><a href="/blog/carhartt-custom-embroidery-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Carhartt</a></strong> — different aesthetic, more "trade pro" than "service tech." Better for general construction; worse for service-tech roles where the institutional Red Kap look reads as established service business.</li>
+ <li><strong>Dickies</strong> — closest direct competitor on aesthetic and price. Worth quoting alongside Red Kap. Industrial laundry compatibility is similar but slightly less standardized.</li>
+ <li><strong>Cintas / Vestis branded uniforms</strong> — branded uniforms supplied by the laundry company itself. Different model: you rent rather than own. Per-shirt cost over time is typically higher than buying Red Kap outright.</li>
+ </ul>
+
+ <h2 id="ordering" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">How to Order Custom Red Kap</h2>
+ <p class="mb-6 text-lg leading-relaxed text-navy-200">Three pieces of information when ordering:</p>
+ <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <li><strong>SKU and color.</strong> Specify SP14 vs SY24 (cotton vs performance), the colorway, and your laundry program (or no laundry program) so we can spec correctly.</li>
+ <li><strong>Logo and name patches.</strong> Send your logo (vector preferred) and the list of employee first names for patches.</li>
+ <li><strong>Size breakdown.</strong> Per-employee sizing — Red Kap shirts run S-6XL with comparable per-piece pricing across the size range.</li>
+ </ol>
+
+ <div class="mt-12 rounded-2xl border border-gold-500/40 bg-gold-500/5 p-7 sm:p-9">
+ <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-white">Custom Red Kap for Vegas service trades</h2>
+ <p class="mb-5 text-lg leading-relaxed text-navy-200">Bighorn Threads supplies and decorates Red Kap industrial work shirts and pants for Vegas plumbing, HVAC, mechanical, and refrigeration service trades — coordinated with industrial laundry programs when applicable.</p>
+ <a href="/industries/plumbing-hvac-las-vegas/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">See Plumbing & HVAC Apparel →</a>
+ </div>
+ </div>
+ </article>
+</BaseLayout>

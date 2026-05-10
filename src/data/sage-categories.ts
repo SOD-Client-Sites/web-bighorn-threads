@@ -19,13 +19,13 @@ export const bighornCategories: BighornCategory[] = [
     shortTitle: 'T-Shirts',
     blurb: 'Screen-printed and embroidered tees for crews. Cotton, poly-blend, pocket tees, and long-sleeve. Built to take a jobsite beating.',
     seoIntro:
-      "Custom screen-printed and embroidered t-shirts are the workhorse of any Las Vegas construction crew's wardrobe. Bighorn Threads outfits general contractors, framing crews, concrete teams, MEP subs, and service trades with branded tees that survive the Vegas summer, the wash cycle, and the daily abuse of a real jobsite. We stock heavyweight 100% cotton tees from Bayside, Gildan, Hanes, Carhartt, and Port & Company, plus poly-cotton blends for crews that need moisture-wicking performance. Pocket tees for foremen who actually use the pocket, long-sleeve options for sun protection on summer roofs, and ringspun cotton for the office staff who want a softer hand. Every shirt gets digitally proofed before printing, every order ships inside the Las Vegas Valley on qualifying orders, and every job leaves the shop with the same crew name spelled the same way it was last time. Screen printing starts at 24 pieces per design. Under 24? We switch you to DTF transfers — same look, no minimum.",
+      "Custom screen-printed and embroidered t-shirts are the workhorse of any Las Vegas construction crew's wardrobe. Bighorn Threads outfits general contractors, framing crews, concrete teams, MEP subs, and service trades with branded tees that survive the Vegas summer, the wash cycle, and the daily abuse of a real jobsite. We stock heavyweight 100% cotton tees from Bayside, Gildan, Hanes, Carhartt, and Port & Company, plus poly-cotton blends for crews that need moisture-wicking performance. Pocket tees for foremen who actually use the pocket, long-sleeve options for sun protection on summer roofs, and ringspun cotton for the office staff who want a softer hand. Every shirt gets digitally proofed before printing, and every job leaves the shop with the same crew name spelled the same way it was last time. Screen printing starts at 24 pieces per design. Under 24? We switch you to DTF transfers — same look, no minimum.",
     seoBullets: [
       'Heavyweight cotton, poly-blend, ringspun — sized so a 3XL fits a 3XL',
-      'Screen printing 24+ pieces · DTF transfers under 24 (no setup)',
+      'Screen printing 24+ pieces · DTF transfers under 24',
       'Carhartt, Bayside, Gildan, Port & Company — brands crews recognize',
-      'Free Las Vegas Valley delivery on qualifying orders',
-      'Rush turnaround as fast as on rush when blanks are in stock',
+      'Digital proof before every print run',
+      'Stocked blanks across the brands crews reorder most',
     ],
     search: { categories: 'Shirts', keywords: 'tee t-shirt' },
     sort: 'BESTMATCH',
@@ -36,7 +36,7 @@ export const bighornCategories: BighornCategory[] = [
     shortTitle: 'Polos',
     blurb: 'Branded polos for office staff, project managers, and client-facing teams. Performance and traditional cotton options.',
     seoIntro:
-      "Embroidered polo shirts are the go-to for project managers, estimators, superintendents, and client-facing crews who need to look sharp without sacrificing durability. Bighorn Threads embroiders polos from Port Authority, Nike, Cutter & Buck, OGIO, and Carhartt for Las Vegas contractors, real estate developers, and trade companies that show up to client meetings, plan reviews, and pre-bid walks. We carry traditional cotton piqué for the classic look, snag-resistant performance polos for outdoor field work, and moisture-wicking technical polos for crews working in 110-degree summers. Every polo gets a free digital mockup and a written approval step before the embroidery machines start. Standard left-chest logo placement is included; sleeve hits, back yokes, and contrasting thread colors are quoted up front, no surprises. Orders of 24+ qualify for our standard pricing tier, and our company store program lets you preload approved polos with employee names already digitized so new hires get their gear on day one.",
+      "Embroidered polo shirts are the go-to for project managers, estimators, superintendents, and client-facing crews who need to look sharp without sacrificing durability. Bighorn Threads embroiders polos from Port Authority, Nike, Cutter & Buck, OGIO, and Carhartt for Las Vegas contractors, real estate developers, and trade companies that show up to client meetings, plan reviews, and pre-bid walks. We carry traditional cotton piqué for the classic look, snag-resistant performance polos for outdoor field work, and moisture-wicking technical polos for crews working in 110-degree summers. Every polo gets a free digital mockup and a written approval step before the embroidery machines start. Standard left-chest logo placement is included; sleeve hits, back yokes, and contrasting thread colors are quoted up front, no surprises. Orders of 24+ qualify for our standard pricing tier, and our company store program lets you preload approved polos with employee names already digitized so new-hire kits don't have to start from scratch every time.",
     seoBullets: [
       'Port Authority, Nike, Cutter & Buck, OGIO, Carhartt',
       'Embroidery has no minimum — single piece or 200',
@@ -70,7 +70,7 @@ export const bighornCategories: BighornCategory[] = [
     shortTitle: 'FR',
     blurb: 'NFPA 70E and NFPA 2112 compliant shirts, pants, and coveralls. For electricians, welders, and oil & gas crews.',
     seoIntro:
-      "Flame-resistant (FR) workwear is required PPE for Las Vegas electrical contractors, solar techs, welders, oil and gas crews, and any trade exposed to arc flash or flash fire hazards. Bighorn Threads stocks and decorates NFPA 70E and NFPA 2112 compliant FR shirts, pants, coveralls, and outerwear from Bulwark FR, Carhartt FR, and Wrangler FR — all certified to retain their arc rating after laundering. The decoration matters as much as the garment: standard polyester thread and screen-printed logos can compromise FR certification. We use only certified FR-safe inks and Nomex thread on FR-rated apparel, and every quote includes the arc rating documentation so your safety officer has what they need for the job hazard analysis. Class 1 (cal/cm² 4–8) for general electrical, Class 2 (cal/cm² 8–25) for substation and 480V+ work, and CAT 4 for high-energy environments. We can outfit a single new electrician or a full crew on a fast-track data center build — same FR compliance standards, same documentation, same Las Vegas turnaround.",
+      "Flame-resistant (FR) workwear is required PPE for Las Vegas electrical contractors, solar techs, welders, oil and gas crews, and any trade exposed to arc flash or flash fire hazards. Bighorn Threads stocks and decorates NFPA 70E and NFPA 2112 compliant FR shirts, pants, coveralls, and outerwear from Bulwark FR, Carhartt FR, and Wrangler FR — all certified to retain their arc rating after laundering. The decoration matters as much as the garment: standard polyester thread and screen-printed logos can compromise FR certification. We use only certified FR-safe inks and Nomex thread on FR-rated apparel, and every quote includes the arc rating documentation so your safety officer has what they need for the job hazard analysis. Class 1 (cal/cm² 4–8) for general electrical, Class 2 (cal/cm² 8–25) for substation and 480V+ work, and CAT 4 for high-energy environments. We can outfit a single new electrician or a full crew on a data center build — same FR compliance standards, same documentation.",
     seoBullets: [
       'NFPA 70E and NFPA 2112 compliant — certified after wash',
       'Bulwark FR, Carhartt FR, Wrangler FR',
@@ -87,13 +87,13 @@ export const bighornCategories: BighornCategory[] = [
     shortTitle: 'Hoodies',
     blurb: 'Pullover and zip-up hoodies, crewnecks, and quarter-zips. Heavyweight options for early-morning jobsites.',
     seoIntro:
-      "Branded hoodies and sweatshirts are the most-worn piece of gear on any Las Vegas crew from October through April — early-morning concrete pours, dawn framing starts, and high-desert mountain jobs all start cold. Bighorn Threads decorates pullover hoodies, full-zip hoodies, crewnecks, and quarter-zips from Carhartt, Champion, Gildan, Independent Trading Co, and Port & Company. We screen print, embroider, and apply DTF transfers depending on the volume and the design — full-color art that wouldn't work on a screen press still lands clean as a transfer. Heavyweight 12oz options for the coldest mornings, midweight 9oz for shoulder-season layering, and tech-fleece quarter-zips for office and field staff who want to look the part on a Zoom call too. Every hoodie order over 24 pieces ships free inside the Vegas Valley, and we keep blanks on the shelf in the brands and colorways that move the most so rush orders for new-hire onboarding or trade show season are realistic.",
+      "Branded hoodies and sweatshirts are the most-worn piece of gear on any Las Vegas crew from October through April — early-morning concrete pours, dawn framing starts, and high-desert mountain jobs all start cold. Bighorn Threads decorates pullover hoodies, full-zip hoodies, crewnecks, and quarter-zips from Carhartt, Champion, Gildan, Independent Trading Co, and Port & Company. We screen print, embroider, and apply DTF transfers depending on the volume and the design — full-color art that wouldn't work on a screen press still lands clean as a transfer. Heavyweight 12oz options for the coldest mornings, midweight 9oz for shoulder-season layering, and tech-fleece quarter-zips for office and field staff who want to look the part on a Zoom call too. We keep blanks on the shelf in the brands and colorways that move the most.",
     seoBullets: [
       'Carhartt, Champion, Gildan, Independent Trading, Port & Company',
       'Pullover, full-zip, crewneck, quarter-zip styles',
       'Screen print, embroidery, and DTF transfer decoration',
       'Heavyweight 12oz and midweight 9oz options',
-      'Stock blanks on hand for rush new-hire orders',
+      'Stock blanks on hand in the most-ordered brands and colorways',
     ],
     search: { keywords: 'hoodie sweatshirt pullover zip-up' },
     sort: 'BESTMATCH',
@@ -161,7 +161,7 @@ export const bighornCategories: BighornCategory[] = [
       '3D puff embroidery, flat embroidery, leather patch, PVC patch',
       'Hard hat stickers — high-tack vinyl for ANSI Z89 hats',
       'No minimum on cap embroidery — order 1 or 500',
-      'Same-week turnaround on stock blanks',
+      'Stocked blanks across the most-ordered styles',
     ],
     search: { keywords: 'cap hat beanie' },
     sort: 'POPULARITY',
@@ -206,13 +206,13 @@ export const bighornCategories: BighornCategory[] = [
     shortTitle: 'Promo',
     blurb: 'Giveaways, client gifts, and trade show swag. 1.7M products in the catalog — start here if you don\'t know what you want.',
     seoIntro:
-      "When you don't know what you want, start here. Bighorn Threads has access to over 1.7 million promotional products through the SAGE supplier network — pens, notebooks, USB drives, stress balls, hard hat stickers, branded tape measures, custom challenge coins, golf balls and tees, branded tools, executive gift sets, employee onboarding kits, anniversary awards, and every weird trade-show giveaway you've ever seen. We're not just running a catalog — we curate based on what works for Las Vegas trades. Branded multi-tools land harder than stress balls. Custom challenge coins for milestone projects get framed in client offices. Hard hat stickers go on every helmet on a project. Branded tape measures are the single most-kept giveaway at a trade booth. Tell us your event, your audience, your budget, and your timeline, and we'll send back three to five curated options with pricing and decoration mockups withfast. Promo product minimums vary widely (often 24–100 pieces depending on the item) and rush options are available on most items.",
+      "When you don't know what you want, start here. Bighorn Threads has access to over 1.7 million promotional products through the SAGE supplier network — pens, notebooks, USB drives, stress balls, hard hat stickers, branded tape measures, custom challenge coins, golf balls and tees, branded tools, executive gift sets, employee onboarding kits, anniversary awards, and every weird trade-show giveaway you've ever seen. We're not just running a catalog — we curate based on what works for Las Vegas trades. Branded multi-tools land harder than stress balls. Custom challenge coins for milestone projects get framed in client offices. Hard hat stickers go on every helmet on a project. Branded tape measures are the single most-kept giveaway at a trade booth. Tell us your event, your audience, your budget, and your timeline, and we'll send back three to five curated options with pricing and decoration mockups. Promo product minimums vary widely (often 24–100 pieces depending on the item).",
     seoBullets: [
       '1.7M+ promotional products via SAGE supplier network',
       'Curated picks based on Las Vegas trade audience',
       'Challenge coins, hard hat stickers, branded tools, tape measures',
       'Custom event and trade show giveaway programs',
-      'fast curated quotes with mockups',
+      'Curated quotes with decoration mockups',
     ],
     search: { keywords: 'promotional giveaway' },
     sort: 'POPULARITY',

@@ -2,260 +2,393 @@
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const posts = [
-  {
-    slug: 'branded-workwear-data-center-contractors-las-vegas',
-    category: 'Industries',
-    title: 'Branded Workwear for Data Center Contractors in Las Vegas: FR, Hi-Vis, and the Real Spec',
-    excerpt: "Las Vegas hyperscaler data center boom. What each trade actually wears by phase, by role, with FR and hi-vis specs that pass inspection.",
-    readTime: '11 min read',
-    date: 'Apr 28, 2026',
-    image: '/images/generated/kit-electrical.jpg',
-    imageAlt: 'FR-rated electrical contractor kit for Las Vegas data center construction',
-  },
-  {
-    slug: 'ansi-107-class-2-vs-class-3-hi-vis-las-vegas',
-    category: 'Compliance',
-    title: 'ANSI 107 Class 2 vs Class 3: What Las Vegas Road, Utility, and Night-Shift Crews Actually Need',
-    excerpt: 'Class 2 vs Class 3 vs Class E — which one your crew needs, when, and why. Practical guide for Las Vegas road, utility, paving, and night-shift contractors.',
-    readTime: '9 min read',
-    date: 'Apr 28, 2026',
-    image: '/images/generated/workwear-flatlay.jpg',
-    imageAlt: 'ANSI 107 Class 2 and Class 3 hi-vis safety apparel comparison flat-lay',
-  },
-  {
-    slug: 'new-hire-workwear-checklist-las-vegas-contractors',
-    category: 'Operations',
-    title: "New Hire Workwear Checklist for Las Vegas Contractors: What to Order Before Day One",
-    excerpt: 'A practical day-one workwear kit by trade — GC, electrical, HVAC, hi-vis road, solar, fleet — with brand specs, sizing tips, and realistic costs.',
-    readTime: '10 min read',
-    date: 'Apr 28, 2026',
-    image: '/images/generated/kit-gc.jpg',
-    imageAlt: 'New hire construction crew kit with embroidered shirts hi-vis vest and Carhartt pants',
-  },
-  {
-    slug: 'nevada-osha-heat-rules-2026-workwear',
-    category: 'Compliance',
-    title: 'Nevada OSHA Heat Rules 2026: What Las Vegas Contractors Need to Know About Workwear',
-    excerpt: "Nevada's heat illness standard takes effect in 2026 and changes what construction crews must wear. A practical guide for Las Vegas contractors — fabric weight, color, hi-vis, FR, and what your safety officer will ask about.",
-    readTime: '12 min read',
-    date: 'Apr 27, 2026',
-    image: '/images/generated/workwear-flatlay.jpg',
-    imageAlt: 'Breathable hi-vis and FR workwear flat-lay for Nevada OSHA heat rule compliance',
-  },
-  {
-    slug: 'logo-digitizing-101-embroidery',
-    category: 'Decoration Methods',
-    title: 'Logo Digitizing 101: Why Your First File Matters More Than Your Tenth Order',
-    excerpt: 'The single biggest predictor of how good your embroidered shirts will look isn\'t your logo, your fabric, or your shop. It\'s the digitizing file behind it.',
-    readTime: '7 min read',
-    date: 'Apr 28, 2026',
-    image: '/images/generated/service-embroidery.jpg',
-    imageAlt: 'Industrial embroidery machine stitching a contractor logo onto a navy work polo',
-  },
-  {
-    slug: 'plastisol-vs-water-based-ink-workwear',
-    category: 'Decoration Methods',
-    title: 'Plastisol vs Water-Based Ink for Workwear: What Holds Up on a Vegas Job Site',
-    excerpt: 'Two ink families behind almost every printed work shirt in Vegas. Different chemistry, different feel, very different lifespan.',
-    readTime: '9 min read',
-    date: 'Apr 21, 2026',
-    image: '/images/generated/service-screen-printing.jpg',
-    imageAlt: 'Screen printing press laying down ink on a heavyweight cotton work tee',
-  },
-  {
-    slug: 'how-many-shirts-per-crew-member-vegas',
-    category: 'Operations',
-    title: 'How Many Shirts Should You Order Per Crew Member? (Vegas GC Rule of Thumb)',
-    excerpt: 'A field-tested formula for outfitting construction crews in Las Vegas — by role, by season, with realistic wash rotations.',
-    readTime: '8 min read',
-    date: 'Apr 14, 2026',
-    image: '/images/generated/product-stack.jpg',
-    imageAlt: 'Stacked folded branded work shirts ready for delivery to a Las Vegas construction crew',
-  },
-  {
-    slug: 'nfpa-70e-fr-shirts-vegas-electricians',
-    category: 'Compliance',
-    title: 'FR Shirt Compliance for Vegas Electricians: NFPA 70E Without the Headache',
-    excerpt: 'CAT 1 vs CAT 2, the brands that actually hold up in Vegas heat, and how to embroider on FR without voiding the certification.',
-    readTime: '11 min read',
-    date: 'Apr 7, 2026',
-    image: '/images/generated/kit-electrical.jpg',
-    imageAlt: 'NFPA 70E flame-resistant electrical contractor kit with FR shirt and arc-rated gloves',
-  },
-  {
-    slug: 'company-store-vs-bulk-ordering',
-    category: 'Operations',
-    title: 'Bulk Ordering vs Company Store: The Real Math for Contractors',
-    excerpt:
-      'Ordering 500 tees at once still looks cheaper on paper. Here\'s why the spreadsheet lies — and the actual cost per wearable piece when you add shrinkage and dead stock.',
-    readTime: '8 min read',
-    date: 'Apr 1, 2026',
-    image: '/images/generated/service-company-stores.jpg',
-    imageAlt: 'Branded company-store apparel program — folded polos and tees on shelves',
-  },
-  {
-    slug: 'screen-printing-vs-embroidery-construction',
-    category: 'Decoration Methods',
-    title: 'Screen Printing vs Embroidery: Which Is Right for Construction Gear?',
-    excerpt:
-      'The real difference isn\'t price — it\'s durability, garment type, and how your logo reads on a jobsite. A straight-talk comparison for Vegas crews.',
-    readTime: '7 min read',
-    date: 'Mar 15, 2026',
-    image: '/images/generated/workwear-flatlay.jpg',
-    imageAlt: 'Flat-lay of branded construction workwear including shirts hi-vis vest cap and tape measure',
-  },
-  {
-    slug: 'how-to-outfit-a-construction-crew-vegas',
-    category: 'Crew Outfitting',
-    title: 'How to Outfit a Construction Crew in Las Vegas (Without Losing Your Mind)',
-    excerpt:
-      'Sizing chaos, rush orders, dead inventory in a back closet. A practical playbook for outfitting 10, 50, or 500 people — built for Vegas contractors.',
-    readTime: '9 min read',
-    date: 'Mar 1, 2026',
-    image: '/images/generated/kit-gc.jpg',
-    imageAlt: 'General contractor crew outfit kit with embroidered polo softshell jacket and hard hat',
-  },
+ { slug: 'custom-hard-hats-las-vegas-buyer-guide', category: 'Compliance', title: 'Custom Hard Hats in Las Vegas: A Buyer\'s Guide for Contractors', excerpt: 'ANSI Z89.1 types and classes, decoration methods that don\'t void the rating, hat styles, and how to spec a branded hard hat program for a Vegas crew.', readTime: '9 min read', date: 'May 9, 2026', image: '/images/generated/kit-electrical.jpg', imageAlt: 'Custom branded hard hats with company logo decals on a Las Vegas construction site' },
+ { slug: 'welder-uniforms-las-vegas-buyer-guide', category: 'Compliance', title: 'Welder Uniforms in Las Vegas: A Buyer\'s Guide for Welding Shops & Contractors', excerpt: 'The layered FR + leather welder system — NFPA 2112 base, leather over-layer, brand picks, and how to brand FR garments without voiding the rating.', readTime: '10 min read', date: 'May 9, 2026', image: '/images/generated/kit-electrical.jpg', imageAlt: 'Welder in NFPA 2112 FR shirt and leather welding jacket on a Las Vegas job site' },
+ { slug: 'rush-order-shirts-las-vegas-2-day-3-day-options', category: 'Operational', title: 'Rush Order Shirts in Las Vegas: 2-Day vs 3-Day vs Same-Day Options', excerpt: 'Decision matrix for same-day, 2-day, and 3-day rush — what each tier means, what breaks rush orders, and how to pick the right speed for your event.', readTime: '8 min read', date: 'May 9, 2026', image: '/images/generated/service-screen-printing.jpg', imageAlt: 'Rush order custom shirts in production at a Las Vegas screen printing shop' },
+ { slug: 'hi-vis-class-3-when-you-need-it-over-class-2', category: 'Compliance', title: 'Hi-Vis Class 3 Apparel: When You Need Class 3 Over Class 2', excerpt: 'Class 3 is required when crews face traffic over 50 mph, work in low-visibility conditions, or operate near heavy equipment. Spec rules, exceptions, and logo placement that holds the rating.', readTime: '9 min read', date: 'May 9, 2026', image: '/images/generated/workwear-flatlay.jpg', imageAlt: 'ANSI 107 Class 3 hi-vis safety shirt with reflective tape on fluorescent fabric' },
+ { slug: 'foreman-supervisor-shirts-visual-authority', category: 'Crew Outfitting', title: 'Foreman & Supervisor Shirts: Visual Authority on the Jobsite', excerpt: 'Foremen need to be visually distinct so subs, inspectors, and visitors find them fast. Color, garment, embroidery, and hard hat coordination — the full playbook.', readTime: '8 min read', date: 'May 9, 2026', image: '/images/generated/kit-gc.jpg', imageAlt: 'Construction foreman in embroidered work shirt with FOREMAN callout on a Las Vegas jobsite' },
+ { slug: 'apprentice-journeyman-uniforms-differentiation', category: 'Crew Outfitting', title: 'Apprentice & Journeyman Uniforms: Differentiation in Crew Programs', excerpt: 'Union shops and merit shops both differentiate apprentices from journeymen visually. IBEW, UA, ironworkers, plus merit-shop tier programs — the patterns that work.', readTime: '8 min read', date: 'May 9, 2026', image: '/images/generated/kit-electrical.jpg', imageAlt: 'Electrical apprentice and journeyman in differentiated FR shirts on a Las Vegas jobsite' },
+ { slug: 'embroidery-file-formats-explained', category: 'How-To', title: 'Embroidery File Formats Explained: DST, EXP, JEF, PES', excerpt: 'Embroidery machines read stitch files, not logos. DST is the universal commercial format. EXP, JEF, PES are brand-specific. Which to send your shop and why.', readTime: '8 min read', date: 'May 9, 2026', image: '/images/generated/service-embroidery.jpg', imageAlt: 'Commercial embroidery machine reading a DST stitch file with thread cones loaded' },
+ { slug: 'trade-show-apparel-booth-crew', category: 'Use Cases', title: 'Trade Show Apparel: How to Outfit Your Booth Crew', excerpt: 'World of Concrete, IBS, AHR Expo, ConExpo, SEMA. Garment picks, embroidery placement, name customization, and order timeline for Vegas trade show exhibitors.', readTime: '8 min read', date: 'May 9, 2026', image: '/images/generated/service-embroidery.jpg', imageAlt: 'Trade show booth crew in matching embroidered polos at a Las Vegas convention center' },
+ { slug: 'sublimation-printing-custom-apparel-guide', category: 'Decoration Methods', title: 'Sublimation Printing for Custom Apparel: When It Wins, When It Doesn\'t', excerpt: 'Sublimation dyes polyester fibers permanently — vivid, no-feel, but only on white/light polyester. Wins for athletic wear, photographic designs, small-batch.', readTime: '8 min read', date: 'May 9, 2026', image: '/images/generated/service-screen-printing.jpg', imageAlt: 'Sublimation printing transfer being heat-pressed onto polyester' },
+ { slug: 'dtf-printing-vs-screen-printing-custom-apparel', category: 'Decoration Methods', title: 'DTF Printing vs Screen Printing for Custom Apparel: When to Use Which', excerpt: 'DTF wins on small-batch and dark fabrics. Screen printing wins on volume cotton runs. Crossover point ~24-36 pieces. Decision matrix inside.', readTime: '8 min read', date: 'May 9, 2026', image: '/images/generated/service-screen-printing.jpg', imageAlt: 'DTF transfer being heat-pressed onto a black cotton tee' },
+ { slug: 'vector-logo-file-setup-for-embroidery', category: 'How-To', title: 'Vector Logo File Setup for Embroidery — How to Prep Your Logo', excerpt: 'Send vector (.ai, .eps, .pdf, .svg) for cleanest embroidery. Convert text to outlines, simplify fine detail, limit to 6-12 colors.', readTime: '7 min read', date: 'May 9, 2026', image: '/images/generated/service-embroidery.jpg', imageAlt: 'Vector logo file being prepared for embroidery digitizing' },
+ { slug: 'custom-embroidered-aprons-trade-businesses', category: 'Products', title: 'Custom Embroidered Aprons for Service & Trade Businesses', excerpt: '10 oz cotton canvas bib apron with cross-back straps and embroidered chest logo. Industries that wear them and how to spec.', readTime: '7 min read', date: 'May 9, 2026', image: '/images/generated/service-embroidery.jpg', imageAlt: 'Custom embroidered cotton canvas bib apron with company logo' },
+ { slug: 'custom-branded-sweatshirts-vs-embroidered-hoodies', category: 'Comparison', title: 'Custom Branded Sweatshirts vs Embroidered Hoodies — Which Wins?', excerpt: 'Crewnecks for office, hoodies for field crews. Carhartt SUP01 vs Independent IND4000 vs Champion S700 vs Gildan 18500.', readTime: '7 min read', date: 'May 9, 2026', image: '/images/generated/service-embroidery.jpg', imageAlt: 'Custom embroidered crewneck sweatshirt and pullover hoodie' },
+ { slug: 'port-authority-polos-vs-alternatives', category: 'Brands', title: 'Port Authority Polos vs Alternatives: Which Custom Polo Wins for Crew Programs', excerpt: 'Port Authority owns the budget-mid tier. Carhartt wins on trade authority. Cutter & Buck/Nike/Travis Mathew win premium. Sport-Tek wins on volume.', readTime: '10 min read', date: 'May 9, 2026', image: '/images/generated/service-embroidery.jpg', imageAlt: 'Custom embroidered Port Authority Silk Touch polo' },
+ { slug: 'carhartt-custom-embroidery-las-vegas', category: 'Brands', title: 'Carhartt Custom Embroidery: What to Know Before You Order', excerpt: 'How to spec custom embroidered Carhartt — K87, B11, J131, FR line — and what makes Carhartt the most-requested trade brand.', readTime: '8 min read', date: 'May 9, 2026', image: '/images/generated/service-embroidery.jpg', imageAlt: 'Custom embroidered Carhartt K87 work tee with company logo' },
+ { slug: 'bulwark-fr-shirts-vegas-heat', category: 'Brands', title: 'Bulwark FR Shirts: What Works in Vegas Heat', excerpt: 'Bulwark Excel-FR ComforTouch SLU2 — the dual NFPA 70E + 2112 base shirt that handles 110° Vegas summer.', readTime: '8 min read', date: 'May 9, 2026', image: '/images/generated/kit-electrical.jpg', imageAlt: 'Bulwark Excel-FR ComforTouch SLU2 FR shirt with embroidered logo' },
+ { slug: 'red-kap-industrial-work-shirts-buyer-guide', category: 'Brands', title: 'Red Kap Industrial Work Shirts: A Buyer\'s Guide for Service Trades', excerpt: 'The industrial-laundry standard for HVAC, plumbing, and mechanical service techs — SP14 vs SY24 vs SK24.', readTime: '7 min read', date: 'May 9, 2026', image: '/images/generated/kit-plumbing-hvac.jpg', imageAlt: 'Red Kap SP14 Industrial Work Shirt with embroidered company logo' },
+ { slug: 'rush-order-shirts-las-vegas-whats-possible', category: 'Operational', title: 'Rush Order Shirts in Las Vegas: What\'s Actually Possible', excerpt: 'Realistic same-day, next-day, and 3-day rush turnaround — what breaks rush orders, and how to maximize your chances.', readTime: '7 min read', date: 'May 9, 2026', image: '/images/generated/service-screen-printing.jpg', imageAlt: 'Rush order custom shirts in production' },
+ { slug: 'custom-safety-vests-ansi-compliance', category: 'Compliance', title: 'Custom Safety Vests: ANSI 107 Compliance and Where to Place Logos', excerpt: 'How to add a company logo to a hi-vis vest without voiding ANSI 107 — the 72-square-inch limit, embroidery vs print, Class 2 vs Class 3.', readTime: '7 min read', date: 'May 9, 2026', image: '/images/generated/service-screen-printing.jpg', imageAlt: 'ANSI 107 Class 2 hi-vis safety vest with embroidered company logo' },
+ { slug: 'nfpa-2112-fr-coveralls-buyer-guide', category: 'Compliance', title: 'NFPA 2112 FR Coveralls: Buyer\'s Guide for Oil, Gas, and Process Work', excerpt: 'Bulwark CLB6 vs LFR6 vs Carhartt FR Coveralls — dual NFPA 70E + 2112 picks for arc-flash + flash-fire coverage.', readTime: '8 min read', date: 'May 9, 2026', image: '/images/generated/kit-datacenter.jpg', imageAlt: 'NFPA 2112-rated FR coveralls with embroidered company logo' },
+ { slug: 'what-is-embroidery-buyers-guide', category: 'Decoration Methods', title: 'What Is Embroidery? A Buyer\'s Guide for Custom Apparel', excerpt: 'A plain-English guide to the most premium decoration method in custom apparel — how it works, when it wins.', readTime: '8 min read', date: 'May 9, 2026', image: '/images/generated/service-embroidery.jpg', imageAlt: 'Multi-head commercial embroidery machine stitching company logos' },
+ { slug: 'custom-embroidered-t-shirts-buyer-guide', category: 'Products', title: 'Custom Embroidered T-Shirts: When They\'re the Right Choice', excerpt: 'When embroidered tees are worth the cost, when to screen print instead, and which heavyweight blanks take embroidery cleanly.', readTime: '7 min read', date: 'May 9, 2026', image: '/images/generated/service-embroidery.jpg', imageAlt: 'Custom embroidered Carhartt K87 heavyweight tee' },
+ { slug: 'hvac-uniforms-service-tech-apparel', category: 'Trades', title: 'HVAC Service Tech Uniforms: What Vegas Crews Actually Wear', excerpt: 'What HVAC techs wear for residential service vs commercial install — moisture-wicking polos, Red Kap mechanic shirts, what works in 130° attics.', readTime: '8 min read', date: 'May 9, 2026', image: '/images/generated/kit-plumbing-hvac.jpg', imageAlt: 'HVAC service tech in embroidered Port Authority polo' },
+ {
+ slug: 'what-is-screen-printing',
+ category: 'Decoration Methods',
+ title: 'What Is Screen Printing? How It Works, Where It Wins, Where It Doesn\'t',
+ excerpt: 'A working buyer\'s guide to the most common decoration method for t-shirts and crew apparel — what it is, when it wins, what it costs.',
+ readTime: '9 min read',
+ date: 'May 9, 2026',
+ image: '/images/generated/service-screen-printing.jpg',
+ imageAlt: 'Automatic screen printing press with squeegee pulling ink across mesh stencil',
+ },
+ {
+ slug: 'custom-hats-embroidered-screen-printed',
+ category: 'Decoration Methods',
+ title: 'Custom Hats: Embroidered vs Screen Printed — A Buyer\'s Guide',
+ excerpt: 'When to embroider, when to print, when to patch — and which hat blanks (Richardson 112, Yupoong, Carhartt) survive a Vegas crew.',
+ readTime: '8 min read',
+ date: 'May 9, 2026',
+ image: '/images/generated/service-embroidery.jpg',
+ imageAlt: 'Custom embroidered Richardson 112 trucker hats',
+ },
+ {
+ slug: 'custom-polo-shirts-las-vegas',
+ category: 'Products',
+ title: 'Custom Polo Shirts: Embroidery, Fabric, and Vendor Selection Guide',
+ excerpt: 'Custom embroidered polos for service techs and customer-facing roles — Port Authority K500/K540, Carhartt, Nike, Cutter & Buck blank picks.',
+ readTime: '9 min read',
+ date: 'May 9, 2026',
+ image: '/images/generated/service-embroidery.jpg',
+ imageAlt: 'Embroidered Port Authority silk touch polo with company logo',
+ },
+ {
+ slug: 'welder-uniforms-fr-shirts-las-vegas',
+ category: 'Compliance',
+ title: 'Welder Uniforms: FR Shirts, Leather Layers, and What Actually Holds Up',
+ excerpt: 'NFPA 2112 FR base + leather over-layer + branded decoration that doesn\'t void the rating. The actual three-layer welding PPE spec.',
+ readTime: '9 min read',
+ date: 'May 9, 2026',
+ image: '/images/generated/kit-electrical.jpg',
+ imageAlt: 'Welder wearing NFPA 2112 FR shirt with leather welding jacket',
+ },
+ {
+ slug: 'custom-embroidered-hoodies-sweatshirts',
+ category: 'Products',
+ title: 'Custom Embroidered Hoodies & Sweatshirts: A Buyer\'s Guide',
+ excerpt: 'Carhartt SUP01 vs Independent IND4000 vs Champion S700 vs Gildan 18500 — which hoodie blank fits which crew program.',
+ readTime: '8 min read',
+ date: 'May 9, 2026',
+ image: '/images/generated/service-embroidery.jpg',
+ imageAlt: 'Custom embroidered Carhartt hoodie with company logo',
+ },
+ {
+ slug: 'embroidery-shop-las-vegas-guide',
+ category: 'Local Guides',
+ title: 'Embroidery Shop in Las Vegas: How to Pick the Right One for Your Business',
+ excerpt: 'What separates a commercial embroidery shop from a home machine — capacity, FR-safe thread, digitizing files, turnaround.',
+ readTime: '8 min read',
+ date: 'May 9, 2026',
+ image: '/images/generated/service-embroidery.jpg',
+ imageAlt: 'Multi-head commercial embroidery machine running production',
+ },
+ {
+ slug: 'screen-printing-shop-las-vegas-guide',
+ category: 'Local Guides',
+ title: 'Screen Printing in Las Vegas: How to Pick the Right Shop for Your Business',
+ excerpt: 'What separates a commercial press from a garage operation — automatic carousel, cure tunnel verification, ink chemistry, ANSI 107 compliance.',
+ readTime: '8 min read',
+ date: 'May 9, 2026',
+ image: '/images/generated/service-screen-printing.jpg',
+ imageAlt: 'Automatic carousel screen printing press in production',
+ },
+ {
+ slug: 'minimum-order-quantity-embroidery-screen-printing',
+ category: 'Operational',
+ title: 'Minimum Order Quantity for Embroidery and Screen Printing: What\'s Realistic',
+ excerpt: 'Why MOQs exist, what drives them, and how to get small-batch (1-12 piece) work done with HTV, DTF, or sublimation alternatives.',
+ readTime: '7 min read',
+ date: 'May 9, 2026',
+ image: '/images/generated/service-embroidery.jpg',
+ imageAlt: 'Stack of custom embroidered work shirts in production',
+ },
+ {
+ slug: 'what-is-a-company-shirt',
+ category: 'Glossary',
+ title: 'What Is a Company Shirt? A Plain-English Guide to Branded Workwear',
+ excerpt: 'A plain-English glossary for owners and managers buying branded workwear. What to call them, what they\'re for, and how to pick the right one for your crew.',
+ readTime: '7 min read',
+ date: 'May 9, 2026',
+ image: '/images/generated/service-embroidery.jpg',
+ imageAlt: 'Embroidery machine stitching a company logo onto a navy work polo',
+ },
+ {
+ slug: 'how-much-to-embroider-a-shirt',
+ category: 'Pricing',
+ title: 'How Much Does It Cost to Embroider a Shirt? The 5 Factors That Drive Pricing',
+ excerpt: 'A working buyer\'s guide to reading an embroidery quote — what each line item means, what\'s negotiable, and what\'s not. Plus how long it actually takes to stitch a logo.',
+ readTime: '8 min read',
+ date: 'May 9, 2026',
+ image: '/images/generated/service-embroidery.jpg',
+ imageAlt: 'Multi-head commercial embroidery machine stitching company logos onto branded work polos',
+ },
+ {
+ slug: 'custom-hard-hats-osha-z89-decals-las-vegas',
+ category: 'Compliance',
+ title: 'Custom Hard Hats: How to Brand a Hard Hat Without Voiding ANSI Z89.1',
+ excerpt: 'The compliance rule on hard hat decoration, why vinyl decals are the only legal method, and how to spec branded hard hat decals for a Vegas crew.',
+ readTime: '7 min read',
+ date: 'May 9, 2026',
+ image: '/images/generated/kit-electrical.jpg',
+ imageAlt: 'Branded hard hat with company logo decal on construction site',
+ },
+ {
+ slug: 'branded-workwear-data-center-contractors-las-vegas',
+ category: 'Industries',
+ title: 'Branded Workwear for Data Center Contractors in Las Vegas: FR, Hi-Vis, and the Real Spec',
+ excerpt: "Las Vegas hyperscaler data center boom. What each trade actually wears by phase, by role, with FR and hi-vis specs that pass inspection.",
+ readTime: '11 min read',
+ date: 'Apr 28, 2026',
+ image: '/images/generated/kit-electrical.jpg',
+ imageAlt: 'FR-rated electrical contractor kit for Las Vegas data center construction',
+ },
+ {
+ slug: 'ansi-107-class-2-vs-class-3-hi-vis-las-vegas',
+ category: 'Compliance',
+ title: 'ANSI 107 Class 2 vs Class 3: What Las Vegas Road, Utility, and Night-Shift Crews Actually Need',
+ excerpt: 'Class 2 vs Class 3 vs Class E — which one your crew needs, when, and why. Practical guide for Las Vegas road, utility, paving, and night-shift contractors.',
+ readTime: '9 min read',
+ date: 'Apr 28, 2026',
+ image: '/images/generated/workwear-flatlay.jpg',
+ imageAlt: 'ANSI 107 Class 2 and Class 3 hi-vis safety apparel comparison flat-lay',
+ },
+ {
+ slug: 'new-hire-workwear-checklist-las-vegas-contractors',
+ category: 'Operations',
+ title: "New Hire Workwear Checklist for Las Vegas Contractors: What to Order Before Day One",
+ excerpt: 'A practical day-one workwear kit by trade — GC, electrical, HVAC, hi-vis road, solar, fleet — with brand specs, sizing tips, and realistic costs.',
+ readTime: '10 min read',
+ date: 'Apr 28, 2026',
+ image: '/images/generated/kit-gc.jpg',
+ imageAlt: 'New hire construction crew kit with embroidered shirts hi-vis vest and Carhartt pants',
+ },
+ {
+ slug: 'nevada-osha-heat-rules-2026-workwear',
+ category: 'Compliance',
+ title: 'Nevada OSHA Heat Rules 2026: What Las Vegas Contractors Need to Know About Workwear',
+ excerpt: "Nevada's heat illness standard takes effect in 2026 and changes what construction crews must wear. A practical guide for Las Vegas contractors — fabric weight, color, hi-vis, FR, and what your safety officer will ask about.",
+ readTime: '12 min read',
+ date: 'Apr 27, 2026',
+ image: '/images/generated/workwear-flatlay.jpg',
+ imageAlt: 'Breathable hi-vis and FR workwear flat-lay for Nevada OSHA heat rule compliance',
+ },
+ {
+ slug: 'logo-digitizing-101-embroidery',
+ category: 'Decoration Methods',
+ title: 'Logo Digitizing 101: Why Your First File Matters More Than Your Tenth Order',
+ excerpt: 'The single biggest predictor of how good your embroidered shirts will look isn\'t your logo, your fabric, or your shop. It\'s the digitizing file behind it.',
+ readTime: '7 min read',
+ date: 'Apr 28, 2026',
+ image: '/images/generated/service-embroidery.jpg',
+ imageAlt: 'Industrial embroidery machine stitching a contractor logo onto a navy work polo',
+ },
+ {
+ slug: 'plastisol-vs-water-based-ink-workwear',
+ category: 'Decoration Methods',
+ title: 'Plastisol vs Water-Based Ink for Workwear: What Holds Up on a Vegas Job Site',
+ excerpt: 'Two ink families behind almost every printed work shirt in Vegas. Different chemistry, different feel, very different lifespan.',
+ readTime: '9 min read',
+ date: 'Apr 21, 2026',
+ image: '/images/generated/service-screen-printing.jpg',
+ imageAlt: 'Screen printing press laying down ink on a heavyweight cotton work tee',
+ },
+ {
+ slug: 'how-many-shirts-per-crew-member-vegas',
+ category: 'Operations',
+ title: 'How Many Shirts Should You Order Per Crew Member? (Vegas GC Rule of Thumb)',
+ excerpt: 'A field-tested formula for outfitting construction crews in Las Vegas — by role, by season, with realistic wash rotations.',
+ readTime: '8 min read',
+ date: 'Apr 14, 2026',
+ image: '/images/generated/product-stack.jpg',
+ imageAlt: 'Stacked folded branded work shirts ready for delivery to a Las Vegas construction crew',
+ },
+ {
+ slug: 'nfpa-70e-fr-shirts-vegas-electricians',
+ category: 'Compliance',
+ title: 'FR Shirt Compliance for Vegas Electricians: NFPA 70E Without the Headache',
+ excerpt: 'CAT 1 vs CAT 2, the brands that actually hold up in Vegas heat, and how to embroider on FR without voiding the certification.',
+ readTime: '11 min read',
+ date: 'Apr 7, 2026',
+ image: '/images/generated/kit-electrical.jpg',
+ imageAlt: 'NFPA 70E flame-resistant electrical contractor kit with FR shirt and arc-rated gloves',
+ },
+ {
+ slug: 'company-store-vs-bulk-ordering',
+ category: 'Operations',
+ title: 'Bulk Ordering vs Company Store: The Real Math for Contractors',
+ excerpt:
+ 'Ordering 500 tees at once still looks cheaper on paper. Here\'s why the spreadsheet lies — and the actual cost per wearable piece when you add shrinkage and dead stock.',
+ readTime: '8 min read',
+ date: 'Apr 1, 2026',
+ image: '/images/generated/service-company-stores.jpg',
+ imageAlt: 'Branded company-store apparel program — folded polos and tees on shelves',
+ },
+ {
+ slug: 'screen-printing-vs-embroidery-construction',
+ category: 'Decoration Methods',
+ title: 'Screen Printing vs Embroidery: Which Is Right for Construction Gear?',
+ excerpt:
+ 'The real difference isn\'t price — it\'s durability, garment type, and how your logo reads on a jobsite. A straight-talk comparison for Vegas crews.',
+ readTime: '7 min read',
+ date: 'Mar 15, 2026',
+ image: '/images/generated/workwear-flatlay.jpg',
+ imageAlt: 'Flat-lay of branded construction workwear including shirts hi-vis vest cap and tape measure',
+ },
+ {
+ slug: 'how-to-outfit-a-construction-crew-vegas',
+ category: 'Crew Outfitting',
+ title: 'How to Outfit a Construction Crew in Las Vegas (Without Losing Your Mind)',
+ excerpt:
+ 'Sizing chaos, rush orders, dead inventory in a back closet. A practical playbook for outfitting 10, 50, or 500 people — built for Vegas contractors.',
+ readTime: '9 min read',
+ date: 'Mar 1, 2026',
+ image: '/images/generated/kit-gc.jpg',
+ imageAlt: 'General contractor crew outfit kit with embroidered polo softshell jacket and hard hat',
+ },
 ]
 
 const blogSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Blog',
-  '@id': 'https://bighornthreads.com/blog/#blog',
-  name: 'Field Notes — Bighorn Threads',
-  description: 'Practical insights on outfitting construction crews and trades in Las Vegas. Screen printing, embroidery, company stores, and bulk apparel — straight from the shop floor.',
-  url: 'https://bighornthreads.com/blog/',
-  inLanguage: 'en-US',
-  publisher: { '@id': 'https://bighornthreads.com/#organization' },
-  blogPost: posts.map((p) => ({
-    '@type': 'BlogPosting',
-    '@id': `https://bighornthreads.com/blog/${p.slug}/`,
-    headline: p.title,
-    description: p.excerpt,
-    datePublished: new Date(p.date).toISOString(),
-    url: `https://bighornthreads.com/blog/${p.slug}/`,
-    author: { '@type': 'Organization', name: 'Bighorn Threads' },
-  })),
+ '@context': 'https://schema.org',
+ '@type': 'Blog',
+ '@id': 'https://bighornthreads.com/blog/#blog',
+ name: 'Field Notes — Bighorn Threads',
+ description: 'Practical insights on outfitting construction crews and trades in Las Vegas. Screen printing, embroidery, company stores, and bulk apparel — straight from the shop floor.',
+ url: 'https://bighornthreads.com/blog/',
+ inLanguage: 'en-US',
+ publisher: { '@id': 'https://bighornthreads.com/#organization' },
+ blogPost: posts.map((p) => ({
+ '@type': 'BlogPosting',
+ '@id': `https://bighornthreads.com/blog/${p.slug}/`,
+ headline: p.title,
+ description: p.excerpt,
+ datePublished: new Date(p.date).toISOString(),
+ url: `https://bighornthreads.com/blog/${p.slug}/`,
+ author: { '@type': 'Organization', name: 'Bighorn Threads' },
+ })),
 }
 
 const itemListSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'ItemList',
-  '@id': 'https://bighornthreads.com/blog/#itemlist',
-  numberOfItems: posts.length,
-  itemListElement: posts.map((p, i) => ({
-    '@type': 'ListItem',
-    position: i + 1,
-    url: `https://bighornthreads.com/blog/${p.slug}/`,
-    name: p.title,
-  })),
+ '@context': 'https://schema.org',
+ '@type': 'ItemList',
+ '@id': 'https://bighornthreads.com/blog/#itemlist',
+ numberOfItems: posts.length,
+ itemListElement: posts.map((p, i) => ({
+ '@type': 'ListItem',
+ position: i + 1,
+ url: `https://bighornthreads.com/blog/${p.slug}/`,
+ name: p.title,
+ })),
 }
 ---
 
 <BaseLayout
-  title="Field Notes — Bighorn Threads Blog"
-  description="Practical insights on outfitting construction crews and trades in Las Vegas. Screen printing, embroidery, company stores, and bulk apparel — straight from the shop floor."
-  canonical="https://bighornthreads.com/blog/"
+ title="Field Notes — Bighorn Threads Blog"
+ description="Practical insights on outfitting construction crews and trades in Las Vegas. Screen printing, embroidery, company stores, and bulk apparel — straight from the shop floor."
+ canonical="https://bighornthreads.com/blog/"
 >
-  <!-- Hero -->
-  <section class="relative overflow-hidden border-b border-navy-800">
-    <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_40%,_rgba(193,155,61,0.05),_transparent)]"></div>
+ <!-- Hero -->
+ <section class="relative overflow-hidden border-b border-navy-800">
+ <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
+ <div class="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_40%,_rgba(193,155,61,0.05),_transparent)]"></div>
 
-    <div class="relative mx-auto max-w-5xl px-4 pt-24 pb-16 sm:px-6 sm:pt-28 lg:px-8 lg:pt-32">
-      <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Field Notes</span>
-      <h1 class="mb-6 font-heading text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
-        Insights for <span class="bg-gradient-to-r from-gold-500 to-gold-300 bg-clip-text text-transparent">Construction & Trades</span>
-      </h1>
-      <p class="max-w-2xl text-lg leading-relaxed text-gray-400 sm:text-xl">
-        Practical playbooks on branded apparel, decoration methods, and company store logistics — written for the people actually running crews in Las Vegas.
-      </p>
-    </div>
-  </section>
+ <div class="relative mx-auto max-w-5xl px-4 pt-24 pb-16 sm:px-6 sm:pt-28 lg:px-8 lg:pt-32">
+ <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Field Notes</span>
+ <h1 class="mb-6 font-heading text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+ Insights for <span class="bg-gradient-to-r from-gold-500 to-gold-300 bg-clip-text text-transparent">Construction & Trades</span>
+ </h1>
+ <p class="max-w-2xl text-lg leading-relaxed text-gray-400 sm:text-xl">
+ Practical playbooks on branded apparel, decoration methods, and company store logistics — written for the people actually running crews in Las Vegas.
+ </p>
+ </div>
+ </section>
 
-  <!-- Editorial intro -->
-  <section class="border-b border-navy-800 bg-navy-950 py-16 sm:py-20">
-    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-      <p class="mb-5 text-lg leading-relaxed text-gray-300">
-        Field Notes is our working archive for the stuff promo salespeople usually bury in a brochure. Decoration methods that hold up on a concrete crew. The real per-garment cost of a company store versus a bulk buy. ANSI hi-vis rules that get contractors fined. FR ratings that actually protect an electrician.
-      </p>
-      <p class="mb-5 text-lg leading-relaxed text-gray-300">
-        We write for general contractors, electrical shops, plumbing and HVAC companies, roofing crews, landscapers, ironworkers, and everyone in between — the companies building, wiring, and servicing Las Vegas. If you've got 10 people or 300, if you're running two vans or six yards, this is the kind of material we wish somebody had written for us fifteen years ago.
-      </p>
-      <p class="text-lg leading-relaxed text-gray-300">
-        Every post is written to be useful on its own. No fluff, no pivot-to-upsell, no "definitive guide" nonsense. If a section doesn't teach you something usable in the next quote you send or the next PPE decision you make, it doesn't go live.
-      </p>
-    </div>
-  </section>
+ <!-- Editorial intro -->
+ <section class="border-b border-navy-800 bg-navy-950 py-16 sm:py-20">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="mb-5 text-lg leading-relaxed text-gray-300">
+ Field Notes is our working archive for the stuff promo salespeople usually bury in a brochure. Decoration methods that hold up on a concrete crew. The real per-garment cost of a company store versus a bulk buy. ANSI hi-vis rules that get contractors fined. FR ratings that actually protect an electrician.
+ </p>
+ <p class="mb-5 text-lg leading-relaxed text-gray-300">
+ We write for general contractors, electrical shops, plumbing and HVAC companies, roofing crews, landscapers, ironworkers, and everyone in between — the companies building, wiring, and servicing Las Vegas. If you've got 10 people or 300, if you're running two vans or six yards, this is the kind of material we wish somebody had written for us when we were starting out.
+ </p>
+ <p class="text-lg leading-relaxed text-gray-300">
+ Every post is written to be useful on its own. No fluff, no pivot-to-upsell, no "definitive guide" nonsense. If a section doesn't teach you something usable in the next quote you send or the next PPE decision you make, it doesn't go live.
+ </p>
+ </div>
+ </section>
 
-  <!-- Posts grid -->
-  <section class="bg-navy-950 py-20">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {posts.map((post) => (
-          <a
-            href={`/blog/${post.slug}/`}
-            class="group flex flex-col overflow-hidden rounded-2xl border border-navy-700/50 bg-navy-900/40 transition-all hover:-translate-y-1 hover:border-gold-500/40 hover:bg-navy-800/60"
-          >
-            <div class="relative aspect-[16/10] overflow-hidden bg-navy-950/60">
-              <img
-                src={post.image}
-                alt={post.imageAlt}
-                width="800"
-                height="500"
-                loading="lazy"
-                decoding="async"
-                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-navy-950/50 via-transparent to-transparent"></div>
-              <span class="absolute left-4 top-4 inline-block rounded-full border border-gold-500/30 bg-navy-950/80 px-3 py-1 text-xs font-bold uppercase tracking-wider text-gold-400 backdrop-blur-sm">
-                {post.category}
-              </span>
-            </div>
-            <div class="flex flex-1 flex-col p-6">
-              <h2 class="mb-3 font-heading text-xl font-bold leading-tight tracking-tight text-white group-hover:text-gold-300">
-                {post.title}
-              </h2>
-              <p class="mb-6 line-clamp-2 text-sm leading-relaxed text-gray-400">
-                {post.excerpt}
-              </p>
-              <div class="mt-auto flex items-center justify-between border-t border-navy-800 pt-4">
-                <span class="font-mono text-xs uppercase tracking-wider text-gray-500">
-                  {post.readTime}
-                </span>
-                <span class="text-sm font-bold text-gold-500 group-hover:text-gold-400">
-                  Read more &rarr;
-                </span>
-              </div>
-            </div>
-          </a>
-        ))}
-      </div>
+ <!-- Posts grid -->
+ <section class="bg-navy-950 py-20">
+ <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+ <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+ {posts.map((post) => (
+ <a
+ href={`/blog/${post.slug}/`}
+ class="group flex flex-col overflow-hidden rounded-2xl border border-navy-700/50 bg-navy-900/40 transition-all hover:-translate-y-1 hover:border-gold-500/40 hover:bg-navy-800/60"
+ >
+ <div class="relative aspect-[16/10] overflow-hidden bg-navy-950/60">
+ <img
+ src={post.image}
+ alt={post.imageAlt}
+ width="800"
+ height="500"
+ loading="lazy"
+ decoding="async"
+ class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+ />
+ <div class="absolute inset-0 bg-gradient-to-t from-navy-950/50 via-transparent to-transparent"></div>
+ <span class="absolute left-4 top-4 inline-block rounded-full border border-gold-500/30 bg-navy-950/80 px-3 py-1 text-xs font-bold uppercase tracking-wider text-gold-400 backdrop-blur-sm">
+ {post.category}
+ </span>
+ </div>
+ <div class="flex flex-1 flex-col p-6">
+ <h2 class="mb-3 font-heading text-xl font-bold leading-tight tracking-tight text-white group-hover:text-gold-300">
+ {post.title}
+ </h2>
+ <p class="mb-6 line-clamp-2 text-sm leading-relaxed text-gray-400">
+ {post.excerpt}
+ </p>
+ <div class="mt-auto flex items-center justify-between border-t border-navy-800 pt-4">
+ <span class="font-mono text-xs uppercase tracking-wider text-gray-500">
+ {post.readTime}
+ </span>
+ <span class="text-sm font-bold text-gold-500 group-hover:text-gold-400">
+ Read more &rarr;
+ </span>
+ </div>
+ </div>
+ </a>
+ ))}
+ </div>
 
-      <!-- Cadence footer -->
-      <div class="mt-16 border-t border-navy-800 pt-10 text-center">
-        <p class="font-mono text-xs uppercase tracking-[0.2em] text-gray-300">New posts every two weeks</p>
-      </div>
-    </div>
-  </section>
+ <!-- Cadence footer -->
+ <div class="mt-16 border-t border-navy-800 pt-10 text-center">
+ <p class="font-mono text-xs uppercase tracking-[0.2em] text-gray-300">New posts every two weeks</p>
+ </div>
+ </div>
+ </section>
 
-  <script type="application/ld+json" set:html={JSON.stringify(blogSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(blogSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
 
-  <!-- CTA band -->
-  <section class="border-t border-navy-800 bg-navy-900/60 py-16">
-    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-      <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">
-        Ready to outfit your crew?
-      </h2>
-      <p class="mb-8 text-lg text-gray-400">
-        Talk to a real human who has been outfitting Vegas trades today.
-      </p>
-      <a
-        href="/contact/"
-        class="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-gold-500 px-8 py-4 text-lg font-bold text-navy-950 transition-all hover:bg-gold-400"
-      >
-        Get a Free Quote
-      </a>
-    </div>
-  </section>
+ <!-- CTA band -->
+ <section class="border-t border-navy-800 bg-navy-900/60 py-16">
+ <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">
+ Ready to outfit your crew?
+ </h2>
+ <p class="mb-8 text-lg text-gray-400">
+ Talk to a real human who has been outfitting Vegas trades today.
+ </p>
+ <a
+ href="/contact/"
+ class="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-gold-500 px-8 py-4 text-lg font-bold text-navy-950 transition-all hover:bg-gold-400"
+ >
+ Get a Free Quote
+ </a>
+ </div>
+ </section>
 </BaseLayout>
