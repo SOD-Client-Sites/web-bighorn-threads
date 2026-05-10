@@ -1,0 +1,67 @@
+---
+interface Props {
+  videoId: string
+  title: string
+  description: string
+  uploadDate: string
+  duration?: string
+  thumbnailUrl?: string
+  contentUrl?: string
+}
+
+const {
+  videoId,
+  title,
+  description,
+  uploadDate,
+  duration,
+  thumbnailUrl = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`,
+  contentUrl,
+} = Astro.props
+
+const embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1`
+const watchUrl = `https://www.youtube.com/watch?v=${videoId}`
+
+const videoSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'VideoObject',
+  name: title,
+  description,
+  thumbnailUrl: [thumbnailUrl],
+  uploadDate,
+  contentUrl: contentUrl || watchUrl,
+  embedUrl,
+  ...(duration ? { duration } : {}),
+  publisher: {
+    '@type': 'Organization',
+    name: 'Bighorn Threads',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://bighornthreads.com/logo.png',
+    },
+  },
+}
+---
+
+<figure class="my-8 rounded-lg overflow-hidden border border-zinc-800 bg-zinc-950">
+  <div class="relative" style="padding-top: 56.25%">
+    <iframe
+      src={embedUrl}
+      title={title}
+      loading="lazy"
+      class="absolute inset-0 w-full h-full"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe>
+  </div>
+  <figcaption class="px-4 py-3 text-sm text-zinc-400">
+    {title} —
+    <a href={watchUrl} target="_blank" rel="noopener" class="text-amber-400 hover:text-amber-300 underline underline-offset-4">
+      watch on YouTube
+    </a>
+  </figcaption>
+</figure>
+
+<script type="application/ld+json" set:html={JSON.stringify(videoSchema)} />
