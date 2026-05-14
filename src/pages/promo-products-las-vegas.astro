@@ -1,0 +1,265 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const page = {
+ title: 'Promotional Products in Las Vegas | Branded SWAG, Drinkware, Bags — Bighorn Threads',
+ description:
+ 'Promotional products for Las Vegas trade shows, corporate events, employee onboarding, and customer gifts. Drinkware, bags, tech, writing, awards — sourced from the SAGE catalog and decorated in-house. Get a quote.',
+ hero: '/images/generated/product-stack.jpg',
+ url: 'https://bighornthreads.com/promo-products-las-vegas/',
+}
+
+const stack = [
+ { label: 'The catalog', body: 'Sourced from SAGE — the wholesale promo industry\'s primary supplier database. Hundreds of thousands of branded items across drinkware, bags, tech, apparel, writing, awards, and event SWAG.' },
+ { label: 'The decoration', body: 'Branded in-house with embroidery, screen print, DTF, laser engraving, pad print, and full-color UV. The decoration matches the substrate — laser on metal, embroidery on fabric, UV on plastic.' },
+ { label: 'Use cases', body: 'Trade show booth giveaways, corporate event swag, employee onboarding kits, customer thank-you gifts, conference attendee bags, recruiting drives, milestone awards.' },
+ { label: 'Program-ready', body: 'Approved-vendor list on file for repeat orders. Reorder the same item at the same per-piece price. Common SKUs (drinkware, polos, bags) become house items after the first run.' },
+]
+
+const categories = [
+ { row: 'Drinkware', use: 'Yeti, Hydro Flask, Corkcicle, Stanley, RTIC, MiiR, Klean Kanteen', notes: 'Laser engraving on stainless. Print on poly. The most-requested promo category.' },
+ { row: 'Bags', use: 'Tote bags, backpacks, duffels, computer cases — Herschel, Patagonia, Igloo, Yeti', notes: 'Embroidery, screen print, or transfer depending on fabric and detail.' },
+ { row: 'Tech', use: 'Power banks, wireless chargers, Bluetooth speakers, USB drives, laptop stands', notes: 'Pad print or full-color UV print. Bose and JBL co-branded options available.' },
+ { row: 'Apparel', use: 'T-shirts, polos, hoodies, jackets, hats — full Bighorn workwear catalog', notes: 'Embroidery or screen print. See our apparel-specific pages for blank picks.' },
+ { row: 'Writing', use: 'Pens, notebooks, journals, highlighters — Moleskine, Leuchtturm, Cross', notes: 'Laser engraving, pad print, or debossed for premium notebooks.' },
+ { row: 'Awards & gifts', use: 'Crystal, glass, plaques, recognition gifts, milestone tokens', notes: 'Laser engraving and color-fill. Year-end employee recognition programs.' },
+ { row: 'Event SWAG', use: 'Lanyards, badge holders, tote bags, water bottles, hand sanitizer', notes: 'High-volume convention items, often ordered against an event date.' },
+]
+
+const eventTypes = [
+ { name: 'Trade show booths', detail: 'Vegas hosts the big ones — World of Concrete, IBS, ConExpo, AHR, AGC, SEMA. We outfit booth crews and supply giveaway items aligned to the audience.' },
+ { name: 'Corporate events', detail: 'All-hands meetings, sales kickoffs, customer-appreciation dinners. Branded gifts that match event theme and exec-tier expectations.' },
+ { name: 'Employee onboarding', detail: 'New-hire welcome kits — branded notebook, water bottle, pen, tote, t-shirt, lanyard, badge holder. Everything one team member needs day one.' },
+ { name: 'Customer thank-you', detail: 'High-touch client gifts at contract signing or quarterly check-ins. Premium drinkware, leather notebooks, recognized brand-name items.' },
+ { name: 'Recruiting drives', detail: 'Career fair giveaways and sign-on bonuses. Items recruits actually keep — water bottles, tech accessories, branded backpacks.' },
+ { name: 'Milestone & service awards', detail: 'Year-of-service recognition, project-completion gifts, retirement pieces. Engraved crystal, leather portfolios, or premium drinkware.' },
+]
+
+const faqs = [
+ { q: 'What promotional products do you carry?', a: 'We source from the SAGE wholesale promotional product catalog, the industry-standard database used by every legitimate promo distributor. That covers hundreds of thousands of items across drinkware, bags, tech, apparel, writing instruments, awards, and event SWAG. If you have a specific item in mind, we can almost always find it.' },
+ { q: 'What\'s the minimum order for promo products?', a: 'Minimums vary by item — branded pens often start at 100, premium drinkware at 24-48, custom apparel at 12-24, and award pieces at one. We quote against the specific item and decoration method.' },
+ { q: 'How do you decorate promotional products?', a: 'The decoration method matches the substrate. Laser engraving on metal drinkware and award pieces. Embroidery or screen print on apparel. Pad print or full-color UV on plastics and tech accessories. Debossing on premium leather notebooks. We pick the method that produces the cleanest result for the substrate.' },
+ { q: 'Can I order promotional products for a Las Vegas trade show?', a: 'Yes — Vegas hosts most major trade shows in the construction, building products, HVAC, and equipment segments. World of Concrete in January, IBS in February, ConExpo every three years, AHR Expo on rotation, AGC Annual, SEMA in November. We supply booth giveaways and crew apparel for all of them.' },
+ { q: 'Do you supply Yeti, Hydro Flask, and other premium drinkware brands?', a: 'Yes. Yeti, Hydro Flask, Corkcicle, Stanley, RTIC, MiiR, and Klean Kanteen are stocked in the SAGE catalog and are the most-ordered drinkware brands for corporate gifts. Decoration is laser engraving on stainless models and print on the polymer models.' },
+ { q: 'What\'s the lead time on promotional products?', a: 'Lead time depends on item availability, decoration complexity, and order size. Common items with on-file artwork move quickly. Specialty or imported items take longer. Send your event date with your inquiry and we\'ll quote a real production timeline against the calendar.' },
+ { q: 'Can you build a recurring promo program?', a: 'Yes. Most ongoing promo programs settle into 5-15 standard SKUs (a polo, a tee, a water bottle, a notebook, a lanyard) reordered against a quarterly cadence. We keep the artwork, sizing, and supplier on file so reorders run at the same per-piece pricing as the initial run.' },
+]
+
+const breadcrumb = {
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+ { '@type': 'ListItem', position: 2, name: 'Promo Products Las Vegas', item: page.url },
+ ],
+}
+
+const serviceSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'Service',
+ name: 'Promotional Products in Las Vegas',
+ serviceType: 'Branded promotional products and corporate gifts',
+ provider: { '@id': 'https://bighornthreads.com/#organization' },
+ areaServed: [
+ { '@type': 'City', name: 'Las Vegas' },
+ { '@type': 'City', name: 'Henderson' },
+ { '@type': 'City', name: 'North Las Vegas' },
+ { '@type': 'City', name: 'Summerlin' },
+ { '@type': 'City', name: 'Spring Valley' },
+ { '@type': 'City', name: 'Paradise' },
+ ],
+ description: page.description,
+ url: page.url,
+}
+
+const faqSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+}
+---
+
+<BaseLayout
+ title={page.title}
+ description={page.description}
+ canonical={page.url}
+ heroImage={page.hero}
+>
+ <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+ <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+ <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
+ <div class="absolute inset-0">
+ <img src={page.hero} alt="" aria-hidden="true" class="h-full w-full object-cover opacity-30" width="1600" height="900" loading="eager" fetchpriority="high" />
+ <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/40" />
+ <div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_75%_-10%,_rgba(193,155,61,0.15),_transparent)]" />
+ </div>
+ <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-400">Home</a>
+ <span class="px-2 text-gray-600">/</span>
+ <span class="text-gold-500">Promo Products</span>
+ </nav>
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Branded Goods</span>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+ Promotional Products in Las Vegas <span class="text-gold-500">— SWAG that earns shelf space, not landfill space.</span>
+ </h1>
+ <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ Drinkware, bags, tech, writing, awards. Sourced from the SAGE catalog. Decorated in-house. The right item, the right brand, the right decoration method.
+ </p>
+ <div class="mt-10 flex flex-wrap items-center gap-3">
+ <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25">
+ Get a Quote
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+ </a>
+ <a href="tel:+17029048923" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gold-500/40 px-6 py-3 font-mono text-sm font-medium text-gold-500 transition-all hover:border-gold-500 hover:bg-gold-500/5">
+ 702.904.8923
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">What You Get</span>
+ <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">A promo program, not a one-off swag bag.</h2>
+ </div>
+ <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+ {stack.map((s) => (
+ <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/30 hover:bg-navy-900/60">
+ <h3 class="mb-3 font-heading text-lg font-bold leading-tight tracking-tight text-white">{s.label}</h3>
+ <p class="text-sm leading-relaxed text-gray-300">{s.body}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-10 max-w-2xl">
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Categories</span>
+ <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Where the SAGE catalog gets us.</h2>
+ <p class="mt-4 text-lg leading-relaxed text-gray-300">
+ The major promo verticals, the brands inside each, and the decoration method that fits the substrate.
+ </p>
+ </div>
+ <div class="overflow-hidden rounded-2xl border border-navy-700/40">
+ <table class="w-full">
+ <thead class="bg-navy-900/60">
+ <tr class="border-b border-navy-700/40">
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500">Category</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500">What's Inside</th>
+ <th class="hidden px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500 lg:table-cell">Decoration Method</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-navy-800 bg-navy-900/30">
+ {categories.map((r) => (
+ <tr class="transition-colors hover:bg-navy-900/60">
+ <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-400">{r.row}</td>
+ <td class="px-6 py-5 align-top font-heading text-base font-bold text-white">{r.use}</td>
+ <td class="hidden px-6 py-5 align-top text-sm text-gray-300 lg:table-cell">{r.notes}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
+
+ <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Use Cases</span>
+ <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Six places promo products earn their cost.</h2>
+ </div>
+ <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+ {eventTypes.map((u) => (
+ <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+ <h3 class="mb-2 font-heading text-lg font-bold tracking-tight text-white">{u.name}</h3>
+ <p class="text-sm leading-relaxed text-gray-300">{u.detail}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">The Buyer's Read</span>
+ <h2 class="mb-8 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+ Promo products that get used, not thrown out.
+ </h2>
+ <div class="space-y-5 text-lg leading-relaxed text-navy-200">
+ <p>
+ Promotional products work as a marketing channel when the item is something the recipient actually keeps and uses. The cheap pen, the foam stress ball, and the plastic-imitation drinkware all end up in the trash within a week — the brand-impression-per-dollar math on those items rounds toward zero. A premium water bottle, a real Yeti tumbler, a quality leather notebook, or a recognized-brand backpack lives on someone's desk or in their car for years and earns the brand impression every time it's seen.
+ </p>
+ <p>
+ The category that wins on impression-per-dollar across nearly every event type is drinkware, specifically premium stainless drinkware: Yeti, Hydro Flask, Corkcicle, Stanley, RTIC, MiiR, and Klean Kanteen. These items survive normal wear, look premium on first impression, and get used daily. Laser engraving on stainless gives a clean, permanent decoration that matches the quality of the underlying piece. The economic math at corporate-gift volume is favorable enough that drinkware is the most-requested category in the SAGE catalog.
+ </p>
+ <p>
+ The trade show segment is its own use case. Vegas hosts the largest construction-adjacent trade shows in North America — World of Concrete, the International Builders' Show, ConExpo, AHR Expo, AGC Annual, SEMA. Booth giveaway strategy ranges from low-cost high-volume items (branded lanyards, mini hand sanitizer, pens) to mid-tier "second visit" gifts (drinkware, tote bags) to premium "qualified-lead" gifts (jackets, premium notebooks, leather portfolios). The right mix depends on booth traffic, qualifying questions, and what the sales team needs to send home with each lead category.
+ </p>
+ <p>
+ Recurring promo programs settle into a small set of standard SKUs after the first few orders — a polo, a t-shirt, a water bottle, a notebook, a lanyard. Once those are on file with approved artwork and supplier numbers, reorders run at the same per-piece pricing without re-quoting. Most ongoing programs reorder against a quarterly cadence (events, new-hire onboarding, customer thank-you windows).
+ </p>
+ <p>
+ For event-specific programs, see our <a href="/trade-show-apparel-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">trade show apparel guide</a>. For deeper reads on apparel and decoration, see our <a href="/blog/trade-show-apparel-booth-crew/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">booth-crew apparel playbook</a> and the <a href="/services/embroidery-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">embroidery service page</a> for decoration specifics.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">FAQ</span>
+ <h2 class="mb-12 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Promo product questions, answered.</h2>
+ <div class="space-y-3">
+ {faqs.map((f) => (
+ <details class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-5 transition-all hover:border-gold-500/30 open:border-gold-500/40">
+ <summary class="flex cursor-pointer list-none items-start justify-between gap-4">
+ <h3 class="font-heading text-lg font-bold leading-tight tracking-tight text-white">{f.q}</h3>
+ <span class="mt-1 flex-shrink-0 text-gold-500 transition-transform group-open:rotate-45">
+ <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+ </span>
+ </summary>
+ <p class="mt-4 text-base leading-relaxed text-gray-300">{f.a}</p>
+ </details>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <section class="border-b border-navy-800 bg-navy-950 py-16">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <span class="mb-6 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Pair It With</span>
+ <div class="grid gap-5 md:grid-cols-3">
+ <a href="/trade-show-apparel-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+ <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Trade Show Apparel</h3>
+ <p class="mt-2 text-sm text-gray-400">Booth crew apparel that pairs with the giveaway items.</p>
+ </a>
+ <a href="/catalog/promotional-products/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+ <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Browse Promo Catalog</h3>
+ <p class="mt-2 text-sm text-gray-400">Curated picks from the SAGE catalog by category.</p>
+ </a>
+ <a href="/company-stores/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+ <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Company Stores</h3>
+ <p class="mt-2 text-sm text-gray-400">Private storefront for ongoing promo + apparel programs.</p>
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <section class="bg-navy-900/60 py-20">
+ <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Ready to spec your promo program?</h2>
+ <p class="mb-8 text-lg text-gray-300">Send your event date, audience, and budget tier.</p>
+ <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+ <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>
+ <a href="tel:+17029048923" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gray-600 px-8 py-4 font-mono text-base font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+</BaseLayout>

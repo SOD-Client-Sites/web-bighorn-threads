@@ -1,0 +1,261 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const page = {
+ title: 'Custom Lanyards in Las Vegas | Trade Show, Conference, Staff ID — Bighorn Threads',
+ description:
+ 'Custom lanyards in Las Vegas — woven, screen-printed, dye-sublimated. For trade show badges, conference attendees, corporate ID, hospital and school staff. Breakaway safety hardware. Get a quote.',
+ hero: '/images/generated/service-branded-apparel.jpg',
+ url: 'https://bighornthreads.com/custom-lanyards-las-vegas/',
+}
+
+const stack = [
+ { label: 'The decoration', body: 'Three core methods — silk-screen for solid logos, full-color dye-sublimation for photographic art, and woven for premium logo-into-fabric finish. Method matches the design and the budget tier.' },
+ { label: 'The hardware', body: 'Bulldog clip, swivel hook, lobster claw, breakaway safety release, badge reel attachment, double-end clip. Picked to match the badge weight and venue safety policy.' },
+ { label: 'Width range', body: '3/8", 1/2", 5/8", 3/4", and 1" widths. Wider lanyards for heavier badges or larger logo prints. 5/8" is the convention default.' },
+ { label: 'Materials', body: 'Polyester (the workhorse), recycled rPET (sustainability-focused programs), and bamboo or cotton for premium events.' },
+]
+
+const decorations = [
+ { row: 'Silk-screen print', use: 'One- to four-color spot logos on solid lanyard color', notes: 'Cleanest result for simple logos. Lowest setup cost. Most-ordered method.' },
+ { row: 'Dye-sublimation (full color)', use: 'Photographic, gradient, or multi-color art', notes: 'Edge-to-edge full-color print. No color-count limit. Standard for trade shows.' },
+ { row: 'Woven', use: 'Premium events, executive lanyards, association awards', notes: 'Logo woven into the fabric — looks and feels textile-tier. Highest perceived quality.' },
+ { row: 'Heat transfer', use: 'Small runs with full-color art', notes: 'Lower setup than dye-sub for short runs. Less durable on heavy-wash programs.' },
+]
+
+const useCases = [
+ { name: 'Trade show attendee badges', detail: 'Vegas hosts the biggest shows in North America. Lanyards are the highest-volume convention SWAG. Branded by the show, the host org, or a sponsor.' },
+ { name: 'Corporate office ID', detail: 'Daily-wear staff ID with clip or badge reel. Branded with company logo, often paired with a printed name badge.' },
+ { name: 'Hospital and clinical staff', detail: 'Medical and clinical ID with breakaway safety release (required by most hospital safety policies). Color-coded by department or shift.' },
+ { name: 'School and university', detail: 'Student, faculty, and visitor ID. Often dye-sublimated with school logo and color scheme. Breakaway hardware standard.' },
+ { name: 'Conference and event staff', detail: '"STAFF" or "CREW" lanyards differentiating event team from attendees. Often a different color from the attendee lanyard.' },
+ { name: 'VIP and sponsor tiers', detail: 'Premium woven lanyards for VIP, speaker, sponsor, or executive attendee tiers. Visual differentiation at distance.' },
+]
+
+const faqs = [
+ { q: 'What\'s the most popular lanyard width?', a: '5/8" is the convention and corporate ID default — wide enough to fit a 1-color or basic 2-color logo cleanly, narrow enough to feel comfortable around the neck for a full event day. 3/4" and 1" are used for heavier badges or larger logo prints. 3/8" and 1/2" are tighter, often used in school and clinical settings.' },
+ { q: 'Should I use silk-screen, dye-sublimation, or woven?', a: 'Silk-screen wins on cost for simple solid-color logos. Dye-sublimation is required for photographic or gradient art and for edge-to-edge full-color prints — standard at trade shows. Woven is the premium choice for VIP, sponsor, executive, or association lanyards where the textile-tier feel matters.' },
+ { q: 'What lanyard hardware do I need for a heavy badge?', a: 'For heavy plastic badges, RFID badges, or badges with multiple inserts, use a swivel hook or lobster claw rather than a bulldog clip. The bulldog clip can come loose under repeated weight. For badge reels (retractable), pair with a swivel hook lanyard so the reel can rotate.' },
+ { q: 'Are breakaway safety lanyards required?', a: 'Required at most hospitals, schools, and many manufacturing or industrial sites — breakaway hardware releases under load to prevent strangulation if the lanyard catches on equipment or doors. Some venues mandate it; safety-conscious programs spec it by default. Adds a small per-piece cost.' },
+ { q: 'Can I order eco-friendly or sustainable lanyards?', a: 'Yes. Recycled rPET polyester (made from recycled plastic bottles), bamboo, and organic cotton are the three most-ordered sustainable lanyard materials. rPET is the most cost-comparable to standard polyester and the easiest to print on.' },
+ { q: 'What\'s the minimum lanyard order?', a: 'Most lanyard programs run 100 pieces minimum on silk-screen and dye-sublimation methods because of overseas production economics. Smaller runs (under 100) are possible with domestic short-run vendors at a higher per-piece cost.' },
+ { q: 'How long does a lanyard order take?', a: 'Standard production runs through overseas manufacturing — lead time depends on production calendar and shipping. Domestic short-run options exist for faster turnaround. Send your event date with your inquiry and we\'ll quote a real timeline against the calendar.' },
+]
+
+const breadcrumb = {
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+ { '@type': 'ListItem', position: 2, name: 'Custom Lanyards Las Vegas', item: page.url },
+ ],
+}
+
+const serviceSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'Service',
+ name: 'Custom Lanyards in Las Vegas',
+ serviceType: 'Branded lanyards for trade shows, conferences, corporate ID, and staff identification',
+ provider: { '@id': 'https://bighornthreads.com/#organization' },
+ areaServed: [
+ { '@type': 'City', name: 'Las Vegas' },
+ { '@type': 'City', name: 'Henderson' },
+ { '@type': 'City', name: 'North Las Vegas' },
+ { '@type': 'City', name: 'Paradise' },
+ { '@type': 'City', name: 'Summerlin' },
+ ],
+ description: page.description,
+ url: page.url,
+}
+
+const faqSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+}
+---
+
+<BaseLayout
+ title={page.title}
+ description={page.description}
+ canonical={page.url}
+ heroImage={page.hero}
+>
+ <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+ <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+ <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
+ <div class="absolute inset-0">
+ <img src={page.hero} alt="" aria-hidden="true" class="h-full w-full object-cover opacity-30" width="1600" height="900" loading="eager" fetchpriority="high" />
+ <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/40" />
+ <div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_75%_-10%,_rgba(193,155,61,0.15),_transparent)]" />
+ </div>
+ <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-400">Home</a>
+ <span class="px-2 text-gray-600">/</span>
+ <span class="text-gold-500">Custom Lanyards</span>
+ </nav>
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Convention SWAG</span>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+ Custom Lanyards in Las Vegas <span class="text-gold-500">— badge holders for the convention capital.</span>
+ </h1>
+ <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ Silk-screen, dye-sublimated, or woven. Five widths, every standard hardware option, breakaway safety where it's required. Branded for the show, the office, or the staff badge.
+ </p>
+ <div class="mt-10 flex flex-wrap items-center gap-3">
+ <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25">
+ Get a Quote
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+ </a>
+ <a href="tel:+17029048923" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gold-500/40 px-6 py-3 font-mono text-sm font-medium text-gold-500 transition-all hover:border-gold-500 hover:bg-gold-500/5">
+ 702.904.8923
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">What You Get</span>
+ <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">A lanyard program built for Vegas convention scale.</h2>
+ </div>
+ <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+ {stack.map((s) => (
+ <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/30 hover:bg-navy-900/60">
+ <h3 class="mb-3 font-heading text-lg font-bold leading-tight tracking-tight text-white">{s.label}</h3>
+ <p class="text-sm leading-relaxed text-gray-300">{s.body}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-10 max-w-2xl">
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Decoration Methods</span>
+ <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Pick the method that matches the art.</h2>
+ <p class="mt-4 text-lg leading-relaxed text-gray-300">
+ Three core decoration methods, each with its right place. We pick the one that fits your art, your venue, and your budget tier.
+ </p>
+ </div>
+ <div class="overflow-hidden rounded-2xl border border-navy-700/40">
+ <table class="w-full">
+ <thead class="bg-navy-900/60">
+ <tr class="border-b border-navy-700/40">
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500">Method</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500">When to Use</th>
+ <th class="hidden px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500 lg:table-cell">Notes</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-navy-800 bg-navy-900/30">
+ {decorations.map((r) => (
+ <tr class="transition-colors hover:bg-navy-900/60">
+ <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-400">{r.row}</td>
+ <td class="px-6 py-5 align-top font-heading text-base font-bold text-white">{r.use}</td>
+ <td class="hidden px-6 py-5 align-top text-sm text-gray-300 lg:table-cell">{r.notes}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
+
+ <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Use Cases</span>
+ <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Six places lanyards do the work of identification.</h2>
+ </div>
+ <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+ {useCases.map((u) => (
+ <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+ <h3 class="mb-2 font-heading text-lg font-bold tracking-tight text-white">{u.name}</h3>
+ <p class="text-sm leading-relaxed text-gray-300">{u.detail}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">The Buyer's Read</span>
+ <h2 class="mb-8 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+ Custom lanyards for Vegas conventions, conferences, and staff ID.
+ </h2>
+ <div class="space-y-5 text-lg leading-relaxed text-navy-200">
+ <p>
+ Las Vegas is the convention capital of North America. The major construction, building products, HVAC, equipment, hospitality, and consumer-product trade shows all run here on annual or rotating cadences. Lanyards are the highest-volume convention SWAG by unit count — every attendee gets one at the gate, and the show host (or sponsor) is the brand stamped on every neck on the floor for three days. The brand-impression-per-dollar math on a sponsor lanyard at a 50,000-attendee show is unbeatable in promotional product economics.
+ </p>
+ <p>
+ The width and hardware decision tracks the badge. The convention default is 5/8" wide polyester with a swivel hook — wide enough to print a clean logo, narrow enough to be comfortable for a long event day, and the swivel hook handles the rotation that a static hook doesn\'t. Heavier badges (multi-page show guides, RFID inserts, premium plastic shells) push to 3/4" or 1" with a lobster claw rather than a bulldog clip — bulldog clips can come loose under repeated weight or door snags.
+ </p>
+ <p>
+ The decoration method tracks the art. Silk-screen wins on cost for simple solid-color logos and remains the highest-volume method for sponsor and host-org lanyards. Dye-sublimation is required when the art is photographic, gradient, multi-color, or designed to fill the lanyard edge-to-edge — the standard for full-color event branding and for VIP-tier visual differentiation. Woven lanyards (logo woven into the fabric rather than printed on top) are the premium tier — used for executive, speaker, sponsor, and association-award lanyards where the textile-tier feel justifies the cost.
+ </p>
+ <p>
+ Breakaway safety is required at most hospitals, school districts, and many manufacturing or industrial sites — the lanyard releases under load to prevent strangulation if it catches on equipment or doors. Convention venues do not generally mandate breakaway, but safety-conscious sponsors increasingly spec it by default. The per-piece cost is small; the policy alignment matters more than the price.
+ </p>
+ <p>
+ For event-paired apparel, see our <a href="/trade-show-apparel-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">trade show apparel guide</a>. For broader event SWAG including drinkware, bags, and tech, see the <a href="/promo-products-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">promo products hub</a>.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">FAQ</span>
+ <h2 class="mb-12 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Lanyard questions, answered.</h2>
+ <div class="space-y-3">
+ {faqs.map((f) => (
+ <details class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-5 transition-all hover:border-gold-500/30 open:border-gold-500/40">
+ <summary class="flex cursor-pointer list-none items-start justify-between gap-4">
+ <h3 class="font-heading text-lg font-bold leading-tight tracking-tight text-white">{f.q}</h3>
+ <span class="mt-1 flex-shrink-0 text-gold-500 transition-transform group-open:rotate-45">
+ <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+ </span>
+ </summary>
+ <p class="mt-4 text-base leading-relaxed text-gray-300">{f.a}</p>
+ </details>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <section class="border-b border-navy-800 bg-navy-950 py-16">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <span class="mb-6 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Pair It With</span>
+ <div class="grid gap-5 md:grid-cols-3">
+ <a href="/trade-show-apparel-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+ <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Trade Show Apparel</h3>
+ <p class="mt-2 text-sm text-gray-400">Booth crew apparel that pairs with the badge program.</p>
+ </a>
+ <a href="/promo-products-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+ <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Promo Products Hub</h3>
+ <p class="mt-2 text-sm text-gray-400">Drinkware, bags, tech — the full event SWAG range.</p>
+ </a>
+ <a href="/custom-yeti-drinkware-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+ <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Custom Yeti Drinkware</h3>
+ <p class="mt-2 text-sm text-gray-400">Higher-tier giveaway for qualified leads or sponsor gifting.</p>
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <section class="bg-navy-900/60 py-20">
+ <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Ready to brand your lanyards?</h2>
+ <p class="mb-8 text-lg text-gray-300">Send your art, quantity, and event date.</p>
+ <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+ <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>
+ <a href="tel:+17029048923" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gray-600 px-8 py-4 font-mono text-base font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+</BaseLayout>

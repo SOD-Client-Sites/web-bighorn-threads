@@ -1,0 +1,274 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const page = {
+ title: 'Custom Safety Vests in Las Vegas | ANSI 107 Class 2 & Class 3 Branded Hi-Vis — Bighorn Threads',
+ description:
+ 'Custom hi-vis safety vests for Las Vegas crews — ANSI/ISEA 107 Class 2 and Class 3, branded within the 72 sq inch decoration limit so the certification stays valid. ML Kishigo, PIP, Radians, Pyramex. Get a quote.',
+ hero: '/images/generated/service-screen-printing.jpg',
+ url: 'https://bighornthreads.com/custom-safety-vests-las-vegas/',
+}
+
+const stack = [
+ { label: 'The vest', body: 'ANSI/ISEA 107-certified hi-vis vests from ML Kishigo, PIP, Radians, and Pyramex. Class 2 for general construction and surveying. Class 3 for highway and night work.' },
+ { label: 'The branding', body: 'Embroidered or screen-printed company logo on the chest and back yoke, within the 72 sq inch non-retroreflective decoration limit. Certification stays valid.' },
+ { label: 'Color options', body: 'Fluorescent yellow-green (default — highest contrast against most backgrounds) and fluorescent orange (utility, oil/gas, hunting-adjacent visibility programs). Both Class 2 and 3 available in each.' },
+ { label: 'Sizing', body: 'S–5XL on most blanks. Mesh and solid fabric options. Multi-pocket "surveyor" cuts for trades that carry tools, badges, or radios.' },
+]
+
+const classes = [
+ { row: 'Class 2', meaning: '775 sq in fluorescent base + retroreflective tape', use: 'General construction, surveying, school crossing, parking, daytime traffic-adjacent work' },
+ { row: 'Class 3', meaning: '1,240 sq in fluorescent base + sleeves required', use: 'Highway work, night-shift, low-visibility conditions, traffic-exposed roles' },
+ { row: 'Class E', meaning: 'Pants/shorts only — pairs with Class 2 or 3 top', use: 'Worn over the vest for full ANSI 107 compliance on highway projects' },
+]
+
+const placements = [
+ { name: 'Left chest logo', detail: 'Standard 3–3.5" wide. Within the published placement zone on every Class 2 and 3 vest.' },
+ { name: 'Right chest name/title', detail: 'First name, last initial, and title (Foreman, Super, Lead). Standard for crew identification.' },
+ { name: 'Back yoke logo', detail: 'Above the upper retroreflective tape. Sized to stay clear of the tape lines — usually 6–8" wide.' },
+ { name: 'Back lower panel', detail: 'Below the lowest reflective stripe. For project IDs, gate badges, or "TRAINEE" / "SAFETY" callouts.' },
+]
+
+const faqs = [
+ { q: 'Can you put a logo on an ANSI 107 safety vest?', a: 'Yes — within published placement limits. ANSI/ISEA 107 caps non-retroreflective decoration on a Class 2 vest at 72 square inches total across all placements, and the decoration cannot cover or obstruct any of the retroreflective tape required for the certification. Embroidered and screen-printed logos are both compliant if they fit within the area limit.' },
+ { q: 'What\'s the size limit for a logo on a hi-vis vest?', a: 'ANSI/ISEA 107 caps non-retroreflective decoration at 72 square inches total on a Class 2 garment. Most company logos use roughly 8-12 square inches at 3-3.5 inches wide on the chest, well within the limit. Adding a back logo can push closer to the cap on larger vests.' },
+ { q: 'Can decoration affect ANSI compliance on a safety vest?', a: 'Yes if it\'s done wrong. Decoration that covers any part of the retroreflective tape voids the certification immediately. Exceeding the 72 sq inch decoration limit also voids it. Working within published manufacturer placement guides keeps the certification intact.' },
+ { q: 'Class 2 vs Class 3 — which one does my crew need?', a: 'Class 2 is the standard for general construction, surveying, school zones, and daytime traffic-adjacent work. Class 3 is required for highway projects, night-shift work, and low-visibility conditions. Many state DOTs require Class 3 for any worker within a defined distance of moving traffic.' },
+ { q: 'Embroidery or screen print on a hi-vis vest?', a: 'Embroidery has an advantage on vests because it doesn\'t add ink that could be misread as retroreflective material under headlights. Screen printing is fine for higher-volume runs and large back logos. Both are compliant within the 72 sq inch decoration limit.' },
+ { q: 'Can you supply hi-vis vests with company logo and worker name?', a: 'Yes. Standard layout: company logo on the left chest at 3-3.5" wide, worker name (first + last initial) on the right chest, large back logo above the retroreflective tape line. All within the published placement zones.' },
+ { q: 'Where can I get ANSI 107-compliant custom safety vests in Las Vegas?', a: 'Bighorn Threads supplies and decorates ANSI 107 Class 2 and Class 3 safety vests for Vegas contractors, road crews, and night-work operations. ML Kishigo, PIP, Radians, and Pyramex blanks in stock S-5XL. Decoration kept within ANSI placement and area limits. Send your roster size and program spec for a quote.' },
+]
+
+const breadcrumb = {
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+ { '@type': 'ListItem', position: 2, name: 'Custom Safety Vests Las Vegas', item: page.url },
+ ],
+}
+
+const serviceSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'Service',
+ name: 'Custom Safety Vests in Las Vegas',
+ serviceType: 'ANSI 107 Class 2 and Class 3 hi-vis safety vests with compliant decoration',
+ provider: { '@id': 'https://bighornthreads.com/#organization' },
+ areaServed: [
+ { '@type': 'City', name: 'Las Vegas' },
+ { '@type': 'City', name: 'Henderson' },
+ { '@type': 'City', name: 'North Las Vegas' },
+ { '@type': 'City', name: 'Summerlin' },
+ { '@type': 'City', name: 'Spring Valley' },
+ ],
+ description: page.description,
+ url: page.url,
+}
+
+const faqSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+}
+---
+
+<BaseLayout
+ title={page.title}
+ description={page.description}
+ canonical={page.url}
+ heroImage={page.hero}
+>
+ <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+ <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+ <!-- Hero -->
+ <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
+ <div class="absolute inset-0">
+ <img src={page.hero} alt="" aria-hidden="true" class="h-full w-full object-cover opacity-30" width="1600" height="900" loading="eager" fetchpriority="high" />
+ <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/40" />
+ <div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_75%_-10%,_rgba(193,155,61,0.15),_transparent)]" />
+ </div>
+
+ <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-400">Home</a>
+ <span class="px-2 text-gray-600">/</span>
+ <span class="text-gold-500">Custom Safety Vests</span>
+ </nav>
+
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">ANSI 107 Hi-Vis</span>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+ Custom Safety Vests in Las Vegas <span class="text-gold-500">— ANSI 107 Class 2 and Class 3, branded compliant.</span>
+ </h1>
+ <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ Hi-vis vests from ML Kishigo, PIP, Radians, and Pyramex. Logo and crew names within the 72 sq inch decoration limit. The retroreflective tape stays clear. The certification stays valid.
+ </p>
+
+ <div class="mt-10 flex flex-wrap items-center gap-3">
+ <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25">
+ Get a Quote
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+ </a>
+ <a href="tel:+17029048923" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gold-500/40 px-6 py-3 font-mono text-sm font-medium text-gold-500 transition-all hover:border-gold-500 hover:bg-gold-500/5">
+ 702.904.8923
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <!-- Stack -->
+ <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">What You Get</span>
+ <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">A branded hi-vis vest program that holds the rating.</h2>
+ </div>
+
+ <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+ {stack.map((s) => (
+ <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/30 hover:bg-navy-900/60">
+ <h3 class="mb-3 font-heading text-lg font-bold leading-tight tracking-tight text-white">{s.label}</h3>
+ <p class="text-sm leading-relaxed text-gray-300">{s.body}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- Class table -->
+ <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-10 max-w-2xl">
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">ANSI/ISEA 107</span>
+ <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Class 2, Class 3, Class E — what to spec.</h2>
+ <p class="mt-4 text-lg leading-relaxed text-gray-300">
+ The class determines fluorescent base area, retroreflective tape requirements, and sleeve coverage. Project plan or DOT spec drives which one you need.
+ </p>
+ </div>
+
+ <div class="overflow-hidden rounded-2xl border border-navy-700/40">
+ <table class="w-full">
+ <thead class="bg-navy-900/60">
+ <tr class="border-b border-navy-700/40">
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500">Class</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500">Requires</th>
+ <th class="hidden px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500 lg:table-cell">Typical Use</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-navy-800 bg-navy-900/30">
+ {classes.map((r) => (
+ <tr class="transition-colors hover:bg-navy-900/60">
+ <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-400">{r.row}</td>
+ <td class="px-6 py-5 align-top font-heading text-base font-bold text-white">{r.meaning}</td>
+ <td class="hidden px-6 py-5 align-top text-sm text-gray-300 lg:table-cell">{r.use}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
+
+ <!-- Placements -->
+ <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Decoration Placements</span>
+ <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Where the logo and name go — without crossing the tape.</h2>
+ </div>
+
+ <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+ {placements.map((p) => (
+ <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+ <h3 class="mb-2 font-heading text-lg font-bold tracking-tight text-white">{p.name}</h3>
+ <p class="text-sm leading-relaxed text-gray-300">{p.detail}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- Deep dive -->
+ <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">The Buyer's Read</span>
+ <h2 class="mb-8 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+ Custom safety vests for Vegas crews — branded without breaking the certification.
+ </h2>
+
+ <div class="space-y-5 text-lg leading-relaxed text-navy-200">
+ <p>
+ A high-visibility safety vest works because the retroreflective tape returns light to drivers, equipment operators, and other workers — making the wearer visible at distances and in conditions where unmarked clothing wouldn't be. Adding decoration that covers the retroreflective tape directly degrades that protection. Adding too much non-retroreflective fabric area reduces the contrast between the bright fluorescent base and the surrounding environment.
+ </p>
+ <p>
+ <a href="https://safetyequipment.org/standards/ansi-isea-107/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500" rel="noopener" target="_blank">ANSI/ISEA 107</a> codifies these limits. <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.96" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500" rel="noopener" target="_blank">OSHA references the standard</a> for traffic-exposed construction work, and many state DOT specifications require ANSI 107 Class 2 or Class 3 compliance. Decoration that breaks the rating creates compliance risk for both the worker and the contractor.
+ </p>
+ <p>
+ The practical decoration spec: company logo on the left chest at 3 to 3.5 inches wide, worker name (first + last initial) on the right chest in half-inch lettering, and a larger back logo above the upper retroreflective tape line. That layout uses roughly 30-40 square inches total — well within the 72 square inch non-retroreflective decoration cap. Adding a lower back panel callout (project ID, "SAFETY", "TRAINEE") can push closer to the limit on larger vests; we run the math on every order before sending production to make sure it stays compliant.
+ </p>
+ <p>
+ The decoration method matters less than the placement. Embroidery has a slight edge on hi-vis vests because it doesn't add ink that could be misread as retroreflective material under headlights, but screen printing is fine for higher-volume runs and bigger back logos. Both methods stay compliant when the placement and area limits are respected. We don't decorate over the retroreflective tape under any circumstance.
+ </p>
+ <p>
+ For deeper compliance reads, see our <a href="/safety-compliance/ansi-107-hi-vis-guide/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">ANSI 107 hi-vis compliance guide</a>, the <a href="/blog/custom-safety-vests-ansi-compliance/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">decoration-rules deep-dive</a>, the <a href="/blog/hi-vis-class-3-when-you-need-it-over-class-2/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Class 3 vs Class 2 decision guide</a>, and the <a href="/blog/ansi-107-class-2-vs-class-3-hi-vis-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">ANSI 107 Class 2 vs 3 comparison</a>.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <!-- FAQ -->
+ <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">FAQ</span>
+ <h2 class="mb-12 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Hi-vis vest questions, answered.</h2>
+
+ <div class="space-y-3">
+ {faqs.map((f) => (
+ <details class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-5 transition-all hover:border-gold-500/30 open:border-gold-500/40">
+ <summary class="flex cursor-pointer list-none items-start justify-between gap-4">
+ <h3 class="font-heading text-lg font-bold leading-tight tracking-tight text-white">{f.q}</h3>
+ <span class="mt-1 flex-shrink-0 text-gold-500 transition-transform group-open:rotate-45">
+ <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+ </span>
+ </summary>
+ <p class="mt-4 text-base leading-relaxed text-gray-300">{f.a}</p>
+ </details>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- Related -->
+ <section class="border-b border-navy-800 bg-navy-950 py-16">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <span class="mb-6 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Pair It With</span>
+ <div class="grid gap-5 md:grid-cols-3">
+ <a href="/industries/roofing-solar-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+ <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Roofing & Solar</h3>
+ <p class="mt-2 text-sm text-gray-400">Class 2 vests + UPF long-sleeve for Vegas roof and solar crews.</p>
+ </a>
+ <a href="/brands/ml-kishigo-hi-vis-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+ <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">ML Kishigo Hi-Vis</h3>
+ <p class="mt-2 text-sm text-gray-400">Brand-page deep-dive on the hi-vis line we stock most.</p>
+ </a>
+ <a href="/catalog/hi-vis/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+ <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Browse Hi-Vis Catalog</h3>
+ <p class="mt-2 text-sm text-gray-400">Vests, shirts, jackets, rain gear — full ANSI 107 range.</p>
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <!-- CTA -->
+ <section class="bg-navy-900/60 py-20">
+ <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Ready to brand your crew's hi-vis vests?</h2>
+ <p class="mb-8 text-lg text-gray-300">Send your roster size, class, and decoration spec.</p>
+ <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+ <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>
+ <a href="tel:+17029048923" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gray-600 px-8 py-4 font-mono text-base font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+</BaseLayout>

@@ -1,0 +1,263 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const page = {
+ title: 'DTF Printing in Las Vegas | Direct-to-Film Custom Apparel — Bighorn Threads',
+ description:
+ 'DTF (direct-to-film) printing in Las Vegas — full-color prints on cotton, poly, blends, dark fabrics. No screen-setup fees. Photo-detail decoration on small runs. Get a quote.',
+ hero: '/images/generated/service-screen-printing.jpg',
+ url: 'https://bighornthreads.com/dtf-printing-las-vegas/',
+}
+
+const stack = [
+ { label: 'The method', body: 'Design printed onto PET film, hot-melt adhesive applied, cured, then heat-pressed onto the garment. The film transfers a full-color, photo-detail image — no screen, no setup per color.' },
+ { label: 'Where it wins', body: 'Small-batch runs (under 24 pieces), full-color or photo-realistic art, mixed garment programs (tees + hoodies + bags in one run), and decorating dark fabrics where light prints fade.' },
+ { label: 'Fabric range', body: 'Cotton, polyester, blends, denim, canvas, leather, nylon — adheres cleanly to nearly every common apparel substrate. Light or dark colored garment, no contrast issues.' },
+ { label: 'Decoration program', body: 'Same artwork file works across t-shirts, polos, hoodies, hats, and tote bags. One digitization, every garment in the order. Reorder transfers separately and apply on demand.' },
+]
+
+const dtfVsOthers = [
+ { row: 'DTF', meaning: 'Full-color, photo-detail, any fabric color', use: 'Small to mid runs, mixed garment programs, complex art, dark fabrics' },
+ { row: 'Screen printing', meaning: 'Spot-color inks, very large runs', use: 'High-volume single-design runs (50+), bold one-to-three color graphics' },
+ { row: 'Embroidery', meaning: 'Stitched thread, dimensional finish', use: 'Polos, jackets, hats, FR garments, premium logo placement' },
+ { row: 'DTG (direct-to-garment)', meaning: 'Inkjet directly onto cotton', use: 'Cotton-only runs, photo prints; struggles on poly and dark fabrics' },
+ { row: 'Sublimation', meaning: 'Dye into white polyester only', use: 'White or light polyester; cannot decorate cotton or dark fabric' },
+ { row: 'Heat-transfer vinyl', meaning: 'Cut vinyl applied with heat', use: 'Names, numbers, simple shapes; not for full color or fine detail' },
+]
+
+const useCases = [
+ { name: 'Small-run team apparel', detail: '12–48 piece team shirts, raglans, or hoodies in full color. No screen-setup penalty for low volume.' },
+ { name: 'Photo + gradient logos', detail: 'Brand marks with shadows, gradients, or photographic elements that screen printing can\'t hold cleanly.' },
+ { name: 'Mixed garment programs', detail: 'Same logo across tees, hoodies, polos, hats, and tote bags in one run. One file, every garment.' },
+ { name: 'Dark-fabric decoration', detail: 'Black, navy, charcoal, forest tees with full-color logos that pop. White underbase printed automatically.' },
+ { name: 'Event + gang-sheet orders', detail: 'Buy DTF transfers as a gang sheet. Apply on demand — useful for new-hire shirts, event-day pop-up runs, name additions.' },
+ { name: 'On-demand reorders', detail: 'Transfer sheets stay shelf-stable. Apply later, ship after. Useful for event SWAG with unknown final headcount.' },
+]
+
+const faqs = [
+ { q: 'What is DTF printing?', a: 'DTF — direct-to-film printing — prints a design onto a special PET film coated with hot-melt adhesive, then heat-presses the film onto the garment. The result is a full-color, photo-detail decoration that adheres to almost any fabric. No screens, no setup fees per color, and works on dark fabrics where most other methods fail.' },
+ { q: 'DTF vs screen printing — which one should I use?', a: 'DTF wins on small runs (under 24 pieces), full-color or photo-realistic art, mixed garment programs, and dark fabrics. Screen printing wins on large single-design runs (50+) where setup cost is amortized over volume and the per-piece cost drops below DTF. Most production shops use both methods depending on the order.' },
+ { q: 'How durable is a DTF print?', a: 'Properly applied DTF transfers survive 50+ wash cycles in normal home laundering. Wash inside-out in cold water and tumble dry low for the best lifespan. Industrial laundering at high temperatures shortens lifespan; for industrial-laundry programs (uniform rentals), embroidery or screen print holds up longer.' },
+ { q: 'What fabrics can you DTF on?', a: 'Cotton, polyester, polyester-cotton blends, tri-blends, denim, canvas, nylon, leather, and most synthetic substrates. The transfer adheres to nearly every common apparel material. Light or dark colored fabric — no contrast issues. The handful of materials that don\'t take DTF well are silicone-coated technical fabrics and some treated water-resistant shells.' },
+ { q: 'Can DTF print on FR garments?', a: 'Standard DTF adhesives are not generally approved for NFPA 2112 FR-rated garments — the adhesive can melt and drip in arc events, voiding the certification. For FR garments, we use Nomex thread embroidery instead. See our welder uniforms page for FR decoration specifics.' },
+ { q: 'What\'s the minimum DTF order?', a: 'No formal minimum. Single pieces are economical with DTF in a way that screen printing isn\'t. Per-piece pricing softens with volume — typical breakpoints at 12, 24, 48, and 100+ pieces.' },
+ { q: 'Where can I get DTF printing in Las Vegas?', a: 'Bighorn Threads runs DTF printing for Vegas contractors, event promoters, sports teams, and small-batch promotional programs. Same artwork file across mixed garments — t-shirts, hoodies, polos, hats, tote bags. Send your art file and quantity for a quote.' },
+]
+
+const breadcrumb = {
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+ { '@type': 'ListItem', position: 2, name: 'DTF Printing Las Vegas', item: page.url },
+ ],
+}
+
+const serviceSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'Service',
+ name: 'DTF Printing in Las Vegas',
+ serviceType: 'Direct-to-film custom apparel printing',
+ provider: { '@id': 'https://bighornthreads.com/#organization' },
+ areaServed: [
+ { '@type': 'City', name: 'Las Vegas' },
+ { '@type': 'City', name: 'Henderson' },
+ { '@type': 'City', name: 'North Las Vegas' },
+ { '@type': 'City', name: 'Summerlin' },
+ { '@type': 'City', name: 'Spring Valley' },
+ ],
+ description: page.description,
+ url: page.url,
+}
+
+const faqSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+}
+---
+
+<BaseLayout
+ title={page.title}
+ description={page.description}
+ canonical={page.url}
+ heroImage={page.hero}
+>
+ <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+ <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+ <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
+ <div class="absolute inset-0">
+ <img src={page.hero} alt="" aria-hidden="true" class="h-full w-full object-cover opacity-30" width="1600" height="900" loading="eager" fetchpriority="high" />
+ <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/40" />
+ <div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_75%_-10%,_rgba(193,155,61,0.15),_transparent)]" />
+ </div>
+ <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-400">Home</a>
+ <span class="px-2 text-gray-600">/</span>
+ <span class="text-gold-500">DTF Printing</span>
+ </nav>
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Decoration Method</span>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+ DTF Printing in Las Vegas <span class="text-gold-500">— full-color, any fabric, no screen-setup fees.</span>
+ </h1>
+ <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ Direct-to-film transfers for small-batch runs, photo-detail logos, and mixed garment programs. One artwork file, every garment in the order.
+ </p>
+ <div class="mt-10 flex flex-wrap items-center gap-3">
+ <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25">
+ Get a Quote
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+ </a>
+ <a href="tel:+17029048923" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gold-500/40 px-6 py-3 font-mono text-sm font-medium text-gold-500 transition-all hover:border-gold-500 hover:bg-gold-500/5">
+ 702.904.8923
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">What You Get</span>
+ <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">A decoration method built for variety, not volume.</h2>
+ </div>
+ <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+ {stack.map((s) => (
+ <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/30 hover:bg-navy-900/60">
+ <h3 class="mb-3 font-heading text-lg font-bold leading-tight tracking-tight text-white">{s.label}</h3>
+ <p class="text-sm leading-relaxed text-gray-300">{s.body}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-10 max-w-2xl">
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Method Comparison</span>
+ <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">DTF vs every other decoration method.</h2>
+ <p class="mt-4 text-lg leading-relaxed text-gray-300">
+ No single method wins every order. We pick the one that fits the volume, art, fabric, and garment mix.
+ </p>
+ </div>
+ <div class="overflow-hidden rounded-2xl border border-navy-700/40">
+ <table class="w-full">
+ <thead class="bg-navy-900/60">
+ <tr class="border-b border-navy-700/40">
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500">Method</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500">Strength</th>
+ <th class="hidden px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500 lg:table-cell">When to Pick It</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-navy-800 bg-navy-900/30">
+ {dtfVsOthers.map((r) => (
+ <tr class="transition-colors hover:bg-navy-900/60">
+ <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-400">{r.row}</td>
+ <td class="px-6 py-5 align-top font-heading text-base font-bold text-white">{r.meaning}</td>
+ <td class="hidden px-6 py-5 align-top text-sm text-gray-300 lg:table-cell">{r.use}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
+
+ <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Where DTF Wins</span>
+ <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Six order patterns DTF was built for.</h2>
+ </div>
+ <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+ {useCases.map((u) => (
+ <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+ <h3 class="mb-2 font-heading text-lg font-bold tracking-tight text-white">{u.name}</h3>
+ <p class="text-sm leading-relaxed text-gray-300">{u.detail}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">The Buyer's Read</span>
+ <h2 class="mb-8 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+ DTF printing for Vegas teams, events, and small-batch programs.
+ </h2>
+ <div class="space-y-5 text-lg leading-relaxed text-navy-200">
+ <p>
+ Direct-to-film printing is the fastest-growing decoration method in custom apparel because it solves the two problems screen printing was bad at: small-volume orders and full-color art on dark fabric. The process prints a CMYK + white image onto a PET film, applies hot-melt adhesive powder, cures the film, and heat-presses it onto the garment. The result is a soft-hand, full-color, photo-detail print that adheres cleanly to cotton, polyester, blends, denim, canvas, and most synthetic substrates.
+ </p>
+ <p>
+ The economic case is straightforward. Screen printing requires a setup fee per color — the screens need to be burned, registered, and proofed before the first shirt comes off the line. That setup cost is meaningful at low volume and rounds toward zero at high volume. DTF has no per-color setup, which means a 24-piece full-color run costs dramatically less than the same run screen-printed. Past about 50 pieces per design, the math flips and screen printing wins on per-piece cost. We pick the method that fits the order, not the method that fits the shop.
+ </p>
+ <p>
+ The art-quality case is also straightforward. Screen printing reproduces solid spot colors cleanly but struggles with photographic gradients, fine type below 6 point, and complex shadows. DTF prints those without compromise — the same way a high-end inkjet does on paper. For a brand mark with a gradient, a photographic logo, or anything resembling a complex illustration, DTF is the right call.
+ </p>
+ <p>
+ The fabric case is where DTF really earns its place. Sublimation only works on white or light polyester. DTG prints cotton beautifully but loses fidelity on poly. Heat-transfer vinyl handles names and numbers but not full-color art. DTF works on every fabric a normal apparel order ships in, light or dark, with no setup change between fabric types. That makes mixed garment programs (tees + hoodies + polos + hats + tote bags) economical to run as one job.
+ </p>
+ <p>
+ The one place DTF doesn't fit: NFPA 2112 FR-rated garments. The adhesive used in standard DTF transfers can melt and drip in arc events, voiding the FR certification. For welder uniforms, electrical FR shirts, and oil/gas FR coveralls, we decorate with Nomex (aramid) thread embroidery instead. For deeper reads, see our <a href="/blog/dtf-printing-vs-screen-printing-custom-apparel/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">DTF vs screen printing comparison</a>, the <a href="/services/screen-printing-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">screen-printing service page</a>, and our <a href="/welder-uniforms-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">welder uniforms guide</a> for FR decoration specifics.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">FAQ</span>
+ <h2 class="mb-12 font-heading text-3xl font-bold tracking-tight sm:text-4xl">DTF printing questions, answered.</h2>
+ <div class="space-y-3">
+ {faqs.map((f) => (
+ <details class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-5 transition-all hover:border-gold-500/30 open:border-gold-500/40">
+ <summary class="flex cursor-pointer list-none items-start justify-between gap-4">
+ <h3 class="font-heading text-lg font-bold leading-tight tracking-tight text-white">{f.q}</h3>
+ <span class="mt-1 flex-shrink-0 text-gold-500 transition-transform group-open:rotate-45">
+ <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+ </span>
+ </summary>
+ <p class="mt-4 text-base leading-relaxed text-gray-300">{f.a}</p>
+ </details>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <section class="border-b border-navy-800 bg-navy-950 py-16">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <span class="mb-6 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Pair It With</span>
+ <div class="grid gap-5 md:grid-cols-3">
+ <a href="/services/screen-printing-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+ <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Screen Printing</h3>
+ <p class="mt-2 text-sm text-gray-400">For high-volume single-design runs where setup cost amortizes out.</p>
+ </a>
+ <a href="/services/embroidery-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+ <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Embroidery</h3>
+ <p class="mt-2 text-sm text-gray-400">Stitched thread for polos, jackets, hats, and FR garments.</p>
+ </a>
+ <a href="/catalog/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+ <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Browse Catalog</h3>
+ <p class="mt-2 text-sm text-gray-400">T-shirts, hoodies, polos, bags — every blank we DTF on.</p>
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <section class="bg-navy-900/60 py-20">
+ <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Ready to DTF a small-batch run?</h2>
+ <p class="mb-8 text-lg text-gray-300">Send your art file and garment list.</p>
+ <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+ <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>
+ <a href="tel:+17029048923" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gray-600 px-8 py-4 font-mono text-base font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+</BaseLayout>

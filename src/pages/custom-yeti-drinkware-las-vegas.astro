@@ -1,0 +1,265 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const page = {
+ title: 'Custom Yeti Drinkware in Las Vegas | Laser-Engraved Tumblers & Mugs — Bighorn Threads',
+ description:
+ 'Custom Yeti drinkware in Las Vegas — laser-engraved Rambler tumblers, lowballs, mugs, and bottles for corporate gifts, trade shows, and employee programs. Permanent engraving, full Yeti SKU range. Get a quote.',
+ hero: '/images/generated/product-stack.jpg',
+ url: 'https://bighornthreads.com/custom-yeti-drinkware-las-vegas/',
+}
+
+const stack = [
+ { label: 'The drinkware', body: 'Yeti Rambler tumblers (10, 14, 16, 20, 24, 30 oz), Lowball, Wine Tumbler, Mug, Bottle (18, 26, 36, 46, 64 oz), and Half Gallon Jug. Stainless and color-coated finishes.' },
+ { label: 'The decoration', body: 'CO₂ laser engraving on stainless — permanent, dishwasher-safe, won\'t chip, fade, or wash off. Engraved through the powder coat to expose the steel underneath, creating sharp two-tone contrast.' },
+ { label: 'Use cases', body: 'Corporate gifts, employee onboarding, milestone awards, trade show high-tier giveaways, customer thank-you, holiday gifting, executive recognition.' },
+ { label: 'Volume tiers', body: 'Single piece for an executive recognition order. Bulk runs for employee programs and event swag. Per-piece engraving cost rounds down at scale.' },
+]
+
+const skus = [
+ { row: 'Rambler 10 oz Lowball', use: 'Whiskey, cocktails, single-serve hot drinks', notes: 'Compact, fits car cup-holder. Engraves cleanly across the side.' },
+ { row: 'Rambler 14 oz Mug', use: 'Coffee mug with handle, hot or cold', notes: 'Most-ordered office gift. Wraps engraving across the body.' },
+ { row: 'Rambler 20 oz Tumbler', use: 'Daily coffee, water, cold brew', notes: 'The Yeti default. Highest unit volume across corporate-gift orders.' },
+ { row: 'Rambler 24 oz Mug', use: 'Bigger coffee, soup, or stew', notes: 'Camping and crew-vehicle favorite. Wide engraving area.' },
+ { row: 'Rambler 30 oz Tumbler', use: 'All-day water, energy drinks, oversized coffee', notes: 'The construction-crew default. Fits jobsite cup holders.' },
+ { row: 'Rambler 36 oz Bottle', use: 'All-day water, hike, gym', notes: 'Full-day hydration without refill. Carry handle on chug cap.' },
+ { row: 'Wine Tumbler', use: 'Wine, cocktails, evening events', notes: 'Premium gift tier — pairs well with executive recognition.' },
+ { row: 'Half Gallon Jug', use: 'Crew water, all-day jobsite, sports sideline', notes: 'Largest-format engraving canvas. High visual impact.' },
+]
+
+const giftPrograms = [
+ { name: 'New-hire welcome kit', detail: 'Engraved 20 oz tumbler with the company logo. Lands on the new employee\'s desk day one. Doubles as the daily coffee cup.' },
+ { name: 'Year-end recognition', detail: 'Engraved Wine Tumbler or 30 oz tumbler with the year and the recipient name. Personalization on every piece.' },
+ { name: 'Customer thank-you', detail: 'Engraved 20 oz with company logo + a short message ("Thank you" + year). Pairs with a handwritten card at contract close.' },
+ { name: 'Booth-tier giveaway', detail: 'Engraved 14 oz mug for "qualified lead" tier at trade shows. Booth visitors fill out a form, leave with a Yeti.' },
+ { name: 'Service milestone', detail: '5/10/15-year service awards. Engraved 30 oz with year-of-service and employee name. Permanent gift.' },
+ { name: 'Crew-vehicle program', detail: 'Engraved 36 oz bottles for field technicians. Branded with company logo and truck/van number for fleet identity.' },
+]
+
+const faqs = [
+ { q: 'Can you laser-engrave Yeti drinkware?', a: 'Yes. Yeti stainless drinkware (Rambler tumblers, mugs, lowballs, bottles, jugs, Wine Tumbler) all accept CO₂ laser engraving. The laser engraves through the powder-coat layer to expose the steel underneath, creating a permanent two-tone contrast that won\'t chip, fade, or wash off.' },
+ { q: 'Is laser engraving permanent on Yeti?', a: 'Yes — laser engraving is the most durable decoration method available for stainless drinkware. The mark is etched into the metal itself rather than applied on top, so it survives dishwashers, scratches, drops, and years of daily use without fading. This is the same engraving method used by Yeti\'s factory custom shop.' },
+ { q: 'What\'s the minimum order for custom Yeti?', a: 'No formal minimum — we engrave individual pieces for executive recognition orders and run bulk programs for corporate gifts and event SWAG. Per-piece engraving cost softens with volume; common breakpoints at 12, 24, 50, and 100+ pieces.' },
+ { q: 'Can I order Yeti tumblers with names on each one?', a: 'Yes. Personalization is one of the strongest reasons to use laser engraving over screen print on drinkware. Each piece can carry the company logo + an individual name, year, or message at no per-piece change-over cost. Useful for milestone awards, executive gifts, and named-employee programs.' },
+ { q: 'Can you engrave through the colored Yeti finish?', a: 'Yes — most colored Yeti drinkware (the powder-coated lineup including Navy, Black, Charcoal, Sagebrush Green, Brick Red, and seasonal colors) takes laser engraving cleanly. The laser exposes the natural stainless underneath, producing a high-contrast two-tone result.' },
+ { q: 'How does this compare to Yeti\'s official custom shop?', a: 'Yeti\'s in-house custom shop uses the same laser-engraving method we use. The difference is operational — Yeti\'s custom shop has long lead times during peak corporate-gift season and limited per-piece personalization. We turn small orders faster and handle per-piece engraving (named gifts) as standard work.' },
+ { q: 'What other drinkware brands do you customize besides Yeti?', a: 'Hydro Flask, Corkcicle, Stanley, RTIC, MiiR, and Klean Kanteen are the other premium drinkware brands we stock and engrave. Hydro Flask and Corkcicle have similar powder-coat construction and engrave the same way as Yeti. Polymer drinkware is decorated with full-color UV print or pad print instead.' },
+]
+
+const breadcrumb = {
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+ { '@type': 'ListItem', position: 2, name: 'Custom Yeti Drinkware', item: page.url },
+ ],
+}
+
+const productSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'Service',
+ name: 'Custom Yeti Drinkware in Las Vegas',
+ serviceType: 'Laser-engraved Yeti tumblers, mugs, bottles, and jugs',
+ provider: { '@id': 'https://bighornthreads.com/#organization' },
+ areaServed: [
+ { '@type': 'City', name: 'Las Vegas' },
+ { '@type': 'City', name: 'Henderson' },
+ { '@type': 'City', name: 'North Las Vegas' },
+ { '@type': 'City', name: 'Summerlin' },
+ { '@type': 'City', name: 'Spring Valley' },
+ ],
+ description: page.description,
+ url: page.url,
+}
+
+const faqSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+}
+---
+
+<BaseLayout
+ title={page.title}
+ description={page.description}
+ canonical={page.url}
+ heroImage={page.hero}
+>
+ <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+ <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+ <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
+ <div class="absolute inset-0">
+ <img src={page.hero} alt="" aria-hidden="true" class="h-full w-full object-cover opacity-30" width="1600" height="900" loading="eager" fetchpriority="high" />
+ <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/40" />
+ <div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_75%_-10%,_rgba(193,155,61,0.15),_transparent)]" />
+ </div>
+ <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-400">Home</a>
+ <span class="px-2 text-gray-600">/</span>
+ <span class="text-gold-500">Custom Yeti Drinkware</span>
+ </nav>
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Premium Drinkware</span>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+ Custom Yeti Drinkware in Las Vegas <span class="text-gold-500">— laser-engraved, permanent, gift-tier.</span>
+ </h1>
+ <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ The full Yeti Rambler line, laser-engraved with your logo and personalization. Permanent. Dishwasher-safe. The corporate gift recipients actually keep on their desk.
+ </p>
+ <div class="mt-10 flex flex-wrap items-center gap-3">
+ <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25">
+ Get a Quote
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+ </a>
+ <a href="tel:+17029048923" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gold-500/40 px-6 py-3 font-mono text-sm font-medium text-gold-500 transition-all hover:border-gold-500 hover:bg-gold-500/5">
+ 702.904.8923
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">What You Get</span>
+ <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">A drinkware program that lives on the recipient's desk.</h2>
+ </div>
+ <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+ {stack.map((s) => (
+ <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/30 hover:bg-navy-900/60">
+ <h3 class="mb-3 font-heading text-lg font-bold leading-tight tracking-tight text-white">{s.label}</h3>
+ <p class="text-sm leading-relaxed text-gray-300">{s.body}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-10 max-w-2xl">
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Yeti SKU Range</span>
+ <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">The Yeti lineup, at a glance.</h2>
+ <p class="mt-4 text-lg leading-relaxed text-gray-300">
+ Every Rambler size accepts laser engraving. Pick the SKU that matches the use case and gift tier.
+ </p>
+ </div>
+ <div class="overflow-hidden rounded-2xl border border-navy-700/40">
+ <table class="w-full">
+ <thead class="bg-navy-900/60">
+ <tr class="border-b border-navy-700/40">
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500">SKU</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500">Use Case</th>
+ <th class="hidden px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500 lg:table-cell">Notes</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-navy-800 bg-navy-900/30">
+ {skus.map((r) => (
+ <tr class="transition-colors hover:bg-navy-900/60">
+ <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-400">{r.row}</td>
+ <td class="px-6 py-5 align-top font-heading text-base font-bold text-white">{r.use}</td>
+ <td class="hidden px-6 py-5 align-top text-sm text-gray-300 lg:table-cell">{r.notes}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
+
+ <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Gift Programs</span>
+ <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Six places engraved Yeti earns its cost.</h2>
+ </div>
+ <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+ {giftPrograms.map((u) => (
+ <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+ <h3 class="mb-2 font-heading text-lg font-bold tracking-tight text-white">{u.name}</h3>
+ <p class="text-sm leading-relaxed text-gray-300">{u.detail}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">The Buyer's Read</span>
+ <h2 class="mb-8 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+ Custom Yeti for Vegas corporate gifts, recognition, and trade show tiers.
+ </h2>
+ <div class="space-y-5 text-lg leading-relaxed text-navy-200">
+ <p>
+ Yeti is the most-requested drinkware brand in the corporate-gift segment for one reason: the recipient keeps it. A branded Yeti lands on a desk and stays there. The brand impression isn\'t a one-shot at the moment of receipt — it\'s a daily impression for years. That math beats almost every other promotional product line on impression-per-dollar at the gift tier.
+ </p>
+ <p>
+ The decoration method that fits Yeti is laser engraving. The CO₂ laser etches through the powder-coat layer (or directly into bare stainless on the silver SKUs) and exposes the steel underneath, creating a permanent two-tone contrast. The mark is etched into the metal — not applied on top — so it survives dishwashers, scratches, drops, and years of daily use without fading. This is the same engraving method Yeti\'s in-house custom shop uses on its own program.
+ </p>
+ <p>
+ The SKU choice tracks the use case. The Rambler 20 oz tumbler is the corporate-gift default — it fits car cup-holders, holds enough coffee for the morning, and works for cold drinks. The 14 oz Mug is the office-favorite alternative for buyers who want a handled cup. The 30 oz tumbler is the construction and field-crew default — fits jobsite cup-holders, lasts all day, and the larger size matches the trade aesthetic. The Wine Tumbler and 36 oz Bottle land in higher gift tiers — recognition, executive thank-you, or year-end personalization.
+ </p>
+ <p>
+ Personalization is the multiplier. With laser engraving, per-piece personalization (individual name, year, employee number, milestone date) adds zero meaningful cost or production time once the base artwork is set. That makes named-employee gift programs and milestone-recognition orders economical at scales that screen-printed or pad-printed drinkware would not be. Most ongoing recognition programs we run pair the company logo on one face with the recipient name and year on the opposite face.
+ </p>
+ <p>
+ For the broader promo product context, see our <a href="/promo-products-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">promo products hub</a>. For trade show audiences, see the <a href="/trade-show-apparel-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">trade show apparel guide</a>. For the company-store program that streamlines recurring gift orders, see <a href="/company-stores/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">how the company store works</a>.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">FAQ</span>
+ <h2 class="mb-12 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Custom Yeti questions, answered.</h2>
+ <div class="space-y-3">
+ {faqs.map((f) => (
+ <details class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-5 transition-all hover:border-gold-500/30 open:border-gold-500/40">
+ <summary class="flex cursor-pointer list-none items-start justify-between gap-4">
+ <h3 class="font-heading text-lg font-bold leading-tight tracking-tight text-white">{f.q}</h3>
+ <span class="mt-1 flex-shrink-0 text-gold-500 transition-transform group-open:rotate-45">
+ <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+ </span>
+ </summary>
+ <p class="mt-4 text-base leading-relaxed text-gray-300">{f.a}</p>
+ </details>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <section class="border-b border-navy-800 bg-navy-950 py-16">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <span class="mb-6 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Pair It With</span>
+ <div class="grid gap-5 md:grid-cols-3">
+ <a href="/promo-products-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+ <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Promo Products Hub</h3>
+ <p class="mt-2 text-sm text-gray-400">Bags, tech, writing, awards — the full SAGE catalog.</p>
+ </a>
+ <a href="/trade-show-apparel-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+ <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Trade Show Apparel</h3>
+ <p class="mt-2 text-sm text-gray-400">Match drinkware tier to booth crew apparel for full-event branding.</p>
+ </a>
+ <a href="/catalog/drinkware/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+ <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Browse Drinkware</h3>
+ <p class="mt-2 text-sm text-gray-400">Yeti, Hydro Flask, Corkcicle, Stanley — every brand we stock.</p>
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <section class="bg-navy-900/60 py-20">
+ <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Ready to engrave Yeti for your team or event?</h2>
+ <p class="mb-8 text-lg text-gray-300">Send your logo, SKU pick, and quantity.</p>
+ <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+ <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>
+ <a href="tel:+17029048923" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gray-600 px-8 py-4 font-mono text-base font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+</BaseLayout>

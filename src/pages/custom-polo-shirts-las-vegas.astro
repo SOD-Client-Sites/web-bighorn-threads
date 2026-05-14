@@ -1,0 +1,277 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const page = {
+ title: 'Custom Polo Shirts in Las Vegas | Embroidered Company Polos — Bighorn Threads',
+ description:
+ 'Custom embroidered polo shirts for Las Vegas service techs, account managers, and customer-facing staff. Port Authority, Sport-Tek, Carhartt, Nike, Cutter & Buck — embroidered cleanly, named on request. Get a quote.',
+ hero: '/images/generated/service-embroidery.jpg',
+ url: 'https://bighornthreads.com/custom-polo-shirts-las-vegas/',
+}
+
+const stack = [
+ { label: 'The blank', body: 'Port Authority K500 Silk Touch (the workhorse), K540 Performance for Vegas summer wicking, Sport-Tek ST650, Carhartt Workwear Pocket Polo for trades, Nike Dri-FIT and Cutter & Buck DryTec for executive tier.' },
+ { label: 'The decoration', body: 'Embroidered chest logo on every polo. Optional name embroidery on the right chest. Pantone-matched thread on file once approved — every reorder lines up.' },
+ { label: 'Sizing', body: 'XS through 6XL on most blanks. Tall sizes on Port Authority and Sport-Tek. Women\'s cuts available across all stocked brands.' },
+ { label: 'Program-ready', body: 'Re-order at the same per-piece cost from a private company store. New hires get fully-decorated polos when they start, without HR chasing approvals.' },
+]
+
+const blanks = [
+ { row: 'Port Authority K500', use: 'The workhorse — pique knit, embroiders cleanly, 30+ stock colors', notes: 'Cotton-poly blend; the default for service tech and account-manager polos' },
+ { row: 'Port Authority K540', use: 'Performance moisture-wicking for Vegas summer service work', notes: 'Polyester; wicks sweat, dries fast, doesn\'t soak through by 11am' },
+ { row: 'Sport-Tek ST650', use: 'Performance polo at a workwear price', notes: 'Snag-resistant polyester; popular for crews running outdoors year-round' },
+ { row: 'Carhartt Force Cotton Delmont', use: 'Trades-friendly polo, reads as workwear not corporate', notes: 'Cotton-poly with FastDry sweat-wicking; fits over base layers' },
+ { row: 'Nike Dri-FIT', use: 'Premium polo with the recognizable swoosh-adjacent quality', notes: 'For client-facing roles where the brand association is the point' },
+ { row: 'Cutter & Buck DryTec', use: 'Executive-tier polo, golf-shirt feel', notes: 'For VP, owner, and high-touch sales roles' },
+]
+
+const placements = [
+ { name: 'Left chest logo', detail: 'The standard. ~3.5" wide. Fits every polo program.' },
+ { name: 'Right chest name', detail: 'First name + last initial in 0.4–0.5" letters. Standard for service techs and trade show crews.' },
+ { name: 'Sleeve mark', detail: 'Cap sleeve or full sleeve. Cert badges, secondary brand marks, project IDs.' },
+ { name: 'Back yoke', detail: 'For larger logos on heavier polos. Common on jacket programs that match the polo line.' },
+]
+
+const faqs = [
+ { q: 'Should custom polo shirts be embroidered or screen printed?', a: 'Embroidery — almost always. Stitched thread on a pique-knit polo reads as established business in a way a screen-printed polo never does. Screen printing on polos is reserved for high-volume promotional runs where cost beats feel. For client-facing roles, embroidery is the standard.' },
+ { q: 'What\'s the best polo blank for Las Vegas summer?', a: 'Moisture-wicking polyester — Port Authority K540 Silk Touch Performance or Sport-Tek ST650. They wick sweat, dry fast, and don\'t soak through by 11am the way 100% cotton polos do. Cotton looks nice in week one but loses by July.' },
+ { q: 'Can you embroider names on every polo?', a: 'Yes. Once digitizing is done, name embroidery adds about a day to the standard run. We stitch each name to order; the per-shirt cost is fixed regardless of name length. Worth doing for service techs, trade show crews, and any customer-facing role where the name is the trust signal.' },
+ { q: 'Do you stock women\'s cut polos?', a: 'Yes — across all major brands. Port Authority L500 (women\'s K500), L540 (women\'s K540), Sport-Tek LST650. Same embroidery treatment, same per-piece pricing as men\'s sizes.' },
+ { q: 'Can you match my Pantone brand color in the thread?', a: 'Yes. We carry the full Madeira and Robison-Anton thread libraries — over 400 colors between them — with Pantone matching to within ~2 shades on most colors. Brand colors get locked on file once approved.' },
+ { q: 'Can you set up a company store for our polos?', a: 'Yes. A private storefront with your approved polos and decoration spec preloaded, employee size profiles on file, and per-employee allowances that match your apparel budget. Reorders run at the same per-piece pricing as the initial order.' },
+ { q: 'Where can I get custom polo shirts in Las Vegas?', a: 'Bighorn Threads runs custom embroidered polos for Vegas contractors, service businesses, and trade companies. Port Authority, Sport-Tek, Carhartt, Nike, and Cutter & Buck blanks in stock S–4XL. Send your logo and quantity for a quote.' },
+]
+
+const breadcrumb = {
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+ { '@type': 'ListItem', position: 2, name: 'Custom Polo Shirts Las Vegas', item: page.url },
+ ],
+}
+
+const serviceSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'Service',
+ name: 'Custom Embroidered Polo Shirts in Las Vegas',
+ serviceType: 'Embroidered company polo shirts for service trades and customer-facing staff',
+ provider: { '@id': 'https://bighornthreads.com/#organization' },
+ areaServed: [
+ { '@type': 'City', name: 'Las Vegas' },
+ { '@type': 'City', name: 'Henderson' },
+ { '@type': 'City', name: 'North Las Vegas' },
+ { '@type': 'City', name: 'Summerlin' },
+ { '@type': 'City', name: 'Spring Valley' },
+ ],
+ description: page.description,
+ url: page.url,
+}
+
+const faqSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+}
+---
+
+<BaseLayout
+ title={page.title}
+ description={page.description}
+ canonical={page.url}
+ heroImage={page.hero}
+>
+ <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+ <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+ <!-- Hero -->
+ <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
+ <div class="absolute inset-0">
+ <img src={page.hero} alt="" aria-hidden="true" class="h-full w-full object-cover opacity-30" width="1600" height="900" loading="eager" fetchpriority="high" />
+ <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/40" />
+ <div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_75%_-10%,_rgba(193,155,61,0.15),_transparent)]" />
+ </div>
+
+ <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-400">Home</a>
+ <span class="px-2 text-gray-600">/</span>
+ <span class="text-gold-500">Custom Polo Shirts</span>
+ </nav>
+
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Branded Apparel</span>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+ Custom Polo Shirts in Las Vegas <span class="text-gold-500">— embroidered, named, ready for the field.</span>
+ </h1>
+ <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ Port Authority, Sport-Tek, Carhartt, Nike, Cutter & Buck blanks. Embroidered chest logo. Optional name on the right chest. Pantone-matched thread on file.
+ </p>
+
+ <div class="mt-10 flex flex-wrap items-center gap-3">
+ <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25">
+ Get a Quote
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+ </a>
+ <a href="tel:+17029048923" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gold-500/40 px-6 py-3 font-mono text-sm font-medium text-gold-500 transition-all hover:border-gold-500 hover:bg-gold-500/5">
+ 702.904.8923
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <!-- Stack -->
+ <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">What You Get</span>
+ <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">A polo program your team will actually wear.</h2>
+ </div>
+
+ <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+ {stack.map((s) => (
+ <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/30 hover:bg-navy-900/60">
+ <h3 class="mb-3 font-heading text-lg font-bold leading-tight tracking-tight text-white">{s.label}</h3>
+ <p class="text-sm leading-relaxed text-gray-300">{s.body}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- Blanks table -->
+ <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-10 max-w-2xl">
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Blanks We Stock</span>
+ <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Pick the polo that matches the role.</h2>
+ <p class="mt-4 text-lg leading-relaxed text-gray-300">
+ Workhorse to executive tier. Every blank embroiders cleanly. Mix and match across roles in the same program.
+ </p>
+ </div>
+
+ <div class="overflow-hidden rounded-2xl border border-navy-700/40">
+ <table class="w-full">
+ <thead class="bg-navy-900/60">
+ <tr class="border-b border-navy-700/40">
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500">Blank</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500">Use Case</th>
+ <th class="hidden px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500 lg:table-cell">Notes</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-navy-800 bg-navy-900/30">
+ {blanks.map((b) => (
+ <tr class="transition-colors hover:bg-navy-900/60">
+ <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-400">{b.row}</td>
+ <td class="px-6 py-5 align-top font-heading text-base font-bold text-white">{b.use}</td>
+ <td class="hidden px-6 py-5 align-top text-sm text-gray-300 lg:table-cell">{b.notes}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
+
+ <!-- Placements -->
+ <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Embroidery Placements</span>
+ <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Where the logo and name go.</h2>
+ </div>
+
+ <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+ {placements.map((p) => (
+ <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+ <h3 class="mb-2 font-heading text-lg font-bold tracking-tight text-white">{p.name}</h3>
+ <p class="text-sm leading-relaxed text-gray-300">{p.detail}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- Deep dive -->
+ <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">The Buyer's Read</span>
+ <h2 class="mb-8 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+ Custom polos for Vegas service crews and customer-facing staff.
+ </h2>
+
+ <div class="space-y-5 text-lg leading-relaxed text-navy-200">
+ <p>
+ Custom polo shirts with an embroidered chest logo are the default uniform for service technicians, account managers, sales reps, and any role where employees are seen by customers, vendors, or the public. The visual signal needs to read as established business — not team event — and embroidery on a pique-knit polo carries that weight in a way a screen-printed t-shirt never will.
+ </p>
+ <p>
+ The blank decision usually splits along Vegas-summer lines. For year-round service work in conditioned spaces (HVAC inside calls, electrical inside fit-outs, plumbing residential), the Port Authority K500 Silk Touch in cotton-poly is the workhorse — it embroiders cleanly, comes in 30-plus colors S through 6XL, and survives a long laundering cycle. For outdoor service work in the May–September Vegas heat, swap to the K540 Performance polyester or the Sport-Tek ST650; both wick sweat fast enough to keep shirts presentable through a 110°F afternoon.
+ </p>
+ <p>
+ Name embroidery has become the new standard for customer-facing trades. Standard layout is company logo on the left chest at 3.5 inches wide, and first name + last initial on the right chest at half-inch lettering. The cost adds a small per-piece premium, the production time adds about a day, and the trust signal is real — homeowners and facility managers are measurably more comfortable letting a named technician into the building than an anonymous one.
+ </p>
+ <p>
+ For a long-running program, we set up a private company store with your blanks, decoration spec, and employee size profiles preloaded. Reorders run at the same per-piece pricing as the initial order, new hires get fully-decorated polos when they start without your HR team chasing approvals, and per-employee allowances can match your existing apparel budget. See <a href="/company-stores/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">how the company store program works</a> for the operational details.
+ </p>
+ <p>
+ For deeper reads on polos and embroidery, see our <a href="/blog/custom-polo-shirts-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">custom polo shirts buyer's guide</a>, the <a href="/blog/port-authority-polos-vs-alternatives/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Port Authority vs alternatives comparison</a>, and the <a href="/blog/how-much-to-embroider-a-polo/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">embroidery cost breakdown</a>.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <!-- FAQ -->
+ <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">FAQ</span>
+ <h2 class="mb-12 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Polo questions, answered.</h2>
+
+ <div class="space-y-3">
+ {faqs.map((f) => (
+ <details class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-5 transition-all hover:border-gold-500/30 open:border-gold-500/40">
+ <summary class="flex cursor-pointer list-none items-start justify-between gap-4">
+ <h3 class="font-heading text-lg font-bold leading-tight tracking-tight text-white">{f.q}</h3>
+ <span class="mt-1 flex-shrink-0 text-gold-500 transition-transform group-open:rotate-45">
+ <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+ </span>
+ </summary>
+ <p class="mt-4 text-base leading-relaxed text-gray-300">{f.a}</p>
+ </details>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- Related -->
+ <section class="border-b border-navy-800 bg-navy-950 py-16">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <span class="mb-6 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Pair It With</span>
+ <div class="grid gap-5 md:grid-cols-3">
+ <a href="/services/embroidery-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+ <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Custom Embroidery</h3>
+ <p class="mt-2 text-sm text-gray-400">The decoration method behind every polo we ship.</p>
+ </a>
+ <a href="/brands/port-authority-polos-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+ <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Port Authority Polos</h3>
+ <p class="mt-2 text-sm text-gray-400">Brand-page deep-dive on the K500, K540, and L-line cuts.</p>
+ </a>
+ <a href="/catalog/polos/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+ <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Browse Polo Catalog</h3>
+ <p class="mt-2 text-sm text-gray-400">Every polo blank we stock — cuts, fabrics, sizing.</p>
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <!-- CTA -->
+ <section class="bg-navy-900/60 py-20">
+ <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Ready to outfit your team in branded polos?</h2>
+ <p class="mb-8 text-lg text-gray-300">Send your logo, count, and blank preference.</p>
+ <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+ <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>
+ <a href="tel:+17029048923" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gray-600 px-8 py-4 font-mono text-base font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+</BaseLayout>
