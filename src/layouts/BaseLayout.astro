@@ -39,6 +39,7 @@ const { heroImage } = Astro.props
  phone_number: a.getAttribute('href').replace('tel:', ''),
  link_text: (a.textContent || '').trim().slice(0, 80),
  page_path: window.location.pathname,
+ lp_source: sessionStorage.getItem('lp_source') || window.location.pathname,
  });
  }
  const mailto = e.target.closest('a[href^="mailto:"]');
@@ -46,7 +47,22 @@ const { heroImage } = Astro.props
  gtag('event', 'email_click', {
  email: mailto.getAttribute('href').replace('mailto:', ''),
  page_path: window.location.pathname,
+ lp_source: sessionStorage.getItem('lp_source') || window.location.pathname,
  });
+ }
+ // Capture LP source on quote-CTA click so the eventual lead event can be
+ // attributed back to the LP that drove the click.
+ const quoteCta = e.target.closest('a[href^="/contact"], a[href^="/win"], a[href*="/contact/"], button[data-quote-cta]');
+ if (quoteCta) {
+ const path = window.location.pathname;
+ if (path !== '/contact/' && path !== '/win/') {
+ sessionStorage.setItem('lp_source', path);
+ gtag('event', 'cta_click_quote', {
+ cta_text: (quoteCta.textContent || '').trim().slice(0, 80),
+ lp_source: path,
+ destination: quoteCta.getAttribute('href') || 'modal',
+ });
+ }
  }
  });
 
@@ -54,12 +70,13 @@ const { heroImage } = Astro.props
  const form = e.target;
  if (!form || form.tagName !== 'FORM') return;
  const id = form.id || form.getAttribute('name') || 'unknown';
+ const lpSource = sessionStorage.getItem('lp_source') || window.location.pathname;
  if (id === 'quoteForm') {
- gtag('event', 'generate_lead', { form: 'contact_quote', page_path: window.location.pathname });
+ gtag('event', 'generate_lead', { form: 'contact_quote', page_path: window.location.pathname, lp_source: lpSource });
  } else if (id === 'optinForm') {
- gtag('event', 'event_optin', { form: 'event_opt_in', page_path: window.location.pathname });
+ gtag('event', 'event_optin', { form: 'event_opt_in', page_path: window.location.pathname, lp_source: lpSource });
  } else {
- gtag('event', 'form_submit', { form_id: id, page_path: window.location.pathname });
+ gtag('event', 'form_submit', { form_id: id, page_path: window.location.pathname, lp_source: lpSource });
  }
  }, true);
  </script>

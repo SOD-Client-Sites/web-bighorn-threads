@@ -293,6 +293,9 @@ function buildBody(product) {
   contactSection.appendChild(contactGrid)
   form.appendChild(contactSection)
 
+  // ---------- TEXT MESSAGE CONSENT (A2P 10DLC) ----------
+  form.appendChild(buildConsentSection())
+
   // Status region
   const statusEl = el('div', {
     id: 'qm-status',
@@ -324,6 +327,44 @@ function buildBody(product) {
 
   body.appendChild(form)
   return body
+}
+
+// ---------------- A2P SMS consent block ----------------
+function buildConsentSection() {
+  const fs = el('fieldset', { class: 'space-y-3 rounded-lg border border-navy-700/50 bg-navy-950/40 p-4' })
+  fs.appendChild(el('legend', {
+    class: 'px-1 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500',
+    text: 'Text message preferences (optional)',
+  }))
+
+  const cbCls = 'mt-0.5 h-4 w-4 shrink-0 rounded border-navy-600 bg-navy-950 text-gold-500 focus:ring-2 focus:ring-gold-500/40 focus:ring-offset-0'
+  const txtCls = 'text-xs leading-relaxed text-gray-400'
+
+  const mkRow = (name, copy) => {
+    const lab = el('label', { class: 'flex items-start gap-3' })
+    lab.appendChild(el('input', { type: 'checkbox', name, value: 'yes', class: cbCls }))
+    lab.appendChild(el('span', { class: txtCls, text: copy }))
+    return lab
+  }
+
+  fs.appendChild(mkRow(
+    'smsTransactionalConsent',
+    'I consent to receive transactional (non-marketing) text messages from VP Promos LLC, d/b/a Bighorn Threads at the phone number provided — quote follow-ups, order and artwork-proof updates, production and delivery status, and appointment reminders. Message frequency may vary. Message & data rates may apply. Reply HELP for help or STOP to opt out.',
+  ))
+  fs.appendChild(mkRow(
+    'smsMarketingConsent',
+    'I consent to receive marketing and promotional text messages from VP Promos LLC, d/b/a Bighorn Threads at the phone number provided — special offers, discounts, new products, and seasonal promotions. Message frequency may vary. Message & data rates may apply. Reply HELP for help or STOP to opt out.',
+  ))
+
+  const note = el('p', { class: 'border-t border-navy-800/60 pt-3 text-xs leading-relaxed text-gray-500' })
+  note.appendChild(document.createTextNode('Consent to texts is not required to get a quote. By submitting this form you agree to our '))
+  note.appendChild(el('a', { href: '/legal/privacy-policy/', target: '_blank', rel: 'noopener', class: 'text-gold-400 underline underline-offset-2 hover:text-gold-300', text: 'Privacy Policy' }))
+  note.appendChild(document.createTextNode(' and '))
+  note.appendChild(el('a', { href: '/legal/terms/', target: '_blank', rel: 'noopener', class: 'text-gold-400 underline underline-offset-2 hover:text-gold-300', text: 'Terms & Conditions' }))
+  note.appendChild(document.createTextNode('. No mobile information is shared with third parties or affiliates for marketing purposes.'))
+  fs.appendChild(note)
+
+  return fs
 }
 
 // ---------------- form widget helpers ----------------
@@ -484,6 +525,8 @@ async function submitForm(form, product, statusEl, submitBtn, bodyEl) {
     company: getVal(form, 'company'),
     email: getVal(form, 'email'),
     phone: getVal(form, 'phone'),
+    smsMarketingConsent: isChecked(form, 'smsMarketingConsent') ? 'yes' : '',
+    smsTransactionalConsent: isChecked(form, 'smsTransactionalConsent') ? 'yes' : '',
     website: '', // honeypot value (empty by client check above)
     sourceUrl: window.location.href,
   }
@@ -502,10 +545,18 @@ async function submitForm(form, product, statusEl, submitBtn, bodyEl) {
     if (!res.ok || !data.ok) {
       throw new Error(data.error || `Request failed (${res.status})`)
     }
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'generate_lead', {
+        form: 'quote_modal',
+        product: (product && (product.title || product.slug)) || 'unknown',
+        page_path: window.location.pathname,
+        lp_source: sessionStorage.getItem('lp_source') || window.location.pathname,
+      })
+    }
     showSuccessState(bodyEl, product)
   } catch (err) {
     console.error('[quote-modal]', err)
-    setStatus(statusEl, 'Something broke on our end. Call 725.235.6196 or email info@bighornthreads.com — we will handle it.', 'error')
+    setStatus(statusEl, 'Something broke on our end. Call 702.904.8923 or email info@bighornthreads.com — we will handle it.', 'error')
     submitBtn.disabled = false
     submitBtn.textContent = 'Request Quote'
   }
@@ -514,6 +565,11 @@ async function submitForm(form, product, statusEl, submitBtn, bodyEl) {
 function getVal(form, name) {
   const node = form.elements.namedItem(name)
   return node ? String(node.value || '').trim() : ''
+}
+
+function isChecked(form, name) {
+  const node = form.querySelector(`input[name="${name}"]`)
+  return !!(node && node.checked)
 }
 
 function showSuccessState(bodyEl, product) {
@@ -559,9 +615,9 @@ function showSuccessState(bodyEl, product) {
   })
   closeBtn.addEventListener('click', closeModal)
   const callLink = el('a', {
-    href: 'tel:+17252356196',
+    href: 'tel:+17029048923',
     class: 'inline-flex min-h-[44px] items-center justify-center rounded-lg bg-gold-500 px-5 py-2.5 text-sm font-bold text-navy-950 transition-colors hover:bg-gold-400',
-    text: 'Or call 725.235.6196',
+    text: 'Or call 702.904.8923',
   })
   actions.appendChild(closeBtn)
   actions.appendChild(callLink)
