@@ -250,6 +250,27 @@ const posts = [
  },
 ]
 
+// Category accent colors — small doses only (eyebrow label + top hairline).
+// Tuned to read clearly on the navy-950 card background.
+const categoryColors = {
+ Compliance: '#f0b34e',
+ 'Decoration Methods': '#6bb3d6',
+ Brands: '#c6a0e0',
+ Products: '#7ecaa1',
+ 'Crew Outfitting': '#e89a6b',
+ Operations: '#9aa8d6',
+ Operational: '#9aa8d6',
+ 'How-To': '#6bccb8',
+ 'Use Cases': '#d98fae',
+ Comparison: '#b6c46b',
+ Trades: '#e0b36b',
+ 'Local Guides': '#8fc8d8',
+ Glossary: '#a6b2bf',
+ Pricing: '#7ecb7e',
+ Industries: '#d6a36b',
+}
+const accentFor = (category) => categoryColors[category] ?? '#c19b3d'
+
 const blogSchema = {
  '@context': 'https://schema.org',
  '@type': 'Blog',
@@ -323,42 +344,39 @@ const itemListSchema = {
  <!-- Posts grid -->
  <section class="bg-navy-950 py-20">
  <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
- <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+ <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
  {posts.map((post) => (
  <a
  href={`/blog/${post.slug}/`}
- class="group flex flex-col overflow-hidden rounded-2xl border border-navy-700/50 bg-navy-900/40 transition-all hover:-translate-y-1 hover:border-gold-500/40 hover:bg-navy-800/60"
+ class="group relative flex flex-col overflow-hidden rounded-2xl border border-navy-700/50 bg-navy-900/40 p-6 transition-all hover:-translate-y-1 hover:border-gold-500/40 hover:bg-navy-800/60 sm:p-7"
  >
- <div class="relative aspect-[16/10] overflow-hidden bg-navy-950/60">
- <img
- src={post.image}
- alt={post.imageAlt}
- width="800"
- height="500"
- loading="lazy"
- decoding="async"
- class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
- />
- <div class="absolute inset-0 bg-gradient-to-t from-navy-950/50 via-transparent to-transparent"></div>
- <span class="absolute left-4 top-4 inline-block rounded-full border border-gold-500/30 bg-navy-950/80 px-3 py-1 text-xs font-bold uppercase tracking-wider text-gold-400 backdrop-blur-sm">
+ <span
+ aria-hidden="true"
+ class="absolute inset-x-0 top-0 h-0.5 opacity-60 transition-opacity group-hover:opacity-100"
+ style={`background:${accentFor(post.category)}`}
+ ></span>
+ <div class="mb-5 flex items-center gap-2">
+ <span class="h-1.5 w-1.5 rounded-full" style={`background:${accentFor(post.category)}`}></span>
+ <span
+ class="font-mono text-[11px] font-bold uppercase tracking-[0.18em]"
+ style={`color:${accentFor(post.category)}`}
+ >
  {post.category}
  </span>
  </div>
- <div class="flex flex-1 flex-col p-6">
- <h2 class="mb-3 font-heading text-xl font-bold leading-tight tracking-tight text-white group-hover:text-gold-300">
+ <h2 class="mb-3 font-heading text-xl font-bold leading-[1.2] tracking-tight text-white transition-colors group-hover:text-gold-300">
  {post.title}
  </h2>
- <p class="mb-6 line-clamp-2 text-sm leading-relaxed text-gray-400">
+ <p class="mb-6 line-clamp-3 text-sm leading-relaxed text-gray-400">
  {post.excerpt}
  </p>
  <div class="mt-auto flex items-center justify-between border-t border-navy-800 pt-4">
  <span class="font-mono text-xs uppercase tracking-wider text-gray-500">
- {post.readTime}
+ {post.readTime} &middot; {post.date}
  </span>
- <span class="text-sm font-bold text-gold-500 group-hover:text-gold-400">
- Read more &rarr;
+ <span class="text-sm font-bold text-gold-500 transition-transform group-hover:translate-x-0.5 group-hover:text-gold-400">
+ Read &rarr;
  </span>
- </div>
  </div>
  </a>
  ))}
