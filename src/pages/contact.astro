@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import SmsConsentFields from '@/components/SmsConsentFields.astro'
 
 const title = 'Contact Bighorn Threads | Las Vegas Apparel for Trades'
 const description =
@@ -63,7 +64,7 @@ const contactSchema = {
  mainEntity: {
  '@type': 'LocalBusiness',
  name: 'Bighorn Threads',
- telephone: '+1-725-235-6196',
+ telephone: '+1-702-904-8923',
  email: 'info@bighornthreads.com',
  address: {
  '@type': 'PostalAddress',
@@ -130,11 +131,11 @@ const steps = [
 
 <BaseLayout title={title} description={description}>
  <!-- ============================================================ -->
- <!-- HERO ======================================================= -->
+ <!-- QUOTE FORM + CONTACT INFO =================================== -->
  <!-- ============================================================ -->
  <section
- id="top"
- class="scroll-mt-20 relative overflow-hidden bg-navy-950 pt-32 pb-20 sm:pt-36 sm:pb-28"
+ id="quote-form"
+ class="scroll-mt-20 relative overflow-hidden border-b border-navy-700/30 bg-navy-900/30 pt-32 pb-24 sm:pt-40 sm:pb-32"
  >
  <div
  aria-hidden="true"
@@ -148,64 +149,21 @@ const steps = [
  </div>
 
  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
- <div class="max-w-4xl">
- <span
- class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500"
- >Get In Touch</span
- >
- <h1
- class="font-heading text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
- >
- Let's Talk About Outfitting
- <span class="text-gold-500">Your Crew</span>
- </h1>
- <p class="mt-6 max-w-2xl text-lg text-gray-400 sm:text-xl">
- quotes turned around quickly. No pushy sales calls. No BS.
- Just straight answers from a Las Vegas shop that prints
- and stitches for the trades that build this town.
- </p>
-
- <div class="mt-8 flex flex-wrap items-center gap-4">
- <a
- href="#quote-form"
- class="inline-flex items-center justify-center min-h-[44px] rounded-lg bg-gold-500 px-8 py-4 text-lg font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-xl hover:shadow-gold-500/25 hover:-translate-y-0.5"
- >
- Start My Quote
- </a>
- <a
- href="tel:+17252356196"
- class="inline-flex items-center justify-center min-h-[44px] rounded-lg border border-navy-700/60 bg-navy-900/40 px-8 py-4 text-lg font-semibold text-white transition-all hover:border-gold-500/60 hover:bg-navy-800/60"
- >
- Or call 725.235.6196
- </a>
- </div>
- </div>
- </div>
- </section>
-
- <!-- ============================================================ -->
- <!-- QUOTE FORM + CONTACT INFO =================================== -->
- <!-- ============================================================ -->
- <section
- id="quote-form"
- class="scroll-mt-20 relative border-y border-navy-700/30 bg-navy-900/30 py-24 sm:py-32"
- >
- <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
  <div class="mb-16 max-w-3xl">
  <span
  class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500"
  >Request A Quote</span
  >
- <h2
- class="font-heading text-4xl font-bold tracking-tight sm:text-5xl"
+ <h1
+ class="font-heading text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
  >
  Tell us what you need.
  <span class="text-gold-500">We'll handle the rest.</span>
- </h2>
- <p class="mt-5 text-lg text-gray-400">
- The more detail you give us, the sharper the quote comes back. If
- you are not sure yet — that is fine too. We will walk you through
- it.
+ </h1>
+ <p class="mt-6 text-lg text-gray-400 sm:text-xl">
+ Quotes turned around quickly. No pushy sales calls, no BS — just
+ straight answers from a Las Vegas shop that prints and stitches
+ for the trades that build this town.
  </p>
  </div>
 
@@ -363,6 +321,8 @@ const steps = [
  </div>
  </div>
 
+ <SmsConsentFields />
+
  <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
  <p class="text-sm text-gray-500">
  A real human replies fast — usually same business day.
@@ -391,7 +351,7 @@ const steps = [
  <aside class="lg:col-span-2 space-y-6">
  <!-- Phone -->
  <a
- href="tel:+17252356196"
+ href="tel:+17029048923"
  class="group block rounded-2xl border border-navy-700/40 bg-navy-800/20 p-8 transition-all hover:border-gold-500/50 hover:bg-navy-800/40 min-h-[44px]"
  >
  <div class="flex items-start gap-4">
@@ -423,7 +383,7 @@ const steps = [
  <div
  class="mt-1 font-mono text-xl font-bold text-white sm:text-2xl"
  >
- 725.235.6196
+ 702.904.8923
  </div>
  <p class="mt-1 text-sm text-gray-400">
  Ring the shop. A human answers.
@@ -793,10 +753,12 @@ const steps = [
  if (submitBtn) submitBtn.disabled = true
 
  try {
+ const fd = new FormData(form)
+ fd.append('consentUrl', window.location.href)
  const res = await fetch(form.action, {
  method: 'POST',
  headers: { Accept: 'application/json' },
- body: new FormData(form),
+ body: fd,
  })
  if (res.ok) {
  if (typeof gtag === 'function') {
@@ -812,7 +774,7 @@ const steps = [
  }
  } catch (err) {
  setStatus(
- 'Something broke on our end. Call us at 725.235.6196 or email info@bighornthreads.com and we will handle it.',
+ 'Something broke on our end. Call us at 702.904.8923 or email info@bighornthreads.com and we will handle it.',
  'error'
  )
  } finally {
