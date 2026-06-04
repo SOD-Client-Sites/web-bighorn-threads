@@ -36,112 +36,111 @@ const schema = {
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
- <article class="bg-navy-950">
- <header class="relative overflow-hidden border-b border-navy-800">
- <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
- <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
- <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-400">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-400">Blog</a></nav>
- <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
- <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
- <p class="mb-8 text-xl leading-relaxed text-gray-300">A working playbook on outfitting trade show booth crews — World of Concrete, IBS, AHR Expo, AGC, ConExpo, SEMA — with garment picks, embroidery placement, and timeline.</p>
- <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400"><span class="text-gold-500">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
+ <article class="bg-concrete">
+ <header class="border-b border-hairline bg-paper">
+ <div class="mx-auto max-w-3xl px-4 pt-32 pb-12 sm:px-6 sm:pt-40 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-600">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-600">Blog</a></nav>
+ <span class="kicker mb-3">{post.category}</span>
+ <h1 class="mb-6 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl lg:text-5xl">{post.title}</h1>
+ <p class="mb-8 text-xl leading-relaxed text-ash">A working playbook on outfitting trade show booth crews — World of Concrete, IBS, AHR Expo, AGC, ConExpo, SEMA — with garment picks, embroidery placement, and timeline.</p>
+ <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
  </header>
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Trade show booth crew in matching embroidered polos with name and company logo at a Las Vegas convention center" width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" /></div>
+ <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Trade show booth crew in matching embroidered polos with name and company logo at a Las Vegas convention center" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
 
- <aside class="mb-10 rounded-2xl border border-gold-500/30 bg-navy-900/60 p-7">
- <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Quick Answer</p>
- <p class="text-lg leading-relaxed text-white sm:text-xl">Trade show apparel is a brand asset. Standard pattern: matching embroidered polos for booth reps with company logo on left chest and first name + last initial on right chest. Different garment for the exec lead, branded tees for setup crew. Order 4-6 weeks ahead — Vegas hosts most major trade construction shows annually.</p>
+ <aside class="mb-10 border border-hairline bg-panel p-7">
+ <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Quick Answer</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl">Trade show apparel is a brand asset. Standard pattern: matching embroidered polos for booth reps with company logo on left chest and first name + last initial on right chest. Different garment for the exec lead, branded tees for setup crew. Order 4-6 weeks ahead — Vegas hosts most major trade construction shows annually.</p>
  </aside>
 
- <h2 id="why-it-matters" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Why Trade Show Apparel Is Different</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">A jobsite shirt is a tool. A trade show shirt is a brand asset. Different rules:</p>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <h2 id="why-it-matters" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Why Trade Show Apparel Is Different</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">A jobsite shirt is a tool. A trade show shirt is a brand asset. Different rules:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>It will be photographed</strong> — by attendees, by event photographers, by your own marketing team. Cheap garments look cheap in 4K.</li>
  <li><strong>It signals the company tier.</strong> A booth crew in $9 Gildan tees vs $55 Cutter & Buck polos sets a totally different perception of the company before anyone says a word.</li>
  <li><strong>It supports recall.</strong> Attendees collect 50+ business cards in a day. The shirt is the visual cue that ties a card back to a face and conversation.</li>
  <li><strong>It works for 12-hour days.</strong> Standing on concrete, talking to 200 people, in lobby HVAC. Performance fabric matters.</li>
  </ul>
 
- <h2 id="vegas-shows" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Major Vegas Trade Shows for Construction & Trades</h2>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
- <li><strong><a href="https://www.worldofconcrete.com/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500" rel="noopener">World of Concrete</a></strong> — January, Las Vegas Convention Center, ~57,000 attendees. Concrete contractors, masonry, equipment.</li>
- <li><strong><a href="https://www.buildersshow.com/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500" rel="noopener">International Builders' Show (IBS)</a></strong> — February (Vegas every other year), ~70,000 attendees. Residential builders, remodelers, suppliers.</li>
- <li><strong><a href="https://www.ahrexpo.com/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500" rel="noopener">AHR Expo</a></strong> — January-February, rotating locations including Vegas. HVAC and refrigeration.</li>
- <li><strong><a href="https://www.conexpoconagg.com/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500" rel="noopener">ConExpo-Con/Agg</a></strong> — March, every 3 years (next 2026), Las Vegas. ~140,000 attendees. The biggest construction equipment show in North America.</li>
+ <h2 id="vegas-shows" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Major Vegas Trade Shows for Construction & Trades</h2>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
+ <li><strong><a href="https://www.worldofconcrete.com/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600" rel="noopener">World of Concrete</a></strong> — January, Las Vegas Convention Center, ~57,000 attendees. Concrete contractors, masonry, equipment.</li>
+ <li><strong><a href="https://www.buildersshow.com/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600" rel="noopener">International Builders' Show (IBS)</a></strong> — February (Vegas every other year), ~70,000 attendees. Residential builders, remodelers, suppliers.</li>
+ <li><strong><a href="https://www.ahrexpo.com/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600" rel="noopener">AHR Expo</a></strong> — January-February, rotating locations including Vegas. HVAC and refrigeration.</li>
+ <li><strong><a href="https://www.conexpoconagg.com/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600" rel="noopener">ConExpo-Con/Agg</a></strong> — March, every 3 years (next 2026), Las Vegas. ~140,000 attendees. The biggest construction equipment show in North America.</li>
  <li><strong>AGC Annual Convention</strong> — Associated General Contractors, varying locations.</li>
  <li><strong>SEMA Show</strong> — November, Vegas. Automotive aftermarket — relevant for fleet/auto contractors.</li>
  <li><strong>NECA Show</strong> — National Electrical Contractors Association, varying locations including Vegas.</li>
  </ul>
 
- <h2 id="apparel-tiers" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The Three Apparel Tiers for a Booth</h2>
+ <h2 id="apparel-tiers" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">The Three Apparel Tiers for a Booth</h2>
 
- <h3 class="mt-8 mb-3 font-heading text-2xl font-bold tracking-tight text-white">Tier 1 — Booth Reps (Customer-Facing)</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Matching embroidered polos. Company logo on left chest, first name + last initial on right chest. Picks:</p>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
- <li><strong>Port Authority K500 Silk Touch Polo</strong> — budget pick for large crews. See our <a href="/blog/port-authority-polos-vs-alternatives/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Port Authority polos comparison</a>.</li>
+ <h3 class="mt-8 mb-3 font-heading text-2xl font-bold tracking-tight text-charcoal">Tier 1 — Booth Reps (Customer-Facing)</h3>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Matching embroidered polos. Company logo on left chest, first name + last initial on right chest. Picks:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
+ <li><strong>Port Authority K500 Silk Touch Polo</strong> — budget pick for large crews. See our <a href="/blog/port-authority-polos-vs-alternatives/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Port Authority polos comparison</a>.</li>
  <li><strong>Cutter & Buck DryTec Pique Polo</strong> — premium pick, performance fabric, holds shape through 12-hour days.</li>
  <li><strong>Nike Dri-FIT Micro Pique Polo</strong> — fashion-tier, modern fit.</li>
  </ul>
 
- <h3 class="mt-8 mb-3 font-heading text-2xl font-bold tracking-tight text-white">Tier 2 — Executive Lead</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Different garment from the booth reps so they're visually findable. Picks:</p>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <h3 class="mt-8 mb-3 font-heading text-2xl font-bold tracking-tight text-charcoal">Tier 2 — Executive Lead</h3>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Different garment from the booth reps so they're visually findable. Picks:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Embroidered quarter-zip pullover</strong> (Port Authority F228, Eddie Bauer EB246) over a coordinated polo.</li>
  <li><strong>Embroidered softshell vest</strong> over a button-down — works for HVAC and concrete shows that get cold from convention center AC.</li>
  <li><strong>Embroidered Cutter & Buck button-down</strong> — most upscale option for senior executives.</li>
  </ul>
 
- <h3 class="mt-8 mb-3 font-heading text-2xl font-bold tracking-tight text-white">Tier 3 — Setup & Breakdown Crew</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Branded heavyweight tees with the same logo. Setup involves crate hauling, scaffolding, AV cabling — needs durable cotton or cotton-blend tees, not polos. Picks:</p>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
- <li><strong>Carhartt K87 heavyweight pocket tee</strong> — see our <a href="/blog/carhartt-custom-embroidery-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Carhartt embroidery guide</a>.</li>
- <li><strong>Screen-printed cotton tee</strong> with "STAFF" callout on the back — see our <a href="/blog/what-is-screen-printing/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">what is screen printing</a> guide.</li>
+ <h3 class="mt-8 mb-3 font-heading text-2xl font-bold tracking-tight text-charcoal">Tier 3 — Setup & Breakdown Crew</h3>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Branded heavyweight tees with the same logo. Setup involves crate hauling, scaffolding, AV cabling — needs durable cotton or cotton-blend tees, not polos. Picks:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
+ <li><strong>Carhartt K87 heavyweight pocket tee</strong> — see our <a href="/blog/carhartt-custom-embroidery-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Carhartt embroidery guide</a>.</li>
+ <li><strong>Screen-printed cotton tee</strong> with "STAFF" callout on the back — see our <a href="/blog/what-is-screen-printing/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">what is screen printing</a> guide.</li>
  </ul>
 
- <h2 id="logo-placement" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Logo Placement for Trade Show Polos</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">The standard 2026 placement pattern:</p>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <h2 id="logo-placement" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Logo Placement for Trade Show Polos</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">The standard 2026 placement pattern:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Left chest:</strong> Company logo, 3.5-4 inches wide.</li>
  <li><strong>Right chest:</strong> First name + last initial (e.g., "Mike T."), 0.4-0.5 inch letters.</li>
  <li><strong>Optional back yoke:</strong> Company name in 1-inch letters across upper back — readable from across the booth aisle.</li>
  <li><strong>Optional sleeve:</strong> Booth number or event year on the right sleeve hem (small, 0.3-0.4 inch letters).</li>
  </ul>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">For digitizing your logo for crisp embroidery output, see our <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">logo digitizing 101</a> and <a href="/blog/embroidery-file-formats-explained/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">embroidery file formats</a> guides.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">For digitizing your logo for crisp embroidery output, see our <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">logo digitizing 101</a> and <a href="/blog/embroidery-file-formats-explained/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">embroidery file formats</a> guides.</p>
 
- <h2 id="timeline" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Realistic Timeline by Show</h2>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <h2 id="timeline" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Realistic Timeline by Show</h2>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>World of Concrete (January):</strong> Order by mid-November.</li>
  <li><strong>IBS (February):</strong> Order by mid-December.</li>
  <li><strong>AHR Expo (January-February):</strong> Order by November-December.</li>
  <li><strong>ConExpo (March, every 3 years):</strong> Order by mid-January.</li>
  <li><strong>SEMA (November):</strong> Order by mid-September.</li>
  </ul>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">First-time digitizing adds a week. Rush options exist — see our <a href="/blog/rush-order-shirts-las-vegas-whats-possible/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">rush order shirts in Las Vegas guide</a> for what's actually possible.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">First-time digitizing adds a week. Rush options exist — see our <a href="/blog/rush-order-shirts-las-vegas-whats-possible/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">rush order shirts in Las Vegas guide</a> for what's actually possible.</p>
 
- <h2 id="industry-fit" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Industries That Trade Show Most</h2>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
- <li><a href="/industries/general-contractors-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">General contractors</a> — AGC, IBS, ConExpo</li>
- <li><a href="/industries/concrete-masonry-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Concrete & masonry</a> — World of Concrete (huge)</li>
- <li><a href="/industries/plumbing-hvac-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Plumbing & HVAC</a> — AHR Expo, IBS</li>
- <li><a href="/industries/electrical-contractors-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Electrical contractors</a> — NECA Show</li>
- <li><a href="/industries/roofing-solar-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Roofing & solar</a> — IRE, RE+</li>
- <li><a href="/industries/data-center-contractors-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Data center contractors</a> — Data Center World, 7x24 Exchange</li>
+ <h2 id="industry-fit" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Industries That Trade Show Most</h2>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
+ <li><a href="/industries/general-contractors-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">General contractors</a> — AGC, IBS, ConExpo</li>
+ <li><a href="/industries/concrete-masonry-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Concrete & masonry</a> — World of Concrete (huge)</li>
+ <li><a href="/industries/plumbing-hvac-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Plumbing & HVAC</a> — AHR Expo, IBS</li>
+ <li><a href="/industries/electrical-contractors-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Electrical contractors</a> — NECA Show</li>
+ <li><a href="/industries/roofing-solar-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Roofing & solar</a> — IRE, RE+</li>
+ <li><a href="/industries/data-center-contractors-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Data center contractors</a> — Data Center World, 7x24 Exchange</li>
  </ul>
 
- <h2 id="related" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Related Reading</h2>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
- <li><a href="/blog/custom-polo-shirts-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Custom polo shirts buyer's guide</a></li>
- <li><a href="/blog/port-authority-polos-vs-alternatives/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Port Authority polos vs alternatives</a></li>
- <li><a href="/blog/carhartt-custom-embroidery-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Carhartt custom embroidery guide</a></li>
- <li><a href="/blog/rush-order-shirts-las-vegas-whats-possible/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Rush order shirts in Las Vegas</a></li>
+ <h2 id="related" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Related Reading</h2>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
+ <li><a href="/blog/custom-polo-shirts-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Custom polo shirts buyer's guide</a></li>
+ <li><a href="/blog/port-authority-polos-vs-alternatives/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Port Authority polos vs alternatives</a></li>
+ <li><a href="/blog/carhartt-custom-embroidery-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Carhartt custom embroidery guide</a></li>
+ <li><a href="/blog/rush-order-shirts-las-vegas-whats-possible/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Rush order shirts in Las Vegas</a></li>
  </ul>
 
- <div class="mt-12 rounded-2xl border border-gold-500/40 bg-gold-500/5 p-7 sm:p-9">
- <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-white">Trade show booth apparel in Las Vegas</h2>
- <p class="mb-5 text-lg leading-relaxed text-navy-200">Bighorn Threads runs trade show apparel programs for Vegas-based exhibitors and out-of-town crews. Embroidered polos, name customization, tiered roles, all coordinated.</p>
- <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Quote →</a>
+ <div class="mt-12 border border-hairline bg-panel p-7 sm:p-9">
+ <h2 class="mb-3 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal">Trade show booth apparel in Las Vegas</h2>
+ <p class="mb-5 text-lg leading-relaxed text-ash">Bighorn Threads runs trade show apparel programs for Vegas-based exhibitors and out-of-town crews. Embroidered polos, name customization, tiered roles, all coordinated.</p>
+ <a href="/contact/" class="btn-primary text-base">Get a Quote →</a>
  </div>
  </div>
  </article>

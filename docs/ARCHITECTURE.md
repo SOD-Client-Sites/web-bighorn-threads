@@ -45,7 +45,14 @@ Static data lives in `src/data/*.ts` files. Pages import and iterate over this d
 
 ## Design System
 
-- **Colors:** Navy (#0b1a2f) + White + Amber (#e8a019)
-- **Typography:** Space Grotesk (headings), Inter (body), JetBrains Mono (accents)
-- **Pattern:** Dark backgrounds with amber accent highlights
-- **Responsive:** Mobile-first, Tailwind breakpoints (sm/md/lg/xl)
+The full design system is defined in **`/DESIGN.md`** at the project root — that file is
+the source of truth. Aesthetic anchors live in `/_reference/`.
+
+- **Base:** light "Concrete" `#f4f2ee` canvas; navy is demoted to full-bleed photographic
+  dark bands + footer only (never flat fill).
+- **Accent:** Bighorn Gold `#C19B3D` — single accent.
+- **Typography:** Big Shoulders Display (headings), Barlow (body), Barlow Condensed
+  (sub/CTA), JetBrains Mono (spec labels, SKUs).
+- **Components:** flat surfaces, 1px hairline borders, sharp 0–4px corners, no shadows.
+- **Rhythm:** sections alternate Concrete / Paper / photographic-navy backgrounds.
+- **Responsive:** Mobile-first, Tailwind breakpoints (sm/md/lg/xl).

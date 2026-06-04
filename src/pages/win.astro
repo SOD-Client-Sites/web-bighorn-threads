@@ -1,5 +1,6 @@
 ---
 import '@/styles/global.css'
+import SmsConsentFields from '@/components/SmsConsentFields.astro'
 
 // Bighorn Threads — Event opt-in landing page (QR target).
 // Hardcoded for the current event. To repurpose: change EVENT_TAG + EVENT_LABEL + headline copy.
@@ -23,19 +24,14 @@ const description = 'Sign up for your free gift from Bighorn Threads at the even
  <title>{title}</title>
  <meta name="description" content={description} />
  <link rel="icon" type="image/png" href="/favicon.png" />
- <meta name="theme-color" content="#00182a" />
+ <meta name="theme-color" content="#f4f2ee" />
+ <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer is:inline></script>
  </head>
- <body class="min-h-dvh bg-navy-950 text-white antialiased">
+ <body class="min-h-dvh bg-concrete text-charcoal antialiased">
  <main class="relative isolate min-h-dvh overflow-hidden">
- <!-- Background atmosphere -->
  <div
  aria-hidden="true"
- class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,theme(colors.gold.500/0.10),transparent_60%)]"
- >
- </div>
- <div
- aria-hidden="true"
- class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold-500/30 to-transparent"
+ class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gold-500"
  >
  </div>
 
@@ -51,12 +47,12 @@ const description = 'Sign up for your free gift from Bighorn Threads at the even
  class="h-8 w-8"
  onerror="this.style.display='none'"
  />
- <span class="font-heading text-lg font-bold uppercase tracking-[0.18em] text-white">
- Bighorn <span class="text-gold-500">Threads</span>
+ <span class="font-heading text-lg font-bold uppercase tracking-[0.18em] text-charcoal">
+ Bighorn <span class="text-gold-600">Threads</span>
  </span>
  </a>
  <span
- class="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-400"
+ class="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-700"
  >
  {EVENT_LABEL}
  </span>
@@ -65,17 +61,17 @@ const description = 'Sign up for your free gift from Bighorn Threads at the even
  <!-- Headline -->
  <header class="mb-8">
  <span
- class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.22em] text-gold-500"
+ class="mb-3 inline-block font-subheading text-xs font-bold uppercase tracking-[0.22em] text-gold-700"
  >
  Free Gift · While Supplies Last
  </span>
  <h1
- class="font-heading text-4xl font-bold leading-[0.95] tracking-tight sm:text-5xl"
+ class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-5xl"
  >
  {HEADLINE_LINE_1}<br />
- <span class="text-gold-500">{HEADLINE_LINE_2}</span>
+ <span class="text-gold-600">{HEADLINE_LINE_2}</span>
  </h1>
- <p class="mt-5 text-base leading-relaxed text-gray-300 sm:text-lg">
+ <p class="mt-5 text-base leading-relaxed text-ash sm:text-lg">
  {SUBHEAD}
  </p>
  </header>
@@ -83,7 +79,7 @@ const description = 'Sign up for your free gift from Bighorn Threads at the even
  <!-- Form -->
  <form
  id="optinForm"
- class="rounded-2xl border border-navy-700/40 bg-navy-800/30 p-5 shadow-2xl shadow-black/30 backdrop-blur sm:p-6"
+ class="border border-hairline bg-panel p-5 sm:p-6"
  novalidate
  >
  <!-- Honeypot: name kept obscure to avoid password-manager / browser autofill -->
@@ -97,7 +93,7 @@ const description = 'Sign up for your free gift from Bighorn Threads at the even
 
  <div class="grid gap-4 sm:grid-cols-2">
  <div class="sm:col-span-1">
- <label for="firstName" class="block text-xs font-bold uppercase tracking-[0.15em] text-gray-300">
+ <label for="firstName" class="block font-subheading text-xs font-bold uppercase tracking-[0.15em] text-charcoal">
  First name
  </label>
  <input
@@ -107,12 +103,12 @@ const description = 'Sign up for your free gift from Bighorn Threads at the even
  required
  autocomplete="given-name"
  inputmode="text"
- class="mt-1.5 block w-full min-h-[48px] rounded-lg border border-navy-700/60 bg-navy-950/70 px-4 py-3 text-base text-white placeholder-gray-500 transition-colors focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/30"
+ class="mt-1.5 block w-full min-h-[48px] rounded border border-hairline bg-panel px-4 py-3 text-base text-charcoal placeholder-ash transition-colors focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/25"
  placeholder="Jordan"
  />
  </div>
  <div class="sm:col-span-1">
- <label for="lastName" class="block text-xs font-bold uppercase tracking-[0.15em] text-gray-300">
+ <label for="lastName" class="block font-subheading text-xs font-bold uppercase tracking-[0.15em] text-charcoal">
  Last name
  </label>
  <input
@@ -121,27 +117,26 @@ const description = 'Sign up for your free gift from Bighorn Threads at the even
  id="lastName"
  required
  autocomplete="family-name"
- class="mt-1.5 block w-full min-h-[48px] rounded-lg border border-navy-700/60 bg-navy-950/70 px-4 py-3 text-base text-white placeholder-gray-500 transition-colors focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/30"
+ class="mt-1.5 block w-full min-h-[48px] rounded border border-hairline bg-panel px-4 py-3 text-base text-charcoal placeholder-ash transition-colors focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/25"
  placeholder="Reyes"
  />
  </div>
  <div class="sm:col-span-2">
- <label for="phone" class="block text-xs font-bold uppercase tracking-[0.15em] text-gray-300">
+ <label for="phone" class="block font-subheading text-xs font-bold uppercase tracking-[0.15em] text-charcoal">
  Phone
  </label>
  <input
  type="tel"
  name="phone"
  id="phone"
- required
  autocomplete="tel"
  inputmode="tel"
- class="mt-1.5 block w-full min-h-[48px] rounded-lg border border-navy-700/60 bg-navy-950/70 px-4 py-3 text-base text-white placeholder-gray-500 transition-colors focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/30"
+ class="mt-1.5 block w-full min-h-[48px] rounded border border-hairline bg-panel px-4 py-3 text-base text-charcoal placeholder-ash transition-colors focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/25"
  placeholder="(702) 555-0187"
  />
  </div>
  <div class="sm:col-span-2">
- <label for="email" class="block text-xs font-bold uppercase tracking-[0.15em] text-gray-300">
+ <label for="email" class="block font-subheading text-xs font-bold uppercase tracking-[0.15em] text-charcoal">
  Email
  </label>
  <input
@@ -151,12 +146,12 @@ const description = 'Sign up for your free gift from Bighorn Threads at the even
  required
  autocomplete="email"
  inputmode="email"
- class="mt-1.5 block w-full min-h-[48px] rounded-lg border border-navy-700/60 bg-navy-950/70 px-4 py-3 text-base text-white placeholder-gray-500 transition-colors focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/30"
+ class="mt-1.5 block w-full min-h-[48px] rounded border border-hairline bg-panel px-4 py-3 text-base text-charcoal placeholder-ash transition-colors focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/25"
  placeholder="jordan@reyesgrading.com"
  />
  </div>
  <div class="sm:col-span-2">
- <label for="business" class="block text-xs font-bold uppercase tracking-[0.15em] text-gray-300">
+ <label for="business" class="block font-subheading text-xs font-bold uppercase tracking-[0.15em] text-charcoal">
  Business
  </label>
  <input
@@ -165,20 +160,24 @@ const description = 'Sign up for your free gift from Bighorn Threads at the even
  id="business"
  required
  autocomplete="organization"
- class="mt-1.5 block w-full min-h-[48px] rounded-lg border border-navy-700/60 bg-navy-950/70 px-4 py-3 text-base text-white placeholder-gray-500 transition-colors focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/30"
+ class="mt-1.5 block w-full min-h-[48px] rounded border border-hairline bg-panel px-4 py-3 text-base text-charcoal placeholder-ash transition-colors focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/25"
  placeholder="Reyes Concrete & Grading"
  />
  </div>
  </div>
 
+ <SmsConsentFields tone="compact" />
+
+ <div class="cf-turnstile mt-6" data-sitekey="0x4AAAAAADW_K97ZyhlAHC4I" data-theme="light"></div>
+
  <button
  type="submit"
- class="mt-6 inline-flex w-full items-center justify-center min-h-[52px] rounded-lg bg-gold-500 px-6 py-4 text-base font-bold uppercase tracking-[0.12em] text-navy-950 transition-all hover:bg-gold-400 hover:shadow-xl hover:shadow-gold-500/25 hover:-translate-y-0.5 disabled:opacity-60"
+ class="btn-primary mt-6 w-full justify-center text-base disabled:opacity-60"
  >
  Claim My Free Gift
  </button>
 
- <p class="mt-4 text-center text-xs text-gray-500">
+ <p class="mt-4 text-center text-xs text-ash">
  We won't share your info. Unsubscribe anytime.
  </p>
 
@@ -195,25 +194,25 @@ const description = 'Sign up for your free gift from Bighorn Threads at the even
  <!-- Success state (hidden by default) -->
  <div
  id="successState"
- class="hidden rounded-2xl border border-gold-500/40 bg-navy-800/40 p-8 text-center shadow-2xl shadow-black/30"
+ class="hidden border border-hairline bg-panel p-8 text-center"
  >
  <div
- class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-gold-500 text-navy-950 shadow-lg shadow-gold-500/30"
+ class="mx-auto mb-5 flex h-16 w-16 items-center justify-center bg-gold-500 text-charcoal"
  aria-hidden="true"
  >
  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
  </svg>
  </div>
- <h2 class="font-heading text-3xl font-bold tracking-tight">
- You're <span class="text-gold-500">In.</span>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal">
+ You're <span class="text-gold-600">In.</span>
  </h2>
- <p class="mx-auto mt-3 max-w-sm text-base text-gray-300">
+ <p class="mx-auto mt-3 max-w-sm text-base text-ash">
  Walk over to the Bighorn Threads tent and grab your gift. Show this screen if anyone asks.
  </p>
  <a
  href="https://bighornthreads.com"
- class="mt-6 inline-flex items-center justify-center min-h-[44px] rounded-lg border border-navy-700/60 bg-navy-900/60 px-6 py-3 text-sm font-semibold text-white transition-colors hover:border-gold-500/60 hover:bg-navy-800"
+ class="btn-secondary mt-6 text-sm"
  >
  See What We Do →
  </a>
@@ -221,14 +220,14 @@ const description = 'Sign up for your free gift from Bighorn Threads at the even
 
  <!-- Footer -->
  <footer class="mt-auto pt-10 text-center">
- <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-gray-500">
+ <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-ash">
  Bighorn Threads · Las Vegas
  </p>
  <a
- href="tel:+17252356196"
- class="mt-1 inline-block font-mono text-sm text-gray-400 hover:text-gold-400"
+ href="tel:+17029048923"
+ class="mt-1 inline-block font-mono text-sm text-ash hover:text-gold-600"
  >
- 725.235.6196
+ 702.904.8923
  </a>
  </footer>
  </div>
@@ -245,7 +244,7 @@ const description = 'Sign up for your free gift from Bighorn Threads at the even
  status.textContent = msg
  status.className =
  'mt-4 text-center text-sm ' +
- (tone === 'error' ? 'text-red-400' : tone === 'success' ? 'text-gold-400' : 'text-gray-400')
+ (tone === 'error' ? 'text-red-600' : tone === 'success' ? 'text-gold-700' : 'text-ash')
  }
 
  form.addEventListener('submit', async (e) => {
@@ -257,7 +256,7 @@ const description = 'Sign up for your free gift from Bighorn Threads at the even
  return
  }
 
- const required = ['firstName', 'lastName', 'phone', 'email', 'business']
+ const required = ['firstName', 'lastName', 'email', 'business']
  for (const field of required) {
  const el = form.elements.namedItem(field)
  if (!el || !el.value.trim()) {
@@ -278,6 +277,8 @@ const description = 'Sign up for your free gift from Bighorn Threads at the even
  const submitBtn = form.querySelector('button[type="submit"]')
  if (submitBtn) submitBtn.disabled = true
 
+ const smsMarketing = form.querySelector('input[name="smsMarketingConsent"]')
+ const smsTransactional = form.querySelector('input[name="smsTransactionalConsent"]')
  const payload = {
  firstName: form.firstName.value.trim(),
  lastName: form.lastName.value.trim(),
@@ -286,7 +287,11 @@ const description = 'Sign up for your free gift from Bighorn Threads at the even
  business: form.business.value.trim(),
  eventTag: form.eventTag.value,
  eventLabel: form.eventLabel.value,
+ smsMarketingConsent: smsMarketing && smsMarketing.checked ? 'yes' : '',
+ smsTransactionalConsent: smsTransactional && smsTransactional.checked ? 'yes' : '',
+ consentUrl: window.location.href,
  bh_hp_field: hp ? hp.value : '',
+ 'cf-turnstile-response': (form.querySelector('[name="cf-turnstile-response"]') || {}).value || '',
  }
 
  try {
@@ -302,7 +307,7 @@ const description = 'Sign up for your free gift from Bighorn Threads at the even
  }
  } catch (err) {
  setStatus(
- "Couldn't submit. Try again, or text us at 725.235.6196.",
+ "Couldn't submit. Try again, or text us at 702.904.8923.",
  'error'
  )
  } finally {

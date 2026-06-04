@@ -86,86 +86,86 @@ const faqSchema = {
  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
- <!-- Hero -->
- <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
- <div class="absolute inset-0">
- <img src={page.hero} alt="" aria-hidden="true" class="h-full w-full object-cover opacity-30" width="1600" height="900" loading="eager" fetchpriority="high" />
- <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/40" />
- <div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_75%_-10%,_rgba(193,155,61,0.15),_transparent)]" />
- </div>
+ <!-- Hero — full-bleed photographic dark band -->
+ <section class="relative isolate overflow-hidden bg-navy-950 pt-32 pb-20 sm:pt-36 sm:pb-28">
+ <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/55"></div>
 
  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+ <nav class="mb-6 font-mono text-xs text-navy-200" aria-label="Breadcrumb">
  <a href="/" class="hover:text-gold-400">Home</a>
- <span class="px-2 text-gray-600">/</span>
- <span class="text-gold-500">Custom Hard Hats</span>
+ <span class="px-2 text-navy-200/60">/</span>
+ <span class="text-gold-400">Custom Hard Hats</span>
  </nav>
 
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Branded PPE</span>
- <h1 class="mb-6 max-w-4xl font-heading text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
- Custom Hard Hats in Las Vegas <span class="text-gold-500">— ANSI-rated, decal-branded, ready for the jobsite.</span>
+ <p class="kicker mb-4 flex items-center gap-2.5">
+ <span class="h-px w-8 bg-gold-500"></span>
+ Branded PPE
+ </p>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
+ Custom Hard Hats in Las Vegas <span class="text-gold-400">— ANSI-rated, decal-branded, ready for the jobsite.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
  ANSI Z89.1 shells from MSA, Honeywell, Bullard, 3M, and Pyramex. Branded with manufacturer-approved vinyl decals — front, back, and sides. The certification stays intact.
  </p>
 
- <div class="mt-10 flex flex-wrap items-center gap-3">
- <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25">
+ <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+ <a href="/contact/" class="btn-primary text-base">
  Get a Quote
  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
  </a>
- <a href="tel:+17029048923" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gold-500/40 px-6 py-3 font-mono text-sm font-medium text-gold-500 transition-all hover:border-gold-500 hover:bg-gold-500/5">
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">
  702.904.8923
  </a>
  </div>
  </div>
  </section>
 
- <!-- Stack -->
- <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <!-- Stack — concrete -->
+ <section class="bg-concrete py-20 sm:py-24">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">What You Get</span>
- <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">A branded hard hat program, not a one-off order.</h2>
+ <p class="kicker mb-3">What You Get</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">A branded hard hat program, not a one-off order.</h2>
  </div>
 
  <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
  {stack.map((s) => (
- <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/30 hover:bg-navy-900/60">
- <h3 class="mb-3 font-heading text-lg font-bold leading-tight tracking-tight text-white">{s.label}</h3>
- <p class="text-sm leading-relaxed text-gray-300">{s.body}</p>
+ <div class="border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="mb-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{s.label}</h3>
+ <p class="text-sm leading-relaxed text-ash">{s.body}</p>
  </div>
  ))}
  </div>
  </div>
  </section>
 
- <!-- ANSI table -->
- <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+ <!-- ANSI table — paper -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-10 max-w-2xl">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">ANSI Z89.1</span>
- <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Type and Class — what to spec.</h2>
- <p class="mt-4 text-lg leading-relaxed text-gray-300">
+ <p class="kicker mb-3">ANSI Z89.1</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Type and Class — <span class="text-gold-600">what to spec.</span></h2>
+ <p class="mt-4 text-lg leading-relaxed text-ash">
  Every ANSI hard hat carries a Type (impact protection) and a Class (electrical protection). You spec both at order time.
  </p>
  </div>
 
- <div class="overflow-hidden rounded-2xl border border-navy-700/40">
+ <div class="overflow-hidden border border-hairline bg-panel">
  <table class="w-full">
- <thead class="bg-navy-900/60">
- <tr class="border-b border-navy-700/40">
- <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500">Designation</th>
- <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500">Protects Against</th>
- <th class="hidden px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500 lg:table-cell">Typical Use</th>
+ <thead class="bg-concrete">
+ <tr class="border-b border-hairline">
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Designation</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Protects Against</th>
+ <th class="hidden px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600 lg:table-cell">Typical Use</th>
  </tr>
  </thead>
- <tbody class="divide-y divide-navy-800 bg-navy-900/30">
+ <tbody class="divide-y divide-hairline">
  {ansiTable.map((r) => (
- <tr class="transition-colors hover:bg-navy-900/60">
- <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-400">{r.row}</td>
- <td class="px-6 py-5 align-top font-heading text-base font-bold text-white">{r.meaning}</td>
- <td class="hidden px-6 py-5 align-top text-sm text-gray-300 lg:table-cell">{r.use}</td>
+ <tr>
+ <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-700">{r.row}</td>
+ <td class="px-6 py-5 align-top font-heading text-base font-bold text-charcoal">{r.meaning}</td>
+ <td class="hidden px-6 py-5 align-top text-sm text-ash lg:table-cell">{r.use}</td>
  </tr>
  ))}
  </tbody>
@@ -174,106 +174,106 @@ const faqSchema = {
  </div>
  </section>
 
- <!-- Decoration rules -->
- <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <!-- Decoration rules — concrete -->
+ <section class="bg-concrete py-20 sm:py-24">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Decoration Rules</span>
- <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">What's allowed on an ANSI shell — and what voids the rating.</h2>
+ <p class="kicker mb-3">Decoration Rules</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">What's allowed on an ANSI shell — and what voids the rating.</h2>
  </div>
 
  <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
  {decoration.map((d) => (
- <div class={`rounded-2xl border p-6 transition-all ${d.ok ? 'border-navy-700/40 bg-navy-900/40 hover:border-gold-500/30' : 'border-red-900/40 bg-navy-900/30'}`}>
+ <div class={`border p-6 ${d.ok ? 'border-hairline bg-panel' : 'border-red-300 bg-red-50'}`}>
  <div class="mb-3 flex items-center gap-2">
- <span class={`flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold ${d.ok ? 'bg-gold-500 text-navy-950' : 'bg-red-900/50 text-red-300'}`}>
+ <span class={`flex h-6 w-6 items-center justify-center text-xs font-bold ${d.ok ? 'bg-gold-500 text-charcoal' : 'bg-red-200 text-red-700'}`}>
  {d.ok ? '✓' : '✕'}
  </span>
- <h3 class="font-heading text-base font-bold tracking-tight text-white">{d.label}</h3>
+ <h3 class="font-heading text-base font-bold uppercase tracking-tight text-charcoal">{d.label}</h3>
  </div>
- <p class="text-sm leading-relaxed text-gray-300">{d.body}</p>
+ <p class="text-sm leading-relaxed text-ash">{d.body}</p>
  </div>
  ))}
  </div>
  </div>
  </section>
 
- <!-- Deep dive -->
- <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <!-- Deep dive — paper -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">The Buyer's Read</span>
- <h2 class="mb-8 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+ <p class="kicker mb-3">The Buyer's Read</p>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">
  Custom hard hats for Vegas crews — what makes a program work long-term.
  </h2>
 
- <div class="space-y-5 text-lg leading-relaxed text-navy-200">
+ <div class="space-y-5 text-lg leading-relaxed text-ash">
  <p>
  A custom hard hat starts as a stock ANSI/ISEA Z89.1-certified shell from a major manufacturer — MSA, Honeywell (formerly North), Bullard, 3M, or Pyramex. Branding gets added through a decoration method the manufacturer approves in writing. For nearly every hard hat sold in the U.S., that means vinyl decals or pre-printed reflective stickers applied to the shell within the published placement zones.
  </p>
  <p>
- The reason to follow the rules: ANSI Z89.1 is performance-tested. Drilling, painting with solvents, screen printing with cured inks, or applying heat changes the shell chemistry and voids the certification. <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.100" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500" rel="noopener" target="_blank">OSHA enforces the standard through 29 CFR 1926.100</a>. A non-compliant hard hat is a citation risk and a head-injury exposure that no insurance carrier wants on file.
+ The reason to follow the rules: ANSI Z89.1 is performance-tested. Drilling, painting with solvents, screen printing with cured inks, or applying heat changes the shell chemistry and voids the certification. <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.100" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500" rel="noopener" target="_blank">OSHA enforces the standard through 29 CFR 1926.100</a>. A non-compliant hard hat is a citation risk and a head-injury exposure that no insurance carrier wants on file.
  </p>
  <p>
  For a long-running program, the spec list looks like this: shell brand and Type/Class match (locked once per crew so spares always match), decal artwork on file (front, back, sides, with a reflective option for night work), shell color tied to role (white for supervisors, yellow for journeymen, orange for first-day apprentices is one common scheme — yours can be whatever), and a re-order cadence tied to your project rotation. We carry replacement decals so a cracked shell can be swapped without re-ordering custom artwork.
  </p>
  <p>
- For deeper compliance reads, see our <a href="/blog/custom-hard-hats-las-vegas-buyer-guide/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">custom hard hats buyer's guide</a> and the <a href="/blog/custom-hard-hats-osha-z89-decals-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">OSHA Z89 decal guide</a>. For the pairing with hi-vis programs, see our <a href="/blog/ansi-107-class-2-vs-class-3-hi-vis-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">ANSI 107 Class 2 vs Class 3 guide</a>.
+ For deeper compliance reads, see our <a href="/blog/custom-hard-hats-las-vegas-buyer-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">custom hard hats buyer's guide</a> and the <a href="/blog/custom-hard-hats-osha-z89-decals-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">OSHA Z89 decal guide</a>. For the pairing with hi-vis programs, see our <a href="/blog/ansi-107-class-2-vs-class-3-hi-vis-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">ANSI 107 Class 2 vs Class 3 guide</a>.
  </p>
  </div>
  </div>
  </section>
 
- <!-- FAQ -->
- <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+ <!-- FAQ — concrete -->
+ <section class="bg-concrete py-20 sm:py-24">
  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">FAQ</span>
- <h2 class="mb-12 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Hard hat questions, answered.</h2>
+ <p class="kicker mb-3">FAQ</p>
+ <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Hard hat questions, answered.</h2>
 
- <div class="space-y-3">
+ <div class="divide-y divide-hairline border-y border-hairline">
  {faqs.map((f) => (
- <details class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-5 transition-all hover:border-gold-500/30 open:border-gold-500/40">
- <summary class="flex cursor-pointer list-none items-start justify-between gap-4">
- <h3 class="font-heading text-lg font-bold leading-tight tracking-tight text-white">{f.q}</h3>
- <span class="mt-1 flex-shrink-0 text-gold-500 transition-transform group-open:rotate-45">
- <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
- </span>
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
+ <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
  </summary>
- <p class="mt-4 text-base leading-relaxed text-gray-300">{f.a}</p>
+ <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
  </details>
  ))}
  </div>
  </div>
  </section>
 
- <!-- Related -->
- <section class="border-b border-navy-800 bg-navy-950 py-16">
+ <!-- Related — paper -->
+ <section class="border-y border-hairline bg-paper py-16">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <span class="mb-6 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Pair It With</span>
+ <p class="kicker mb-6">Pair It With</p>
  <div class="grid gap-5 md:grid-cols-3">
- <a href="/industries/electrical-contractors-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
- <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Electrical Contractors</h3>
- <p class="mt-2 text-sm text-gray-400">Class E hard hats + FR shirts for the full electrical trade kit.</p>
+ <a href="/industries/electrical-contractors-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Electrical Contractors</h3>
+ <p class="mt-2 text-sm text-ash">Class E hard hats + FR shirts for the full electrical trade kit.</p>
  </a>
- <a href="/industries/data-center-contractors-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
- <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Data Center Contractors</h3>
- <p class="mt-2 text-sm text-gray-400">Type II hard hats are the spec on most Vegas hyperscaler jobs.</p>
+ <a href="/industries/data-center-contractors-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Data Center Contractors</h3>
+ <p class="mt-2 text-sm text-ash">Type II hard hats are the spec on most Vegas hyperscaler jobs.</p>
  </a>
- <a href="/catalog/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
- <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Browse Catalog</h3>
- <p class="mt-2 text-sm text-gray-400">FR shirts, hi-vis vests, work pants, polos — full PPE + apparel range.</p>
+ <a href="/catalog/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Browse Catalog</h3>
+ <p class="mt-2 text-sm text-ash">FR shirts, hi-vis vests, work pants, polos — full PPE + apparel range.</p>
  </a>
  </div>
  </div>
  </section>
 
- <!-- CTA -->
- <section class="bg-navy-900/60 py-20">
+ <!-- CTA — full-bleed photographic dark band -->
+ <section class="relative isolate overflow-hidden bg-navy-950 py-20">
+ <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" loading="lazy" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
  <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
- <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Ready to brand your crew's hard hats?</h2>
- <p class="mb-8 text-lg text-gray-300">Send your logo, count, and decoration spec.</p>
- <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
- <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>
- <a href="tel:+17029048923" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gray-600 px-8 py-4 font-mono text-base font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">702.904.8923</a>
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Ready to brand your crew's hard hats?</h2>
+ <p class="mb-8 text-lg text-navy-200">Send your logo, count, and decoration spec.</p>
+ <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+ <a href="/contact/" class="btn-primary text-base">Get a Free Quote</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
  </div>
  </div>
  </section>

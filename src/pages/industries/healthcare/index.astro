@@ -1,0 +1,309 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
+
+const problems = [
+  {
+    title: 'Names & Departments, Mismatched',
+    desc: 'Scrubs with no name, no logo, and no consistency. Patients and families can’t tell the charge nurse from the new hire. Your brand disappears the moment staff walk the floor.',
+  },
+  {
+    title: 'Color-Coding That Doesn’t Hold',
+    desc: 'You set role and department colors, then turnover and one-off orders erode them. Within a year nobody remembers which color belongs to which unit.',
+  },
+  {
+    title: 'Multi-Site Ordering Chaos',
+    desc: 'Every clinic and floor orders its own way — different vendors, different garments, different embroidery. Procurement chases invoices instead of running the system.',
+  },
+  {
+    title: 'Onboarding Eats Hours',
+    desc: 'Every new hire means a fresh round of size-guessing, emails, and reorders. HR shouldn’t be running a uniform closet.',
+  },
+  {
+    title: 'Reorders Reset Every Time',
+    desc: 'Staff turn over, and the next order starts from scratch — logo re-digitized, colors re-matched, placement re-explained. Consistency leaks out with every reorder.',
+  },
+  {
+    title: 'A Look That Doesn’t Match the Care',
+    desc: 'You run a sharp, professional operation. The apparel should say so — on the floor, at the front desk, and in every patient interaction.',
+  },
+]
+
+const storeSteps = [
+  {
+    n: '01',
+    meta: 'Setup',
+    title: 'We Build Your Free Store',
+    desc: 'Your logo, your role and department colors, your approved scrubs and coats — set up once, on us. One branded store for every site.',
+  },
+  {
+    n: '02',
+    meta: 'Ongoing',
+    title: 'Staff Order Their Own',
+    desc: 'Each person logs in, picks their size and role apparel, and submits. No size-guessing, no HR middleman, no spreadsheet.',
+  },
+  {
+    n: '03',
+    meta: 'Ongoing',
+    title: 'Ships Direct, Embroidered',
+    desc: 'Gear ships straight to the site or to each person’s home — logo and name embroidery already on file. Reorders match the first order, every time.',
+  },
+]
+
+const storeItems = [
+  {
+    title: 'Embroidered Scrubs',
+    desc: 'Scrub tops and pants with your logo and staff names stitched in. Set role and department colors so the floor reads at a glance.',
+    tag: 'Scrubs',
+  },
+  {
+    title: 'Lab Coats & Jackets',
+    desc: 'Embroidered lab coats, warm-up jackets, and fleece for providers and clinical staff. Names and credentials on file, consistent every reorder.',
+    tag: 'Outerwear',
+  },
+  {
+    title: 'Admin & Front-Desk Polos',
+    desc: 'Embroidered polos and button-ups for reception, scheduling, and admin staff — a clean, professional front-of-house look.',
+    tag: 'Apparel',
+  },
+  {
+    title: 'Fleece & Outerwear',
+    desc: 'Branded softshells, fleece jackets, and vests for cold floors, transport teams, and staff moving between buildings.',
+    tag: 'Outerwear',
+  },
+  {
+    title: 'Name & Credential Embroidery',
+    desc: 'First name, last name, role, and credentials — stitched on and saved to your account so every new hire matches the team.',
+    tag: 'Decoration',
+  },
+]
+
+const faqs = [
+  {
+    q: 'What is a healthcare company store?',
+    a: 'It’s a private branded store we build for your organization. Your logo, your role and department colors, and your approved scrubs, lab coats, and staff apparel live in one place. Staff order their own sizes, and gear ships direct — embroidered and consistent across every site.',
+  },
+  {
+    q: 'Can we add names and credentials to scrubs and lab coats?',
+    a: 'Yes. We embroider first name, last name, role, and credentials onto scrubs, lab coats, and jackets. Your logo and each staff member’s name are saved on file, so every reorder matches without re-explaining placement.',
+  },
+  {
+    q: 'Can different roles or departments have different colors?',
+    a: 'Yes. You set the color rules — by role, by department, or by site — and the store enforces them. Staff only see the right options for their unit, so color-coding holds up as people come and go.',
+  },
+  {
+    q: 'Can multi-site staff order to their own location or home?',
+    a: 'Yes. Each person chooses to ship to their site or to their home address at checkout. One store covers every clinic, floor, and building — no separate vendors or order forms per location.',
+  },
+  {
+    q: 'How do reorders work as staff change?',
+    a: 'Your logo, embroidery placement, colors, and garment specs stay saved on your account. When you hire, the new person logs in, picks their size, and orders — the result matches your existing team with no setup to repeat.',
+  },
+]
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+}
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Industries', item: 'https://bighornthreads.com/industries/' },
+    { '@type': 'ListItem', position: 3, name: 'Healthcare', item: 'https://bighornthreads.com/industries/healthcare/' },
+  ],
+}
+---
+
+<BaseLayout
+  title="Embroidered Scrubs & Company Stores for Healthcare Teams"
+  description="Branded scrubs, embroidered lab coats, and company stores for hospitals, clinics, and multi-site healthcare groups. Role-based colors, names on file, staff order their own sizes, ships direct."
+  canonical="https://bighornthreads.com/industries/healthcare/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+
+  <!-- ════ HERO — concrete ════ -->
+  <section class="bg-concrete pt-32 pb-20 sm:pt-36 sm:pb-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-gold-600">Home</a>
+        <span class="px-2 text-ash/60">/</span>
+        <a href="/industries/" class="hover:text-gold-600">Industries</a>
+        <span class="px-2 text-ash/60">/</span>
+        <span class="text-gold-600">Healthcare</span>
+      </nav>
+
+      <div class="max-w-3xl">
+        <p class="kicker mb-5 flex items-center gap-2.5">
+          <span class="h-px w-8 bg-gold-500"></span>
+          For Hospitals, Clinics &amp; Practices
+        </p>
+        <h1 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
+          Embroidered scrubs, lab coats &amp; company stores for
+          <span class="text-gold-600"> healthcare teams.</span>
+        </h1>
+        <p class="mt-7 max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
+          One branded store for every site. Staff order their own sizes, role and
+          department colors hold, and names and logos ship embroidered — consistent
+          across the hospital, the clinic, and the front desk.
+        </p>
+        <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <a href="/get-started/healthcare/" class="btn-primary text-base">
+            Build my company store plan
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
+          </a>
+          <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-charcoal transition-colors hover:text-gold-600">
+            <svg class="h-4 w-4 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+            702.904.8923
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ THE PROBLEM — paper ════ -->
+  <section class="border-y border-hairline bg-paper py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <p class="kicker mb-3">The Problem</p>
+        <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
+          Staff apparel shouldn’t be <span class="text-gold-600">an ops headache.</span>
+        </h2>
+        <p class="mt-4 text-lg leading-relaxed text-ash">
+          Hospitals and clinics run on consistency. Uniforms are where it slips —
+          mismatched scrubs, drifting colors, multi-site reorders, and onboarding that
+          lands on HR. Here’s what we hear most.
+        </p>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {problems.map((item) => (
+          <div class="border border-hairline bg-panel p-6">
+            <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{item.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ash">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ HOW IT WORKS — concrete ════ -->
+  <section class="bg-concrete py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-3xl">
+        <p class="kicker mb-3">How It Works</p>
+        <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
+          How a company store works for a <span class="text-gold-600">clinic or hospital.</span>
+        </h2>
+        <p class="mt-4 text-lg leading-relaxed text-ash">
+          One free branded store, set up once. Your staff do the ordering. Your logo and
+          names stay on file so every piece matches the last.
+        </p>
+      </div>
+
+      <ol class="grid gap-5 md:grid-cols-3">
+        {storeSteps.map((step) => (
+          <li class="border border-hairline bg-panel p-7">
+            <div class="mb-5 flex items-baseline justify-between">
+              <span class="font-heading text-5xl font-extrabold leading-none text-gold-600">{step.n}</span>
+              <span class="spec border border-hairline px-2 py-1 text-ash">{step.meta}</span>
+            </div>
+            <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{step.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ash">{step.desc}</p>
+          </li>
+        ))}
+      </ol>
+
+      <div class="mt-8">
+        <a href="/get-started/healthcare/" class="btn-secondary text-sm">
+          Get your store plan
+          <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ WHAT GOES IN THE STORE — paper ════ -->
+  <section class="border-y border-hairline bg-paper py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <p class="kicker mb-3">What Goes In the Store</p>
+        <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
+          Every piece your team wears, <span class="text-gold-600">in one place.</span>
+        </h2>
+        <p class="mt-4 text-lg leading-relaxed text-ash">
+          Clinical, admin, and outerwear — embroidered with your logo, names, and
+          credentials, set to your role and department colors.
+        </p>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {storeItems.map((item) => (
+          <div class="flex flex-col border border-hairline bg-panel p-6">
+            <span class="spec mb-3 inline-block self-start border border-hairline px-2 py-1 text-ash">{item.tag}</span>
+            <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{item.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ash">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ FAQ — concrete ════ -->
+  <section class="bg-concrete py-20 sm:py-28">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-10 max-w-2xl">
+        <p class="kicker mb-3">FAQ</p>
+        <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
+          Healthcare company stores, <span class="text-gold-600">answered.</span>
+        </h2>
+      </div>
+
+      <div class="divide-y divide-hairline border-y border-hairline">
+        {faqs.map((item) => (
+          <details class="group">
+            <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+              <span class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{item.q}</span>
+              <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+            </summary>
+            <p class="pb-5 leading-relaxed text-ash">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ CTA — paper ════ -->
+  <section class="border-y border-hairline bg-paper py-20 sm:py-28">
+    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+      <p class="kicker mb-3 justify-center">Get Started</p>
+      <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-5xl">
+        Ready to standardize <span class="text-gold-600">your team’s look?</span>
+      </h2>
+      <p class="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-ash">
+        We’ll build your free company store plan — scrubs, lab coats, and admin
+        apparel, embroidered and color-coded to your roles. Staff order their own sizes,
+        gear ships direct.
+      </p>
+      <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <a href="/get-started/healthcare/" class="btn-primary text-base">
+          Build my company store plan
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
+        </a>
+        <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-charcoal transition-colors hover:text-gold-600">
+          <svg class="h-4 w-4 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+          702.904.8923
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

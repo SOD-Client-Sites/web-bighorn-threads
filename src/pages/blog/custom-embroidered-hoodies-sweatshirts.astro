@@ -35,28 +35,27 @@ const schema = {
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
- <article class="bg-navy-950">
- <header class="relative overflow-hidden border-b border-navy-800">
- <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
+ <article class="bg-concrete">
+ <header class="border-b border-hairline bg-paper">
  <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
- <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-400">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-400">Blog</a></nav>
- <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
+ <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-700">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-700">Blog</a></nav>
+ <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-600">{post.category}</span>
  <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
- <p class="mb-8 text-xl leading-relaxed text-gray-300">A working buyer's guide to embroidered hoodies for crew programs, branded swag, and pre-dawn 5 AM Vegas starts.</p>
- <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400"><span class="text-gold-500">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
+ <p class="mb-8 text-xl leading-relaxed text-ash">A working buyer's guide to embroidered hoodies for crew programs, branded swag, and pre-dawn 5 AM Vegas starts.</p>
+ <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
  </header>
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Custom embroidered Carhartt hoodie with company logo on the chest" width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" /></div>
+ <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Custom embroidered Carhartt hoodie with company logo on the chest" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
 
- <aside class="mb-10 rounded-2xl border border-gold-500/30 bg-navy-900/60 p-7">
- <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Quick Answer</p>
- <p class="text-lg leading-relaxed text-white sm:text-xl">Custom embroidered hoodies are the right call for crew programs where you want a chest-logo-only program with a premium textured look. Carhartt SUP01 Midweight is the trade-friendly default; Champion S700 Powerblend for athletic feel; Independent Trading IND4000 for premium. For full-back designs, switch to screen printing — embroidery doesn't fit a back-print scale.</p>
+ <aside class="mb-10 border border-hairline bg-panel p-7">
+ <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl">Custom embroidered hoodies are the right call for crew programs where you want a chest-logo-only program with a premium textured look. Carhartt SUP01 Midweight is the trade-friendly default; Champion S700 Powerblend for athletic feel; Independent Trading IND4000 for premium. For full-back designs, switch to screen printing — embroidery doesn't fit a back-print scale.</p>
  </aside>
 
  <h2 id="when-hoodies" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">When Custom Hoodies Make Sense</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">For trades and contractor crews, hoodies fill a specific role:</p>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">For trades and contractor crews, hoodies fill a specific role:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Cool desert mornings.</strong> Pre-dawn 5 AM starts in Vegas summer (mandated by Nevada heat-stress guidance) need a layer crews shed by 8 AM. A branded hoodie is that layer.</li>
  <li><strong>Winter desert work.</strong> 38° at 6 AM in Pahrump in January isn't unusual. A heavyweight cotton-poly hoodie covers the cold mornings without the cost of a full insulated jacket.</li>
  <li><strong>Crew swag programs.</strong> Holiday gifts, milestone rewards, anniversary gear — branded hoodies are perennially popular and crews actually wear them off the clock.</li>
@@ -66,42 +65,42 @@ const schema = {
  <h2 id="blanks" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The Hoodie Blanks That Matter</h2>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Carhartt SUP01 Midweight Hooded Sweatshirt — the workhorse</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Heavyweight 10.5 oz cotton-poly fleece. The default for trade and construction crews — durable enough to survive a working environment, takes embroidery cleanly, available in colors that match most brand palettes. Slightly more expensive than the budget options but the durability difference is real.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Heavyweight 10.5 oz cotton-poly fleece. The default for trade and construction crews — durable enough to survive a working environment, takes embroidery cleanly, available in colors that match most brand palettes. Slightly more expensive than the budget options but the durability difference is real.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Independent Trading IND4000 Heavyweight Hooded Sweatshirt — premium</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">12 oz cotton-poly fleece, slightly heavier and more expensive than the Carhartt SUP01. Streetwear-leaning fit, very popular with younger crew members and brands that want a "premium giveaway" feel. Embroiders cleanly.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">12 oz cotton-poly fleece, slightly heavier and more expensive than the Carhartt SUP01. Streetwear-leaning fit, very popular with younger crew members and brands that want a "premium giveaway" feel. Embroiders cleanly.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Champion S700 Powerblend Eco — athletic feel</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Lighter weight (9 oz) than the Carhartt or Independent options, with a more athletic cut and a distinct softer hand. The right pick for crews who don't want the heavy trade-style hoodie look. Slightly higher cost than Gildan but lower than Carhartt.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Lighter weight (9 oz) than the Carhartt or Independent options, with a more athletic cut and a distinct softer hand. The right pick for crews who don't want the heavy trade-style hoodie look. Slightly higher cost than Gildan but lower than Carhartt.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Gildan 18500 Heavy Blend — budget</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">The budget option for high-volume crew programs where per-piece cost dominates. 8 oz cotton-poly, embroiders fine, lasts well for the price. The default at 50+ piece runs where margins matter.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">The budget option for high-volume crew programs where per-piece cost dominates. 8 oz cotton-poly, embroiders fine, lasts well for the price. The default at 50+ piece runs where margins matter.</p>
 
  <h2 id="decoration" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Decoration: Embroidery vs Screen Printing on Hoodies</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">The decoration choice depends on what you're decorating where.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">The decoration choice depends on what you're decorating where.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Chest logos: embroider</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Embroidered chest logos on hoodies look premium and last as long as the hoodie itself. Screen-printed chest logos crack at the fold lines (around the body) over time as the fleece flexes. For chest-only programs, embroidery is the right call almost universally.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Embroidered chest logos on hoodies look premium and last as long as the hoodie itself. Screen-printed chest logos crack at the fold lines (around the body) over time as the fleece flexes. For chest-only programs, embroidery is the right call almost universally.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Full-back designs: screen print</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Embroidery doesn't scale to a full-back design — the stitch count and machine time make it cost-prohibitive. Screen printing is the standard for back logos, full-back designs, and any wraparound graphic. Pair a screen-printed back with an embroidered chest logo for a complete program.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Embroidery doesn't scale to a full-back design — the stitch count and machine time make it cost-prohibitive. Screen printing is the standard for back logos, full-back designs, and any wraparound graphic. Pair a screen-printed back with an embroidered chest logo for a complete program.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Sleeve hits: embroider</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Sleeve hits (forearm or upper arm) embroider cleanly. Common for trade-local affiliations, certifications, or secondary brand marks.</p>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">For broader context on the embroidery vs screen printing decision, see <a href="/blog/screen-printing-vs-embroidery-construction/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">screen printing vs embroidery</a>.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Sleeve hits (forearm or upper arm) embroider cleanly. Common for trade-local affiliations, certifications, or secondary brand marks.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">For broader context on the embroidery vs screen printing decision, see <a href="/blog/screen-printing-vs-embroidery-construction/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">screen printing vs embroidery</a>.</p>
 
  <h2 id="costs" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">What Custom Embroidered Hoodies Cost</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Per-piece cost is driven by the same five factors as <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">embroidered shirts</a>: stitch count, blank cost, digitizing fee, decoration complexity, and quantity. Hoodie blanks cost more than tee blanks but the embroidery is comparable, so the per-piece cost is mostly driven by the blank choice.</p>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Bulk discounts kick in at 24+ pieces and again at 144+. For crews of 12-24, expect comparable per-piece pricing across blanks because volume discounts haven't kicked in.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Per-piece cost is driven by the same five factors as <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">embroidered shirts</a>: stitch count, blank cost, digitizing fee, decoration complexity, and quantity. Hoodie blanks cost more than tee blanks but the embroidery is comparable, so the per-piece cost is mostly driven by the blank choice.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Bulk discounts kick in at 24+ pieces and again at 144+. For crews of 12-24, expect comparable per-piece pricing across blanks because volume discounts haven't kicked in.</p>
 
  <h2 id="programs" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Hoodies in a Crew Program</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">A typical crew package allocates 1 hoodie per employee per year — enough for the cool morning rotation, replaced when worn out. For trade-show and event crews, additional hoodies in special colorways or premium blanks signal the event.</p>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">For larger operations, hoodies are managed through a <a href="/company-stores/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">company store</a> with employee allowances and direct shipping. Common pattern: a standard hoodie included in the new-hire kit, replacement available on the company store after the first year.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">A typical crew package allocates 1 hoodie per employee per year — enough for the cool morning rotation, replaced when worn out. For trade-show and event crews, additional hoodies in special colorways or premium blanks signal the event.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">For larger operations, hoodies are managed through a <a href="/company-stores/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">company store</a> with employee allowances and direct shipping. Common pattern: a standard hoodie included in the new-hire kit, replacement available on the company store after the first year.</p>
 
- <div class="mt-12 rounded-2xl border border-gold-500/40 bg-gold-500/5 p-7 sm:p-9">
- <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-white">Custom embroidered hoodies in Las Vegas</h2>
- <p class="mb-5 text-lg leading-relaxed text-navy-200">Bighorn Threads runs custom embroidered hoodies for Vegas contractors, trade businesses, and crew programs. Send your logo and quantity — we'll quote per piece with all costs broken out.</p>
- <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Quote →</a>
+ <div class="mt-12 border border-hairline bg-gold-500/5 p-7 sm:p-9">
+ <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-charcoal">Custom embroidered hoodies in Las Vegas</h2>
+ <p class="mb-5 text-lg leading-relaxed text-charcoal">Bighorn Threads runs custom embroidered hoodies for Vegas contractors, trade businesses, and crew programs. Send your logo and quantity — we'll quote per piece with all costs broken out.</p>
+ <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 bg-gold-500 px-7 py-3 text-base font-bold text-charcoal transition-all hover:bg-gold-600">Get a Quote →</a>
  </div>
  </div>
  </article>

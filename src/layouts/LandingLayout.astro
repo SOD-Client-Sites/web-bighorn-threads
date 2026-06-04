@@ -1,0 +1,87 @@
+---
+/**
+ * LandingLayout — stripped-chrome layout for paid lead-capture LPs.
+ * No global nav/footer (kills exit paths); just a wordmark + a phone CTA + slim legal.
+ * Keeps SEOHead, GA4, Turnstile, and the AudienceLab/SOD tracking pixels so conversion
+ * and retargeting still fire. Default noindex (these are ad destinations, not SEO pages).
+ */
+import SEOHead from '@/components/SEOHead.astro'
+import '@/styles/global.css'
+
+interface Props {
+  title: string
+  description: string
+  canonical?: string
+  ogImage?: string
+  noindex?: boolean
+}
+
+const props = Astro.props
+const { noindex = true } = Astro.props
+const phone = '+17029048923'
+const phoneDisplay = '702.904.8923'
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <SEOHead {...props} noindex={noindex} />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZGGY24PN1Z"></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer is:inline></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || []
+      function gtag(){dataLayer.push(arguments)}
+      gtag('js', new Date())
+      gtag('config', 'G-ZGGY24PN1Z')
+    </script>
+    <script src="https://cdn.idpixel.app/v1/idp-analytics-6a0ddfa583e9dbc113e83095.min.js" data-ga4-key="G-ZGGY24PN1Z" defer></script>
+    <!-- Meta Pixel Code -->
+    <script is:inline>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '401727073718157');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=401727073718157&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+  </head>
+  <body class="min-h-screen bg-concrete text-charcoal antialiased">
+    <!-- Minimal header: wordmark + phone only -->
+    <header class="border-b border-hairline bg-concrete/95 backdrop-blur supports-[backdrop-filter]:bg-concrete/80">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
+        <a href="/" class="font-heading text-xl font-extrabold uppercase tracking-tight text-charcoal">
+          Bighorn<span class="text-gold-600">&nbsp;Threads</span>
+        </a>
+        <a href={`tel:${phone}`} class="inline-flex items-center gap-2 font-mono text-sm font-medium tracking-wide text-charcoal transition-colors hover:text-gold-600">
+          <svg class="h-4 w-4 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+          <span class="hidden sm:inline">{phoneDisplay}</span>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <!-- Slim legal footer -->
+    <footer class="border-t border-hairline bg-paper py-8">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <p class="font-mono text-[11px] uppercase tracking-[0.12em] text-ash">
+          Bighorn Threads · VP Promos LLC ·
+          <a href="/legal/privacy-policy/" class="hover:text-gold-600">Privacy</a> ·
+          <a href="/legal/terms/" class="hover:text-gold-600">Terms</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://api.salesondemand.io/js/external-tracking.js" data-tracking-id="tk_4f091433d8a94642b790fd3fbc56afa7"></script>
+  </body>
+</html>

@@ -47,6 +47,6 @@ npx wrangler pages deploy dist
 
 ## Contact Info (for site content)
 
-- Phone: 725.235.6196
+- Phone: 702.904.8923
 - Email: info@vp-promos.com
 - Location: Las Vegas, NV

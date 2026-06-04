@@ -1,0 +1,272 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const trades = [
+ {
+ name: 'General Contractors',
+ href: '/industries/general-contractors-las-vegas/',
+ desc: 'Embroidered polos, hi-vis tees, branded hard hats, and crew uniforms for Vegas GCs.',
+ },
+ {
+ name: 'Electrical Contractors',
+ href: '/industries/electrical-contractors-las-vegas/',
+ desc: 'NFPA 70E FR-rated shirts, arc-flash workwear, and embroidered service uniforms.',
+ },
+ {
+ name: 'Plumbing & HVAC',
+ href: '/industries/plumbing-hvac-las-vegas/',
+ desc: 'Embroidered service polos, branded work jackets, and name-taped service shirts.',
+ },
+ {
+ name: 'Concrete & Masonry',
+ href: '/industries/concrete-masonry-las-vegas/',
+ desc: 'ANSI hi-vis tees and long sleeves, heavy-duty work jackets, branded hard hats.',
+ },
+ {
+ name: 'Steel & Ironworkers',
+ href: '/industries/steel-iron-workers-las-vegas/',
+ desc: 'FR-rated long-sleeve shirts, arc-rated hoodies, welding gloves, chin-strap hard hats.',
+ },
+ {
+ name: 'Data Center & Mission-Critical',
+ href: '/industries/data-center-contractors-las-vegas/',
+ desc: 'FR button-ups, embroidered softshells, and fine-dust-ready gear for Vegas data centers.',
+ },
+ {
+ name: 'Roofing & Solar',
+ href: '/industries/roofing-solar-las-vegas/',
+ desc: 'Hi-vis branded gear, sun-ready workwear, custom hard hats, and durable crew tees.',
+ },
+ {
+ name: 'Landscaping',
+ href: '/industries/landscaping-las-vegas/',
+ desc: 'Sun-protection hats, branded tees and tanks, and crew uniforms for long days outdoors.',
+ },
+ {
+ name: 'Oil, Gas & Mechanical',
+ href: '/industries/oil-gas-mechanical-las-vegas/',
+ desc: 'FR-rated workwear, embroidered jackets, and branded gear for mechanical crews.',
+ },
+]
+
+const faqs = [
+ {
+ q: "What's the minimum order?",
+ a: '24 pieces for screen printing, 12 for embroidery. Setup fees waived on qualifying orders — ask when you quote.',
+ },
+ {
+ q: 'How fast can you turn around a rush job?',
+ a: "Rush options are available — call us with your deadline and we'll tell you straight if we can hit it.",
+ },
+ {
+ q: 'Do you handle hi-vis and FR compliance?',
+ a: 'Yes. ANSI/ISEA 107 Class 2 and 3 hi-vis apparel and NFPA 70E flame-resistant shirts, both printed and embroidered to spec without voiding the rating.',
+ },
+ {
+ q: 'Can you set up a company store for our crews?',
+ a: 'Yes. Your logo, your colors, and your approved gear live in one branded store. Crews log in, pick their own sizes, and gear ships direct to office, job trailer, or home — no inventory closet on your end.',
+ },
+ {
+ q: 'How do you handle reorders?',
+ a: 'Screens, digitized files, thread colors, and placement specs are all saved. Reorder with one email or one portal click, and it matches the original.',
+ },
+]
+
+const faqSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: faqs.map((f) => ({
+ '@type': 'Question',
+ name: f.q,
+ acceptedAnswer: { '@type': 'Answer', text: f.a },
+ })),
+}
+
+const breadcrumb = {
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+ { '@type': 'ListItem', position: 2, name: 'Industries', item: 'https://bighornthreads.com/industries/' },
+ { '@type': 'ListItem', position: 3, name: 'Construction & Trades', item: 'https://bighornthreads.com/industries/construction-trades/' },
+ { '@type': 'ListItem', position: 4, name: 'Las Vegas', item: 'https://bighornthreads.com/industries/construction-trades/las-vegas/' },
+ ],
+}
+
+const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
+---
+
+<BaseLayout
+ title="Las Vegas Construction & Trades Uniforms & Company Stores"
+ description="Branded uniforms, hi-vis and FR workwear, and company stores for the crews that build Las Vegas — general contractors, electricians, roofers, plumbers, HVAC, concrete, and steel. Local production, reorders that match."
+>
+ <!-- ════ HERO — concrete ════ -->
+ <section class="bg-concrete">
+ <div class="mx-auto max-w-7xl px-4 pb-16 pt-20 sm:px-6 sm:pt-24 lg:px-8 lg:pb-24 lg:pt-28">
+ <div class="max-w-3xl">
+ <p class="kicker mb-5 flex items-center gap-2.5">
+ <span class="h-px w-8 bg-gold-500"></span>
+ Las Vegas Construction &amp; Trades
+ </p>
+ <h1 class="font-heading text-5xl font-extrabold uppercase leading-[0.92] tracking-tight text-charcoal sm:text-6xl lg:text-[5rem]">
+ Uniforms &amp; company stores for the crews that
+ <span class="text-gold-600"> build Vegas.</span>
+ </h1>
+ <p class="mt-7 max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
+ We outfit Las Vegas general contractors, electricians, roofers, plumbers, HVAC
+ teams, concrete crews, and steel and ironworkers. Branded workwear, embroidery,
+ hi-vis and FR to spec, and reorder portals — built for the jobsite, easy to
+ reorder, consistent every time.
+ </p>
+ <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+ <a href="/contact/" class="btn-primary text-base">
+ Get a Free Quote
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
+ </a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-charcoal transition-colors hover:text-gold-600">
+ <svg class="h-4 w-4 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+ 702.904.8923
+ </a>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- ════ TRADES — paper ════ -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-28">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <p class="kicker mb-3">Trades We Outfit in Vegas</p>
+ <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
+ Built for the companies that <span class="text-gold-600">build Vegas.</span>
+ </h2>
+ <p class="mt-4 text-lg leading-relaxed text-ash">
+ If your crew shows up to a Las Vegas job site, we make sure they look like they
+ belong to something. Pick your trade for the gear, specs, and details that fit
+ the work.
+ </p>
+ </div>
+
+ <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+ {trades.map((trade) => (
+ <a href={trade.href} class="group flex flex-col border border-hairline bg-panel p-6 transition-colors duration-200 hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">{trade.name}</h3>
+ <p class="mt-2 flex-1 text-sm leading-relaxed text-ash">{trade.desc}</p>
+ <span class="mt-4 inline-flex items-center gap-1.5 font-mono text-xs font-medium uppercase tracking-wider text-gold-600 transition-all group-hover:gap-2.5">
+ See the gear
+ <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
+ </span>
+ </a>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- ════ LOCAL ANGLE — concrete ════ -->
+ <section class="bg-concrete py-20 sm:py-28">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
+ <div>
+ <p class="kicker mb-3">Vegas Local. Vegas Production.</p>
+ <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
+ We build where <span class="text-gold-600">you build.</span>
+ </h2>
+ <p class="mt-4 text-lg leading-relaxed text-ash">
+ Our production partners are in Las Vegas, so quotes, proofs, and reruns move at
+ jobsite speed. We know what the Vegas heat does to a crew — and we spec hi-vis,
+ sun-ready, and breathable workwear that holds up through summer on the roof and
+ in the trench.
+ </p>
+ <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+ <a href="/safety-compliance/" class="btn-secondary text-sm">
+ Safety &amp; compliance
+ <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
+ </a>
+ <a href="/service-areas/" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-xs font-medium uppercase tracking-wider text-gold-600 transition-all hover:gap-2.5">
+ Service areas
+ <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
+ </a>
+ </div>
+ </div>
+
+ <div class="divide-y divide-hairline border-y border-hairline">
+ <div class="flex gap-4 py-5">
+ <svg class="mt-0.5 h-5 w-5 shrink-0 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+ <div>
+ <h3 class="font-heading text-base font-bold uppercase tracking-tight text-charcoal">Local Production &amp; Turnaround</h3>
+ <p class="mt-1 text-sm leading-relaxed text-ash">Printed and embroidered through Las Vegas production partners. Quick quotes, quick mockups, rush options when you need them.</p>
+ </div>
+ </div>
+ <div class="flex gap-4 py-5">
+ <svg class="mt-0.5 h-5 w-5 shrink-0 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+ <div>
+ <h3 class="font-heading text-base font-bold uppercase tracking-tight text-charcoal">Built for the Vegas Heat</h3>
+ <p class="mt-1 text-sm leading-relaxed text-ash">Hi-vis, breathable, and sun-ready gear specced for desert summers — so the crew stays compliant and comfortable on long days.</p>
+ </div>
+ </div>
+ <div class="flex gap-4 py-5">
+ <svg class="mt-0.5 h-5 w-5 shrink-0 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+ <div>
+ <h3 class="font-heading text-base font-bold uppercase tracking-tight text-charcoal">Reorders That Match</h3>
+ <p class="mt-1 text-sm leading-relaxed text-ash">Your logo, colors, and specs held on file. Reorder with one email or one portal click and it matches the original lot.</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- ════ FAQ — paper ════ -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-28">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-10 max-w-2xl">
+ <p class="kicker mb-3">FAQ</p>
+ <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
+ Questions we hear from <span class="text-gold-600">Vegas crews.</span>
+ </h2>
+ </div>
+
+ <div class="divide-y divide-hairline border-y border-hairline">
+ {faqs.map((item) => (
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <span class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{item.q}</span>
+ <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+ </summary>
+ <p class="pb-5 leading-relaxed text-ash">{item.a}</p>
+ </details>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- ════ CTA BAND — concrete ════ -->
+ <section class="bg-concrete py-20 sm:py-28">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="flex flex-col items-start gap-6 border border-hairline bg-charcoal p-8 sm:flex-row sm:items-center sm:justify-between sm:p-12">
+ <div class="max-w-2xl">
+ <h2 class="font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-concrete sm:text-4xl">
+ Ready to standardize <span class="text-gold-400">your Vegas crew?</span>
+ </h2>
+ <p class="mt-3 text-base leading-relaxed text-navy-200">
+ Get a quick quote — real mockups, real pricing, a human on the phone who knows
+ the trades. Stop chasing down uniform orders.
+ </p>
+ </div>
+ <div class="flex shrink-0 flex-col gap-3 sm:flex-row sm:items-center">
+ <a href="/contact/" class="btn-primary text-base">
+ Get a Free Quote
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
+ </a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 border border-gold-500 px-6 py-3.5 font-mono text-sm font-medium tracking-wide text-gold-400 transition-colors hover:bg-gold-500 hover:text-charcoal">
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+ 702.904.8923
+ </a>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+</BaseLayout>

@@ -25,6 +25,7 @@ const { heroImage } = Astro.props
  <SEOHead {...props} />
  {heroImage && <link rel="preload" as="image" href={heroImage} fetchpriority="high" />}
  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZGGY24PN1Z"></script>
+ <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer is:inline></script>
  <script is:inline>
  window.dataLayer = window.dataLayer || [];
  function gtag(){dataLayer.push(arguments);}
@@ -80,8 +81,26 @@ const { heroImage } = Astro.props
  }
  }, true);
  </script>
+ <script src="https://cdn.idpixel.app/v1/idp-analytics-6a0ddfa583e9dbc113e83095.min.js" data-ga4-key="G-ZGGY24PN1Z" defer></script>
+    <!-- Meta Pixel Code -->
+    <script is:inline>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '401727073718157');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=401727073718157&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
  </head>
- <body class="min-h-screen bg-navy-950 pb-[60px] text-white antialiased lg:pb-0">
+ <body class="min-h-screen bg-concrete pb-[60px] text-charcoal antialiased lg:pb-0">
  <Header />
  <main class="pt-[65px]">
  <slot />

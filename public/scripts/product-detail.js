@@ -140,9 +140,9 @@ function render(p) {
   quoteBtn.addEventListener('click', () => openQuoteModal(p))
   ctaRow.appendChild(quoteBtn)
   ctaRow.appendChild(el('a', {
-    href: 'tel:+17252356196',
+    href: 'tel:+17029048923',
     class: 'inline-flex items-center justify-center gap-2 rounded-lg border border-navy-700 bg-navy-900 px-5 py-3 font-bold text-white transition-colors hover:border-gold-500/40 hover:text-gold-400',
-    text: 'Call 725.235.6196',
+    text: 'Call 702.904.8923',
   }))
   detailCol.appendChild(ctaRow)
 

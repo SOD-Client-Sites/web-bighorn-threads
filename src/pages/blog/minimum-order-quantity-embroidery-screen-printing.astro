@@ -35,71 +35,70 @@ const schema = {
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
- <article class="bg-navy-950">
- <header class="relative overflow-hidden border-b border-navy-800">
- <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
+ <article class="bg-concrete">
+ <header class="border-b border-hairline bg-paper">
  <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
- <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-400">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-400">Blog</a></nav>
- <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
+ <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-700">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-700">Blog</a></nav>
+ <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-600">{post.category}</span>
  <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
- <p class="mb-8 text-xl leading-relaxed text-gray-300">Why MOQs exist, what drives them, how to get small-batch work done when you genuinely need it, and how to optimize larger orders for better per-piece pricing.</p>
- <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400"><span class="text-gold-500">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
+ <p class="mb-8 text-xl leading-relaxed text-ash">Why MOQs exist, what drives them, how to get small-batch work done when you genuinely need it, and how to optimize larger orders for better per-piece pricing.</p>
+ <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
  </header>
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Stack of custom embroidered work shirts in production at a Las Vegas commercial decoration shop" width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" /></div>
+ <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Stack of custom embroidered work shirts in production at a Las Vegas commercial decoration shop" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
 
- <aside class="mb-10 rounded-2xl border border-gold-500/30 bg-navy-900/60 p-7">
- <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Quick Answer</p>
- <p class="text-lg leading-relaxed text-white sm:text-xl">Most commercial embroidery shops set 12-24 pieces as the minimum order; most screen print shops set 24 as the floor. Below those quantities, setup costs (digitizing, screen burning, ink mixing) don't amortize well and per-piece pricing climbs sharply. For very small runs (1-12), heat-transfer vinyl or DTF (direct-to-film) printing offers different economics that work for small batches.</p>
+ <aside class="mb-10 border border-hairline bg-panel p-7">
+ <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl">Most commercial embroidery shops set 12-24 pieces as the minimum order; most screen print shops set 24 as the floor. Below those quantities, setup costs (digitizing, screen burning, ink mixing) don't amortize well and per-piece pricing climbs sharply. For very small runs (1-12), heat-transfer vinyl or DTF (direct-to-film) printing offers different economics that work for small batches.</p>
  </aside>
 
  <h2 id="why-moqs" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Why Minimum Orders Exist</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Custom apparel decoration has fixed setup costs that happen once per run regardless of quantity:</p>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Custom apparel decoration has fixed setup costs that happen once per run regardless of quantity:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Digitizing</strong> (embroidery) — one-time fee per logo, $30-80, converts your logo into a stitch file the machine can read.</li>
  <li><strong>Screen burning</strong> (screen printing) — one-time per color per run; the screen has to be coated with emulsion, exposed, washed out, and registered.</li>
  <li><strong>Ink mixing</strong> (screen printing) — pantone color matching takes time and ink that isn't recoverable.</li>
  <li><strong>Hooping / press setup</strong> — the machine has to be threaded, tensioned, and registered for each run.</li>
  <li><strong>Color matching + proofing</strong> — making sure the output matches expectations.</li>
  </ul>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">At 24 pieces, that setup is amortized to maybe $1-2 per shirt. At 6 pieces, it's $4-8 per shirt — making the per-piece total often higher than buying retail.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">At 24 pieces, that setup is amortized to maybe $1-2 per shirt. At 6 pieces, it's $4-8 per shirt — making the per-piece total often higher than buying retail. The setup math also differs by method, which is part of <a href="/blog/screen-printing-vs-embroidery-construction/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">choosing between screen printing and embroidery</a> in the first place.</p>
 
  <h2 id="alternatives" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Alternatives for Small Batches (1-12 pieces)</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">For runs under the embroidery/screen-print MOQ, four alternatives have different economics:</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">For runs under the embroidery/screen-print MOQ, four alternatives have different economics:</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Heat-Transfer Vinyl (HTV)</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">A vinyl decal is laser-cut from your logo, then heat-pressed onto the garment. Per-piece cost is low because there's no setup beyond the cut file. Output is a solid-color flat decal that works for simple logos and team names. Limitations: gradients and fine detail don't translate, and the decal can lift over time after many washes.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">A vinyl decal is laser-cut from your logo, then heat-pressed onto the garment. Per-piece cost is low because there's no setup beyond the cut file. Output is a solid-color flat decal that works for simple logos and team names. Limitations: gradients and fine detail don't translate, and the decal can lift over time after many washes.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Direct-to-Film (DTF)</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">A newer technology that prints your design onto a film, then heat-transfers it to the garment. Handles full-color gradients and detail that HTV can't. Per-piece cost is low because there's minimal setup. Durability is improving but generally less than properly cured plastisol screen prints.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">A newer technology that prints your design onto a film, then heat-transfers it to the garment. Handles full-color gradients and detail that HTV can't. Per-piece cost is low because there's minimal setup. Durability is improving but generally less than properly cured plastisol screen prints.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Sublimation (polyester only)</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Heat-transfers dye into polyester fibers permanently. Excellent durability and color reproduction, but only works on white or light-colored polyester. Common for athletic wear and event tees.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Heat-transfers dye into polyester fibers permanently. Excellent durability and color reproduction, but only works on white or light-colored polyester. Common for athletic wear and event tees.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Small-batch embroidery with surcharge</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Some shops will run 4-12 piece embroidery orders with a small-order surcharge that covers the setup. Per-piece price is higher but you get the premium look of stitched embroidery on a polo or work shirt. Worth asking for if HTV/DTF doesn't fit the use case.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Some shops will run 4-12 piece embroidery orders with a small-order surcharge that covers the setup. Per-piece price is higher but you get the premium look of stitched embroidery on a polo or work shirt. Worth asking for if HTV/DTF doesn't fit the use case.</p>
 
  <h2 id="optimizing-larger" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Optimizing Larger Orders for Better Per-Piece Pricing</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Three patterns that capture volume discount without overshooting demand:</p>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Three patterns that capture volume discount without overshooting demand:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Batch monthly or quarterly.</strong> Instead of ordering 12 pieces for new hires every month, batch into a 36-piece quarterly order. Per-piece pricing drops without overstocking.</li>
  <li><strong>Standardize SKUs.</strong> If you can run the same Carhartt K87 in three colors (24 black, 12 navy, 12 charcoal) the entire 48-piece batch shares setup costs.</li>
- <li><strong>Use a <a href="/company-stores/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">company store</a>.</strong> Aggregate employee orders into a single weekly or monthly press run. Bigger run, lower per-piece cost, no inventory overhead.</li>
+ <li><strong>Use a <a href="/company-stores/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">company store</a>.</strong> Aggregate employee orders into a single weekly or monthly press run. Bigger run, lower per-piece cost, no inventory overhead.</li>
  </ul>
 
  <h2 id="other-factors" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Other Cost Factors Beyond Quantity</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Even within a single quantity tier, three factors move the per-piece price meaningfully:</p>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
- <li><strong>Stitch count or color count.</strong> A simple bold logo embroiders cheaper than a detailed multi-color one. A single-color screen print costs much less than a 6-color print. See <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">how much to embroider a shirt</a> for the full pricing breakdown.</li>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Even within a single quantity tier, three factors move the per-piece price meaningfully:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
+ <li><strong>Stitch count or color count.</strong> A simple bold logo embroiders cheaper than a detailed multi-color one. A single-color screen print costs much less than a 6-color print. See <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">how much to embroider a shirt</a> for the full pricing breakdown.</li>
  <li><strong>Garment cost.</strong> A Gildan 2000 vs. a Bulwark FR shirt is a 10x cost spread on the blank.</li>
  <li><strong>Decoration placements.</strong> A single left-chest logo costs less than a chest + sleeve + back combination because each placement is a separate press operation.</li>
  </ul>
 
- <div class="mt-12 rounded-2xl border border-gold-500/40 bg-gold-500/5 p-7 sm:p-9">
- <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-white">Need to figure out the right order size?</h2>
- <p class="mb-5 text-lg leading-relaxed text-navy-200">Bighorn Threads quotes embroidery and screen printing for Vegas contractors, trades, and crews of all sizes. We'll tell you straight when small-batch HTV or DTF makes more sense than traditional embroidery, and we'll help you size larger orders for the volume discount.</p>
- <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Quote →</a>
+ <div class="mt-12 border border-hairline bg-gold-500/5 p-7 sm:p-9">
+ <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-charcoal">Need to figure out the right order size?</h2>
+ <p class="mb-5 text-lg leading-relaxed text-charcoal">Bighorn Threads quotes embroidery and screen printing for Vegas contractors, trades, and crews of all sizes. We'll tell you straight when small-batch HTV or DTF makes more sense than traditional embroidery, and we'll help you size larger orders for the volume discount.</p>
+ <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 bg-gold-500 px-7 py-3 text-base font-bold text-charcoal transition-all hover:bg-gold-600">Get a Quote →</a>
  </div>
  </div>
  </article>

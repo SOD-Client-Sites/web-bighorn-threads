@@ -54,81 +54,79 @@ const schema = {
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
- <article class="bg-navy-950">
- <header class="relative overflow-hidden border-b border-navy-800">
- <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
- <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_30%,_rgba(193,155,61,0.06),_transparent)]"></div>
- <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
- <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
- <a href="/" class="hover:text-gold-400">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-400">Blog</a>
+ <article class="bg-concrete">
+ <header class="border-b border-hairline bg-paper">
+ <div class="mx-auto max-w-3xl px-4 pt-32 pb-12 sm:px-6 sm:pt-40 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-600">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-600">Blog</a>
  </nav>
- <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
- <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
- <p class="mb-8 text-xl leading-relaxed text-gray-300">A plain-English glossary for owners and managers buying their first batch of branded workwear. What to call them, what they're for, and how to pick the right one for your crew.</p>
- <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400">
- <span class="text-gold-500">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time>
+ <span class="kicker mb-3">{post.category}</span>
+ <h1 class="mb-6 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl lg:text-5xl">{post.title}</h1>
+ <p class="mb-8 text-xl leading-relaxed text-ash">A plain-English glossary for owners and managers buying their first batch of branded workwear. What to call them, what they're for, and how to pick the right one for your crew.</p>
+ <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash">
+ <span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time>
  </div>
  </div>
  </header>
 
  <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8">
- <img src={post.image} alt="Embroidery machine stitching a company logo onto a navy work polo for a Las Vegas trade business" width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" />
+ <img src={post.image} alt="Embroidery machine stitching a company logo onto a navy work polo for a Las Vegas trade business" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" />
  </div>
 
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
 
  <!-- Answer-first TL;DR -->
- <aside class="mb-10 rounded-2xl border border-gold-500/30 bg-navy-900/60 p-7">
- <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Quick Answer</p>
- <p class="text-lg leading-relaxed text-white sm:text-xl">A company shirt is a branded shirt that identifies a business — typically a polo, tee, work shirt, or hoodie with the company logo applied via embroidery or screen printing. They're worn by employees so customers, suppliers, and the public can identify the business at a glance.</p>
+ <aside class="mb-10 border border-hairline bg-panel p-7">
+ <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Quick Answer</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl">A company shirt is a branded shirt that identifies a business — typically a polo, tee, work shirt, or hoodie with the company logo applied via embroidery or screen printing. They're worn by employees so customers, suppliers, and the public can identify the business at a glance.</p>
  </aside>
 
- <h2 id="names" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">What Are Company Shirts Called?</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">The category goes by several names depending on industry: <strong>branded apparel</strong>, <strong>corporate apparel</strong>, <strong>custom workwear</strong>, <strong>uniform shirts</strong>, <strong>logo wear</strong>, or just <strong>company uniforms</strong>. In trades and construction, "crew shirts" and "service shirts" are common. Promotional industry distributors usually call the broader category "<a href="https://www.promoproducts.com/" rel="noopener" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">promotional products</a>" or "decorated apparel."</p>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">It's worth knowing that "company shirt" is broader than just t-shirts. The category includes polos, button-down work shirts, hoodies, jackets, hi-vis safety apparel, hats, and even branded coveralls.</p>
+ <h2 id="names" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">What Are Company Shirts Called?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">The category goes by several names depending on industry: <strong>branded apparel</strong>, <strong>corporate apparel</strong>, <strong>custom workwear</strong>, <strong>uniform shirts</strong>, <strong>logo wear</strong>, or just <strong>company uniforms</strong>. In trades and construction, "crew shirts" and "service shirts" are common. Promotional industry distributors usually call the broader category "<a href="https://www.promoproducts.com/" rel="noopener" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">promotional products</a>" or "decorated apparel."</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">It's worth knowing that "company shirt" is broader than just t-shirts. The category includes polos, button-down work shirts, hoodies, jackets, hi-vis safety apparel, hats, and even branded coveralls.</p>
 
- <h2 id="types" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The Main Types of Company Shirts</h2>
+ <h2 id="types" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">The Main Types of Company Shirts</h2>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Polos</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">The default for service techs, customer-facing staff, and management. Embroidered chest logo, often with the employee's name. Looks professional at a customer's house, on a sales call, or at a trade show. Port Authority K500 is the workhorse SKU.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">The default for service techs, customer-facing staff, and management. Embroidered chest logo, often with the employee's name. Looks professional at a customer's house, on a sales call, or at a trade show. Port Authority K500 is the workhorse SKU.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">T-Shirts</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">The everyday shirt for field crews. Heavyweight cotton or moisture-wicking poly blends, screen-printed back logo, smaller chest logo. Carhartt K87 and Bayside 5100 are the heavyweight standards. See our guide on <a href="/blog/screen-printing-vs-embroidery-construction/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">screen printing vs. embroidery</a> for which decoration to pick.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">The everyday shirt for field crews. Heavyweight cotton or moisture-wicking poly blends, screen-printed back logo, smaller chest logo. Carhartt K87 and Bayside 5100 are the heavyweight standards. See our guide on <a href="/blog/screen-printing-vs-embroidery-construction/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">screen printing vs. embroidery</a> for which decoration to pick.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Work Shirts</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Mechanic-style button-down shirts (Red Kap, Dickies) with a stitched name patch and embroidered company logo. Standard for HVAC, plumbing, mechanical, and any trade where the tech is in customer-facing service roles. They survive industrial laundry better than polos.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Mechanic-style button-down shirts (Red Kap, Dickies) with a stitched name patch and embroidered company logo. Standard for HVAC, plumbing, mechanical, and any trade where the tech is in customer-facing service roles. They survive industrial laundry better than polos.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Hoodies + Jackets</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">For cool desert mornings, pre-dawn starts, and winter work. Heavyweight cotton-blend hoodies for general use; insulated jackets for the cold months. Embroidered chest logo, sometimes with a screen-printed back.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">For cool desert mornings, pre-dawn starts, and winter work. Heavyweight cotton-blend hoodies for general use; insulated jackets for the cold months. Embroidered chest logo, sometimes with a screen-printed back.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Hi-Vis Safety Apparel</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">ANSI 107-rated tees, vests, and long-sleeves required on most commercial construction jobsites. Logo placement has to follow the <a href="https://safetyequipment.org/standards/ansi-isea-107/" rel="noopener" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">ANSI/ISEA 107 standard</a> so branding doesn't break the certification.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">ANSI 107-rated tees, vests, and long-sleeves required on most commercial construction jobsites. Logo placement has to follow the <a href="https://safetyequipment.org/standards/ansi-isea-107/" rel="noopener" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">ANSI/ISEA 107 standard</a> so branding doesn't break the certification.</p>
 
- <h2 id="decoration" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Embroidered or Screen-Printed?</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200"><strong>Embroidery</strong> stitches your logo into the fabric using thread. It looks premium, lasts a long time, and is the right fit for polos, button-downs, jackets, and hats. Per-piece cost is higher than screen printing but the perceived value is too.</p>
- <p class="mb-6 text-lg leading-relaxed text-navy-200"><strong>Screen printing</strong> applies ink to the fabric through a mesh stencil. It's the right fit for tees, hoodies, and any garment where you're running 24+ pieces and want a clean, even print. Per-piece cost is lower at volume.</p>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Most companies use both — embroidered polos for service techs and customer-facing roles, screen-printed tees and hoodies for field crews. See <a href="/services/embroidery-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">our embroidery service</a> and <a href="/services/screen-printing-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">screen printing service</a> for what each looks like in practice.</p>
+ <h2 id="decoration" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Embroidered or Screen-Printed?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal"><strong>Embroidery</strong> stitches your logo into the fabric using thread. It looks premium, lasts a long time, and is the right fit for polos, button-downs, jackets, and hats. Per-piece cost is higher than screen printing but the perceived value is too.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal"><strong>Screen printing</strong> applies ink to the fabric through a mesh stencil. It's the right fit for tees, hoodies, and any garment where you're running 24+ pieces and want a clean, even print. Per-piece cost is lower at volume.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Most companies use both — embroidered polos for service techs and customer-facing roles, screen-printed tees and hoodies for field crews. See <a href="/services/embroidery-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">our embroidery service</a> and <a href="/services/screen-printing-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">screen printing service</a> for what each looks like in practice.</p>
 
- <h2 id="how-many" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">How Many Company Shirts Per Employee?</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">A common starting point is 5 shirts per employee per season — enough for a 5-day rotation with one in the wash. Service techs and customer-facing staff often get more polos than field crews. Field crews working in harsh conditions (concrete, masonry, roofing) wear shirts out faster and need a higher rotation. We've covered this in detail in <a href="/blog/how-many-shirts-per-crew-member-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">how many shirts per crew member</a>.</p>
+ <h2 id="how-many" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">How Many Company Shirts Per Employee?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">A common starting point is 5 shirts per employee per season — enough for a 5-day rotation with one in the wash. Service techs and customer-facing staff often get more polos than field crews. Field crews working in harsh conditions (concrete, masonry, roofing) wear shirts out faster and need a higher rotation. We've covered this in detail in <a href="/blog/how-many-shirts-per-crew-member-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">how many shirts per crew member</a>.</p>
 
- <h2 id="why" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Why Company Shirts Matter for Trades and Service Businesses</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">For trades and field service businesses, a branded shirt is a sales tool. When a homeowner opens the door to a uniformed plumber with the company name and tech name on the chest, the conversation is half-won before the tech speaks. The same applies to a contractor showing up to a commercial job walk, an account manager visiting an HOA board, or an apprentice on a residential service call.</p>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Beyond perception, branded shirts solve practical problems: identifying which sub a worker belongs to on a multi-trade jobsite, distinguishing apprentices from journeymen, and keeping crews looking professional even when the work itself is dirty. Per the <a href="https://www.osha.gov/heat-exposure" rel="noopener" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">OSHA heat exposure guidance</a>, the right fabric weight and color for desert summer work matters as much as the branding.</p>
+ <h2 id="why" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Why Company Shirts Matter for Trades and Service Businesses</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">For trades and field service businesses, a branded shirt is a sales tool. When a homeowner opens the door to a uniformed plumber with the company name and tech name on the chest, the conversation is half-won before the tech speaks. The same applies to a contractor showing up to a commercial job walk, an account manager visiting an HOA board, or an apprentice on a residential service call.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Beyond perception, branded shirts solve practical problems: identifying which sub a worker belongs to on a multi-trade jobsite, distinguishing apprentices from journeymen, and keeping crews looking professional even when the work itself is dirty. Per the <a href="https://www.osha.gov/heat-exposure" rel="noopener" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">OSHA heat exposure guidance</a>, the right fabric weight and color for desert summer work matters as much as the branding.</p>
 
- <h2 id="getting-started" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Getting Started With Company Shirts</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">If you're outfitting a crew for the first time, four decisions to make before getting a quote:</p>
- <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <h2 id="getting-started" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Getting Started With Company Shirts</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">If you're outfitting a crew for the first time, four decisions to make before getting a quote:</p>
+ <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Garment type by role.</strong> Polos for client-facing, tees for field, work shirts for industrial laundry programs.</li>
  <li><strong>Decoration method.</strong> Embroidery or screen printing — usually a mix.</li>
  <li><strong>Quantity per employee.</strong> Start with 5 per season; adjust by trade.</li>
- <li><strong>Reorder pattern.</strong> Bulk order, monthly batch, or a <a href="/company-stores/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">company store</a> with per-employee allowances.</li>
+ <li><strong>Reorder pattern.</strong> Bulk order, monthly batch, or a <a href="/company-stores/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">company store</a> with per-employee allowances.</li>
  </ol>
 
- <div class="mt-12 rounded-2xl border border-gold-500/40 bg-gold-500/5 p-7 sm:p-9">
- <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-white">Need company shirts in Las Vegas?</h2>
- <p class="mb-5 text-lg leading-relaxed text-navy-200">Bighorn Threads outfits Vegas trade businesses, contractors, and service companies. Embroidery, screen printing, rush options. Send your logo and crew sizes — we'll quote.</p>
- <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Quote →</a>
+ <div class="mt-12 border border-hairline bg-panel p-7 sm:p-9">
+ <h2 class="mb-3 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal">Need company shirts in Las Vegas?</h2>
+ <p class="mb-5 text-lg leading-relaxed text-ash">Bighorn Threads outfits Vegas trade businesses, contractors, and service companies. Embroidery, screen printing, rush options. Send your logo and crew sizes — we'll quote.</p>
+ <a href="/contact/" class="btn-primary text-base">Get a Quote →</a>
  </div>
  </div>
  </article>

@@ -80,5 +80,5 @@ npx wrangler pages deploy dist
 - Every page must have unique meta tags — no shared titles
 - JSON-LD LocalBusiness schema on every page
 - No client-side rendering — everything is pre-rendered HTML
-- Phone numbers use `tel:+17252356196` format (E.164)
+- Phone numbers use `tel:+17029048923` format (E.164)
 - "A VP Promos brand" in footer (entity connection)

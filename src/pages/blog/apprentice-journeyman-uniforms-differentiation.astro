@@ -36,81 +36,80 @@ const schema = {
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
- <article class="bg-navy-950">
- <header class="relative overflow-hidden border-b border-navy-800">
- <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
+ <article class="bg-concrete">
+ <header class="border-b border-hairline bg-paper">
  <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
- <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-400">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-400">Blog</a></nav>
- <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
+ <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-700">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-700">Blog</a></nav>
+ <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-600">{post.category}</span>
  <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
- <p class="mb-8 text-xl leading-relaxed text-gray-300">A working playbook on visual differentiation in apprenticeship programs — IBEW, UA, ironworkers, merit shops, and how Vegas trade contractors mark training level via apparel.</p>
- <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400"><span class="text-gold-500">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
+ <p class="mb-8 text-xl leading-relaxed text-ash">A working playbook on visual differentiation in apprenticeship programs — IBEW, UA, ironworkers, merit shops, and how Vegas trade contractors mark training level via apparel.</p>
+ <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
  </header>
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Electrical apprentice and journeyman in differentiated embroidered FR shirts on a Las Vegas jobsite" width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" /></div>
+ <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Electrical apprentice and journeyman in differentiated embroidered FR shirts on a Las Vegas jobsite" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
 
- <aside class="mb-10 rounded-2xl border border-gold-500/30 bg-navy-900/60 p-7">
- <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Quick Answer</p>
- <p class="text-lg leading-relaxed text-white sm:text-xl">Union and merit shops differentiate apprentices from journeymen for safety, training, and respect. Standard pattern: different shirt color or embroidered "APPRENTICE Y1-Y5" / "JOURNEYMAN" on the chest, plus green hard hat for apprentices and white for journeymen. Quality stays equal — apprentices wear future-journeyman gear.</p>
+ <aside class="mb-10 border border-hairline bg-panel p-7">
+ <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl">Union and merit shops differentiate apprentices from journeymen for safety, training, and respect. Standard pattern: different shirt color or embroidered "APPRENTICE Y1-Y5" / "JOURNEYMAN" on the chest, plus green hard hat for apprentices and white for journeymen. Quality stays equal — apprentices wear future-journeyman gear.</p>
  </aside>
 
  <h2 id="why-differentiate" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Why Apprentice/Journeyman Differentiation Exists</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Three reasons drive visual level marking in trade crews:</p>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Three reasons drive visual level marking in trade crews:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Safety.</strong> An apprentice in year 1 doesn't know what they don't know. Marking them visually reminds journeymen and foremen to check their work, supervise on critical tasks, and pull them off jobs that exceed their training.</li>
  <li><strong>Training pace.</strong> A foreman walking the floor can scan year-1 apprentices and assign appropriate tasks instantly. No awkward "what level are you?" conversation.</li>
  <li><strong>Respect.</strong> Journeyman cards take 4-5 years of apprenticeship plus licensing exams to earn. Visual recognition matters — both for the journeyman and as motivation for the apprentice climbing the ladder.</li>
  </ul>
 
  <h2 id="union-programs" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Union Apprenticeship Programs in Vegas</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">The major Vegas union locals run formal apprenticeship programs with apparel guidelines:</p>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
- <li><strong><a href="https://ibew357.org/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500" rel="noopener">IBEW Local 357</a></strong> — Las Vegas electrical workers, 5-year JATC apprenticeship program with FR-shirt mandatory once apprentices hit live-circuit work.</li>
- <li><strong><a href="https://www.ualocal525.org/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500" rel="noopener">UA Local 525</a></strong> — Vegas plumbing and pipefitting, 5-year apprenticeship with welder qualification on the path.</li>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">The major Vegas union locals run formal apprenticeship programs with apparel guidelines:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
+ <li><strong><a href="https://ibew357.org/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600" rel="noopener">IBEW Local 357</a></strong> — Las Vegas electrical workers, 5-year JATC apprenticeship program with FR-shirt mandatory once apprentices hit live-circuit work.</li>
+ <li><strong><a href="https://www.ualocal525.org/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600" rel="noopener">UA Local 525</a></strong> — Vegas plumbing and pipefitting, 5-year apprenticeship with welder qualification on the path.</li>
  <li><strong>Iron Workers Local 433</strong> — Vegas/Reno ironworkers, 4-year apprenticeship with structural and reinforcing tracks.</li>
  <li><strong>Sheet Metal Workers Local 88</strong> — Vegas SMACNA work, HVAC and architectural sheet metal apprenticeship.</li>
  </ul>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Each local publishes apprenticeship handbooks that specify or recommend apparel — typically embroidered company logo plus year designation. Contractor signatory shops match these standards in their crew programs.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Each local publishes apprenticeship handbooks that specify or recommend apparel — typically embroidered company logo plus year designation. Contractor signatory shops match these standards in their crew programs.</p>
 
  <h2 id="differentiation-patterns" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Three Standard Differentiation Patterns</h2>
 
- <h3 class="mt-8 mb-3 font-heading text-2xl font-bold tracking-tight text-white">1. Year-Level Embroidery</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">"APPRENTICE Y1" through "APPRENTICE Y5" stitched on the right chest, company logo on the left. Year updates annually. The foreman scans the chest, knows the level instantly. Once the apprentice completes the program and earns their card, the shirt changes to "JOURNEYMAN" or stays clean (logo only).</p>
+ <h3 class="mt-8 mb-3 font-heading text-2xl font-bold tracking-tight text-charcoal">1. Year-Level Embroidery</h3>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">"APPRENTICE Y1" through "APPRENTICE Y5" stitched on the right chest, company logo on the left. Year updates annually. The foreman scans the chest, knows the level instantly. Once the apprentice completes the program and earns their card, the shirt changes to "JOURNEYMAN" or stays clean (logo only).</p>
 
- <h3 class="mt-8 mb-3 font-heading text-2xl font-bold tracking-tight text-white">2. Sleeve Stripe System</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">One embroidered stripe per year of apprenticeship — military-style sleeve markings. Year-1 apprentice has one stripe, year-5 has five, journeyman has none (or a different mark like a star). Visible from a distance and from the side.</p>
+ <h3 class="mt-8 mb-3 font-heading text-2xl font-bold tracking-tight text-charcoal">2. Sleeve Stripe System</h3>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">One embroidered stripe per year of apprenticeship — military-style sleeve markings. Year-1 apprentice has one stripe, year-5 has five, journeyman has none (or a different mark like a star). Visible from a distance and from the side.</p>
 
- <h3 class="mt-8 mb-3 font-heading text-2xl font-bold tracking-tight text-white">3. Color Hierarchy</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Apprentices wear lighter shirt color (gray, light blue), journeymen wear company brand color (navy, black). Master-level wears a third tier (gold, white). Hard hat color matches: green for apprentices, white for journeymen and above.</p>
+ <h3 class="mt-8 mb-3 font-heading text-2xl font-bold tracking-tight text-charcoal">3. Color Hierarchy</h3>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Apprentices wear lighter shirt color (gray, light blue), journeymen wear company brand color (navy, black). Master-level wears a third tier (gold, white). Hard hat color matches: green for apprentices, white for journeymen and above.</p>
 
  <h2 id="merit-shops" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Merit Shop Adaptations</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Non-union shops use the same logic with different titles. Common Vegas service-trade tier programs:</p>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Non-union shops use the same logic with different titles. Common Vegas service-trade tier programs:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Plumbing/HVAC service:</strong> Helper → Tech 1 → Tech 2 → Lead Tech → Master Tech</li>
  <li><strong>Electrical service:</strong> Apprentice → Journeyman → Master → Foreman</li>
  <li><strong>Roofing crews:</strong> Helper → Roofer → Lead Roofer → Foreman</li>
  <li><strong>Concrete:</strong> Laborer → Finisher → Lead Finisher → Foreman</li>
  </ul>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Each tier gets distinct embroidery on the same garment. Customers calling a service company can ask, "Are you sending a master tech?" — and the shirt confirms the answer when the truck rolls up.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Each tier gets distinct embroidery on the same garment. Customers calling a service company can ask, "Are you sending a master tech?" — and the shirt confirms the answer when the truck rolls up.</p>
 
  <h2 id="fr-apprentices" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">FR-Rated Apprentice Apparel</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Electrical apprentices doing live-circuit work need NFPA 70E-rated FR shirts from day one. The differentiation embroidery uses FR-compatible Nomex thread to maintain the rating. See our <a href="/blog/nfpa-70e-fr-shirts-vegas-electricians/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">NFPA 70E FR shirts guide</a> for spec details.</p>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Welder apprentices wear NFPA 2112 FR base shirts plus leather over-layers. The "APPRENTICE" callout goes on the FR base only — see our <a href="/blog/welder-uniforms-fr-shirts-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">welder uniforms guide</a> for the full layering spec.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Electrical apprentices doing live-circuit work need NFPA 70E-rated FR shirts from day one. The differentiation embroidery uses FR-compatible Nomex thread to maintain the rating. See our <a href="/blog/nfpa-70e-fr-shirts-vegas-electricians/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">NFPA 70E FR shirts guide</a> for spec details.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Welder apprentices wear NFPA 2112 FR base shirts plus leather over-layers. The "APPRENTICE" callout goes on the FR base only — see our <a href="/blog/welder-uniforms-fr-shirts-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">welder uniforms guide</a> for the full layering spec.</p>
 
  <h2 id="related" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Related Reading</h2>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
- <li><a href="/blog/foreman-supervisor-shirts-visual-authority/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Foreman & supervisor shirts: visual authority</a></li>
- <li><a href="/blog/nfpa-70e-fr-shirts-vegas-electricians/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">NFPA 70E FR shirts for Vegas electricians</a></li>
- <li><a href="/blog/welder-uniforms-fr-shirts-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Welder uniforms and FR shirts</a></li>
- <li><a href="/industries/electrical-contractors-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Electrical contractor crew apparel</a></li>
- <li><a href="/industries/plumbing-hvac-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Plumbing & HVAC crew apparel</a></li>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
+ <li><a href="/blog/foreman-supervisor-shirts-visual-authority/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Foreman & supervisor shirts: visual authority</a></li>
+ <li><a href="/blog/nfpa-70e-fr-shirts-vegas-electricians/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">NFPA 70E FR shirts for Vegas electricians</a></li>
+ <li><a href="/blog/welder-uniforms-fr-shirts-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Welder uniforms and FR shirts</a></li>
+ <li><a href="/industries/electrical-contractors-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Electrical contractor crew apparel</a></li>
+ <li><a href="/industries/plumbing-hvac-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Plumbing & HVAC crew apparel</a></li>
  </ul>
 
- <div class="mt-12 rounded-2xl border border-gold-500/40 bg-gold-500/5 p-7 sm:p-9">
- <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-white">Apprentice & journeyman programs in Las Vegas</h2>
- <p class="mb-5 text-lg leading-relaxed text-navy-200">Bighorn Threads runs tiered apparel programs for union signatory shops and merit-shop service trades — year-level embroidery, FR-compatible thread, and re-order workflows that match annual apprentice progression.</p>
- <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Quote →</a>
+ <div class="mt-12 border border-hairline bg-gold-500/5 p-7 sm:p-9">
+ <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-charcoal">Apprentice & journeyman programs in Las Vegas</h2>
+ <p class="mb-5 text-lg leading-relaxed text-charcoal">Bighorn Threads runs tiered apparel programs for union signatory shops and merit-shop service trades — year-level embroidery, FR-compatible thread, and re-order workflows that match annual apprentice progression.</p>
+ <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 bg-gold-500 px-7 py-3 text-base font-bold text-charcoal transition-all hover:bg-gold-600">Get a Quote →</a>
  </div>
  </div>
  </article>

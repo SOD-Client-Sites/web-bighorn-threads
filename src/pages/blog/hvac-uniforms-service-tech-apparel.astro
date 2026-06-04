@@ -35,34 +35,33 @@ const schema = {
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
- <article class="bg-navy-950">
- <header class="relative overflow-hidden border-b border-navy-800">
- <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
+ <article class="bg-concrete">
+ <header class="border-b border-hairline bg-paper">
  <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
- <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-400">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-400">Blog</a></nav>
- <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
+ <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-700">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-700">Blog</a></nav>
+ <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-600">{post.category}</span>
  <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
- <p class="mb-8 text-xl leading-relaxed text-gray-300">A working buyer's guide to HVAC service tech uniforms — what works in Vegas summer, how to spec by role, and what reads as "professional service business" at the customer\'s door.</p>
- <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400"><span class="text-gold-500">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
+ <p class="mb-8 text-xl leading-relaxed text-ash">A working buyer's guide to HVAC service tech uniforms — what works in Vegas summer, how to spec by role, and what reads as "professional service business" at the customer\'s door.</p>
+ <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
  </header>
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="HVAC service tech wearing embroidered Port Authority polo with company logo for Las Vegas residential service" width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" /></div>
+ <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="HVAC service tech wearing embroidered Port Authority polo with company logo for Las Vegas residential service" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
 
- <aside class="mb-10 rounded-2xl border border-gold-500/30 bg-navy-900/60 p-7">
- <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Quick Answer</p>
- <p class="text-lg leading-relaxed text-white sm:text-xl">Las Vegas HVAC service techs wear moisture-wicking embroidered polos (Port Authority K540) for residential service work and Red Kap mechanic-style work shirts (SY24 Performance Plus) for commercial mechanical and install crews. Both feature company logo, technician name, and Nevada State Contractors Board license number. In summer, performance poly fabric is non-negotiable for 110°+ ambient and 130°+ attic temperatures.</p>
+ <aside class="mb-10 border border-hairline bg-panel p-7">
+ <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl">Las Vegas HVAC service techs wear moisture-wicking embroidered polos (Port Authority K540) for residential service work and Red Kap mechanic-style work shirts (SY24 Performance Plus) for commercial mechanical and install crews. Both feature company logo, technician name, and Nevada State Contractors Board license number. In summer, performance poly fabric is non-negotiable for 110°+ ambient and 130°+ attic temperatures.</p>
  </aside>
 
  <h2 id="why-it-matters" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Why HVAC Uniforms Are a Sales Tool</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">An HVAC service call is a trust transaction. The homeowner is letting a stranger into their house to diagnose, charge, and repair a system they don\'t understand. The visual cues at the front door — clean uniformed tech, embroidered company logo, name on the chest, license number visible — close the trust gap before the tech speaks. A tech in a random t-shirt with a clipboard does the opposite.</p>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">For commercial mechanical service, the same logic applies in a different form: facility managers and building owners are looking for evidence the contracting company runs a professional operation. Coordinated branded uniforms across the crew is one of the cheapest, fastest signals a contractor can send.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">An HVAC service call is a trust transaction. The homeowner is letting a stranger into their house to diagnose, charge, and repair a system they don\'t understand. The visual cues at the front door — clean uniformed tech, embroidered company logo, name on the chest, license number visible — close the trust gap before the tech speaks. A tech in a random t-shirt with a clipboard does the opposite.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">For commercial mechanical service, the same logic applies in a different form: facility managers and building owners are looking for evidence the contracting company runs a professional operation. Coordinated branded uniforms across the crew is one of the cheapest, fastest signals a contractor can send.</p>
 
  <h2 id="role-spec" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Uniforms by Role</h2>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Residential Service Techs</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Front-of-house apparel. Standard kit:</p>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Front-of-house apparel. Standard kit:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Embroidered moisture-wicking polo</strong> (Port Authority K540 Silk Touch Performance) with company logo on left chest, employee name on right chest</li>
  <li><strong>Carhartt B11 work pants</strong> or similar — durable, comfortable for crawl spaces and attic work</li>
  <li><strong>Branded service cap</strong> (Richardson 112 trucker hat with embroidered logo)</li>
@@ -70,8 +69,8 @@ const schema = {
  </ul>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Commercial / Install Crews</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Heavier-duty apparel for new install and commercial mechanical service. Standard kit:</p>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Heavier-duty apparel for new install and commercial mechanical service. Standard kit:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Red Kap SY24 Performance Plus Work Shirt</strong> — moisture-wicking poly version of the SP14, dual-button-front, two chest pockets</li>
  <li><strong>Red Kap PT20 or PT88 work pants</strong> — durable, industrial-laundry-compatible</li>
  <li><strong>Branded jacket or quarter-zip</strong> for cool desert mornings</li>
@@ -79,21 +78,21 @@ const schema = {
  </ul>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Office Staff and Dispatchers</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Lighter-weight branded polos for the front counter and dispatcher roles where customers walk in or video calls happen. Same Port Authority blank as service techs but in a slightly different colorway, often without the name embroidery.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Lighter-weight branded polos for the front counter and dispatcher roles where customers walk in or video calls happen. Same Port Authority blank as service techs but in a slightly different colorway, often without the name embroidery.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Service Managers and Supervisors</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Differentiated colorway or polo upgrade — Cutter & Buck DryTec or Travis Mathew performance polo for client meetings and on-site supervision. Visual signal of authority without breaking the brand consistency.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Differentiated colorway or polo upgrade — Cutter & Buck DryTec or Travis Mathew performance polo for client meetings and on-site supervision. Visual signal of authority without breaking the brand consistency.</p>
 
  <h2 id="vegas-summer" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Vegas Summer Specifics</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">HVAC techs are the trade most-exposed to extreme heat in Vegas summer. Attic and rooftop work hits 130°+ surface temperatures from June through September, and the AC repair calls themselves come during the hottest hours. Three things matter:</p>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">HVAC techs are the trade most-exposed to extreme heat in Vegas summer. Attic and rooftop work hits 130°+ surface temperatures from June through September, and the AC repair calls themselves come during the hottest hours. Three things matter:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Moisture-wicking fabric.</strong> Cotton blends soak through and stay wet. Performance polyester (Port Authority K540, Sport-Tek ST650) wicks sweat and dries between calls.</li>
  <li><strong>Light colorways.</strong> Light gray, khaki, or sand colors absorb 30-40% less solar radiation than dark colors. Some HVAC companies switch to lighter summer colorways while maintaining brand consistency through embroidered logos in brand colors.</li>
- <li><strong>Adequate rotation.</strong> 5 polos covers a normal week, but Vegas summer often requires 7+ as techs go through 2 shirts per day during heat-stress conditions. <a href="https://www.osha.gov/heat-exposure" rel="noopener" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">OSHA heat exposure guidance</a> recommends adequate hydration and shaded breaks; clean dry shirts is a smaller but real component.</li>
+ <li><strong>Adequate rotation.</strong> 5 polos covers a normal week, but Vegas summer often requires 7+ as techs go through 2 shirts per day during heat-stress conditions. <a href="https://www.osha.gov/heat-exposure" rel="noopener" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">OSHA heat exposure guidance</a> recommends adequate hydration and shaded breaks; clean dry shirts is a smaller but real component.</li>
  </ul>
 
  <h2 id="branding-spec" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Branding Spec</h2>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Left chest:</strong> Company logo, 3-3.5 inches wide, embroidered</li>
  <li><strong>Right chest:</strong> Employee first name embroidered (most service shops use first name only)</li>
  <li><strong>Sleeve or back collar:</strong> Nevada State Contractors Board license number — Nevada customers expect to see it</li>
@@ -101,20 +100,20 @@ const schema = {
  </ul>
 
  <h2 id="industrial-laundry" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Industrial Laundry Programs</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Most HVAC shops with 10+ techs run industrial laundry programs through Cintas, Vestis, or Prudential Uniforms. The laundry company processes shirts on a weekly rotation, replaces damaged garments, and bills monthly. <a href="/industries/plumbing-hvac-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Plumbing and HVAC service uniforms</a> covers the laundry-program decision in more depth.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Most HVAC shops with 10+ techs run industrial laundry programs through Cintas, Vestis, or Prudential Uniforms. The laundry company processes shirts on a weekly rotation, replaces damaged garments, and bills monthly. <a href="/industries/plumbing-hvac-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Plumbing and HVAC service uniforms</a> covers the laundry-program decision in more depth.</p>
 
  <h2 id="related" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Related Reading</h2>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
- <li><a href="/industries/plumbing-hvac-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Plumbing and HVAC service uniforms (industry hub)</a></li>
- <li><a href="/blog/red-kap-industrial-work-shirts-buyer-guide/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Red Kap industrial work shirts buyer's guide</a></li>
- <li><a href="/blog/custom-polo-shirts-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Custom polo shirts buyer's guide</a></li>
- <li><a href="/blog/nevada-osha-heat-rules-2026-workwear/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Nevada OSHA heat rules and workwear</a></li>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
+ <li><a href="/industries/plumbing-hvac-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Plumbing and HVAC service uniforms (industry hub)</a></li>
+ <li><a href="/blog/red-kap-industrial-work-shirts-buyer-guide/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Red Kap industrial work shirts buyer's guide</a></li>
+ <li><a href="/blog/custom-polo-shirts-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Custom polo shirts buyer's guide</a></li>
+ <li><a href="/blog/nevada-osha-heat-rules-2026-workwear/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Nevada OSHA heat rules and workwear</a></li>
  </ul>
 
- <div class="mt-12 rounded-2xl border border-gold-500/40 bg-gold-500/5 p-7 sm:p-9">
- <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-white">HVAC service uniforms in Las Vegas</h2>
- <p class="mb-5 text-lg leading-relaxed text-navy-200">Bighorn Threads outfits Vegas HVAC service shops with embroidered polos, Red Kap mechanic shirts, branded outerwear, and complete crew programs.</p>
- <a href="/industries/plumbing-hvac-las-vegas/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">See HVAC Apparel →</a>
+ <div class="mt-12 border border-hairline bg-gold-500/5 p-7 sm:p-9">
+ <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-charcoal">HVAC service uniforms in Las Vegas</h2>
+ <p class="mb-5 text-lg leading-relaxed text-charcoal">Bighorn Threads outfits Vegas HVAC service shops with embroidered polos, Red Kap mechanic shirts, branded outerwear, and complete crew programs.</p>
+ <a href="/industries/plumbing-hvac-las-vegas/" class="inline-flex min-h-[48px] items-center gap-2 bg-gold-500 px-7 py-3 text-base font-bold text-charcoal transition-all hover:bg-gold-600">See HVAC Apparel →</a>
  </div>
  </div>
  </article>

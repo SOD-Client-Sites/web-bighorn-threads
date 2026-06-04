@@ -97,111 +97,118 @@ const faqSchema = {
  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
- <!-- Hero -->
- <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
- <div class="absolute inset-0">
- <img src={page.hero} alt="" aria-hidden="true" class="h-full w-full object-cover opacity-30" width="1600" height="900" loading="eager" fetchpriority="high" />
- <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/40" />
- <div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_75%_-10%,_rgba(193,155,61,0.15),_transparent)]" />
- </div>
+ <!-- Hero — full-bleed photographic dark band -->
+ <section class="relative isolate overflow-hidden bg-navy-950">
+ <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/45"></div>
 
- <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+ <div class="mx-auto max-w-7xl px-4 pb-20 pt-32 sm:px-6 sm:pt-40 lg:px-8 lg:pb-28">
+ <nav class="mb-6 font-mono text-xs text-navy-300" aria-label="Breadcrumb">
  <a href="/" class="hover:text-gold-400">Home</a>
- <span class="px-2 text-gray-600">/</span>
+ <span class="px-2 text-navy-500">/</span>
  <a href="/services/" class="hover:text-gold-400">Services</a>
- <span class="px-2 text-gray-600">/</span>
- <span class="text-gold-500">Embroidery</span>
+ <span class="px-2 text-navy-500">/</span>
+ <span class="text-gold-400">Embroidery</span>
  </nav>
 
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Service</span>
- <h1 class="mb-6 max-w-4xl font-heading text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
- Custom Embroidery <span class="text-gold-500">on Polos, Hats, and Service Uniforms.</span>
+ <p class="kicker mb-3">Service</p>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-6xl">
+ Custom Embroidery <span class="text-gold-400">on Polos, Hats, and Service Uniforms.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
  on first orders. FR-safe stitching that holds the rating. 12-piece minimum. Pantone-matched thread.
  </p>
 
  <div class="mt-10 flex flex-wrap items-center gap-3">
- <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25">
+ <a href="/contact/" class="btn-primary text-base">
  Get a Quote
  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
  </a>
- <a href="/services/screen-printing-las-vegas/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gold-500/40 px-6 py-3 text-sm font-medium text-gold-500 transition-all hover:border-gold-500 hover:bg-gold-500/5">
+ <a href="/services/screen-printing-las-vegas/" class="inline-flex min-h-[48px] items-center gap-2 border border-gold-500 px-6 py-3 font-subheading text-sm font-semibold uppercase tracking-wide text-gold-400 transition-colors hover:bg-gold-500 hover:text-charcoal">
  Compare to Screen Printing
  </a>
  </div>
  </div>
  </section>
 
- <!-- Process -->
- <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <!-- Quick Answer — liftable -->
+ <section class="border-b border-hairline bg-concrete py-12">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <aside class="border border-hairline bg-gold-500/5 p-7">
+ <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Quick Answer</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl">Bighorn Threads embroiders custom logos on workwear for Las Vegas construction crews — polos, jackets, caps, hi-vis, and FR shirts (with FR-safe Nomex thread that preserves the rating). There's no minimum on embroidery, digitizing is a one-time setup, and your stitch file is kept on record for instant reorders. Rush options available on most jobs.</p>
+ </aside>
+ </div>
+ </section>
+
+ <!-- Process — concrete -->
+ <section class="bg-concrete py-20 sm:py-24">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">How It Works</span>
- <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">From logo to delivery, step by step.</h2>
+ <p class="kicker mb-3">How It Works</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">From logo to delivery, step by step.</h2>
  </div>
 
  <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
  {process.map((p) => (
- <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/30 hover:bg-navy-900/60">
- <span class="mb-4 block font-mono text-xs font-bold tracking-wider text-gold-500">{p.step}</span>
- <h3 class="mb-3 font-heading text-lg font-bold leading-tight tracking-tight text-white">{p.title}</h3>
- <p class="text-sm leading-relaxed text-gray-300">{p.body}</p>
+ <div class="border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <span class="mb-4 block font-mono text-xs font-bold tracking-wider text-gold-600">{p.step}</span>
+ <h3 class="mb-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{p.title}</h3>
+ <p class="text-sm leading-relaxed text-ash">{p.body}</p>
  </div>
  ))}
  </div>
  </div>
  </section>
 
- <!-- Placements -->
- <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+ <!-- Placements — paper -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Placements</span>
- <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Where the logo goes.</h2>
- <p class="mt-4 text-lg leading-relaxed text-gray-300">
+ <p class="kicker mb-3">Placements</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Where the logo goes.</h2>
+ <p class="mt-4 text-lg leading-relaxed text-ash">
  Standard placements that look right on every garment we produce. Custom positions available — we'll spec it on the mockup.
  </p>
  </div>
 
  <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
  {placements.map((p) => (
- <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
- <h3 class="mb-2 font-heading text-lg font-bold tracking-tight text-white">{p.name}</h3>
- <p class="text-sm leading-relaxed text-gray-300">{p.detail}</p>
+ <div class="border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="mb-2 font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{p.name}</h3>
+ <p class="text-sm leading-relaxed text-ash">{p.detail}</p>
  </div>
  ))}
  </div>
  </div>
  </section>
 
- <!-- Stitch counts -->
- <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <!-- Stitch counts — concrete -->
+ <section class="bg-concrete py-20 sm:py-24">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-10 max-w-2xl">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Pricing Logic</span>
- <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Embroidery is priced by stitch count.</h2>
- <p class="mt-4 text-lg leading-relaxed text-gray-300">
+ <p class="kicker mb-3">Pricing Logic</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Embroidery is priced by stitch count.</h2>
+ <p class="mt-4 text-lg leading-relaxed text-ash">
  Bigger or denser logos take more thread + more machine time. Most company marks fall under 7,000 stitches.
  </p>
  </div>
 
- <div class="overflow-hidden rounded-2xl border border-navy-700/40">
+ <div class="overflow-hidden border border-hairline bg-panel">
  <table class="w-full">
- <thead class="bg-navy-900/60">
- <tr class="border-b border-navy-700/40">
- <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500">Stitches</th>
- <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500">Category</th>
- <th class="hidden px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500 lg:table-cell">Notes</th>
+ <thead class="bg-paper">
+ <tr class="border-b border-hairline">
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Stitches</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Category</th>
+ <th class="hidden px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600 lg:table-cell">Notes</th>
  </tr>
  </thead>
- <tbody class="divide-y divide-navy-800 bg-navy-900/30">
+ <tbody class="divide-y divide-hairline">
  {stitchTypes.map((s) => (
- <tr class="transition-colors hover:bg-navy-900/60">
- <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-400">{s.count}</td>
- <td class="px-6 py-5 align-top font-heading text-base font-bold text-white">{s.label}</td>
- <td class="hidden px-6 py-5 align-top text-sm text-gray-300 lg:table-cell">{s.notes}</td>
+ <tr>
+ <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-600">{s.count}</td>
+ <td class="px-6 py-5 align-top font-heading text-base font-bold uppercase tracking-tight text-charcoal">{s.label}</td>
+ <td class="hidden px-6 py-5 align-top text-sm text-ash lg:table-cell">{s.notes}</td>
  </tr>
  ))}
  </tbody>
@@ -210,15 +217,15 @@ const faqSchema = {
  </div>
  </section>
 
- <!-- Deep dive -->
- <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <!-- Deep dive — paper -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">The Buyer's Guide</span>
- <h2 class="mb-8 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+ <p class="kicker mb-3">The Buyer's Guide</p>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl">
  Custom embroidery for Las Vegas crews — what makes a program work long-term.
  </h2>
 
- <div class="space-y-5 text-lg leading-relaxed text-navy-200">
+ <div class="space-y-5 text-lg leading-relaxed text-charcoal">
  <p>
  Embroidery is the most-requested decoration method for Las Vegas contractors, trade companies, real estate developers, and professional service businesses. It looks more permanent than screen printing, it holds up to industrial laundry better, and it carries the kind of professional weight that a printed logo never quite matches. Bighorn Threads runs commercial-grade multi-head embroidery machines from our Las Vegas production shop, and we embroider polos, work shirts, hi-vis vests, jackets, hoodies, caps, and bags for clients ranging from solo service trucks to 500-person commercial primes. The output looks identical on order one and order fifty — that consistency is the difference between a real embroidery program and a one-off side hustle.
  </p>
@@ -235,63 +242,63 @@ const faqSchema = {
  For long-term programs, the company-store model is where embroidery scales. We build out a private storefront with your approved garments (and decoration spec) preloaded, employee size profiles on file, and per-employee allowances that match your apparel budget. Reorders run at the same per-piece pricing as your initial order, and new hires get fully-decorated apparel when they start without your HR team chasing approvals. Embroidery has no minimum order — single-piece orders welcome — but bulk orders earn batched-run pricing that drops the per-piece cost meaningfully.
  </p>
  <p>
- For deeper reads, see <a href="/blog/what-is-embroidery-buyers-guide/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">what is embroidery — buyer's guide</a> and <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">how much to embroider a shirt in Las Vegas</a>. On file prep: <a href="/blog/embroidery-file-formats-explained/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">embroidery file formats explained</a>, <a href="/blog/vector-logo-file-setup-for-embroidery/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">vector logo file setup</a>, and <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">logo digitizing 101</a>. Choosing methods? See <a href="/blog/screen-printing-vs-embroidery-construction/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">screen printing vs embroidery for construction crews</a>.
+ For deeper reads, see <a href="/blog/what-is-embroidery-buyers-guide/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">what is embroidery — buyer's guide</a> and <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">how much to embroider a shirt in Las Vegas</a>. On file prep: <a href="/blog/embroidery-file-formats-explained/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">embroidery file formats explained</a>, <a href="/blog/vector-logo-file-setup-for-embroidery/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">vector logo file setup</a>, and <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">logo digitizing 101</a>. Choosing methods? See <a href="/blog/screen-printing-vs-embroidery-construction/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">screen printing vs embroidery for construction crews</a>.
  </p>
  </div>
  </div>
  </section>
 
- <!-- FAQs -->
- <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+ <!-- FAQs — concrete -->
+ <section class="bg-concrete py-20 sm:py-24">
  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">FAQ</span>
- <h2 class="mb-12 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Embroidery questions, answered.</h2>
+ <p class="kicker mb-3">FAQ</p>
+ <h2 class="mb-10 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Embroidery questions, answered.</h2>
 
- <div class="space-y-3">
+ <div class="divide-y divide-hairline border-y border-hairline">
  {faqs.map((f) => (
- <details class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-5 transition-all hover:border-gold-500/30 open:border-gold-500/40">
- <summary class="flex cursor-pointer items-start justify-between gap-4 list-none">
- <h3 class="font-heading text-lg font-bold leading-tight tracking-tight text-white">{f.q}</h3>
- <span class="mt-1 flex-shrink-0 text-gold-500 transition-transform group-open:rotate-45">
- <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
- </span>
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
+ <svg class="h-5 w-5 flex-shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
  </summary>
- <p class="mt-4 text-base leading-relaxed text-gray-300">{f.a}</p>
+ <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
  </details>
  ))}
  </div>
  </div>
  </section>
 
- <!-- Related -->
- <section class="border-b border-navy-800 bg-navy-950 py-16">
+ <!-- Related — paper -->
+ <section class="border-y border-hairline bg-paper py-16">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <span class="mb-6 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Related</span>
+ <p class="kicker mb-6">Related</p>
  <div class="grid gap-5 md:grid-cols-3">
- <a href="/services/screen-printing-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
- <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Screen Printing</h3>
- <p class="mt-2 text-sm text-gray-400">For volume t-shirt orders and bold graphic prints.</p>
+ <a href="/services/screen-printing-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">Screen Printing</h3>
+ <p class="mt-2 text-sm text-ash">For volume t-shirt orders and bold graphic prints.</p>
  </a>
- <a href="/services/rush-orders-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
- <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Rush Orders</h3>
- <p class="mt-2 text-sm text-gray-400">rush embroidery on repeat orders.</p>
+ <a href="/services/rush-orders-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">Rush Orders</h3>
+ <p class="mt-2 text-sm text-ash">rush embroidery on repeat orders.</p>
  </a>
- <a href="/blog/screen-printing-vs-embroidery-construction/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
- <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Embroidery vs Screen Print</h3>
- <p class="mt-2 text-sm text-gray-400">Decision guide for picking the right method.</p>
+ <a href="/blog/screen-printing-vs-embroidery-construction/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">Embroidery vs Screen Print</h3>
+ <p class="mt-2 text-sm text-ash">Decision guide for picking the right method.</p>
  </a>
  </div>
  </div>
  </section>
 
- <!-- CTA -->
- <section class="bg-navy-900/60 py-20">
- <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
- <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Ready to embroider your crew's gear?</h2>
- <p class="mb-8 text-lg text-gray-300">Send your logo for a quote.</p>
- <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
- <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>
- <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gray-600 px-8 py-4 font-mono text-base font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">725.235.6196</a>
+ <!-- CTA — full-bleed photographic dark band -->
+ <section class="relative isolate overflow-hidden bg-navy-950">
+ <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" loading="lazy" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <div class="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Ready to embroider your crew's gear?</h2>
+ <p class="mb-8 text-lg text-navy-200">Send your logo for a quote.</p>
+ <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+ <a href="/contact/" class="btn-primary text-base">Get a Free Quote</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium tracking-wide text-white transition-colors hover:text-gold-400">702.904.8923</a>
  </div>
  </div>
  </section>

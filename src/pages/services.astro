@@ -89,47 +89,51 @@ const serviceSchema = {
  },
  })),
 }
+
+const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
 ---
 
 <BaseLayout
  title="Screen Printing, Embroidery & Branded Workwear Services — Las Vegas"
  description="Five services for Vegas construction crews: screen printing, embroidery, branded workwear programs, company stores, and promotional products. Local production, in-house art, rush options."
 >
- <!-- Hero -->
- <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
- <!-- Product photo background -->
- <div class="absolute inset-0">
+ <!-- ════ HERO — full-bleed photographic dark band ════ -->
+ <section class="relative isolate overflow-hidden bg-navy-950">
  <Picture
  src={productStack}
  alt=""
  aria-hidden="true"
- widths={[640, 1024, 1536, 1920]}
+ widths={[768, 1280, 1920]}
  sizes="100vw"
  formats={['avif', 'webp']}
  fallbackFormat="jpg"
  loading="eager"
  fetchpriority="high"
  decoding="async"
- class="h-full w-full object-cover opacity-40"
+ class="absolute inset-0 -z-10 h-full w-full object-cover object-center"
  />
- <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/85 to-navy-950/40" />
- <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_70%_-10%,_rgba(193,155,61,0.12),_transparent)]" />
- </div>
- <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">Our Services</span>
- <h1 class="mb-4 max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
- Screen Printing, Embroidery & <span class="text-gold-500">Branded Gear</span> in Las Vegas
+ <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/85 to-navy-950/45"></div>
+
+ <div class="mx-auto max-w-7xl px-4 pb-20 pt-36 sm:px-6 sm:pt-44 lg:px-8 lg:pb-28 lg:pt-52">
+ <div class="max-w-2xl">
+ <p class="kicker mb-5 flex items-center gap-2.5">
+ <span class="h-px w-8 bg-gold-500"></span>
+ Our Services
+ </p>
+ <h1 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-6xl">
+ Screen Printing, Embroidery &amp; <span class="text-gold-400">Branded Gear</span> in Las Vegas
  </h1>
- <p class="max-w-2xl text-lg text-navy-200 sm:text-xl">
+ <p class="mt-7 max-w-xl text-lg leading-relaxed text-navy-200 sm:text-xl">
  One partner, local Vegas production. From a single embroidered hat to outfitting your entire crew — we handle it all.
  </p>
  </div>
+ </div>
  </section>
 
- <!-- Answer-first summary + jump links -->
- <section class="border-b border-navy-700/30 bg-navy-950/60 py-12 sm:py-14">
+ <!-- ════ ANSWER-FIRST SUMMARY + JUMP LINKS — paper ════ -->
+ <section class="border-y border-hairline bg-paper py-14 sm:py-16">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <p class="mb-6 max-w-3xl text-base text-navy-200 sm:text-lg">
+ <p class="mb-7 max-w-3xl text-base leading-relaxed text-ash sm:text-lg">
  Bighorn Threads runs five services for Las Vegas construction and trade crews. Pick the one you need — or call and we’ll spec the mix.
  </p>
  <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
@@ -141,94 +145,84 @@ const serviceSchema = {
  { href: '#promotional-products', name: 'Promotional Products', detail: 'Drinkware, swag, client gifts.' },
  ].map((j) => (
  <li>
- <a href={j.href} class="block h-full rounded-xl border border-navy-700/50 bg-navy-800/30 px-4 py-3 transition-all hover:border-gold-500/50 hover:bg-navy-800/60">
- <span class="block text-sm font-bold text-white">{j.name}</span>
- <span class="mt-0.5 block text-xs text-navy-300">{j.detail}</span>
+ <a href={j.href} class="block h-full border border-hairline bg-panel px-4 py-3 transition-colors hover:border-gold-500">
+ <span class="block font-heading text-sm font-bold uppercase tracking-tight text-charcoal">{j.name}</span>
+ <span class="mt-0.5 block text-xs text-ash">{j.detail}</span>
  </a>
  </li>
  ))}
  </ul>
- <p class="mt-6 max-w-3xl text-sm text-navy-300">
- Need help deciding? See how <a href="/services/screen-printing-las-vegas/" class="text-gold-500 hover:underline">screen printing</a>, <a href="/services/embroidery-las-vegas/" class="text-gold-500 hover:underline">embroidery</a>, and <a href="/services/rush-orders-las-vegas/" class="text-gold-500 hover:underline">rush orders</a> stack up — or read the <a href="/blog/screen-printing-vs-embroidery-construction/" class="text-gold-500 hover:underline">screen print vs. embroidery</a> and <a href="/blog/dtf-printing-vs-screen-printing-custom-apparel/" class="text-gold-500 hover:underline">DTF vs. screen print</a> breakdowns.
+ <p class="mt-6 max-w-3xl text-sm leading-relaxed text-ash">
+ Need help deciding? See how <a href="/services/screen-printing-las-vegas/" class="text-gold-600 hover:underline">screen printing</a>, <a href="/services/embroidery-las-vegas/" class="text-gold-600 hover:underline">embroidery</a>, and <a href="/services/rush-orders-las-vegas/" class="text-gold-600 hover:underline">rush orders</a> stack up — or read the <a href="/blog/screen-printing-vs-embroidery-construction/" class="text-gold-600 hover:underline">screen print vs. embroidery</a> and <a href="/blog/dtf-printing-vs-screen-printing-custom-apparel/" class="text-gold-600 hover:underline">DTF vs. screen print</a> breakdowns.
  </p>
  </div>
  </section>
 
- <!-- Flagship: Company Stores -->
- <section class="relative py-20 sm:py-28">
- <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,_rgba(193,155,61,0.08),_transparent)]" aria-hidden="true"></div>
- <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <div class="overflow-hidden rounded-3xl border-2 border-gold-500/30 bg-gradient-to-br from-gold-500/10 via-navy-800/40 to-navy-900">
- <div class="grid gap-0 lg:grid-cols-[1.4fr_1fr]">
- <div class="p-10 sm:p-14">
- <div class="mb-4 inline-flex items-center gap-2 rounded-full bg-gold-500/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-gold-500">
- Flagship Service
- </div>
- <h2 class="mb-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl font-heading">
- Company Stores — <span class="text-gold-500">Private Online Storefronts for Your Crew</span>
+ <!-- ════ FLAGSHIP: COMPANY STORES — concrete ════ -->
+ <section class="bg-concrete py-20 sm:py-28">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="border-l-4 border-gold-500 bg-panel">
+ <div class="grid gap-0 border border-l-0 border-hairline lg:grid-cols-[1.4fr_1fr]">
+ <div class="p-9 sm:p-12">
+ <span class="spec mb-4 inline-block bg-gold-500 px-2 py-1 text-charcoal">Flagship Service</span>
+ <h2 class="mb-5 font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-4xl lg:text-5xl">
+ Company Stores — <span class="text-gold-600">Private Online Storefronts for Your Crew</span>
  </h2>
- <p class="mb-5 text-lg leading-relaxed text-gray-400">
+ <p class="mb-5 text-lg leading-relaxed text-ash">
  Your team logs into a branded storefront, picks their approved gear at sizes they actually want, and it ships direct. You set the catalog, the budget, and the spending rules. We handle decoration, fulfillment, and reporting.
  </p>
- <p class="mb-8 text-base leading-relaxed text-gray-400">
+ <p class="mb-8 text-base leading-relaxed text-ash">
  No inventory in your closet. No weekend runs to the shop for the new hire. No more guessing XL vs. 2XL for a crew lead you've never met. Zero monthly platform fee, and setup is free for qualifying crews.
  </p>
  <div class="mb-8 flex flex-wrap gap-2">
- <span class="rounded-full border border-gold-500/30 bg-gold-500/5 px-3 py-1 text-xs font-mono uppercase tracking-wider text-gold-400">Quick launch</span>
- <span class="rounded-full border border-gold-500/30 bg-gold-500/5 px-3 py-1 text-xs font-mono uppercase tracking-wider text-gold-400">No monthly fee</span>
- <span class="rounded-full border border-gold-500/30 bg-gold-500/5 px-3 py-1 text-xs font-mono uppercase tracking-wider text-gold-400">Per-employee credit</span>
- <span class="rounded-full border border-gold-500/30 bg-gold-500/5 px-3 py-1 text-xs font-mono uppercase tracking-wider text-gold-400">Ship anywhere</span>
- <span class="rounded-full border border-gold-500/30 bg-gold-500/5 px-3 py-1 text-xs font-mono uppercase tracking-wider text-gold-400">Reports included</span>
+ {['Quick launch', 'No monthly fee', 'Per-employee credit', 'Ship anywhere', 'Reports included'].map((tag) => (
+ <span class="spec border border-hairline px-2.5 py-1 text-ash">{tag}</span>
+ ))}
  </div>
  <div class="flex flex-wrap gap-3">
- <a href="/company-stores/" class="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-gold-500 px-6 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25">
+ <a href="/company-stores/" class="btn-primary text-base">
  How company stores work
- <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow}/></svg>
  </a>
- <a href="/demo/" class="inline-flex min-h-[44px] items-center gap-2 rounded-lg border-2 border-gold-500/40 px-6 py-3 text-base font-bold text-white transition-all hover:border-gold-500 hover:bg-gold-500/10">
+ <a href="/demo/" class="btn-secondary text-base">
  Request a demo store
  </a>
  </div>
  </div>
- <div class="relative border-t border-gold-500/20 bg-navy-950/40 p-10 sm:p-14 lg:border-l lg:border-t-0">
- <div class="mb-2 text-xs font-bold uppercase tracking-[0.15em] text-gold-500 font-mono">Who it's for</div>
- <h3 class="mb-5 text-xl font-bold tracking-tight text-white font-heading">Multi-crew contractors &amp; service trades</h3>
- <ul class="space-y-4 text-navy-200">
+ <div class="border-t border-hairline bg-paper p-9 sm:p-12 lg:border-l lg:border-t-0">
+ <div class="kicker mb-2">Who it's for</div>
+ <h3 class="mb-5 font-heading text-xl font-bold uppercase tracking-tight text-charcoal">Multi-crew contractors &amp; service trades</h3>
+ <ul class="space-y-4 text-ash">
+ {[
+ '50+ employees across multiple job sites',
+ 'Regular new-hire onboarding that needs a starter kit',
+ 'Multi-location operations (Vegas, Henderson, regional yards)',
+ 'Per-employee annual apparel budgets you want to automate',
+ ].map((item) => (
  <li class="flex gap-3">
- <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
- <span>50+ employees across multiple job sites</span>
+ <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+ <span>{item}</span>
  </li>
- <li class="flex gap-3">
- <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
- <span>Regular new-hire onboarding that needs a starter kit</span>
- </li>
- <li class="flex gap-3">
- <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
- <span>Multi-location operations (Vegas, Henderson, regional yards)</span>
- </li>
- <li class="flex gap-3">
- <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
- <span>Per-employee annual apparel budgets you want to automate</span>
- </li>
+ ))}
  </ul>
 
- <div class="mt-8 border-t border-gold-500/20 pt-6">
- <div class="mb-3 font-mono text-xs font-bold uppercase tracking-[0.15em] text-gold-500">Setup steps</div>
- <ul class="space-y-2.5 text-sm text-navy-200">
+ <div class="mt-8 border-t border-hairline pt-6">
+ <div class="kicker mb-3">Setup steps</div>
+ <ul class="space-y-2.5 text-sm text-ash">
  <li class="flex gap-3">
- <span class="flex-shrink-0 font-mono text-xs font-bold text-gold-400 w-20">Kickoff</span>
+ <span class="w-20 flex-shrink-0 font-mono text-xs font-bold text-gold-600">Kickoff</span>
  <span>Kickoff call + logo files locked in</span>
  </li>
  <li class="flex gap-3">
- <span class="flex-shrink-0 font-mono text-xs font-bold text-gold-400 w-20">Catalog</span>
+ <span class="w-20 flex-shrink-0 font-mono text-xs font-bold text-gold-600">Catalog</span>
  <span>Catalog review + negotiated pricing</span>
  </li>
  <li class="flex gap-3">
- <span class="flex-shrink-0 font-mono text-xs font-bold text-gold-400 w-20">QA</span>
+ <span class="w-20 flex-shrink-0 font-mono text-xs font-bold text-gold-600">QA</span>
  <span>Test order run + QA sign-off</span>
  </li>
  <li class="flex gap-3">
- <span class="flex-shrink-0 font-mono text-xs font-bold text-gold-400 w-20">Launch</span>
+ <span class="w-20 flex-shrink-0 font-mono text-xs font-bold text-gold-600">Launch</span>
  <span>Store live, invite your crew</span>
  </li>
  </ul>
@@ -239,48 +233,48 @@ const serviceSchema = {
  </div>
  </section>
 
- <!-- Screen Printing -->
- <section id="screen-printing" class="py-20 sm:py-28 scroll-mt-20">
+ <!-- ════ SCREEN PRINTING — paper ════ -->
+ <section id="screen-printing" class="scroll-mt-20 border-y border-hairline bg-paper py-20 sm:py-28">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="grid items-start gap-12 lg:grid-cols-2">
  <div>
- <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gold-500/10">
- <svg class="h-7 w-7 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+ <div class="mb-4 flex h-14 w-14 items-center justify-center bg-gold-500/15 text-gold-700">
+ <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
  <path stroke-linecap="round" stroke-linejoin="round" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0110.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0l.229 2.523a1.125 1.125 0 01-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0021 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 00-1.913-.247M6.34 18H5.25A2.25 2.25 0 013 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 011.913-.247m10.5 0a48.536 48.536 0 00-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659M18.75 12h.008v.008h-.008V12zm-8.25 0h.008v.008H10.5V12z" />
  </svg>
  </div>
- <h2 class="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">Screen Printing</h2>
- <p class="mb-4 text-lg text-gray-400">
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Screen Printing</h2>
+ <p class="mb-4 text-lg leading-relaxed text-ash">
  Multi-color screen printing on tees, hi-vis vests, hoodies, and workwear. Bold, opaque prints that survive job-site abuse, industrial laundry cycles, and Nevada sun. Plastisol for punch and water-based for soft-hand crew tees — we pick the ink system that fits the job, not the one that's easiest.
  </p>
- <p class="mb-6 text-base text-gray-400">
+ <p class="mb-6 text-base leading-relaxed text-ash">
  PMS color matching on runs of 48+ pieces. Up to 8 ink colors per placement. Large-format back prints, left-chest, pocket, and sleeve hits all available. Specialty inks — metallic, glow-in-the-dark, puff, and high-density — for events, crew-pride orders, or brand activations.
  </p>
  <div class="mb-6 grid grid-cols-3 gap-3">
- <div class="rounded-xl border border-navy-700/50 bg-navy-900/40 p-3">
- <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Minimum</div>
- <div class="mt-1 text-sm font-bold text-white">24 pieces</div>
+ <div class="border border-hairline bg-panel p-3">
+ <div class="spec text-gold-600">Minimum</div>
+ <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">24 pieces</div>
  </div>
- <div class="rounded-xl border border-navy-700/50 bg-navy-900/40 p-3">
- <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Turnaround</div>
- <div class="mt-1 text-sm font-bold text-white">Fast</div>
+ <div class="border border-hairline bg-panel p-3">
+ <div class="spec text-gold-600">Turnaround</div>
+ <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">Fast</div>
  </div>
- <div class="rounded-xl border border-navy-700/50 bg-navy-900/40 p-3">
- <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Rush</div>
- <div class="mt-1 text-sm font-bold text-white">Available</div>
+ <div class="border border-hairline bg-panel p-3">
+ <div class="spec text-gold-600">Rush</div>
+ <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">Available</div>
  </div>
  </div>
- <a href="/contact/" class="inline-flex items-center gap-2 rounded-lg bg-gold-500 px-5 py-3 text-sm font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/20">
+ <a href="/contact/" class="btn-primary text-sm">
  Get a Quote
- <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
  </a>
  </div>
- <div class="rounded-2xl border border-navy-700/50 bg-navy-800/30 p-8">
- <h3 class="mb-5 text-xs font-bold uppercase tracking-[0.15em] text-navy-300">What's Included</h3>
+ <div class="border border-hairline bg-panel p-8">
+ <h3 class="kicker mb-5">What's Included</h3>
  <ul class="space-y-3">
  {['Multi-color prints up to 8 colors', 'Plastisol & water-based inks', 'Specialty inks (metallic, glow, puff)', 'Large format back prints', 'Left chest & pocket prints', 'As low as 24-piece minimums'].map((item) => (
- <li class="flex items-center gap-3 text-navy-200">
- <svg class="h-5 w-5 flex-shrink-0 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+ <li class="flex items-center gap-3 text-ash">
+ <svg class="h-5 w-5 flex-shrink-0 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
  {item}
  </li>
  ))}
@@ -290,99 +284,99 @@ const serviceSchema = {
  </div>
  </section>
 
- <!-- Embroidery -->
- <section id="embroidery" class="border-y border-navy-700/30 bg-navy-900/30 py-20 sm:py-28 scroll-mt-20">
+ <!-- ════ EMBROIDERY — concrete ════ -->
+ <section id="embroidery" class="scroll-mt-20 bg-concrete py-20 sm:py-28">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="grid items-start gap-12 lg:grid-cols-2">
- <div class="order-2 lg:order-1 rounded-2xl border border-navy-700/50 bg-navy-800/30 p-8">
- <h3 class="mb-5 text-xs font-bold uppercase tracking-[0.15em] text-navy-300">What's Included</h3>
+ <div class="order-2 border border-hairline bg-panel p-8 lg:order-1">
+ <h3 class="kicker mb-5">What's Included</h3>
  <ul class="space-y-3">
  {['Free logo digitizing on first order', 'Up to 15 thread colors', 'Left chest, sleeves, back placement', 'Hats, beanies & headwear', 'Bags & backpacks', 'No minimum order required'].map((item) => (
- <li class="flex items-center gap-3 text-navy-200">
- <svg class="h-5 w-5 flex-shrink-0 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+ <li class="flex items-center gap-3 text-ash">
+ <svg class="h-5 w-5 flex-shrink-0 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
  {item}
  </li>
  ))}
  </ul>
  </div>
  <div class="order-1 lg:order-2">
- <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gold-500/10">
- <svg class="h-7 w-7 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+ <div class="mb-4 flex h-14 w-14 items-center justify-center bg-gold-500/15 text-gold-700">
+ <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
  <path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" />
  </svg>
  </div>
- <h2 class="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">Embroidery</h2>
- <p class="mb-4 text-lg text-gray-400">
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Embroidery</h2>
+ <p class="mb-4 text-lg leading-relaxed text-ash">
  Commercial embroidery on polos, softshells, caps, beanies, jackets, and bags. The decoration that reads "professional" the second somebody walks into a client meeting or picks up a permit. Sharp, durable, and a clear notch above heat-applied vinyl on gear your name tag is going to live on.
  </p>
- <p class="mb-6 text-base text-gray-400">
+ <p class="mb-6 text-base leading-relaxed text-ash">
  Up to 15 thread colors per design. Standard placements: left chest, right sleeve, back yoke, cap front, and cap back. Free logo digitizing on your first order. Tight trade tolerances — we match your logo within 1–2 Pantone shades using Madeira Classic threads.
  </p>
  <div class="mb-6 grid grid-cols-3 gap-3">
- <div class="rounded-xl border border-navy-700/50 bg-navy-900/40 p-3">
- <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Minimum</div>
- <div class="mt-1 text-sm font-bold text-white">12 pieces</div>
+ <div class="border border-hairline bg-panel p-3">
+ <div class="spec text-gold-600">Minimum</div>
+ <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">12 pieces</div>
  </div>
- <div class="rounded-xl border border-navy-700/50 bg-navy-900/40 p-3">
- <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Turnaround</div>
- <div class="mt-1 text-sm font-bold text-white">Fast</div>
+ <div class="border border-hairline bg-panel p-3">
+ <div class="spec text-gold-600">Turnaround</div>
+ <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">Fast</div>
  </div>
- <div class="rounded-xl border border-navy-700/50 bg-navy-900/40 p-3">
- <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Digitizing</div>
- <div class="mt-1 text-sm font-bold text-white">Free 1st order</div>
+ <div class="border border-hairline bg-panel p-3">
+ <div class="spec text-gold-600">Digitizing</div>
+ <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">Free 1st order</div>
  </div>
  </div>
- <a href="/contact/" class="inline-flex items-center gap-2 rounded-lg bg-gold-500 px-5 py-3 text-sm font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/20">
+ <a href="/contact/" class="btn-primary text-sm">
  Get a Quote
- <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
  </a>
  </div>
  </div>
  </div>
  </section>
 
- <!-- Branded Apparel -->
- <section id="branded-apparel" class="py-20 sm:py-28 scroll-mt-20">
+ <!-- ════ BRANDED APPAREL — paper ════ -->
+ <section id="branded-apparel" class="scroll-mt-20 border-y border-hairline bg-paper py-20 sm:py-28">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="grid items-start gap-12 lg:grid-cols-2">
  <div>
- <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gold-500/10">
- <svg class="h-7 w-7 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+ <div class="mb-4 flex h-14 w-14 items-center justify-center bg-gold-500/15 text-gold-700">
+ <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0.375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0.375.375 0 01.75 0z" />
  </svg>
  </div>
- <h2 class="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">Branded Apparel</h2>
- <p class="mb-4 text-lg text-gray-400">
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Branded Apparel</h2>
+ <p class="mb-4 text-lg leading-relaxed text-ash">
  Full crew uniform programs for construction and the trades. Hi-vis ANSI Class 2 and Class 3. FR-rated tees and shirts (NFPA 70E CAT 1 and CAT 2). Work pants, coveralls, softshell jackets, beanies, and caps. All sourced from brands your foremen already trust — Carhartt, Bulwark, Red Kap, Port Authority, ML Kishigo — and decorated to your spec.
  </p>
- <p class="mb-6 text-base text-gray-400">
+ <p class="mb-6 text-base leading-relaxed text-ash">
  We don't just ship you a box of shirts. We help you build a uniform spec that actually holds up: the right weight fabric for summer pours, the right cut for guys in a harness, the right hi-vis class for your job category. If you're running a mixed crew — office staff, field superintendents, tradespeople — we'll put together a tiered catalog so everyone's on-brand without forcing your office manager into a polo she won't wear.
  </p>
  <div class="mb-6 grid grid-cols-3 gap-3">
- <div class="rounded-xl border border-navy-700/50 bg-navy-900/40 p-3">
- <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Brands</div>
- <div class="mt-1 text-sm font-bold text-white">Carhartt, Bulwark+</div>
+ <div class="border border-hairline bg-panel p-3">
+ <div class="spec text-gold-600">Brands</div>
+ <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">Carhartt, Bulwark+</div>
  </div>
- <div class="rounded-xl border border-navy-700/50 bg-navy-900/40 p-3">
- <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Compliance</div>
- <div class="mt-1 text-sm font-bold text-white">ANSI / NFPA</div>
+ <div class="border border-hairline bg-panel p-3">
+ <div class="spec text-gold-600">Compliance</div>
+ <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">ANSI / NFPA</div>
  </div>
- <div class="rounded-xl border border-navy-700/50 bg-navy-900/40 p-3">
- <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Sizing</div>
- <div class="mt-1 text-sm font-bold text-white">XS–6XL, Tall</div>
+ <div class="border border-hairline bg-panel p-3">
+ <div class="spec text-gold-600">Sizing</div>
+ <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">XS–6XL, Tall</div>
  </div>
  </div>
- <a href="/contact/" class="inline-flex items-center gap-2 rounded-lg bg-gold-500 px-5 py-3 text-sm font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/20">
+ <a href="/contact/" class="btn-primary text-sm">
  Get a Quote
- <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
  </a>
  </div>
- <div class="rounded-2xl border border-navy-700/50 bg-navy-800/30 p-8">
- <h3 class="mb-5 text-xs font-bold uppercase tracking-[0.15em] text-navy-300">What's Included</h3>
+ <div class="border border-hairline bg-panel p-8">
+ <h3 class="kicker mb-5">What's Included</h3>
  <ul class="space-y-3">
  {['T-shirts & tank tops', 'Polos & dress shirts', 'Hoodies & jackets', 'Hi-vis safety wear', 'Hard hats & beanies', 'Work pants & coveralls'].map((item) => (
- <li class="flex items-center gap-3 text-navy-200">
- <svg class="h-5 w-5 flex-shrink-0 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+ <li class="flex items-center gap-3 text-ash">
+ <svg class="h-5 w-5 flex-shrink-0 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
  {item}
  </li>
  ))}
@@ -392,86 +386,92 @@ const serviceSchema = {
  </div>
  </section>
 
- <!-- Promotional Products -->
- <section id="promotional-products" class="border-y border-navy-700/30 bg-navy-900/30 py-20 sm:py-28 scroll-mt-20">
+ <!-- ════ PROMOTIONAL PRODUCTS — concrete ════ -->
+ <section id="promotional-products" class="scroll-mt-20 bg-concrete py-20 sm:py-28">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="grid items-start gap-12 lg:grid-cols-2">
- <div class="order-2 lg:order-1 rounded-2xl border border-navy-700/50 bg-navy-800/30 p-8">
- <h3 class="mb-5 text-xs font-bold uppercase tracking-[0.15em] text-navy-300">What's Included</h3>
+ <div class="order-2 border border-hairline bg-panel p-8 lg:order-1">
+ <h3 class="kicker mb-5">What's Included</h3>
  <ul class="space-y-3">
  {['Drinkware & tumblers', 'Tote bags & coolers', 'Pens & office supplies', 'Safety gear & first aid kits', 'Tech accessories', 'Awards & recognition'].map((item) => (
- <li class="flex items-center gap-3 text-navy-200">
- <svg class="h-5 w-5 flex-shrink-0 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+ <li class="flex items-center gap-3 text-ash">
+ <svg class="h-5 w-5 flex-shrink-0 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
  {item}
  </li>
  ))}
  </ul>
  </div>
  <div class="order-1 lg:order-2">
- <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gold-500/10">
- <svg class="h-7 w-7 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+ <div class="mb-4 flex h-14 w-14 items-center justify-center bg-gold-500/15 text-gold-700">
+ <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
  <path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0.621.504 1.125 1.125 1.125z" />
  </svg>
  </div>
- <h2 class="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">Promotional Products</h2>
- <p class="mb-4 text-lg text-gray-400">
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Promotional Products</h2>
+ <p class="mb-4 text-lg leading-relaxed text-ash">
  Branded swag that actually gets used — not tossed in the back of a desk drawer. Access to a 1M+ product catalog through our SAGE distributor network, narrowed down to items that hold up and look sharp: insulated tumblers, branded hard hat stickers, power banks, ball caps, quality tote bags, safety kits, and trade-show-grade signage.
  </p>
- <p class="mb-6 text-base text-gray-400">
+ <p class="mb-6 text-base leading-relaxed text-ash">
  Ideal for client gifts, crew appreciation, safety meetings, golf tournaments, open houses, and ribbon cuttings. We can run spec samples before you commit to a bulk buy, so you're not ordering 500 of something that feels cheap. Eco-friendly and made-in-USA options available on most categories.
  </p>
  <div class="mb-6 grid grid-cols-3 gap-3">
- <div class="rounded-xl border border-navy-700/50 bg-navy-900/40 p-3">
- <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Catalog</div>
- <div class="mt-1 text-sm font-bold text-white">1M+ items</div>
+ <div class="border border-hairline bg-panel p-3">
+ <div class="spec text-gold-600">Catalog</div>
+ <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">1M+ items</div>
  </div>
- <div class="rounded-xl border border-navy-700/50 bg-navy-900/40 p-3">
- <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Samples</div>
- <div class="mt-1 text-sm font-bold text-white">Available</div>
+ <div class="border border-hairline bg-panel p-3">
+ <div class="spec text-gold-600">Samples</div>
+ <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">Available</div>
  </div>
- <div class="rounded-xl border border-navy-700/50 bg-navy-900/40 p-3">
- <div class="font-mono text-xs uppercase tracking-wider text-gold-500">Lead time</div>
- <div class="mt-1 text-sm font-bold text-white">By item</div>
+ <div class="border border-hairline bg-panel p-3">
+ <div class="spec text-gold-600">Lead time</div>
+ <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">By item</div>
  </div>
  </div>
- <a href="/contact/" class="inline-flex items-center gap-2 rounded-lg bg-gold-500 px-5 py-3 text-sm font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/20">
+ <a href="/contact/" class="btn-primary text-sm">
  Get a Quote
- <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
  </a>
  </div>
  </div>
  </div>
  </section>
 
- <!-- Recently published -->
- <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <!-- ════ RECENTLY PUBLISHED — paper ════ -->
+ <section class="border-y border-hairline bg-paper py-16 sm:py-20">
  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Recently Published</span>
- <h2 class="mb-8 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Method comparisons and shop guides.</h2>
+ <p class="kicker mb-3">Recently Published</p>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Method comparisons and shop guides.</h2>
  <ul class="grid gap-3 sm:grid-cols-2">
- <li><a href="/blog/screen-printing-vs-embroidery-construction/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Screen printing vs embroidery for construction crews</a></li>
- <li><a href="/blog/dtf-printing-vs-screen-printing-custom-apparel/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">DTF printing vs screen printing</a></li>
- <li><a href="/blog/plastisol-vs-water-based-ink-workwear/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Plastisol vs water-based ink for workwear</a></li>
- <li><a href="/blog/sublimation-printing-custom-apparel-guide/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Sublimation printing custom apparel guide</a></li>
- <li><a href="/blog/embroidery-shop-las-vegas-guide/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Embroidery shop Las Vegas guide</a></li>
- <li><a href="/blog/screen-printing-shop-las-vegas-guide/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Screen printing shop Las Vegas guide</a></li>
+ <li><a href="/blog/screen-printing-vs-embroidery-construction/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Screen printing vs embroidery for construction crews</a></li>
+ <li><a href="/blog/dtf-printing-vs-screen-printing-custom-apparel/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">DTF printing vs screen printing</a></li>
+ <li><a href="/blog/plastisol-vs-water-based-ink-workwear/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Plastisol vs water-based ink for workwear</a></li>
+ <li><a href="/blog/sublimation-printing-custom-apparel-guide/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Sublimation printing custom apparel guide</a></li>
+ <li><a href="/blog/embroidery-shop-las-vegas-guide/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Embroidery shop Las Vegas guide</a></li>
+ <li><a href="/blog/screen-printing-shop-las-vegas-guide/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Screen printing shop Las Vegas guide</a></li>
  </ul>
- <p class="mt-6 text-base leading-relaxed text-navy-200">On pricing and order size: <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">how much to embroider a shirt</a> and our <a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">MOQ guide</a>.</p>
+ <p class="mt-6 text-base leading-relaxed text-ash">On pricing and order size: <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">how much to embroider a shirt</a> and our <a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">MOQ guide</a>.</p>
  </div>
  </section>
 
- <!-- CTA -->
- <section class="relative overflow-hidden py-20 sm:py-28">
- <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_110%,_rgba(200,150,14,0.1),_transparent)]" />
- <div class="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
- <h2 class="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">Not Sure What You Need?</h2>
- <p class="mx-auto mb-8 max-w-2xl text-lg text-navy-300">
- Tell us about your crew and we'll put together a custom recommendation. No pressure, no minimums on most products.
+ <!-- ════ CTA — full-bleed photographic dark band ════ -->
+ <section class="relative isolate overflow-hidden bg-navy-950">
+ <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" loading="lazy" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <div class="mx-auto max-w-3xl px-4 py-24 text-center sm:px-6 sm:py-32 lg:px-8">
+ <p class="kicker mb-3 justify-center">Not Sure What You Need?</p>
+ <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl">
+ Tell us about your crew — <span class="text-gold-400">we'll handle the rest.</span>
+ </h2>
+ <p class="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-navy-200">
+ We'll put together a custom recommendation. No pressure, no minimums on most products.
  </p>
- <a href="/contact/" class="inline-flex items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-lg font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-xl hover:shadow-gold-500/20 hover:-translate-y-0.5">
+ <div class="mt-9 flex justify-center">
+ <a href="/contact/" class="btn-primary text-base">
  Talk to Us
- <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
  </a>
+ </div>
  </div>
  </section>
 

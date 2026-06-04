@@ -36,31 +36,30 @@ const schema = {
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
- <article class="bg-navy-950">
- <header class="relative overflow-hidden border-b border-navy-800">
- <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
- <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
- <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-400">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-400">Blog</a></nav>
- <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
- <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
- <p class="mb-8 text-xl leading-relaxed text-gray-300">A practical guide to prepping your logo for embroidery — what file formats work, what design elements break in stitch, and how to send the cleanest input to your digitizer.</p>
- <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400"><span class="text-gold-500">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
+ <article class="bg-concrete">
+ <header class="border-b border-hairline bg-paper">
+ <div class="mx-auto max-w-3xl px-4 pt-32 pb-12 sm:px-6 sm:pt-40 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-600">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-600">Blog</a></nav>
+ <span class="kicker mb-3">{post.category}</span>
+ <h1 class="mb-6 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl lg:text-5xl">{post.title}</h1>
+ <p class="mb-8 text-xl leading-relaxed text-ash">A practical guide to prepping your logo for embroidery — what file formats work, what design elements break in stitch, and how to send the cleanest input to your digitizer.</p>
+ <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
  </header>
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Vector logo file being prepared for embroidery digitizing on a designer's screen" width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" /></div>
+ <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Vector logo file being prepared for embroidery digitizing on a designer's screen" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
 
- <aside class="mb-10 rounded-2xl border border-gold-500/30 bg-navy-900/60 p-7">
- <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Quick Answer</p>
- <p class="text-lg leading-relaxed text-white sm:text-xl">Send your embroidery shop a vector file (.ai, .eps, .pdf, or .svg) for the cleanest result. Vector artwork scales without quality loss, so the digitizer can resize for chest, sleeve, or back placements without redrawing. JPG and PNG work but may require a redraw fee if low-resolution. Convert text to outlines, simplify fine details under 1mm, and limit colors to 6-12 for best embroidery results.</p>
+ <aside class="mb-10 border border-hairline bg-panel p-7">
+ <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Quick Answer</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl">Send your embroidery shop a vector file (.ai, .eps, .pdf, or .svg) for the cleanest result. Vector artwork scales without quality loss, so the digitizer can resize for chest, sleeve, or back placements without redrawing. JPG and PNG work but may require a redraw fee if low-resolution. Convert text to outlines, simplify fine details under 1mm, and limit colors to 6-12 for best embroidery results.</p>
  </aside>
 
- <h2 id="why-vector" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Why Vector Matters</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Embroidery starts with digitizing — converting your logo into a stitch file the embroidery machine can read. The digitizer needs the cleanest possible input. Vector files (built from mathematical paths) scale infinitely without losing crispness. Raster files (built from fixed pixels) lose quality when enlarged.</p>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">If you send a 300×300 pixel JPG of your logo, the digitizer has to either work from that low-resolution version (and risk artifacts in the stitch file) or redraw your logo from scratch in vector format ($30-80 redraw fee, plus the digitizing fee). Sending vector eliminates the redraw step.</p>
+ <h2 id="why-vector" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Why Vector Matters</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Embroidery starts with digitizing — converting your logo into a stitch file the embroidery machine can read. The digitizer needs the cleanest possible input. Vector files (built from mathematical paths) scale infinitely without losing crispness. Raster files (built from fixed pixels) lose quality when enlarged.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">If you send a 300×300 pixel JPG of your logo, the digitizer has to either work from that low-resolution version (and risk artifacts in the stitch file) or redraw your logo from scratch in vector format ($30-80 redraw fee, plus the digitizing fee). Sending vector eliminates the redraw step.</p>
 
- <h2 id="file-formats" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Acceptable File Formats</h2>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <h2 id="file-formats" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Acceptable File Formats</h2>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>.ai (Adobe Illustrator)</strong> — best input. Preserves layers, fonts, effects, swatches. Most digitizers prefer this.</li>
  <li><strong>.eps</strong> — universal vector format. Cleanest cross-software compatibility.</li>
  <li><strong>.pdf</strong> — works if the PDF was exported with vector elements (not flattened to raster).</li>
@@ -68,25 +67,25 @@ const schema = {
  <li><strong>.cdr (CorelDRAW)</strong> — accepted by some shops, but less universal.</li>
  <li><strong>.jpg / .png / .tiff</strong> — raster. Works only if high-resolution (300+ DPI at intended print size). Otherwise expect redraw fees.</li>
  </ul>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">For deeper background see our piece on <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">logo digitizing 101</a>.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">For deeper background see our piece on <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">logo digitizing 101</a>.</p>
 
- <h2 id="design-elements" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Design Elements That Break in Embroidery</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Some logo elements that work great in print don't translate to thread:</p>
+ <h2 id="design-elements" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Design Elements That Break in Embroidery</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Some logo elements that work great in print don't translate to thread:</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Lines under 1mm wide</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Embroidery stitches have minimum width — typically about 1mm. Lines thinner than that drop out entirely or look distorted. If your logo has hairline elements, they'll need to be thickened or removed for embroidery.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Embroidery stitches have minimum width — typically about 1mm. Lines thinner than that drop out entirely or look distorted. If your logo has hairline elements, they'll need to be thickened or removed for embroidery.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Very small text</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Text under 4mm tall (about 0.16 inches) becomes illegible in stitch. The digitizer can usually render text down to about 6mm if the font is bold and clean. Decorative or thin fonts need to be larger.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Text under 4mm tall (about 0.16 inches) becomes illegible in stitch. The digitizer can usually render text down to about 6mm if the font is bold and clean. Decorative or thin fonts need to be larger.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Gradients and color blends</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Gradients are continuous color blends that don't exist in solid-thread embroidery. The digitizer either approximates with banded thread color transitions (works but looks different from print) or simplifies to solid colors. Logos designed for print often need gradient simplification before embroidery.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Gradients are continuous color blends that don't exist in solid-thread embroidery. The digitizer either approximates with banded thread color transitions (works but looks different from print) or simplifies to solid colors. Logos designed for print often need gradient simplification before embroidery.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Drop shadows, glows, transparencies</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">These visual effects exist in print/digital but don't translate to thread. Either remove them before sending the file, or accept that the digitizer will simplify or omit.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">These visual effects exist in print/digital but don't translate to thread. Either remove them before sending the file, or accept that the digitizer will simplify or omit.</p>
 
- <h2 id="prep-checklist" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Logo Prep Checklist</h2>
- <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <h2 id="prep-checklist" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Logo Prep Checklist</h2>
+ <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Find the original vector file.</strong> Whoever designed your logo should have an .ai or .eps source file. Track that down before sending a JPG.</li>
  <li><strong>Convert text to outlines.</strong> In Illustrator: select text → Type → Create Outlines. This eliminates font availability issues on the digitizer's end.</li>
  <li><strong>Simplify fine detail.</strong> Identify lines under 1mm and either thicken or remove. Identify text under 6mm and decide whether to enlarge or omit.</li>
@@ -96,9 +95,9 @@ const schema = {
  <li><strong>Note any non-negotiables.</strong> If the brand mark MUST be a specific color or element MUST be visible, flag it explicitly.</li>
  </ol>
 
- <h2 id="what-digitizer-does" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">What the Digitizer Does With Your File</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Once you send the prepped vector file, the digitizer:</p>
- <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <h2 id="what-digitizer-does" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">What the Digitizer Does With Your File</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Once you send the prepped vector file, the digitizer:</p>
+ <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li>Imports your vector into digitizing software (Wilcom, Pulse, Embird, etc.)</li>
  <li>Manually traces each element, deciding stitch direction, density, type (satin, fill, run)</li>
  <li>Sets stitch order — what gets stitched first, what stops/starts, color sequence</li>
@@ -107,21 +106,21 @@ const schema = {
  <li>Sends you a digital sew-out preview before running production</li>
  </ol>
 
- <h2 id="cost" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">What Digitizing Costs</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Industry typical: $30-80 per logo for digitizing. One-time fee — once digitized, the file is reused for every reorder at no additional charge. Complex logos with many colors or fine detail run higher. Vector input keeps the cost at the lower end of that range; raster input that requires redraw pushes it higher.</p>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">For full pricing context see <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">how much it costs to embroider a shirt</a>.</p>
+ <h2 id="cost" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">What Digitizing Costs</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Industry typical: $30-80 per logo for digitizing. One-time fee — once digitized, the file is reused for every reorder at no additional charge. Complex logos with many colors or fine detail run higher. Vector input keeps the cost at the lower end of that range; raster input that requires redraw pushes it higher.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">For full pricing context see <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">how much it costs to embroider a shirt</a>.</p>
 
- <h2 id="related" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Related Reading</h2>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
- <li><a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Logo digitizing 101</a></li>
- <li><a href="/blog/what-is-embroidery-buyers-guide/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">What is embroidery</a></li>
- <li><a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">How much to embroider a shirt</a></li>
+ <h2 id="related" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Related Reading</h2>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
+ <li><a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Logo digitizing 101</a></li>
+ <li><a href="/blog/what-is-embroidery-buyers-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">What is embroidery</a></li>
+ <li><a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">How much to embroider a shirt</a></li>
  </ul>
 
- <div class="mt-12 rounded-2xl border border-gold-500/40 bg-gold-500/5 p-7 sm:p-9">
- <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-white">Need embroidery in Las Vegas?</h2>
- <p class="mb-5 text-lg leading-relaxed text-navy-200">Send Bighorn Threads your vector logo file and we'll handle digitizing, decoration, and any prep work needed. Files kept on record for fast reorders.</p>
- <a href="/services/embroidery-las-vegas/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">See Our Embroidery Service →</a>
+ <div class="mt-12 border border-hairline bg-panel p-7 sm:p-9">
+ <h2 class="mb-3 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal">Need embroidery in Las Vegas?</h2>
+ <p class="mb-5 text-lg leading-relaxed text-ash">Send Bighorn Threads your vector logo file and we'll handle digitizing, decoration, and any prep work needed. Files kept on record for fast reorders.</p>
+ <a href="/services/embroidery-las-vegas/" class="btn-primary text-base">See Our Embroidery Service →</a>
  </div>
  </div>
  </article>

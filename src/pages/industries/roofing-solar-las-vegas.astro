@@ -10,9 +10,9 @@ const page = {
 }
 
 const conditions = [
- { num: '110°+', label: 'Rooftop ambient', body: 'Vegas summer rooftops hit 130°F surface temps. Cotton kills. We stock moisture-wicking poly blends and sun-protective long-sleeve hi-vis that crews actually keep on. (See <a href="https://www.osha.gov/heat-exposure" rel="noopener" class="text-gold-500 hover:underline">OSHA heat exposure guidance</a>.)' },
+ { num: '110°+', label: 'Rooftop ambient', body: 'Vegas summer rooftops hit 130°F surface temps. Cotton kills. We stock moisture-wicking poly blends and sun-protective long-sleeve hi-vis that crews actually keep on. (See <a href="https://www.osha.gov/heat-exposure" rel="noopener" class="text-gold-700 hover:underline">OSHA heat exposure guidance</a>.)' },
  { num: '5 AM', label: 'Start time', body: 'Nevada\'s heat-stress rules push commercial construction crews to pre-dawn starts in summer. That means branded hoodies and warm layers for the first hour of the shift, then breathable swap-outs.' },
- { num: '8 hrs', label: 'UV exposure', body: 'A roofer averages 8 hours of UPF-relevant sun exposure per shift. UPF 50+ long-sleeves protect more than they cost in heat retention. (Reference: <a href="https://www.cdc.gov/niosh/topics/heatstress/" rel="noopener" class="text-gold-500 hover:underline">NIOSH heat stress</a>.)' },
+ { num: '8 hrs', label: 'UV exposure', body: 'A roofer averages 8 hours of UPF-relevant sun exposure per shift. UPF 50+ long-sleeves protect more than they cost in heat retention. (Reference: <a href="https://www.cdc.gov/niosh/topics/heatstress/" rel="noopener" class="text-gold-700 hover:underline">NIOSH heat stress</a>.)' },
 ]
 
 const gear = [
@@ -99,97 +99,96 @@ const faqSchema = {
  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
- <!-- Hero -->
- <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
- <div class="absolute inset-0">
- <img src={page.hero} alt="" aria-hidden="true" class="h-full w-full object-cover opacity-30" width="1600" height="900" loading="eager" fetchpriority="high" />
- <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/40" />
- <div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_75%_-10%,_rgba(193,155,61,0.15),_transparent)]" />
- </div>
+ <!-- Hero — full-bleed photographic dark band -->
+ <section class="relative isolate overflow-hidden bg-navy-950">
+ <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover object-center" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/85 to-navy-950/40"></div>
 
- <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+ <div class="mx-auto max-w-7xl px-4 pb-16 pt-32 sm:px-6 sm:pt-40 lg:px-8 lg:pb-24 lg:pt-44">
+ <nav class="mb-6 font-mono text-xs text-navy-300" aria-label="Breadcrumb">
  <a href="/" class="hover:text-gold-400">Home</a>
- <span class="px-2 text-gray-600">/</span>
+ <span class="px-2 text-navy-500">/</span>
  <a href="/industries/" class="hover:text-gold-400">Industries</a>
- <span class="px-2 text-gray-600">/</span>
- <span class="text-gold-500">Roofing &amp; Solar</span>
+ <span class="px-2 text-navy-500">/</span>
+ <span class="text-gold-400">Roofing &amp; Solar</span>
  </nav>
 
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">{page.h1Pre}</span>
- <h1 class="mb-6 max-w-4xl font-heading text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
- Sun-Protective Hi-Vis and Crew Gear <span class="text-gold-500">Built for 110° Vegas Rooftops.</span>
+ <p class="kicker mb-3">{page.h1Pre}</p>
+ <h1 class="max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-6xl">
+ Sun-Protective Hi-Vis and Crew Gear <span class="text-gold-400">Built for 110° Vegas Rooftops.</span>
  </h1>
- <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ <p class="mt-6 max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
  UPF long-sleeves that crews actually keep on. Hi-vis poly blends that wick instead of trap. Branded hoodies for 5 AM starts. We outfit roofers and solar installers across Vegas, Henderson, and North Las Vegas.
  </p>
 
- <div class="mt-10 flex flex-wrap items-center gap-3">
- <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25">
+ <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+ <a href="/contact/" class="btn-primary text-base">
  Get a Quote
  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
  </a>
- <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gold-500/40 px-6 py-3 font-mono text-sm font-medium text-gold-500 transition-all hover:border-gold-500 hover:bg-gold-500/5">
- 725.235.6196
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">
+ 702.904.8923
  </a>
  </div>
  </div>
  </section>
 
- <!-- Answer-first block (AEO citation target) -->
- <section class="border-b border-navy-800 bg-gradient-to-b from-navy-950 to-navy-900/60 py-12">
+ <!-- Answer-first block (AEO citation target) — concrete -->
+ <section class="bg-concrete py-14 sm:py-16">
  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
- <div class="rounded-2xl border border-gold-500/30 bg-navy-900/60 p-7 sm:p-9">
- <span class="mb-3 inline-block font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Quick Answer</span>
- <p class="font-heading text-lg leading-relaxed text-white sm:text-xl">
+ <div class="border-l-4 border-gold-500 bg-panel">
+ <div class="border border-l-0 border-hairline p-7 sm:p-9">
+ <span class="spec mb-3 inline-block text-gold-600">Quick Answer</span>
+ <p class="font-heading text-lg leading-relaxed text-charcoal sm:text-xl">
  Las Vegas roofing and solar crews wear UPF 50+ moisture-wicking long-sleeve shirts in light colorways (gray, khaki, sand) to handle 110°+ rooftop ambient and 145° asphalt surface temperatures. ANSI 107 Class 2 hi-vis is standard for tear-off and street-adjacent work; FR-rated layers are required for solar combiner and inverter work above 600V DC per NFPA 70E.
  </p>
  </div>
  </div>
+ </div>
  </section>
 
- <!-- Conditions -->
- <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <!-- Conditions — paper -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Vegas Conditions</span>
- <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Why standard hi-vis fails on Vegas rooftops.</h2>
- <p class="mt-4 text-lg leading-relaxed text-gray-300">
+ <p class="kicker mb-3">Vegas Conditions</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Why standard hi-vis fails <span class="text-gold-600">on Vegas rooftops.</span></h2>
+ <p class="mt-4 text-lg leading-relaxed text-ash">
  Most workwear rated for "construction" was specced in 75° conditions. Pull on a cotton hi-vis at 11am in July and you're peeling it off by noon. We pick gear that holds up.
  </p>
  </div>
 
  <div class="grid gap-5 md:grid-cols-3">
  {conditions.map((c) => (
- <div class="rounded-2xl border border-navy-700/50 bg-navy-900/40 p-7 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+ <div class="border border-hairline bg-panel p-7 transition-colors hover:border-gold-500">
  <div class="mb-3 flex items-baseline gap-3">
- <span class="font-heading text-4xl font-bold text-gold-500">{c.num}</span>
- <span class="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gray-300">{c.label}</span>
+ <span class="font-heading text-4xl font-extrabold text-gold-600">{c.num}</span>
+ <span class="spec text-ash">{c.label}</span>
  </div>
- <p class="text-base leading-relaxed text-gray-300" set:html={c.body}></p>
+ <p class="text-base leading-relaxed text-ash" set:html={c.body}></p>
  </div>
  ))}
  </div>
  </div>
  </section>
 
- <!-- Gear -->
- <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+ <!-- Gear — concrete -->
+ <section class="bg-concrete py-20 sm:py-24">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">The Gear</span>
- <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">What we make for roofing and solar crews.</h2>
+ <p class="kicker mb-3">The Gear</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">What we make for <span class="text-gold-600">roofing and solar crews.</span></h2>
  </div>
 
  <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
  {gear.map((g) => (
- <div class="overflow-hidden rounded-2xl border border-navy-700/40 bg-navy-900/40 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
- <div class="aspect-[4/3] overflow-hidden bg-navy-800">
- <img src={g.img} alt={g.name} class="h-full w-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" decoding="async" width="600" height="450" />
+ <div class="flex flex-col border border-hairline bg-panel transition-colors hover:border-gold-500">
+ <div class="aspect-[4/3] overflow-hidden">
+ <img src={g.img} alt={g.name} class="h-full w-full object-cover" loading="lazy" decoding="async" width="600" height="450" />
  </div>
- <div class="p-5">
- <h3 class="mb-2 font-heading text-lg font-bold tracking-tight text-white">{g.name}</h3>
- <p class="text-sm leading-relaxed text-gray-400">{g.detail}</p>
+ <div class="flex flex-1 flex-col p-5">
+ <h3 class="mb-2 font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{g.name}</h3>
+ <p class="text-sm leading-relaxed text-ash">{g.detail}</p>
  </div>
  </div>
  ))}
@@ -197,27 +196,27 @@ const faqSchema = {
  </div>
  </section>
 
- <!-- Use cases -->
- <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <!-- Use cases — paper -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
  <div>
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Typical Orders</span>
- <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Crew configurations we run every week.</h2>
- <p class="mt-4 text-lg leading-relaxed text-gray-300">
+ <p class="kicker mb-3">Typical Orders</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Crew configurations <span class="text-gold-600">we run every week.</span></h2>
+ <p class="mt-4 text-lg leading-relaxed text-ash">
  Solar installers usually need split kits — customer-facing techs in branded polos, install crews in hi-vis. Roofers tend to standardize across the crew but split office vs field by garment weight.
  </p>
  <div class="mt-8 flex flex-wrap gap-3">
- <a href="/services/" class="inline-flex items-center gap-2 rounded-lg border border-gray-600 px-5 py-2.5 text-sm font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">All Services →</a>
- <a href="/company-stores/" class="inline-flex items-center gap-2 rounded-lg border border-gray-600 px-5 py-2.5 text-sm font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">Company Stores →</a>
+ <a href="/services/" class="btn-secondary text-sm">All Services →</a>
+ <a href="/company-stores/" class="btn-secondary text-sm">Company Stores →</a>
  </div>
  </div>
 
- <ul class="space-y-3">
+ <ul class="divide-y divide-hairline border-y border-hairline">
  {useCases.map((u, i) => (
- <li class="flex items-start gap-4 rounded-xl border border-navy-700/30 bg-navy-900/30 p-4 transition-all hover:border-gold-500/30 hover:bg-navy-900/50">
- <span class="flex-shrink-0 font-mono text-xs font-bold text-gold-500">{String(i + 1).padStart(2, '0')}</span>
- <span class="text-base leading-relaxed text-gray-200">{u}</span>
+ <li class="flex items-start gap-4 py-4">
+ <span class="flex-shrink-0 font-mono text-xs font-bold text-gold-600">{String(i + 1).padStart(2, '0')}</span>
+ <span class="text-base leading-relaxed text-charcoal">{u}</span>
  </li>
  ))}
  </ul>
@@ -225,15 +224,15 @@ const faqSchema = {
  </div>
  </section>
 
- <!-- Deep dive -->
- <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <!-- Deep dive — concrete -->
+ <section class="bg-concrete py-20 sm:py-24">
  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">The Buyer's Guide</span>
- <h2 class="mb-8 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+ <p class="kicker mb-3">The Buyer's Guide</p>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">
  Branded workwear for Las Vegas roofing and solar crews — built for 145° asphalt and 110° rooftops.
  </h2>
 
- <div class="space-y-5 text-lg leading-relaxed text-navy-200">
+ <div class="space-y-5 text-lg leading-relaxed text-ash">
  <p>
  Roofing and solar are the most heat-exposed trades in Las Vegas construction. Asphalt shingle work hits 145° surface temperature in July; standing-seam metal roofs and solar PV array work runs even hotter on glare-days. Bighorn Threads supplies roofing contractors, solar installers, EPC crews, and PV maintenance teams with workwear engineered for sustained heat exposure — moisture-wicking long-sleeve performance shirts, UPF 30+ sun protection, light-colored caps, and (for solar) FR-rated apparel for combiner and inverter work.
  </p>
@@ -253,57 +252,57 @@ const faqSchema = {
  </div>
  </section>
 
- <!-- FAQs -->
- <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+ <!-- FAQs — paper -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">FAQ</span>
- <h2 class="mb-12 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Questions roofing and solar crews ask us.</h2>
+ <p class="kicker mb-3">FAQ</p>
+ <h2 class="mb-10 font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Questions roofing and solar crews <span class="text-gold-600">ask us.</span></h2>
 
- <div class="space-y-3">
+ <div class="divide-y divide-hairline border-y border-hairline">
  {faqs.map((f) => (
- <details class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-5 transition-all hover:border-gold-500/30 open:border-gold-500/40">
- <summary class="flex cursor-pointer items-start justify-between gap-4 list-none">
- <h3 class="font-heading text-lg font-bold leading-tight tracking-tight text-white">{f.q}</h3>
- <span class="mt-1 flex-shrink-0 text-gold-500 transition-transform group-open:rotate-45">
- <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
- </span>
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
+ <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
  </summary>
- <p class="mt-4 text-base leading-relaxed text-gray-300">{f.a}</p>
+ <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
  </details>
  ))}
  </div>
  </div>
  </section>
 
- <!-- Related -->
- <section class="border-b border-navy-800 bg-navy-950 py-16">
+ <!-- Related — concrete -->
+ <section class="bg-concrete py-16">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <span class="mb-6 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Related</span>
+ <p class="kicker mb-6">Related</p>
  <div class="grid gap-5 md:grid-cols-3">
- <a href="/industries/electrical-contractors-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
- <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Electrical Contractors</h3>
- <p class="mt-2 text-sm text-gray-400">FR shirts, hi-vis, and code-compliant decoration.</p>
+ <a href="/industries/electrical-contractors-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Electrical Contractors</h3>
+ <p class="mt-2 text-sm text-ash">FR shirts, hi-vis, and code-compliant decoration.</p>
  </a>
- <a href="/industries/general-contractors-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
- <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">General Contractors</h3>
- <p class="mt-2 text-sm text-gray-400">Crew uniforms, sub branding, and rapid onboarding.</p>
+ <a href="/industries/general-contractors-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">General Contractors</h3>
+ <p class="mt-2 text-sm text-ash">Crew uniforms, sub branding, and rapid onboarding.</p>
  </a>
- <a href="/blog/screen-printing-vs-embroidery-construction/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
- <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Screen Print vs Embroidery</h3>
- <p class="mt-2 text-sm text-gray-400">Which decoration method holds up on a Vegas job site.</p>
+ <a href="/blog/screen-printing-vs-embroidery-construction/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Screen Print vs Embroidery</h3>
+ <p class="mt-2 text-sm text-ash">Which decoration method holds up on a Vegas job site.</p>
  </a>
  </div>
  </div>
  </section>
 
- <!-- CTA -->
- <section class="bg-navy-900/60 py-20">
- <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
- <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Outfit your crew for the rooftop, not the office.</h2>
- <p class="mb-8 text-lg text-gray-300">Send your logo. Stocked hi-vis on hand.</p>
- <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
- <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>
- <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gray-600 px-8 py-4 font-mono text-base font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">725.235.6196</a>
+ <!-- CTA — full-bleed photographic dark band -->
+ <section class="relative isolate overflow-hidden bg-navy-950">
+ <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" loading="lazy" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <div class="mx-auto max-w-3xl px-4 py-24 text-center sm:px-6 sm:py-28 lg:px-8">
+ <h2 class="font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-4xl lg:text-5xl">Outfit your crew for <span class="text-gold-400">the rooftop, not the office.</span></h2>
+ <p class="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-navy-200">Send your logo. Stocked hi-vis on hand.</p>
+ <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+ <a href="/contact/" class="btn-primary text-base">Get a Free Quote</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">702.904.8923</a>
  </div>
  </div>
  </section>

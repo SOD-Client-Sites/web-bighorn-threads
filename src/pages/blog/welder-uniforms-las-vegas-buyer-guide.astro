@@ -36,52 +36,51 @@ const schema = {
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
- <article class="bg-navy-950">
- <header class="relative overflow-hidden border-b border-navy-800">
- <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
- <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
- <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-400">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-400">Blog</a></nav>
- <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
- <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
- <p class="mb-8 text-xl leading-relaxed text-gray-300">A working buyer's guide to welder uniforms in Las Vegas — the layered FR + leather system, brand picks, OSHA and AWS references, and how to spec a branded program for a welding crew.</p>
- <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400"><span class="text-gold-500">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
+ <article class="bg-concrete">
+ <header class="border-b border-hairline bg-paper">
+ <div class="mx-auto max-w-3xl px-4 pt-32 pb-12 sm:px-6 sm:pt-40 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-600">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-600">Blog</a></nav>
+ <span class="kicker mb-3">{post.category}</span>
+ <h1 class="mb-6 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl lg:text-5xl">{post.title}</h1>
+ <p class="mb-8 text-xl leading-relaxed text-ash">A working buyer's guide to welder uniforms in Las Vegas — the layered FR + leather system, brand picks, OSHA and AWS references, and how to spec a branded program for a welding crew.</p>
+ <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
  </header>
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Welder in NFPA 2112 FR shirt and leather welding jacket on a Las Vegas job site" width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" /></div>
+ <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Welder in NFPA 2112 FR shirt and leather welding jacket on a Las Vegas job site" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
 
- <aside class="mb-10 rounded-2xl border border-gold-500/30 bg-navy-900/60 p-7">
- <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Quick Answer</p>
- <p class="text-lg leading-relaxed text-white sm:text-xl">A welder uniform in Las Vegas is a layered system: NFPA 2112 FR base shirt and pants, leather welding jacket or sleeves over the FR, leather gloves, welding helmet, and steel-toe boots. OSHA 1910.252 and AWS Z49.1 require FR. Decorate FR garments with Nomex embroidery thread, never plastisol screen print.</p>
+ <aside class="mb-10 border border-hairline bg-panel p-7">
+ <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Quick Answer</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl">A welder uniform in Las Vegas is a layered system: NFPA 2112 FR base shirt and pants, leather welding jacket or sleeves over the FR, leather gloves, welding helmet, and steel-toe boots. OSHA 1910.252 and AWS Z49.1 require FR. Decorate FR garments with Nomex embroidery thread, never plastisol screen print.</p>
  </aside>
 
- <h2 id="layered-system" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The Welder Uniform Is a Layered System</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Most "welder uniform" search results stop at FR shirts. That misses the point. A real welder uniform is three protective layers, each handling a different hazard:</p>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <h2 id="layered-system" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">The Welder Uniform Is a Layered System</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Most "welder uniform" search results stop at FR shirts. That misses the point. A real welder uniform is three protective layers, each handling a different hazard:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Layer 1 — FR base.</strong> Long-sleeve NFPA 2112 shirt and pants. Self-extinguishes if ignition happens. Required by OSHA.</li>
  <li><strong>Layer 2 — Leather over-layer.</strong> Split-cowhide jacket or sleeves. Deflects direct slag and arc spatter the FR base wasn\'t designed to take head-on.</li>
  <li><strong>Layer 3 — Head, hands, feet.</strong> Welding helmet with FR balaclava or skullcap, gauntlet leather gloves, and steel-toe boots with metatarsal guard.</li>
  </ul>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Authoritative sources: <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.252" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500" rel="noopener" target="_blank">OSHA 29 CFR 1910.252</a> on welding PPE, and <a href="https://www.aws.org/standards" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500" rel="noopener" target="_blank">AWS Z49.1 Safety in Welding, Cutting, and Allied Processes</a>.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Authoritative sources: <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.252" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600" rel="noopener" target="_blank">OSHA 29 CFR 1910.252</a> on welding PPE, and <a href="https://www.aws.org/standards" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600" rel="noopener" target="_blank">AWS Z49.1 Safety in Welding, Cutting, and Allied Processes</a>.</p>
 
- <h2 id="fr-base-layer" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">FR Base Layer — Brand Picks for Vegas</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Vegas summer hits 110°F+. The FR shirt has to breathe or your welders won\'t wear it correctly. Sleeves get rolled up, shirts get unbuttoned, and the FR rating becomes theoretical.</p>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <h2 id="fr-base-layer" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">FR Base Layer — Brand Picks for Vegas</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Vegas summer hits 110°F+. The FR shirt has to breathe or your welders won\'t wear it correctly. Sleeves get rolled up, shirts get unbuttoned, and the FR rating becomes theoretical.</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Bulwark Excel-FR ComforTouch SLU2 (7 oz).</strong> Dual NFPA 70E + 2112 rating. Most-specified Vegas welder/electrician shirt.</li>
  <li><strong>Carhartt FR Force.</strong> Cotton/nylon blend, moisture-wicking. Solid mid-tier pick.</li>
  <li><strong>Lapco FR.</strong> Heavier 7-oz cotton. More durable for shop welding, hotter for outdoor.</li>
  <li><strong>Tyndale FR.</strong> Industrial-laundry favorite. Bulk-program friendly.</li>
  </ul>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">For deeper FR detail see <a href="/blog/welder-uniforms-fr-shirts-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">our FR-specific welder shirt guide</a>, plus <a href="/blog/bulwark-fr-shirts-vegas-heat/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Bulwark FR shirts in Vegas heat</a> and <a href="/blog/nfpa-2112-fr-coveralls-buyer-guide/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">NFPA 2112 FR coveralls</a>.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">For deeper FR detail see <a href="/blog/welder-uniforms-fr-shirts-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">our FR-specific welder shirt guide</a>, plus <a href="/blog/bulwark-fr-shirts-vegas-heat/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Bulwark FR shirts in Vegas heat</a> and <a href="/blog/nfpa-2112-fr-coveralls-buyer-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">NFPA 2112 FR coveralls</a>.</p>
 
- <h2 id="leather-over-layer" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Leather Over-Layer — Jackets vs Sleeves vs Bibs</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">The leather choice depends on the welding process and ambient heat:</p>
- <div class="my-6 overflow-x-auto rounded-2xl border border-navy-700/40 bg-navy-900/40">
- <table class="w-full text-base text-navy-200">
- <thead class="bg-navy-900/60 text-left text-xs font-mono uppercase tracking-wider text-gold-500">
+ <h2 id="leather-over-layer" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Leather Over-Layer — Jackets vs Sleeves vs Bibs</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">The leather choice depends on the welding process and ambient heat:</p>
+ <div class="my-6 overflow-x-auto border border-hairline bg-panel">
+ <table class="w-full text-base text-charcoal">
+ <thead class="bg-paper text-left text-xs font-mono uppercase tracking-wider text-gold-700">
  <tr><th class="px-5 py-3">Garment</th><th class="px-5 py-3">Best For</th></tr>
  </thead>
- <tbody class="divide-y divide-navy-800">
+ <tbody class="divide-y divide-hairline">
  <tr><td class="px-5 py-3">Full split-cowhide jacket</td><td class="px-5 py-3">Stick / SMAW &gt; 200A, structural welding, overhead</td></tr>
  <tr><td class="px-5 py-3">Leather sleeves + bib</td><td class="px-5 py-3">MIG / TIG, hot Vegas summer, mobile welders</td></tr>
  <tr><td class="px-5 py-3">Leather sleeves only</td><td class="px-5 py-3">Light-duty TIG, fab shop bench work</td></tr>
@@ -90,24 +89,25 @@ const schema = {
  </table>
  </div>
 
- <h2 id="branding-fr" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Branding FR Welder Uniforms Without Voiding the Rating</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">FR garments retain their NFPA 2112 certification only when decorated correctly. The rules:</p>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <h2 id="branding-fr" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Branding FR Welder Uniforms Without Voiding the Rating</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">FR garments retain their NFPA 2112 certification only when decorated correctly. The rules:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Use Nomex thread for embroidery.</strong> Standard polyester thread melts and drips — a burn hazard worse than no decoration. Nomex is FR-rated and approved by every major FR brand.</li>
  <li><strong>Avoid plastisol screen printing on FR.</strong> Cured plastisol ignites and adds fuel. Some FR brands tolerate water-based ink in small placements; most don\'t.</li>
  <li><strong>Keep decoration off the chest burn zone.</strong> Logo on the left chest is fine. Avoid large back prints over the spine and shoulder area.</li>
  <li><strong>Get your FR shop\'s decoration written confirmation.</strong> If the brand\'s decoration policy isn\'t in writing, the certification claim doesn\'t hold up.</li>
  </ul>
 
- <h2 id="rental-vs-owned" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Uniform Rental vs Owned Program</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Vegas welding shops pick between two models:</p>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <h2 id="rental-vs-owned" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Uniform Rental vs Owned Program</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Vegas welding shops pick between two models:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Rental (Cintas, UniFirst, Aramark).</strong> Weekly delivery, laundry included, garments swapped on damage. Works at 30+ welders. Garments are shared, generic-fit, and FR rating depends on rental shop\'s laundering. Branding limited to standard patches.</li>
- <li><strong>Owned program with company store.</strong> Each welder has their own gear, sized correctly, embroidered with the company logo and name. More work upfront, better-fitting kit, fewer compliance questions. Works at any size — 5 welders to 500. See our take on <a href="/blog/company-store-vs-bulk-ordering/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">company store vs bulk ordering</a>.</li>
+ <li><strong>Owned program with company store.</strong> Each welder has their own gear, sized correctly, embroidered with the company logo and name. More work upfront, better-fitting kit, fewer compliance questions. Works at any size — 5 welders to 500. See our take on <a href="/blog/company-store-vs-bulk-ordering/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">company store vs bulk ordering</a>.</li>
  </ul>
 
- <h2 id="program-spec" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">How to Spec a Welder Uniform Program</h2>
- <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <h2 id="program-spec" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">How to Spec a Welder Uniform Program</h2>
+ <p class="mb-4 text-lg leading-relaxed text-charcoal">Full brand options and FR stock are on our <a href="/welder-uniforms-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">welder uniforms Las Vegas</a> page. Standard program spec:</p>
+ <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>FR base.</strong> 5-7 long-sleeve shirts + 3-5 FR pants per welder. Bulwark or Carhartt FR for most Vegas crews.</li>
  <li><strong>Leather over-layer.</strong> One heavy jacket OR sleeves+bib per welder. Replace at split or burn-through.</li>
  <li><strong>Embroidery.</strong> Nomex thread, left chest logo, name on opposite chest if your shop differentiates roles.</li>
@@ -115,18 +115,18 @@ const schema = {
  <li><strong>Boots & gloves.</strong> Steel-toe + metatarsal welding boots, gauntlet leather welding gloves (Tillman, Lincoln Electric).</li>
  </ol>
 
- <h2 id="related" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Related Reading</h2>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
- <li><a href="/blog/welder-uniforms-fr-shirts-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Welder uniforms: FR shirts, leather layers, what holds up</a></li>
- <li><a href="/blog/bulwark-fr-shirts-vegas-heat/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Bulwark FR shirts in Vegas heat</a></li>
- <li><a href="/blog/nfpa-2112-fr-coveralls-buyer-guide/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">NFPA 2112 FR coveralls buyer\'s guide</a></li>
- <li><a href="/blog/nfpa-70e-fr-shirts-vegas-electricians/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">NFPA 70E FR shirts for Vegas electricians</a></li>
+ <h2 id="related" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Related Reading</h2>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
+ <li><a href="/blog/welder-uniforms-fr-shirts-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Welder uniforms: FR shirts, leather layers, what holds up</a></li>
+ <li><a href="/blog/bulwark-fr-shirts-vegas-heat/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Bulwark FR shirts in Vegas heat</a></li>
+ <li><a href="/blog/nfpa-2112-fr-coveralls-buyer-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">NFPA 2112 FR coveralls buyer\'s guide</a></li>
+ <li><a href="/blog/nfpa-70e-fr-shirts-vegas-electricians/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">NFPA 70E FR shirts for Vegas electricians</a></li>
  </ul>
 
- <div class="mt-12 rounded-2xl border border-gold-500/40 bg-gold-500/5 p-7 sm:p-9">
- <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-white">Branded welder uniforms in Las Vegas</h2>
- <p class="mb-5 text-lg leading-relaxed text-navy-200">Bighorn Threads runs FR-safe embroidery (Nomex thread) on Bulwark, Carhartt FR, and Lapco for Vegas welding shops and structural contractors. Tell us your crew size and we\'ll spec the program.</p>
- <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Quote →</a>
+ <div class="mt-12 border border-hairline bg-panel p-7 sm:p-9">
+ <h2 class="mb-3 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal">Branded welder uniforms in Las Vegas</h2>
+ <p class="mb-5 text-lg leading-relaxed text-ash">Bighorn Threads runs FR-safe embroidery (Nomex thread) on Bulwark, Carhartt FR, and Lapco for Vegas welding shops and structural contractors. Tell us your crew size and we\'ll spec the program.</p>
+ <a href="/contact/" class="btn-primary text-base">Get a Quote →</a>
  </div>
  </div>
  </article>

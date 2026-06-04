@@ -35,28 +35,27 @@ const schema = {
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
- <article class="bg-navy-950">
- <header class="relative overflow-hidden border-b border-navy-800">
- <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
- <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
- <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-400">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-400">Blog</a></nav>
- <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
- <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
- <p class="mb-8 text-xl leading-relaxed text-gray-300">A working buyer's guide to the most common decoration method for t-shirts and crew apparel — what it is, when it wins, and what it costs to run.</p>
- <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400"><span class="text-gold-500">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
+ <article class="bg-concrete">
+ <header class="border-b border-hairline bg-paper">
+ <div class="mx-auto max-w-3xl px-4 pt-32 pb-12 sm:px-6 sm:pt-40 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-600">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-600">Blog</a></nav>
+ <span class="kicker mb-3">{post.category}</span>
+ <h1 class="mb-6 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl lg:text-5xl">{post.title}</h1>
+ <p class="mb-8 text-xl leading-relaxed text-ash">A working buyer's guide to the most common decoration method for t-shirts and crew apparel — what it is, when it wins, and what it costs to run.</p>
+ <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
  </header>
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Automatic screen printing press with squeegee pulling ink across mesh stencil onto a navy crew t-shirt" width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" /></div>
+ <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Automatic screen printing press with squeegee pulling ink across mesh stencil onto a navy crew t-shirt" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
 
- <aside class="mb-10 rounded-2xl border border-gold-500/30 bg-navy-900/60 p-7">
- <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Quick Answer</p>
- <p class="text-lg leading-relaxed text-white sm:text-xl">Screen printing pushes ink through a fine mesh stencil onto fabric, one color at a time, then cures the ink with heat. It's the standard for high-volume t-shirts, hoodies, and crew apparel because per-piece cost falls fast at quantity, prints survive 50+ washes, and large/colorful designs work flat on the fabric.</p>
+ <aside class="mb-10 border border-hairline bg-panel p-7">
+ <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Quick Answer</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl">Screen printing pushes ink through a fine mesh stencil onto fabric, one color at a time, then cures the ink with heat. It's the standard for high-volume t-shirts, hoodies, and crew apparel because per-piece cost falls fast at quantity, prints survive 50+ washes, and large/colorful designs work flat on the fabric.</p>
  </aside>
 
- <h2 id="how-it-works" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">How Screen Printing Actually Works</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">The process has been around for decades but the underlying mechanics haven't changed much. <a href="https://www.britannica.com/topic/silk-screen-printing" rel="noopener" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Silk screen printing</a>, as it's traditionally called, has six stages:</p>
- <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <h2 id="how-it-works" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">How Screen Printing Actually Works</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">The process has been around for decades but the underlying mechanics haven't changed much. <a href="https://www.britannica.com/topic/silk-screen-printing" rel="noopener" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Silk screen printing</a>, as it's traditionally called, has six stages:</p>
+ <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Color separation.</strong> The design is broken into separate layers, one per ink color.</li>
  <li><strong>Screen burning.</strong> Each color layer is exposed onto a fine mesh screen coated in light-sensitive emulsion. Where the design blocks the light, the emulsion stays soft and washes out — leaving open mesh that ink can pass through.</li>
  <li><strong>Press setup.</strong> Screens are mounted on a manual or automatic press. The garment is loaded onto a platen aligned under the screens.</li>
@@ -64,11 +63,11 @@ const schema = {
  <li><strong>Layer registration.</strong> For multi-color designs, the garment passes under each screen in sequence — registration marks ensure colors line up exactly.</li>
  <li><strong>Cure.</strong> The printed garment passes through a heat tunnel at ~320°F (160°C). The ink chemically bonds to the fabric and becomes washable.</li>
  </ol>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">For deeper background see our piece on <a href="/blog/plastisol-vs-water-based-ink-workwear/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">plastisol vs water-based ink</a>, which covers the two main ink families and which one fits which use case.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">For deeper background see our piece on <a href="/blog/plastisol-vs-water-based-ink-workwear/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">plastisol vs water-based ink</a>, which covers the two main ink families and which one fits which use case.</p>
 
- <h2 id="when-it-wins" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">When Screen Printing Wins</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Screen printing is the right call for:</p>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <h2 id="when-it-wins" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">When Screen Printing Wins</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Screen printing is the right call for:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>High-volume runs.</strong> 50+ identical shirts where per-piece cost matters. Setup is the biggest fixed cost; quantity amortizes it.</li>
  <li><strong>Large designs.</strong> Full-back prints, oversized chest logos, anything that wouldn't fit cleanly in embroidery.</li>
  <li><strong>Bold, flat designs.</strong> Block letters, simple shapes, high-contrast logos.</li>
@@ -76,43 +75,43 @@ const schema = {
  <li><strong>Field crew apparel.</strong> Construction, landscaping, event staff — anywhere the durability matters more than the premium feel.</li>
  </ul>
 
- <h2 id="when-it-loses" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">When Embroidery Wins Instead</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Pick <a href="/services/embroidery-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">embroidery</a> over screen printing for:</p>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <h2 id="when-it-loses" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">When Embroidery Wins Instead</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Pick <a href="/services/embroidery-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">embroidery</a> over screen printing for:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Polos, button-downs, hats, jackets.</strong> The premium feel of stitched thread reads "established business," not "team event."</li>
  <li><strong>Small batches.</strong> Under 24 pieces, embroidery is competitive on per-piece cost because there's less setup.</li>
  <li><strong>Performance fabrics.</strong> Polyester polos take embroidery cleanly without dye-migration concerns.</li>
  <li><strong>Multi-color logos with fine detail.</strong> Embroidery handles fine lines and small text better than screen printing on knit fabrics.</li>
  </ul>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Most companies run both — embroidered polos for client-facing roles, <a href="/blog/screen-printing-vs-embroidery-construction/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">screen-printed tees for the field crew</a>.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Most companies run both — embroidered polos for client-facing roles, <a href="/blog/screen-printing-vs-embroidery-construction/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">screen-printed tees for the field crew</a>.</p>
 
- <h2 id="costs" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">What Drives Screen Printing Cost</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Three factors:</p>
- <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <h2 id="costs" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">What Drives Screen Printing Cost</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Three factors:</p>
+ <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Setup per color.</strong> Each color is a separate screen burn + press setup, typically $20-40 per color. A 4-color design has 4x the setup of a 1-color design.</li>
  <li><strong>Garment cost.</strong> A blank Carhartt K87 wholesale is very different from a Gildan 2000.</li>
  <li><strong>Quantity.</strong> Per-piece printing falls dramatically with volume. 24 pieces vs. 200 pieces vs. 500 pieces gives radically different per-piece pricing because setup is fixed.</li>
  </ol>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">For a tighter look at pricing, see <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">how embroidery pricing works</a> — the same five factors apply with different weightings.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">For a tighter look at pricing, see <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">how embroidery pricing works</a> — the same five factors apply with different weightings.</p>
 
- <h2 id="fabric" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Fabric Compatibility</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Screen printing was developed on cotton and cotton-blend fabrics. Modern presses extend it well to:</p>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <h2 id="fabric" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Fabric Compatibility</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Screen printing was developed on cotton and cotton-blend fabrics. Modern presses extend it well to:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>100% cotton tees.</strong> The classic substrate. Crisp prints, full color saturation, fast cure.</li>
  <li><strong>50/50 cotton-poly.</strong> Slightly different ink pickup but identical results in practice.</li>
  <li><strong>100% polyester.</strong> Requires low-bleed plastisol or polyester-rated water-based to prevent dye migration. Common on performance shirts and athletic wear.</li>
  <li><strong>Tri-blends.</strong> Cotton/poly/rayon — softer hand, prints fine but fabric texture means slight ink absorption variation.</li>
- <li><strong>Hi-vis poly mesh.</strong> Print placement is constrained by the <a href="https://safetyequipment.org/standards/ansi-isea-107/" rel="noopener" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">ANSI 107 retroreflective area limits</a>, but the fabric prints cleanly.</li>
+ <li><strong>Hi-vis poly mesh.</strong> Print placement is constrained by the <a href="https://safetyequipment.org/standards/ansi-isea-107/" rel="noopener" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">ANSI 107 retroreflective area limits</a>, but the fabric prints cleanly.</li>
  </ul>
 
- <h2 id="durability" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">How Long Does It Last</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Properly cured plastisol survives 50+ wash cycles without meaningful fade. Water-based inks fade slightly faster on dark fabrics but feel softer to the touch. The most common failure mode isn't the ink chemistry — it's <strong>under-curing</strong>. If the cure tunnel doesn't get the ink to the right temperature for long enough, the print cracks and peels within 5-10 washes.</p>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">When you're getting screen-printed shirts done, ask the shop how they verify cure temperature — a basic donut probe or temp strip test confirms the ink reached cure spec.</p>
+ <h2 id="durability" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">How Long Does It Last</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Properly cured plastisol survives 50+ wash cycles without meaningful fade. Water-based inks fade slightly faster on dark fabrics but feel softer to the touch. The most common failure mode isn't the ink chemistry — it's <strong>under-curing</strong>. If the cure tunnel doesn't get the ink to the right temperature for long enough, the print cracks and peels within 5-10 washes.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">When you're getting screen-printed shirts done, ask the shop how they verify cure temperature — a basic donut probe or temp strip test confirms the ink reached cure spec.</p>
 
- <div class="mt-12 rounded-2xl border border-gold-500/40 bg-gold-500/5 p-7 sm:p-9">
- <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-white">Need screen printed shirts in Las Vegas?</h2>
- <p class="mb-5 text-lg leading-relaxed text-navy-200">Bighorn Threads runs commercial screen printing for Vegas contractors, trades, and crews. Send your design and quantity — we'll quote per piece including setup.</p>
- <a href="/services/screen-printing-las-vegas/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">See Our Screen Printing Service →</a>
+ <div class="mt-12 border border-hairline bg-panel p-7 sm:p-9">
+ <h2 class="mb-3 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal">Need screen printed shirts in Las Vegas?</h2>
+ <p class="mb-5 text-lg leading-relaxed text-ash">Bighorn Threads runs commercial screen printing for Vegas contractors, trades, and crews. Send your design and quantity — we'll quote per piece including setup.</p>
+ <a href="/services/screen-printing-las-vegas/" class="btn-primary text-base">See Our Screen Printing Service →</a>
  </div>
  </div>
  </article>

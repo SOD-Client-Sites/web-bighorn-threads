@@ -19,8 +19,26 @@ const DECORATION_LOCATIONS = [
   'Not sure — recommend something',
 ]
 
+const TURNSTILE_SITEKEY = '0x4AAAAAADW_K97ZyhlAHC4I'
+
 let activeModal = null
 let lastFocused = null
+
+// Explicitly render a Turnstile widget into a container. The api.js script is
+// loaded site-wide in BaseLayout; it may not be ready when the modal opens, so
+// retry briefly. Returns the widget id (unused) or null.
+function renderTurnstile(container) {
+  const tryRender = (attempt) => {
+    if (window.turnstile && typeof window.turnstile.render === 'function') {
+      try {
+        window.turnstile.render(container, { sitekey: TURNSTILE_SITEKEY, theme: 'dark' })
+      } catch (_) { /* already rendered or unavailable */ }
+      return
+    }
+    if (attempt < 20) setTimeout(() => tryRender(attempt + 1), 150)
+  }
+  tryRender(0)
+}
 
 export function openQuoteModal(product) {
   if (activeModal) return // single instance
@@ -296,6 +314,13 @@ function buildBody(product) {
   // ---------- TEXT MESSAGE CONSENT (A2P 10DLC) ----------
   form.appendChild(buildConsentSection())
 
+  // ---------- CLOUDFLARE TURNSTILE ----------
+  // Explicitly rendered (the auto-render only scans the DOM at page load,
+  // and this modal is injected later). Dark theme to match the navy modal.
+  const tsWrap = el('div', { class: 'cf-turnstile', 'data-theme': 'dark' })
+  form.appendChild(tsWrap)
+  renderTurnstile(tsWrap)
+
   // Status region
   const statusEl = el('div', {
     id: 'qm-status',
@@ -529,6 +554,7 @@ async function submitForm(form, product, statusEl, submitBtn, bodyEl) {
     smsTransactionalConsent: isChecked(form, 'smsTransactionalConsent') ? 'yes' : '',
     website: '', // honeypot value (empty by client check above)
     sourceUrl: window.location.href,
+    'cf-turnstile-response': getVal(form, 'cf-turnstile-response'),
   }
 
   setStatus(statusEl, 'Sending your request…', 'info')

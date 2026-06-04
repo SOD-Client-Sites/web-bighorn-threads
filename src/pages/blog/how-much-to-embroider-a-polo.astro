@@ -1,0 +1,202 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const post = {
+  title: 'How Much Does It Cost to Embroider a Polo? Pricing Breakdown for Work Crews',
+  description:
+    'Embroidered polo pricing for Las Vegas contractors and trades crews — stitch count, digitizing fees, and real all-in numbers at 24 and 100 pieces.',
+  category: 'Pricing',
+  readTime: '6 min read',
+  date: 'May 12, 2026',
+  isoDate: '2026-05-12',
+  image: '/images/generated/service-embroidery.jpg',
+  slug: 'how-much-to-embroider-a-polo',
+}
+
+const faqs = [
+  { q: 'How much does it cost to embroider a polo shirt?', a: 'At 24 pieces with a standard left-chest logo, expect $28–35 per polo all-in — that includes the blank polo, embroidery, and setup. At 100+ pieces the per-piece cost drops to $15–22. The biggest variables are stitch count (logo complexity) and the polo itself — a basic pique polo runs $8–12 wholesale; a Carhartt or Port Authority performance polo runs $18–30.' },
+  { q: 'What is a digitizing fee for polo embroidery?', a: 'Digitizing converts your logo artwork into a stitch file the embroidery machine reads. It\'s a one-time charge — typically $30–80 depending on logo complexity. Once your file is digitized, every reorder uses the same file at no additional charge. Bighorn Threads keeps your stitch file on file indefinitely.' },
+  { q: 'How many stitches is a typical polo logo?', a: 'A standard left-chest logo on a polo runs 5,000–8,000 stitches. A simple bold mark might be 4,000; a detailed logo with fills and gradients can hit 10,000–12,000 at the same size. Stitch count is the primary cost driver — roughly $1 per 1,000 stitches in embroidery cost.' },
+  { q: 'What polo brands work best for embroidery?', a: 'Port Authority, Carhartt Force, and Red Kap are the most common for trade crews. Port Authority K500 and K540 are the workhorses — clean weave, holds embroidery flat, and available in bulk. Carhartt Force is the upgrade option for outdoor and construction crews who need moisture management. Avoid ultra-thin performance fabrics for embroidery — the needle tension can pucker the fabric.' },
+  { q: 'How fast can I get embroidered polos in Las Vegas?', a: 'Standard turnaround at Bighorn Threads is 7–10 business days after art approval. Rush orders — 2 to 3 business day turnaround — are available for most polo orders under 72 pieces. Same-day quotes: send your logo and quantity to get a number before you commit.' },
+]
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: post.title,
+      description: post.description,
+      image: `https://bighornthreads.com${post.image}`,
+      datePublished: post.isoDate,
+      dateModified: post.isoDate,
+      author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' },
+      publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } },
+      mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/`,
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' },
+        { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+    },
+  ],
+}
+---
+
+<BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <article class="bg-concrete">
+    <header class="border-b border-hairline bg-paper">
+      <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
+        <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-gold-700">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-700">Blog</a>
+        </nav>
+        <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-600">{post.category}</span>
+        <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
+        <p class="mb-8 text-xl leading-relaxed text-ash">Real numbers for contractors and trades crews outfitting a team in Las Vegas — stitch count, digitizing, and all-in pricing at the quantities that matter.</p>
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash">
+          <span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time>
+        </div>
+      </div>
+    </header>
+
+    <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8">
+      <img src={post.image} alt="Commercial embroidery machine stitching a company logo onto a navy polo shirt" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" />
+    </div>
+
+    <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+
+      <!-- Answer-first TL;DR -->
+      <aside class="mb-12 border border-hairline bg-panel p-6">
+        <p class="mb-2 text-xs font-bold uppercase tracking-widest text-gold-600">Quick Answer</p>
+        <p class="text-lg leading-relaxed text-charcoal sm:text-xl">At 24 pieces with a standard left-chest logo, embroidered polos run <strong>$28–35 each all-in</strong>. At 100+ pieces, <strong>$15–22 each</strong>. The cost is driven by stitch count (~$1 per 1,000 stitches), the polo itself, and a one-time digitizing fee of $30–80 for new logos.</p>
+      </aside>
+
+      <!-- Video embed -->
+      <div class="mb-12">
+        <p class="mb-4 text-xs font-bold uppercase tracking-widest text-gold-600">Watch: 60-Second Pricing Breakdown</p>
+        <div class="relative aspect-[9/16] max-w-sm mx-auto overflow-hidden border border-hairline">
+          <iframe
+            src="https://www.youtube.com/embed/609b499a02e6425da4ef256541e4d6fc"
+            title="How Much Does It Cost to Embroider a Polo? — Bighorn Threads"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            class="absolute inset-0 w-full h-full"
+          ></iframe>
+        </div>
+      </div>
+
+      <h2 id="stitch-count" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Stitch Count Is the Real Cost Driver</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Embroidery on a polo is priced by the stitch, not by size or placement. A standard left-chest logo — the one on a million contractor polos across Las Vegas — runs 5,000 to 8,000 stitches. The industry rule of thumb is roughly $1 per 1,000 stitches once your file is digitized.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">A simple, bold mark (text + outline, minimal fill) might be 4,000 stitches. A detailed logo with gradient fills and fine lines at the same physical size can hit 12,000. Same left chest. Very different cost. If you want to bring per-piece price down, the fastest lever is simplifying your logo for embroidery — or having a stitch-optimized version made. See <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">logo digitizing 101</a> for how that works.</p>
+
+      <h2 id="polo-cost" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The Polo Itself</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">The blank polo is the other half of the equation. Wholesale costs vary significantly by brand and fabric:</p>
+      <ul class="mb-6 list-none space-y-3 text-lg leading-relaxed text-charcoal">
+        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Basic pique polo</strong> (Port Authority K500, Gildan): $8–12 wholesale. Workhorse option, holds embroidery flat, available in every color.</span></li>
+        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Performance polo</strong> (Port Authority K540, Nike Dri-FIT): $18–25. Moisture-wicking, better for outdoor crews in Las Vegas heat.</span></li>
+        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Carhartt Force polo</strong>: $25–35. Built for trades, holds up to abuse, still looks sharp.</span></li>
+        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Red Kap industrial polo</strong>: $20–28. Standard for service techs — HVAC, plumbing, electrical.</span></li>
+      </ul>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">For trade-specific polo recommendations by industry, see our pages for <a href="/industries/plumbing-hvac-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">plumbing & HVAC</a>, <a href="/industries/electrical-contractors-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">electrical contractors</a>, and <a href="/industries/general-contractors-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">general contractors</a>.</p>
+
+      <h2 id="digitizing" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Digitizing Fee — One Time, Then Free</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">If this is your first order with a new logo, there's a one-time digitizing fee. Digitizing converts your logo artwork (PDF, AI, PNG) into a stitch file the embroidery machine can read. It typically runs $30–80 depending on logo complexity.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Once digitized, the file is yours. Every reorder after that uses the same file — no re-digitizing charge. Bighorn Threads keeps your stitch file on record so reorders are frictionless.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">A well-digitized file is also the single biggest factor in how clean the embroidery looks. Cheap digitizing produces pulled stitches, poor registration, and logos that look blurry from five feet away. It's worth doing right once.</p>
+
+      <h2 id="real-numbers" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Real All-In Numbers</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Here's what embroidered polos actually cost at the quantities contractors and service businesses typically order. Note that 12 is near the practical floor for embroidery — see <a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">minimum order quantities</a> for what's realistic and the small-batch alternatives below that:</p>
+
+      <div class="mb-8 overflow-hidden border border-hairline">
+        <table class="w-full text-sm">
+          <thead class="bg-panel text-left">
+            <tr>
+              <th class="px-4 py-3 font-semibold text-gold-600">Quantity</th>
+              <th class="px-4 py-3 font-semibold text-gold-600">Polo (Port Authority K500)</th>
+              <th class="px-4 py-3 font-semibold text-gold-600">Left-Chest Logo</th>
+              <th class="px-4 py-3 font-semibold text-gold-600">All-In Per Piece</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-hairline text-charcoal">
+            <tr class="bg-panel">
+              <td class="px-4 py-3 font-mono">12 pcs</td>
+              <td class="px-4 py-3">~$10</td>
+              <td class="px-4 py-3">~$7 (6k stitches)</td>
+              <td class="px-4 py-3 font-semibold text-charcoal">$30–40</td>
+            </tr>
+            <tr class="bg-concrete">
+              <td class="px-4 py-3 font-mono">24 pcs</td>
+              <td class="px-4 py-3">~$10</td>
+              <td class="px-4 py-3">~$6</td>
+              <td class="px-4 py-3 font-semibold text-charcoal">$28–35</td>
+            </tr>
+            <tr class="bg-panel">
+              <td class="px-4 py-3 font-mono">48 pcs</td>
+              <td class="px-4 py-3">~$9</td>
+              <td class="px-4 py-3">~$5.50</td>
+              <td class="px-4 py-3 font-semibold text-charcoal">$22–28</td>
+            </tr>
+            <tr class="bg-concrete">
+              <td class="px-4 py-3 font-mono">100+ pcs</td>
+              <td class="px-4 py-3">~$8</td>
+              <td class="px-4 py-3">~$5</td>
+              <td class="px-4 py-3 font-semibold text-charcoal">$15–22</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mb-6 text-sm leading-relaxed text-ash">Pricing above is for standard left-chest logo on Port Authority K500, 6,000-stitch design, excludes digitizing (one-time). Carhartt or performance polarity add $10–20 per piece to the polo cost.</p>
+
+      <h2 id="multi-placement" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Adding a Name or Back Logo</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Many contractor crews want a name on the right chest or a company name on the back. Each additional placement requires re-hooping the polo and a separate machine pass — so it adds meaningfully to the per-piece cost.</p>
+      <ul class="mb-6 list-none space-y-3 text-lg leading-relaxed text-charcoal">
+        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Right-chest name:</strong> +$4–8 per piece depending on stitch count.</span></li>
+        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Back yoke logo:</strong> +$6–12 per piece (typically 8,000–15,000 stitches).</span></li>
+        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Sleeve hit:</strong> +$4–7 per piece.</span></li>
+      </ul>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">For multi-placement orders, send us your full decoration spec and we'll quote it as a package — it's usually cheaper than adding placements piecemeal. The same per-piece factors apply to any garment, not just polos — see <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">how much it costs to embroider a shirt</a> for the full five-factor breakdown.</p>
+
+      <h2 id="get-quote" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Getting a Quote from Bighorn Threads</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Three things to send for an accurate quote:</p>
+      <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
+        <li>Your logo file (PDF, AI, PNG, or JPG — any format works for a quote)</li>
+        <li>Quantity and polo preference (or tell us the use case and we'll recommend)</li>
+        <li>Placements needed (left chest only, or additional positions)</li>
+      </ol>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Bighorn Threads runs commercial embroidery for contractors, trades businesses, and service companies across Las Vegas. We quote same day. <a href="/contact/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Send your logo and quantity →</a></p>
+
+      <!-- FAQ -->
+      <div class="mt-16 space-y-6">
+        <h2 class="font-heading text-2xl font-bold tracking-tight">Frequently Asked Questions</h2>
+        {faqs.map((faq) => (
+          <div class="border border-hairline bg-panel p-6">
+            <h3 class="mb-3 font-semibold text-charcoal">{faq.q}</h3>
+            <p class="text-charcoal leading-relaxed">{faq.a}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Related -->
+      <div class="mt-16 border-t border-hairline pt-12">
+        <p class="mb-6 text-xs font-bold uppercase tracking-widest text-gold-600">Related Reading</p>
+        <ul class="space-y-3 text-lg">
+          <li><a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">How Much Does It Cost to Embroider a Shirt? The 5 Factors</a></li>
+          <li><a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Logo Digitizing 101: What It Is and Why It Matters</a></li>
+          <li><a href="/blog/screen-printing-vs-embroidery-construction/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Screen Printing vs Embroidery for Construction Crews</a></li>
+          <li><a href="/blog/custom-polo-shirts-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Custom Polo Shirts in Las Vegas — Buyer's Guide</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,304 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const problems = [
+  {
+    title: 'Uniforms Across Every Department.',
+    desc: 'Front desk, F&B, housekeeping, valet, security — each team needs its own look. Sourcing it all by hand turns into a full-time job nobody signed up for.',
+  },
+  {
+    title: 'Front-of-House vs Back-of-House.',
+    desc: 'Guest-facing staff and back-of-house crews need different gear, but they all carry your property’s brand. Keeping the two looks distinct and consistent is a constant juggle.',
+  },
+  {
+    title: 'Brand Drift Guests Can See.',
+    desc: 'Mismatched polos, faded logos, off-color aprons. When apparel comes from five vendors, guests notice. Your property looks pieced together instead of polished.',
+  },
+  {
+    title: 'Turnover Means Endless Reorders.',
+    desc: 'Hospitality moves fast and so does the roster. Every new hire is another size to collect and another rush order. The reorder cycle never stops.',
+  },
+  {
+    title: 'Banquet & Event Staffing Apparel.',
+    desc: 'A big banquet or event spins up overnight, and suddenly you need matching gear for a crew that didn’t exist last week. Last-minute apparel scrambles cost you time and money.',
+  },
+  {
+    title: 'Collecting Sizes Across Big Teams.',
+    desc: 'Hundreds of staff across shifts and properties. Chasing every shirt size in a spreadsheet is slow, error-prone, and eats hours your managers don’t have.',
+  },
+]
+
+const storeSteps = [
+  {
+    n: '01',
+    meta: 'Setup',
+    title: 'We Build Your Store — Free',
+    desc: 'Your logo, your property’s colors, your approved gear by department, your budget rules. We set up your branded company store. Logo stays on file so every reorder matches.',
+  },
+  {
+    n: '02',
+    meta: 'Ongoing',
+    title: 'Staff & Departments Order Their Own Sizes',
+    desc: 'Each person logs in, picks their own size, and submits. No spreadsheets, no size-guessing across shifts, no email chains for your managers to chase.',
+  },
+  {
+    n: '03',
+    meta: 'Ongoing',
+    title: 'Ships Direct — Budget by Department',
+    desc: 'Gear ships to the property or to each person. Each department controls its own spend, you see every order in one place, and reorders take a click.',
+  },
+]
+
+const offerings = [
+  {
+    title: 'Guest-Services & Front-Desk Polos',
+    desc: 'Embroidered polos and button-ups for front desk, concierge, and guest services. Your logo digitized once and held on file for a consistent guest-facing look.',
+    tag: 'Front of House',
+  },
+  {
+    title: 'F&B Shirts & Aprons',
+    desc: 'Branded shirts, aprons, and service wear for restaurants, bars, and banquets. Durable, on-brand, and built for the floor.',
+    tag: 'Food & Beverage',
+  },
+  {
+    title: 'Housekeeping & Back-of-House',
+    desc: 'Hard-wearing gear for housekeeping, maintenance, and back-of-house crews. A distinct look that still carries your property’s brand.',
+    tag: 'Back of House',
+  },
+  {
+    title: 'Embroidered Outerwear & Vests',
+    desc: 'Embroidered jackets, vests, and softshells for valet, security, and outdoor staff. Branded layers that hold up shift after shift.',
+    tag: 'Outerwear',
+  },
+  {
+    title: 'Event & Promo Merch',
+    desc: 'Matching gear and branded merch for banquets, conferences, and property events. Order what you need and ship to the venue or to each person.',
+    tag: 'Events',
+  },
+]
+
+const faqs = [
+  {
+    q: 'What is a hospitality company store?',
+    a: 'A hospitality company store is your property’s own branded online store. We stock it with your approved uniforms and gear by department, with your logo on file. Staff order their own sizes and it ships direct — no spreadsheets, no closet inventory, no size-guessing on your end.',
+  },
+  {
+    q: 'Can different departments or properties order from one store?',
+    a: 'Yes. One store can serve every department and multiple properties. Each team sees the approved gear for their role, orders what they need, and the right items ship to the right place. Your brand stays consistent across the whole portfolio.',
+  },
+  {
+    q: 'Can we separate front-of-house and back-of-house looks?',
+    a: 'Yes. We set up distinct approved gear for guest-facing roles and for back-of-house crews. Front desk and F&B get one look, housekeeping and maintenance get another — all under your brand, all from the same store.',
+  },
+  {
+    q: 'How do we handle constant reorders from turnover?',
+    a: 'Your logo, colors, and approved items stay on file, so reordering takes a click. When a new hire starts, they log in and pick their own size — no rush order to assemble by hand, no sizes to chase down across shifts.',
+  },
+  {
+    q: 'Can we control approved items and budget by department?',
+    a: 'Yes. You decide which items each department can order, and you set spend rules by team. People order within those limits, and you see every order in one place. You control the gear and the budget, not a phone chain.',
+  },
+]
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+}
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Industries', item: 'https://bighornthreads.com/industries/' },
+    { '@type': 'ListItem', position: 3, name: 'Gaming & Hospitality', item: 'https://bighornthreads.com/industries/gaming-hospitality/' },
+  ],
+}
+
+const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
+---
+
+<BaseLayout
+  title="Branded Apparel & Company Stores for Casinos, Resorts & Hospitality"
+  description="Uniforms, branded gear, and a free company store for casinos, resorts, hotels, and hospitality teams. Staff order their own sizes across every department. Ships direct. Budget controlled by department."
+  canonical="https://bighornthreads.com/industries/gaming-hospitality/"
+>
+  <!-- ════ HERO — concrete (no photographic band) ════ -->
+  <section class="bg-concrete pt-32 pb-20 sm:pt-36 sm:pb-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-gold-600">Home</a>
+        <span class="px-2 text-ash/60">/</span>
+        <a href="/industries/" class="hover:text-gold-600">Industries</a>
+        <span class="px-2 text-ash/60">/</span>
+        <span class="text-gold-600">Gaming &amp; Hospitality</span>
+      </nav>
+
+      <div class="max-w-3xl">
+        <p class="kicker mb-5 flex items-center gap-2.5">
+          <span class="h-px w-8 bg-gold-500"></span>
+          For Casinos, Resorts &amp; Hospitality
+        </p>
+        <h1 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
+          Uniforms, branded gear &amp; company stores for
+          <span class="text-gold-600"> property teams.</span>
+        </h1>
+        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
+          Stop chasing sizes across every department. We build your branded company store, your staff
+          order their own gear, and it ships direct. For casinos, resorts, hotels, F&amp;B, and guest services.
+        </p>
+        <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <a href="/get-started/gaming-hospitality/" class="btn-primary text-base">
+            Build my company store plan
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
+          </a>
+          <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-charcoal transition-colors hover:text-gold-600">
+            <svg class="h-4 w-4 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+            702.904.8923
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ THE PROBLEM — paper ════ -->
+  <section class="border-y border-hairline bg-paper py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <p class="kicker mb-3">The Problem</p>
+        <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
+          Uniforms shouldn’t be <span class="text-gold-600">a daily scramble.</span>
+        </h2>
+        <p class="mt-4 text-lg leading-relaxed text-ash">
+          If you run a property, you know the drill. Every department needs its own gear, turnover never
+          stops, and apparel turns into a spreadsheet you maintain by hand. Guests see the result.
+        </p>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2">
+        {problems.map((item) => (
+          <div class="border border-hairline bg-panel p-7">
+            <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{item.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ash">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ HOW A COMPANY STORE WORKS — concrete ════ -->
+  <section class="bg-concrete py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-3xl">
+        <p class="kicker mb-3">How It Works</p>
+        <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
+          How a company store works <span class="text-gold-600">for your property.</span>
+        </h2>
+        <p class="mt-4 text-lg leading-relaxed text-ash">
+          Your logo on file, consistent reorders across every department, and a store your staff run
+          themselves. Each department sets its budget. We handle the rest.
+        </p>
+      </div>
+
+      <ol class="grid gap-5 md:grid-cols-3">
+        {storeSteps.map((step) => (
+          <li class="border border-hairline bg-panel p-7">
+            <div class="mb-5 flex items-baseline justify-between">
+              <span class="font-heading text-5xl font-extrabold leading-none text-gold-600">{step.n}</span>
+              <span class="spec border border-hairline px-2 py-1 text-ash">{step.meta}</span>
+            </div>
+            <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{step.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ash">{step.desc}</p>
+          </li>
+        ))}
+      </ol>
+
+      <div class="mt-8">
+        <a href="/get-started/gaming-hospitality/" class="btn-secondary text-sm">
+          Build my company store plan
+          <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ WHAT GOES IN THE STORE — paper ════ -->
+  <section class="border-y border-hairline bg-paper py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <p class="kicker mb-3">What You Stock</p>
+        <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
+          What goes in <span class="text-gold-600">your store.</span>
+        </h2>
+        <p class="mt-4 text-lg leading-relaxed text-ash">
+          Stock the gear each department needs — front of house, back of house, and everything in
+          between. Add, swap, and separate looks any time.
+        </p>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {offerings.map((item) => (
+          <div class="flex flex-col border border-hairline bg-panel p-6">
+            <span class="spec mb-3 inline-block self-start border border-hairline px-2 py-1 text-ash">{item.tag}</span>
+            <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{item.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ash">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ FAQ — concrete ════ -->
+  <section class="bg-concrete py-20 sm:py-28">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-10 max-w-2xl">
+        <p class="kicker mb-3">FAQ</p>
+        <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
+          Hospitality stores, <span class="text-gold-600">answered.</span>
+        </h2>
+      </div>
+
+      <div class="divide-y divide-hairline border-y border-hairline">
+        {faqs.map((item) => (
+          <details class="group">
+            <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+              <span class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{item.q}</span>
+              <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+            </summary>
+            <p class="pb-5 leading-relaxed text-ash">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ CTA BAND — paper ════ -->
+  <section class="border-y border-hairline bg-paper py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col items-start gap-6 border border-hairline bg-charcoal p-8 sm:flex-row sm:items-center sm:justify-between sm:p-12">
+        <div class="max-w-xl">
+          <p class="kicker mb-3">Get Started</p>
+          <h2 class="font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-concrete sm:text-4xl">
+            Ready to give your property <span class="text-gold-400">a real company store?</span>
+          </h2>
+          <p class="mt-4 text-base leading-relaxed text-navy-200">
+            Free store setup. Your staff order their own sizes. A real person follows up. Tell us about
+            your property and we’ll build your plan.
+          </p>
+        </div>
+        <a href="/get-started/gaming-hospitality/" class="btn-primary shrink-0 text-base">
+          Build my company store plan
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+</BaseLayout>

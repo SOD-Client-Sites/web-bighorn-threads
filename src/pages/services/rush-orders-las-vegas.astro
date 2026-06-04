@@ -89,84 +89,81 @@ const faqSchema = {
  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
- <!-- Hero -->
- <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
- <div class="absolute inset-0">
- <img src={page.hero} alt="" aria-hidden="true" class="h-full w-full object-cover opacity-30" width="1600" height="900" loading="eager" fetchpriority="high" />
- <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/40" />
- <div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_75%_-10%,_rgba(193,155,61,0.15),_transparent)]" />
- </div>
+ <!-- Hero — full-bleed photographic dark band -->
+ <section class="relative isolate overflow-hidden bg-navy-950">
+ <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/45"></div>
 
- <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+ <div class="mx-auto max-w-7xl px-4 pb-20 pt-32 sm:px-6 sm:pt-40 lg:px-8 lg:pb-28">
+ <nav class="mb-6 font-mono text-xs text-navy-300" aria-label="Breadcrumb">
  <a href="/" class="hover:text-gold-400">Home</a>
- <span class="px-2 text-gray-600">/</span>
+ <span class="px-2 text-navy-500">/</span>
  <a href="/services/" class="hover:text-gold-400">Services</a>
- <span class="px-2 text-gray-600">/</span>
- <span class="text-gold-500">Rush Orders</span>
+ <span class="px-2 text-navy-500">/</span>
+ <span class="text-gold-400">Rush Orders</span>
  </nav>
 
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Service</span>
- <h1 class="mb-6 max-w-4xl font-heading text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
- Rush Custom Apparel <span class="text-gold-500">Without the Panic Surcharge.</span>
+ <p class="kicker mb-3">Service</p>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-6xl">
+ Rush Custom Apparel <span class="text-gold-400">Without the Panic Surcharge.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
  Tell us your deadline, your spec, and your quantity. We'll tell you straight whether it works, what it costs, and any rush surcharge before you commit — no surprises at invoice.
  </p>
 
  <div class="mt-10 flex flex-wrap items-center gap-3">
- <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25">
- Call Now: 725.235.6196
+ <a href="tel:+17029048923" class="btn-primary text-base">
+ Call Now: 702.904.8923
  </a>
- <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gold-500/40 px-6 py-3 text-sm font-medium text-gold-500 transition-all hover:border-gold-500 hover:bg-gold-500/5">
+ <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 border border-gold-500 px-6 py-3 font-subheading text-sm font-semibold uppercase tracking-wide text-gold-400 transition-colors hover:bg-gold-500 hover:text-charcoal">
  Submit Rush Quote
  </a>
  </div>
  </div>
  </section>
 
- <!-- Factors -->
- <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <!-- Factors — concrete -->
+ <section class="bg-concrete py-20 sm:py-24">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">What Drives Turnaround</span>
- <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Four things that decide what's possible.</h2>
- <p class="mt-4 text-lg leading-relaxed text-gray-300">
+ <p class="kicker mb-3">What Drives Turnaround</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Four things that decide what's possible.</h2>
+ <p class="mt-4 text-lg leading-relaxed text-ash">
  Every rush quote turns on the same handful of factors. Knowing them up front helps us give you a real answer instead of a guess.
  </p>
  </div>
 
  <div class="grid gap-5 md:grid-cols-2">
  {factors.map((f) => (
- <div class="rounded-2xl border border-navy-700/50 bg-navy-900/40 p-7 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
- <h3 class="mb-3 font-heading text-xl font-bold text-white">{f.title}</h3>
- <p class="text-base leading-relaxed text-gray-200">{f.desc}</p>
+ <div class="border border-hairline bg-panel p-7 transition-colors hover:border-gold-500">
+ <h3 class="mb-3 font-heading text-xl font-bold uppercase tracking-tight text-charcoal">{f.title}</h3>
+ <p class="text-base leading-relaxed text-ash">{f.desc}</p>
  </div>
  ))}
  </div>
  </div>
  </section>
 
- <!-- What works rush -->
- <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+ <!-- What works rush — paper -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">What Fits Rush</span>
- <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">What we can — and can't — turn fast.</h2>
+ <p class="kicker mb-3">What Fits Rush</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">What we can — and can't — turn fast.</h2>
  </div>
 
- <div class="overflow-hidden rounded-2xl border border-navy-700/40">
- <ul class="divide-y divide-navy-800 bg-navy-900/30">
+ <div class="overflow-hidden border border-hairline bg-panel">
+ <ul class="divide-y divide-hairline">
  {eligible.map((e) => (
- <li class="flex items-start gap-4 px-6 py-4 transition-colors hover:bg-navy-900/60">
- <span class={e.yes ? 'mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gold-500/20 text-gold-500' : 'mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-700/40 text-gray-500'}>
+ <li class="flex items-start gap-4 px-6 py-4">
+ <span class={e.yes ? 'mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center bg-gold-500/15 text-gold-700' : 'mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center bg-paper text-ash'}>
  {e.yes ? (
  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
  ) : (
  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
  )}
  </span>
- <span class={e.yes ? 'text-base text-gray-200' : 'text-base text-gray-400 line-through decoration-gray-600'}>{e.item}</span>
+ <span class={e.yes ? 'text-base text-charcoal' : 'text-base text-ash line-through decoration-hairline'}>{e.item}</span>
  </li>
  ))}
  </ul>
@@ -174,15 +171,15 @@ const faqSchema = {
  </div>
  </section>
 
- <!-- Deep dive -->
- <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <!-- Deep dive — concrete -->
+ <section class="bg-concrete py-20 sm:py-24">
  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">The Buyer's Guide</span>
- <h2 class="mb-8 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+ <p class="kicker mb-3">The Buyer's Guide</p>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl">
  Rush custom apparel orders in Las Vegas — what's actually possible, and what isn't.
  </h2>
 
- <div class="space-y-5 text-lg leading-relaxed text-navy-200">
+ <div class="space-y-5 text-lg leading-relaxed text-charcoal">
  <p>
  Rush orders are a normal part of the Las Vegas trade calendar. Trade shows announce booth assignments weeks before the event. Project ribbon cuttings get scheduled around dignitary calendars and slip both directions. New hires show up Monday for a Friday-quoted job. The honest framing: we'll tell you what's realistic when they start rather than promising a date and missing it. If we can't hit your deadline, you find out when you ask, not the day before delivery.
  </p>
@@ -199,63 +196,63 @@ const faqSchema = {
  For ongoing rush exposure — trade-show season, event-driven projects, or fast-growth crews onboarding new hires weekly — the company-store program is the right structure. We pre-stock approved blanks, save your decoration spec on file, and trigger production when an order drops. That's the difference between rush as a one-off panic and rush as a managed business process.
  </p>
  <p>
- For more, see <a href="/blog/rush-order-shirts-las-vegas-whats-possible/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">rush order shirts in Las Vegas — what's actually possible</a>. And for a common rush use case, our <a href="/blog/trade-show-apparel-booth-crew/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">trade show apparel for booth crews</a> guide covers what to ship and when.
+ For more, see <a href="/blog/rush-order-shirts-las-vegas-whats-possible/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">rush order shirts in Las Vegas — what's actually possible</a>. And for a common rush use case, our <a href="/blog/trade-show-apparel-booth-crew/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">trade show apparel for booth crews</a> guide covers what to ship and when.
  </p>
  </div>
  </div>
  </section>
 
- <!-- FAQs -->
- <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+ <!-- FAQs — paper -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">FAQ</span>
- <h2 class="mb-12 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Rush order questions.</h2>
+ <p class="kicker mb-3">FAQ</p>
+ <h2 class="mb-10 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Rush order questions.</h2>
 
- <div class="space-y-3">
+ <div class="divide-y divide-hairline border-y border-hairline">
  {faqs.map((f) => (
- <details class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-5 transition-all hover:border-gold-500/30 open:border-gold-500/40">
- <summary class="flex cursor-pointer items-start justify-between gap-4 list-none">
- <h3 class="font-heading text-lg font-bold leading-tight tracking-tight text-white">{f.q}</h3>
- <span class="mt-1 flex-shrink-0 text-gold-500 transition-transform group-open:rotate-45">
- <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
- </span>
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
+ <svg class="h-5 w-5 flex-shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
  </summary>
- <p class="mt-4 text-base leading-relaxed text-gray-300">{f.a}</p>
+ <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
  </details>
  ))}
  </div>
  </div>
  </section>
 
- <!-- Related -->
- <section class="border-b border-navy-800 bg-navy-950 py-16">
+ <!-- Related — concrete -->
+ <section class="bg-concrete py-16">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <span class="mb-6 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Related</span>
+ <p class="kicker mb-6">Related</p>
  <div class="grid gap-5 md:grid-cols-3">
- <a href="/services/screen-printing-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
- <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Screen Printing</h3>
- <p class="mt-2 text-sm text-gray-400">Pantone-matched ink, FR-safe options, rush available.</p>
+ <a href="/services/screen-printing-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">Screen Printing</h3>
+ <p class="mt-2 text-sm text-ash">Pantone-matched ink, FR-safe options, rush available.</p>
  </a>
- <a href="/services/embroidery-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
- <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Embroidery</h3>
- <p class="mt-2 text-sm text-gray-400">on first orders. Rush available.</p>
+ <a href="/services/embroidery-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">Embroidery</h3>
+ <p class="mt-2 text-sm text-ash">on first orders. Rush available.</p>
  </a>
- <a href="/industries/general-contractors-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
- <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">For GCs</h3>
- <p class="mt-2 text-sm text-gray-400">Crew uniforms and onboarding kits with built-in rush.</p>
+ <a href="/industries/general-contractors-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">For GCs</h3>
+ <p class="mt-2 text-sm text-ash">Crew uniforms and onboarding kits with built-in rush.</p>
  </a>
  </div>
  </div>
  </section>
 
- <!-- CTA -->
- <section class="bg-navy-900/60 py-20">
- <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
- <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Got a deadline? Pick up the phone.</h2>
- <p class="mb-8 text-lg text-gray-300">We'll tell you the truth about what fits the window — and quote any rush surcharge up front.</p>
- <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
- <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Call 725.235.6196</a>
- <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gray-600 px-8 py-4 font-mono text-base font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">Submit Quote Form</a>
+ <!-- CTA — full-bleed photographic dark band -->
+ <section class="relative isolate overflow-hidden bg-navy-950">
+ <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" loading="lazy" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <div class="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Got a deadline? Pick up the phone.</h2>
+ <p class="mb-8 text-lg text-navy-200">We'll tell you the truth about what fits the window — and quote any rush surcharge up front.</p>
+ <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+ <a href="tel:+17029048923" class="btn-primary text-base">Call 702.904.8923</a>
+ <a href="/contact/" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium tracking-wide text-white transition-colors hover:text-gold-400">Submit Quote Form</a>
  </div>
  </div>
  </section>

@@ -1,0 +1,178 @@
+---
+/**
+ * LeadCaptureForm — vertical-aware company-store lead form.
+ * Posts to /api/lp-optin (GHL upsert + segment tag + note). Shows an inline success
+ * state with the demo CTA — does NOT bounce the user to a generic /contact/ page.
+ *
+ * Props:
+ *  - vertical: slug (corporate | education | government | healthcare | gaming-hospitality | events | trades)
+ *  - heading?: form card heading
+ *  - blurb?: small line under the heading
+ *  - submitLabel?: button text
+ *  - qualifiers?: Array<{ name, label, type:'select'|'text'|'number', options?, required?, isHeadcount?, placeholder? }>
+ */
+import SmsConsentFields from '@/components/SmsConsentFields.astro'
+
+interface Qualifier {
+  name: string
+  label: string
+  type: 'select' | 'text' | 'number'
+  options?: string[]
+  required?: boolean
+  isHeadcount?: boolean
+  placeholder?: string
+}
+interface Props {
+  vertical: string
+  heading?: string
+  blurb?: string
+  submitLabel?: string
+  qualifiers?: Qualifier[]
+}
+const {
+  vertical,
+  heading = 'Get your company store plan',
+  blurb = 'Tell us about your team and we’ll build a private demo store — no commitment.',
+  submitLabel = 'Build my company store plan →',
+  qualifiers = [],
+} = Astro.props
+
+const inputCls =
+  'w-full rounded border border-hairline bg-panel px-4 py-2.5 text-base text-charcoal placeholder:text-ash focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/25'
+const labelCls = 'mb-1 block font-mono text-[11px] font-bold uppercase tracking-[0.15em] text-gold-700'
+---
+
+<div class="border border-hairline bg-paper p-7 sm:p-8" id="lp-form-card">
+  <h2 class="mb-2 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal">{heading}</h2>
+  <p class="mb-6 text-sm text-ash">{blurb}</p>
+
+  <form id="lp-form" class="space-y-4" data-vertical={vertical} novalidate>
+    <!-- honeypot -->
+    <input type="text" name="bh_hp_field" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+
+    <div>
+      <label for="lp-company" class={labelCls}>Organization name *</label>
+      <input id="lp-company" name="company" type="text" required maxlength="100" class={inputCls} placeholder="Acme Inc." />
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-2">
+      <div>
+        <label for="lp-contact" class={labelCls}>Your name *</label>
+        <input id="lp-contact" name="contact" type="text" required maxlength="80" class={inputCls} placeholder="Jane Smith" />
+      </div>
+      <div>
+        <label for="lp-phone" class={labelCls}>Phone</label>
+        <input id="lp-phone" name="phone" type="tel" inputmode="tel" maxlength="20" class={inputCls} placeholder="702.555.0123" />
+      </div>
+    </div>
+
+    <div>
+      <label for="lp-email" class={labelCls}>Work email *</label>
+      <input id="lp-email" name="email" type="email" required maxlength="120" class={inputCls} placeholder="jane@acme.com" />
+    </div>
+
+    {qualifiers.length > 0 && (
+      <div class="grid gap-4 sm:grid-cols-2">
+        {qualifiers.map((q) => (
+          <div class={qualifiers.length % 2 === 1 && q === qualifiers[qualifiers.length - 1] ? 'sm:col-span-2' : ''}>
+            <label for={`lp-${q.name}`} class={labelCls}>{q.label}{q.required ? ' *' : ''}</label>
+            {q.type === 'select' ? (
+              <select id={`lp-${q.name}`} name={q.name} required={q.required} class={inputCls} data-qlabel={q.label} data-headcount={q.isHeadcount ? 'true' : undefined}>
+                <option value="">Select…</option>
+                {(q.options || []).map((o) => <option value={o}>{o}</option>)}
+              </select>
+            ) : (
+              <input id={`lp-${q.name}`} name={q.name} type={q.type} required={q.required} maxlength="120" class={inputCls} placeholder={q.placeholder || ''} data-qlabel={q.label} data-headcount={q.isHeadcount ? 'true' : undefined} />
+            )}
+          </div>
+        ))}
+      </div>
+    )}
+
+    <SmsConsentFields tone="compact" />
+
+    <div class="cf-turnstile" data-sitekey="0x4AAAAAADW_K97ZyhlAHC4I" data-theme="light"></div>
+
+    <button type="submit" id="lp-submit" class="btn-primary mt-2 w-full justify-center text-base disabled:cursor-not-allowed disabled:opacity-60">
+      <span id="lp-submit-label">{submitLabel}</span>
+    </button>
+
+    <p class="text-center font-mono text-[10px] uppercase tracking-[0.15em] text-ash">No commitment · Free store setup · A real person follows up</p>
+  </form>
+
+  <!-- success state (hidden until submit) -->
+  <div id="lp-success" class="hidden">
+    <div class="border border-gold-500 bg-panel p-6 text-center">
+      <svg class="mx-auto mb-3 h-10 w-10 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+      <h3 class="font-heading text-xl font-extrabold uppercase tracking-tight text-charcoal">You’re in.</h3>
+      <p class="mt-2 text-sm text-ash">We’ll reach out about building your company store. Want a head start? See how it works.</p>
+      <a href="/company-stores/" class="btn-secondary mt-5 inline-flex text-sm">See how it works →</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const form = document.getElementById('lp-form') as HTMLFormElement | null
+  const card = document.getElementById('lp-form-card')
+  const success = document.getElementById('lp-success')
+  const submitBtn = document.getElementById('lp-submit') as HTMLButtonElement | null
+  const submitLabel = document.getElementById('lp-submit-label')
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault()
+    if (!form.checkValidity()) { form.reportValidity(); return }
+    if (submitBtn) submitBtn.disabled = true
+    if (submitLabel) submitLabel.textContent = 'Sending…'
+
+    const fd = new FormData(form)
+    const vertical = form.dataset.vertical || ''
+
+    // Collect qualifier answers keyed by their human label; capture headcount separately.
+    const qualifiers: Record<string, string> = {}
+    let headcount = ''
+    form.querySelectorAll('[data-qlabel]').forEach((el) => {
+      const node = el as HTMLInputElement | HTMLSelectElement
+      const label = node.getAttribute('data-qlabel') || node.name
+      const value = String(node.value || '').trim()
+      if (value) {
+        qualifiers[label] = value
+        if (node.getAttribute('data-headcount') === 'true') headcount = value
+      }
+    })
+
+    const payload = {
+      vertical,
+      company: String(fd.get('company') || '').trim(),
+      contact: String(fd.get('contact') || '').trim(),
+      email: String(fd.get('email') || '').trim(),
+      phone: String(fd.get('phone') || '').trim() || null,
+      headcount,
+      qualifiers,
+      smsTransactionalConsent: fd.get('smsTransactionalConsent') || '',
+      smsMarketingConsent: fd.get('smsMarketingConsent') || '',
+      sourceUrl: window.location.href,
+      'cf-turnstile-response': (form.querySelector('[name="cf-turnstile-response"]') as HTMLInputElement | null)?.value || '',
+    }
+
+    try {
+      const res = await fetch('/api/lp-optin', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        signal: AbortSignal.timeout(12000),
+      })
+      const data = await res.json().catch(() => ({}))
+      if (!res.ok || !data.ok) throw new Error(data.error || `HTTP ${res.status}`)
+      // fire GA4 lead event
+      ;(window as any).dataLayer?.push({ event: 'generate_lead', form: `lp_${vertical}`, page_path: window.location.pathname })
+      card?.classList.add('hidden')
+      success?.classList.remove('hidden')
+      success?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    } catch (err) {
+      console.error('[lp-form] submit failed:', err)
+      if (submitBtn) submitBtn.disabled = false
+      if (submitLabel) submitLabel.textContent = 'Try again →'
+      alert('Something went wrong sending your request. Please try again or call us at 702.904.8923.')
+    }
+  })
+</script>

@@ -5,6 +5,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   site: 'https://bighornthreads.com',
   output: 'static',
+  trailingSlash: 'always',
   integrations: [
     sitemap({
       changefreq: 'weekly',

@@ -2,6 +2,9 @@
 // Validates POST body, upserts contact in GHL, tags it, and attaches a note
 // with the full quote details. Charles wires the notification workflow in GHL UI.
 
+import { parseSmsConsent } from './_consent.js'
+import { verifyTurnstile } from './_turnstile.js'
+
 const GHL_BASE = 'https://services.leadconnectorhq.com'
 const GHL_API_VERSION = '2021-07-28'
 const QUOTE_TAG = 'bighorn-quote-request'
@@ -22,6 +25,12 @@ export async function onRequestPost({ request, env }) {
   if (body.website && String(body.website).trim()) {
     // Pretend success — silently drop spam
     return jsonResponse({ ok: true, contactId: null, spam: true })
+  }
+
+  // Cloudflare Turnstile — bot challenge (skipped until TURNSTILE_SECRET is set)
+  const verified = await verifyTurnstile({ env, request, token: body['cf-turnstile-response'] })
+  if (!verified) {
+    return errorResponse('Verification failed. Please refresh and try again.', 400)
   }
 
   // Required field validation
@@ -56,6 +65,7 @@ export async function onRequestPost({ request, env }) {
   const lastName = rest.join(' ').trim() || ''
   const company = String(body.company).trim()
   const phone = body.phone ? String(body.phone).trim() : ''
+  const consent = parseSmsConsent(body, body.sourceUrl)
 
   // ---------------- 1. Upsert contact ----------------
   let contactId = null
@@ -71,7 +81,7 @@ export async function onRequestPost({ request, env }) {
         phone,
         companyName: company,
         source: 'bighornthreads.com — PDP quote modal',
-        tags: [QUOTE_TAG],
+        tags: [QUOTE_TAG, ...consent.tags],
       }),
     })
     if (!upsertRes.ok) {
@@ -96,14 +106,14 @@ export async function onRequestPost({ request, env }) {
   try {
     await ghlFetch(`${GHL_BASE}/contacts/${contactId}/tags`, token, {
       method: 'POST',
-      body: JSON.stringify({ tags: [QUOTE_TAG] }),
+      body: JSON.stringify({ tags: [QUOTE_TAG, ...consent.tags] }),
     })
   } catch (err) {
     console.warn('[quote-request] tag add failed (non-fatal)', err)
   }
 
   // ---------------- 3. Add a note with quote details ----------------
-  const noteBody = formatNote(body, qty)
+  const noteBody = formatNote(body, qty) + '\n' + consent.noteBlock
   try {
     const noteRes = await ghlFetch(`${GHL_BASE}/contacts/${contactId}/notes`, token, {
       method: 'POST',

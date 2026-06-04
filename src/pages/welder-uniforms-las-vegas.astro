@@ -86,34 +86,34 @@ const faqSchema = {
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
  <!-- Hero -->
- <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
- <div class="absolute inset-0">
- <img src={page.hero} alt="" aria-hidden="true" class="h-full w-full object-cover opacity-30" width="1600" height="900" loading="eager" fetchpriority="high" />
- <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/40" />
- <div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_75%_-10%,_rgba(193,155,61,0.15),_transparent)]" />
- </div>
+ <section class="relative isolate overflow-hidden bg-navy-950 pt-32 pb-20 sm:pt-36 sm:pb-28">
+ <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/55"></div>
 
  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+ <nav class="mb-6 font-mono text-xs text-navy-200" aria-label="Breadcrumb">
  <a href="/" class="hover:text-gold-400">Home</a>
- <span class="px-2 text-gray-600">/</span>
- <span class="text-gold-500">Welder Uniforms</span>
+ <span class="px-2 text-navy-200/60">/</span>
+ <span class="text-gold-400">Welder Uniforms</span>
  </nav>
 
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">FR + Leather Kit</span>
- <h1 class="mb-6 max-w-4xl font-heading text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
- Welder Uniforms in Las Vegas <span class="text-gold-500">— NFPA 2112 base, leather over, branded FR-safe.</span>
+ <p class="kicker mb-4 flex items-center gap-2.5">
+  <span class="h-px w-8 bg-gold-500"></span>
+  FR + Leather Kit
+ </p>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
+ Welder Uniforms in Las Vegas <span class="text-gold-400">— NFPA 2112 base, leather over, branded FR-safe.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
  The full layered system — FR shirts, FR pants, welding jackets, leather sleeves, gloves, helmets. Embroidered with Nomex thread that holds the FR rating.
  </p>
 
- <div class="mt-10 flex flex-wrap items-center gap-3">
- <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25">
+ <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+ <a href="/contact/" class="btn-primary text-base">
  Get a Quote
  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
  </a>
- <a href="tel:+17029048923" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gold-500/40 px-6 py-3 font-mono text-sm font-medium text-gold-500 transition-all hover:border-gold-500 hover:bg-gold-500/5">
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">
  702.904.8923
  </a>
  </div>
@@ -121,18 +121,18 @@ const faqSchema = {
  </section>
 
  <!-- Stack -->
- <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <section class="bg-concrete py-20 sm:py-24">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">The Layered System</span>
- <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">A welder uniform isn't one shirt — it's a kit.</h2>
+ <p class="kicker mb-3">The Layered System</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">A welder uniform isn't one shirt — it's a kit.</h2>
  </div>
 
  <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
  {stack.map((s) => (
- <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/30 hover:bg-navy-900/60">
- <h3 class="mb-3 font-heading text-lg font-bold leading-tight tracking-tight text-white">{s.label}</h3>
- <p class="text-sm leading-relaxed text-gray-300">{s.body}</p>
+ <div class="border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="mb-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{s.label}</h3>
+ <p class="text-sm leading-relaxed text-ash">{s.body}</p>
  </div>
  ))}
  </div>
@@ -140,31 +140,31 @@ const faqSchema = {
  </section>
 
  <!-- Standards table -->
- <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-10 max-w-2xl">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Standards</span>
- <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">The standards your welders need to meet.</h2>
- <p class="mt-4 text-lg leading-relaxed text-gray-300">
+ <p class="kicker mb-3">Standards</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">The standards your welders need to meet.</h2>
+ <p class="mt-4 text-lg leading-relaxed text-ash">
  Federal floor + industry standard + project-specific certifications. We spec garments to the strictest applicable.
  </p>
  </div>
 
- <div class="overflow-hidden rounded-2xl border border-navy-700/40">
+ <div class="overflow-hidden border border-hairline bg-panel">
  <table class="w-full">
- <thead class="bg-navy-900/60">
- <tr class="border-b border-navy-700/40">
- <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500">Standard</th>
- <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500">Covers</th>
- <th class="hidden px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500 lg:table-cell">When It Applies</th>
+ <thead class="bg-concrete">
+ <tr class="border-b border-hairline">
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Standard</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Covers</th>
+ <th class="hidden px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600 lg:table-cell">When It Applies</th>
  </tr>
  </thead>
- <tbody class="divide-y divide-navy-800 bg-navy-900/30">
+ <tbody class="divide-y divide-hairline">
  {standards.map((r) => (
- <tr class="transition-colors hover:bg-navy-900/60">
- <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-400">{r.row}</td>
- <td class="px-6 py-5 align-top font-heading text-base font-bold text-white">{r.meaning}</td>
- <td class="hidden px-6 py-5 align-top text-sm text-gray-300 lg:table-cell">{r.use}</td>
+ <tr>
+ <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-700">{r.row}</td>
+ <td class="px-6 py-5 align-top font-heading text-base font-bold text-charcoal">{r.meaning}</td>
+ <td class="hidden px-6 py-5 align-top text-sm text-ash lg:table-cell">{r.use}</td>
  </tr>
  ))}
  </tbody>
@@ -174,18 +174,18 @@ const faqSchema = {
  </section>
 
  <!-- Layer detail -->
- <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <section class="bg-concrete py-20 sm:py-24">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Each Layer</span>
- <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">The full kit, one piece at a time.</h2>
+ <p class="kicker mb-3">Each Layer</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">The full kit, one piece at a time.</h2>
  </div>
 
  <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
  {layers.map((l) => (
- <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
- <h3 class="mb-2 font-heading text-lg font-bold tracking-tight text-white">{l.name}</h3>
- <p class="text-sm leading-relaxed text-gray-300">{l.detail}</p>
+ <div class="border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="mb-2 font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{l.name}</h3>
+ <p class="text-sm leading-relaxed text-ash">{l.detail}</p>
  </div>
  ))}
  </div>
@@ -193,16 +193,16 @@ const faqSchema = {
  </section>
 
  <!-- Deep dive -->
- <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">The Buyer's Read</span>
- <h2 class="mb-8 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+ <p class="kicker mb-3">The Buyer's Read</p>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">
  Welder uniforms for Vegas welding shops and contractors.
  </h2>
 
- <div class="space-y-5 text-lg leading-relaxed text-navy-200">
+ <div class="space-y-5 text-lg leading-relaxed text-ash">
  <p>
- A welder uniform is a layered protection system, not a single garment. The base layer — FR-rated shirt and pants — handles flash fire and arc events. The over-layer — leather jacket or sleeves — handles direct slag, spatter, and high-amperage stick work where the FR base alone isn't designed to deflect. Together they meet the requirements of <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.252" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500" rel="noopener" target="_blank">OSHA 1910.252</a> and AWS Z49.1, the two standards that define welder PPE in the U.S.
+ A welder uniform is a layered protection system, not a single garment. The base layer — FR-rated shirt and pants — handles flash fire and arc events. The over-layer — leather jacket or sleeves — handles direct slag, spatter, and high-amperage stick work where the FR base alone isn't designed to deflect. Together they meet the requirements of <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.252" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500" rel="noopener" target="_blank">OSHA 1910.252</a> and AWS Z49.1, the two standards that define welder PPE in the U.S.
  </p>
  <p>
  For Vegas welders, the base shirt question usually comes down to NFPA 2112 versus heavy FR cotton. NFPA 2112 is the certified standard for flash-fire protection — the conservative spec for any shop bidding on oil/gas, refining, process, or safety-driven commercial contracts. Bulwark Excel-FR ComforTouch SLU2 is the most-specified pick for Vegas crews because it carries the dual NFPA 70E and NFPA 2112 rating in a 7 oz weight that breathes in summer heat. Carhartt FR Force is the next tier. For general fab and lighter-duty welding under AWS Z49.1, heavy FR cotton from Carhartt FR or Lapco is acceptable.
@@ -214,28 +214,26 @@ const faqSchema = {
  Decoration is the part most shops get wrong. Standard polyester embroidery thread melts and drips on FR garments — a worse outcome than not decorating at all. We use Nomex (aramid) thread on every Bulwark, Carhartt FR, and Lapco garment we decorate, and we document the thread spec on the certification sheet that ships with every order. This is the document your safety officer needs in the binder when an inspector arrives.
  </p>
  <p>
- For deeper reads, see our <a href="/blog/welder-uniforms-las-vegas-buyer-guide/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">welder uniforms buyer's guide</a>, the <a href="/blog/welder-uniforms-fr-shirts-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">welder FR shirts deep-dive</a>, and the <a href="/blog/nfpa-2112-fr-coveralls-buyer-guide/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">NFPA 2112 FR coveralls guide</a>.
+ For deeper reads, see our <a href="/blog/welder-uniforms-las-vegas-buyer-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">welder uniforms buyer's guide</a>, the <a href="/blog/welder-uniforms-fr-shirts-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">welder FR shirts deep-dive</a>, and the <a href="/blog/nfpa-2112-fr-coveralls-buyer-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">NFPA 2112 FR coveralls guide</a>.
  </p>
  </div>
  </div>
  </section>
 
  <!-- FAQ -->
- <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+ <section class="bg-concrete py-20 sm:py-24">
  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">FAQ</span>
- <h2 class="mb-12 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Welder uniform questions, answered.</h2>
+ <p class="kicker mb-3">FAQ</p>
+ <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Welder uniform questions, answered.</h2>
 
- <div class="space-y-3">
+ <div class="divide-y divide-hairline border-y border-hairline">
  {faqs.map((f) => (
- <details class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-5 transition-all hover:border-gold-500/30 open:border-gold-500/40">
- <summary class="flex cursor-pointer list-none items-start justify-between gap-4">
- <h3 class="font-heading text-lg font-bold leading-tight tracking-tight text-white">{f.q}</h3>
- <span class="mt-1 flex-shrink-0 text-gold-500 transition-transform group-open:rotate-45">
- <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
- </span>
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
+ <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
  </summary>
- <p class="mt-4 text-base leading-relaxed text-gray-300">{f.a}</p>
+ <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
  </details>
  ))}
  </div>
@@ -243,34 +241,36 @@ const faqSchema = {
  </section>
 
  <!-- Related -->
- <section class="border-b border-navy-800 bg-navy-950 py-16">
+ <section class="border-y border-hairline bg-paper py-16">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <span class="mb-6 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Pair It With</span>
+ <p class="kicker mb-6">Pair It With</p>
  <div class="grid gap-5 md:grid-cols-3">
- <a href="/industries/steel-iron-workers-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
- <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Steel & Iron Workers</h3>
- <p class="mt-2 text-sm text-gray-400">Industry kit for Vegas steel-trade welders and fabricators.</p>
+ <a href="/industries/steel-iron-workers-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Steel & Iron Workers</h3>
+ <p class="mt-2 text-sm text-ash">Industry kit for Vegas steel-trade welders and fabricators.</p>
  </a>
- <a href="/brands/bulwark-fr-custom-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
- <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Bulwark FR</h3>
- <p class="mt-2 text-sm text-gray-400">Brand-page deep-dive on Excel-FR ComforTouch and the SLU2.</p>
+ <a href="/brands/bulwark-fr-custom-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Bulwark FR</h3>
+ <p class="mt-2 text-sm text-ash">Brand-page deep-dive on Excel-FR ComforTouch and the SLU2.</p>
  </a>
- <a href="/catalog/fr-clothing/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
- <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Browse FR Catalog</h3>
- <p class="mt-2 text-sm text-gray-400">Every FR garment we stock — shirts, pants, coveralls, jackets.</p>
+ <a href="/catalog/fr-clothing/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Browse FR Catalog</h3>
+ <p class="mt-2 text-sm text-ash">Every FR garment we stock — shirts, pants, coveralls, jackets.</p>
  </a>
  </div>
  </div>
  </section>
 
  <!-- CTA -->
- <section class="bg-navy-900/60 py-20">
+ <section class="relative isolate overflow-hidden bg-navy-950 py-20">
+ <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" loading="lazy" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
  <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
- <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Ready to outfit your welders?</h2>
- <p class="mb-8 text-lg text-gray-300">Send your roster size and program spec.</p>
- <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
- <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>
- <a href="tel:+17029048923" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gray-600 px-8 py-4 font-mono text-base font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">702.904.8923</a>
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Ready to outfit your welders?</h2>
+ <p class="mb-8 text-lg text-navy-200">Send your roster size and program spec.</p>
+ <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+ <a href="/contact/" class="btn-primary text-base">Get a Free Quote</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
  </div>
  </div>
  </section>

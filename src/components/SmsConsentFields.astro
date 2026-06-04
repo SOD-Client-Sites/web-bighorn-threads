@@ -1,0 +1,66 @@
+---
+/**
+ * A2P 10DLC–compliant SMS consent block.
+ * Two separate, un-pre-checked, optional checkboxes (marketing vs. non-marketing)
+ * plus the required Privacy Policy / Terms links. Drop into any form.
+ *
+ * The exact checkbox wording mirrors the carrier-recommended language used in the
+ * Bighorn Threads A2P campaign registration — keep these in sync if the campaign
+ * description changes.
+ *
+ * Props:
+ *  - tone: 'light' (default) | 'compact' (smaller text)
+ */
+interface Props {
+  tone?: 'light' | 'compact'
+}
+const { tone = 'light' } = Astro.props
+
+const labelCls =
+  tone === 'compact'
+    ? 'text-xs leading-relaxed text-ash'
+    : 'text-sm leading-relaxed text-charcoal'
+const boxCls =
+  'mt-0.5 h-4 w-4 shrink-0 rounded border-hairline bg-panel text-gold-600 focus:ring-2 focus:ring-gold-500/40 focus:ring-offset-0'
+---
+
+<fieldset class="mt-6 space-y-3 border border-hairline bg-panel p-4">
+  <legend class="px-1 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">
+    Text Message Preferences <span class="font-sans text-ash">(optional)</span>
+  </legend>
+  <p class="-mt-1 text-[11px] leading-relaxed text-ash">
+    Texts from <span class="text-charcoal">VP Promos LLC, d/b/a Bighorn Threads</span>.
+    Both boxes are optional — leave them blank if you don&rsquo;t want texts.
+  </p>
+
+  <label class="flex items-start gap-3">
+    <input type="checkbox" name="smsTransactionalConsent" value="yes" class={boxCls} />
+    <span class={labelCls}>
+      I consent to receive transactional (non-marketing) text messages from
+      <strong class="font-semibold text-charcoal">VP Promos LLC, d/b/a Bighorn Threads</strong>
+      at the phone number provided — quote follow-ups, order and artwork-proof updates,
+      production and delivery status, and appointment reminders. Message frequency may vary.
+      Message &amp; data rates may apply. Reply HELP for help or STOP to opt out.
+    </span>
+  </label>
+
+  <label class="flex items-start gap-3">
+    <input type="checkbox" name="smsMarketingConsent" value="yes" class={boxCls} />
+    <span class={labelCls}>
+      I consent to receive marketing and promotional text messages from
+      <strong class="font-semibold text-charcoal">VP Promos LLC, d/b/a Bighorn Threads</strong>
+      at the phone number provided — special offers, discounts, new products, and seasonal
+      promotions. Message frequency may vary. Message &amp; data rates may apply. Reply HELP
+      for help or STOP to opt out.
+    </span>
+  </label>
+
+  <p class="border-t border-hairline pt-3 text-xs leading-relaxed text-ash">
+    Consent to texts is <span class="text-charcoal">not required</span> to get a quote or do
+    business with us. By submitting this form you agree to our
+    <a href="/legal/privacy-policy/" class="text-gold-700 underline underline-offset-2 hover:text-gold-600">Privacy&nbsp;Policy</a>
+    and
+    <a href="/legal/terms/" class="text-gold-700 underline underline-offset-2 hover:text-gold-600">Terms&nbsp;&amp;&nbsp;Conditions</a>.
+    No mobile information is shared with third parties or affiliates for marketing purposes.
+  </p>
+</fieldset>

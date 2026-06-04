@@ -86,34 +86,34 @@ const faqSchema = {
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
  <!-- Hero -->
- <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
- <div class="absolute inset-0">
- <img src={page.hero} alt="" aria-hidden="true" class="h-full w-full object-cover opacity-30" width="1600" height="900" loading="eager" fetchpriority="high" />
- <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/40" />
- <div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_75%_-10%,_rgba(193,155,61,0.15),_transparent)]" />
- </div>
+ <section class="relative isolate overflow-hidden bg-navy-950 pt-32 pb-20 sm:pt-36 sm:pb-28">
+ <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/55"></div>
 
  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+ <nav class="mb-6 font-mono text-xs text-navy-200" aria-label="Breadcrumb">
  <a href="/" class="hover:text-gold-400">Home</a>
- <span class="px-2 text-gray-600">/</span>
- <span class="text-gold-500">Custom Polo Shirts</span>
+ <span class="px-2 text-navy-200/60">/</span>
+ <span class="text-gold-400">Custom Polo Shirts</span>
  </nav>
 
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Branded Apparel</span>
- <h1 class="mb-6 max-w-4xl font-heading text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
- Custom Polo Shirts in Las Vegas <span class="text-gold-500">— embroidered, named, ready for the field.</span>
+ <p class="kicker mb-4 flex items-center gap-2.5">
+  <span class="h-px w-8 bg-gold-500"></span>
+  Branded Apparel
+ </p>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
+ Custom Polo Shirts in Las Vegas <span class="text-gold-400">— embroidered, named, ready for the field.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
  Port Authority, Sport-Tek, Carhartt, Nike, Cutter & Buck blanks. Embroidered chest logo. Optional name on the right chest. Pantone-matched thread on file.
  </p>
 
- <div class="mt-10 flex flex-wrap items-center gap-3">
- <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25">
+ <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+ <a href="/contact/" class="btn-primary text-base">
  Get a Quote
  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
  </a>
- <a href="tel:+17029048923" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gold-500/40 px-6 py-3 font-mono text-sm font-medium text-gold-500 transition-all hover:border-gold-500 hover:bg-gold-500/5">
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">
  702.904.8923
  </a>
  </div>
@@ -121,18 +121,18 @@ const faqSchema = {
  </section>
 
  <!-- Stack -->
- <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <section class="bg-concrete py-20 sm:py-24">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">What You Get</span>
- <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">A polo program your team will actually wear.</h2>
+ <p class="kicker mb-3">What You Get</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">A polo program your team will actually wear.</h2>
  </div>
 
  <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
  {stack.map((s) => (
- <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/30 hover:bg-navy-900/60">
- <h3 class="mb-3 font-heading text-lg font-bold leading-tight tracking-tight text-white">{s.label}</h3>
- <p class="text-sm leading-relaxed text-gray-300">{s.body}</p>
+ <div class="border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="mb-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{s.label}</h3>
+ <p class="text-sm leading-relaxed text-ash">{s.body}</p>
  </div>
  ))}
  </div>
@@ -140,31 +140,31 @@ const faqSchema = {
  </section>
 
  <!-- Blanks table -->
- <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-10 max-w-2xl">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Blanks We Stock</span>
- <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Pick the polo that matches the role.</h2>
- <p class="mt-4 text-lg leading-relaxed text-gray-300">
+ <p class="kicker mb-3">Blanks We Stock</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Pick the polo that matches the role.</h2>
+ <p class="mt-4 text-lg leading-relaxed text-ash">
  Workhorse to executive tier. Every blank embroiders cleanly. Mix and match across roles in the same program.
  </p>
  </div>
 
- <div class="overflow-hidden rounded-2xl border border-navy-700/40">
+ <div class="overflow-hidden border border-hairline bg-panel">
  <table class="w-full">
- <thead class="bg-navy-900/60">
- <tr class="border-b border-navy-700/40">
- <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500">Blank</th>
- <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500">Use Case</th>
- <th class="hidden px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500 lg:table-cell">Notes</th>
+ <thead class="bg-concrete">
+ <tr class="border-b border-hairline">
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Blank</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Use Case</th>
+ <th class="hidden px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600 lg:table-cell">Notes</th>
  </tr>
  </thead>
- <tbody class="divide-y divide-navy-800 bg-navy-900/30">
+ <tbody class="divide-y divide-hairline">
  {blanks.map((b) => (
- <tr class="transition-colors hover:bg-navy-900/60">
- <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-400">{b.row}</td>
- <td class="px-6 py-5 align-top font-heading text-base font-bold text-white">{b.use}</td>
- <td class="hidden px-6 py-5 align-top text-sm text-gray-300 lg:table-cell">{b.notes}</td>
+ <tr>
+ <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-700">{b.row}</td>
+ <td class="px-6 py-5 align-top font-heading text-base font-bold text-charcoal">{b.use}</td>
+ <td class="hidden px-6 py-5 align-top text-sm text-ash lg:table-cell">{b.notes}</td>
  </tr>
  ))}
  </tbody>
@@ -174,18 +174,18 @@ const faqSchema = {
  </section>
 
  <!-- Placements -->
- <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <section class="bg-concrete py-20 sm:py-24">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Embroidery Placements</span>
- <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Where the logo and name go.</h2>
+ <p class="kicker mb-3">Embroidery Placements</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Where the logo and name go.</h2>
  </div>
 
  <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
  {placements.map((p) => (
- <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
- <h3 class="mb-2 font-heading text-lg font-bold tracking-tight text-white">{p.name}</h3>
- <p class="text-sm leading-relaxed text-gray-300">{p.detail}</p>
+ <div class="border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="mb-2 font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{p.name}</h3>
+ <p class="text-sm leading-relaxed text-ash">{p.detail}</p>
  </div>
  ))}
  </div>
@@ -193,14 +193,14 @@ const faqSchema = {
  </section>
 
  <!-- Deep dive -->
- <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">The Buyer's Read</span>
- <h2 class="mb-8 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+ <p class="kicker mb-3">The Buyer's Read</p>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">
  Custom polos for Vegas service crews and customer-facing staff.
  </h2>
 
- <div class="space-y-5 text-lg leading-relaxed text-navy-200">
+ <div class="space-y-5 text-lg leading-relaxed text-ash">
  <p>
  Custom polo shirts with an embroidered chest logo are the default uniform for service technicians, account managers, sales reps, and any role where employees are seen by customers, vendors, or the public. The visual signal needs to read as established business — not team event — and embroidery on a pique-knit polo carries that weight in a way a screen-printed t-shirt never will.
  </p>
@@ -211,31 +211,29 @@ const faqSchema = {
  Name embroidery has become the new standard for customer-facing trades. Standard layout is company logo on the left chest at 3.5 inches wide, and first name + last initial on the right chest at half-inch lettering. The cost adds a small per-piece premium, the production time adds about a day, and the trust signal is real — homeowners and facility managers are measurably more comfortable letting a named technician into the building than an anonymous one.
  </p>
  <p>
- For a long-running program, we set up a private company store with your blanks, decoration spec, and employee size profiles preloaded. Reorders run at the same per-piece pricing as the initial order, new hires get fully-decorated polos when they start without your HR team chasing approvals, and per-employee allowances can match your existing apparel budget. See <a href="/company-stores/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">how the company store program works</a> for the operational details.
+ For a long-running program, we set up a private company store with your blanks, decoration spec, and employee size profiles preloaded. Reorders run at the same per-piece pricing as the initial order, new hires get fully-decorated polos when they start without your HR team chasing approvals, and per-employee allowances can match your existing apparel budget. See <a href="/company-stores/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">how the company store program works</a> for the operational details.
  </p>
  <p>
- For deeper reads on polos and embroidery, see our <a href="/blog/custom-polo-shirts-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">custom polo shirts buyer's guide</a>, the <a href="/blog/port-authority-polos-vs-alternatives/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Port Authority vs alternatives comparison</a>, and the <a href="/blog/how-much-to-embroider-a-polo/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">embroidery cost breakdown</a>.
+ For deeper reads on polos and embroidery, see our <a href="/blog/custom-polo-shirts-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">custom polo shirts buyer's guide</a>, the <a href="/blog/port-authority-polos-vs-alternatives/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Port Authority vs alternatives comparison</a>, and the <a href="/blog/how-much-to-embroider-a-polo/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">embroidery cost breakdown</a>.
  </p>
  </div>
  </div>
  </section>
 
  <!-- FAQ -->
- <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+ <section class="bg-concrete py-20 sm:py-24">
  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">FAQ</span>
- <h2 class="mb-12 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Polo questions, answered.</h2>
+ <p class="kicker mb-3">FAQ</p>
+ <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Polo questions, answered.</h2>
 
- <div class="space-y-3">
+ <div class="divide-y divide-hairline border-y border-hairline">
  {faqs.map((f) => (
- <details class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-5 transition-all hover:border-gold-500/30 open:border-gold-500/40">
- <summary class="flex cursor-pointer list-none items-start justify-between gap-4">
- <h3 class="font-heading text-lg font-bold leading-tight tracking-tight text-white">{f.q}</h3>
- <span class="mt-1 flex-shrink-0 text-gold-500 transition-transform group-open:rotate-45">
- <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
- </span>
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
+ <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
  </summary>
- <p class="mt-4 text-base leading-relaxed text-gray-300">{f.a}</p>
+ <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
  </details>
  ))}
  </div>
@@ -243,34 +241,36 @@ const faqSchema = {
  </section>
 
  <!-- Related -->
- <section class="border-b border-navy-800 bg-navy-950 py-16">
+ <section class="border-y border-hairline bg-paper py-16">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <span class="mb-6 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Pair It With</span>
+ <p class="kicker mb-6">Pair It With</p>
  <div class="grid gap-5 md:grid-cols-3">
- <a href="/services/embroidery-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
- <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Custom Embroidery</h3>
- <p class="mt-2 text-sm text-gray-400">The decoration method behind every polo we ship.</p>
+ <a href="/services/embroidery-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Custom Embroidery</h3>
+ <p class="mt-2 text-sm text-ash">The decoration method behind every polo we ship.</p>
  </a>
- <a href="/brands/port-authority-polos-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
- <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Port Authority Polos</h3>
- <p class="mt-2 text-sm text-gray-400">Brand-page deep-dive on the K500, K540, and L-line cuts.</p>
+ <a href="/brands/port-authority-polos-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Port Authority Polos</h3>
+ <p class="mt-2 text-sm text-ash">Brand-page deep-dive on the K500, K540, and L-line cuts.</p>
  </a>
- <a href="/catalog/polos/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
- <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Browse Polo Catalog</h3>
- <p class="mt-2 text-sm text-gray-400">Every polo blank we stock — cuts, fabrics, sizing.</p>
+ <a href="/catalog/polos/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Browse Polo Catalog</h3>
+ <p class="mt-2 text-sm text-ash">Every polo blank we stock — cuts, fabrics, sizing.</p>
  </a>
  </div>
  </div>
  </section>
 
  <!-- CTA -->
- <section class="bg-navy-900/60 py-20">
+ <section class="relative isolate overflow-hidden bg-navy-950 py-20">
+ <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" loading="lazy" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
  <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
- <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Ready to outfit your team in branded polos?</h2>
- <p class="mb-8 text-lg text-gray-300">Send your logo, count, and blank preference.</p>
- <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
- <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>
- <a href="tel:+17029048923" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gray-600 px-8 py-4 font-mono text-base font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">702.904.8923</a>
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Ready to outfit your team in branded polos?</h2>
+ <p class="mb-8 text-lg text-navy-200">Send your logo, count, and blank preference.</p>
+ <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+ <a href="/contact/" class="btn-primary text-base">Get a Free Quote</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
  </div>
  </div>
  </section>

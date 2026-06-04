@@ -1,0 +1,297 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const problems = [
+  {
+    title: 'Hard Deadlines, No Wiggle Room.',
+    desc: 'The event date does not move. Gear has to be on-site and ready before doors open, or your team shows up in plain clothes.',
+  },
+  {
+    title: 'Sizing Across Everyone.',
+    desc: 'Booth staff, volunteers, players, attendees — every body is different. Guessing sizes leaves half your people in gear that does not fit.',
+  },
+  {
+    title: 'One-Off vs. Recurring Orders.',
+    desc: 'A single conference and a season-long league are different jobs. Most vendors treat them the same and you redo the work every time.',
+  },
+  {
+    title: 'Leftover Inventory Nobody Wears.',
+    desc: 'Over-order to be safe and you sit on boxes of the wrong size. Under-order and you run short mid-event. Either way, you lose.',
+  },
+]
+
+const storeSteps = [
+  {
+    n: '01',
+    meta: 'Setup',
+    title: 'We Build the Store or Run the Order',
+    desc: 'Tell us the event, the gear, and the date. We set up your event store or run the order direct. Your logo and artwork stay on file for the next one.',
+  },
+  {
+    n: '02',
+    meta: 'Ongoing',
+    title: 'Staff & Attendees Pick Their Own Sizes',
+    desc: 'Each person picks their own size and submits. No spreadsheets, no size-guessing, no scramble to collect counts from a hundred people.',
+  },
+  {
+    n: '03',
+    meta: 'Ongoing',
+    title: 'Produced & Shipped to Hit Your Date',
+    desc: 'Gear is produced and shipped to land before doors open — to the venue or to each person. Artwork is on file, so the next event is a click.',
+  },
+]
+
+const offerings = [
+  {
+    title: 'Event & Booth Staff Apparel',
+    desc: 'Matching apparel that makes your team easy to spot on the floor. Branded once, held on file, ready to reorder for the next show.',
+    tag: 'Staff',
+  },
+  {
+    title: 'Trade-Show Polos & Outerwear',
+    desc: 'Embroidered polos, quarter-zips, and softshell jackets that look sharp at the booth. Recognized brands your staff want to keep wearing.',
+    tag: 'Trade Show',
+  },
+  {
+    title: 'Attendee Giveaways & Merch',
+    desc: 'Tees, hats, and merch attendees actually keep. Branded gear that walks out the door and keeps your name in front of people after the event.',
+    tag: 'Merch',
+  },
+  {
+    title: 'Team & League Uniforms',
+    desc: 'Matching uniforms for sports teams and leagues. Players pick their own sizes, numbers and names where you need them, artwork on file each season.',
+    tag: 'Teams',
+  },
+  {
+    title: 'Promo Products & Drinkware',
+    desc: 'Branded drinkware, bags, and promo products to round out the kit. Useful pieces that get carried home, not tossed at the door.',
+    tag: 'Promo',
+  },
+]
+
+const faqs = [
+  {
+    q: 'What is an event company store?',
+    a: 'An event company store is your own branded online store for a single event or a recurring series. We stock it with your approved gear and your logo. Staff and attendees order their own sizes, and it ships direct — no spreadsheets and no boxes of the wrong size left over.',
+  },
+  {
+    q: 'Can you hit a hard event deadline?',
+    a: 'Tell us the date and we will tell you straight. Some timelines work and some are too tight to do right — we would rather be honest up front than miss your event. Give us your date early and we will build a plan that lands gear before doors open.',
+  },
+  {
+    q: 'Can attendees order their own sizes?',
+    a: 'Yes. Each person picks their own size and submits — booth staff, volunteers, players, or attendees. You skip the spreadsheet, and everyone gets gear that actually fits instead of a guess.',
+  },
+  {
+    q: 'Can we reuse artwork for recurring events?',
+    a: 'Yes. Your logo and artwork stay on file. For a recurring event, series, or season, the next order is a click — same artwork, consistent branding, no starting over each time.',
+  },
+  {
+    q: 'Can you do team and league uniforms?',
+    a: 'Yes. We do matching uniforms for sports teams and leagues — players pick their own sizes, with names and numbers where you need them. Artwork stays on file so each new season or roster is easy to reorder.',
+  },
+]
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+}
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Industries', item: 'https://bighornthreads.com/industries/' },
+    { '@type': 'ListItem', position: 3, name: 'Events', item: 'https://bighornthreads.com/industries/events/' },
+  ],
+}
+
+const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
+---
+
+<BaseLayout
+  title="Custom Apparel & Merch Stores for Events, Trade Shows & Teams"
+  description="Custom apparel, merch, and on-demand stores for events, trade shows, conferences, and sports teams. Staff and attendees order their own sizes. Produced and shipped to hit your date. Artwork on file for the next one."
+  canonical="https://bighornthreads.com/industries/events/"
+>
+  <!-- ════ HERO — concrete (no photographic band) ════ -->
+  <section class="bg-concrete pt-32 pb-20 sm:pt-36 sm:pb-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-gold-600">Home</a>
+        <span class="px-2 text-ash/60">/</span>
+        <a href="/industries/" class="hover:text-gold-600">Industries</a>
+        <span class="px-2 text-ash/60">/</span>
+        <span class="text-gold-600">Events</span>
+      </nav>
+
+      <div class="max-w-3xl">
+        <p class="kicker mb-5 flex items-center gap-2.5">
+          <span class="h-px w-8 bg-gold-500"></span>
+          For Events, Trade Shows &amp; Teams
+        </p>
+        <h1 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
+          Custom apparel, merch &amp; on-demand stores for
+          <span class="text-gold-600"> your event.</span>
+        </h1>
+        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
+          Hard date, lots of people, no time to chase sizes. We build your event store or run the
+          order, your staff and attendees pick their own gear, and it ships to hit your date. Single
+          events, recurring series, trade shows, and teams.
+        </p>
+        <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <a href="/get-started/events/" class="btn-primary text-base">
+            Build my event store plan
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
+          </a>
+          <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-charcoal transition-colors hover:text-gold-600">
+            <svg class="h-4 w-4 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+            702.904.8923
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ THE PROBLEM — paper ════ -->
+  <section class="border-y border-hairline bg-paper py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <p class="kicker mb-3">The Problem</p>
+        <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
+          Event gear shouldn’t be <span class="text-gold-600">a last-minute scramble.</span>
+        </h2>
+        <p class="mt-4 text-lg leading-relaxed text-ash">
+          If you run events, you know the drill. The date is fixed, the headcount keeps shifting, and
+          the gear order always lands on your plate too late. It costs you time and the event pays for it.
+        </p>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2">
+        {problems.map((item) => (
+          <div class="border border-hairline bg-panel p-7">
+            <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{item.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ash">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ HOW IT WORKS FOR AN EVENT — concrete ════ -->
+  <section class="bg-concrete py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-3xl">
+        <p class="kicker mb-3">How It Works</p>
+        <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
+          How it works <span class="text-gold-600">for your event.</span>
+        </h2>
+        <p class="mt-4 text-lg leading-relaxed text-ash">
+          Your logo and artwork on file, sizes handled by the people wearing the gear, and a plan built
+          around your date. You give us the event. We handle the rest.
+        </p>
+      </div>
+
+      <ol class="grid gap-5 md:grid-cols-3">
+        {storeSteps.map((step) => (
+          <li class="border border-hairline bg-panel p-7">
+            <div class="mb-5 flex items-baseline justify-between">
+              <span class="font-heading text-5xl font-extrabold leading-none text-gold-600">{step.n}</span>
+              <span class="spec border border-hairline px-2 py-1 text-ash">{step.meta}</span>
+            </div>
+            <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{step.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ash">{step.desc}</p>
+          </li>
+        ))}
+      </ol>
+
+      <div class="mt-8">
+        <a href="/get-started/events/" class="btn-secondary text-sm">
+          Build my event store plan
+          <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ WHAT WE MAKE — paper ════ -->
+  <section class="border-y border-hairline bg-paper py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <p class="kicker mb-3">What We Make</p>
+        <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
+          What we make <span class="text-gold-600">for events.</span>
+        </h2>
+        <p class="mt-4 text-lg leading-relaxed text-ash">
+          Pick the gear that fits the event and your brand. Staff apparel, attendee merch, team
+          uniforms, and the promo products that round out the kit.
+        </p>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {offerings.map((item) => (
+          <div class="flex flex-col border border-hairline bg-panel p-6">
+            <span class="spec mb-3 inline-block self-start border border-hairline px-2 py-1 text-ash">{item.tag}</span>
+            <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{item.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ash">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ FAQ — concrete ════ -->
+  <section class="bg-concrete py-20 sm:py-28">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-10 max-w-2xl">
+        <p class="kicker mb-3">FAQ</p>
+        <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
+          Event gear, <span class="text-gold-600">answered.</span>
+        </h2>
+      </div>
+
+      <div class="divide-y divide-hairline border-y border-hairline">
+        {faqs.map((item) => (
+          <details class="group">
+            <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+              <span class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{item.q}</span>
+              <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+            </summary>
+            <p class="pb-5 leading-relaxed text-ash">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ CTA BAND — paper ════ -->
+  <section class="border-y border-hairline bg-paper py-20 sm:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col items-start gap-6 border border-hairline bg-charcoal p-8 sm:flex-row sm:items-center sm:justify-between sm:p-12">
+        <div class="max-w-xl">
+          <p class="kicker mb-3">Get Started</p>
+          <h2 class="font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-concrete sm:text-4xl">
+            Got an event coming up? <span class="text-gold-400">Let’s get the gear right.</span>
+          </h2>
+          <p class="mt-4 text-base leading-relaxed text-navy-200">
+            Free store setup. Staff and attendees order their own sizes. A real person follows up. Tell
+            us your event and your date and we’ll build your plan.
+          </p>
+        </div>
+        <a href="/get-started/events/" class="btn-primary shrink-0 text-base">
+          Build my event store plan
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+</BaseLayout>

@@ -35,74 +35,74 @@ const schema = {
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
- <article class="bg-navy-950">
- <header class="relative overflow-hidden border-b border-navy-800">
- <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
- <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
- <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-400">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-400">Blog</a></nav>
- <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
- <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
- <p class="mb-8 text-xl leading-relaxed text-gray-300">FR base layer + leather over-layer + branded decoration that doesn't void the rating. The actual spec for Vegas welders, ironworkers, and pipefitters.</p>
- <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400"><span class="text-gold-500">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
+ <article class="bg-concrete">
+ <header class="border-b border-hairline bg-paper">
+ <div class="mx-auto max-w-3xl px-4 pt-32 pb-12 sm:px-6 sm:pt-40 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-600">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-600">Blog</a></nav>
+ <span class="kicker mb-3">{post.category}</span>
+ <h1 class="mb-6 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl lg:text-5xl">{post.title}</h1>
+ <p class="mb-8 text-xl leading-relaxed text-ash">FR base layer + leather over-layer + branded decoration that doesn't void the rating. The actual spec for Vegas welders, ironworkers, and pipefitters.</p>
+ <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
  </header>
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Welder wearing NFPA 2112 FR shirt with leather welding jacket and embroidered company patch" width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" /></div>
+ <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Welder wearing NFPA 2112 FR shirt with leather welding jacket and embroidered company patch" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
 
- <aside class="mb-10 rounded-2xl border border-gold-500/30 bg-navy-900/60 p-7">
- <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Quick Answer</p>
- <p class="text-lg leading-relaxed text-white sm:text-xl">Welders wear three layers: an NFPA 2112-rated FR base shirt (Bulwark Excel-FR ComforTouch is the industry standard) for flash-fire protection, a leather welding jacket or sleeves over the top to block direct slag and spatter hazards, and FR-rated boots and gloves. Custom branded patches sewn onto FR garments use Nomex (aramid) thread to preserve the rating.</p>
+ <aside class="mb-10 border border-hairline bg-panel p-7">
+ <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Quick Answer</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl">Welders wear three layers: an NFPA 2112-rated FR base shirt (Bulwark Excel-FR ComforTouch is the industry standard) for flash-fire protection, a leather welding jacket or sleeves over the top to block direct slag and spatter hazards, and FR-rated boots and gloves. Custom branded patches sewn onto FR garments use Nomex (aramid) thread to preserve the rating.</p>
  </aside>
 
- <h2 id="layers" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The Three-Layer Welding PPE System</h2>
+ <h2 id="layers" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">The Three-Layer Welding PPE System</h2>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Layer 1: NFPA 2112 FR Base Shirt</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">The flash-fire protective layer. <a href="https://www.nfpa.org/codes-and-standards/all-codes-and-standards/list-of-codes-and-standards/detail?code=2112" rel="noopener" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">NFPA 2112</a> certifies the fabric won't ignite, won't melt onto skin, and won't propagate flame in a flash-fire event. For welders this matters in environments where ambient flammable materials may be present — process plants, oil and gas, refineries — and as a baseline insurance layer when the leather over-layer fails.</p>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Industry-standard NFPA 2112 base shirts:</p>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">The flash-fire protective layer. <a href="https://www.nfpa.org/codes-and-standards/all-codes-and-standards/list-of-codes-and-standards/detail?code=2112" rel="noopener" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">NFPA 2112</a> certifies the fabric won't ignite, won't melt onto skin, and won't propagate flame in a flash-fire event. For welders this matters in environments where ambient flammable materials may be present — process plants, oil and gas, refineries — and as a baseline insurance layer when the leather over-layer fails.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Industry-standard NFPA 2112 base shirts:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Bulwark Excel-FR ComforTouch SLU2</strong> — dual NFPA 2112 + 70E, 6.5 oz cotton-nylon blend, light enough for Vegas summer turnaround work</li>
  <li><strong>Carhartt FR Lightweight</strong> — softer hand than Bulwark, popular with crews who reject heavier FR fabrics</li>
  <li><strong>Wrangler Riggs FR</strong> — button-down work-shirt styling, dual-rated, less common but well-regarded</li>
  </ul>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Layer 2: Leather Welding Jacket or Sleeves</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">The direct-hazard layer. Leather (split cowhide, pigskin, or kid leather depending on application) blocks molten metal spatter, slag, and grinding sparks the way no fabric can. This is the layer that takes the actual welding abuse — gets burn marks, holes, and stains over its working life and gets retired and replaced.</p>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">For lighter-duty welding (TIG, MIG on thin material), leather sleeves over an FR base shirt are sufficient. For heavy stick welding, structural welding, and flash-arc work, a full leather welding jacket is the spec.</p>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Leather welding gear is sourced from welding-specialty PPE distributors — companies like <a href="https://www.lincolnelectric.com/en/lincoln-personal-protection-equipment" rel="noopener" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Lincoln Electric</a>, Tillman, Black Stallion, Steiner — not from general workwear suppliers. We coordinate the FR base layer; the leather comes from the welding-PPE channel.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">The direct-hazard layer. Leather (split cowhide, pigskin, or kid leather depending on application) blocks molten metal spatter, slag, and grinding sparks the way no fabric can. This is the layer that takes the actual welding abuse — gets burn marks, holes, and stains over its working life and gets retired and replaced.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">For lighter-duty welding (TIG, MIG on thin material), leather sleeves over an FR base shirt are sufficient. For heavy stick welding, structural welding, and flash-arc work, a full leather welding jacket is the spec.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Leather welding gear is sourced from welding-specialty PPE distributors — companies like <a href="https://www.lincolnelectric.com/en/lincoln-personal-protection-equipment" rel="noopener" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Lincoln Electric</a>, Tillman, Black Stallion, Steiner — not from general workwear suppliers. We coordinate the FR base layer; the leather comes from the welding-PPE channel.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Layer 3: FR Boots, Gloves, Headwear</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Leather boots with metatarsal protection, leather welding gloves rated to the work being done, and FR balaclavas or hoods for arc welding. None of this is workwear-channel inventory; all of it comes from welding-PPE distributors.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Leather boots with metatarsal protection, leather welding gloves rated to the work being done, and FR balaclavas or hoods for arc welding. None of this is workwear-channel inventory; all of it comes from welding-PPE distributors.</p>
 
- <h2 id="branding" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Branding FR Welding Garments</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">This is where most catalog suppliers compromise compliance.</p>
+ <h2 id="branding" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Branding FR Welding Garments</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">This is where most catalog suppliers compromise compliance.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">FR Base Shirts</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Embroidery using <strong>Nomex (aramid) thread</strong> only. Standard polyester thread melts in flash-fire and arc events, voiding the protective rating. We use Nomex on every FR garment we decorate and document the thread spec on the certification sheet that ships with every order.</p>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Placement follows the manufacturer's published guides — typically left chest, optional right chest, optional sleeve. Avoid oversized back logos that change the protective fabric area without manufacturer pre-approval. See our deeper piece on <a href="/blog/nfpa-70e-fr-shirts-vegas-electricians/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">FR shirt compliance</a> for the full decoration spec.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Embroidery using <strong>Nomex (aramid) thread</strong> only. Standard polyester thread melts in flash-fire and arc events, voiding the protective rating. We use Nomex on every FR garment we decorate and document the thread spec on the certification sheet that ships with every order.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Placement follows the manufacturer's published guides — typically left chest, optional right chest, optional sleeve. Avoid oversized back logos that change the protective fabric area without manufacturer pre-approval. See our deeper piece on <a href="/blog/nfpa-70e-fr-shirts-vegas-electricians/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">FR shirt compliance</a> for the full decoration spec.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Leather Welding Jackets</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Custom branded patches stitched directly to the leather using FR-rated Nomex thread. The patch itself is decorated separately on cotton-blend or twill fabric, then sewn into place. Heat-applied decoration is not used on welding leather because the thermal process can compromise the fire protection of the leather.</p>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">For larger logo work, multiple smaller patches at different placements (chest + sleeve + back yoke) often look better than a single oversized patch. Ironworking outfits commonly run patch combinations: company name on chest, ironworker local affiliation (IW Local 433, Local 416) on sleeve, journeyman/apprentice tag on shoulder.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Custom branded patches stitched directly to the leather using FR-rated Nomex thread. The patch itself is decorated separately on cotton-blend or twill fabric, then sewn into place. Heat-applied decoration is not used on welding leather because the thermal process can compromise the fire protection of the leather.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">For larger logo work, multiple smaller patches at different placements (chest + sleeve + back yoke) often look better than a single oversized patch. Ironworking outfits commonly run patch combinations: company name on chest, ironworker local affiliation (IW Local 433, Local 416) on sleeve, journeyman/apprentice tag on shoulder.</p>
 
- <h2 id="vegas-trades" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Vegas Welding Trades and Their Specs</h2>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
- <li><strong>Structural welders</strong> on <a href="/industries/steel-iron-workers-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">commercial steel erection</a>: NFPA 2112 base + leather welding jacket + ANSI Class 2 hi-vis vest over the top.</li>
- <li><strong>Pipefitters and process welders</strong> on <a href="/industries/oil-gas-mechanical-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">oil/gas/mechanical work</a>: NFPA 2112 + 70E dual-rated base for flash-fire and arc-flash + leather welding gear during hot work.</li>
+ <h2 id="vegas-trades" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Vegas Welding Trades and Their Specs</h2>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
+ <li><strong>Structural welders</strong> on <a href="/industries/steel-iron-workers-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">commercial steel erection</a>: NFPA 2112 base + leather welding jacket + ANSI Class 2 hi-vis vest over the top.</li>
+ <li><strong>Pipefitters and process welders</strong> on <a href="/industries/oil-gas-mechanical-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">oil/gas/mechanical work</a>: NFPA 2112 + 70E dual-rated base for flash-fire and arc-flash + leather welding gear during hot work.</li>
  <li><strong>Aluminum welders and fabrication shops</strong>: Same FR + leather system but TIG and MIG specifically; lighter leather sleeves often replace full jacket.</li>
  <li><strong>Ironworker welders</strong>: Same as structural plus heavy emphasis on hi-vis layer for crane visibility.</li>
  </ul>
 
- <h2 id="ordering" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">How to Order Welder Uniforms</h2>
- <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <h2 id="ordering" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">How to Order Welder Uniforms</h2>
+ <p class="mb-4 text-lg leading-relaxed text-charcoal">See our <a href="/welder-uniforms-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">welder uniforms Las Vegas</a> page for the full program overview and current FR stock. To build an order:</p>
+ <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>FR base shirts</strong> — order through Bighorn (or another workwear-channel supplier) with FR-safe Nomex thread embroidery. Spec the dual NFPA 70E + 2112 rating where electrical exposure is involved.</li>
  <li><strong>Leather welding jackets and sleeves</strong> — order through a welding-specialty PPE distributor (Lincoln Electric, Tillman, Black Stallion). Send the patch design separately to be sewn on with FR thread.</li>
  <li><strong>Hi-vis layer</strong> — for crews working near vehicle traffic or with crane operations, ANSI 107 Class 2 hi-vis vest or FR Hi-Vis combination garment over the FR base layer.</li>
  </ol>
 
- <div class="mt-12 rounded-2xl border border-gold-500/40 bg-gold-500/5 p-7 sm:p-9">
- <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-white">FR welder uniforms in Las Vegas</h2>
- <p class="mb-5 text-lg leading-relaxed text-navy-200">Bighorn Threads supplies and decorates NFPA 2112 FR base layers for Vegas structural welders, ironworkers, pipefitters, and process welders — using FR-safe Nomex thread that preserves the certification.</p>
- <a href="/industries/steel-iron-workers-las-vegas/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">See Steel & Iron Worker Apparel →</a>
+ <div class="mt-12 border border-hairline bg-panel p-7 sm:p-9">
+ <h2 class="mb-3 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal">FR welder uniforms in Las Vegas</h2>
+ <p class="mb-5 text-lg leading-relaxed text-ash">Bighorn Threads supplies and decorates NFPA 2112 FR base layers for Vegas structural welders, ironworkers, pipefitters, and process welders — using FR-safe Nomex thread that preserves the certification.</p>
+ <a href="/industries/steel-iron-workers-las-vegas/" class="btn-primary text-base">See Steel & Iron Worker Apparel →</a>
  </div>
  </div>
  </article>

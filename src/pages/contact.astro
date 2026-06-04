@@ -47,10 +47,7 @@ const faqSchema = {
  mainEntity: faqs.map((item) => ({
  '@type': 'Question',
  name: item.q,
- acceptedAnswer: {
- '@type': 'Answer',
- text: item.a,
- },
+ acceptedAnswer: { '@type': 'Answer', text: item.a },
  })),
 }
 
@@ -68,8 +65,10 @@ const contactSchema = {
  email: 'info@bighornthreads.com',
  address: {
  '@type': 'PostalAddress',
+ streetAddress: '9205 W. Russell Rd Ste 305',
  addressLocality: 'Las Vegas',
  addressRegion: 'NV',
+ postalCode: '89149',
  addressCountry: 'US',
  },
  openingHoursSpecification: [
@@ -102,452 +101,151 @@ const timelines = [
 ]
 
 const steps = [
- {
- n: '01',
- title: 'We review your needs',
- time: 'Quick reply',
- body: 'A real human on our team — not a chatbot — reads your request, flags any gaps, and pulls pricing on the specific blanks and decoration method that fit your job.',
- },
- {
- n: '02',
- title: 'You get a quote',
- time: 'Local production',
- body: 'Itemized pricing with garment choices, decoration cost, artwork, turnaround, and shipping. No mystery line items. If you want options, we give you options.',
- },
- {
- n: '03',
- title: 'We finalize artwork',
- time: 'Free mockups included',
- body: 'Our art team cleans up your logo, builds digital mockups, and sends proofs for written approval. Need vectorization? Flat fee, no surprise invoice.',
- },
- {
- n: '04',
- title: 'Production starts',
- time: 'You get tracking',
- body: 'Screens burned, needles threaded, presses running. You get production updates and a delivery ETA. Finished goods ship or deliver inside the Vegas Valley.',
- },
+ { n: '01', title: 'We review your needs', time: 'Quick reply', body: 'A real human on our team — not a chatbot — reads your request, flags any gaps, and pulls pricing on the specific blanks and decoration method that fit your job.' },
+ { n: '02', title: 'You get a quote', time: 'Local production', body: 'Itemized pricing with garment choices, decoration cost, artwork, turnaround, and shipping. No mystery line items. If you want options, we give you options.' },
+ { n: '03', title: 'We finalize artwork', time: 'Free mockups included', body: 'Our art team cleans up your logo, builds digital mockups, and sends proofs for written approval. Need vectorization? Flat fee, no surprise invoice.' },
+ { n: '04', title: 'Production starts', time: 'You get tracking', body: 'Screens burned, needles threaded, presses running. You get production updates and a delivery ETA. Finished goods ship or deliver inside the Vegas Valley.' },
 ]
+
+const inputClass =
+ 'mt-2 block w-full min-h-[44px] rounded border border-hairline bg-panel px-4 py-3 text-charcoal placeholder-ash transition-colors focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/25'
 ---
 
 <BaseLayout title={title} description={description}>
- <!-- ============================================================ -->
- <!-- QUOTE FORM + CONTACT INFO =================================== -->
- <!-- ============================================================ -->
- <section
- id="quote-form"
- class="scroll-mt-20 relative overflow-hidden border-b border-navy-700/30 bg-navy-900/30 pt-32 pb-24 sm:pt-40 sm:pb-32"
- >
- <div
- aria-hidden="true"
- class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,theme(colors.gold.500/0.08),transparent_60%)]"
- >
- </div>
- <div
- aria-hidden="true"
- class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold-500/30 to-transparent"
- >
- </div>
-
- <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
- <div class="mb-16 max-w-3xl">
- <span
- class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500"
- >Request A Quote</span
- >
- <h1
- class="font-heading text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
- >
- Tell us what you need.
- <span class="text-gold-500">We'll handle the rest.</span>
+ <!-- ════ QUOTE FORM — concrete ════ -->
+ <section id="quote-form" class="scroll-mt-20 bg-concrete pt-32 pb-20 sm:pt-40 sm:pb-28">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-14 max-w-3xl">
+ <p class="kicker mb-3">Request a Quote</p>
+ <h1 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl lg:text-6xl">
+ Tell us what you need. <span class="text-gold-600">We'll handle the rest.</span>
  </h1>
- <p class="mt-6 text-lg text-gray-400 sm:text-xl">
- Quotes turned around quickly. No pushy sales calls, no BS — just
- straight answers from a Las Vegas shop that prints and stitches
- for the trades that build this town.
+ <p class="mt-5 text-lg leading-relaxed text-ash">
+ Quotes turned around quickly. No pushy sales calls, no BS — just straight answers from a
+ Las Vegas shop that prints and stitches for the trades that build this town.
  </p>
  </div>
 
- <div class="grid gap-10 lg:grid-cols-5 lg:gap-12">
- <!-- FORM ================================================= -->
+ <div class="grid gap-8 lg:grid-cols-5 lg:gap-10">
+ <!-- FORM -->
  <div class="lg:col-span-3">
- <form
- id="quoteForm"
- action="/api/contact"
- method="POST"
- class="rounded-2xl border border-navy-700/40 bg-navy-800/20 p-6 sm:p-8 lg:p-10"
- novalidate
- >
- <!-- Honeypot (hidden from humans). Obscure name to dodge password-manager autofill. -->
+ <form id="quoteForm" action="/api/contact" method="POST" class="relative border border-hairline bg-paper p-6 sm:p-8 lg:p-10" novalidate>
  <div class="absolute -left-[9999px]" aria-hidden="true">
  <label for="bh_hp_field">Leave blank</label>
- <input
- type="text"
- name="bh_hp_field"
- id="bh_hp_field"
- tabindex="-1"
- autocomplete="off"
- />
+ <input type="text" name="bh_hp_field" id="bh_hp_field" tabindex="-1" autocomplete="off" />
  </div>
 
  <div class="grid gap-6 sm:grid-cols-2">
- <div class="sm:col-span-1">
- <label
- for="name"
- class="block text-sm font-semibold text-white"
- >Name <span class="text-gold-500">*</span></label
- >
- <input
- type="text"
- name="name"
- id="name"
- required
- autocomplete="name"
- class="mt-2 block w-full min-h-[44px] rounded-lg border border-navy-700/60 bg-navy-950/60 px-4 py-3 text-white placeholder-gray-500 transition-colors focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/30"
- placeholder="Jordan Reyes"
- />
+ <div>
+ <label for="name" class="block text-sm font-semibold text-charcoal">Name <span class="text-gold-600">*</span></label>
+ <input type="text" name="name" id="name" required autocomplete="name" class={inputClass} placeholder="Jordan Reyes" />
  </div>
-
- <div class="sm:col-span-1">
- <label
- for="company"
- class="block text-sm font-semibold text-white"
- >Company <span class="text-gold-500">*</span></label
- >
- <input
- type="text"
- name="company"
- id="company"
- required
- autocomplete="organization"
- class="mt-2 block w-full min-h-[44px] rounded-lg border border-navy-700/60 bg-navy-950/60 px-4 py-3 text-white placeholder-gray-500 transition-colors focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/30"
- placeholder="Reyes Concrete & Grading"
- />
+ <div>
+ <label for="company" class="block text-sm font-semibold text-charcoal">Company <span class="text-gold-600">*</span></label>
+ <input type="text" name="company" id="company" required autocomplete="organization" class={inputClass} placeholder="Reyes Concrete & Grading" />
  </div>
-
- <div class="sm:col-span-1">
- <label
- for="email"
- class="block text-sm font-semibold text-white"
- >Email <span class="text-gold-500">*</span></label
- >
- <input
- type="email"
- name="email"
- id="email"
- required
- autocomplete="email"
- class="mt-2 block w-full min-h-[44px] rounded-lg border border-navy-700/60 bg-navy-950/60 px-4 py-3 text-white placeholder-gray-500 transition-colors focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/30"
- placeholder="jordan@reyesgrading.com"
- />
+ <div>
+ <label for="email" class="block text-sm font-semibold text-charcoal">Email <span class="text-gold-600">*</span></label>
+ <input type="email" name="email" id="email" required autocomplete="email" class={inputClass} placeholder="jordan@reyesgrading.com" />
  </div>
-
- <div class="sm:col-span-1">
- <label
- for="phone"
- class="block text-sm font-semibold text-white"
- >Phone</label
- >
- <input
- type="tel"
- name="phone"
- id="phone"
- autocomplete="tel"
- class="mt-2 block w-full min-h-[44px] rounded-lg border border-navy-700/60 bg-navy-950/60 px-4 py-3 text-white placeholder-gray-500 transition-colors focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/30"
- placeholder="(702) 555-0187"
- />
+ <div>
+ <label for="phone" class="block text-sm font-semibold text-charcoal">Phone</label>
+ <input type="tel" name="phone" id="phone" autocomplete="tel" class={inputClass} placeholder="(702) 555-0187" />
  </div>
-
  <div class="sm:col-span-2">
- <label
- for="service"
- class="block text-sm font-semibold text-white"
- >What do you need?</label
- >
- <select
- name="service"
- id="service"
- class="mt-2 block w-full min-h-[44px] rounded-lg border border-navy-700/60 bg-navy-950/60 px-4 py-3 text-white transition-colors focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/30"
- >
+ <label for="service" class="block text-sm font-semibold text-charcoal">What do you need?</label>
+ <select name="service" id="service" class={inputClass}>
  <option value="">Pick one.</option>
  {services.map((s) => <option value={s}>{s}</option>)}
  </select>
  </div>
-
- <div class="sm:col-span-1">
- <label
- for="quantity"
- class="block text-sm font-semibold text-white"
- >Quantity estimate</label
- >
- <input
- type="text"
- name="quantity"
- id="quantity"
- inputmode="numeric"
- class="mt-2 block w-full min-h-[44px] rounded-lg border border-navy-700/60 bg-navy-950/60 px-4 py-3 text-white placeholder-gray-500 transition-colors focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/30 font-mono"
- placeholder="e.g. 48 shirts + 24 hats"
- />
+ <div>
+ <label for="quantity" class="block text-sm font-semibold text-charcoal">Quantity estimate</label>
+ <input type="text" name="quantity" id="quantity" inputmode="numeric" class={`${inputClass} font-mono`} placeholder="e.g. 48 shirts + 24 hats" />
  </div>
-
- <div class="sm:col-span-1">
- <label
- for="timeline"
- class="block text-sm font-semibold text-white"
- >Timeline</label
- >
- <select
- name="timeline"
- id="timeline"
- class="mt-2 block w-full min-h-[44px] rounded-lg border border-navy-700/60 bg-navy-950/60 px-4 py-3 text-white transition-colors focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/30"
- >
+ <div>
+ <label for="timeline" class="block text-sm font-semibold text-charcoal">Timeline</label>
+ <select name="timeline" id="timeline" class={inputClass}>
  <option value="">When do you need it?</option>
  {timelines.map((t) => <option value={t}>{t}</option>)}
  </select>
  </div>
-
  <div class="sm:col-span-2">
- <label
- for="message"
- class="block text-sm font-semibold text-white"
- >Message</label
- >
- <textarea
- name="message"
- id="message"
- rows="5"
- class="mt-2 block w-full rounded-lg border border-navy-700/60 bg-navy-950/60 px-4 py-3 text-white placeholder-gray-500 transition-colors focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/30"
- placeholder="Tell us about your crew, the garments you want, logo placement, deadlines, anything relevant."
- ></textarea>
+ <label for="message" class="block text-sm font-semibold text-charcoal">Message</label>
+ <textarea name="message" id="message" rows="5" class={inputClass} placeholder="Tell us about your crew, the garments you want, logo placement, deadlines, anything relevant."></textarea>
  </div>
  </div>
 
  <SmsConsentFields />
 
+ <div class="cf-turnstile mt-8" data-sitekey="0x4AAAAAADW_K97ZyhlAHC4I" data-theme="light"></div>
+
  <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
- <p class="text-sm text-gray-500">
- A real human replies fast — usually same business day.
- </p>
- <button
- type="submit"
- class="inline-flex items-center justify-center min-h-[44px] rounded-lg bg-gold-500 px-8 py-4 text-lg font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-xl hover:shadow-gold-500/25 hover:-translate-y-0.5 disabled:opacity-60"
- >
- Send My Request
- </button>
+ <p class="text-sm text-ash">A real human replies fast — usually same business day.</p>
+ <button type="submit" class="btn-primary justify-center text-base disabled:opacity-60">Send My Request</button>
  </div>
 
- <!-- Live region for form state -->
- <div
- id="formStatus"
- role="status"
- aria-live="polite"
- aria-atomic="true"
- class="mt-6 text-sm"
- >
- </div>
+ <div id="formStatus" role="status" aria-live="polite" aria-atomic="true" class="mt-6 text-sm"></div>
  </form>
  </div>
 
- <!-- CONTACT INFO CARDS =================================== -->
- <aside class="lg:col-span-2 space-y-6">
- <!-- Phone -->
- <a
- href="tel:+17029048923"
- class="group block rounded-2xl border border-navy-700/40 bg-navy-800/20 p-8 transition-all hover:border-gold-500/50 hover:bg-navy-800/40 min-h-[44px]"
- >
+ <!-- CONTACT INFO -->
+ <aside class="space-y-5 lg:col-span-2">
+ <a href="tel:+17029048923" class="group block border border-hairline bg-panel p-7 transition-colors hover:border-gold-500">
  <div class="flex items-start gap-4">
- <div
- class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-gold-500/10 text-gold-500 transition-colors group-hover:bg-gold-500/20"
- aria-hidden="true"
- >
- <svg
- xmlns="http://www.w3.org/2000/svg"
- class="h-6 w-6"
- fill="none"
- viewBox="0 0 24 24"
- stroke="currentColor"
- stroke-width="2"
- >
- <path
- stroke-linecap="round"
- stroke-linejoin="round"
- d="M3 5a2 2 0 012-2h2.28a1 1 0 01.95.68l1.5 4.5a1 1 0 01-.5 1.21l-1.58.79a11 11 0 005.6 5.6l.79-1.58a1 1 0 011.21-.5l4.5 1.5a1 1 0 01.68.95V19a2 2 0 01-2 2h-1C9.82 21 3 14.18 3 6V5z"
- ></path>
- </svg>
+ <div class="flex h-12 w-12 shrink-0 items-center justify-center bg-gold-500/15 text-gold-700" aria-hidden="true">
+ <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.28a1 1 0 01.95.68l1.5 4.5a1 1 0 01-.5 1.21l-1.58.79a11 11 0 005.6 5.6l.79-1.58a1 1 0 011.21-.5l4.5 1.5a1 1 0 01.68.95V19a2 2 0 01-2 2h-1C9.82 21 3 14.18 3 6V5z" /></svg>
  </div>
  <div class="min-w-0">
- <div
- class="text-xs font-bold uppercase tracking-[0.15em] text-gold-500"
- >
- Call Us
- </div>
- <div
- class="mt-1 font-mono text-xl font-bold text-white sm:text-2xl"
- >
- 702.904.8923
- </div>
- <p class="mt-1 text-sm text-gray-400">
- Ring the shop. A human answers.
- </p>
+ <div class="kicker">Call Us</div>
+ <div class="mt-1 font-mono text-xl font-bold text-charcoal sm:text-2xl">702.904.8923</div>
+ <p class="mt-1 text-sm text-ash">Ring the shop. A human answers.</p>
  </div>
  </div>
  </a>
 
- <!-- Email -->
- <a
- href="mailto:info@bighornthreads.com"
- class="group block rounded-2xl border border-navy-700/40 bg-navy-800/20 p-8 transition-all hover:border-gold-500/50 hover:bg-navy-800/40 min-h-[44px]"
- >
+ <a href="mailto:info@bighornthreads.com" class="group block border border-hairline bg-panel p-7 transition-colors hover:border-gold-500">
  <div class="flex items-start gap-4">
- <div
- class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-gold-500/10 text-gold-500 transition-colors group-hover:bg-gold-500/20"
- aria-hidden="true"
- >
- <svg
- xmlns="http://www.w3.org/2000/svg"
- class="h-6 w-6"
- fill="none"
- viewBox="0 0 24 24"
- stroke="currentColor"
- stroke-width="2"
- >
- <path
- stroke-linecap="round"
- stroke-linejoin="round"
- d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
- ></path>
- </svg>
+ <div class="flex h-12 w-12 shrink-0 items-center justify-center bg-gold-500/15 text-gold-700" aria-hidden="true">
+ <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
  </div>
  <div class="min-w-0">
- <div
- class="text-xs font-bold uppercase tracking-[0.15em] text-gold-500"
- >
- Email Us
- </div>
- <div
- class="mt-1 break-all text-lg font-semibold text-white sm:text-xl"
- >
- info@bighornthreads.com
- </div>
- <p class="mt-1 text-sm text-gray-400">
- Attach your logo — we'll take it from there.
- </p>
+ <div class="kicker">Email Us</div>
+ <div class="mt-1 break-all text-lg font-semibold text-charcoal">info@bighornthreads.com</div>
+ <p class="mt-1 text-sm text-ash">Attach your logo — we'll take it from there.</p>
  </div>
  </div>
  </a>
 
- <!-- Address / Map -->
- <div
- class="overflow-hidden rounded-2xl border border-navy-700/40 bg-navy-800/20"
- >
- <div
- aria-hidden="true"
- class="relative h-48 w-full overflow-hidden"
- >
- <img
- src="/images/generated/cta-bluehour.jpg"
- alt=""
- width="1920"
- height="480"
- loading="lazy"
- decoding="async"
- class="absolute inset-0 h-full w-full object-cover"
- />
- <div
- class="absolute inset-0 bg-gradient-to-t from-navy-950/85 via-navy-950/40 to-navy-950/20"
- >
+ <div class="overflow-hidden border border-hairline bg-panel">
+ <div aria-hidden="true" class="relative h-44 w-full overflow-hidden">
+ <img src="/images/generated/cta-bluehour.jpg" alt="" width="1920" height="480" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover" />
+ <div class="absolute inset-0 bg-navy-950/55"></div>
+ <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+ <div class="mx-auto mb-2 flex h-10 w-10 items-center justify-center bg-gold-500 text-charcoal">
+ <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
  </div>
- <div
- class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center"
- >
- <div
- class="mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-gold-500 text-navy-950 shadow-lg shadow-gold-500/40"
- >
- <svg
- xmlns="http://www.w3.org/2000/svg"
- class="h-5 w-5"
- fill="none"
- viewBox="0 0 24 24"
- stroke="currentColor"
- stroke-width="2.5"
- >
- <path
- stroke-linecap="round"
- stroke-linejoin="round"
- d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.244-4.243a8 8 0 1111.314 0z"
- ></path>
- <path
- stroke-linecap="round"
- stroke-linejoin="round"
- d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
- ></path>
- </svg>
- </div>
- <div
- class="font-mono text-xs uppercase tracking-[0.2em] text-gold-300 drop-shadow-lg"
- >
- Las Vegas · Nevada
+ <div class="font-mono text-xs uppercase tracking-[0.2em] text-gold-300">Las Vegas · Nevada</div>
  </div>
  </div>
- </div>
- <div class="p-8">
- <div
- class="text-xs font-bold uppercase tracking-[0.15em] text-gold-500"
- >
- Find Us
- </div>
- <div class="mt-1 text-lg font-semibold text-white">
- Las Vegas, Nevada
- </div>
- <p class="mt-1 text-sm text-gray-400">
- Production shop serving crews across the Valley, Henderson,
- North Las Vegas, and beyond.
- </p>
+ <div class="p-7">
+ <div class="kicker">Find Us</div>
+ <div class="mt-1 font-heading text-lg font-bold uppercase tracking-tight text-charcoal">Las Vegas, Nevada</div>
+ <p class="mt-1 text-sm text-ash">Production shop serving crews across the Valley, Henderson, North Las Vegas, and beyond.</p>
  </div>
  </div>
 
- <!-- Hours -->
- <div
- class="rounded-2xl border border-navy-700/40 bg-navy-800/20 p-8"
- >
+ <div class="border border-hairline bg-panel p-7">
  <div class="flex items-start gap-4">
- <div
- class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-gold-500/10 text-gold-500"
- aria-hidden="true"
- >
- <svg
- xmlns="http://www.w3.org/2000/svg"
- class="h-6 w-6"
- fill="none"
- viewBox="0 0 24 24"
- stroke="currentColor"
- stroke-width="2"
- >
- <path
- stroke-linecap="round"
- stroke-linejoin="round"
- d="M12 8v4l3 2m6-2a9 9 0 11-18 0 9 9 0 0118 0z"
- ></path>
- </svg>
+ <div class="flex h-12 w-12 shrink-0 items-center justify-center bg-gold-500/15 text-gold-700" aria-hidden="true">
+ <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 2m6-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
  </div>
  <div class="min-w-0">
- <div
- class="text-xs font-bold uppercase tracking-[0.15em] text-gold-500"
- >
- Hours
- </div>
+ <div class="kicker">Hours</div>
  <dl class="mt-2 space-y-1 text-sm">
- <div class="flex justify-between gap-4">
- <dt class="text-gray-400">Mon – Fri</dt>
- <dd class="font-mono text-white">8:00 AM – 5:00 PM</dd>
- </div>
- <div class="flex justify-between gap-4">
- <dt class="text-gray-400">Saturday</dt>
- <dd class="font-mono text-gray-500">By appointment</dd>
- </div>
- <div class="flex justify-between gap-4">
- <dt class="text-gray-400">Sunday</dt>
- <dd class="font-mono text-gray-500">Closed</dd>
- </div>
+ <div class="flex justify-between gap-4"><dt class="text-ash">Mon – Fri</dt><dd class="font-mono text-charcoal">8:00 AM – 5:00 PM</dd></div>
+ <div class="flex justify-between gap-4"><dt class="text-ash">Saturday</dt><dd class="font-mono text-ash">By appointment</dd></div>
+ <div class="flex justify-between gap-4"><dt class="text-ash">Sunday</dt><dd class="font-mono text-ash">Closed</dd></div>
  </dl>
  </div>
  </div>
@@ -557,148 +255,65 @@ const steps = [
  </div>
  </section>
 
- <!-- ============================================================ -->
- <!-- WHAT HAPPENS NEXT =========================================== -->
- <!-- ============================================================ -->
- <section
- id="what-happens-next"
- class="scroll-mt-20 bg-navy-950 py-24 sm:py-32"
- >
- <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
- <div class="mx-auto max-w-3xl text-center">
- <span
- class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500"
- >The Process</span
- >
- <h2
- class="font-heading text-4xl font-bold tracking-tight sm:text-5xl"
- >
- What Happens <span class="text-gold-500">Next</span>
+ <!-- ════ WHAT HAPPENS NEXT — paper ════ -->
+ <section id="what-happens-next" class="scroll-mt-20 border-y border-hairline bg-paper py-20 sm:py-28">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="max-w-2xl">
+ <p class="kicker mb-3">The Process</p>
+ <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
+ What happens <span class="text-gold-600">next.</span>
  </h2>
- <p class="mt-5 text-lg text-gray-400">
- From the second you hit send, here is exactly what we do. No
- mystery. No weeks of radio silence.
+ <p class="mt-4 text-lg leading-relaxed text-ash">
+ From the second you hit send, here is exactly what we do. No mystery. No weeks of radio silence.
  </p>
  </div>
 
- <ol
- class="mt-16 grid gap-8 sm:gap-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-8"
- >
- {
- steps.map((step, i) => (
- <li class="relative">
- {i < steps.length - 1 && (
- <div
- aria-hidden="true"
- class="pointer-events-none absolute left-1/2 top-7 hidden h-px w-full bg-gradient-to-r from-gold-500/50 via-gold-500/20 to-transparent lg:block"
- />
- )}
- <div class="relative rounded-2xl border border-navy-700/40 bg-navy-800/20 p-8 transition-colors hover:border-gold-500/40">
- <div class="mb-5 flex items-center gap-4">
- <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-gold-400 to-gold-600 font-mono text-lg font-bold text-navy-950 shadow-lg shadow-gold-500/20">
- {step.n}
+ <ol class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+ {steps.map((step) => (
+ <li class="border border-hairline bg-panel p-7">
+ <div class="mb-5 flex items-baseline justify-between">
+ <span class="font-heading text-5xl font-extrabold leading-none text-gold-500">{step.n}</span>
+ <span class="spec border border-hairline px-2 py-1 text-ash">{step.time}</span>
  </div>
- <div class="font-mono text-xs uppercase tracking-[0.15em] text-gold-400">
- {step.time}
- </div>
- </div>
- <h3 class="font-heading text-xl font-bold text-white">
- {step.title}
- </h3>
- <p class="mt-3 text-sm leading-relaxed text-gray-400">
- {step.body}
- </p>
- </div>
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{step.title}</h3>
+ <p class="mt-2 text-sm leading-relaxed text-ash">{step.body}</p>
  </li>
- ))
- }
+ ))}
  </ol>
  </div>
  </section>
 
- <!-- ============================================================ -->
- <!-- FAQ ========================================================= -->
- <!-- ============================================================ -->
- <section id="faq" class="scroll-mt-20 bg-navy-950 py-24 sm:py-32">
- <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
- <div class="mx-auto max-w-3xl text-center">
- <span
- class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500"
- >Common Questions</span
- >
- <h2
- class="font-heading text-4xl font-bold tracking-tight sm:text-5xl"
- >
- Questions We Get <span class="text-gold-500">Every Week</span>
+ <!-- ════ FAQ — concrete ════ -->
+ <section id="faq" class="scroll-mt-20 bg-concrete py-20 sm:py-28">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-10 max-w-2xl">
+ <p class="kicker mb-3">Common Questions</p>
+ <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
+ Questions we get <span class="text-gold-600">every week.</span>
  </h2>
- <p class="mt-5 text-lg text-gray-400">
- If your question is not answered here, ask it on the form above —
- we reply to everything.
- </p>
  </div>
 
- <div class="mx-auto mt-14 max-w-4xl space-y-4">
- {
- faqs.map((item) => (
- <details class="group rounded-2xl border border-navy-700/40 bg-navy-800/20 transition-colors hover:border-gold-500/30 open:border-gold-500/40">
- <summary class="flex cursor-pointer list-none items-center justify-between gap-6 p-6 min-h-[44px] sm:p-8">
- <h3 class="font-heading text-lg font-semibold text-white sm:text-xl">
- {item.q}
- </h3>
- <span
- aria-hidden="true"
- class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-navy-700/60 text-gold-500 transition-transform group-open:rotate-45"
- >
- <svg
- xmlns="http://www.w3.org/2000/svg"
- class="h-4 w-4"
- fill="none"
- viewBox="0 0 24 24"
- stroke="currentColor"
- stroke-width="2.5"
- >
- <path
- stroke-linecap="round"
- stroke-linejoin="round"
- d="M12 4v16m8-8H4"
- />
- </svg>
- </span>
+ <div class="divide-y divide-hairline border-y border-hairline">
+ {faqs.map((item) => (
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <span class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{item.q}</span>
+ <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
  </summary>
- <div class="border-t border-navy-700/40 px-6 pb-6 pt-5 text-gray-300 sm:px-8 sm:pb-8">
- <p class="leading-relaxed">{item.a}</p>
- </div>
+ <p class="pb-5 leading-relaxed text-ash">{item.a}</p>
  </details>
- ))
- }
+ ))}
  </div>
 
- <div class="mt-16 text-center">
- <a
- href="#quote-form"
- class="inline-flex items-center justify-center min-h-[44px] rounded-lg bg-gold-500 px-8 py-4 text-lg font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-xl hover:shadow-gold-500/25 hover:-translate-y-0.5"
- >
- Ready? Start My Quote
- </a>
+ <div class="mt-10">
+ <a href="#quote-form" class="btn-primary text-base">Ready? Start My Quote</a>
  </div>
  </div>
  </section>
 
- <!-- ============================================================ -->
- <!-- STRUCTURED DATA ============================================= -->
- <!-- ============================================================ -->
- <script
- type="application/ld+json"
- set:html={JSON.stringify(faqSchema)}
- />
- <script
- type="application/ld+json"
- set:html={JSON.stringify(contactSchema)}
- />
+ <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(contactSchema)} />
 
- <!-- ============================================================ -->
- <!-- FORM VALIDATION + SUBMIT (progressive enhancement) =========== -->
- <!-- ============================================================ -->
  <script is:inline>
  (function () {
  const form = document.getElementById('quoteForm')
@@ -709,17 +324,12 @@ const steps = [
  status.textContent = msg
  status.className =
  'mt-6 text-sm ' +
- (tone === 'error'
- ? 'text-red-400'
- : tone === 'success'
- ? 'text-gold-400'
- : 'text-gray-400')
+ (tone === 'error' ? 'text-red-600' : tone === 'success' ? 'text-gold-700' : 'text-ash')
  }
 
  form.addEventListener('submit', async (e) => {
  e.preventDefault()
 
- // Honeypot — silently drop bots
  const hp = form.querySelector('input[name="website"]')
  if (hp && hp.value) {
  setStatus('Thanks — we got it.', 'success')
@@ -727,15 +337,11 @@ const steps = [
  return
  }
 
- // Basic required validation
  const required = ['name', 'company', 'email']
  for (const field of required) {
  const el = form.elements.namedItem(field)
  if (!el || !el.value.trim()) {
- setStatus(
- 'Please fill in your name, company, and email so we can reply.',
- 'error'
- )
+ setStatus('Please fill in your name, company, and email so we can reply.', 'error')
  if (el && typeof el.focus === 'function') el.focus()
  return
  }
@@ -764,19 +370,13 @@ const steps = [
  if (typeof gtag === 'function') {
  gtag('event', 'generate_lead', { form: 'contact_quote', page_path: window.location.pathname })
  }
- setStatus(
- 'Got it. A real human will reply soon with a full quote.',
- 'success'
- )
+ setStatus('Got it. A real human will reply soon with a full quote.', 'success')
  form.reset()
  } else {
  throw new Error('Request failed')
  }
  } catch (err) {
- setStatus(
- 'Something broke on our end. Call us at 702.904.8923 or email info@bighornthreads.com and we will handle it.',
- 'error'
- )
+ setStatus('Something broke on our end. Call us at 702.904.8923 or email info@bighornthreads.com and we will handle it.', 'error')
  } finally {
  if (submitBtn) submitBtn.disabled = false
  }

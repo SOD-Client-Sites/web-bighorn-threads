@@ -35,71 +35,71 @@ const schema = {
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
- <article class="bg-navy-950">
- <header class="relative overflow-hidden border-b border-navy-800">
- <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
+ <article class="bg-concrete">
+ <header class="border-b border-hairline bg-paper">
  <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
- <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-400">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-400">Blog</a></nav>
- <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
+ <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-700">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-700">Blog</a></nav>
+ <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-600">{post.category}</span>
  <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
- <p class="mb-8 text-xl leading-relaxed text-gray-300">A working compliance guide for branding ANSI/ISEA 107 hi-vis safety vests without voiding the certification.</p>
- <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400"><span class="text-gold-500">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
+ <p class="mb-8 text-xl leading-relaxed text-ash">A working compliance guide for branding ANSI/ISEA 107 hi-vis safety vests without voiding the certification.</p>
+ <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
  </header>
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="ANSI 107 Class 2 hi-vis safety vest with embroidered company logo on left chest" width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" /></div>
+ <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="ANSI 107 Class 2 hi-vis safety vest with embroidered company logo on left chest" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
 
- <aside class="mb-10 rounded-2xl border border-gold-500/30 bg-navy-900/60 p-7">
- <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Quick Answer</p>
- <p class="text-lg leading-relaxed text-white sm:text-xl">Custom safety vests are compliant with <a href="https://safetyequipment.org/standards/ansi-isea-107/" rel="noopener" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">ANSI/ISEA 107</a> when the decoration stays within the 72-square-inch non-retroreflective area limit and doesn't cover or obstruct any of the required retroreflective tape. Standard left-chest logos at 3-3.5 inches wide are well within the cap; back logos and multi-placement decoration require attention to total area.</p>
+ <aside class="mb-10 border border-hairline bg-panel p-7">
+ <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl">Custom safety vests are compliant with <a href="https://safetyequipment.org/standards/ansi-isea-107/" rel="noopener" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">ANSI/ISEA 107</a> when the decoration stays within the 72-square-inch non-retroreflective area limit and doesn't cover or obstruct any of the required retroreflective tape. Standard left-chest logos at 3-3.5 inches wide are well within the cap; back logos and multi-placement decoration require attention to total area.</p>
  </aside>
 
  <h2 id="why-rules" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Why Decoration Rules Matter on Safety Vests</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">A high-visibility safety vest works because the retroreflective tape returns light to drivers, equipment operators, and other workers — making the wearer visible at distances and in conditions where unmarked clothing wouldn't be. Adding decoration that covers the retroreflective tape directly degrades that protection. Adding too much non-retroreflective fabric area reduces the contrast between the bright fluorescent base and the surrounding environment, weakening the visibility effect at distance.</p>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">ANSI/ISEA 107 codifies these limits. <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.96" rel="noopener" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">OSHA references the standard</a> for traffic-exposed construction work, and many state DOT specifications require ANSI 107 Class 2 or Class 3 compliance. Decoration that breaks the rating creates compliance risk for both the worker and the contractor.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">A high-visibility safety vest works because the retroreflective tape returns light to drivers, equipment operators, and other workers — making the wearer visible at distances and in conditions where unmarked clothing wouldn't be. Adding decoration that covers the retroreflective tape directly degrades that protection. Adding too much non-retroreflective fabric area reduces the contrast between the bright fluorescent base and the surrounding environment, weakening the visibility effect at distance.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">ANSI/ISEA 107 codifies these limits. <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.96" rel="noopener" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">OSHA references the standard</a> for traffic-exposed construction work, and many state DOT specifications require ANSI 107 Class 2 or Class 3 compliance. Decoration that breaks the rating creates compliance risk for both the worker and the contractor.</p>
 
  <h2 id="size-limit" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The 72-Square-Inch Limit</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">ANSI/ISEA 107 caps total non-retroreflective decoration on a Class 2 vest at 72 square inches across all placements combined. That sounds restrictive but in practice covers most company decoration:</p>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">ANSI/ISEA 107 caps total non-retroreflective decoration on a Class 2 vest at 72 square inches across all placements combined. That sounds restrictive but in practice covers most company decoration:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li>A standard left-chest logo at 3.5 × 3.5 inches = ~12 square inches</li>
  <li>A right-chest employee name at 3 × 1 inches = ~3 square inches</li>
  <li>A back-yoke company name at 10 × 2 inches = ~20 square inches</li>
  <li>Total: ~35 square inches — well within the 72-inch cap</li>
  </ul>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Where companies sometimes hit the limit: oversized back logos (12 × 8 inches = 96 square inches by itself), full-back screen-printed designs, or multi-placement programs that don't think about cumulative area.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Where companies sometimes hit the limit: oversized back logos (12 × 8 inches = 96 square inches by itself), full-back screen-printed designs, or multi-placement programs that don't think about cumulative area.</p>
 
  <h2 id="placement" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Standard ANSI-Compliant Placements</h2>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Front placements</h3>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Left chest panel</strong> — primary company logo. Standard 3-3.5 inch width, embroidered or screen-printed.</li>
  <li><strong>Right chest panel</strong> — employee name or department designation. Smaller decoration (2-3 inches wide).</li>
  </ul>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Back placements</h3>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Back yoke</strong> — area above the upper retroreflective stripe. Standard placement for company name in larger lettering.</li>
  <li><strong>Lower rear panel</strong> — area below the lowest retroreflective stripe. Optional placement for project number, license number, or contact phone.</li>
  </ul>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Avoid</h3>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li>Any placement that covers, crosses, or obstructs retroreflective tape</li>
  <li>Oversized back logos that consume the entire back panel non-retroreflective area</li>
  <li>Decoration on the retroreflective stripes themselves</li>
  </ul>
 
  <h2 id="embroidery-vs-print" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Embroidery vs Screen Printing on Safety Vests</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200"><strong>Embroidery</strong> works fine on the mesh polyester fabric of most ANSI 107 vests. Slight advantage: embroidered thread won't be misread as retroreflective material under headlights, while a metallic-ink screen print could in some scenarios. For chest-only programs, embroidery is the straightforward choice.</p>
- <p class="mb-6 text-lg leading-relaxed text-navy-200"><strong>Screen printing</strong> is the standard for back logos and any larger decoration that wouldn't embroider efficiently. Use plastisol or water-based inks compatible with the vest fabric; metallic and reflective inks should be avoided to prevent confusion with the retroreflective tape.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal"><strong>Embroidery</strong> works fine on the mesh polyester fabric of most ANSI 107 vests. Slight advantage: embroidered thread won't be misread as retroreflective material under headlights, while a metallic-ink screen print could in some scenarios. For chest-only programs, embroidery is the straightforward choice.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal"><strong>Screen printing</strong> is the standard for back logos and any larger decoration that wouldn't embroider efficiently. Use plastisol or water-based inks compatible with the vest fabric; metallic and reflective inks should be avoided to prevent confusion with the retroreflective tape.</p>
 
  <h2 id="class-2-vs-3" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Class 2 vs Class 3 Decoration Differences</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200"><strong>Class 2</strong> garments require less retroreflective tape coverage than Class 3, leaving more vest surface area available for decoration. Most chest-and-back company decoration patterns work cleanly on Class 2 vests.</p>
- <p class="mb-6 text-lg leading-relaxed text-navy-200"><strong>Class 3</strong> garments have additional retroreflective requirements (often including arm bands and shoulder reflective material on long-sleeve versions) which reduces non-retroreflective area available for decoration. Decoration on Class 3 long-sleeve versions requires more careful planning to stay within the area cap.</p>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">For deeper context on choosing between Class 2 and Class 3, see <a href="/blog/ansi-107-class-2-vs-class-3-hi-vis-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">ANSI 107 Class 2 vs Class 3 hi-vis</a>.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal"><strong>Class 2</strong> garments require less retroreflective tape coverage than Class 3, leaving more vest surface area available for decoration. Most chest-and-back company decoration patterns work cleanly on Class 2 vests.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal"><strong>Class 3</strong> garments have additional retroreflective requirements (often including arm bands and shoulder reflective material on long-sleeve versions) which reduces non-retroreflective area available for decoration. Decoration on Class 3 long-sleeve versions requires more careful planning to stay within the area cap.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">For deeper context on choosing between Class 2 and Class 3, see <a href="/blog/ansi-107-class-2-vs-class-3-hi-vis-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">ANSI 107 Class 2 vs Class 3 hi-vis</a>.</p>
 
  <h2 id="ordering" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">How to Order Custom Safety Vests</h2>
- <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <p class="mb-4 text-lg leading-relaxed text-charcoal">See our <a href="/custom-safety-vests-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">custom safety vests Las Vegas</a> page for brand options and current stock. When building your order:</p>
+ <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Specify class.</strong> ANSI 107 Class 2 (most common for general construction) or Class 3 (for night work, traffic exposure with vehicle speeds over 50 mph, utility crews).</li>
  <li><strong>Color.</strong> Lime/yellow is the most-ordered; orange is required by some state DOT specs.</li>
  <li><strong>Decoration plan.</strong> List all placements with size — total non-retroreflective area must stay under the published cap.</li>
@@ -107,10 +107,10 @@ const schema = {
  <li><strong>Quantity and sizing.</strong> Most ANSI 107 vests run S-4XL with comparable per-piece pricing across the size range.</li>
  </ol>
 
- <div class="mt-12 rounded-2xl border border-gold-500/40 bg-gold-500/5 p-7 sm:p-9">
- <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-white">Custom ANSI 107 safety vests in Las Vegas</h2>
- <p class="mb-5 text-lg leading-relaxed text-navy-200">Bighorn Threads supplies and decorates ANSI 107 Class 2 and Class 3 safety vests for Vegas contractors, road crews, utility teams, and night-shift operations — with placement that preserves the certification.</p>
- <a href="/safety-compliance/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">See Safety & Compliance →</a>
+ <div class="mt-12 border border-hairline bg-gold-500/5 p-7 sm:p-9">
+ <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-charcoal">Custom ANSI 107 safety vests in Las Vegas</h2>
+ <p class="mb-5 text-lg leading-relaxed text-charcoal">Bighorn Threads supplies and decorates ANSI 107 Class 2 and Class 3 safety vests for Vegas contractors, road crews, utility teams, and night-shift operations — with placement that preserves the certification.</p>
+ <a href="/safety-compliance/" class="inline-flex min-h-[48px] items-center gap-2 bg-gold-500 px-7 py-3 text-base font-bold text-charcoal transition-all hover:bg-gold-600">See Safety & Compliance →</a>
  </div>
  </div>
  </article>

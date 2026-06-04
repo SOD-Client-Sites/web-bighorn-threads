@@ -35,28 +35,27 @@ const schema = {
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
- <article class="bg-navy-950">
- <header class="relative overflow-hidden border-b border-navy-800">
- <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
+ <article class="bg-concrete">
+ <header class="border-b border-hairline bg-paper">
  <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
- <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-400">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-400">Blog</a></nav>
- <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
+ <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-700">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-700">Blog</a></nav>
+ <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-600">{post.category}</span>
  <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
- <p class="mb-8 text-xl leading-relaxed text-gray-300">A practical guide to picking a Las Vegas embroidery shop for your crew, business, or trade — what separates a commercial operation from a hobby machine, and what to ask before you order.</p>
- <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400"><span class="text-gold-500">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
+ <p class="mb-8 text-xl leading-relaxed text-ash">A practical guide to picking a Las Vegas embroidery shop for your crew, business, or trade — what separates a commercial operation from a hobby machine, and what to ask before you order.</p>
+ <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
  </header>
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Multi-head commercial embroidery machine running production for Las Vegas crew apparel" width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" /></div>
+ <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Multi-head commercial embroidery machine running production for Las Vegas crew apparel" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
 
- <aside class="mb-10 rounded-2xl border border-gold-500/30 bg-navy-900/60 p-7">
- <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Quick Answer</p>
- <p class="text-lg leading-relaxed text-white sm:text-xl">A commercial Las Vegas embroidery shop should run multi-head industrial machines (4-12 heads), stock common blanks (Port Authority, Carhartt, Red Kap), accept FR-rated Nomex thread for compliance work, keep digitizing files on record for fast reorders, and ship within a week on standard runs. Hobby/home embroidery operations do not meet any of these standards reliably.</p>
+ <aside class="mb-10 border border-hairline bg-panel p-7">
+ <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl">A commercial Las Vegas embroidery shop should run multi-head industrial machines (4-12 heads), stock common blanks (Port Authority, Carhartt, Red Kap), accept FR-rated Nomex thread for compliance work, keep digitizing files on record for fast reorders, and ship within a week on standard runs. Hobby/home embroidery operations do not meet any of these standards reliably.</p>
  </aside>
 
  <h2 id="commercial-vs-home" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Commercial vs Home Embroidery</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Not every "embroidery shop" you find on a Google Maps search is built to run business work. The split:</p>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Not every "embroidery shop" you find on a Google Maps search is built to run business work. The split:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Home / hobby embroidery</strong> — single-head domestic machine (Brother SE700, Janome MB-7), small order capacity, limited blank inventory, no FR thread capability. Fine for one-off gifts, not appropriate for crew programs.</li>
  <li><strong>Commercial embroidery shop</strong> — multi-head industrial machines from Tajima, Barudan, or Melco. Runs 4-12 garments simultaneously. Stocks Port Authority, Carhartt, and FR garment lines. Has digitizing capability in-house. Can run NFPA-compliant FR thread.</li>
  <li><strong>Industrial embroidery / large run</strong> — 16-head and up, dedicated to bulk production for retail, sports, and uniform programs. Higher per-piece minimums but lowest cost at scale.</li>
@@ -65,44 +64,44 @@ const schema = {
  <h2 id="evaluation" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">What to Evaluate When Picking a Shop</h2>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">1. Machine capacity</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Ask how many heads the shop runs. A 6-head Tajima machine can produce roughly 30-45 finished shirts per hour at typical stitch counts. A single-head domestic machine produces 4-6 per hour. The capacity gap is the difference between a 24-piece order shipping in days vs. weeks.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Ask how many heads the shop runs. A 6-head Tajima machine can produce roughly 30-45 finished shirts per hour at typical stitch counts. A single-head domestic machine produces 4-6 per hour. The capacity gap is the difference between a 24-piece order shipping in days vs. weeks.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">2. Blank garment inventory</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">A commercial shop stocks common SKUs locally — Port Authority K500/K540, Carhartt K87, Red Kap SP14, Bulwark FR base layers, ML Kishigo hi-vis. If the shop has to order every blank from a wholesaler before they can start, your turnaround time doubles.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">A commercial shop stocks common SKUs locally — Port Authority K500/K540, Carhartt K87, Red Kap SP14, Bulwark FR base layers, ML Kishigo hi-vis. If the shop has to order every blank from a wholesaler before they can start, your turnaround time doubles.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">3. FR thread capability</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">If you have any electrical, oil/gas, or welding crew, the shop has to run Nomex (aramid) thread on FR garments to preserve the rating. Most general embroidery shops don't keep FR thread in stock — ask before you commit. <a href="/blog/nfpa-70e-fr-shirts-vegas-electricians/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">FR shirt compliance</a> covers the spec in detail.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">If you have any electrical, oil/gas, or welding crew, the shop has to run Nomex (aramid) thread on FR garments to preserve the rating. Most general embroidery shops don't keep FR thread in stock — ask before you commit. <a href="/blog/nfpa-70e-fr-shirts-vegas-electricians/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">FR shirt compliance</a> covers the spec in detail.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">4. Digitizing in-house vs. outsourced</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Shops that digitize in-house can iterate on the stitch file when something doesn't look right. Shops that outsource digitizing (to overseas digitizing services) are slower to fix problems and have less control over stitch quality. Ask whether digitizing is in-house and whether they keep your file on record for reorders.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Shops that digitize in-house can iterate on the stitch file when something doesn't look right. Shops that outsource digitizing (to overseas digitizing services) are slower to fix problems and have less control over stitch quality. Ask whether digitizing is in-house and whether they keep your file on record for reorders.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">5. Turnaround time</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">For repeat customers with files on record, standard runs ship within a week. New customers with new artwork add 1-2 days for digitizing. Rush options exist; ask what they cost. <a href="/services/rush-orders-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Rush ordering</a> details the constraints.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">For repeat customers with files on record, standard runs ship within a week. New customers with new artwork add 1-2 days for digitizing. Rush options exist; ask what they cost. <a href="/services/rush-orders-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Rush ordering</a> details the constraints.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">6. Trade-vertical experience</h3>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">For trade and contractor work, pick a shop that knows the spec sheets your safety officer cares about. NFPA 70E garment placement, ANSI 107 hi-vis logo limits, OSHA-compliant hard hat decals — the shop should be able to talk through these without Googling.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">For trade and contractor work, pick a shop that knows the spec sheets your safety officer cares about. NFPA 70E garment placement, ANSI 107 hi-vis logo limits, OSHA-compliant hard hat decals — the shop should be able to talk through these without Googling.</p>
 
  <h2 id="vegas-context" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Why Vegas Has Specific Embroidery Needs</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Las Vegas's construction industry is dominated by data center hyperscaler builds, Strip resort projects, and the high-volume commercial trades that support them — electrical, mechanical, plumbing, ironworking. The apparel needs skew toward FR-rated work, ANSI hi-vis, and embroidered service polos that hold up in 110° summer.</p>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Local Vegas shops that understand these specs can match the production schedule of a hyperscaler crew running through commissioning faster than a generic mail-order embroidery service.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Las Vegas's construction industry is dominated by data center hyperscaler builds, Strip resort projects, and the high-volume commercial trades that support them — electrical, mechanical, plumbing, ironworking. The apparel needs skew toward FR-rated work, ANSI hi-vis, and embroidered service polos that hold up in 110° summer.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Local Vegas shops that understand these specs can match the production schedule of a hyperscaler crew running through commissioning faster than a generic mail-order embroidery service.</p>
 
  <h2 id="industries" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Common Vegas Industries Served</h2>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
- <li><a href="/industries/plumbing-hvac-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Plumbing &amp; HVAC service techs</a></li>
- <li><a href="/industries/electrical-contractors-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Electrical contractors</a> (FR-compliant)</li>
- <li><a href="/industries/general-contractors-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">General contractors</a></li>
- <li><a href="/industries/concrete-masonry-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Concrete and masonry crews</a></li>
- <li><a href="/industries/roofing-solar-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Roofing and solar crews</a></li>
- <li><a href="/industries/landscaping-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Landscaping and grounds maintenance</a></li>
- <li><a href="/industries/oil-gas-mechanical-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Oil, gas, and mechanical contractors</a></li>
- <li><a href="/industries/steel-iron-workers-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Steel and iron workers</a></li>
- <li><a href="/industries/data-center-contractors-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Data center contractors</a></li>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
+ <li><a href="/industries/plumbing-hvac-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Plumbing &amp; HVAC service techs</a></li>
+ <li><a href="/industries/electrical-contractors-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Electrical contractors</a> (FR-compliant)</li>
+ <li><a href="/industries/general-contractors-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">General contractors</a></li>
+ <li><a href="/industries/concrete-masonry-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Concrete and masonry crews</a></li>
+ <li><a href="/industries/roofing-solar-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Roofing and solar crews</a></li>
+ <li><a href="/industries/landscaping-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Landscaping and grounds maintenance</a></li>
+ <li><a href="/industries/oil-gas-mechanical-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Oil, gas, and mechanical contractors</a></li>
+ <li><a href="/industries/steel-iron-workers-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Steel and iron workers</a></li>
+ <li><a href="/industries/data-center-contractors-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Data center contractors</a></li>
  </ul>
 
- <div class="mt-12 rounded-2xl border border-gold-500/40 bg-gold-500/5 p-7 sm:p-9">
- <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-white">Looking for a commercial embroidery shop in Las Vegas?</h2>
- <p class="mb-5 text-lg leading-relaxed text-navy-200">Bighorn Threads runs commercial embroidery for Vegas contractors, trade businesses, and service companies. Multi-head industrial production, FR-safe Nomex thread on compliance work, digitizing in-house, files kept on record for reorders.</p>
- <a href="/services/embroidery-las-vegas/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">See Our Embroidery Service →</a>
+ <div class="mt-12 border border-hairline bg-gold-500/5 p-7 sm:p-9">
+ <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-charcoal">Looking for a commercial embroidery shop in Las Vegas?</h2>
+ <p class="mb-5 text-lg leading-relaxed text-charcoal">Bighorn Threads runs commercial embroidery for Vegas contractors, trade businesses, and service companies. Multi-head industrial production, FR-safe Nomex thread on compliance work, digitizing in-house, files kept on record for reorders.</p>
+ <a href="/services/embroidery-las-vegas/" class="inline-flex min-h-[48px] items-center gap-2 bg-gold-500 px-7 py-3 text-base font-bold text-charcoal transition-all hover:bg-gold-600">See Our Embroidery Service →</a>
  </div>
  </div>
  </article>

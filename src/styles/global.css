@@ -1,9 +1,18 @@
 @import 'tailwindcss';
 
 @theme {
+  /* ── Light base — "Concrete" system (DESIGN.md) ───────────────────── */
+  --color-concrete: #f4f2ee; /* page canvas */
+  --color-paper: #e8e5df; /* secondary section band */
+  --color-panel: #ffffff; /* product cards, floated panels */
+  --color-charcoal: #1a1714; /* primary text / ink */
+  --color-ash: #6b6660; /* muted text */
+  --color-hairline: #d4d0c8; /* 1px borders, dividers */
+
+  /* ── Navy — demoted to photographic dark bands + footer only ──────── */
   --color-navy-950: #00182a;
   --color-navy-900: #002843;
-  --color-navy-800: #003B5C;
+  --color-navy-800: #003b5c;
   --color-navy-700: #0c4d78;
   --color-navy-600: #1f608f;
   --color-navy-500: #3179ae;
@@ -13,12 +22,14 @@
   --color-navy-100: #dfeaf1;
   --color-navy-50: #eef3f7;
 
-  --color-gold-500: #C19B3D;
+  /* ── Gold — the single accent ─────────────────────────────────────── */
+  --color-gold-700: #8f6f22;
+  --color-gold-600: #a8842e;
+  --color-gold-500: #c19b3d;
   --color-gold-400: #d4af56;
   --color-gold-300: #e0c172;
-  --color-gold-600: #a8842e;
-  --color-gold-700: #8f6f22;
 
+  /* ── Neutral grays (kept for legacy pages) ────────────────────────── */
   --color-gray-900: #1a1d23;
   --color-gray-800: #2a2d35;
   --color-gray-700: #3a3e48;
@@ -55,8 +66,8 @@
 @layer base {
   html {
     font-family: var(--font-body);
-    color: #ffffff;
-    background-color: var(--color-navy-950);
+    color: var(--color-charcoal);
+    background-color: var(--color-concrete);
     scroll-behavior: smooth;
   }
 
@@ -66,7 +77,73 @@
 
   ::selection {
     background-color: var(--color-gold-500);
-    color: var(--color-navy-950);
+    color: var(--color-charcoal);
+  }
+}
+
+@layer components {
+  /* Section eyebrow / kicker — mono, tracked, the "spec-sheet" signal */
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-gold-700);
+  }
+
+  /* Gold accent on paper sections — gold-600 fails 3:1 on paper bg; use this instead */
+  .bg-paper .text-gold-600,
+  .border-y .text-gold-600 {
+    color: var(--color-gold-700);
+  }
+
+  /* Spec label — mono, for SKUs / tags / price chips */
+  .spec {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* Primary CTA — solid gold, one per view */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--color-gold-500);
+    color: var(--color-charcoal);
+    font-family: var(--font-subheading);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.875rem 1.75rem;
+    border-radius: 4px;
+    transition: background-color 0.15s ease;
+  }
+  .btn-primary:hover {
+    background-color: var(--color-gold-600);
+  }
+
+  /* Secondary CTA — outline */
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: transparent;
+    color: var(--color-charcoal);
+    border: 1px solid var(--color-charcoal);
+    font-family: var(--font-subheading);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.8125rem 1.6875rem;
+    border-radius: 4px;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+  .btn-secondary:hover {
+    background-color: var(--color-charcoal);
+    color: var(--color-concrete);
   }
 }
 

@@ -36,36 +36,35 @@ const schema = {
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
- <article class="bg-navy-950">
- <header class="relative overflow-hidden border-b border-navy-800">
- <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-gray-900"></div>
+ <article class="bg-concrete">
+ <header class="border-b border-hairline bg-paper">
  <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
- <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-400">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-400">Blog</a></nav>
- <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-500">{post.category}</span>
+ <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-700">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-700">Blog</a></nav>
+ <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-600">{post.category}</span>
  <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
- <p class="mb-8 text-xl leading-relaxed text-gray-300">A working compliance guide to ANSI 107 Class 3 hi-vis — when it's required over Class 2, what counts as a Class 3 garment, and how to spec one that passes inspection.</p>
- <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-navy-800 pt-6 font-mono text-sm text-gray-400"><span class="text-gold-500">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
+ <p class="mb-8 text-xl leading-relaxed text-ash">A working compliance guide to ANSI 107 Class 3 hi-vis — when it's required over Class 2, what counts as a Class 3 garment, and how to spec one that passes inspection.</p>
+ <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
  </header>
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="ANSI 107 Class 3 hi-vis safety shirt with reflective tape on background fluorescent fabric" width="1200" height="675" loading="eager" class="w-full rounded-2xl border border-navy-800 object-cover shadow-2xl" /></div>
+ <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="ANSI 107 Class 3 hi-vis safety shirt with reflective tape on background fluorescent fabric" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
 
- <aside class="mb-10 rounded-2xl border border-gold-500/30 bg-navy-900/60 p-7">
- <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Quick Answer</p>
- <p class="text-lg leading-relaxed text-white sm:text-xl">ANSI 107 Class 3 hi-vis is required when workers face traffic over 50 mph, work in low-visibility conditions, or operate near heavy equipment with limited sightlines. Class 3 needs full sleeves, more background fabric (1,240 sq in), and more reflective tape (310 sq in) than Class 2. A Class 2 vest paired with Class E pants meets the same requirement.</p>
+ <aside class="mb-10 border border-hairline bg-panel p-7">
+ <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl">ANSI 107 Class 3 hi-vis is required when workers face traffic over 50 mph, work in low-visibility conditions, or operate near heavy equipment with limited sightlines. Class 3 needs full sleeves, more background fabric (1,240 sq in), and more reflective tape (310 sq in) than Class 2. A Class 2 vest paired with Class E pants meets the same requirement.</p>
  </aside>
 
  <h2 id="the-rule" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The ANSI 107 Rule on Class 3</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200"><a href="https://webstore.ansi.org/standards/isea/ansiisea1072020" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500" rel="noopener">ANSI/ISEA 107-2020</a> is the consensus standard for high-visibility safety apparel. It defines three classes of hi-vis based on the wearer's risk exposure:</p>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <p class="mb-6 text-lg leading-relaxed text-charcoal"><a href="https://webstore.ansi.org/standards/isea/ansiisea1072020" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600" rel="noopener">ANSI/ISEA 107-2020</a> is the consensus standard for high-visibility safety apparel. It defines three classes of hi-vis based on the wearer's risk exposure:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Class 1</strong> — Off-road only. Parking attendants, warehouse yards, low-traffic environments under 25 mph.</li>
  <li><strong>Class 2</strong> — Roadway work where traffic is under 50 mph. Standard utility, municipal, and most construction roadside use.</li>
  <li><strong>Class 3</strong> — Traffic over 50 mph, low-visibility conditions, or close proximity to heavy equipment. Requires full coverage.</li>
  </ul>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">For the full Class 2 vs Class 3 background, see our <a href="/blog/ansi-107-class-2-vs-class-3-hi-vis-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">ANSI 107 Class 2 vs Class 3 guide for Las Vegas crews</a>.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">For the full Class 2 vs Class 3 background, see our <a href="/blog/ansi-107-class-2-vs-class-3-hi-vis-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">ANSI 107 Class 2 vs Class 3 guide for Las Vegas crews</a>.</p>
 
  <h2 id="when-class-3" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">When You Need Class 3 Specifically</h2>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Highway and freeway work over 50 mph.</strong> I-15, US-95, and any Nevada DOT project on a high-speed corridor.</li>
  <li><strong>Night-shift roadwork.</strong> Paving crews, line stripers, signage installers running after midnight.</li>
  <li><strong>Flagging on rural arterials.</strong> Even at 45 mph posted, drivers regularly run 55-60.</li>
@@ -75,46 +74,46 @@ const schema = {
  </ul>
 
  <h2 id="osha-mutcd" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">OSHA, MUTCD, and the Class 3 Mandate</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Federal OSHA's <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.201" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500" rel="noopener">29 CFR 1926.201</a> requires hi-vis for flaggers but defers to the <a href="https://mutcd.fhwa.dot.gov/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500" rel="noopener">MUTCD</a> for class selection. The 23 CFR 634 federal-aid highway rule mandates ANSI 107 Class 2 or 3 for any worker exposed to public vehicular traffic on federal-aid highways.</p>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Nevada DOT, Arizona DOT, and Caltrans specs default to Class 3 on most projects above 45 mph. The project safety plan is the source of truth — if it says Class 3, Class 2 won't pass inspection regardless of what ANSI says generically.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Federal OSHA's <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.201" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600" rel="noopener">29 CFR 1926.201</a> requires hi-vis for flaggers but defers to the <a href="https://mutcd.fhwa.dot.gov/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600" rel="noopener">MUTCD</a> for class selection. The 23 CFR 634 federal-aid highway rule mandates ANSI 107 Class 2 or 3 for any worker exposed to public vehicular traffic on federal-aid highways.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Nevada DOT, Arizona DOT, and Caltrans specs default to Class 3 on most projects above 45 mph. The project safety plan is the source of truth — if it says Class 3, Class 2 won't pass inspection regardless of what ANSI says generically.</p>
 
  <h2 id="garment-spec" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">What a Class 3 Garment Actually Looks Like</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">A compliant Class 3 garment must include:</p>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">A compliant Class 3 garment must include:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>1,240 sq inches of fluorescent background fabric</strong> in yellow-green, orange-red, or red.</li>
  <li><strong>310 sq inches of retroreflective tape</strong> arranged in 360-degree visibility bands.</li>
  <li><strong>Full sleeves with reflective bands</strong> on each arm.</li>
  <li><strong>Reflective bands at the torso</strong> (chest and back).</li>
  <li><strong>Either full-length pants (Class E)</strong> or a one-piece coverall design.</li>
  </ul>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">A short-sleeve hi-vis t-shirt is never Class 3. A standard mesh hi-vis vest is Class 2 only. The full-sleeve requirement is the most common compliance miss.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">A short-sleeve hi-vis t-shirt is never Class 3. A standard mesh hi-vis vest is Class 2 only. The full-sleeve requirement is the most common compliance miss.</p>
 
  <h2 id="logo-rules" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Adding a Company Logo Without Voiding Class 3</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">ANSI 107 caps decoration at 12 sq inches per side and prohibits any logo placement that reduces the required background or reflective area. The practical rules:</p>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">ANSI 107 caps decoration at 12 sq inches per side and prohibits any logo placement that reduces the required background or reflective area. The practical rules:</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li>Chest logo: 4 inches wide, 3.5 inches tall maximum.</li>
  <li>Back logo: full company name allowed up to 12 sq inches.</li>
  <li>Never embroider or print on retroreflective tape.</li>
  <li>Use ANSI-compliant thread color or contrast color — black thread on yellow-green is standard.</li>
  </ul>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">For full placement guidance, read our <a href="/blog/custom-safety-vests-ansi-compliance/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">custom safety vests ANSI compliance</a> piece — the rules are identical for Class 3 jackets and shirts.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">For full placement guidance, read our <a href="/blog/custom-safety-vests-ansi-compliance/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">custom safety vests ANSI compliance</a> piece — the rules are identical for Class 3 jackets and shirts.</p>
 
  <h2 id="vegas-context" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Class 3 in Vegas — Practical Reality</h2>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Vegas trade contractors who default to Class 3 year-round: paving, striping, flagging, utility line work, and tow operators. Crews on jobsites under 50 mph traffic exposure run Class 2 vests with Class E pants when they're roadside, regular workwear when they're not.</p>
- <p class="mb-6 text-lg leading-relaxed text-navy-200">Heat is the operational problem. Class 3 long-sleeve in 110°F asphalt sun is brutal. Specify moisture-wicking polyester mesh fabric or birdseye knit construction — manufacturers like <a href="https://www.radians.com/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500" rel="noopener">Radians</a>, ML Kishigo, and PIP make Class 3 shirts engineered for hot-weather work. Read our <a href="/blog/nevada-osha-heat-rules-2026-workwear/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Nevada OSHA heat rules 2026</a> guide for the heat-stress side.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Vegas trade contractors who default to Class 3 year-round: paving, striping, flagging, utility line work, and tow operators. For brand options and current stock, see our <a href="/custom-safety-vests-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">custom safety vests Las Vegas</a> page. Crews on jobsites under 50 mph traffic exposure run Class 2 vests with Class E pants when they're roadside, regular workwear when they're not.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Heat is the operational problem. Class 3 long-sleeve in 110°F asphalt sun is brutal. Specify moisture-wicking polyester mesh fabric or birdseye knit construction — manufacturers like <a href="https://www.radians.com/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600" rel="noopener">Radians</a>, ML Kishigo, and PIP make Class 3 shirts engineered for hot-weather work. Read our <a href="/blog/nevada-osha-heat-rules-2026-workwear/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Nevada OSHA heat rules 2026</a> guide for the heat-stress side.</p>
 
  <h2 id="related" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Related Reading</h2>
- <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-navy-200">
- <li><a href="/blog/ansi-107-class-2-vs-class-3-hi-vis-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">ANSI 107 Class 2 vs Class 3 hi-vis</a></li>
- <li><a href="/blog/custom-safety-vests-ansi-compliance/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">Custom safety vests and ANSI 107 compliance</a></li>
- <li><a href="/blog/ppe-branded-workwear-regulations-construction-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">PPE and branded workwear regulations</a></li>
- <li><a href="/industries/general-contractors-las-vegas/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">General contractor crew apparel</a></li>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
+ <li><a href="/blog/ansi-107-class-2-vs-class-3-hi-vis-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">ANSI 107 Class 2 vs Class 3 hi-vis</a></li>
+ <li><a href="/blog/custom-safety-vests-ansi-compliance/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Custom safety vests and ANSI 107 compliance</a></li>
+ <li><a href="/blog/ppe-branded-workwear-regulations-construction-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">PPE and branded workwear regulations</a></li>
+ <li><a href="/industries/general-contractors-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">General contractor crew apparel</a></li>
  </ul>
 
- <div class="mt-12 rounded-2xl border border-gold-500/40 bg-gold-500/5 p-7 sm:p-9">
- <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-white">Class 3 hi-vis with compliant embroidery</h2>
- <p class="mb-5 text-lg leading-relaxed text-navy-200">Bighorn Threads embroiders ANSI 107 Class 3 shirts, jackets, and coveralls with logo placement that maintains certification. We source from Radians, ML Kishigo, PIP, and Bulwark.</p>
- <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Quote →</a>
+ <div class="mt-12 border border-hairline bg-gold-500/5 p-7 sm:p-9">
+ <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-charcoal">Class 3 hi-vis with compliant embroidery</h2>
+ <p class="mb-5 text-lg leading-relaxed text-charcoal">Bighorn Threads embroiders ANSI 107 Class 3 shirts, jackets, and coveralls with logo placement that maintains certification. We source from Radians, ML Kishigo, PIP, and Bulwark.</p>
+ <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 bg-gold-500 px-7 py-3 text-base font-bold text-charcoal transition-all hover:bg-gold-600">Get a Quote →</a>
  </div>
  </div>
  </article>

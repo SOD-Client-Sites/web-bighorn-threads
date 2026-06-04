@@ -95,71 +95,68 @@ const faqSchema = {
  <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
- <!-- Hero -->
- <section class="relative overflow-hidden border-b border-navy-700/30 bg-navy-900/50 pt-32 pb-20 sm:pt-36 sm:pb-28">
- <div class="absolute inset-0">
- <img src={page.hero} alt="" aria-hidden="true" class="h-full w-full object-cover opacity-30" width="1600" height="900" loading="eager" fetchpriority="high" />
- <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/40" />
- <div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_75%_-10%,_rgba(193,155,61,0.15),_transparent)]" />
- </div>
+ <!-- Hero — full-bleed photographic dark band -->
+ <section class="relative isolate overflow-hidden bg-navy-950">
+ <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-navy-950/85"></div>
 
- <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <nav class="mb-6 font-mono text-xs text-gray-400" aria-label="Breadcrumb">
+ <div class="mx-auto max-w-7xl px-4 pb-20 pt-32 sm:px-6 sm:pb-28 sm:pt-36 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-navy-300" aria-label="Breadcrumb">
  <a href="/" class="hover:text-gold-400">Home</a>
- <span class="px-2 text-gray-600">/</span>
- <span class="text-gray-500">Brands</span>
- <span class="px-2 text-gray-600">/</span>
- <span class="text-gold-500">Bulwark FR</span>
+ <span class="px-2 text-navy-500">/</span>
+ <span class="text-navy-400">Brands</span>
+ <span class="px-2 text-navy-500">/</span>
+ <span class="text-gold-400">Bulwark FR</span>
  </nav>
 
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Brand</span>
- <h1 class="mb-6 max-w-4xl font-heading text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
- Custom Bulwark FR <span class="text-gold-500">for Linemen, Roughnecks, and Utility Crews.</span>
+ <p class="kicker mb-3">Brand</p>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-6xl">
+ Custom Bulwark FR <span class="text-gold-400">for Linemen, Roughnecks, and Utility Crews.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
  NFPA 70E and NFPA 2112 certified. Excel-FR ComforTouch SLU2 work shirts, QT11 Henleys, PMW2 uniform shirts — embroidered with Nomex thread that keeps the rating intact. Local production, cert sheet with every order.
  </p>
 
  <div class="mt-10 flex flex-wrap items-center gap-3">
- <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-7 py-3 text-base font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25">
+ <a href="/contact/" class="btn-primary text-base">
  Get a Quote
  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
  </a>
- <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gold-500/40 px-6 py-3 font-mono text-sm font-medium text-gold-500 transition-all hover:border-gold-500 hover:bg-gold-500/5">
- 725.235.6196
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">
+ 702.904.8923
  </a>
  </div>
  </div>
  </section>
 
- <!-- Why Bulwark FR -->
- <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <!-- Why Bulwark FR — concrete -->
+ <section class="bg-concrete py-20 sm:py-24">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Why Bulwark FR</span>
- <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Four reasons safety officers spec it by name.</h2>
+ <p class="kicker mb-3">Why Bulwark FR</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Four reasons safety officers spec it <span class="text-gold-600">by name.</span></h2>
  </div>
 
  <div class="grid gap-5 md:grid-cols-2">
  {why.map((w) => (
- <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-7 transition-all hover:border-gold-500/30 hover:bg-navy-900/60">
- <h3 class="mb-3 font-heading text-xl font-bold leading-tight tracking-tight text-white">{w.title}</h3>
- <p class="text-base leading-relaxed text-gray-300">{w.body}</p>
+ <div class="border border-hairline bg-panel p-7 transition-colors hover:border-gold-500">
+ <h3 class="mb-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-charcoal">{w.title}</h3>
+ <p class="text-base leading-relaxed text-ash">{w.body}</p>
  </div>
  ))}
  </div>
  </div>
  </section>
 
- <!-- Deep dive: Why Vegas trades pick Bulwark FR -->
- <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <!-- Deep dive — paper -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">The Buyer's Guide</span>
- <h2 class="mb-8 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+ <p class="kicker mb-3">The Buyer's Guide</p>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl">
  Why Las Vegas electrical and utility crews spec Bulwark FR by SKU, not by brand.
  </h2>
 
- <div class="space-y-5 text-lg leading-relaxed text-navy-200">
+ <div class="space-y-5 text-lg leading-relaxed text-ash">
  <p>
  Bulwark FR is the dominant FR brand for Las Vegas electrical contractors, line crews, solar installers, and oil-and-gas turnaround techs because the spec sheets do the work for you. Excel-FR ComforTouch — the fabric on the SLU2, QT11, and PMW2 — carries dual NFPA 70E and NFPA 2112 certification, which means one shirt covers both arc-flash electrical work and flash-fire midstream gas exposure. Most safety officers in the Vegas market already know the SKUs, already know the cal/cm² ratings, and already accept Bulwark documentation without follow-up questions. That alone shaves a week off your onboarding paperwork.
  </p>
@@ -176,34 +173,34 @@ const faqSchema = {
  For full-crew programs, we set up a private company store with Bulwark SKUs preloaded, per-employee allowance limits, and pre-approved decoration on file. Standard utility lineman package: 5× SLU2 shirts, 5× PEW2 pants, and 1× JLR8 jacket per hire. New hires get outfitted without your safety manager re-running approvals every time someone joins the crew.
  </p>
  <p>
- How Bulwark FR holds up in Vegas heat — see our <a href="/blog/bulwark-fr-shirts-vegas-heat/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">field-tested guide</a>. For NFPA 70E compliance specifically see <a href="/blog/nfpa-70e-fr-shirts-vegas-electricians/" class="text-gold-400 underline decoration-gold-500/30 underline-offset-4 hover:decoration-gold-500">FR shirts for Vegas electricians</a>.
+ How Bulwark FR holds up in Vegas heat — see our <a href="/blog/bulwark-fr-shirts-vegas-heat/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">field-tested guide</a>. For NFPA 70E compliance specifically see <a href="/blog/nfpa-70e-fr-shirts-vegas-electricians/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">FR shirts for Vegas electricians</a>.
  </p>
  </div>
  </div>
  </section>
 
- <!-- Products -->
- <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+ <!-- Products — concrete -->
+ <section class="bg-concrete py-20 sm:py-24">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Most-Ordered</span>
- <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">The Bulwark FR items we run every week.</h2>
- <p class="mt-4 text-lg leading-relaxed text-gray-300">
+ <p class="kicker mb-3">Most-Ordered</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">The Bulwark FR items we run <span class="text-gold-600">every week.</span></h2>
+ <p class="mt-4 text-lg leading-relaxed text-ash">
  We stock the SKUs Vegas utility and oil-and-gas crews actually reorder. Other Bulwark FR items (coveralls, hoods, midweight outerwear) we order in to match your spec.
  </p>
  </div>
 
  <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
  {products.map((p) => (
- <div class="rounded-2xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
+ <div class="border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <div class="mb-3 flex items-center justify-between">
- <span class="font-mono text-xs font-bold tracking-wider text-gold-500">{p.sku}</span>
+ <span class="spec text-gold-600">{p.sku}</span>
  </div>
- <h3 class="mb-2 font-heading text-lg font-bold leading-tight tracking-tight text-white">{p.name}</h3>
- <p class="mb-4 text-sm leading-relaxed text-gray-300">{p.detail}</p>
- <div class="mt-4 border-t border-navy-700/50 pt-3">
- <span class="font-mono text-[10px] font-bold uppercase tracking-wider text-gold-400">Decoration</span>
- <p class="mt-1 text-sm text-gray-200">{p.method}</p>
+ <h3 class="mb-2 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{p.name}</h3>
+ <p class="mb-4 text-sm leading-relaxed text-ash">{p.detail}</p>
+ <div class="mt-4 border-t border-hairline pt-3">
+ <span class="spec text-gold-600">Decoration</span>
+ <p class="mt-1 text-sm text-charcoal">{p.method}</p>
  </div>
  </div>
  ))}
@@ -211,85 +208,85 @@ const faqSchema = {
  </div>
  </section>
 
- <!-- vs Other FR Suppliers -->
- <section class="border-b border-navy-800 bg-navy-950 py-20 sm:py-24">
+ <!-- vs Other FR Suppliers — paper -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">vs Other FR Suppliers</span>
- <h2 class="mb-8 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Why local FR specialists beat the catalog houses.</h2>
+ <p class="kicker mb-3">vs Other FR Suppliers</p>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Why local FR specialists beat the catalog houses.</h2>
 
- <div class="overflow-hidden rounded-2xl border border-navy-700/40">
+ <div class="overflow-hidden border border-hairline bg-panel">
  <table class="w-full">
- <thead class="bg-navy-900/60">
- <tr class="border-b border-navy-700/40">
- <th class="px-5 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gray-400">&nbsp;</th>
- <th class="px-5 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gray-400">Catalog FR Supplier</th>
- <th class="px-5 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-500">Bighorn Threads</th>
+ <thead class="bg-concrete">
+ <tr class="border-b border-hairline">
+ <th class="px-5 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-ash">&nbsp;</th>
+ <th class="px-5 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-ash">Catalog FR Supplier</th>
+ <th class="px-5 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Bighorn Threads</th>
  </tr>
  </thead>
- <tbody class="divide-y divide-navy-800 bg-navy-900/30">
- <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-gray-300">Minimum order</td><td class="px-5 py-4 text-sm text-gray-200">12+ pieces</td><td class="px-5 py-4 text-sm text-white">6 pieces (FR embroidery)</td></tr>
- <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-gray-300">Lead time</td><td class="px-5 py-4 text-sm text-gray-200">3–5 weeks</td><td class="px-5 py-4 text-sm text-white">Quoted up front, rush options available</td></tr>
- <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-gray-300">Local delivery</td><td class="px-5 py-4 text-sm text-gray-200">No</td><td class="px-5 py-4 text-sm text-white">Local Las Vegas delivery available</td></tr>
- <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-gray-300">FR-safe decoration</td><td class="px-5 py-4 text-sm text-gray-200">Sometimes — verify per order</td><td class="px-5 py-4 text-sm text-white">Always — Nomex thread, cert sheet included</td></tr>
- <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-gray-300">Reorder file storage</td><td class="px-5 py-4 text-sm text-gray-200">Account portal</td><td class="px-5 py-4 text-sm text-white">On file forever, no re-setup</td></tr>
- <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-gray-300">Talk to a human</td><td class="px-5 py-4 text-sm text-gray-200">Ticket queue</td><td class="px-5 py-4 text-sm text-white">Direct phone line</td></tr>
+ <tbody class="divide-y divide-hairline">
+ <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-ash">Minimum order</td><td class="px-5 py-4 text-sm text-ash">12+ pieces</td><td class="px-5 py-4 text-sm text-charcoal">6 pieces (FR embroidery)</td></tr>
+ <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-ash">Lead time</td><td class="px-5 py-4 text-sm text-ash">3–5 weeks</td><td class="px-5 py-4 text-sm text-charcoal">Quoted up front, rush options available</td></tr>
+ <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-ash">Local delivery</td><td class="px-5 py-4 text-sm text-ash">No</td><td class="px-5 py-4 text-sm text-charcoal">Local Las Vegas delivery available</td></tr>
+ <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-ash">FR-safe decoration</td><td class="px-5 py-4 text-sm text-ash">Sometimes — verify per order</td><td class="px-5 py-4 text-sm text-charcoal">Always — Nomex thread, cert sheet included</td></tr>
+ <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-ash">Reorder file storage</td><td class="px-5 py-4 text-sm text-ash">Account portal</td><td class="px-5 py-4 text-sm text-charcoal">On file forever, no re-setup</td></tr>
+ <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-ash">Talk to a human</td><td class="px-5 py-4 text-sm text-ash">Ticket queue</td><td class="px-5 py-4 text-sm text-charcoal">Direct phone line</td></tr>
  </tbody>
  </table>
  </div>
  </div>
  </section>
 
- <!-- FAQs -->
- <section class="border-b border-navy-800 bg-navy-900/30 py-20 sm:py-24">
+ <!-- FAQs — concrete -->
+ <section class="bg-concrete py-20 sm:py-24">
  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
- <span class="mb-3 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">FAQ</span>
- <h2 class="mb-12 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Bulwark FR customization questions.</h2>
+ <p class="kicker mb-3">FAQ</p>
+ <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Bulwark FR customization questions.</h2>
 
- <div class="space-y-3">
+ <div class="divide-y divide-hairline border-y border-hairline">
  {faqs.map((f) => (
- <details class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-5 transition-all hover:border-gold-500/30 open:border-gold-500/40">
- <summary class="flex cursor-pointer items-start justify-between gap-4 list-none">
- <h3 class="font-heading text-lg font-bold leading-tight tracking-tight text-white">{f.q}</h3>
- <span class="mt-1 flex-shrink-0 text-gold-500 transition-transform group-open:rotate-45">
- <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
- </span>
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
+ <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
  </summary>
- <p class="mt-4 text-base leading-relaxed text-gray-300">{f.a}</p>
+ <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
  </details>
  ))}
  </div>
  </div>
  </section>
 
- <!-- Related -->
- <section class="border-b border-navy-800 bg-navy-950 py-16">
+ <!-- Related — paper -->
+ <section class="border-y border-hairline bg-paper py-16">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <span class="mb-6 inline-block font-mono text-xs font-bold uppercase tracking-[0.25em] text-gold-500">Related</span>
+ <p class="kicker mb-6">Related</p>
  <div class="grid gap-5 md:grid-cols-3">
- <a href="/industries/electrical-contractors-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
- <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Electrical Contractors</h3>
- <p class="mt-2 text-sm text-gray-400">Bulwark FR for journeymen, apprentices, and arc-flash spec work.</p>
+ <a href="/industries/electrical-contractors-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Electrical Contractors</h3>
+ <p class="mt-2 text-sm text-ash">Bulwark FR for journeymen, apprentices, and arc-flash spec work.</p>
  </a>
- <a href="/industries/oil-gas-mechanical-las-vegas/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
- <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">Oil, Gas, and Mechanical</h3>
- <p class="mt-2 text-sm text-gray-400">NFPA 2112 flash-fire kit for midstream and turnaround crews.</p>
+ <a href="/industries/oil-gas-mechanical-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Oil, Gas, and Mechanical</h3>
+ <p class="mt-2 text-sm text-ash">NFPA 2112 flash-fire kit for midstream and turnaround crews.</p>
  </a>
- <a href="/blog/nfpa-70e-fr-shirts-vegas-electricians/" class="group rounded-xl border border-navy-700/40 bg-navy-900/40 p-6 transition-all hover:border-gold-500/40 hover:bg-navy-900/60">
- <h3 class="font-heading text-lg font-bold tracking-tight text-white group-hover:text-gold-400">NFPA 70E FR Shirt Guide</h3>
- <p class="mt-2 text-sm text-gray-400">What CAT 2 actually means and how to spec FR for Vegas crews.</p>
+ <a href="/blog/nfpa-70e-fr-shirts-vegas-electricians/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">NFPA 70E FR Shirt Guide</h3>
+ <p class="mt-2 text-sm text-ash">What CAT 2 actually means and how to spec FR for Vegas crews.</p>
  </a>
  </div>
  </div>
  </section>
 
- <!-- CTA -->
- <section class="bg-navy-900/60 py-20">
- <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
- <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Quote on custom Bulwark FR fast.</h2>
- <p class="mb-8 text-lg text-gray-300">Cert sheet with every order. Talk to a real human.</p>
+ <!-- CTA — full-bleed photographic dark band -->
+ <section class="relative isolate overflow-hidden bg-navy-950">
+ <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" loading="lazy" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <div class="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Quote on custom Bulwark FR <span class="text-gold-400">fast.</span></h2>
+ <p class="mb-8 text-lg text-navy-200">Cert sheet with every order. Talk to a real human.</p>
  <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
- <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-base font-bold text-navy-950 transition-all hover:bg-gold-400">Get a Free Quote</a>
- <a href="tel:+17252356196" class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-gray-600 px-8 py-4 font-mono text-base font-medium text-white transition-all hover:border-gold-500 hover:text-gold-500">725.235.6196</a>
+ <a href="/contact/" class="btn-primary text-base">Get a Free Quote</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium tracking-wide text-white transition-colors hover:text-gold-400">702.904.8923</a>
  </div>
  </div>
  </section>

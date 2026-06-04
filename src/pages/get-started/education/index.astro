@@ -1,0 +1,295 @@
+---
+import LandingLayout from '@/layouts/LandingLayout.astro'
+import LeadCaptureForm from '@/components/LeadCaptureForm.astro'
+
+const valueBullets = [
+ {
+ title: 'One store for the whole campus',
+ desc: 'Athletics, the PTA, the front office, and every department order from the same branded store — instead of running their own separate orders.',
+ },
+ {
+ title: 'Everyone picks their own size',
+ desc: 'No size spreadsheets and no chasing people down. Each person orders what fits, and it ships direct to them.',
+ },
+ {
+ title: 'You control the items and the budget',
+ desc: 'You approve the apparel and the colors up front, so spending and the look stay in line across every campus.',
+ },
+]
+
+const problems = [
+ {
+ title: 'Every Group Orders Alone',
+ desc: 'Athletics wants one thing, the PTA another, the front office a third. Every department, team, and booster club chases its own apparel — with no shared logo and no single point of contact.',
+ },
+ {
+ title: 'Size Collection Eats Your Week',
+ desc: 'Spreadsheets fly back and forth to collect sizes. Someone always gets missed, and when the reorder comes around, the whole process starts over again.',
+ },
+ {
+ title: 'Budget & Brand Drift Across Campuses',
+ desc: 'When orders come in from every school and every group, the logo, the colors, and the spend all drift. Keeping it consistent across sites is nearly impossible to track.',
+ },
+]
+
+const storeSteps = [
+ {
+ n: '01',
+ meta: 'Setup',
+ title: 'We Build Your Free Store',
+ desc: 'Your logo, your colors, your approved apparel — set up as a free online store. One home for staff gear, spirit wear, and department apparel. First digitizing is on us.',
+ },
+ {
+ n: '02',
+ meta: 'Ordering',
+ title: 'Everyone Orders Their Own Sizes',
+ desc: 'Staff, departments, athletics, and boosters log in and pick their own sizes. Funded items run through the budget; spirit wear can be paid individually.',
+ },
+ {
+ n: '03',
+ meta: 'Fulfillment',
+ title: 'It Ships Direct, Logo On File',
+ desc: 'Orders ship direct to each school, department, or person. You control approved items and spend, and your logo stays on file for every reorder.',
+ },
+]
+
+const trustChips = [
+ 'Free store setup',
+ 'No inventory to hold',
+ 'No monthly fee',
+ 'No contract',
+ 'You control catalog & budget',
+ 'A real person in Las Vegas',
+]
+
+const faqs = [
+ {
+ q: 'What does "free" actually cover?',
+ a: 'Free store setup and your first logo digitizing are on us — no setup fee, no monthly fee, no per-user fee, and nothing to sign. You only pay for the apparel that gets ordered.',
+ },
+ {
+ q: 'Can multiple schools or departments order from one store?',
+ a: 'Yes. A district can run one store that every campus, department, and program orders from. Everyone pulls from the same approved apparel with the same logo on file, so the look stays consistent across sites.',
+ },
+ {
+ q: 'Can boosters or staff pay for their own items?',
+ a: 'Yes. Individuals can check out and pay for their own gear, so spirit wear and personal apparel do not have to run through a school budget. You decide which items are funded and which are paid individually.',
+ },
+ {
+ q: 'Can we control which items and budgets are approved?',
+ a: 'Yes. You set the approved apparel, colors, and decoration up front, so only on-brand items show in the store. That keeps spending and the look under control across every school and group.',
+ },
+ {
+ q: 'How do reorders work each season?',
+ a: 'Your logo, colors, and decoration specs stay on file. When a new season or a new hire comes around, you reorder from the same store — no re-collecting art, no re-guessing placement, no starting over.',
+ },
+]
+
+const breadcrumbSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+ { '@type': 'ListItem', position: 2, name: 'Get Started', item: 'https://bighornthreads.com/get-started/' },
+ { '@type': 'ListItem', position: 3, name: 'Education', item: 'https://bighornthreads.com/get-started/education/' },
+ ],
+}
+
+const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
+const phone = '+17029048923'
+---
+
+<LandingLayout
+ title="Free Company Store for Your School or District — Bighorn Threads"
+ description="One branded store for your whole campus. Staff order their own sizes, ships direct, your logo on file. Free store setup, no inventory, no contract. Founder-run in Las Vegas."
+ canonical="https://bighornthreads.com/get-started/education/"
+ noindex={true}
+>
+ <!-- ════ HERO + FORM — concrete ════ -->
+ <section class="bg-concrete pt-32 pb-20 sm:pt-36 sm:pb-28">
+ <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+ <div class="grid items-start gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
+
+ <!-- Left: pitch -->
+ <div>
+ <p class="kicker mb-3">Education Company Stores</p>
+ <h1 class="mb-6 font-heading text-4xl font-extrabold uppercase leading-[1.05] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
+ Stop Chasing Sizes and Scattered Orders <span class="text-gold-600">Across Your Whole Campus.</span>
+ </h1>
+ <p class="mb-8 text-lg leading-relaxed text-ash sm:text-xl">
+ Staff apparel, spirit wear, and gear for every department, team, and booster club —
+ all from one branded store. Tell us about your organization and we will build your
+ company store plan.
+ </p>
+
+ <ul class="mb-8 space-y-4 text-base text-ash">
+ {valueBullets.map((item) => (
+ <li class="flex items-start gap-3">
+ <svg class="mt-0.5 h-5 w-5 shrink-0 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+ <span><strong class="text-charcoal">{item.title}</strong> — {item.desc}</span>
+ </li>
+ ))}
+ </ul>
+
+ <p class="font-mono text-xs uppercase tracking-[0.15em] text-ash">Free store setup · Your logo on file · No inventory to hold · A real person in Las Vegas follows up</p>
+ </div>
+
+ <!-- Right: form (sticky on desktop) -->
+ <div class="lg:sticky lg:top-24">
+ <LeadCaptureForm
+ vertical="education"
+ heading="Get your company store plan"
+ qualifiers={[
+ { name: 'org_type', label: 'What kind of organization?', type: 'select', required: true, options: ['School district', 'University or college', 'Single school', 'Athletics or booster club', 'Other'] },
+ { name: 'headcount', label: 'Roughly how many people would order?', type: 'select', required: true, isHeadcount: true, options: ['Under 50', '50-250', '251-1,000', '1,000+'] },
+ ]}
+ />
+ </div>
+
+ </div>
+ </div>
+ </section>
+
+ <!-- ════ THE PROBLEM — paper ════ -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-28">
+ <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <p class="kicker mb-3">The Problem</p>
+ <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
+ Apparel across a campus is <span class="text-gold-600">a logistics job.</span>
+ </h2>
+ <p class="mt-4 text-lg leading-relaxed text-ash">
+ Schools and districts juggle staff shirts, spirit wear, and gear for every department,
+ team, and booster group — usually through email chains and size spreadsheets. It pulls
+ your people off their actual work.
+ </p>
+ </div>
+
+ <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+ {problems.map((item) => (
+ <div class="border border-hairline bg-panel p-7">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{item.title}</h3>
+ <p class="mt-2 text-sm leading-relaxed text-ash">{item.desc}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- ════ HOW IT WORKS — concrete ════ -->
+ <section class="bg-concrete py-20 sm:py-28">
+ <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-3xl">
+ <p class="kicker mb-3">How It Works</p>
+ <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
+ One branded store for the <span class="text-gold-600">whole campus.</span>
+ </h2>
+ <p class="mt-4 text-lg leading-relaxed text-ash">
+ One store replaces the spreadsheets and the scattered orders. Here is the whole flow.
+ </p>
+ </div>
+
+ <ol class="grid gap-5 md:grid-cols-3">
+ {storeSteps.map((step) => (
+ <li class="border border-hairline bg-panel p-7">
+ <div class="mb-5 flex items-baseline justify-between">
+ <span class="font-heading text-5xl font-extrabold leading-none text-gold-600">{step.n}</span>
+ <span class="spec border border-hairline px-2 py-1 text-ash">{step.meta}</span>
+ </div>
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{step.title}</h3>
+ <p class="mt-2 text-sm leading-relaxed text-ash">{step.desc}</p>
+ </li>
+ ))}
+ </ol>
+
+ <div class="mt-10">
+ <a href="#lp-form-card" class="btn-secondary text-base">
+ Build my company store plan
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <!-- ════ TRUST — paper ════ -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-28">
+ <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+ <div class="grid items-start gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
+ <div class="max-w-2xl">
+ <p class="kicker mb-3">Who You Work With</p>
+ <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-5xl">
+ Built and run by a real <span class="text-gold-600">Las Vegas shop.</span>
+ </h2>
+ <p class="mt-5 text-lg leading-relaxed text-ash">
+ Bighorn Threads is the branded-apparel arm of VP Promos LLC, run from Las Vegas by
+ founder Steven Dodson. Free store setup, no inventory to hold, and no lock-in — you
+ control the catalog and the budget, and you talk to a real person, not a portal.
+ </p>
+ <p class="mt-5 text-lg leading-relaxed text-ash">
+ Have a question about your store? Call the shop direct at
+ <a href={`tel:${phone}`} class="font-semibold text-charcoal underline decoration-gold-500 underline-offset-4 hover:text-gold-600">702.904.8923</a>.
+ </p>
+ </div>
+
+ <ul class="grid gap-3 sm:grid-cols-2">
+ {trustChips.map((chip) => (
+ <li class="flex items-center gap-3 border border-hairline bg-panel px-4 py-3">
+ <svg class="h-5 w-5 shrink-0 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+ <span class="font-mono text-xs font-bold uppercase tracking-[0.12em] text-charcoal">{chip}</span>
+ </li>
+ ))}
+ </ul>
+ </div>
+ </div>
+ </section>
+
+ <!-- ════ OBJECTIONS / FAQ — concrete ════ -->
+ <section class="bg-concrete py-20 sm:py-28">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-10 max-w-2xl">
+ <p class="kicker mb-3">Questions</p>
+ <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
+ The things schools <span class="text-gold-600">ask first.</span>
+ </h2>
+ </div>
+
+ <div class="divide-y divide-hairline border-y border-hairline">
+ {faqs.map((item) => (
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <span class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{item.q}</span>
+ <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+ </summary>
+ <p class="pb-5 leading-relaxed text-ash">{item.a}</p>
+ </details>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- ════ CLOSING CTA — charcoal band ════ -->
+ <section class="border-y border-hairline bg-charcoal py-20 sm:py-28">
+ <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+ <p class="kicker mb-3 justify-center text-gold-500">Get Started</p>
+ <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-paper sm:text-5xl">
+ Give your campus <span class="text-gold-500">one store.</span>
+ </h2>
+ <p class="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-concrete">
+ Tell us about your school or district and we will put together a company store plan —
+ free store setup, your logo on file, everyone ordering their own sizes. No commitment.
+ </p>
+ <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+ <a href="#lp-form-card" class="btn-primary text-base">
+ Build my company store plan
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
+ </a>
+ <a href={`tel:${phone}`} class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-concrete transition-colors hover:text-gold-500">
+ <svg class="h-4 w-4 text-gold-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+ 702.904.8923
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+</LandingLayout>
