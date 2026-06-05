@@ -1,7 +1,7 @@
 ---
 interface Props {
  title: string
- description: string
+ description?: string
  canonical?: string
  ogImage?: string
  ogImageAlt?: string
@@ -9,6 +9,8 @@ interface Props {
  publishedDate?: string
  noindex?: boolean
 }
+
+const DEFAULT_DESCRIPTION = 'Branded apparel, uniforms, embroidery, and company stores for teams of every kind. Las Vegas based, serving nationwide.'
 
 const {
  title,
@@ -20,6 +22,8 @@ const {
  publishedDate,
  noindex = false,
 } = Astro.props
+
+const metaDescription = description?.trim() ? description : DEFAULT_DESCRIPTION
 
 const siteName = 'Bighorn Threads'
 const fullTitle = title === siteName || title.includes(`| ${siteName}`) || title.endsWith(siteName)
@@ -33,7 +37,7 @@ const ogImageHref = new URL(ogImage, Astro.site).href
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#00182a" />
 <title>{fullTitle}</title>
-<meta name="description" content={description} />
+<meta name="description" content={metaDescription} />
 <link rel="canonical" href={canonicalHref} />
 {noindex && <meta name="robots" content="noindex, nofollow" />}
 
@@ -52,7 +56,7 @@ const ogImageHref = new URL(ogImage, Astro.site).href
 
 <!-- Open Graph -->
 <meta property="og:title" content={fullTitle} />
-<meta property="og:description" content={description} />
+<meta property="og:description" content={metaDescription} />
 <meta property="og:type" content={type} />
 <meta property="og:url" content={canonicalHref} />
 <meta property="og:image" content={ogImageHref} />
@@ -65,7 +69,7 @@ const ogImageHref = new URL(ogImage, Astro.site).href
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={fullTitle} />
-<meta name="twitter:description" content={description} />
+<meta name="twitter:description" content={metaDescription} />
 <meta name="twitter:image" content={ogImageHref} />
 <meta name="twitter:image:alt" content={ogImageAlt} />
 

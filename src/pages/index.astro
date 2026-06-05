@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import { Image, Picture } from 'astro:assets'
-import heroPhoto from '@/assets/generated/crew-vegas.jpg'
+import heroPhoto from '@/assets/generated/hero-ram.jpg'
 import foremanPhoto from '@/assets/generated/foreman-closeup.jpg'
 
 const faqs = [
@@ -127,19 +127,19 @@ const trades = [
 ]
 
 const industries = [
- { name: 'Electrical Contractors', desc: 'Embroidered polos, branded beanies, safety promo items' },
- { name: 'Plumbing & HVAC', desc: 'Moisture-wicking work shirts, embroidered jackets, leave-behinds' },
- { name: 'Roofing & Solar', desc: 'Hi-vis branded gear, custom hard hats, trade show giveaways' },
- { name: 'Landscaping', desc: 'Sun protection hats, branded tees & tanks, crew uniforms' },
- { name: 'Concrete & Masonry', desc: 'Durable workwear, branded safety vests, company polos' },
- { name: 'Steel & Iron Workers', desc: 'FR-rated branded apparel, embroidered jackets, hard hat stickers' },
+ { name: 'Corporate & Office', desc: 'Embroidered polos, onboarding kits, client gifts, event apparel' },
+ { name: 'Education', desc: 'Staff apparel, campus spirit wear, athletics, district uniforms' },
+ { name: 'Government & Public', desc: 'Agency uniforms, public-works field gear, ANSI hi-vis safety wear' },
+ { name: 'Healthcare', desc: 'Embroidered scrubs, lab coats, admin gear across multiple sites' },
+ { name: 'Gaming & Hospitality', desc: 'Casino, resort, and F&B uniforms — front of house to back' },
+ { name: 'Events & Teams', desc: 'Trade-show gear, activations, team uniforms — sized right, on time' },
 ]
 
 const whyPoints = [
- { title: 'Trades-Only. Not Generalists.', desc: "We don't do wedding swag or fashion drops. We outfit the trades — construction, electrical, plumbing, HVAC, roofing, landscaping — and we know the garments, compliance, and reorder patterns of each." },
+ { title: 'Branded Programs, Not One-Offs.', desc: "We specialize in branded apparel programs for teams of every kind — corporate, education, government, healthcare, gaming, events, and the trades. We learn your garments, compliance needs, and reorder patterns so every order matches the last." },
  { title: 'Your Deadline Was Yesterday.', desc: "Quick quotes, quick mockups, rush options when you need them. Tell us your deadline and we'll tell you straight if we can hit it." },
  { title: 'Reorders Without the Phone Tag.', desc: 'Your company store holds your logo, your colors, your approved products. New hires get a gift-card allowance, pick their sizes, and gear ships direct.' },
- { title: 'Vegas Local. Vegas Production.', desc: 'Our production partners are in Vegas. When a blank supplier jacks prices mid-quarter, we know before you do — and we hedge with annual-lock pricing.' },
+ { title: 'Las Vegas Roots. Nationwide Reach.', desc: 'Based in Las Vegas, shipping nationwide. Our production partners are local, so when a blank supplier jacks prices mid-quarter, we know before you do — and we hedge with annual-lock pricing.' },
 ]
 
 const process = [
@@ -175,7 +175,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  <section class="relative isolate overflow-hidden bg-navy-950">
  <Image
  src={heroPhoto}
- alt="Construction crew in branded hi-vis workwear on a Las Vegas job site"
+ alt="The Bighorn Threads ram logo embroidered in gold thread on a navy company polo"
  widths={[768, 1280, 1920]}
  sizes="100vw"
  formats={['avif', 'webp']}
@@ -188,7 +188,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  <!-- Tint: dark enough for white copy, weighted to the left where text sits -->
  <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/85 to-navy-950/40"></div>
 
- <div class="mx-auto max-w-7xl px-4 pb-20 pt-36 sm:px-6 sm:pt-44 lg:px-8 lg:pb-28 lg:pt-52">
+ <div class="mx-auto max-w-7xl px-4 pb-20 pt-24 sm:px-6 sm:pt-28 lg:px-8 lg:pb-28 lg:pt-36">
  <div class="max-w-2xl">
  <p class="kicker mb-5 flex items-center gap-2.5">
  <span class="h-px w-8 bg-gold-500"></span>
@@ -276,8 +276,8 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  One partner. Every piece of gear. <span class="text-ash">Every reorder.</span>
  </h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- From first crew order to full company store — screen printing, embroidery, hi-vis,
- PPE-compatible gear, and branded workwear for Las Vegas trades. Your files, your screens,
+ From first team order to full company store — screen printing, embroidery, hi-vis,
+ PPE-compatible gear, and branded apparel for teams of every kind. Your files, your screens,
  your color standards held on our end so every reorder matches.
  </p>
  </div>
@@ -344,23 +344,23 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  <div class="mb-12 max-w-2xl">
  <p class="kicker mb-3">Industries We Serve</p>
  <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
- Built for the companies that <span class="text-gold-600">build Vegas.</span>
+ Built for the teams that run <span class="text-gold-600">Las Vegas — and beyond.</span>
  </h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- We specialize in construction and trades. If your crew shows up to a job site, we make sure they look like they belong to something.
+ Corporate, education, government, healthcare, gaming, events, and the trades. Whatever your team does, we make sure they look like they belong to something. Based in Las Vegas, shipping nationwide.
  </p>
  </div>
 
- <!-- Featured: Construction -->
+ <!-- Featured: Construction & Trades (one vertical of several) -->
  <div class="mb-5 border-l-4 border-gold-500 bg-panel">
  <div class="flex flex-col gap-6 border border-l-0 border-hairline p-7 sm:p-9 lg:flex-row lg:items-center">
  <div class="flex-1">
- <span class="spec mb-3 inline-block bg-gold-500 px-2 py-1 text-charcoal">Our Specialty</span>
- <h3 class="font-heading text-2xl font-bold uppercase tracking-tight text-charcoal sm:text-3xl">General Contractors &amp; Construction</h3>
+ <span class="spec mb-3 inline-block bg-gold-500 px-2 py-1 text-charcoal">Featured Vertical</span>
+ <h3 class="font-heading text-2xl font-bold uppercase tracking-tight text-charcoal sm:text-3xl">Construction &amp; Trades</h3>
  <p class="mt-3 text-ash">
- Your crew is your brand on every job site. We outfit general contractors with branded hard hats,
- hi-vis tees, polos for the office, and company stores so every crew member — from the foreman to
- the newest hire — looks professional.
+ Your crew is your brand on every job site. We outfit GCs, electrical, plumbing, HVAC, roofing,
+ concrete, and steel with branded hard hats, hi-vis tees, FR shirts, and company stores so every
+ crew member — from the foreman to the newest hire — looks professional. One of seven verticals we run.
  </p>
  <div class="mt-4 flex flex-wrap gap-2">
  {['Hi-vis safety wear', 'Branded hard hats', 'Company stores', 'Crew uniforms', 'Client gifts'].map((tag) => (
@@ -414,7 +414,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  <div class="border border-hairline bg-panel p-2">
  <Picture
  src={foremanPhoto}
- alt="Construction foreman in branded work shirt and hard hat reviewing blueprints at a Las Vegas job site"
+ alt="Steve Dodson, founder of Bighorn Threads, in a navy branded polo"
  widths={[480, 768, 1024]}
  sizes="(min-width: 1024px) 50vw, 100vw"
  formats={['avif', 'webp']}
@@ -434,12 +434,12 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  <div class="mb-12 max-w-3xl">
  <p class="kicker mb-3">Gear by Industry</p>
  <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
- What the trades that build Vegas <span class="text-gold-600">actually order.</span>
+ What teams <span class="text-gold-600">actually order.</span>
  </h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- Real categories, real decoration methods, real compliance specs. We source through a catalog of
- 1.7M+ items — Carhartt, Bulwark, Port Authority, ML Kishigo, Red Kap, and the rest of the brands
- your crew already trusts.
+ Real categories, real decoration methods, real compliance specs. The trades below are examples —
+ we source through a catalog of 1.7M+ items, from embroidered corporate polos to FR-rated workwear:
+ Carhartt, Bulwark, Port Authority, ML Kishigo, Red Kap, and the rest of the brands teams already trust.
  </p>
  </div>
 
@@ -521,7 +521,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  <div class="mb-10 max-w-2xl">
  <p class="kicker mb-3">FAQ</p>
  <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
- Questions we hear from <span class="text-gold-600">Vegas crews.</span>
+ Questions we hear from <span class="text-gold-600">teams.</span>
  </h2>
  </div>
 
@@ -562,7 +562,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  <div class="mx-auto max-w-3xl px-4 py-24 text-center sm:px-6 sm:py-32 lg:px-8">
  <p class="kicker mb-3 justify-center">Get Started</p>
  <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-6xl">
- Ready to standardize <span class="text-gold-400">your crew?</span>
+ Ready to standardize <span class="text-gold-400">your team?</span>
  </h2>
  <p class="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-navy-200">
  Get a quick quote. Real mockups, real pricing, a human on the phone. If you're ready to stop chasing

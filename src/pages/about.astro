@@ -1,9 +1,9 @@
 ---
 import { Image } from 'astro:assets'
 import BaseLayout from '@/layouts/BaseLayout.astro'
-import crewVegas from '@/assets/generated/crew-vegas.jpg'
 import foremanCloseup from '@/assets/generated/foreman-closeup.jpg'
 import productStack from '@/assets/generated/product-stack.jpg'
+import workwearFlatlay from '@/assets/generated/workwear-flatlay.jpg'
 
 const values = [
  {
@@ -34,7 +34,7 @@ const comparison = [
  { category: 'Proofing', online: 'No proof — you approve a thumbnail', bighorn: 'Free digital mockups before anything hits the press' },
  { category: 'Rush orders', online: '"Not guaranteed" or surprise upcharges', bighorn: 'Quoted up front — you know the cost and the date before you commit' },
  { category: 'Delivery', online: 'Ships from a warehouse three states away', bighorn: 'Local Las Vegas delivery to your office, job trailer, or crew addresses' },
- { category: 'Industry knowledge', online: 'Generic — sells to everyone from dentists to daycares', bighorn: 'Construction-specific: hi-vis classes, FR ratings, OSHA compliance' },
+ { category: 'Industry knowledge', online: 'Generic — sells to everyone from dentists to daycares', bighorn: 'Deep on the details — from hi-vis classes and FR ratings to brand standards for client-facing teams' },
  { category: 'Pricing', online: 'Setup fees, color fees, art fees hidden at checkout', bighorn: 'Transparent quote — what we quote is what you pay' },
  { category: 'Long-term fit', online: 'Transactional — one order, then forgotten', bighorn: 'Ongoing partnership — company stores, reorders, new hires' },
 ]
@@ -43,8 +43,8 @@ const founder = {
  initials: 'SD',
  name: 'Steven Dodson',
  role: 'Founder',
- bio: "Built VP Promos in Las Vegas from a one-desk operation into a working promotional apparel shop. Bighorn Threads is the construction-focused arm — same shop, same presses, same hands-on experience, rebuilt for the crews pouring foundations and wiring high-rises.",
- quote: "I still pick up the phone myself. If your crew needs gear, you're talking to me.",
+ bio: "Built VP Promos in Las Vegas from a one-desk operation into a working promotional apparel shop. Bighorn Threads is the branded-apparel arm — same shop, same presses, same hands-on experience, building programs for teams of every kind across the country.",
+ quote: "I still pick up the phone myself. If your team needs gear, you're talking to me.",
  phone: '702.904.8923',
 }
 
@@ -57,7 +57,7 @@ const jsonLd = {
  '@type': 'AboutPage',
  '@id': 'https://bighornthreads.com/about#aboutpage',
  url: 'https://bighornthreads.com/about',
- name: 'About Bighorn Threads — Las Vegas Branded Apparel for Construction',
+ name: 'About Bighorn Threads — Las Vegas Branded Apparel & Company Stores',
  description: "Bighorn Threads is a DBA of VP Promos — a Las Vegas promotional apparel shop specialized for the construction vertical. Screen printing, embroidery, branded workwear, and company stores.",
  isPartOf: { '@id': 'https://bighornthreads.com/#website' },
  about: { '@id': 'https://bighornthreads.com/#organization' },
@@ -118,7 +118,7 @@ const jsonLd = {
 ---
 
 <BaseLayout
- title="About Bighorn Threads — Las Vegas Branded Apparel for Construction"
+ title="About Bighorn Threads — Las Vegas Branded Apparel & Company Stores"
  description="How a Las Vegas promo shop became the go-to for Vegas construction crews. Our story, our values, how we're different from online catalogs, and the team behind Bighorn Threads."
 >
  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
@@ -146,13 +146,13 @@ const jsonLd = {
  Our Story
  </p>
  <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-6xl">
- We Outfit the Crews That <span class="text-gold-400">Build Vegas</span>
+ We Build Branded Programs for <span class="text-gold-400">Teams of Every Kind</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- We've spent enough time outfitting Las Vegas crews to know what actually survives a job site — and what doesn't. Bighorn Threads is the construction-focused arm of VP Promos, built for the crews pouring foundations, framing high-rises, and wiring up the Strip.
+ Bighorn Threads is the branded-apparel arm of VP Promos — Las Vegas based, serving teams nationwide. Screen printing, embroidery, and company stores for crews, offices, and field teams alike. Construction is where we cut our teeth; it's one vertical we serve, not the whole story.
  </p>
  <div class="mt-8 flex flex-wrap items-center gap-2">
- {['Las Vegas, NV', 'A DBA of VP Promos', 'Local Vegas production'].map((tag) => (
+ {['Las Vegas based', 'Serving nationwide', 'A DBA of VP Promos'].map((tag) => (
  <span class="spec inline-flex items-center gap-2 border border-navy-700 px-2.5 py-1.5 text-navy-200">
  <span class="h-1.5 w-1.5 bg-gold-500"></span>
  {tag}
@@ -169,7 +169,7 @@ const jsonLd = {
  <div class="lg:col-span-7">
  <p class="kicker mb-3">How we got here</p>
  <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-4xl lg:text-5xl">
- From general promo to the <span class="text-gold-600">construction specialists</span>
+ From general promo to <span class="text-gold-600">programs that hold up</span>
  </h2>
  <div class="space-y-6 text-lg leading-relaxed text-charcoal">
  <p>
@@ -182,7 +182,7 @@ const jsonLd = {
  Most online promo catalogs couldn't do that. Heck, most local shops couldn't either — they'd sell a construction company the same 4.2-ounce soft cotton tee they sold to a yoga studio, and then act surprised when it came back destroyed. We started keeping a different inventory for our construction clients. Then a different workflow. Then a different quoting process that accounted for rush-hire timelines and multi-crew sizing grids.
  </p>
  <p>
- By the time we were doing more construction than everything else combined, it stopped making sense to hide it inside a generic promo brand. So we built Bighorn Threads — same shop, same team, same presses — but purpose-built for the trades. Hi-vis that meets ANSI. FR-rated layers that meet NFPA 2112. Moisture-wicking crew tees that don't look like corporate golf shirts. Screen printing ink formulas that actually survive the wash cycle at a tradesman's apartment laundry room, where detergent is cheap and the water runs hot.
+ That trades work taught us how to build a branded program that actually holds up — durable gear, ink that survives the wash, sizing grids for whole teams, rush turns when new hires start Monday. So we built Bighorn Threads: same shop, same team, same presses, that same standard applied to every team we outfit. Construction is one vertical where it shows — hi-vis that meets ANSI, FR-rated layers that meet NFPA 2112, crew tees that don't look like corporate golf shirts — but the same care goes into a field crew, an office staff, or a company store full of polos.
  </p>
  <p>
  We cover full uniforms for <a href="/industries/electrical-contractors-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">electrical</a>, <a href="/industries/plumbing-hvac-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">plumbing/HVAC</a>, <a href="/industries/data-center-contractors-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">data center</a>, and other Las Vegas construction crews. See <a href="/blog/ppe-branded-workwear-regulations-construction-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">PPE regulations</a> for our compliance approach.
@@ -193,8 +193,8 @@ const jsonLd = {
  <div class="sticky top-24 space-y-6">
  <div class="border border-hairline bg-panel p-2">
  <Image
- src={crewVegas}
- alt="Las Vegas construction crew wearing branded hi-vis workwear on a jobsite with the Strip in the background"
+ src={workwearFlatlay}
+ alt="Branded apparel laid out — embroidered polos, tees, and caps ready to ship"
  loading="lazy"
  class="h-auto w-full"
  />
@@ -343,8 +343,8 @@ const jsonLd = {
  <div class="flex flex-col items-center justify-center gap-5 border-b border-hairline bg-concrete p-10 lg:border-b-0 lg:border-r lg:p-14">
  <div class="h-48 w-48 overflow-hidden border border-hairline sm:h-56 sm:w-56">
  <img
- src="/images/generated/founder-nanobanana.jpg"
- alt="Steven Dodson, Founder of Bighorn Threads, wearing a navy embroidered polo at a Las Vegas construction site"
+ src="/images/generated/founder-steve.jpg"
+ alt="Steven Dodson, founder of Bighorn Threads."
  width="448"
  height="448"
  loading="eager"
@@ -383,8 +383,8 @@ const jsonLd = {
  <!-- Production partners photo strip -->
  <div class="mt-16 border border-hairline bg-panel p-2">
  <Image
- src={crewVegas}
- alt="Las Vegas construction crew in branded hi-vis and embroidered work shirts on a Strip-adjacent job site"
+ src={workwearFlatlay}
+ alt="Branded workwear and apparel produced in the Bighorn Threads shop"
  loading="lazy"
  class="h-[280px] w-full object-cover sm:h-[320px]"
  />
@@ -399,10 +399,10 @@ const jsonLd = {
  <div>
  <p class="kicker mb-3">Based in Las Vegas</p>
  <h2 class="mb-6 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl lg:text-5xl">
- We're down the street, <span class="text-gold-600">not across the country</span>
+ Vegas roots. <span class="text-gold-600">Nationwide reach.</span>
  </h2>
  <p class="mb-6 text-lg leading-relaxed text-ash">
- Everything's produced and shipped locally from Las Vegas. That means fast delivery to your office or job trailer, and a local team that can actually meet you for a coffee to walk through an artwork concept.
+ We produce locally in Las Vegas — fast delivery to any Vegas office or job trailer, and a local team you can meet for coffee to walk through artwork. For teams outside the valley, we ship direct nationwide.
  </p>
  <p class="mb-8 text-lg leading-relaxed text-ash">
  We regularly deliver to job sites all over the Vegas metro — from Strip high-rises to Henderson masterplans to out-of-town projects in Pahrump and Boulder City. If your crew's working it, we're probably already shipping there.
@@ -456,13 +456,13 @@ const jsonLd = {
  <div class="mx-auto max-w-4xl px-4 py-24 text-center sm:px-6 sm:py-32 lg:px-8">
  <p class="kicker mb-3 justify-center">Let's work</p>
  <h2 class="mb-6 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl lg:text-5xl">
- Ready to work with a team that <span class="text-gold-400">actually gets construction?</span>
+ Ready to work with a team that <span class="text-gold-400">actually gets it?</span>
  </h2>
  <p class="mx-auto mb-10 max-w-2xl text-lg text-navy-200">
  Send over your logo, your rough quantities, and your deadline. We'll come back with a transparent quote, digital mockups, and a real date we can hit — usually fast.
  </p>
  <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
- <a href="/contact/" class="btn-primary text-base">
+ <a href="/get-a-quote/" class="btn-primary text-base">
  Get a Quote
  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
  <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />

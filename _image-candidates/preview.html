@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bighorn Hero Candidates</title>
+<style>
+  :root { --navy:#00182a; --gold:#C19B3D; --gold-l:#d9b85a; --concrete:#f4f2ee; --ash:#6b6660; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--concrete); color:#1a1714; font-family:-apple-system,Segoe UI,Roboto,sans-serif; padding:32px 16px 80px; }
+  .wrap { max-width:1100px; margin:0 auto; }
+  h1.title { font-size:14px; letter-spacing:.18em; text-transform:uppercase; color:var(--ash); margin-bottom:24px; font-weight:700; }
+  .card { background:#fff; border:1px solid #d4d0c8; margin-bottom:40px; }
+  .label { display:flex; align-items:center; justify-content:space-between; padding:14px 20px; border-bottom:1px solid #d4d0c8; }
+  .label b { font-size:18px; text-transform:uppercase; letter-spacing:-.01em; }
+  .pick { background:var(--gold); color:#1a1714; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.1em; padding:4px 10px; border-radius:3px; }
+  /* hero simulation */
+  .hero { position:relative; min-height:440px; display:flex; align-items:center; overflow:hidden; background:#000; }
+  .hero img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .hero .tint { position:absolute; inset:0; background:linear-gradient(90deg, rgba(0,12,22,.92) 0%, rgba(0,12,22,.78) 40%, rgba(0,12,22,.30) 100%); }
+  .hero .copy { position:relative; padding:0 48px; max-width:620px; }
+  .hero .kick { color:var(--gold-l); font-size:12px; letter-spacing:.15em; text-transform:uppercase; font-weight:700; display:flex; align-items:center; gap:10px; margin-bottom:18px; }
+  .hero .kick::before { content:""; width:32px; height:1px; background:var(--gold); display:inline-block; }
+  .hero h2 { color:#fff; font-size:46px; line-height:.98; text-transform:uppercase; font-weight:800; letter-spacing:-.02em; }
+  .hero h2 span { color:var(--gold-l); }
+  .hero p { color:#c9d3da; margin-top:18px; font-size:17px; line-height:1.5; max-width:460px; }
+  .hero .btn { display:inline-block; margin-top:26px; background:var(--gold); color:#1a1714; font-weight:700; text-transform:uppercase; letter-spacing:.04em; font-size:14px; padding:13px 26px; border-radius:3px; }
+  .plain { padding:16px 20px 22px; }
+  .plain img { width:100%; display:block; border:1px solid #d4d0c8; }
+  .plain .cap { font-size:12px; color:var(--ash); margin-top:8px; }
+  @media(max-width:640px){ .hero h2{font-size:32px;} .hero .copy{padding:0 24px;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1 class="title">Bighorn Threads — Hero Candidates · pick one</h1>
+
+  <!-- FINISHED (logo) -->
+  <div class="card">
+    <div class="label"><b>1 · Finished — embroidered ram on navy polo</b><span class="pick">Recommended</span></div>
+    <div class="hero">
+      <img src="hero-logo-finished.png" alt="">
+      <div class="tint"></div>
+      <div class="copy">
+        <div class="kick">Company Stores &amp; Branded Gear · Vegas Roots, Nationwide</div>
+        <h2>Company stores &amp; branded gear for every team that <span>wears your logo.</span></h2>
+        <p>Real Bighorn logo, gold thread on navy. Clean, product-forward.</p>
+        <span class="btn">Get a Free Quote →</span>
+      </div>
+    </div>
+    <div class="plain"><img src="hero-logo-finished.png" alt=""><div class="cap">hero-logo-finished.png — the actual image, full</div></div>
+  </div>
+
+  <!-- MACHINE (logo) -->
+  <div class="card">
+    <div class="label"><b>2 · Machine — ram mid-stitch</b></div>
+    <div class="hero">
+      <img src="hero-logo-machine.png" alt="">
+      <div class="tint"></div>
+      <div class="copy">
+        <div class="kick">Company Stores &amp; Branded Gear · Vegas Roots, Nationwide</div>
+        <h2>Company stores &amp; branded gear for every team that <span>wears your logo.</span></h2>
+        <p>Same ram, embroidery head still working it. More "we make it."</p>
+        <span class="btn">Get a Free Quote →</span>
+      </div>
+    </div>
+    <div class="plain"><img src="hero-logo-machine.png" alt=""><div class="cap">hero-logo-machine.png — the actual image, full</div></div>
+  </div>
+
+  <!-- earlier non-logo options -->
+  <div class="card">
+    <div class="label"><b>3 · Embroidery machine (generic emblem)</b></div>
+    <div class="plain"><img src="hero-a-embroidery.png" alt=""></div>
+  </div>
+  <div class="card">
+    <div class="label"><b>4 · Apparel flat-lay (range)</b></div>
+    <div class="plain"><img src="hero-b-flatlay.png" alt=""></div>
+  </div>
+  <div class="card">
+    <div class="label"><b>5 · Uniform rack</b></div>
+    <div class="plain"><img src="hero-c-rack.png" alt=""></div>
+  </div>
+</div>
+</body>
+</html>
