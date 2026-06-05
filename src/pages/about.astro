@@ -58,7 +58,7 @@ const jsonLd = {
  '@id': 'https://bighornthreads.com/about#aboutpage',
  url: 'https://bighornthreads.com/about',
  name: 'About Bighorn Threads — Las Vegas Branded Apparel & Company Stores',
- description: "Bighorn Threads is a DBA of VP Promos — a Las Vegas promotional apparel shop specialized for the construction vertical. Screen printing, embroidery, branded workwear, and company stores.",
+ description: "Bighorn Threads is a DBA of VP Promos — a Las Vegas based promotional apparel shop building branded programs for teams of every kind across construction, corporate, education, healthcare, government, gaming/hospitality, and events. Screen printing, embroidery, branded workwear, and company stores.",
  isPartOf: { '@id': 'https://bighornthreads.com/#website' },
  about: { '@id': 'https://bighornthreads.com/#organization' },
  },
@@ -70,13 +70,14 @@ const jsonLd = {
  founder: { '@id': 'https://bighornthreads.com/#founder' },
  url: 'https://bighornthreads.com',
  logo: 'https://bighornthreads.com/images/logo.png',
- description: "Las Vegas branded apparel and promotional products for the construction industry. Screen printing, embroidery, hi-vis gear, and company stores built for crews that actually work for a living.",
+ description: "Las Vegas based branded apparel and promotional products for teams of every kind — construction crews, corporate offices, schools, healthcare, government, gaming/hospitality, and events — serving Las Vegas and nationwide. Screen printing, embroidery, hi-vis gear, uniforms, spirit wear, and company stores.",
  areaServed: [
  { '@type': 'City', name: 'Las Vegas' },
  { '@type': 'City', name: 'Henderson' },
  { '@type': 'City', name: 'North Las Vegas' },
  { '@type': 'City', name: 'Boulder City' },
  { '@type': 'City', name: 'Pahrump' },
+ { '@type': 'Country', name: 'United States' },
  ],
  address: {
  '@type': 'PostalAddress',
@@ -90,11 +91,14 @@ const jsonLd = {
  'Screen printing',
  'Embroidery',
  'Branded apparel',
+ 'Corporate apparel',
+ 'Scrubs and healthcare apparel',
+ 'Uniforms',
+ 'Spirit wear',
  'Hi-vis workwear',
  'Flame-resistant clothing',
  'Company stores',
  'Promotional products',
- 'Construction apparel',
  ],
  },
  {
@@ -103,13 +107,15 @@ const jsonLd = {
  name: 'Steven Dodson',
  jobTitle: 'Founder',
  worksFor: { '@id': 'https://bighornthreads.com/#organization' },
- description: "Founder of Bighorn Threads and its parent VP Promos. Built VP Promos in Las Vegas from a one-desk operation into a working promotional apparel shop; Bighorn Threads is its construction-focused arm, run hands-on by Steve himself.",
+ description: "Founder of Bighorn Threads and its parent VP Promos. Built VP Promos in Las Vegas from a one-desk operation into a working promotional apparel shop; Bighorn Threads is its branded-apparel arm, building programs for teams of every kind — construction, corporate, education, healthcare, government, gaming/hospitality, and events — run hands-on by Steve himself.",
  knowsAbout: [
- 'Screen printing for construction trades',
- 'Embroidery for workwear',
+ 'Screen printing',
+ 'Embroidery',
+ 'Corporate branded apparel',
+ 'Uniforms and spirit wear',
  'ANSI/ISEA 107 hi-vis apparel',
  'NFPA 70E flame-resistant clothing',
- 'Branded company stores for contractors',
+ 'Branded company stores',
  ],
  telephone: '+17029048923',
  },
@@ -119,7 +125,7 @@ const jsonLd = {
 
 <BaseLayout
  title="About Bighorn Threads — Las Vegas Branded Apparel & Company Stores"
- description="How a Las Vegas promo shop became the go-to for Vegas construction crews. Our story, our values, how we're different from online catalogs, and the team behind Bighorn Threads."
+ description="How a Las Vegas promo shop became the go-to for branded programs for teams of every kind — Las Vegas based, serving nationwide. Our story, our values, how we're different from online catalogs, and the team behind Bighorn Threads."
 >
  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 

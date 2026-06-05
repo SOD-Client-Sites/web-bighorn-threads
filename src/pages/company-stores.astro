@@ -7,12 +7,12 @@ import productStack from '@/assets/generated/product-stack.jpg'
 
 const faqs = [
  {
- q: 'What is a company store for contractor uniforms?',
- a: 'A company store is a private, branded online shop Bighorn Threads builds for your Las Vegas construction company. Your crew logs in and orders approved uniforms, hi-vis, embroidered polos, and FR gear at prices you set. We print, embroider, and ship each order direct — the contractor holds no inventory and pays no monthly platform fee.',
+ q: 'What is a company store for team apparel?',
+ a: 'A company store is a private, branded online shop Bighorn Threads builds for your team. Your people log in and order approved apparel — embroidered polos, hats, jackets, hi-vis, and FR gear — at prices you set. We print, embroider, and ship each order direct — you hold no inventory and pay no monthly platform fee. Las Vegas based, we run stores for teams nationwide.',
  },
  {
- q: 'Who offers company stores for construction crews in Las Vegas?',
- a: 'Bighorn Threads is a Las Vegas company that builds and runs private branded company stores for construction and trades crews — general contractors, electrical, plumbing, HVAC, concrete, and steel. We handle production, embroidery, fulfillment, and reporting so your crew can self-order and reorder gear without your office managing it.',
+ q: 'Who offers branded company stores for teams?',
+ a: 'Bighorn Threads is a Las Vegas company that builds and runs private branded company stores for teams of every kind — corporate offices, schools, healthcare, government, hospitality, and field crews like general contractors, electrical, plumbing, and HVAC. We handle production, embroidery, fulfillment, and reporting so your people can self-order and reorder gear without your office managing it. We serve teams nationwide.',
  },
  {
  q: 'How long does it take to launch a store?',
@@ -61,15 +61,18 @@ const faqSchema = {
 const serviceSchema = {
  '@context': 'https://schema.org',
  '@type': 'Service',
- name: 'Company Stores for Contractors',
- serviceType: 'Branded Online Store for Crew Apparel',
+ name: 'Company Stores for Teams',
+ serviceType: 'Branded Online Store for Team Apparel',
  provider: { '@id': 'https://bighornthreads.com/#organization' },
- areaServed: { '@type': 'City', name: 'Las Vegas' },
+ areaServed: [
+ { '@type': 'Country', name: 'United States' },
+ { '@type': 'City', name: 'Las Vegas' },
+ ],
  description:
- 'Private branded online stores for construction and trades companies. Crew members log in and order their own uniforms, hi-vis, hats, and jackets — Bighorn Threads prints, embroiders, and ships direct. Zero inventory for the contractor.',
+ 'Private branded online stores for teams of every kind — corporate offices, schools, healthcare, government, hospitality, and field crews. Team members log in and order their own apparel — embroidered polos, hats, jackets, hi-vis, and FR gear — and Bighorn Threads prints, embroiders, and ships direct. Zero inventory for your company. Las Vegas based, serving teams nationwide.',
  audience: {
  '@type': 'BusinessAudience',
- name: 'General contractors, HVAC, plumbing, electrical, and multi-location trade companies',
+ name: 'Corporate, education, healthcare, government, hospitality, and field teams — including general contractors, HVAC, plumbing, electrical, and multi-location companies',
  },
 }
 ---
