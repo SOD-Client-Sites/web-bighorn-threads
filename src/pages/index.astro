@@ -82,47 +82,39 @@ const services = [
 
 const trades = [
  {
- name: 'General Contractors',
- href: '/industries/general-contractors-las-vegas/',
- img: '/images/generated/kit-gc.jpg',
- alt: 'Flat-lay of general contractor gear — embroidered polo, hi-vis tee, branded hard hat, work gloves',
- items: ['Embroidered polos & button-ups', 'ANSI Class 2 hi-vis tees & vests', 'Branded hard hats & beanies', 'Carhartt-style work jackets'],
+ name: 'Construction & Trades',
+ href: '/industries/construction-trades/',
+ items: ['Hi-vis tees & vests (ANSI 107)', 'FR-rated shirts (NFPA 70E)', 'Embroidered work polos & jackets', 'Branded hard hats & beanies'],
  },
  {
- name: 'Electrical Contractors',
- href: '/industries/electrical-contractors-las-vegas/',
- img: '/images/generated/kit-electrical.jpg',
- alt: 'Electrician gear — FR-rated button-up, embroidered softshell jacket, beanie, insulated gloves',
- items: ['NFPA 70E FR-rated shirts', 'Arc-flash compliant workwear', 'Embroidered softshells & beanies', 'Data center / MEP sub uniforms'],
+ name: 'Corporate & Office',
+ href: '/industries/corporate/',
+ items: ['Embroidered polos & softshells', 'Performance quarter-zips', 'New-hire onboarding kits', 'Branded drinkware & client gifts'],
  },
  {
- name: 'Mechanical & HVAC',
- href: '/industries/plumbing-hvac-las-vegas/',
- img: '/images/generated/kit-plumbing-hvac.jpg',
- alt: 'Mechanical and HVAC service gear — navy service polo, branded work jacket, ball cap, utility belt',
- items: ['Embroidered service polos', 'Branded work jackets', 'Data center cooling tech uniforms', 'Name-taped service shirts'],
+ name: 'Education',
+ href: '/industries/education/',
+ items: ['Staff & faculty polos', 'Spirit wear & fan gear', 'Athletics & team apparel', 'Embroidered outerwear'],
  },
  {
- name: 'Concrete & Masonry',
- href: '/industries/concrete-masonry-las-vegas/',
- img: '/images/generated/kit-concrete.jpg',
- alt: 'Concrete and masonry crew gear — hi-vis tee, work jacket, white hard hat, trowel, gloves',
- items: ['ANSI hi-vis tees & long sleeves', 'Heavy-duty embroidered work jackets', 'Branded white hard hats', 'Knee pads, gloves, and crew tees'],
+ name: 'Healthcare',
+ href: '/industries/healthcare/',
+ items: ['Embroidered scrubs', 'Lab coats & jackets', 'Front-desk & admin polos', 'Name + credential embroidery'],
  },
  {
- name: 'Steel & Ironworkers',
- href: '/industries/steel-iron-workers-las-vegas/',
- img: '/images/generated/kit-steel.jpg',
- alt: 'Ironworker and structural steel gear — FR long-sleeve, welding gloves, hard hat, spud wrench',
- items: ['FR-rated long-sleeve work shirts', 'Branded hard hats with chin straps', 'Heavy leather welding gloves', 'Arc-rated hoodies & softshells'],
+ name: 'Government & Public',
+ href: '/industries/government/',
+ items: ['Department uniforms & polos', 'ANSI hi-vis safety apparel', 'Public-works field gear', 'Branded outerwear & caps'],
  },
  {
- name: 'Data Center & Mission-Critical',
- href: '/industries/data-center-contractors-las-vegas/',
- img: '/images/generated/kit-datacenter.jpg',
- alt: 'Data center contractor gear — FR button-up, embroidered softshell, hard hat, network tools',
- items: ['NFPA 70E FR-rated button-ups', 'Embroidered softshell jackets', 'Chin-strap hard hats', 'Arc-rated gloves & fine-dust gear'],
- badge: 'Vegas #1 growth sector',
+ name: 'Gaming & Hospitality',
+ href: '/industries/gaming-hospitality/',
+ items: ['Guest-services & front-desk polos', 'F&B shirts & aprons', 'Housekeeping & back-of-house', 'Embroidered vests & outerwear'],
+ },
+ {
+ name: 'Events & Teams',
+ href: '/industries/events/',
+ items: ['Event & booth staff apparel', 'Trade-show polos & outerwear', 'Team & league uniforms', 'Attendee giveaways & merch'],
  },
 ]
 
@@ -204,7 +196,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  Easy to reorder. Consistent every time.
  </p>
  <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
- <a href="/contact/" class="btn-primary text-base">
+ <a href="/get-a-quote/" class="btn-primary text-base">
  Get a Free Quote
  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
  </a>
@@ -437,8 +429,8 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  What teams <span class="text-gold-600">actually order.</span>
  </h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- Real categories, real decoration methods, real compliance specs. The trades below are examples —
- we source through a catalog of 1.7M+ items, from embroidered corporate polos to FR-rated workwear:
+ Different teams, different gear. Here's what each kind of team actually orders —
+ from embroidered corporate polos to ANSI hi-vis workwear. We decorate the brands teams already trust:
  Carhartt, Bulwark, Port Authority, ML Kishigo, Red Kap, and the rest of the brands teams already trust.
  </p>
  </div>
@@ -446,12 +438,6 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
  {trades.map((trade) => (
  <a href={trade.href} class="group flex flex-col border border-hairline bg-panel transition-colors duration-200 hover:border-gold-500">
- <div class="relative aspect-[4/3] overflow-hidden">
- <img src={trade.img} alt={trade.alt} width="800" height="600" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
- {trade.badge && (
- <span class="spec absolute right-3 top-3 bg-charcoal px-2 py-1 text-concrete">{trade.badge}</span>
- )}
- </div>
  <div class="flex flex-1 flex-col p-6">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">{trade.name}</h3>
  <ul class="mt-3 space-y-2">
@@ -468,8 +454,8 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  </div>
 
  <div class="mt-8">
- <a href="/contact/" class="btn-primary text-base">
- Spec your crew's gear
+ <a href="/get-a-quote/" class="btn-primary text-base">
+ Spec your team's gear
  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
  </a>
  </div>
@@ -569,7 +555,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  down uniform orders, we're ready to start building your program.
  </p>
  <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
- <a href="/contact/" class="btn-primary text-base">
+ <a href="/get-a-quote/" class="btn-primary text-base">
  Get Your Free Quote
  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
  </a>
