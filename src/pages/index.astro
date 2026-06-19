@@ -2,7 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import { Image, Picture } from 'astro:assets'
 import heroPhoto from '@/assets/generated/hero-ram.jpg'
-import foremanPhoto from '@/assets/generated/foreman-closeup.jpg'
+import foremanPhoto from '@/assets/generated/founder-steve-desk.jpg'
 
 const faqs = [
  {
@@ -157,6 +157,17 @@ const blogLinks = [
 ]
 
 const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: 'https://bighornthreads.com/',
+ name: 'Company stores & branded gear for every team that wears your logo',
+ speakable: {
+ '@type': 'SpeakableSpecification',
+ cssSelector: ['h1', '.speakable-answer'],
+ },
+}
 ---
 
 <BaseLayout
@@ -190,7 +201,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  Company stores &amp; branded gear for every team that
  <span class="text-gold-400"> wears your logo.</span>
  </h1>
- <p class="mt-7 max-w-xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ <p class="speakable-answer mt-7 max-w-xl text-lg leading-relaxed text-navy-200 sm:text-xl">
  Private company stores, embroidery, uniforms, and branded workwear for teams across
  construction, corporate, education, healthcare, and government. Vegas roots, shipping nationwide.
  Easy to reorder. Consistent every time.
@@ -567,6 +578,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  </div>
  </section>
 
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify({
  '@context': 'https://schema.org',

@@ -13,6 +13,15 @@ const post = {
  slug: 'company-store-vs-bulk-ordering',
 }
 
+const faqs = [
+ { q: 'What are the hidden costs of bulk ordering apparel?', a: 'The sticker price on a bulk order is never what you actually pay per worn piece. Four things eat into every bulk order: wrong sizes that leave you with a permanent stack of garments nobody wants, shelf storage that takes space and staff time to manage, turnover and dead inventory when employees leave with gear in their size, and logo changes or discontinued colors that turn an old stack into a rag pile.' },
+ { q: 'How does a branded company store work?', a: 'A branded company store is a private online storefront that only your employees can see. Every product is pre-approved with your logo, your garment choices, and your color options. Employees log in, pick their size, and the gear ships. Stores can be company-paid, employee-paid, or a hybrid where core required items are company-paid and everything else is employee-paid.' },
+ { q: 'At what crew size does a company store beat bulk ordering?', a: 'Under 20 people, bulk ordering is fine and stores are overkill. From 20 to 50 people is a grey zone that depends on turnover. From 50 to 200 people a company store almost always wins because the logistical overhead of bulk outweighs the per-piece savings. Over 200 people a company store is the only sane option.' },
+ { q: 'Why is new-hire onboarding the killer use case for a company store?', a: 'With bulk ordering, onboarding means somebody in the office guesses at sizes and hands the new hire a stack of gear, and half the time the sizes are wrong. With a company store, new hires get an invite to order their onboarding bundle in their actual sizes and the gear ships straight to the jobsite. Zero office involvement, zero closet, zero wrong sizes.' },
+ { q: 'When should you still order in bulk instead of using a company store?', a: 'Straight bulk ordering still wins for one-off events like groundbreakings and company BBQs, seasonal promotional runs where the logo is the point and fit does not matter, small stable crews under 15 people with low turnover, and specialty items like a premium jacket run for leadership. Most contractor accounts do both: a company store for day-to-day gear plus periodic bulk orders for events.' },
+ { q: 'How do you measure the true cost of work apparel?', a: 'Stop measuring by invoice and start measuring by worn-piece cost. Run the numbers on your last bulk order, count the pieces still sitting on the shelf, and divide the invoice total by the number that actually got worn. Bulk orders look cheaper on the invoice but lose money on dead inventory, wrong sizes, and rush reorders, and a company store usually comes out ahead around the 30 to 40 person mark.' },
+]
+
 const schema = {
  '@context': 'https://schema.org',
  '@graph': [
@@ -51,6 +60,19 @@ const schema = {
  item: `https://bighornthreads.com/blog/${post.slug}/`,
  },
  ],
+ },
+ {
+ '@type': 'FAQPage',
+ mainEntity: faqs.map((f) => ({
+ '@type': 'Question',
+ name: f.q,
+ acceptedAnswer: { '@type': 'Answer', text: f.a },
+ })),
+ },
+ {
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.speakable-answer'] },
  },
  ],
 }
@@ -121,7 +143,7 @@ const schema = {
  </ol>
  </aside>
 
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
+ <p class="speakable-answer mb-6 text-lg leading-relaxed text-charcoal">
  The "order in bulk and hand it out" model came from a time when printed apparel cost three times what it does today and "on-demand" didn't exist. It still works — for some crews. But we see contractors every month who have been doing it by default for a decade and are bleeding money without realizing it.
  </p>
 
@@ -137,7 +159,7 @@ const schema = {
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Wrong sizes</h3>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- When you order 500 tees using a "best guess" size distribution (say, 15% S, 25% M, 30% L, 20% XL, 10% 2XL), you're almost always off by 10-20%. You run out of mediums in a month and end up with a permanent stack of XLs nobody wants. Those XLs are effectively worthless.
+ When you order 500 tees using a "best guess" size distribution (say, 15% S, 25% M, 30% L, 20% XL, 10% 2XL), you're almost always off more than you'd expect. You run out of mediums in a month and end up with a permanent stack of XLs nobody wants. Those XLs are effectively worthless.
  </p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Shelf storage</h3>
@@ -147,7 +169,7 @@ const schema = {
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Turnover & dead inventory</h3>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Construction turnover is real. You hire Juan in January and order him a hoodie. Juan leaves in April. That hoodie has his size on it and his dirt on it. Nobody else will wear it. At 25% annual turnover on a 50-person crew, you're writing off a meaningful portion of every bulk order you place.
+ Construction turnover is real. You hire Juan in January and order him a hoodie. Juan leaves in April. That hoodie has his size on it and his dirt on it. Nobody else will wear it. With normal crew turnover, you're writing off a meaningful portion of every bulk order you place.
  </p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Logo changes & discontinued colors</h3>
@@ -158,7 +180,7 @@ const schema = {
  <div class="my-10 border-l-4 border-gold-500 bg-gold-500/5 p-6">
  <p class="mb-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-600">Key takeaway</p>
  <p class="text-lg leading-relaxed text-charcoal">
- Across the contractor accounts we've audited, dead stock and wrong-size shrinkage averages <strong class="text-charcoal">18-25% of every bulk order</strong>. That's the real number to plug into your cost comparison — not the invoice total.
+ Dead stock and wrong-size shrinkage is a real, recurring chunk of every bulk order — and it's the cost people forget to count.
  </p>
  </div>
 
@@ -179,7 +201,7 @@ const schema = {
  </ul>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Hybrid is what 80% of our contractor clients run. It covers what's required for the job and lets employees opt in for the stuff they actually want to wear off-hours.
+ Hybrid is the setup most contractors land on. It covers what's required for the job and lets employees opt in for the stuff they actually want to wear off-hours.
  </p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Fulfillment model</h3>

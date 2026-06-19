@@ -91,6 +91,17 @@ const serviceSchema = {
 }
 
 const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: 'https://bighornthreads.com/services/',
+ name: 'Screen Printing, Embroidery & Branded Gear in Las Vegas',
+ speakable: {
+ '@type': 'SpeakableSpecification',
+ cssSelector: ['h1', '.speakable-answer'],
+ },
+}
 ---
 
 <BaseLayout
@@ -123,7 +134,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  <h1 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-6xl">
  Screen Printing, Embroidery &amp; <span class="text-gold-400">Branded Gear</span> in Las Vegas
  </h1>
- <p class="mt-7 max-w-xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ <p class="speakable-answer mt-7 max-w-xl text-lg leading-relaxed text-navy-200 sm:text-xl">
  One partner, local Vegas production. From a single embroidered hat to outfitting your entire crew — we handle it all.
  </p>
  </div>
@@ -475,6 +486,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  </div>
  </section>
 
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 </BaseLayout>

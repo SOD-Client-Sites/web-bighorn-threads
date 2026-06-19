@@ -14,6 +14,15 @@ const post = {
  slug: 'branded-workwear-data-center-contractors-las-vegas',
 }
 
+const faqs = [
+ { q: 'What hi-vis class do civil and structural crews need on a Las Vegas data center build?', a: 'Every body on site needs ANSI 107 Class 2 minimum during the civil and structural phase. Large data center projects with concurrent crane operations or material delivery often spec Class 3. Mesh-back hi-vis is essential in Vegas summer because standard polyester hi-vis becomes a heat-illness risk in 110-degree July weather.' },
+ { q: 'What FR rating do electrical contractors need on a hyperscaler data center project?', a: 'Data center power distribution runs at 480V minimum, often higher on substation tie-ins and transformer work. Every electrical contractor must spec NFPA 70E CAT 2 minimum FR shirts and pants. The Vegas standard is Bulwark Excel-FR ComforTouch SLU2 shirts paired with PEW2 Excel-FR pants, plus a JLR8 hi-vis lined bomber for night switchgear ties.' },
+ { q: 'Why does FR apparel decoration require Nomex thread?', a: 'Standard polyester thread melts in arc events and voids the FR rating. Decoration on FR garments has to use Nomex aramid thread. The thread spec gets documented on a certification sheet that ships with every order, which is the document your safety officer needs in the binder when a project safety inspector arrives.' },
+ { q: 'What do mechanical, plumbing, and low-voltage crews wear on data center projects?', a: 'Mechanical and plumbing crews run a typical commercial spec: Carhartt heavyweight cotton tees or Bayside performance tees with embroidered or screen-printed logos, paired with Carhartt or Dickies work pants, with Class 2 hi-vis vests in active-traffic zones. Low-voltage and structured cabling crews wear performance polos with embroidered logos for client-facing techs and branded performance tees for field crews.' },
+ { q: 'What do commissioning agents wear in the final phase of a data center build?', a: 'Commissioning agents, controls technicians, BMS integrators, and OEM service reps show up in the final 60 to 90 days. The standard spec is a moisture-wicking performance polo such as Port Authority K540 Silk Touch or Cutter and Buck DryTec, with a left-chest logo and an embroidered project ID on the sleeve. Hi-vis is no longer mandatory in most areas at this phase; the emphasis shifts to professional appearance for client walkthroughs.' },
+ { q: 'How do company-store programs help on large hyperscaler projects?', a: 'Once a project hits a large crew size, company-store programs let trades order direct against pre-approved SKU catalogs with per-employee allowances and HR-integrated onboarding. New hires get fully decorated apparel shipped to their home address when they start, and monthly reporting shows exactly where the apparel budget is going by trade, by role, and by project phase.' },
+]
+
 const schema = {
  '@context': 'https://schema.org',
  '@graph': [
@@ -35,6 +44,15 @@ const schema = {
  { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' },
  { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` },
  ],
+ },
+ {
+ '@type': 'FAQPage',
+ mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+ },
+ {
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.speakable-answer'] },
  },
  ],
 }
@@ -66,7 +84,7 @@ const schema = {
  </div>
 
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
+ <p class="speakable-answer mb-6 text-lg leading-relaxed text-charcoal">
  Las Vegas is in the middle of a multi-year <a href="/industries/data-center-contractors-las-vegas/" class="text-gold-600 underline hover:text-gold-700">data center construction boom</a> — major Vegas hyperscaler campuses, Henderson hyperscaler facilities, North Las Vegas hyperscaler sites, and a continuing cluster of hyperscaler builds along the Apex industrial corridor north of the Strip. Every one of these projects runs hundreds of trades on site at peak: GC field crews, electrical primes, MEP subs, structural steel teams, low-voltage cabling crews, fire suppression installers, and the commissioning agents who land in the building during the final 90 days. Every one of them shows up in branded apparel that has to clear security, identify the trade, and meet the project's PPE spec from day one.
  </p>
 

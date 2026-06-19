@@ -1,0 +1,323 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const page = {
+ title: 'Company Store Setup for Trades in Las Vegas | 2 to 3 Week Launch | Bighorn Threads',
+ description:
+ 'Company store setup for Las Vegas contractors and trades. Bighorn Threads builds a branded apparel store in 2 to 3 weeks. We load approved gear, set spending limits, and ship direct. No inventory risk, no minimums, no IT work. Get a quote.',
+ hero: '/images/generated/service-company-stores.jpg',
+ url: 'https://bighornthreads.com/company-stores/setup-guide-las-vegas/',
+}
+
+const steps = [
+ { n: '01', label: 'Kickoff call', body: 'We learn your trades, roles, and apparel standard. What each role wears, how fast it wears out, and your FR or hi-vis requirements. One call, about 30 minutes.' },
+ { n: '02', label: 'We build the storefront', body: 'Your logo, your colors, your store URL. We load only the items you approve. Sizes, colorways, and decoration specs all locked in as defaults.' },
+ { n: '03', label: 'You set the rules', body: 'Pick per-employee spending limits, role-based catalogs, and credit allowances. Office staff and field crews each see the right gear.' },
+ { n: '04', label: 'Test order and launch', body: 'We run a sample order so you see the product before your crew does. You approve, we open the store, and you invite your team.' },
+]
+
+const included = [
+ { label: 'Branded storefront', body: 'Your logo, your colors, your URL. Employees log in and it reads as your brand, not ours. Built and hosted by us.' },
+ { label: 'Approved catalog', body: 'Only the items you sign off on show up. Polos, hi-vis, FR shirts, hats, jackets, and work pants, decorated to your spec.' },
+ { label: 'Spending limits', body: 'Set a dollar credit per employee per month, quarter, or year. The store tracks every balance so your budget stays visible.' },
+ { label: 'Direct shipping', body: 'Each order ships to the home, the office, or the job site. The employee picks at checkout. You never box or count a thing.' },
+]
+
+const timeline = [
+ { row: 'Week 1', meaning: 'Kickoff and catalog build', use: 'Trade workshop call, SKU selection, sizes, colorways, decoration specs, logo placement' },
+ { row: 'Week 2', meaning: 'Storefront and rules', use: 'Branded store stood up, spending limits set, role-based catalogs, test order produced' },
+ { row: 'Week 2 to 3', meaning: 'Launch', use: 'You approve the test order, we open the store, your crew gets invited and starts ordering' },
+]
+
+const whoFor = [
+ { name: 'General contractors', detail: 'Crews of 20 or more across multiple job sites. Stop fielding uniform requests. Crew members order the right gear without calling the office.' },
+ { name: 'MEP subcontractors', detail: 'Mechanical, electrical, and plumbing shops. New hires get a starter kit auto-shipped before day one. FR shirts decorated with Nomex thread, not vinyl.' },
+ { name: 'Data center contractors', detail: 'Big rosters, fast hiring, strict brand and PPE standards. One store outfits every crew with the approved Type II and hi-vis kit.' },
+ { name: 'Multi-location trades', detail: 'One store serves every yard. Henderson, Las Vegas, and beyond order from the same URL with consistent branding and clean invoicing.' },
+ { name: 'Fleet and field service', detail: 'HVAC, low-voltage, solar, and utility crews. Techs show up uniformed. Replacement shirts ship on demand when gear wears out on the job.' },
+ { name: 'Growing crews', detail: 'Any trade business hiring year-round. Add a new hire to the store and their first order ships automatically. No closet of mystery sizes.' },
+]
+
+const faqs = [
+ { q: 'How long does it take to set up a company store?', a: 'Bighorn Threads sets up a branded company store for Las Vegas trades in 2 to 3 weeks. Week one is the kickoff call and catalog build. Week two is the storefront, spending rules, and a test order. By week three we open the store and your crew starts ordering. Tell us your timeline and we work to it.' },
+ { q: 'Is there a minimum order to set up a company store?', a: 'No. There are no per-order minimums and no inventory commitment. We print and ship each order on demand, so a single employee can order one shirt. Setup is free for qualifying accounts, typically 15 or more employees with recurring apparel needs. For a one-time bulk run, a simple bulk order may fit better, and we will tell you straight.' },
+ { q: 'What does it cost to run a company store?', a: 'There is no setup fee for qualifying accounts, no monthly platform fee, and no per-seat charge. You pay per item at your contracted rates, and that is it. Shipping is calculated at checkout. That keeps the math clean for owners and predictable on your P&L.' },
+ { q: 'Who manages sizes, reorders, and new hires?', a: 'The store does. Each employee picks their own size at checkout, so there is no sizing guesswork for your office. Reorders happen anytime an employee logs in. New hires get added by email invite, a company signup code, or a CSV upload, and they can receive an automatic starter gear allowance the moment they are added.' },
+ { q: 'Can we control what employees order and how much they spend?', a: 'Yes. You approve the full catalog, so only the items you choose appear in the store. You also set spending limits per employee, per role, or per pay period. If your superintendents need different gear than your field crew, we build tiered catalogs by role.' },
+ { q: 'Do we have to do any IT work to set up the store?', a: 'No. Bighorn Threads builds, hosts, and runs the store. There is no software to install, no servers to manage, and no plugins to maintain. You send us your logo and your approved gear list. We handle the storefront, the production, the fulfillment, and the reporting.' },
+]
+
+const breadcrumb = {
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+ { '@type': 'ListItem', position: 2, name: 'Company Stores', item: 'https://bighornthreads.com/company-stores/' },
+ { '@type': 'ListItem', position: 3, name: 'Setup Guide for Las Vegas Trades', item: page.url },
+ ],
+}
+
+const serviceSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'Service',
+ name: 'Company Store Setup for Las Vegas Trades',
+ serviceType: 'Company Stores',
+ provider: { '@id': 'https://bighornthreads.com/#organization' },
+ areaServed: [
+ { '@type': 'City', name: 'Las Vegas' },
+ { '@type': 'City', name: 'Henderson' },
+ { '@type': 'City', name: 'North Las Vegas' },
+ { '@type': 'City', name: 'Summerlin' },
+ { '@type': 'City', name: 'Spring Valley' },
+ ],
+ description: page.description,
+ url: page.url,
+}
+
+const faqSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+}
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: 'https://bighornthreads.com/company-stores/setup-guide-las-vegas/',
+ speakable: {
+ '@type': 'SpeakableSpecification',
+ cssSelector: ['h1', '.speakable-answer'],
+ },
+}
+---
+
+<BaseLayout
+ title={page.title}
+ description={page.description}
+ canonical={page.url}
+ heroImage={page.hero}
+>
+ <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+ <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
+
+ <!-- Hero — full-bleed photographic dark band -->
+ <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-28">
+ <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/55"></div>
+
+ <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-navy-200" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-400">Home</a>
+ <span class="px-2 text-navy-200/60">/</span>
+ <a href="/company-stores/" class="hover:text-gold-400">Company Stores</a>
+ <span class="px-2 text-navy-200/60">/</span>
+ <span class="text-gold-400">Setup Guide</span>
+ </nav>
+
+ <p class="kicker mb-4 flex items-center gap-2.5">
+ <span class="h-px w-8 bg-gold-500"></span>
+ Setup Guide
+ </p>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
+ Company Store Setup for Trades in Las Vegas. <span class="text-gold-400">Live in 2 to 3 weeks.</span>
+ </h1>
+ <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ We build the storefront, load your approved gear, set spending limits, and ship direct to job sites or homes. No inventory risk. No minimums. No IT work.
+ </p>
+
+ <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+ <a href="/get-a-quote/" class="btn-primary text-base">
+ Get a Quote
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+ </a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">
+ 702.904.8923
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <!-- Liftable answer — AEO definition block, speakable -->
+ <section class="border-b border-hairline bg-paper py-16 sm:py-20">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-4">The Short Answer</p>
+ <p class="speakable-answer text-lg leading-relaxed text-ash">
+ Company store setup for Las Vegas trades takes 2 to 3 weeks with Bighorn Threads. We build the branded storefront, load your approved apparel and safety gear, set employee spending limits, and ship direct to job sites or homes. You carry no inventory risk. There are no per-order minimums. And there is no IT work on your end. You send your logo and your approved gear list. We handle the rest.
+ </p>
+ </div>
+ </section>
+
+ <!-- Setup steps — concrete -->
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <p class="kicker mb-3">How Setup Works</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Company store setup for Las Vegas trades, step by step.</h2>
+ </div>
+
+ <ol class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+ {steps.map((s) => (
+ <li class="border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <span class="mb-4 block font-heading text-5xl font-extrabold leading-none text-gold-500">{s.n}</span>
+ <h3 class="mb-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{s.label}</h3>
+ <p class="text-sm leading-relaxed text-ash">{s.body}</p>
+ </li>
+ ))}
+ </ol>
+ </div>
+ </section>
+
+ <!-- Timeline table — paper -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-10 max-w-2xl">
+ <p class="kicker mb-3">Timeline</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">From kickoff to <span class="text-gold-600">crew ordering.</span></h2>
+ <p class="mt-4 text-lg leading-relaxed text-ash">
+ Most trade stores go live in 2 to 3 weeks. Here is what each week looks like.
+ </p>
+ </div>
+
+ <div class="overflow-hidden border border-hairline bg-panel">
+ <table class="w-full">
+ <thead class="bg-concrete">
+ <tr class="border-b border-hairline">
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Stage</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">What Happens</th>
+ <th class="hidden px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600 lg:table-cell">The Work</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-hairline">
+ {timeline.map((r) => (
+ <tr>
+ <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-700">{r.row}</td>
+ <td class="px-6 py-5 align-top font-heading text-base font-bold text-charcoal">{r.meaning}</td>
+ <td class="hidden px-6 py-5 align-top text-sm text-ash lg:table-cell">{r.use}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
+
+ <!-- What's included — concrete -->
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <p class="kicker mb-3">What's Included</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Every store ships with the full feature set.</h2>
+ </div>
+
+ <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+ {included.map((i) => (
+ <div class="border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="mb-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{i.label}</h3>
+ <p class="text-sm leading-relaxed text-ash">{i.body}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- Who it's for — paper -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <p class="kicker mb-3">Who It's For</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Built for Las Vegas trades that hire and reorder all year.</h2>
+ </div>
+
+ <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+ {whoFor.map((w) => (
+ <div class="border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="mb-2 font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{w.name}</h3>
+ <p class="text-sm leading-relaxed text-ash">{w.detail}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- Deep dive — concrete -->
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">The Buyer's Read</p>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">
+ What company store setup actually takes for a Vegas trade.
+ </h2>
+
+ <div class="space-y-5 text-lg leading-relaxed text-ash">
+ <p>
+ A company store is a private branded storefront where your employees order pre-approved gear on their own. No HR middleman. No bulk-buy guesswork. For Las Vegas contractors, the setup runs about 2 to 3 weeks from the first call to the first crew order. The work is front-loaded into the catalog build. Once the gear, sizes, and decoration specs are locked, the store runs itself.
+ </p>
+ <p>
+ The kickoff call does most of the heavy lifting. We learn your trades, your roles, and your apparel standard. What the field crew wears versus the office. How fast shirts wear out on a Vegas summer job site. What your FR or hi-vis requirements are. From there we build a catalog of approved items, sizes, colorways, and decoration specs. Your logo placement and FR thread compliance live on the store as defaults, so nobody re-approves a thing per order.
+ </p>
+ <p>
+ Spending limits are the budget control owners care about most. You set a dollar credit per employee per month, quarter, or year, and the store tracks every balance automatically. Some contractors load a full starter kit for new hires. Others run an ongoing wear-and-tear allowance for replacement shirts. Either way, the spend stays visible and the office stops chasing reimbursements.
+ </p>
+ <p>
+ There is no inventory risk and no IT work. We print and ship each order on demand, so you never warehouse, count, or write off a shirt. We build, host, and run the store, so there is nothing to install on your end. You send a logo and an approved gear list. For the trade-by-trade breakdown, see our <a href="/company-stores/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">company stores overview</a> and our guide on <a href="/blog/company-store-vs-bulk-ordering/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">company stores versus bulk ordering</a>.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <!-- FAQ — paper -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">FAQ</p>
+ <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Setup questions, answered.</h2>
+
+ <div class="divide-y divide-hairline border-y border-hairline">
+ {faqs.map((f) => (
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
+ <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+ </summary>
+ <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
+ </details>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- Related — concrete -->
+ <section class="bg-concrete py-16">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-6">Pair It With</p>
+ <div class="grid gap-5 md:grid-cols-3">
+ <a href="/company-stores/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Company Stores Overview</h3>
+ <p class="mt-2 text-sm text-ash">How the program works, who it fits, and the full feature set.</p>
+ </a>
+ <a href="/industries/data-center-contractors-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Data Center Contractors</h3>
+ <p class="mt-2 text-sm text-ash">Big rosters and fast hiring. A store keeps every crew in approved kit.</p>
+ </a>
+ <a href="/catalog/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Browse Catalog</h3>
+ <p class="mt-2 text-sm text-ash">FR shirts, hi-vis vests, work pants, polos. The full range we load.</p>
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <!-- CTA — full-bleed photographic dark band -->
+ <section class="relative isolate overflow-hidden bg-navy-950 py-20">
+ <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" loading="lazy" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Ready to set up your company store?</h2>
+ <p class="mb-8 text-lg text-navy-200">Tell us your crew size, trades, and locations. We'll build a demo store with your logo.</p>
+ <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Free Quote</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+</BaseLayout>

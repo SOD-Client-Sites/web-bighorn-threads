@@ -121,6 +121,17 @@ const jsonLd = {
  },
  ],
 }
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: 'https://bighornthreads.com/about/',
+ name: 'We Build Branded Programs for Teams of Every Kind',
+ speakable: {
+ '@type': 'SpeakableSpecification',
+ cssSelector: ['h1', '.speakable-answer'],
+ },
+}
 ---
 
 <BaseLayout
@@ -128,6 +139,7 @@ const jsonLd = {
  description="How a Las Vegas promo shop became the go-to for branded programs for teams of every kind — Las Vegas based, serving nationwide. Our story, our values, how we're different from online catalogs, and the team behind Bighorn Threads."
 >
  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
 
  <!-- Hero — full-bleed photographic dark band -->
  <section class="relative isolate overflow-hidden bg-navy-950">
@@ -154,7 +166,7 @@ const jsonLd = {
  <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-6xl">
  We Build Branded Programs for <span class="text-gold-400">Teams of Every Kind</span>
  </h1>
- <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ <p class="speakable-answer max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
  Bighorn Threads is the branded-apparel arm of VP Promos — Las Vegas based, serving teams nationwide. Screen printing, embroidery, and company stores for crews, offices, and field teams alike. Construction is where we cut our teeth; it's one vertical we serve, not the whole story.
  </p>
  <div class="mt-8 flex flex-wrap items-center gap-2">

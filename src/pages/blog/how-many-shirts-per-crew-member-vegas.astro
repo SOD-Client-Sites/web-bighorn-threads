@@ -13,6 +13,15 @@ const post = {
  slug: 'how-many-shirts-per-crew-member-vegas',
 }
 
+const faqs = [
+ { q: 'How many shirts should you order per construction crew member?', a: 'For a working field crew member in Las Vegas the baseline is the 5-3-1 kit: 5 daily-wear tees or polos (one per workday with one in the wash), 3 secondary garments such as long-sleeves, hi-vis layers, or hoodies, and 1 outerwear piece such as a branded jacket, vest, or pullover. That is 9 pieces total, assuming the crew member does laundry once a week.' },
+ { q: 'Why is ordering only 2 shirts per crew member a mistake?', a: 'Most contractors run on 2 shirts per crew member, which means daily washing. Daily washing wears out gear in about 4 months instead of 12. Doubling your front-end order cuts your annual replacement spend by roughly 40 percent.' },
+ { q: 'How many shirts do foremen and office staff need?', a: 'Foremen and superintendents bump to 5 polos plus 3 button-downs plus 1 jacket because they are visible to clients, GCs, and inspectors and need a slightly elevated kit. Office staff and project managers need 3 polos plus 2 button-downs plus 1 zip-up since they do not burn through shirts the way field crews do.' },
+ { q: 'How should you adjust the shirt formula for Vegas summer?', a: 'From May through September crews sweat through gear in 4 hours instead of 8, and some shops do mid-day shirt swaps. The summer-adjusted kit is 7 daily-wear tees instead of 5, 2 long-sleeve UPF shirts for sun protection, and a single hoodie since it sits in the truck all summer. Switch to polyester or poly-cotton blends that wick instead of pure cotton that stays wet.' },
+ { q: 'How do you build crew turnover into an apparel order?', a: 'Two approaches work. Option A is to order plus 20 percent and accept some waste, so a 30-person crew orders kits for 36 to absorb new hires for 4 to 6 months. Option B, which almost always wins above 25 employees, is to stand up a company store and order on demand so each new hire gets a kit sized to them with no closet inventory and no waste.' },
+ { q: 'How many garments does it take to outfit a 30-person Vegas crew for a year?', a: 'For a typical Vegas GC running 25 field, 4 foremen, and 1 office: the field crews need about 270 pieces (25 times 9 pieces plus a 20 percent buffer), the foremen need 36 pieces, and the office needs 6 pieces. That totals roughly 310 garments to outfit the crew for the year.' },
+]
+
 const schema = {
  '@context': 'https://schema.org',
  '@graph': [
@@ -39,6 +48,15 @@ const schema = {
  { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' },
  { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` },
  ],
+ },
+ {
+ '@type': 'FAQPage',
+ mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+ },
+ {
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.speakable-answer'] },
  },
  ],
 }
@@ -89,7 +107,7 @@ const schema = {
  </ol>
  </aside>
 
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
+ <p class="speakable-answer mb-6 text-lg leading-relaxed text-charcoal">
  We've been outfitting Vegas construction crews today and there's one question we get more than any other: <em>how many shirts do we actually need per person?</em> The honest answer is that most contractors order too few of the things crews wear daily, too many of the things they don't, and end up with a closet full of dead inventory plus a constant scramble for the right sizes.
  </p>
 
@@ -160,7 +178,7 @@ const schema = {
  <h2 id="turnover" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">4. Building Turnover Into the Order</h2>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Construction turnover in Vegas runs around 25% annually for field crew. If you order for the headcount you have today, you're going to be short by Q2 and bleeding on dead inventory by Q4.
+ Construction crews turn over steadily through the year. If you order for the headcount you have today, you're going to be short by Q2 and bleeding on dead inventory by Q4.
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
@@ -174,7 +192,7 @@ const schema = {
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Option B: Stand up a company store and order on demand</h3>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Above 25 employees, this almost always wins. Each new hire gets a kit on rush, sized to them, no closet inventory, no waste. We wrote a full breakdown in <a href="/blog/company-store-vs-bulk-ordering/" class="text-gold-600 underline hover:text-gold-700">Bulk Ordering vs Company Store: The Real Math for Contractors</a> — short version, the math flips around 25–30 employees.
+ Above 25 employees, this almost always wins. Each new hire gets a kit sized to them, no closet inventory, no waste. We wrote a full breakdown in <a href="/blog/company-store-vs-bulk-ordering/" class="text-gold-600 underline hover:text-gold-700">Bulk Ordering vs Company Store: The Real Math for Contractors</a> — short version, the math flips around 25–30 employees.
  </p>
 
  <h2 id="actual-math" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">5. The Actual Math for a 30-Person Crew</h2>

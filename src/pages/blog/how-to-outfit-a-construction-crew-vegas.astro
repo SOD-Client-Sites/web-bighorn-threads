@@ -13,6 +13,15 @@ const post = {
  slug: 'how-to-outfit-a-construction-crew-vegas',
 }
 
+const faqs = [
+ { q: 'What should you decide first when outfitting a construction crew?', a: 'Before you pick a shirt, pick a standard. If your crew works near moving vehicles or heavy equipment you are looking at ANSI/ISEA 107 Class 2 or Class 3 high-visibility gear. Class 2 is the baseline for most road-adjacent and jobsite work, and Class 3 is required when workers are exposed to traffic over 50 mph or low-light conditions. Know which class your GCs require before ordering.' },
+ { q: 'What apparel categories does a construction crew need?', a: 'Most crews land on four or five categories: daily field wear (moisture-wicking hi-vis tees and long sleeves, 4 to 5 per field employee), a safety layer (Class 2 or Class 3 vests, usually 1 to 2 per person), office and sales (embroidered polos and button-downs), outerwear (softshells, insulated jackets, and hoodies), and headwear (branded hats, the single highest-impression item).' },
+ { q: 'Should you bulk order or use a company store for a construction crew?', a: 'It depends almost entirely on crew size and turnover. Ordering in bulk and handing gear out of a closet works fine for crews under 20 people. For most crews over 30 people a branded company store is the better call: employees log in, pick their own sizes, and gear ships direct to the jobsite or their home with no closet, no size guessing, and no dead inventory.' },
+ { q: 'What artwork files do you need to decorate crew apparel?', a: 'You need three versions of your logo: a vector file (.ai, .eps, or .svg) required for screen printing and embroidery digitizing, a single-color version for hi-vis tees where full color looks muddy or violates ANSI contrast rules, and a simplified small-format version for hats and left-chest embroidery where detail gets lost.' },
+ { q: 'How can you avoid rush orders on crew apparel?', a: 'Keep a standing pre-order of 15 to 20 starter kits in mixed sizes so new hires are in gear within a couple days. Pre-book seasonal items by ordering summer hi-vis in March and winter outerwear in August, since vendor inventory crashes right when you need it most. Set a minimum quantity threshold per SKU and reorder when you drop below, which a company store can do for you.' },
+ { q: 'When should a contractor switch from bulk ordering to a company store?', a: 'If you are over 30 people, stop ordering in bulk and set up a store. A branded company store with tiered access for field, field-lead, office, and executive removes the project-manager email scramble, takes storage-closet inventory off your books, and gives the controller a clear monthly line on apparel spend instead of vendor-by-vendor surprises.' },
+]
+
 const schema = {
  '@context': 'https://schema.org',
  '@graph': [
@@ -51,6 +60,19 @@ const schema = {
  item: `https://bighornthreads.com/blog/${post.slug}/`,
  },
  ],
+ },
+ {
+ '@type': 'FAQPage',
+ mainEntity: faqs.map((f) => ({
+ '@type': 'Question',
+ name: f.q,
+ acceptedAnswer: { '@type': 'Answer', text: f.a },
+ })),
+ },
+ {
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.speakable-answer'] },
  },
  ],
 }
@@ -139,7 +161,7 @@ const howToSchema = {
  </ol>
  </aside>
 
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
+ <p class="speakable-answer mb-6 text-lg leading-relaxed text-charcoal">
  Outfitting a construction crew sounds easy until you've tried to do it for 50 people in a single week. Somebody needs XXL. Somebody else lost their jacket on day three. Your superintendent is asking why the hi-vis shirts don't match the ones from last year. The office staff wants polos, not tees. And the owner just told a client to expect branded gear on site tomorrow.
  </p>
 
@@ -225,7 +247,7 @@ const howToSchema = {
  <h2 id="timing" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">5. Timing & Turnaround</h2>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Standard turnaround for a bulk decorated order is an extended timeline from artwork approval. Rush orders (on rush) are possible but cost a rush premium and depend on garment availability. Here's how to avoid needing the rush lane:
+ A bulk decorated order runs from artwork approval. Rush options are possible depending on garment availability — a rush surcharge may apply, quoted up front. Here's how to avoid needing the rush lane:
  </p>
 
  <ul class="mb-6 list-disc space-y-3 pl-6 text-lg leading-relaxed text-charcoal">
@@ -234,14 +256,14 @@ const howToSchema = {
  <li><strong class="text-charcoal">Reorder triggers.</strong> Set a minimum quantity threshold per SKU. When you drop below, reorder automatically. A company store can do this for you.</li>
  </ul>
 
- <h2 id="vegas-example" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">6. A Real Las Vegas Example</h2>
+ <h2 id="vegas-example" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">6. How a Company Store Plays Out in Practice</h2>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- One of our clients is a mid-sized Las Vegas GC with roughly a large field crew working across four active commercial projects. When they came to us, their process was: each project manager emailed the office with a size-and-quantity list, the office ordered from three different vendors, and gear arrived anywhere from an extended timeline later. They were carrying about piles of dead apparel inventory — wrong sizes, discontinued colors, old logo versions.
+ Picture a mid-sized Las Vegas GC running a field crew across four active commercial projects. Before a company store, the process usually looks like this: each project manager emails the office a size-and-quantity list, the office orders from a few different vendors, and gear trickles in. The result is a closet full of dead apparel — wrong sizes, discontinued colors, and old logo versions nobody will wear.
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- We built them a branded company store with four tiers of access: field, field-lead, office, and executive. Each tier has an annual gear allowance loaded to their account. New hires get an onboarding email with login instructions on day one and usually place their first order withon rush. The HR system triggers the invite — the company doesn't manage it manually.
+ A branded company store fixes that. You set tiers of access — field, field-lead, office, and executive — each with a gear allowance loaded to the employee's account. New hires get an onboarding email with login instructions on day one and place their first order right away. The HR system triggers the invite, so nobody has to manage it by hand.
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">

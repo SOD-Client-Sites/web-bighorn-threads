@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import crewVegas from '@/assets/generated/crew-vegas.jpg'
-import foremanCloseup from '@/assets/generated/foreman-closeup.jpg'
+import foremanCloseup from '@/assets/generated/founder-steve-desk.jpg'
 import productStack from '@/assets/generated/product-stack.jpg'
 
 const faqs = [
@@ -75,6 +75,17 @@ const serviceSchema = {
  name: 'Corporate, education, healthcare, government, hospitality, and field teams — including general contractors, HVAC, plumbing, electrical, and multi-location companies',
  },
 }
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: 'https://bighornthreads.com/company-stores/',
+ name: 'Your Own Branded Store. Zero Inventory.',
+ speakable: {
+ '@type': 'SpeakableSpecification',
+ cssSelector: ['h1', '.speakable-answer'],
+ },
+}
 ---
 
 <BaseLayout
@@ -100,7 +111,7 @@ const serviceSchema = {
  <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-6xl">
  Your Own Branded Store. <span class="text-gold-400">Zero Inventory.</span>
  </h1>
- <p class="mb-9 max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ <p class="speakable-answer mb-9 max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
  Each crew member logs in, orders what they need, and it ships direct. Your company doesn't stock a single shirt. We handle production, fulfillment, reporting — everything.
  </p>
  <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
@@ -467,7 +478,7 @@ const serviceSchema = {
  The setup process is simpler than most contractors expect. We start with a workshop call to understand your trade, your roles, and your apparel program goals — what each role wears, how often shirts wear out, what the FR or hi-vis requirements are, and what the brand standard is for client-facing teams. From there we build out a SKU catalog with approved items, sizes, colorways, and decoration specs. Your logo, decoration placement, and (for FR) Nomex-thread compliance documentation all live on the store as the default decoration spec — no per-order approvals required.
  </p>
  <p>
- Per-employee allowances are the key budget control. You set a dollar value per employee per month, quarter, or year, and the store tracks the spend automatically. When an employee orders, their allowance balance drops; when they exceed it, they pay out of pocket or you get a notification to review. Some contractors use this as a hiring incentive (new hires get a full kit when they start), others use it as an ongoing wear-and-tear allowance (replacement shirts when something gets ruined on the job). We've also seen it used for milestone rewards (anniversary gear), trade-show gear allocations, and project-specific kit (project tees for ribbon cuttings).
+ Per-employee allowances are the key budget control. You set a dollar value per employee per month, quarter, or year, and the store tracks the spend automatically. When an employee orders, their allowance balance drops; when they exceed it, they pay out of pocket or you get a notification to review. Some contractors use this as a hiring incentive (new hires get a full <a href="/branded-onboarding-kits-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">branded onboarding kit</a> when they start), others use it as an ongoing wear-and-tear allowance (replacement shirts when something gets ruined on the job). We've also seen it used for milestone rewards (anniversary gear), trade-show gear allocations, and project-specific kit (project tees for ribbon cuttings).
  </p>
  <p>
  For larger crews — 50+ employees — we add HR integration. New hires get added to the store as part of your onboarding workflow, terminated employees get deactivated automatically, and role-based SKU access keeps office staff out of the FR catalog (and field crews out of the executive polos). For shops running an industrial laundry program, we coordinate with your laundry partner so the apparel coding system matches their inventory tagging — Red Kap shirts decorated to your spec ship pre-tagged for laundry processing.
@@ -476,7 +487,7 @@ const serviceSchema = {
  Monthly reporting shows you exactly where the apparel budget is going: spend by employee, spend by role, spend by SKU, reorder velocity (which items get worn out fastest), and forecast based on hiring projections. For the controllers, accountants, and ownership reviewing the apparel line item every quarter, this is the difference between a vague yearly total and a clear breakdown that tracks with hiring and turnover. Setup is free for qualifying accounts — typically 15+ employees with recurring apparel needs.
  </p>
  <p>
- Read <a href="/blog/company-store-vs-bulk-ordering/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">company stores vs bulk ordering</a> — when each model fits.
+ Want the full walkthrough? See our <a href="/company-stores/setup-guide-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">company store setup guide for Las Vegas trades</a>. Or read <a href="/blog/company-store-vs-bulk-ordering/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">company stores vs bulk ordering</a> to see when each model fits.
  </p>
  </div>
  </div>
@@ -544,6 +555,7 @@ const serviceSchema = {
  </section>
 
  <!-- Schema -->
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 </BaseLayout>
