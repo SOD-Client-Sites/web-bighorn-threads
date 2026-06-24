@@ -11,8 +11,12 @@ const GHL_API_VERSION = '2021-07-28'
 
 // GHL custom field IDs (Bighorn location lNyfWNCloQHAP34OSwIZ)
 const CF_QUANTITY_ESTIMATE = 'AuP8x0F7NvKOzWX0xxRh' // TEXT — "how many people would order / outfit"
+const CF_PRODUCT = 'sjfsg4TTMK4zutyPULCE' // TEXT — product/item the lead is asking about
+const CF_LANDING_PAGE = 'ugF8tUamfteI3vZolbjR' // TEXT — exact landing-page URL the lead submitted from
 
-const REQUIRED_FIELDS = ['vertical', 'company', 'contact', 'email']
+// Unified simple quote form: only vertical + email are required to submit.
+// First name, company, mobile, quantity, and details are all optional.
+const REQUIRED_FIELDS = ['vertical', 'email']
 
 // Allowed verticals → human label + segment tag
 const VERTICALS = {
@@ -67,14 +71,15 @@ export async function onRequestPost({ request, env }) {
     return errorResponse('Server misconfigured', 500)
   }
 
-  const contactName = String(body.contact).trim()
-  const [firstName, ...rest] = contactName.split(/\s+/)
+  const contactName = body.contact ? String(body.contact).trim() : ''
+  const [firstName = '', ...rest] = contactName.split(/\s+/)
   const lastName = rest.join(' ').trim() || ''
-  const company = String(body.company).trim()
+  const company = body.company ? String(body.company).trim() : ''
   const phone = body.phone ? String(body.phone).trim() : ''
-  const headcount = body.headcount ? String(body.headcount).trim() : ''
-  // qualifiers: { "Question label": "answer", ... }
-  const qualifiers = (body.qualifiers && typeof body.qualifiers === 'object') ? body.qualifiers : {}
+  const quantity = body.quantity ? String(body.quantity).trim() : ''
+  const product = body.product ? String(body.product).trim() : ''
+  const details = body.details ? String(body.details).trim() : ''
+  const sourceUrl = body.sourceUrl ? String(body.sourceUrl).trim() : ''
   const consent = parseSmsConsent(body, body.sourceUrl)
 
   // ---------------- Upsert contact ----------------
@@ -82,16 +87,20 @@ export async function onRequestPost({ request, env }) {
   try {
     const upsertBody = {
       locationId,
-      firstName,
-      lastName,
-      name: contactName,
       email,
-      companyName: company,
       source: `bighornthreads.com — ${verticalLabel} company store LP`,
-      tags: ['company-store-lead', `segment-${verticalSlug}`, ...consent.tags],
+      tags: ['company-store-lead', `segment-${verticalSlug}`, `industry-${verticalSlug}`, ...consent.tags],
     }
+    if (firstName) upsertBody.firstName = firstName
+    if (lastName) upsertBody.lastName = lastName
+    if (contactName) upsertBody.name = contactName
+    if (company) upsertBody.companyName = company
     if (phone) upsertBody.phone = phone
-    if (headcount) upsertBody.customFields = [{ id: CF_QUANTITY_ESTIMATE, value: headcount }]
+    const customFields = []
+    if (quantity) customFields.push({ id: CF_QUANTITY_ESTIMATE, field_value: quantity })
+    if (product) customFields.push({ id: CF_PRODUCT, field_value: product })
+    if (sourceUrl) customFields.push({ id: CF_LANDING_PAGE, field_value: sourceUrl })
+    if (customFields.length) upsertBody.customFields = customFields
 
     const upsertRes = await ghlFetch(`${GHL_BASE}/contacts/upsert`, token, {
       method: 'POST',
@@ -114,7 +123,7 @@ export async function onRequestPost({ request, env }) {
   }
 
   // ---------------- Note with full detail ----------------
-  const noteBody = formatNote({ verticalLabel, company, contactName, email, phone, headcount, qualifiers, sourceUrl: body.sourceUrl })
+  const noteBody = formatNote({ verticalLabel, company, contactName, email, phone, quantity, product, details, sourceUrl: body.sourceUrl })
     + '\n' + consent.noteBlock
   try {
     const noteRes = await ghlFetch(`${GHL_BASE}/contacts/${contactId}/notes`, token, {
@@ -151,22 +160,21 @@ async function safeText(res) {
   try { return await res.text() } catch (_) { return '' }
 }
 
-function formatNote({ verticalLabel, company, contactName, email, phone, headcount, qualifiers, sourceUrl }) {
+function formatNote({ verticalLabel, company, contactName, email, phone, quantity, product, details, sourceUrl }) {
   const lines = []
   lines.push(`=== ${verticalLabel.toUpperCase()} — COMPANY STORE LEAD ===`)
   lines.push('')
   lines.push('CONTACT')
-  lines.push(`  Name:      ${contactName}`)
-  lines.push(`  Company:   ${company}`)
+  if (contactName) lines.push(`  Name:      ${contactName}`)
+  if (company) lines.push(`  Company:   ${company}`)
   lines.push(`  Email:     ${email}`)
   if (phone) lines.push(`  Phone:     ${phone}`)
   lines.push('')
   lines.push('DETAILS')
   lines.push(`  Vertical:  ${verticalLabel}`)
-  if (headcount) lines.push(`  Headcount: ${headcount}`)
-  for (const [label, value] of Object.entries(qualifiers)) {
-    if (value && String(value).trim()) lines.push(`  ${label}: ${String(value).trim()}`)
-  }
+  if (product) lines.push(`  Product:   ${product}`)
+  if (quantity) lines.push(`  Quantity:  ${quantity}`)
+  if (details) lines.push(`  Notes:     ${details}`)
   lines.push('')
   lines.push('SOURCE')
   lines.push(`  ${sourceUrl || `bighornthreads.com/get-started/${verticalLabel}`}`)
