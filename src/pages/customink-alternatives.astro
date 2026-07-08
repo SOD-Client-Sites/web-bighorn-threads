@@ -49,16 +49,6 @@ const articleSchema = {
  dateModified: '2026-07-08',
 }
 
-const qaSchema = {
- '@context': 'https://schema.org',
- '@type': 'QAPage',
- mainEntity: {
- '@type': 'Question',
- name: 'What is the best alternative to CustomInk for construction companies?',
- acceptedAnswer: { '@type': 'Answer', text: leadAnswer },
- },
-}
-
 const faqSchema = {
  '@context': 'https://schema.org',
  '@type': 'FAQPage',
@@ -69,7 +59,6 @@ const faqSchema = {
 <BaseLayout title={page.title} description={page.description} canonical={page.url} heroImage={page.hero}>
  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
- <script type="application/ld+json" set:html={JSON.stringify(qaSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
  <!-- Hero -->

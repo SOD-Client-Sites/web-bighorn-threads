@@ -54,16 +54,6 @@ const articleSchema = {
  datePublished: '2026-07-08',
  dateModified: '2026-07-08',
 }
-
-const qaSchema = {
- '@context': 'https://schema.org',
- '@type': 'QAPage',
- mainEntity: {
- '@type': 'Question',
- name: "Should I use screen printing or embroidery for my construction crew's gear?",
- acceptedAnswer: { '@type': 'Answer', text: leadAnswer },
- },
-}
 ---
 
 <BaseLayout
@@ -74,7 +64,6 @@ const qaSchema = {
 >
  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
- <script type="application/ld+json" set:html={JSON.stringify(qaSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
  <!-- Hero -->
