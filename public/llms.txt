@@ -2,6 +2,8 @@
 
 > Branded apparel, screen printing, embroidery, and company stores for Las Vegas construction companies and trades. Serving general contractors, electrical, plumbing, HVAC, roofing, steel workers, and data center crews across the Las Vegas metro.
 
+Full machine-readable reference: https://bighornthreads.com/llms-full.txt
+
 ## Services
 - Screen Printing Las Vegas: https://bighornthreads.com/services/screen-printing-las-vegas/
 - Embroidery Las Vegas: https://bighornthreads.com/services/embroidery-las-vegas/
