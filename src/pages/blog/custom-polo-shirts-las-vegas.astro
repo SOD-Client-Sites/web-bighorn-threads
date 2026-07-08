@@ -14,9 +14,9 @@ const post = {
 }
 
 const faqs = [
- { q: 'What\'s the best blank polo for a custom embroidered company shirt?', a: 'Port Authority K500 Silk Touch is the workhorse — pique cotton-poly, holds embroidery cleanly, available in 30+ colors S–6XL, comparable price across all sizes. For higher-end brands, Cutter & Buck DryTec, Nike Dri-FIT, and Travis Mathew performance polos cost 2-3x more but feel and look premium. Carhartt Workwear Pocket Polo is the trade-friendly pick.' },
+ { q: 'What\'s the best blank polo for a custom embroidered company shirt?', a: 'Port Authority K500 Silk Touch is the workhorse — pique cotton-poly, holds embroidery cleanly, available in 30+ colors S–6XL, comparable price across all sizes. For higher-end brands, Cutter & Buck DryTec, Nike Dri-FIT, and Travis Mathew performance polos cost noticeably more but feel and look premium. Carhartt Workwear Pocket Polo is the trade-friendly pick.' },
  { q: 'Should custom polo shirts be embroidered or screen printed?', a: 'Embroidery — almost always. The premium look of stitched thread on a pique knit polo reads as "established business" the way a screen-printed polo never does. Screen printing on polos is reserved for high-volume promotional runs where cost is the priority over feel. Embroidery is the standard for any client-facing role.' },
- { q: 'How much should custom polos cost?', a: 'Per-piece cost depends on the blank, the embroidery stitch count, and the order quantity. Port Authority K500 with a left-chest logo at 24 pieces typically runs $25-40 each including embroidery and digitizing. Premium blanks (Nike Dri-FIT, Travis Mathew) push that to $50-75. Bulk discounts kick in at 48 pieces and again at 144+.' },
+ { q: 'How much should custom polos cost?', a: 'Per-piece cost depends on the blank, the embroidery stitch count, the order quantity, and a one-time digitizing fee. A workhorse blank like the Port Authority K500 costs less per piece than a premium blank like Nike Dri-FIT or Travis Mathew, and the per-piece price drops as quantity climbs. Send your logo and quantity and we\'ll quote it.' },
  { q: 'Can you embroider names on every polo without slowing the order down?', a: 'Yes. Once digitizing is done, name embroidery adds about a day to the standard run — not a week. We stitch each name to order; per-shirt cost is fixed regardless of name length. Worth doing for service techs and customer-facing staff where the name on the chest is the trust signal.' },
  { q: 'What fabric should custom polos be in for Las Vegas summer?', a: 'Moisture-wicking polyester or poly-blend. Port Authority K540 Silk Touch Performance Polo and Sport-Tek ST650 are the two most-ordered for Vegas summer service work — they wick sweat, dry fast, and don\'t soak through by 11am the way 100% cotton polos do. Cotton looks nicer at week one but loses by July.' },
  { q: 'What\'s the minimum order for custom embroidered polos?', a: 'Most shops set 12-24 pieces as the practical minimum. Below that, per-piece pricing climbs because digitizing and setup is amortized over fewer shirts. For very small orders (4-12 pieces), expect a higher per-piece price or a small order surcharge.' },
@@ -31,10 +31,22 @@ const schema = {
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
 }
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ name: post.title,
+ speakable: {
+  '@type': 'SpeakableSpecification',
+  cssSelector: ['h1', '.speakable-answer'],
+ },
+}
 ---
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
  <article class="bg-concrete">
  <header class="border-b border-hairline bg-paper">
  <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
@@ -50,7 +62,7 @@ const schema = {
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl">Custom polo shirts with an embroidered chest logo are the default for service techs, account managers, sales reps, and customer-facing staff. Port Authority K500 Silk Touch is the workhorse blank ($15-22 wholesale, embroiders cleanly, 30+ colors). For Vegas summer service work, swap to the K540 Performance moisture-wicking version. Premium brands (Nike Dri-FIT, Travis Mathew, Cutter & Buck) cost 2-3x more and read as such.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Custom polo shirts with an embroidered chest logo are the default for service techs, account managers, sales reps, and customer-facing staff. Port Authority K500 Silk Touch is the workhorse blank (embroiders cleanly, 30+ colors). For Vegas summer service work, swap to the K540 Performance moisture-wicking version. Premium brands (Nike Dri-FIT, Travis Mathew, Cutter & Buck) cost noticeably more and read as such.</p>
  </aside>
 
  <h2 id="when-polo" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">When to Use a Custom Polo</h2>
@@ -77,7 +89,7 @@ const schema = {
  <p class="mb-6 text-lg leading-relaxed text-charcoal">Heavier-weight polo with a chest pocket. Reads as a trade-friendly piece — fits naturally on a contractor or service tech without looking like office attire. Slightly higher per-piece cost than the K500 but the chest pocket is functional for pens, badges, and small tools.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Nike Dri-FIT, Travis Mathew, Cutter & Buck — premium</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">For client-facing executive roles, business development, and ownership. These polos cost $40-75 wholesale (vs. $15-22 for Port Authority) but the difference is visible at a glance. The right call when the polo is going on a person whose attire signals authority — at industry events, in client meetings, on speaking engagements. Embroidery placement and stitch density work the same way as on the workhorse blanks.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">For client-facing executive roles, business development, and ownership. These polos cost more than a workhorse Port Authority blank, but the difference is visible at a glance. The right call when the polo is going on a person whose attire signals authority — at industry events, in client meetings, on speaking engagements. Embroidery placement and stitch density work the same way as on the workhorse blanks.</p>
 
  <h2 id="embroidery" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Embroidery on Polos</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">A standard left-chest polo logo runs 5,000-8,000 stitches at 3-3.5 inches wide. Larger logos can push 12,000+ stitches but get visually heavy on a knit fabric — the embroidery starts to look distorted on stretchy pique. Smaller logos (under 2 inches) lose detail because the stitch count to maintain legibility doesn't fit in the available area.</p>

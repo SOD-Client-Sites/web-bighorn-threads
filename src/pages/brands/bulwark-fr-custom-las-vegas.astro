@@ -69,11 +69,9 @@ const productSchema = {
  brand: { '@type': 'Brand', name: 'Bulwark FR' },
  manufacturer: { '@type': 'Organization', name: 'Bulwark Protection' },
  offers: {
- '@type': 'AggregateOffer',
- priceCurrency: 'USD',
- lowPrice: 55,
- highPrice: 220,
- offerCount: products.length,
+ '@type': 'Offer',
+ availability: 'https://schema.org/InStock',
+ itemCondition: 'https://schema.org/NewCondition',
  seller: { '@id': 'https://bighornthreads.com/#organization' },
  },
 }
@@ -225,7 +223,7 @@ const faqSchema = {
  </thead>
  <tbody class="divide-y divide-hairline">
  <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-ash">Minimum order</td><td class="px-5 py-4 text-sm text-ash">12+ pieces</td><td class="px-5 py-4 text-sm text-charcoal">6 pieces (FR embroidery)</td></tr>
- <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-ash">Lead time</td><td class="px-5 py-4 text-sm text-ash">3–5 weeks</td><td class="px-5 py-4 text-sm text-charcoal">Quoted up front, rush options available</td></tr>
+ <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-ash">Lead time</td><td class="px-5 py-4 text-sm text-ash">Quick turnaround</td><td class="px-5 py-4 text-sm text-charcoal">Quoted up front, rush options available</td></tr>
  <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-ash">Local delivery</td><td class="px-5 py-4 text-sm text-ash">No</td><td class="px-5 py-4 text-sm text-charcoal">Local Las Vegas delivery available</td></tr>
  <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-ash">FR-safe decoration</td><td class="px-5 py-4 text-sm text-ash">Sometimes — verify per order</td><td class="px-5 py-4 text-sm text-charcoal">Always — Nomex thread, cert sheet included</td></tr>
  <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-ash">Reorder file storage</td><td class="px-5 py-4 text-sm text-ash">Account portal</td><td class="px-5 py-4 text-sm text-charcoal">On file forever, no re-setup</td></tr>

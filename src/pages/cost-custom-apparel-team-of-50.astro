@@ -1,0 +1,203 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const page = {
+ title: 'Cost of Custom Apparel for a Team of 50 | Pricing Breakdown — Bighorn Threads',
+ description:
+ 'What does it cost to outfit a 50-person crew with custom apparel? Per-piece pricing for embroidered polos, screen-printed tees, and FR shirts, plus total kit cost ranges. Quoted within 24 hours.',
+ hero: '/images/generated/kit-office-sales.jpg',
+ url: 'https://bighornthreads.com/cost-custom-apparel-team-of-50/',
+}
+
+const pricing = [
+ { garment: 'Embroidered polo', perUnit: '$18 – $35', note: 'Digitizing amortized across the order' },
+ { garment: 'Screen-printed tee', perUnit: '$12 – $22', note: '1–2 color logo, standard placement' },
+ { garment: 'FR-rated shirt', perUnit: '$28 – $55', note: 'FR thread or FR-compatible ink, NFPA compliant' },
+ { garment: 'ANSI hi-vis tee/vest', perUnit: '$22 – $48', note: 'Decoration mapped to retain ANSI class' },
+ { garment: 'Embroidered softshell/jacket', perUnit: '$45 – $95', note: 'Outerwear, left-chest embroidery' },
+]
+
+const tiers = [
+ { qty: '50 people, 1 shirt each', total: '$900 – $2,750', detail: 'One garment type per person, mixed decoration' },
+ { qty: '50 people, 2 shirts each', total: '$1,800 – $5,500', detail: 'Typical field + office split' },
+ { qty: '50 people, 3 shirts each (full kit)', total: '$2,700 – $8,250', detail: 'Polo, tee, and outerwear or FR piece per person' },
+]
+
+const faqs = [
+ { q: 'How much does custom apparel cost for a team of 50?', a: 'For a 50-person crew, expect $18–$35 per embroidered polo (including digitizing amortized), $12–$22 per screen-printed tee, and $28–$55 per FR-rated shirt. Total kit cost for 50 employees with 3 shirts each runs $2,700–$8,250 depending on garment spec. Bighorn Threads provides itemized quotes within 24 hours.' },
+ { q: 'What drives the price range so wide for the same garment?', a: 'Three things: garment quality (a basic tee vs. a heavyweight moisture-wicking tee), decoration complexity (1-color logo vs. multi-color or large-format art), and compliance requirements (standard fabric vs. FR-rated or ANSI hi-vis, which require certified thread, ink, or placement verification).' },
+ { q: 'Does the price include the embroidery digitizing fee?', a: 'Yes, the per-unit embroidered prices above include digitizing amortized across a 50-piece order. Digitizing is a one-time fee per logo — once it is on file, every future reorder skips that cost entirely.' },
+ { q: 'Is it cheaper to mix screen printing and embroidery for a 50-person crew?', a: 'Usually, yes. Field staff in screen-printed tees and office or client-facing staff in embroidered polos is the standard split — it keeps the higher embroidery cost limited to the roles where it matters most. See our screen printing vs. embroidery breakdown for the full decision framework.' },
+ { q: 'How do FR and ANSI requirements change the budget for 50 people?', a: 'If a portion of your crew needs FR or ANSI-rated gear — common on construction and utility jobsites — budget the higher end of the per-unit range for those roles specifically, not the whole order. Most crews only need compliance gear for field staff, with standard apparel for office and sales roles.' },
+ { q: 'How fast can Bighorn Threads quote a 50-person order?', a: 'Within 24 hours of receiving your logo, garment preferences, and headcount by role. We itemize by garment type so you can see exactly where the budget goes before approving production.' },
+]
+
+const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+ { '@type': 'ListItem', position: 2, name: 'Cost for a Team of 50', item: page.url },
+] }
+const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: page.title, description: page.description, url: page.url, publisher: { '@type': 'Organization', name: 'Bighorn Threads' } }
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }
+---
+
+<BaseLayout title={page.title} description={page.description} canonical={page.url} heroImage={page.hero}>
+ <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+ <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+ <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-28">
+ <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/55"></div>
+ <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-navy-200" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-400">Home</a>
+ <span class="px-2 text-navy-200/60">/</span>
+ <span class="text-gold-400">Cost for a Team of 50</span>
+ </nav>
+ <p class="kicker mb-4 flex items-center gap-2.5"><span class="h-px w-8 bg-gold-500"></span>Pricing</p>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
+ What 50 people in custom gear <span class="text-gold-400">actually costs.</span>
+ </h1>
+ <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ Real per-piece pricing, broken down by garment and decoration method, so you can budget before you call.
+ </p>
+ <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+ <a href="/get-a-quote/" class="btn-primary text-base">
+ Get a Quote
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+ </a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+
+ <section class="border-b border-hairline bg-paper py-14">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="speakable-answer text-xl leading-relaxed text-charcoal sm:text-2xl">
+ For a 50-person crew, expect $18–$35 per embroidered polo (including digitizing amortized), $12–$22 per screen-printed tee, and $28–$55 per FR-rated shirt. Total kit cost for 50 employees with 3 shirts each runs $2,700–$8,250 depending on garment spec. Bighorn Threads provides itemized quotes within 24 hours.
+ </p>
+ </div>
+ </section>
+
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <p class="kicker mb-3">Per-Piece Pricing</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Garment-by-garment cost.</h2>
+ </div>
+ <div class="overflow-hidden border border-hairline">
+ <table class="w-full text-left">
+ <thead>
+ <tr class="bg-paper">
+ <th class="px-4 py-3 font-heading text-sm font-bold uppercase tracking-wider text-gold-700">Garment</th>
+ <th class="px-4 py-3 font-heading text-sm font-bold uppercase tracking-wider text-gold-700">Per Unit</th>
+ <th class="hidden px-4 py-3 font-heading text-sm font-bold uppercase tracking-wider text-gold-700 sm:table-cell">Note</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-hairline text-charcoal">
+ {pricing.map((row, i) => (
+ <tr class={i % 2 === 0 ? 'bg-paper/60' : ''}>
+ <td class="px-4 py-3 font-semibold">{row.garment}</td>
+ <td class="px-4 py-3 text-gold-700">{row.perUnit}</td>
+ <td class="hidden px-4 py-3 text-sm text-ash sm:table-cell">{row.note}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
+
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <p class="kicker mb-3">Total Budget</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">50-person kit cost by quantity tier.</h2>
+ </div>
+ <div class="grid gap-5 md:grid-cols-3">
+ {tiers.map((t) => (
+ <div class="border border-hairline bg-panel p-6">
+ <h3 class="mb-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{t.qty}</h3>
+ <p class="mb-2 font-mono text-2xl font-bold text-gold-600">{t.total}</p>
+ <p class="text-sm leading-relaxed text-ash">{t.detail}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">The Buyer's Read</p>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">How to budget for 50 people without guessing.</h2>
+ <div class="space-y-5 text-lg leading-relaxed text-ash">
+ <p>
+ Fifty people is the size where apparel budgets start to swing wildly if you don't separate by role. Office and sales staff in embroidered polos cost more per piece but you need fewer of them. Field staff in screen-printed tees cost less per piece but you typically order more — two or three per person for rotation.
+ </p>
+ <p>
+ The fastest way to land a real number: split your 50 by role, multiply each group by its garment and decoration method, and add digitizing once (not per order). Our <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">embroidered shirt pricing guide</a> and <a href="/blog/how-much-to-embroider-a-polo/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">embroidered polo pricing guide</a> break down exactly what moves the per-unit cost up or down.
+ </p>
+ <p>
+ If any portion of your 50-person crew needs FR-rated or ANSI hi-vis gear — common on construction and utility jobsites — budget those roles separately at the higher end of the range. Compliance gear costs more because the thread, ink, and placement all have to hold a certification, not just look right.
+ </p>
+ <p>
+ Quantity also matters more than people expect. Our <a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">minimum order quantity guide</a> shows where embroidery starts beating screen print on small per-role batches, and where the math flips once you're ordering 24+ of one item. And if you're planning headcount by role rather than just total shirts, our <a href="/blog/how-many-shirts-per-crew-member-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">how many shirts per crew member</a> guide gives you a per-role starting point.
+ </p>
+ <p>
+ Bighorn Threads itemizes every quote by garment and role, so you see exactly where the 50-person budget goes before you sign off — no flat per-head estimate that hides what's actually driving the cost.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">FAQ</p>
+ <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Cost questions, answered.</h2>
+ <div class="divide-y divide-hairline border-y border-hairline">
+ {faqs.map((f) => (
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
+ <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+ </summary>
+ <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
+ </details>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <section class="bg-concrete py-16">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-6">Pair It With</p>
+ <div class="grid gap-5 md:grid-cols-3">
+ <a href="/blog/how-much-to-embroider-a-shirt/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Embroidered Shirt Pricing</h3>
+ <p class="mt-2 text-sm text-ash">What drives embroidery cost up or down.</p>
+ </a>
+ <a href="/blog/how-many-shirts-per-crew-member-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Shirts Per Crew Member</h3>
+ <p class="mt-2 text-sm text-ash">Plan headcount by role, not just total shirts.</p>
+ </a>
+ <a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Minimum Order Quantities</h3>
+ <p class="mt-2 text-sm text-ash">Where small batches make sense vs. bulk.</p>
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <section class="relative isolate overflow-hidden bg-navy-950 py-20">
+ <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" loading="lazy" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Get an itemized quote for your 50.</h2>
+ <p class="mb-8 text-lg text-navy-200">Send your headcount by role and we'll break down the real cost within 24 hours.</p>
+ <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Free Quote</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+</BaseLayout>

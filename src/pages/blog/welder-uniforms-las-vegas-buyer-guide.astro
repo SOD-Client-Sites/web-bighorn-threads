@@ -32,10 +32,22 @@ const schema = {
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
 }
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ name: post.title,
+ speakable: {
+  '@type': 'SpeakableSpecification',
+  cssSelector: ['h1', '.speakable-answer'],
+ },
+}
 ---
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
  <article class="bg-concrete">
  <header class="border-b border-hairline bg-paper">
  <div class="mx-auto max-w-3xl px-4 pt-16 pb-12 sm:px-6 sm:pt-20 lg:px-8">
@@ -51,7 +63,7 @@ const schema = {
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl">A welder uniform in Las Vegas is a layered system: NFPA 2112 FR base shirt and pants, leather welding jacket or sleeves over the FR, leather gloves, welding helmet, and steel-toe boots. OSHA 1910.252 and AWS Z49.1 require FR. Decorate FR garments with Nomex embroidery thread, never plastisol screen print.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">A welder uniform in Las Vegas is a layered system: NFPA 2112 FR base shirt and pants, leather welding jacket or sleeves over the FR, leather gloves, welding helmet, and steel-toe boots. OSHA 1910.252 and AWS Z49.1 require FR. Decorate FR garments with Nomex embroidery thread, never plastisol screen print.</p>
  </aside>
 
  <h2 id="layered-system" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">The Welder Uniform Is a Layered System</h2>

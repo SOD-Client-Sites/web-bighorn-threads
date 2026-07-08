@@ -18,7 +18,7 @@ const faqs = [
  { q: 'What\'s the difference between a commercial embroidery shop and a home machine?', a: 'A commercial embroidery shop runs multi-head industrial machines (typically 4-12 heads) that decorate multiple garments simultaneously, accept FR-rated thread, and process bulk runs in days. A home embroidery machine runs a single head, has limited stitch counts, and is built for hobby use — fine for one-offs but not for crew programs.' },
  { q: 'How fast can a Las Vegas embroidery shop turn around an order?', a: 'For repeat customers with files on record, standard runs typically ship within a week of order confirmation. New artwork adds prep time for digitizing — typically a day or two. Rush options are available; the constraints are blank availability, embroidery machine capacity, and the digitizing queue.' },
  { q: 'Do Las Vegas embroidery shops carry FR-rated thread?', a: 'Most commercial embroidery shops can do FR thread but you have to ask — it\'s a different thread than standard polyester and the shop has to be set up for it. FR-rated Nomex (aramid) thread is required for embroidery on NFPA 70E or NFPA 2112 garments to preserve the rating. Standard polyester thread melts in arc and flash-fire events.' },
- { q: 'What does it cost to embroider a shirt in Las Vegas?', a: 'Per-piece cost depends on stitch count (logo complexity), garment cost, setup or digitizing fee, decoration complexity, and quantity. The industry rule of thumb is roughly $1 per 1,000 stitches plus the cost of the shirt. A new logo requires a one-time digitizing fee of $30-80. See our pricing guide for the breakdown.' },
+ { q: 'What does it cost to embroider a shirt in Las Vegas?', a: 'Per-piece cost depends on stitch count (logo complexity), garment cost, decoration complexity, and quantity. A new logo also needs a one-time digitizing fee. Send your logo, garment, and quantity and we\'ll quote it.' },
  { q: 'Can a Las Vegas embroidery shop ship to other states?', a: 'Yes. Most commercial shops ship nationwide. Local pickup is faster and cheaper, but for multi-location businesses (data center contractors, mechanical shops with crews on out-of-state turnarounds) we ship to project sites or per-employee home addresses.' },
  { q: 'How do I send a logo to an embroidery shop?', a: 'Send vector format (.ai, .eps, .pdf) when possible — that\'s the cleanest input for digitizing. JPG/PNG works but may require redrawing. Include the dimensions you want for the chest logo, the placements you need (chest, sleeve, back), and the garments you want it on. Most shops will quote and confirm before any work starts.' },
 ]
@@ -31,10 +31,22 @@ const schema = {
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
 }
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ name: post.title,
+ speakable: {
+  '@type': 'SpeakableSpecification',
+  cssSelector: ['h1', '.speakable-answer'],
+ },
+}
 ---
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
  <article class="bg-concrete">
  <header class="border-b border-hairline bg-paper">
  <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
@@ -50,7 +62,7 @@ const schema = {
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl">A commercial Las Vegas embroidery shop should run multi-head industrial machines (4-12 heads), stock common blanks (Port Authority, Carhartt, Red Kap), accept FR-rated Nomex thread for compliance work, keep digitizing files on record for fast reorders, and ship within a week on standard runs. Hobby/home embroidery operations do not meet any of these standards reliably.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">A commercial Las Vegas embroidery shop should run multi-head industrial machines (4-12 heads), stock common blanks (Port Authority, Carhartt, Red Kap), accept FR-rated Nomex thread for compliance work, keep digitizing files on record for fast reorders, and ship within a week on standard runs. Hobby/home embroidery operations do not meet any of these standards reliably.</p>
  </aside>
 
  <h2 id="commercial-vs-home" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Commercial vs Home Embroidery</h2>

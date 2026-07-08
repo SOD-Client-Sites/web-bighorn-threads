@@ -1,0 +1,202 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const page = {
+ title: 'Fastest Turnaround for Custom Apparel | 5-8 Day Embroidery — Bighorn Threads',
+ description:
+ 'Standard turnaround for custom embroidered and screen-printed apparel, what slows orders down, and how Bighorn Threads delivers 5-8 business day embroidery with rush options in Las Vegas.',
+ hero: '/images/generated/service-screen-printing.jpg',
+ url: 'https://bighornthreads.com/fastest-turnaround-custom-apparel/',
+}
+
+const timeline = [
+ { method: 'Embroidery (standard)', industry: '7–14 business days', bighorn: '5–8 business days' },
+ { method: 'Screen printing (standard)', industry: '7–12 business days', bighorn: '5–7 business days' },
+ { method: 'DTF printing', industry: '5–10 business days', bighorn: '3–6 business days' },
+ { method: 'Rush / local pickup (Las Vegas)', industry: 'Often unavailable', bighorn: 'Available, case by case' },
+]
+
+const blockers = [
+ { label: 'Missing or low-res art files', body: 'A blurry logo or wrong file format stalls the project before digitizing or screen burning can even start. Send vector files (AI, EPS, SVG) when you have them.' },
+ { label: 'Unapproved digitizing proofs', body: 'Embroidery cannot start production until you sign off on the stitch-out proof. Faster proof approval directly shortens your timeline — same-day approval saves a full day or more.' },
+ { label: 'Last-minute size changes', body: 'Changing quantities or sizes after garments are ordered from the supplier resets part of the clock. Lock sizes before approving the order to protect your delivery date.' },
+ { label: 'Compliance verification on FR/ANSI gear', body: 'FR-rated and ANSI hi-vis pieces go through an extra placement and material check. It is a fixed step, but skipping it is not an option — build it into your timeline expectations upfront.' },
+]
+
+const faqs = [
+ { q: 'What is the fastest turnaround for custom apparel?', a: 'Standard turnaround for custom embroidered apparel is 7-14 business days industry-wide. Bighorn Threads delivers most embroidery orders in 5-8 business days, with rush options for local pickup in Las Vegas. Screen printing runs 5-7 days. What slows orders: missing art files, unapproved digitizing proofs, and last-minute size changes.' },
+ { q: 'How fast can a rush order be turned around?', a: 'Rush availability depends on order size, garment availability, and whether your art is already digitized. Local Las Vegas pickup can sometimes be turned around in 2-3 business days for in-stock garments with an existing logo file. Call ahead to confirm capacity before counting on a specific date.' },
+ { q: 'Why does embroidery take longer than screen printing?', a: 'Embroidery requires digitizing the logo into a stitch file before any production starts, and you need to approve a physical or digital proof before the run begins. Screen printing has a similar setup step (burning screens) but typically runs slightly faster once approved, especially on simple 1-2 color designs.' },
+ { q: 'What is the single biggest thing I can do to speed up my order?', a: 'Approve the digitizing or screen proof the same day it is sent. Proof turnaround sits entirely on the customer side, and a one or two-day delay in approval pushes your delivery date back by exactly that much.' },
+ { q: 'Does a larger order take longer to produce?', a: 'Not necessarily for embroidery and screen printing, since most production runs through the same machine cycle regardless of quantity within a reasonable range. Very large orders (200+) may need an extra day or two for garment sourcing if a specific size or color is not in stock.' },
+ { q: 'Can FR-rated or ANSI hi-vis orders be rushed?', a: 'Sometimes, but the compliance verification step is fixed and cannot be skipped. Build in slightly more lead time for compliance gear than for standard apparel, and flag it as FR or ANSI-rated when you submit the order so it gets routed correctly from the start.' },
+]
+
+const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+ { '@type': 'ListItem', position: 2, name: 'Fastest Turnaround for Custom Apparel', item: page.url },
+] }
+const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: page.title, description: page.description, url: page.url, publisher: { '@type': 'Organization', name: 'Bighorn Threads' } }
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }
+---
+
+<BaseLayout title={page.title} description={page.description} canonical={page.url} heroImage={page.hero}>
+ <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+ <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+ <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-28">
+ <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/55"></div>
+ <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-navy-200" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-400">Home</a>
+ <span class="px-2 text-navy-200/60">/</span>
+ <span class="text-gold-400">Fastest Turnaround</span>
+ </nav>
+ <p class="kicker mb-4 flex items-center gap-2.5"><span class="h-px w-8 bg-gold-500"></span>Turnaround</p>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
+ Fastest turnaround on custom apparel <span class="text-gold-400">— 5 to 8 business days.</span>
+ </h1>
+ <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ Industry standard is 7-14 days. Here is what actually slows an order down, and how to avoid it.
+ </p>
+ <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+ <a href="/get-a-quote/" class="btn-primary text-base">
+ Get a Quote
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+ </a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+
+ <section class="border-b border-hairline bg-paper py-14">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="speakable-answer text-xl leading-relaxed text-charcoal sm:text-2xl">
+ Standard turnaround for custom embroidered apparel is 7-14 business days industry-wide. Bighorn Threads delivers most embroidery orders in 5-8 business days, with rush options for local pickup in Las Vegas. Screen printing runs 5-7 days. What slows orders: missing art files, unapproved digitizing proofs, and last-minute size changes.
+ </p>
+ </div>
+ </section>
+
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <p class="kicker mb-3">Turnaround Comparison</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Industry standard vs. Bighorn Threads.</h2>
+ </div>
+ <div class="overflow-hidden border border-hairline">
+ <table class="w-full text-left">
+ <thead>
+ <tr class="bg-paper">
+ <th class="px-4 py-3 font-heading text-sm font-bold uppercase tracking-wider text-gold-700">Method</th>
+ <th class="px-4 py-3 font-heading text-sm font-bold uppercase tracking-wider text-gold-700">Industry Standard</th>
+ <th class="px-4 py-3 font-heading text-sm font-bold uppercase tracking-wider text-gold-700">Bighorn Threads</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-hairline text-charcoal">
+ {timeline.map((row, i) => (
+ <tr class={i % 2 === 0 ? 'bg-paper/60' : ''}>
+ <td class="px-4 py-3 font-semibold">{row.method}</td>
+ <td class="px-4 py-3 text-sm text-ash">{row.industry}</td>
+ <td class="px-4 py-3 text-sm text-gold-700">{row.bighorn}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
+
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <p class="kicker mb-3">What Slows Orders Down</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Four things that blow a deadline.</h2>
+ </div>
+ <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+ {blockers.map((b) => (
+ <div class="border border-hairline bg-panel p-6">
+ <h3 class="mb-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{b.label}</h3>
+ <p class="text-sm leading-relaxed text-ash">{b.body}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">The Buyer's Read</p>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">How to actually hit a tight deadline.</h2>
+ <div class="space-y-5 text-lg leading-relaxed text-ash">
+ <p>
+ Most quoted turnaround numbers assume a clean order — good art, fast proof approval, no last-minute changes. The gap between a quoted 7-day estimate and an actual 14-day delivery almost always comes from one of the four blockers above, not from production capacity itself.
+ </p>
+ <p>
+ Embroidery has a built-in dependency screen printing does not: a digitizing proof you have to approve before production starts. <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Logo digitizing</a> itself takes us 1-2 business days; how fast you sign off on the result is the variable you control. Same-day approval is the single biggest lever on your own timeline.
+ </p>
+ <p>
+ If you know you have a hard deadline, say so when you request the quote — not after the order is placed. We will flag whether rush production or <a href="/services/rush-orders-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">local pickup</a> in Las Vegas is realistic for your specific garment, quantity, and decoration method.
+ </p>
+ <p>
+ Compliance gear adds a fixed step that cannot be compressed — FR thread and ANSI placement verification take the time they take. Build that into your planning if any part of the order is flame-resistant or hi-vis rated, and submit those pieces in the same order, flagged clearly, rather than as a late add-on.
+ </p>
+ <p>
+ The honest math: a clean order with fast art and fast proof approval is the real fastest path to delivery, faster than any rush fee can buy back once the order is already moving. <a href="/about/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Get in touch</a> and we will tell you exactly where your specific order sits on the timeline.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">FAQ</p>
+ <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Turnaround questions, answered.</h2>
+ <div class="divide-y divide-hairline border-y border-hairline">
+ {faqs.map((f) => (
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
+ <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+ </summary>
+ <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
+ </details>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <section class="bg-concrete py-16">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-6">Pair It With</p>
+ <div class="grid gap-5 md:grid-cols-3">
+ <a href="/services/rush-orders-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Rush Orders in Las Vegas</h3>
+ <p class="mt-2 text-sm text-ash">Local pickup and rush production options.</p>
+ </a>
+ <a href="/blog/logo-digitizing-101-embroidery/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Logo Digitizing 101</h3>
+ <p class="mt-2 text-sm text-ash">What happens before embroidery production starts.</p>
+ </a>
+ <a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Minimum Order Quantities</h3>
+ <p class="mt-2 text-sm text-ash">How quantity affects what is realistic to rush.</p>
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <section class="relative isolate overflow-hidden bg-navy-950 py-20">
+ <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" loading="lazy" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Got a deadline? Tell us now.</h2>
+ <p class="mb-8 text-lg text-navy-200">Send your logo, garment list, and the date you need it. We will tell you what is realistic.</p>
+ <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Free Quote</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+</BaseLayout>

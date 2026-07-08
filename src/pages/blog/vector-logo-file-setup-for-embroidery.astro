@@ -17,7 +17,7 @@ const faqs = [
  { q: 'What file format does an embroidery shop need?', a: 'Vector formats are best — .ai (Adobe Illustrator), .eps, .pdf with vector elements, or .svg. JPG and PNG work but may require redrawing if the image is low-resolution. The key isn\'t the file extension, it\'s whether the artwork is built from mathematical paths (vector) rather than fixed pixels (raster).' },
  { q: 'Why does vector matter for embroidery?', a: 'Vector artwork scales without quality loss. The digitizer can resize your logo to fit chest, sleeve, or back placements without losing crispness. Raster images (JPG, PNG) become pixelated when scaled up, which forces the digitizer to redraw — adding time, cost, and the risk of subtle differences from your original brand mark.' },
  { q: 'What\'s the difference between AI, EPS, and SVG?', a: 'All three are vector formats. .ai is Adobe Illustrator\'s native format — preserves layers, fonts, and effects. .eps is a universal vector format readable by most design software. .svg is web-native vector. For embroidery, any of the three works. .ai is the cleanest input because the digitizer can edit individual elements directly.' },
- { q: 'Can you embroider from a JPG or PNG?', a: 'Yes, but with caveats. If the JPG/PNG is high-resolution (300+ DPI at intended size), the digitizer can trace it cleanly. If it\'s a low-res web image, expect a redraw fee ($30-100) and minor differences in the final stitch result. Always send the highest-resolution version you have.' },
+ { q: 'Can you embroider from a JPG or PNG?', a: 'Yes, but with caveats. If the JPG/PNG is high-resolution (300+ DPI at intended size), the digitizer can trace it cleanly. If it\'s a low-res web image, expect a redraw fee and minor differences in the final stitch result. Always send the highest-resolution version you have.' },
  { q: 'What logo elements break in embroidery?', a: 'Five common issues: (1) lines under 1mm wide drop out, (2) very small text becomes illegible, (3) gradients don\'t translate to thread (must be approximated), (4) drop shadows and glows don\'t exist as stitches, (5) colors with very subtle shade variations get consolidated into the thread color closest to each. The cleanest embroidery comes from logos designed for embroidery from the start.' },
  { q: 'How do I prep my logo for embroidery?', a: 'Five steps: (1) start with the highest-quality vector file you have, (2) convert text to outlines/curves so font availability isn\'t a factor, (3) simplify fine details that won\'t survive stitch (1mm lines, small text), (4) reduce color count to what reads at the intended size, (5) include a Pantone color reference for thread color matching. Send all of this to the digitizer.' },
  { q: 'How many colors should my embroidered logo have?', a: 'Practical sweet spot is 6-12 colors. Beyond that, embroidery starts losing impact and adding setup time. For chest-logo sizes (3-3.5 inches wide), 4-6 colors usually delivers the cleanest result. For larger placements, more colors work. Avoid logos with subtle gradient blends — they don\'t translate to thread.' },
@@ -32,10 +32,22 @@ const schema = {
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
 }
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ name: post.title,
+ speakable: {
+  '@type': 'SpeakableSpecification',
+  cssSelector: ['h1', '.speakable-answer'],
+ },
+}
 ---
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
  <article class="bg-concrete">
  <header class="border-b border-hairline bg-paper">
  <div class="mx-auto max-w-3xl px-4 pt-16 pb-12 sm:px-6 sm:pt-20 lg:px-8">
@@ -51,12 +63,12 @@ const schema = {
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl">Send your embroidery shop a vector file (.ai, .eps, .pdf, or .svg) for the cleanest result. Vector artwork scales without quality loss, so the digitizer can resize for chest, sleeve, or back placements without redrawing. JPG and PNG work but may require a redraw fee if low-resolution. Convert text to outlines, simplify fine details under 1mm, and limit colors to 6-12 for best embroidery results.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Send your embroidery shop a vector file (.ai, .eps, .pdf, or .svg) for the cleanest result. Vector artwork scales without quality loss, so the digitizer can resize for chest, sleeve, or back placements without redrawing. JPG and PNG work but may require a redraw fee if low-resolution. Convert text to outlines, simplify fine details under 1mm, and limit colors to 6-12 for best embroidery results.</p>
  </aside>
 
  <h2 id="why-vector" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Why Vector Matters</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">Embroidery starts with digitizing — converting your logo into a stitch file the embroidery machine can read. The digitizer needs the cleanest possible input. Vector files (built from mathematical paths) scale infinitely without losing crispness. Raster files (built from fixed pixels) lose quality when enlarged.</p>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">If you send a 300×300 pixel JPG of your logo, the digitizer has to either work from that low-resolution version (and risk artifacts in the stitch file) or redraw your logo from scratch in vector format ($30-80 redraw fee, plus the digitizing fee). Sending vector eliminates the redraw step.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">If you send a 300×300 pixel JPG of your logo, the digitizer has to either work from that low-resolution version (and risk artifacts in the stitch file) or redraw your logo from scratch in vector format (a redraw fee, plus the digitizing fee). Sending vector eliminates the redraw step.</p>
 
  <h2 id="file-formats" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Acceptable File Formats</h2>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
@@ -107,7 +119,7 @@ const schema = {
  </ol>
 
  <h2 id="cost" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">What Digitizing Costs</h2>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Industry typical: $30-80 per logo for digitizing. One-time fee — once digitized, the file is reused for every reorder at no additional charge. Complex logos with many colors or fine detail run higher. Vector input keeps the cost at the lower end of that range; raster input that requires redraw pushes it higher.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Digitizing is a one-time fee per logo. Once digitized, the file is reused for every reorder at no additional charge. Color count, stitch count, and fine detail are the main cost drivers — complex logos run higher. Vector input keeps it on the low end; raster input that requires a redraw pushes it higher. Send your logo and we'll quote it.</p>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">For full pricing context see <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">how much it costs to embroider a shirt</a>.</p>
 
  <h2 id="related" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Related Reading</h2>

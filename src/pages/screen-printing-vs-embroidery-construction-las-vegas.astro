@@ -1,0 +1,219 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const page = {
+ title: 'Screen Printing vs Embroidery for Construction Gear | Las Vegas — Bighorn Threads',
+ description:
+ 'Screen printing or embroidery for your construction crew? How each holds up on FR shirts, hi-vis, polos, and tees under industrial washing and Vegas heat — plus the ANSI/NFPA decoration rules that decide it. Get a quote.',
+ hero: '/images/generated/service-screen-printing.jpg',
+ url: 'https://bighornthreads.com/screen-printing-vs-embroidery-construction-las-vegas/',
+}
+
+const compare = [
+ { row: 'Polos & FR shirts', meaning: 'Embroidery', use: 'Survives repeated industrial washing, won\'t crack or fade, reads as professional for client walk-throughs' },
+ { row: 'Hi-vis vests & shirts', meaning: 'Embroidery (usually)', use: 'No ink that could be misread as retroreflective under headlights — kept within the ANSI decoration limits' },
+ { row: 'Event & crew tees', meaning: 'Screen printing', use: 'Large back graphics, bright multi-color art, higher volume on cotton — lower cost per piece at scale' },
+ { row: 'Heavyweight work tees', meaning: 'Either', use: 'Screen print for big logos and color; embroidery for a durable left-chest mark that lasts the garment\'s life' },
+ { row: 'Outerwear & softshells', meaning: 'Embroidery', use: 'Holds up on canvas and technical fabric where print can crack at seams and stress points' },
+]
+
+const faqs = [
+ { q: 'Should I use screen printing or embroidery for my construction crew\'s gear?', a: 'For construction crews, embroidery wins on polos, FR shirts, hi-vis, and outerwear — it survives repeated industrial washing and won\'t crack under desert heat. Screen printing is the better call for event tees and large back graphics on cotton, where it\'s cheaper at volume. On ANSI-rated hi-vis, embroidery is usually preferred and decoration must stay clear of the retroreflective tape. The right answer is usually a mix: embroidered polos and hi-vis for daily wear, screen-printed tees for events.' },
+ { q: 'Which lasts longer on workwear — embroidery or screen print?', a: 'Embroidery lasts longer on workwear that goes through heavy washing and abrasion. Stitched thread doesn\'t crack, peel, or fade the way printed ink can after repeated industrial laundering and desert heat. Screen printing is durable for its cost but a large print on a daily-wear tee will show wear sooner than an embroidered chest logo on the same garment.' },
+ { q: 'Can you embroider or screen print FR-rated shirts?', a: 'Yes, but FR garments have their own decoration rules. The decoration cannot compromise the flame-resistant rating — that means FR-safe thread and methods on FR shirts, applied so the garment stays compliant. We follow the NFPA decoration guidance on every FR order. See our NFPA 70E decoration guide for the specifics.' },
+ { q: 'Does decoration affect ANSI 107 compliance on hi-vis?', a: 'It can. ANSI/ISEA 107 caps non-retroreflective decoration and prohibits covering any of the retroreflective tape. Embroidery is often preferred on hi-vis because it adds no ink that could be misread as reflective material under headlights. We keep all decoration within the placement and area limits so the certification stays valid — see our ANSI 107 hi-vis guide.' },
+ { q: 'Is embroidery worth the extra cost on a construction crew?', a: 'On gear worn daily — polos, FR shirts, hi-vis — embroidery typically earns its cost because it outlasts print through industrial washing and reads as more professional on a jobsite or client walk-through. On high-volume event tees or big back graphics, screen printing delivers more impact for the money. Matching the method to how the garment is worn and washed is what keeps the program cost-effective.' },
+ { q: 'Can one shop do both for my crew in Las Vegas?', a: 'Yes. Bighorn Threads runs both embroidery and screen printing in-house in Las Vegas, so a single order can mix embroidered polos and hi-vis with screen-printed crew tees. We recommend the method per garment based on fabric, decoration, and wear, and digitize logos in-house so they hold up on workwear.' },
+]
+
+const breadcrumb = {
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+ { '@type': 'ListItem', position: 2, name: 'Screen Printing vs Embroidery for Construction', item: page.url },
+ ],
+}
+
+const faqSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+}
+
+const articleSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'Article',
+ headline: 'Screen Printing vs Embroidery for Construction Gear in Las Vegas',
+ description: page.description,
+ author: { '@id': 'https://bighornthreads.com/#organization' },
+ publisher: { '@id': 'https://bighornthreads.com/#organization' },
+ mainEntityOfPage: page.url,
+}
+---
+
+<BaseLayout
+ title={page.title}
+ description={page.description}
+ canonical={page.url}
+ heroImage={page.hero}
+>
+ <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+ <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+ <!-- Hero -->
+ <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-28">
+ <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/55"></div>
+
+ <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-navy-200" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-400">Home</a>
+ <span class="px-2 text-navy-200/60">/</span>
+ <span class="text-gold-400">Screen Printing vs Embroidery</span>
+ </nav>
+
+ <p class="kicker mb-4 flex items-center gap-2.5">
+  <span class="h-px w-8 bg-gold-500"></span>
+  Decoration Methods
+ </p>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
+ Screen printing vs embroidery for construction gear <span class="text-gold-400">— what holds up on the jobsite.</span>
+ </h1>
+ <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ The short version: embroider the daily-wear gear, screen-print the tees. The longer version depends on fabric, compliance, and how the crew washes it. Here's the read from a Vegas shop that runs both.
+ </p>
+
+ <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+ <a href="/get-a-quote/" class="btn-primary text-base">
+ Get a Quote
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+ </a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">
+ 702.904.8923
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <!-- Liftable answer -->
+ <section class="border-b border-hairline bg-paper py-14">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="text-xl leading-relaxed text-charcoal sm:text-2xl">
+ For construction crews, embroidery wins on polos, FR shirts, hi-vis, and outerwear — it survives repeated industrial washing and won't crack under desert heat. Screen printing is better for event tees and large back graphics on cotton, where it's cheaper at volume. On ANSI-rated hi-vis, always keep decoration clear of the retroreflective tape.
+ </p>
+ </div>
+ </section>
+
+ <!-- Comparison table -->
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-10 max-w-2xl">
+ <p class="kicker mb-3">Method By Garment</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">What to use, and when.</h2>
+ </div>
+
+ <div class="overflow-hidden border border-hairline bg-panel">
+ <table class="w-full">
+ <thead class="bg-paper">
+ <tr class="border-b border-hairline">
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Garment</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Best Method</th>
+ <th class="hidden px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600 lg:table-cell">Why</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-hairline">
+ {compare.map((r) => (
+ <tr>
+ <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-700">{r.row}</td>
+ <td class="px-6 py-5 align-top font-heading text-base font-bold text-charcoal">{r.meaning}</td>
+ <td class="hidden px-6 py-5 align-top text-sm text-ash lg:table-cell">{r.use}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
+
+ <!-- Deep dive -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">The Buyer's Read</p>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">
+ Match the method to the work, not the other way around.
+ </h2>
+
+ <div class="space-y-5 text-lg leading-relaxed text-ash">
+ <p>
+ On a construction crew, apparel takes a beating — abrasion, sweat, industrial laundering, and 110-degree summers. The decoration has to survive all of it. That's why embroidery is the default for daily-wear gear: the logo is stitched, not printed, so it doesn't crack, peel, or fade the way ink eventually does on a shirt that gets washed hard every week. It also reads as more professional, which matters when a foreman is walking a client through a site.
+ </p>
+ <p>
+ Screen printing earns its place on tees — especially event shirts, safety-campaign shirts, and anything with a big multi-color back graphic. At volume on cotton, it's cost-effective and the print pops. The tradeoff is wear: a large print on a daily-driver tee will show age sooner than an embroidered chest mark. For a crew tee that's worn occasionally, that's fine; for the shirt someone wears four days a week, embroidery usually wins.
+ </p>
+ <p>
+ Compliance gear changes the math. On <a href="/custom-safety-vests-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">ANSI 107 hi-vis</a>, embroidery is generally preferred because it adds no ink that could be misread as retroreflective material under headlights, and the decoration has to stay clear of the reflective tape and within the area limit. On FR shirts, the decoration can't compromise the flame-resistant rating — that means FR-safe thread and methods, following <a href="https://www.nfpa.org/codes-and-standards/all-codes-and-standards/list-of-codes-and-standards/detail?code=70E" rel="noopener" target="_blank" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">NFPA 70E</a> and <a href="https://safetyequipment.org/standards/ansi-isea-107/" rel="noopener" target="_blank" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">ANSI/ISEA 107</a> decoration limits. We run the compliance math on every hi-vis and FR order; the <a href="/safety-compliance/ansi-107-hi-vis-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">ANSI 107 guide</a> and <a href="/safety-compliance/nfpa-70e-embroidery-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">NFPA 70E decoration guide</a> cover the rules.
+ </p>
+ <p>
+ In practice most crews run a mix: embroidered polos and hi-vis for daily wear, screen-printed tees for events and high-volume runs. Because we do both in-house, a single order can combine them — and a <a href="/company-stores/contractors-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">company store</a> can carry both so the crew picks the right piece for the right use. For more on garments by trade, see <a href="/blog/how-to-outfit-a-construction-crew-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">how to outfit a construction crew in Las Vegas</a>.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <!-- FAQ -->
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">FAQ</p>
+ <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Decoration questions, answered.</h2>
+
+ <div class="divide-y divide-hairline border-y border-hairline">
+ {faqs.map((f) => (
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
+ <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+ </summary>
+ <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
+ </details>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- Related -->
+ <section class="border-y border-hairline bg-paper py-16">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-6">Related Reads</p>
+ <div class="grid gap-5 md:grid-cols-3">
+ <a href="/blog/dtf-printing-vs-screen-printing-custom-apparel/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">DTF vs Screen Printing</h3>
+ <p class="mt-2 text-sm text-ash">The other decoration comparison — DTF transfers vs traditional screen print.</p>
+ </a>
+ <a href="/branded-apparel-construction-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Branded Construction Apparel</h3>
+ <p class="mt-2 text-sm text-ash">The full crew-apparel program for Vegas trades.</p>
+ </a>
+ <a href="/safety-compliance/ansi-107-hi-vis-guide/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">ANSI 107 Hi-Vis Guide</h3>
+ <p class="mt-2 text-sm text-ash">Decoration rules that keep the certification valid.</p>
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <!-- CTA -->
+ <section class="relative isolate overflow-hidden bg-navy-950 py-20">
+ <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" loading="lazy" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Not sure which method your gear needs?</h2>
+ <p class="mb-8 text-lg text-navy-200">Tell us the garments and how the crew wears them. We'll spec it.</p>
+ <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Free Quote</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+</BaseLayout>

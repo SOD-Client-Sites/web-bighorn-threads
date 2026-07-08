@@ -56,6 +56,17 @@ const schema = {
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
 }
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ name: post.title,
+ speakable: {
+  '@type': 'SpeakableSpecification',
+  cssSelector: ['h1', '.speakable-answer'],
+ },
+}
 ---
 
 <BaseLayout
@@ -67,6 +78,7 @@ const schema = {
  publishedDate={post.isoDate}
 >
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
 
  <article class="bg-concrete">
  <header class="border-b border-hairline bg-paper">
@@ -100,7 +112,7 @@ const schema = {
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
  <aside class="mb-10 border border-hairline bg-gold-500/5 p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl">Las Vegas electrical crews need arc-rated (FR) shirts once arc-flash exposure exceeds 1.2 cal/cm² — <strong>CAT 2 (8 cal/cm²)</strong> is the right baseline for commercial switchgear and motor-control work, <strong>CAT 1 (4 cal/cm²)</strong> for service and light-commercial. Company logos must be embroidered with Nomex/aramid (FR-safe) thread inside the manufacturer's placement spec, or the rating is voided.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Las Vegas electrical crews need arc-rated (FR) shirts once arc-flash exposure exceeds 1.2 cal/cm² — <strong>CAT 2 (8 cal/cm²)</strong> is the right baseline for commercial switchgear and motor-control work, <strong>CAT 1 (4 cal/cm²)</strong> for service and light-commercial. Company logos must be embroidered with Nomex/aramid (FR-safe) thread inside the manufacturer's placement spec, or the rating is voided.</p>
  </aside>
  <aside class="mb-12 border border-hairline bg-panel p-6 lg:sticky lg:top-24">
  <h2 class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-700">In this article</h2>

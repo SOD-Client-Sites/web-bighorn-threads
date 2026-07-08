@@ -2,9 +2,9 @@
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const post = {
- title: 'Rush Order Shirts in Las Vegas: What\'s Actually Possible',
+ title: 'Rush Order Shirts in Las Vegas: What Drives the Speed',
  description:
- 'Rush-order custom shirts depend on artwork readiness, blank availability, and the shop\'s production queue. Here\'s what realistic turnaround looks like — same-day, next-day, 3-day rush — and what breaks rush orders.',
+ 'Rush-order custom shirts depend on artwork readiness, blank availability, decoration method, and the shop\'s production queue. Here\'s what actually drives rush speed — and what breaks a rush order.',
  category: 'Operational',
  readTime: '7 min read',
  date: 'May 9, 2026',
@@ -14,13 +14,13 @@ const post = {
 }
 
 const faqs = [
- { q: 'What is a rush order for t-shirts?', a: 'A rush order is a custom apparel order produced and delivered faster than the shop\'s standard turnaround time. Standard custom embroidery and screen printing typically ships within 7-10 business days; rush orders cut that to 1-5 business days depending on quantity, complexity, and how much of the production prep is already done.' },
- { q: 'How fast can you get rush shirts in Las Vegas?', a: 'Same-day or next-day for small orders (10-20 shirts) when artwork is ready, the blank is in stock, and the shop has open press time. 2-3 days for medium runs (50-100 shirts). 5-7 days for larger runs (100-500 shirts). New artwork that requires digitizing or color separation adds 1-2 days regardless of quantity.' },
+ { q: 'What is a rush order for t-shirts?', a: 'A rush order is a custom apparel order produced and delivered faster than the shop\'s standard turnaround. How much faster depends on the quantity, the decoration method, and how much production prep is already done. The best way to know your timeline is to call with your deadline and your artwork.' },
+ { q: 'How fast can you get rush shirts in Las Vegas?', a: 'It depends on the drivers, not a fixed number. Small orders with finalized artwork, blanks in stock, and open press time move fastest. Larger runs and new artwork that needs digitizing or color separation take longer. Call with your quantity and deadline and the shop will tell you straight what\'s achievable.' },
  { q: 'What breaks a rush order?', a: 'Five things: artwork that needs revision or digitizing from scratch, blank garments not in stock at the shop or wholesaler, color matching for non-standard pantone colors, embroidery thread not on hand for the colorway needed, and a production queue that\'s already booked. The shop should tell you up front which (if any) of these apply to your specific job.' },
- { q: 'Is RushOrderTees legitimate?', a: 'RushOrderTees (rushordertees.com) is a national online custom apparel retailer that specializes in fast turnaround. They\'re a legitimate operation. Trade-off: they\'re a national online shop, so you\'re shipping from out of state. For Las Vegas buyers needing rush turnaround on local crews, a Vegas commercial shop typically beats national mail-order on speed simply because there\'s no cross-country shipping.' },
- { q: 'How long does RushOrderTees take to deliver?', a: 'RushOrderTees publishes 4-day production turnaround on their fastest tier plus shipping time (typically 2-3 business days from Pennsylvania to Vegas). So total turnaround from order to delivery is roughly 6-7 business days even on rush. A local Vegas shop with files on file can often beat that with same-day or next-day production.' },
- { q: 'Can you rush embroidery?', a: 'Yes — embroidery rushes the same way screen printing does, with the same five constraints (artwork readiness, blank availability, color matching, thread availability, queue). New logos require digitizing first which adds prep time; existing logos with files on record skip that step.' },
- { q: 'What does a rush order surcharge cost?', a: 'Most shops charge a rush surcharge between 15-50% on top of the standard per-piece price, depending on how aggressive the rush is and what production prep has to be expedited. Same-day or next-day rushes typically carry the highest surcharge; 3-5 day rushes often carry minimal or no surcharge for repeat customers with files on record.' },
+ { q: 'Is RushOrderTees legitimate?', a: 'RushOrderTees (rushordertees.com) is a national online custom apparel retailer that specializes in fast turnaround. They\'re a legitimate operation. Trade-off: they\'re a national online shop, so you\'re shipping from out of state. For Las Vegas buyers needing rush turnaround on local crews, a Vegas commercial shop has an edge on speed simply because there\'s no cross-country shipping.' },
+ { q: 'How does RushOrderTees compare for delivery?', a: 'RushOrderTees ships from Pennsylvania, so shipping time from out of state eats into the speed advantage for a Vegas customer. A local Vegas shop with your files on record skips the cross-country leg entirely. Call a local shop with your deadline to compare honestly against any mail-order quote.' },
+ { q: 'Can you rush embroidery?', a: 'Yes — embroidery rushes the same way screen printing does, with the same five drivers (artwork readiness, blank availability, color matching, thread availability, queue). New logos require digitizing first, which adds prep time; existing logos with files on record skip that step.' },
+ { q: 'Is there a rush order surcharge?', a: 'A rush surcharge may apply, depending on how aggressive the rush is and what production prep has to be expedited. Any surcharge gets quoted up front before you commit — never a surprise on the invoice. Repeat customers with files on record often pay less.' },
 ]
 
 const schema = {
@@ -31,17 +31,29 @@ const schema = {
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
 }
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ name: post.title,
+ speakable: {
+  '@type': 'SpeakableSpecification',
+  cssSelector: ['h1', '.speakable-answer'],
+ },
+}
 ---
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
  <article class="bg-concrete">
  <header class="border-b border-hairline bg-paper">
  <div class="mx-auto max-w-3xl px-4 pt-16 pb-12 sm:px-6 sm:pt-20 lg:px-8">
  <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-600">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-600">Blog</a></nav>
  <span class="kicker mb-3">{post.category}</span>
  <h1 class="mb-6 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl lg:text-5xl">{post.title}</h1>
- <p class="mb-8 text-xl leading-relaxed text-ash">A working buyer's guide to rush-order shirts — what's possible, what breaks rush, and how to give yourself the best chance of hitting the deadline.</p>
+ <p class="mb-8 text-xl leading-relaxed text-ash">A working buyer's guide to rush-order shirts — what drives the speed, what breaks a rush, and how to give yourself the best chance of hitting the deadline.</p>
  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
  </header>
@@ -50,13 +62,14 @@ const schema = {
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl">Rush-order custom shirts can be same-day or next-day for small orders (10-20 pieces) when artwork is ready and blanks are in stock; 2-3 days for medium runs (50-100); 5-7 days for larger runs. New artwork requiring digitizing or color separation adds 1-2 days regardless of quantity. Local Vegas shops typically beat national online services on rush because there's no cross-country shipping time.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Rush speed isn't a fixed number — it's driven by a handful of things: whether your artwork is finalized, whether the shop already has your digitized file, whether the blanks are in stock, the decoration method, the quantity, and how open the press queue is. Local Vegas shops have a built-in edge on rush because there's no cross-country shipping. Call with your deadline and artwork and we'll tell you straight what's achievable.</p>
  </aside>
 
- <h2 id="rush-tiers" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Realistic Rush Turnaround by Quantity</h2>
+ <h2 id="rush-tiers" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">What Drives Rush Speed</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">There's no single rush turnaround. Your timeline comes down to a few drivers. The more of these that line up, the faster the shop can move.</p>
 
- <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Same-day or next-day (10-20 pieces)</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Achievable when:</p>
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Small orders move fastest</h3>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">A short rush window is realistic when:</p>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li>Artwork is finalized — no revisions, no digitizing from scratch</li>
  <li>Blanks are in stock at the shop</li>
@@ -65,43 +78,43 @@ const schema = {
  </ul>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">Most often used for: trade show ribbons, last-minute event crews, single-day client meetings, executive last-minute swag.</p>
 
- <h3 class="mt-8 mb-3 font-heading text-xl font-bold">2-3 day rush (50-100 pieces)</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">The most common rush tier. Typical for:</p>
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Medium runs are the common rush</h3>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Most rush jobs land here. Typical for:</p>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li>New crew onboarding when the start date moved up</li>
- <li>Trade show booth crews ordered 1-2 weeks before the event</li>
+ <li>Trade show booth crews ordered close to the event</li>
  <li>Replacement runs for shirts damaged in production or shipping</li>
  <li>Project-specific apparel for a job walk or ribbon cutting</li>
  </ul>
 
- <h3 class="mt-8 mb-3 font-heading text-xl font-bold">5-7 day rush (100-500 pieces)</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">For larger runs, 5-7 days is often achievable as "rush" because the shop's standard turnaround on bulk runs is typically 10-14 days. Halving that timeline still requires queue priority and coordinated production scheduling.</p>
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Large runs rush against a longer baseline</h3>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Bigger quantities carry a standard bulk timeline, so "rush" on a large run means compressing that baseline rather than turning it around overnight. Compressing it still takes queue priority and coordinated production scheduling — call with your quantity and deadline and the shop will tell you what's achievable.</p>
 
  <h2 id="what-breaks" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">What Actually Breaks a Rush Order</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">Five constraints make or break rush turnaround:</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">1. Artwork readiness</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">If the logo needs digitizing for embroidery (one-time per logo, $30-80), that's typically a day. If color separation needs revision for screen printing, that's another day. New artwork can add 1-2 days to any rush job. Existing artwork on file ships at full rush speed.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">If the logo needs digitizing for embroidery (a one-time fee per logo), that adds prep before production starts. Color separation revisions for screen printing add prep too. New artwork stretches any rush job. Existing artwork on file ships at full rush speed.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">2. Blank garment availability</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">If the shop has the blank in stock, rush production starts immediately. If they have to order from a wholesaler, that's typically 1-2 days for shipping from regional distribution. Specialty FR garments and non-standard sizes (5XL+) can take longer because they're less commonly stocked.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">If the shop has the blank in stock, rush production starts right away. If they have to order from a wholesaler, regional shipping adds lead time. Specialty FR garments and non-standard sizes take longer because they're less commonly stocked.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">3. Color matching</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Standard pantone colors and trade-common thread colors are typically on hand. Custom pantone matching for screen printing or specialty thread colors for embroidery can require 1-2 days for sourcing. Non-standard colors are the most common silent rush-killer.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Standard pantone colors and trade-common thread colors are typically on hand. Custom pantone matching for screen printing or specialty thread colors for embroidery add sourcing time. Non-standard colors are the most common silent rush-killer.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">4. Production queue</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">A shop's press and embroidery machine time is finite. If the queue is already booked solid for the next 5 days, no amount of paying for rush will move things faster — physical capacity is the constraint. A good shop will tell you up front whether the queue accommodates your timeline.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">A shop's press and embroidery machine time is finite. If the queue is already booked solid, no amount of paying for rush moves things faster — physical capacity is the constraint. A good shop tells you up front whether the queue accommodates your timeline.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">5. Thread spec for compliance work</h3>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">For FR garments requiring Nomex thread, FR-safe thread isn't always in stock if the shop doesn't routinely run FR work. Ask the shop whether they keep FR thread on hand if your rush job involves FR garments.</p>
 
  <h2 id="local-vs-national" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Local Vegas Shop vs National Online Rush Services</h2>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">National online rush services like RushOrderTees publish aggressive turnaround on their fastest tiers — but the shipping time eats into the advantage. RushOrderTees ships from Pennsylvania; total order-to-delivery for a Vegas customer typically lands at 6-7 business days even on rush.</p>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">A local Vegas commercial shop with files on record can often beat that with same-day or next-day production because there's zero cross-country shipping. For trade-show timing, ribbon cuttings, and last-minute job walks, local pickup is the speed advantage.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">National online rush services like RushOrderTees publish aggressive turnaround on their fastest tiers — but shipping from out of state eats into the speed advantage. RushOrderTees ships from Pennsylvania, so a Vegas customer waits on the cross-country leg on top of production.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">A local Vegas commercial shop with your files on record skips that shipping entirely — production happens here and you pick it up here. For trade-show timing, ribbon cuttings, and last-minute job walks, local pickup is the speed advantage.</p>
 
  <h2 id="how-to-rush" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">How to Maximize Your Rush Chances</h2>
  <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
- <li><strong>Call early.</strong> Even on a same-day rush, calling first thing Monday morning beats calling Wednesday afternoon. The shop's production queue books from morning to evening.</li>
+ <li><strong>Call early.</strong> On any rush, calling first thing Monday morning beats calling Wednesday afternoon. The shop's production queue books from morning to evening.</li>
  <li><strong>Send finalized artwork.</strong> Vector format (.ai, .eps, .pdf), no revisions, no "we might want to change the colors." Lock the spec before quoting.</li>
  <li><strong>Confirm blank availability.</strong> Ask the shop to confirm they have the blank in stock before committing to the timeline.</li>
  <li><strong>Build a relationship before you need rush.</strong> Shops with your files on record, your sizing on file, and a working relationship can run rush faster than a first-time customer.</li>

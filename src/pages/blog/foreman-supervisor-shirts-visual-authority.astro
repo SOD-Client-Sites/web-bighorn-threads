@@ -20,7 +20,7 @@ const faqs = [
  { q: 'What about Class 3 hi-vis foreman shirts?', a: 'On hi-vis-required sites, foremen still need ANSI 107 Class 2 or 3 — but the differentiation moves to color or embroidery. Some crews use orange-red Class 2 vests for crew and yellow-green for foremen, or vice versa. Embroidered "FOREMAN" on the back of a Class 3 shirt within the 12 sq in decoration limit also works.' },
  { q: 'Do foremen wear different hard hats too?', a: 'Yes — color-coded hard hats are the most-used jobsite identifier. White hard hats for supervisors, yellow for laborers, blue for electricians, green for safety officers. The shirt and hard hat together create unmistakable visual identity. See our hard hat guide for ANSI Z89.1 decal compliance.' },
  { q: 'What\'s the right garment for a Vegas foreman?', a: 'Three picks: (1) Carhartt K87 heavyweight pocket tee for site-walking foremen who need pockets and toughness, (2) Port Authority K500 silk-touch polo for client-facing supers, (3) Red Kap SP14 or SP24 industrial work shirt for old-school trade foremen who run mechanical or electrical crews. All three embroider cleanly.' },
- { q: 'Should foreman shirts be a higher-quality garment?', a: 'Yes — and crews notice. A foreman in a $35 Carhartt polo with embroidered title reads as senior. Same foreman in a $9 Gildan t-shirt reads as one of the crew. Spend the extra $20 per shirt on the supervisor — it\'s a tiny line item with outsized perception impact.' },
+ { q: 'Should foreman shirts be a higher-quality garment?', a: 'Yes — and crews notice. A foreman in a quality Carhartt polo with embroidered title reads as senior. Same foreman in a basic Gildan tee reads as one of the crew. Spend a little more per shirt on the supervisor — it\'s a tiny line item with outsized perception impact.' },
  { q: 'How many foreman shirts should I order?', a: 'Industry standard: 5-7 per foreman for a Monday-Friday rotation with one spare. Foremen are higher-visibility and more frequently photographed than crew, so wear-and-tear matters more. Plan to replace foreman apparel every 12-18 months versus 8-12 for crew.' },
 ]
 
@@ -32,10 +32,22 @@ const schema = {
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
 }
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ name: post.title,
+ speakable: {
+  '@type': 'SpeakableSpecification',
+  cssSelector: ['h1', '.speakable-answer'],
+ },
+}
 ---
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
  <article class="bg-concrete">
  <header class="border-b border-hairline bg-paper">
  <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
@@ -51,12 +63,12 @@ const schema = {
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl">Foremen need visual differentiation so subs, inspectors, and visitors find them fast. Standard pattern: different polo color from the crew, "FOREMAN" embroidered on chest or back, plus white hard hat. Spend more per shirt on supervisors — better garment plus title embroidery reads as senior and reinforces authority.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Foremen need visual differentiation so subs, inspectors, and visitors find them fast. Standard pattern: different polo color from the crew, "FOREMAN" embroidered on chest or back, plus white hard hat. Spend more per shirt on supervisors — better garment plus title embroidery reads as senior and reinforces authority.</p>
  </aside>
 
  <h2 id="why-it-matters" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Why Foreman Differentiation Actually Matters</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">A 30-person jobsite is chaos to an outsider. An OSHA inspector arrives — who do they ask for? An electrical sub shows up — who signs the daily log? A delivery driver needs a signature — who do they hand the BOL to? Without clear visual identifiers, every visitor wastes 5-10 minutes finding the right person.</p>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">The fix is simple: make the foreman impossible to miss. Different shirt color, "FOREMAN" embroidered visibly, white hard hat. Total cost per supervisor: maybe $40 over standard crew apparel. Total time saved across a project: hours per week.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">The fix is simple: make the foreman impossible to miss. Different shirt color, "FOREMAN" embroidered visibly, white hard hat. The added cost per supervisor is small. Total time saved across a project: hours per week.</p>
 
  <h2 id="differentiation-patterns" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The Three Differentiation Patterns</h2>
 

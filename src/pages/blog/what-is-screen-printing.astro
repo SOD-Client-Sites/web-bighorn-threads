@@ -20,7 +20,7 @@ const faqs = [
  { q: 'What fabrics work best for screen printing?', a: 'Cotton and cotton-poly blends are the classic substrate — ink bonds well, cure time is short, results are crisp. 100% polyester requires special low-bleed inks to prevent dye migration. Performance fabrics (moisture-wicking poly) need water-based or polyester-formulated plastisol. Tyvek single-use coveralls can be screen-printed in cases of 25+.' },
  { q: 'How many colors can you screen print?', a: 'Modern automatic screen printing presses run 6-12 colors per design depending on the press. Each color is a separate screen with its own setup. Most commercial work shirts and crew tees run 1-3 colors to keep setup costs reasonable; high-detail designs go to 6+ colors.' },
  { q: 'How long does screen printed ink last?', a: 'Properly cured plastisol ink survives 50+ wash cycles without significant fading on most fabrics. Water-based inks fade slightly faster but feel softer. The most common cause of premature fading is undercured ink, not the printing method itself. See our piece on plastisol vs water-based for the full comparison.' },
- { q: 'How much does screen printing cost?', a: 'Per-piece cost depends on color count, garment cost, quantity, and setup. Setup is the biggest fixed cost — typically $20-40 per color. At 24+ pieces, per-piece printing typically runs $3-8 above the blank cost. At 200+ pieces, that drops dramatically because setup is amortized across more shirts.' },
+ { q: 'How much does screen printing cost?', a: 'Per-piece cost depends on color count, garment cost, quantity, and setup. Setup is the biggest fixed cost, charged per color. Per-piece printing sits above the blank cost at lower quantities and drops sharply at 200+ pieces because setup is amortized across more shirts. Send your design and quantity and we\'ll quote it.' },
 ]
 
 const schema = {
@@ -31,10 +31,22 @@ const schema = {
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
 }
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ name: post.title,
+ speakable: {
+  '@type': 'SpeakableSpecification',
+  cssSelector: ['h1', '.speakable-answer'],
+ },
+}
 ---
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
  <article class="bg-concrete">
  <header class="border-b border-hairline bg-paper">
  <div class="mx-auto max-w-3xl px-4 pt-16 pb-12 sm:px-6 sm:pt-20 lg:px-8">
@@ -50,7 +62,7 @@ const schema = {
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl">Screen printing pushes ink through a fine mesh stencil onto fabric, one color at a time, then cures the ink with heat. It's the standard for high-volume t-shirts, hoodies, and crew apparel because per-piece cost falls fast at quantity, prints survive 50+ washes, and large/colorful designs work flat on the fabric.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Screen printing pushes ink through a fine mesh stencil onto fabric, one color at a time, then cures the ink with heat. It's the standard for high-volume t-shirts, hoodies, and crew apparel because per-piece cost falls fast at quantity, prints survive 50+ washes, and large/colorful designs work flat on the fabric.</p>
  </aside>
 
  <h2 id="how-it-works" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">How Screen Printing Actually Works</h2>
@@ -88,7 +100,7 @@ const schema = {
  <h2 id="costs" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">What Drives Screen Printing Cost</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">Three factors:</p>
  <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
- <li><strong>Setup per color.</strong> Each color is a separate screen burn + press setup, typically $20-40 per color. A 4-color design has 4x the setup of a 1-color design.</li>
+ <li><strong>Setup per color.</strong> Each color is a separate screen burn + press setup, charged per color. A 4-color design has 4x the setup of a 1-color design.</li>
  <li><strong>Garment cost.</strong> A blank Carhartt K87 wholesale is very different from a Gildan 2000.</li>
  <li><strong>Quantity.</strong> Per-piece printing falls dramatically with volume. 24 pieces vs. 200 pieces vs. 500 pieces gives radically different per-piece pricing because setup is fixed.</li>
  </ol>

@@ -1,0 +1,247 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const page = {
+ title: 'Company Store for Contractors in Las Vegas | Branded Crew Gear, No Inventory — Bighorn Threads',
+ description:
+ 'Set up an online company store for your Las Vegas construction or trades company. Your logo, your approved gear — polos, hi-vis, FR shirts — employees order their own sizes and it ships direct. You hold zero inventory. Get a quote.',
+ hero: '/images/generated/service-branded-apparel.jpg',
+ url: 'https://bighornthreads.com/company-stores/contractors-las-vegas/',
+}
+
+const stack = [
+ { label: 'Your approved catalog', body: 'One branded storefront with only the gear you approve — crew tees, embroidered polos, hoodies, hi-vis, FR shirts, hard-hat accessories. Nothing off-brand, nothing you didn\'t pick.' },
+ { label: 'Self-serve ordering', body: 'Each crew member logs in and orders their own sizes. No more chasing a size count by text, no closet of leftover XLs. New hires order their kit the day they start.' },
+ { label: 'Budgets & control', body: 'Set an allowance per employee or per role, control who can order what, and keep spend predictable. Foremen can order for a crew; you stay out of the day-to-day.' },
+ { label: 'Ships direct, zero inventory', body: 'Orders ship straight to the worker or to your shop — your call. You don\'t pre-buy stock, store boxes, or eat the wrong sizes. We hold the catalog; you hold nothing.' },
+]
+
+const steps = [
+ { num: '01', title: 'We build your storefront', body: 'Send your logo and the gear you want carried. We digitize the logo in-house, build the branded store, and load your approved catalog with the right garments for Vegas trades.' },
+ { num: '02', title: 'You set the rules', body: 'Decide allowances, who orders, and whether gear ships to each worker or to your office. We wire it the way your crew actually runs.' },
+ { num: '03', title: 'Your crew orders', body: 'Share one link. Employees pick their sizes off the approved catalog and check out. Foremen can place crew orders. Everyone sees the same brand-correct gear.' },
+ { num: '04', title: 'It ships and reorders match', body: 'Decorated gear ships direct. Every reorder pulls the same logo, colors, and placement as the first run — so the crew stays consistent as it grows.' },
+]
+
+const faqs = [
+ { q: 'What is a company store for a construction company?', a: 'A company store is a private, password-protected online shop that carries only your approved branded gear — your logo, your colors, your garments. Employees log in, order their own sizes, and the gear ships direct. You never pre-buy inventory or chase size counts. For a Las Vegas contractor, that means new hires can order their kit on day one and every crew member looks like one outfit.' },
+ { q: 'How do I set up a company store for my Las Vegas crew?', a: 'Send Bighorn Threads your logo and the gear you want carried. We digitize the logo, build a branded storefront, load your approved catalog, and set the ordering rules you choose — allowances, who can order, and where it ships. Then you share one link with your crew and they order their own sizes. We build and host the store from our Las Vegas operation.' },
+ { q: 'Is a company store better than bulk ordering?', a: 'Bulk ordering works when you need the same items in known sizes all at once. A company store wins when sizes vary, crews turn over, and reorders happen year-round — it removes the size-collection and inventory headache and keeps branding consistent as people come and go. Many Vegas contractors run both: a bulk run to launch, then a store for ongoing reorders and new hires. See our company store vs bulk ordering breakdown for which fits your situation.' },
+ { q: 'Can the store carry ANSI hi-vis and FR-rated gear?', a: 'Yes. Your catalog can include ANSI/ISEA 107 Class 2 and Class 3 hi-vis and NFPA-rated FR shirts alongside standard polos and tees, decorated within the placement and area limits that keep the certification valid. We flag any decoration that would interfere with retroreflective tape before it goes to production.' },
+ { q: 'How is this different from UniFirst or a national uniform company?', a: 'Rental programs like UniFirst lease you garments you never own and run through a national service model. A Bighorn company store gives you branded gear your crew owns outright, built and supported by a local Las Vegas shop. When your foreman needs gear before a Monday start, you reach a real person here — not a national queue.' },
+ { q: 'Do you build company stores for trades besides general construction?', a: 'Yes — electrical, plumbing and HVAC, concrete and masonry, steel, roofing and solar, landscaping, and data-center contractors all run stores with us. Each catalog is built around what that trade actually wears, including the compliance gear the work requires.' },
+ { q: 'Where do you build company stores?', a: 'Bighorn Threads is based in Las Vegas and builds company stores for contractors and trades companies across the valley — Las Vegas, Henderson, North Las Vegas, Summerlin, and the surrounding area — with local pickup or direct shipping. Send your logo and the gear you want carried for a quote.' },
+]
+
+const breadcrumb = {
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+ { '@type': 'ListItem', position: 2, name: 'Company Stores', item: 'https://bighornthreads.com/company-stores/' },
+ { '@type': 'ListItem', position: 3, name: 'For Contractors in Las Vegas', item: page.url },
+ ],
+}
+
+const serviceSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'Service',
+ name: 'Company Stores for Las Vegas Contractors',
+ serviceType: 'Branded online company store for construction and trades crew apparel',
+ provider: { '@id': 'https://bighornthreads.com/#organization' },
+ areaServed: [
+ { '@type': 'City', name: 'Las Vegas' },
+ { '@type': 'City', name: 'Henderson' },
+ { '@type': 'City', name: 'North Las Vegas' },
+ { '@type': 'City', name: 'Summerlin' },
+ { '@type': 'City', name: 'Spring Valley' },
+ ],
+ description: page.description,
+ url: page.url,
+}
+
+const faqSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+}
+---
+
+<BaseLayout
+ title={page.title}
+ description={page.description}
+ canonical={page.url}
+ heroImage={page.hero}
+>
+ <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+ <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+ <!-- Hero -->
+ <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-28">
+ <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/55"></div>
+
+ <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-navy-200" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-400">Home</a>
+ <span class="px-2 text-navy-200/60">/</span>
+ <a href="/company-stores/" class="hover:text-gold-400">Company Stores</a>
+ <span class="px-2 text-navy-200/60">/</span>
+ <span class="text-gold-400">For Contractors</span>
+ </nav>
+
+ <p class="kicker mb-4 flex items-center gap-2.5">
+  <span class="h-px w-8 bg-gold-500"></span>
+  Company Stores for Contractors
+ </p>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
+ A company store for your Las Vegas crew <span class="text-gold-400">— your gear, their sizes, zero inventory.</span>
+ </h1>
+ <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ One branded storefront with the gear you approve. Each crew member orders their own sizes, it ships direct, and you hold nothing on a shelf. Built and run by a local Vegas shop — not a national rental program.
+ </p>
+
+ <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+ <a href="/get-a-quote/" class="btn-primary text-base">
+ Get a Quote
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+ </a>
+ <a href="/demo/" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">
+ See a live demo store
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <!-- Liftable answer -->
+ <section class="border-b border-hairline bg-paper py-14">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="text-xl leading-relaxed text-charcoal sm:text-2xl">
+ A company store for a Las Vegas contractor is a private online shop carrying only your approved branded gear — your logo, your colors, your garments. Employees log in, order their own sizes, and gear ships direct. You never pre-buy inventory or chase a size count, and every reorder matches the first run as your crew grows.
+ </p>
+ </div>
+ </section>
+
+ <!-- Stack -->
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <p class="kicker mb-3">What You Get</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">One catalog, every crew member outfitted right.</h2>
+ </div>
+
+ <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+ {stack.map((s) => (
+ <div class="border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="mb-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{s.label}</h3>
+ <p class="text-sm leading-relaxed text-ash">{s.body}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- How it works -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <p class="kicker mb-3">How It Works</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">From logo to outfitted crew.</h2>
+ </div>
+
+ <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+ {steps.map((s) => (
+ <div class="border border-hairline bg-panel p-6">
+ <div class="mb-3 font-mono text-sm font-bold text-gold-600">{s.num}</div>
+ <h3 class="mb-2 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{s.title}</h3>
+ <p class="text-sm leading-relaxed text-ash">{s.body}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- Deep dive -->
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">The Buyer's Read</p>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">
+ Why Vegas contractors run a company store instead of a supply closet.
+ </h2>
+
+ <div class="space-y-5 text-lg leading-relaxed text-ash">
+ <p>
+ The real cost of crew apparel isn't the shirts. It's the operations around them — collecting sizes by text, ordering, storing the overage, and chasing a fresh count every time someone new starts or an old run wears out. On a growing jobsite, that drift shows up fast: old logos, three shades of company blue, and half the crew in whatever they grabbed.
+ </p>
+ <p>
+ A company store flips the model. You approve one catalog, set the rules once, and hand your crew a link. Each person orders their own sizes off gear that's already brand-correct, and it ships direct. You hold zero inventory, and every reorder matches the first run — so the crew looks like one outfit whether it's five people or fifty.
+ </p>
+ <p>
+ This is different from a uniform rental program. National rental companies lease you garments you never own and run everything through a service model built for scale, not for a Las Vegas trade shop. A Bighorn store gives you branded gear your crew owns outright, with the catalog built around what the work actually requires — embroidered polos for client walk-throughs, heavyweight tees that survive the slab, <a href="/custom-safety-vests-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">ANSI 107 hi-vis</a> for traffic-adjacent work, and FR shirts where the spec calls for it. We keep decoration inside the <a href="https://safetyequipment.org/standards/ansi-isea-107/" rel="noopener" target="_blank" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">ANSI/ISEA 107</a> and <a href="https://www.nfpa.org/codes-and-standards/all-codes-and-standards/list-of-codes-and-standards/detail?code=70E" rel="noopener" target="_blank" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">NFPA 70E</a> limits so the rating stays valid.
+ </p>
+ <p>
+ It's also local. We're a Las Vegas shop, so when a foreman needs twelve more hi-vis tees before a Monday start, you reach a real person who knows your account — not a national queue. We digitize your logo in-house, so it holds up on Carhartt canvas and moisture-wicking fabric alike, and we run the compliance math on any hi-vis or FR gear before it goes to production.
+ </p>
+ <p>
+ For the strategic side of bulk versus store, read our <a href="/blog/company-store-vs-bulk-ordering/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">company store vs bulk ordering</a> breakdown. To plan what each role needs, see <a href="/blog/how-to-outfit-a-construction-crew-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">how to outfit a construction crew in Las Vegas</a> and <a href="/blog/how-many-shirts-per-crew-member-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">how many shirts per crew member</a>.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <!-- FAQ -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">FAQ</p>
+ <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Company store questions, answered.</h2>
+
+ <div class="divide-y divide-hairline border-y border-hairline">
+ {faqs.map((f) => (
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
+ <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+ </summary>
+ <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
+ </details>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- Related -->
+ <section class="bg-concrete py-16">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-6">Pair It With</p>
+ <div class="grid gap-5 md:grid-cols-3">
+ <a href="/company-stores/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">How Company Stores Work</h3>
+ <p class="mt-2 text-sm text-ash">The full walkthrough — storefront, ordering, fulfillment.</p>
+ </a>
+ <a href="/industries/construction-trades/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Construction & Trades</h3>
+ <p class="mt-2 text-sm text-ash">Branded workwear and crew programs for Vegas trades.</p>
+ </a>
+ <a href="/custom-safety-vests-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Custom Safety Vests</h3>
+ <p class="mt-2 text-sm text-ash">ANSI 107 hi-vis, branded compliant — add it to your store.</p>
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <!-- CTA -->
+ <section class="relative isolate overflow-hidden bg-navy-950 py-20">
+ <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" loading="lazy" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Ready to set up your crew's company store?</h2>
+ <p class="mb-8 text-lg text-navy-200">Send your logo and the gear you want carried. We'll show you how it'd look.</p>
+ <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Free Quote</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+</BaseLayout>

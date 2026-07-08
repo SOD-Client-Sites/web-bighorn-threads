@@ -32,10 +32,22 @@ const schema = {
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
 }
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ name: post.title,
+ speakable: {
+  '@type': 'SpeakableSpecification',
+  cssSelector: ['h1', '.speakable-answer'],
+ },
+}
 ---
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
  <article class="bg-concrete">
  <header class="border-b border-hairline bg-paper">
  <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
@@ -51,7 +63,7 @@ const schema = {
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl">ANSI 107 Class 3 hi-vis is required when workers face traffic over 50 mph, work in low-visibility conditions, or operate near heavy equipment with limited sightlines. Class 3 needs full sleeves, more background fabric (1,240 sq in), and more reflective tape (310 sq in) than Class 2. A Class 2 vest paired with Class E pants meets the same requirement.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">ANSI 107 Class 3 hi-vis is required when workers face traffic over 50 mph, work in low-visibility conditions, or operate near heavy equipment with limited sightlines. Class 3 needs full sleeves, more background fabric (1,240 sq in), and more reflective tape (310 sq in) than Class 2. A Class 2 vest paired with Class E pants meets the same requirement.</p>
  </aside>
 
  <h2 id="the-rule" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The ANSI 107 Rule on Class 3</h2>

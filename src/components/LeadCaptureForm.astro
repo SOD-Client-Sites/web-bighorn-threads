@@ -1,44 +1,38 @@
 ---
 /**
- * LeadCaptureForm — vertical-aware company-store lead form.
- * Posts to /api/lp-optin (GHL upsert + segment tag + note). Shows an inline success
- * state with the demo CTA — does NOT bounce the user to a generic /contact/ page.
+ * LeadCaptureForm — unified, simple company-store quote form.
+ * Same fields on every vertical. Posts to /api/lp-optin (GHL upsert + segment tag
+ * + note). Shows an inline success state with the demo CTA — does NOT bounce the
+ * user to a generic /contact/ page.
+ *
+ * Fields: First name · Business email (required) · Mobile phone · Company name ·
+ * Quantity · Other details. Only Business email is required to submit (consent +
+ * Turnstile also required). Quantity maps to the GHL "Quantity Estimate" field.
  *
  * Props:
  *  - vertical: slug (corporate | education | government | healthcare | gaming-hospitality | events | trades)
  *  - heading?: form card heading
  *  - blurb?: small line under the heading
  *  - submitLabel?: button text
- *  - qualifiers?: Array<{ name, label, type:'select'|'text'|'number', options?, required?, isHeadcount?, placeholder? }>
  */
 import SmsConsentFields from '@/components/SmsConsentFields.astro'
 
-interface Qualifier {
-  name: string
-  label: string
-  type: 'select' | 'text' | 'number'
-  options?: string[]
-  required?: boolean
-  isHeadcount?: boolean
-  placeholder?: string
-}
 interface Props {
   vertical: string
   heading?: string
   blurb?: string
   submitLabel?: string
-  qualifiers?: Qualifier[]
 }
 const {
   vertical,
   heading = 'Get your company store plan',
   blurb = 'Tell us about your team and we’ll build a private demo store — no commitment.',
   submitLabel = 'Build my company store plan →',
-  qualifiers = [],
 } = Astro.props
 
 const inputCls =
   'w-full rounded border border-hairline bg-panel px-4 py-2.5 text-base text-charcoal placeholder:text-ash focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/25'
+const textareaCls = inputCls + ' min-h-[104px] resize-y leading-relaxed'
 const labelCls = 'mb-1 block font-mono text-[11px] font-bold uppercase tracking-[0.15em] text-gold-700'
 ---
 
@@ -50,44 +44,42 @@ const labelCls = 'mb-1 block font-mono text-[11px] font-bold uppercase tracking-
     <!-- honeypot -->
     <input type="text" name="bh_hp_field" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
 
+    <div class="grid gap-4 sm:grid-cols-2">
+      <div>
+        <label for="lp-contact" class={labelCls}>First name</label>
+        <input id="lp-contact" name="contact" type="text" autocomplete="given-name" maxlength="80" class={inputCls} placeholder="Jane" />
+      </div>
+      <div>
+        <label for="lp-phone" class={labelCls}>Mobile phone</label>
+        <input id="lp-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" class={inputCls} placeholder="702.555.0123" />
+      </div>
+    </div>
+
     <div>
-      <label for="lp-company" class={labelCls}>Organization name *</label>
-      <input id="lp-company" name="company" type="text" required maxlength="100" class={inputCls} placeholder="Acme Inc." />
+      <label for="lp-email" class={labelCls}>Business email *</label>
+      <input id="lp-email" name="email" type="email" required autocomplete="email" maxlength="120" class={inputCls} placeholder="jane@company.com" />
     </div>
 
     <div class="grid gap-4 sm:grid-cols-2">
       <div>
-        <label for="lp-contact" class={labelCls}>Your name *</label>
-        <input id="lp-contact" name="contact" type="text" required maxlength="80" class={inputCls} placeholder="Jane Smith" />
+        <label for="lp-company" class={labelCls}>Company name</label>
+        <input id="lp-company" name="company" type="text" autocomplete="organization" maxlength="100" class={inputCls} placeholder="Acme Inc." />
       </div>
       <div>
-        <label for="lp-phone" class={labelCls}>Phone</label>
-        <input id="lp-phone" name="phone" type="tel" inputmode="tel" maxlength="20" class={inputCls} placeholder="702.555.0123" />
+        <label for="lp-quantity" class={labelCls}>Quantity</label>
+        <input id="lp-quantity" name="quantity" type="text" inputmode="numeric" maxlength="60" class={inputCls} placeholder="Approx. how many pieces" />
       </div>
     </div>
 
     <div>
-      <label for="lp-email" class={labelCls}>Work email *</label>
-      <input id="lp-email" name="email" type="email" required maxlength="120" class={inputCls} placeholder="jane@acme.com" />
+      <label for="lp-product" class={labelCls}>Product you’re after</label>
+      <input id="lp-product" name="product" type="text" maxlength="120" class={inputCls} placeholder="e.g. cooling hoodies, polos, safety tees" />
     </div>
 
-    {qualifiers.length > 0 && (
-      <div class="grid gap-4 sm:grid-cols-2">
-        {qualifiers.map((q) => (
-          <div class={qualifiers.length % 2 === 1 && q === qualifiers[qualifiers.length - 1] ? 'sm:col-span-2' : ''}>
-            <label for={`lp-${q.name}`} class={labelCls}>{q.label}{q.required ? ' *' : ''}</label>
-            {q.type === 'select' ? (
-              <select id={`lp-${q.name}`} name={q.name} required={q.required} class={inputCls} data-qlabel={q.label} data-headcount={q.isHeadcount ? 'true' : undefined}>
-                <option value="">Select…</option>
-                {(q.options || []).map((o) => <option value={o}>{o}</option>)}
-              </select>
-            ) : (
-              <input id={`lp-${q.name}`} name={q.name} type={q.type} required={q.required} maxlength="120" class={inputCls} placeholder={q.placeholder || ''} data-qlabel={q.label} data-headcount={q.isHeadcount ? 'true' : undefined} />
-            )}
-          </div>
-        ))}
-      </div>
-    )}
+    <div>
+      <label for="lp-details" class={labelCls}>Any other details</label>
+      <textarea id="lp-details" name="details" maxlength="1000" class={textareaCls} placeholder="Products you’re after, timeline, sizes, anything else we should know."></textarea>
+    </div>
 
     <SmsConsentFields tone="compact" />
 
@@ -127,27 +119,15 @@ const labelCls = 'mb-1 block font-mono text-[11px] font-bold uppercase tracking-
     const fd = new FormData(form)
     const vertical = form.dataset.vertical || ''
 
-    // Collect qualifier answers keyed by their human label; capture headcount separately.
-    const qualifiers: Record<string, string> = {}
-    let headcount = ''
-    form.querySelectorAll('[data-qlabel]').forEach((el) => {
-      const node = el as HTMLInputElement | HTMLSelectElement
-      const label = node.getAttribute('data-qlabel') || node.name
-      const value = String(node.value || '').trim()
-      if (value) {
-        qualifiers[label] = value
-        if (node.getAttribute('data-headcount') === 'true') headcount = value
-      }
-    })
-
     const payload = {
       vertical,
-      company: String(fd.get('company') || '').trim(),
       contact: String(fd.get('contact') || '').trim(),
       email: String(fd.get('email') || '').trim(),
       phone: String(fd.get('phone') || '').trim() || null,
-      headcount,
-      qualifiers,
+      company: String(fd.get('company') || '').trim(),
+      quantity: String(fd.get('quantity') || '').trim(),
+      product: String(fd.get('product') || '').trim(),
+      details: String(fd.get('details') || '').trim(),
       smsTransactionalConsent: fd.get('smsTransactionalConsent') || '',
       smsMarketingConsent: fd.get('smsMarketingConsent') || '',
       sourceUrl: window.location.href,

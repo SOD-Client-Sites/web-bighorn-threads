@@ -4,6 +4,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 import foremanCloseup from '@/assets/generated/foreman-closeup.jpg'
 import productStack from '@/assets/generated/product-stack.jpg'
 import workwearFlatlay from '@/assets/generated/workwear-flatlay.jpg'
+import founderSteve from '@/assets/generated/founder-steve.jpg'
 
 const values = [
  {
@@ -360,12 +361,16 @@ const speakableSchema = {
  <!-- Avatar column -->
  <div class="flex flex-col items-center justify-center gap-5 border-b border-hairline bg-concrete p-10 lg:border-b-0 lg:border-r lg:p-14">
  <div class="h-48 w-48 overflow-hidden border border-hairline sm:h-56 sm:w-56">
- <img
- src="/images/generated/founder-steve.jpg"
+ <Image
+ src={founderSteve}
  alt="Steven Dodson, founder of Bighorn Threads."
- width="448"
- height="448"
- loading="eager"
+ widths={[224, 448]}
+ sizes="224px"
+ formats={['avif', 'webp']}
+ fallbackFormat="jpg"
+ quality={75}
+ loading="lazy"
+ decoding="async"
  class="h-full w-full object-cover"
  />
  </div>

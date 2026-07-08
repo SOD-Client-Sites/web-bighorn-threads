@@ -1,0 +1,165 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const page = {
+ title: 'Is Branded Apparel Worth It for a Service Business? | Bighorn Threads',
+ description:
+ 'Does branded apparel actually pay back for contractors and service businesses? Crew professionalism, fewer uniform disputes, and real per-unit cost — the honest math from a Las Vegas shop.',
+ hero: '/images/generated/foreman-closeup.jpg',
+ url: 'https://bighornthreads.com/is-branded-apparel-worth-it/',
+}
+
+const payoffs = [
+ { label: 'Client trust, fast', body: 'A crew that shows up in matching, clean branded gear signals competence before anyone says a word. On service calls and jobsite walk-throughs, that first impression shapes how much the client trusts the estimate.' },
+ { label: 'Fewer uniform disputes', body: 'A defined, supplied uniform removes the ongoing argument over what counts as acceptable jobsite or client-facing clothing — no more judgment calls about a faded tee or the wrong logo.' },
+ { label: 'Real cost vs. real payback', body: 'An embroidered polo runs $18-$35 — less than one hour of unbillable time spent on brand confusion, a missed referral, or a client second-guessing whether they hired the right company.' },
+]
+
+const faqs = [
+ { q: 'Is branded apparel worth the cost for a service business?', a: 'Yes — for service businesses, contractors, and trade companies, branded apparel pays back in three ways: crew professionalism signals trust to clients, it reduces uniform disputes, and embroidered polos cost $18-$35 per unit — less than one hour of unbillable time spent on brand confusion.' },
+ { q: 'How does branded apparel actually generate ROI?', a: 'It is mostly indirect but measurable in the metrics that matter: higher close rates on estimates when the crew looks credible, fewer client complaints about who showed up, and stronger word-of-mouth referrals when a branded crew is visible in a neighborhood or jobsite for an extended period.' },
+ { q: 'What is the minimum order to start a branded apparel program?', a: 'Bighorn Threads has an MOQ of 6 pieces, so a small crew or even a single owner-operator can start a branded apparel program without committing to a large upfront order.' },
+ { q: 'Should branded apparel be embroidered or screen printed for a service business?', a: 'For client-facing roles — sales, project managers, anyone walking a property with a homeowner — embroidered polos read as more professional and last longer. For field-only roles, screen-printed tees are more cost-effective and just as brand-consistent.' },
+ { q: 'How much should a small service business budget to start?', a: 'For a 5-10 person crew with one embroidered polo and one screen-printed tee each, expect roughly $300-$700 total, including a one-time digitizing fee that stays on file for every future reorder.' },
+ { q: 'Does branded apparel matter if my company is mostly referral-based already?', a: 'It still compounds the effect. Referral business depends on the client trusting their decision after the fact — a branded, professional-looking crew reinforces that decision every time the client sees the truck or the team, which makes the next referral easier to give.' },
+]
+
+const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+ { '@type': 'ListItem', position: 2, name: 'Is Branded Apparel Worth It', item: page.url },
+] }
+const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: page.title, description: page.description, url: page.url, publisher: { '@type': 'Organization', name: 'Bighorn Threads' } }
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }
+---
+
+<BaseLayout title={page.title} description={page.description} canonical={page.url} heroImage={page.hero}>
+ <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+ <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+ <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-28">
+ <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/55"></div>
+ <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-navy-200" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-400">Home</a>
+ <span class="px-2 text-navy-200/60">/</span>
+ <span class="text-gold-400">Is Branded Apparel Worth It</span>
+ </nav>
+ <p class="kicker mb-4 flex items-center gap-2.5"><span class="h-px w-8 bg-gold-500"></span>The Real Math</p>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
+ Is branded apparel worth it? <span class="text-gold-400">Yes — here is the math.</span>
+ </h1>
+ <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ Trust, fewer disputes, and a per-unit cost lower than one hour of unbillable time. The honest case for outfitting your crew.
+ </p>
+ <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+ <a href="/get-a-quote/" class="btn-primary text-base">
+ Get a Quote
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+ </a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+
+ <section class="border-b border-hairline bg-paper py-14">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="speakable-answer text-xl leading-relaxed text-charcoal sm:text-2xl">
+ Yes — for service businesses, contractors, and trade companies, branded apparel pays back in three ways: crew professionalism signals trust to clients, it reduces uniform disputes, and embroidered polos cost $18-$35 per unit — less than one hour of unbillable time spent on brand confusion.
+ </p>
+ </div>
+ </section>
+
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <p class="kicker mb-3">Where The Payback Comes From</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Three ways branded apparel pays for itself.</h2>
+ </div>
+ <div class="grid gap-5 md:grid-cols-3">
+ {payoffs.map((p) => (
+ <div class="border border-hairline bg-panel p-6">
+ <h3 class="mb-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{p.label}</h3>
+ <p class="text-sm leading-relaxed text-ash">{p.body}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <section class="bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">The Buyer's Read</p>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">Why this question keeps coming up — and why the answer is simple.</h2>
+ <div class="space-y-5 text-lg leading-relaxed text-ash">
+ <p>
+ Owners ask whether branded apparel is "worth it" because the return is not on an invoice line item. Nobody signs a contract because of a polo. But the absence of branded apparel shows up everywhere — in the client who is not sure which truck pulled up, in the foreman who has to vouch for who is actually on the crew, in the slightly-off first impression that makes a homeowner hesitate before signing the estimate.
+ </p>
+ <p>
+ The cost side is small and gets smaller with scale. An embroidered polo runs $18-$35 per unit, and the digitizing fee that sets up your logo is paid once, not per order — see the full breakdown in <a href="/blog/how-much-to-embroider-a-polo/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">how much it costs to embroider a polo</a>. Compare that to one hour of a project manager's time spent untangling a client's confusion about who they hired, and the math is not close.
+ </p>
+ <p>
+ The professionalism effect compounds specifically in trade and construction work, where the client often cannot evaluate the actual craftsmanship until the job is done — they are evaluating you on what they can see: punctuality, communication, and how the crew presents. A clean, consistent uniform is one of the few signals a client has before the work speaks for itself.
+ </p>
+ <p>
+ It also solves a quieter internal problem: uniform disputes. Without a supplied, defined uniform, "appropriate" jobsite or client-facing clothing becomes a judgment call every manager has to make individually. A standard kit — see <a href="/blog/how-many-shirts-per-crew-member-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">how many shirts per crew member</a> for sizing the program — removes that conversation entirely.
+ </p>
+ <p>
+ If you are starting small, our MOQ is 6 pieces, so a single owner-operator or a five-person crew can start without a big upfront commitment. <a href="/about/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Talk to us</a> about what a starter kit looks like for your team size.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <section class="border-y border-hairline bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">FAQ</p>
+ <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">ROI questions, answered.</h2>
+ <div class="divide-y divide-hairline border-y border-hairline">
+ {faqs.map((f) => (
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
+ <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+ </summary>
+ <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
+ </details>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <section class="bg-paper py-16">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-6">Pair It With</p>
+ <div class="grid gap-5 md:grid-cols-3">
+ <a href="/blog/how-much-to-embroider-a-polo/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Embroidered Polo Pricing</h3>
+ <p class="mt-2 text-sm text-ash">The real per-unit cost, broken down.</p>
+ </a>
+ <a href="/about/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">About Bighorn Threads</h3>
+ <p class="mt-2 text-sm text-ash">Who we are and who we work with.</p>
+ </a>
+ <a href="/cost-custom-apparel-team-of-50/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Cost for a Team of 50</h3>
+ <p class="mt-2 text-sm text-ash">Budgeting a full crew kit.</p>
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <section class="relative isolate overflow-hidden bg-navy-950 py-20">
+ <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" loading="lazy" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Start small. MOQ is 6 pieces.</h2>
+ <p class="mb-8 text-lg text-navy-200">Send your logo — we will show you what a starter kit costs.</p>
+ <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Free Quote</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+</BaseLayout>

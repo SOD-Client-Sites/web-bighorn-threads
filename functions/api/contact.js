@@ -10,7 +10,9 @@ const GHL_BASE = 'https://services.leadconnectorhq.com'
 const GHL_API_VERSION = '2021-07-28'
 const TAG = 'contact-quote-request'
 
-const REQUIRED_FIELDS = ['name', 'company', 'email']
+// Simplified quote form: only email is required. Name, company, phone,
+// quantity, product, and details are all optional (low-friction).
+const REQUIRED_FIELDS = ['email']
 
 // GHL custom field IDs (Bighorn Threads location). Created via API on 2026-05-01.
 const CF_SERVICE_INTEREST = 'DvESTdLKy9ZFrsu5eVsp'
@@ -62,29 +64,31 @@ export async function onRequestPost({ request, env }) {
     return errorResponse('Server misconfigured', 500)
   }
 
-  const fullName = String(data.name).trim()
-  const [firstName, ...rest] = fullName.split(/\s+/)
-  const lastName = rest.join(' ') || '-'
-  const company = String(data.company).trim()
+  const fullName = data.name ? String(data.name).trim() : ''
+  const [firstName = '', ...rest] = fullName.split(/\s+/)
+  const lastName = rest.join(' ').trim()
+  const company = data.company ? String(data.company).trim() : ''
   const phone = data.phone ? String(data.phone).trim() : ''
   const service = data.service ? String(data.service).trim() : ''
   const quantity = data.quantity ? String(data.quantity).trim() : ''
   const timeline = data.timeline ? String(data.timeline).trim() : ''
-  const message = data.message ? String(data.message).trim() : ''
+  const product = data.product ? String(data.product).trim() : ''
+  let message = data.message ? String(data.message).trim() : ''
+  if (product) message = [message, `Product: ${product}`].filter(Boolean).join('\n\n')
   const consent = parseSmsConsent(data, data.consentUrl)
 
   let contactId = null
   try {
     const upsertBody = {
       locationId,
-      firstName,
-      lastName,
-      name: fullName,
       email,
-      companyName: company,
       source: 'bighornthreads.com — Contact Page',
       tags: [TAG, ...consent.tags],
     }
+    if (firstName) upsertBody.firstName = firstName
+    if (lastName) upsertBody.lastName = lastName
+    if (fullName) upsertBody.name = fullName
+    if (company) upsertBody.companyName = company
     if (phone) upsertBody.phone = phone
 
     const customFields = []
@@ -121,12 +125,10 @@ export async function onRequestPost({ request, env }) {
   }
 
   try {
-    const lines = [
-      `Quote request — ${new Date().toISOString()}`,
-      `Name: ${fullName}`,
-      `Company: ${company}`,
-      `Email: ${email}`,
-    ]
+    const lines = [`Quote request — ${new Date().toISOString()}`]
+    if (fullName) lines.push(`Name: ${fullName}`)
+    if (company) lines.push(`Company: ${company}`)
+    lines.push(`Email: ${email}`)
     if (phone) lines.push(`Phone: ${phone}`)
     if (service) lines.push(`Service: ${service}`)
     if (quantity) lines.push(`Quantity: ${quantity}`)

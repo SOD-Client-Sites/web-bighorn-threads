@@ -31,10 +31,22 @@ const schema = {
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
 }
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ name: post.title,
+ speakable: {
+  '@type': 'SpeakableSpecification',
+  cssSelector: ['h1', '.speakable-answer'],
+ },
+}
 ---
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
  <article class="bg-concrete">
  <header class="border-b border-hairline bg-paper">
  <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
@@ -50,7 +62,7 @@ const schema = {
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl">Las Vegas HVAC service techs wear moisture-wicking embroidered polos (Port Authority K540) for residential service work and Red Kap mechanic-style work shirts (SY24 Performance Plus) for commercial mechanical and install crews. Both feature company logo, technician name, and Nevada State Contractors Board license number. In summer, performance poly fabric is non-negotiable for 110°+ ambient and 130°+ attic temperatures.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Las Vegas HVAC service techs wear moisture-wicking embroidered polos (Port Authority K540) for residential service work and Red Kap mechanic-style work shirts (SY24 Performance Plus) for commercial mechanical and install crews. Both feature company logo, technician name, and Nevada State Contractors Board license number. In summer, performance poly fabric is non-negotiable for 110°+ ambient and 130°+ attic temperatures.</p>
  </aside>
 
  <h2 id="why-it-matters" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Why HVAC Uniforms Are a Sales Tool</h2>

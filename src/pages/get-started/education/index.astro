@@ -106,7 +106,7 @@ const phone = '+17029048923'
  noindex={true}
 >
  <!-- ════ HERO + FORM — concrete ════ -->
- <section class="bg-concrete pt-16 pb-20 sm:pt-16 sm:pb-28">
+ <section class="min-h-[100svh] bg-concrete pt-16 pb-20 sm:pt-20 sm:pb-28">
  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
  <div class="grid items-start gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
 
@@ -139,10 +139,6 @@ const phone = '+17029048923'
  <LeadCaptureForm
  vertical="education"
  heading="Get your company store plan"
- qualifiers={[
- { name: 'org_type', label: 'What kind of organization?', type: 'select', required: true, options: ['School district', 'University or college', 'Single school', 'Athletics or booster club', 'Other'] },
- { name: 'headcount', label: 'Roughly how many people would order?', type: 'select', required: true, isHeadcount: true, options: ['Under 50', '50-250', '251-1,000', '1,000+'] },
- ]}
  />
  </div>
 

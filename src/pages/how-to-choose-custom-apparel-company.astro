@@ -1,0 +1,175 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const page = {
+ title: 'How to Choose a Custom Apparel Company | 6-Point Checklist — Bighorn Threads',
+ description:
+ 'Six criteria to evaluate any custom apparel company before you order: in-house decoration, digitizing quality, MOQ, turnaround, compliance capability, and reorder process. Bighorn Threads handles all six in-house.',
+ hero: '/images/generated/hero-foreman.jpg',
+ url: 'https://bighornthreads.com/how-to-choose-custom-apparel-company/',
+}
+
+const criteria = [
+ { num: '01', title: 'In-house decoration vs. outsourced', body: "Ask directly: does the shop run embroidery and screen printing on-site, or does it broker the job to a third party? Outsourced production adds time, removes quality control, and means nobody on your call has actually seen the garment." },
+ { num: '02', title: 'Digitizing quality', body: "Embroidery starts with converting your logo into a stitch file. A bad digitizing job shows up as fuzzy detail, wrong proportions, or thread that puckers the fabric. Ask to see a digitized sample on the actual garment type you are ordering, not a stock photo." },
+ { num: '03', title: 'MOQ flexibility', body: "A company with a flat 144-piece minimum cannot serve a new hire who needs one polo today. Look for a shop with low MOQ (6-12 pieces) so small reorders do not get stuck waiting for a bigger batch." },
+ { num: '04', title: 'Turnaround SLA', body: 'Get a specific business-day number, not "a couple weeks." Ask what happens to that number during a rush — and whether rush options exist at all.' },
+ { num: '05', title: 'Compliance capability (FR, ANSI)', body: "If any part of your order is flame-resistant or ANSI hi-vis rated, ask specifically how the shop verifies the decoration will not void the certification. Most generalist shops do not have an answer." },
+ { num: '06', title: 'Reorder process', body: 'Ask what happens when you need 10 more of the same shirt in 18 months. The right answer: your logo file and specs are on file, no re-digitizing, no re-proofing, no surprises.' },
+]
+
+const faqs = [
+ { q: 'How do I choose the right custom apparel company?', a: 'Evaluate any custom apparel company on six criteria: in-house decoration vs. outsourced, digitizing quality, MOQ flexibility, turnaround SLA, compliance capability (FR, ANSI), and reorder process. Bighorn Threads handles all six in-house — no middlemen, no surprise minimums, and compliance-rated gear for trade and construction clients.' },
+ { q: "What's the biggest red flag when picking a custom apparel vendor?", a: "A vendor that cannot tell you whether decoration is done in-house or outsourced. If they do not know or dodge the question, assume it is outsourced — which usually means longer turnaround, less quality control, and no one accountable if the run comes back wrong." },
+ { q: 'Should I ask for a physical sample before placing a full order?', a: 'Yes, always, for any order over a handful of pieces. A reputable shop will produce a sample or proof on the actual garment and decoration method before running the full batch — especially for embroidery, where the stitch-out can look different from the digital mockup.' },
+ { q: 'Does a lower price always mean lower quality?', a: "Not always, but it is the most common correlation. The biggest hidden cost differences come from digitizing quality, garment grade, and whether compliance verification happens at all — none of which show up in a quoted unit price until the gear is in your hands." },
+ { q: 'How important is local production vs. a national vendor?', a: 'It depends on your needs. Local production means faster turnaround, in-person sample checks, and a real account contact. A national vendor can work fine for simple, low-stakes orders, but loses ground fast once compliance gear or tight reorder timing is involved.' },
+ { q: 'What questions should I ask before signing a contract with an apparel vendor?', a: "Ask: Is decoration done in-house? What is your standard turnaround in business days? What is your MOQ per product? Can you handle FR or ANSI-rated gear? What happens on a reorder 18 months from now? A vendor that answers all six specifically, without hedging, is worth trusting with your account." },
+]
+
+const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+ { '@type': 'ListItem', position: 2, name: 'How to Choose a Custom Apparel Company', item: page.url },
+] }
+const howToSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'HowTo',
+ name: 'How to Choose a Custom Apparel Company',
+ description: 'Six criteria to evaluate any custom apparel vendor before placing an order.',
+ step: criteria.map((c) => ({ '@type': 'HowToStep', name: c.title, text: c.body })),
+}
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }
+---
+
+<BaseLayout title={page.title} description={page.description} canonical={page.url} heroImage={page.hero}>
+ <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+ <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+ <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-28">
+ <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/55"></div>
+ <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-navy-200" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-400">Home</a>
+ <span class="px-2 text-navy-200/60">/</span>
+ <span class="text-gold-400">How to Choose a Custom Apparel Company</span>
+ </nav>
+ <p class="kicker mb-4 flex items-center gap-2.5"><span class="h-px w-8 bg-gold-500"></span>Buyer's Checklist</p>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
+ Six questions <span class="text-gold-400">before you sign with any apparel vendor.</span>
+ </h1>
+ <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ In-house decoration, real digitizing, low MOQ, a real turnaround number, compliance capability, and a reorder process that doesn't reset. Bighorn Threads answers all six.
+ </p>
+ <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+ <a href="/get-a-quote/" class="btn-primary text-base">
+ Get a Quote
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+ </a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+
+ <section class="border-b border-hairline bg-paper py-14">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="speakable-answer text-xl leading-relaxed text-charcoal sm:text-2xl">
+ Evaluate any custom apparel company on six criteria: in-house decoration vs. outsourced, digitizing quality, MOQ flexibility, turnaround SLA, compliance capability (FR, ANSI), and reorder process. Bighorn Threads handles all six in-house — no middlemen, no surprise minimums, and compliance-rated gear for trade and construction clients.
+ </p>
+ </div>
+ </section>
+
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <p class="kicker mb-3">The Checklist</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Six criteria, in order of impact.</h2>
+ </div>
+ <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+ {criteria.map((c) => (
+ <div class="border border-hairline bg-panel p-6">
+ <div class="mb-3 font-mono text-sm font-bold text-gold-600">{c.num}</div>
+ <h3 class="mb-2 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{c.title}</h3>
+ <p class="text-sm leading-relaxed text-ash">{c.body}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <section class="bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">The Buyer's Read</p>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">Why most apparel vendor comparisons miss the real risk.</h2>
+ <div class="space-y-5 text-lg leading-relaxed text-ash">
+ <p>
+ Most buyers compare apparel companies on price per shirt, which is the easiest number to see and the worst predictor of whether the order goes smoothly. Price doesn't tell you whether decoration happens in-house, whether digitizing is done by someone who knows what they're doing, or whether a reorder eighteen months from now will match the original.
+ </p>
+ <p>
+ The six criteria above surface the risk that price hides. A shop that outsources decoration can't control quality or timeline — they're reselling someone else's production schedule. A shop with bad digitizing will hand you a logo that looks fine on screen and wrong on fabric. And a shop with no compliance process will happily print on your FR shirts using standard plastisol ink, which can compromise the rating.
+ </p>
+ <p>
+ Bighorn Threads runs <a href="/blog/embroidery-shop-las-vegas-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">embroidery</a> and screen printing entirely in-house out of Las Vegas. We digitize every logo ourselves — see our <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">logo digitizing breakdown</a> for what good digitizing actually looks like. MOQ starts at 6 pieces, standard turnaround is 5-8 business days with rush options, and FR/ANSI gear goes through a compliance check before production, not after a customer complains.
+ </p>
+ <p>
+ On reorders, your logo file, garment specs, and color matches stay on file indefinitely. A reorder five years out pulls the exact same stitch file and ink formula as the first run — no re-digitizing fee, no drift in quality.
+ </p>
+ <p>
+ If you're vetting vendors right now, run this checklist against each one before you commit. <a href="/about/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">See how Bighorn Threads answers all six</a>, then compare.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <section class="border-y border-hairline bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">FAQ</p>
+ <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Vendor selection questions, answered.</h2>
+ <div class="divide-y divide-hairline border-y border-hairline">
+ {faqs.map((f) => (
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
+ <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+ </summary>
+ <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
+ </details>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <section class="bg-paper py-16">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-6">Pair It With</p>
+ <div class="grid gap-5 md:grid-cols-3">
+ <a href="/blog/logo-digitizing-101-embroidery/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Logo Digitizing 101</h3>
+ <p class="mt-2 text-sm text-ash">What good digitizing looks like, and what bad looks like.</p>
+ </a>
+ <a href="/blog/embroidery-shop-las-vegas-guide/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Embroidery Shop Guide</h3>
+ <p class="mt-2 text-sm text-ash">What to look for in a Las Vegas embroidery shop.</p>
+ </a>
+ <a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Minimum Order Quantities</h3>
+ <p class="mt-2 text-sm text-ash">How MOQ flexibility actually plays out.</p>
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <section class="relative isolate overflow-hidden bg-navy-950 py-20">
+ <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" loading="lazy" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Run the checklist against us.</h2>
+ <p class="mb-8 text-lg text-navy-200">Send your logo and garment list — we'll answer all six, in writing.</p>
+ <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Free Quote</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+</BaseLayout>

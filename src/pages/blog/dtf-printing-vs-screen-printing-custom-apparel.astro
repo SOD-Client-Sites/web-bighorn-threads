@@ -21,7 +21,7 @@ const faqs = [
  { q: 'Does DTF work on dark fabrics?', a: 'Yes — this is one of DTF\'s biggest advantages over sublimation. DTF prints with white-ink underlayers that allow color saturation on black, navy, and dark gray fabrics. Sublimation can\'t do this; screen printing requires extra "underbase" steps that add cost. DTF handles dark fabrics natively.' },
  { q: 'Can DTF print on cotton?', a: 'Yes — DTF works on 100% cotton, cotton-poly blends, polyester, tri-blends, performance fabrics, and even some leather. The adhesive bonds to the fabric surface regardless of fiber composition. This is the key advantage over sublimation, which only works on polyester.' },
  { q: 'What\'s the minimum order for DTF?', a: 'As low as 1 piece. Like sublimation, DTF has minimal setup cost per design — the printer prints whatever quantity you need with the same per-piece cost. This makes DTF the practical choice for one-off custom shirts, replacement runs, and 4-12 piece orders that don\'t justify screen printing setup.' },
- { q: 'How much does DTF cost compared to screen printing?', a: 'Per-piece cost for DTF stays roughly the same regardless of quantity. Screen printing per-piece cost falls dramatically with volume. At 12 pieces, DTF and screen printing are comparable. At 50 pieces, screen printing is roughly 30-40% cheaper. At 200 pieces, screen printing is dramatically cheaper. The crossover point is typically around 24-36 pieces.' },
+ { q: 'How much does DTF cost compared to screen printing?', a: 'Per-piece cost for DTF stays roughly the same regardless of quantity. Screen printing per-piece cost falls dramatically with volume. At 12 pieces, DTF and screen printing are comparable. At 50 pieces, screen printing is meaningfully cheaper per piece. At 200 pieces, screen printing is dramatically cheaper. The crossover point is typically around 24-36 pieces.' },
  { q: 'Does DTF have a feel on the fabric?', a: 'Yes — DTF prints have a slight raised surface feel because the adhesive layer sits on top of the fabric. It\'s less pronounced than heat-transfer vinyl but more noticeable than properly cured screen-printed plastisol or sublimation. For most apparel users this is unnoticeable; for premium soft-feel programs, screen printing with discharge or water-based inks delivers a softer hand.' },
 ]
 
@@ -33,10 +33,22 @@ const schema = {
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
 }
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ name: post.title,
+ speakable: {
+  '@type': 'SpeakableSpecification',
+  cssSelector: ['h1', '.speakable-answer'],
+ },
+}
 ---
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
  <article class="bg-concrete">
  <header class="border-b border-hairline bg-paper">
  <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
@@ -52,7 +64,7 @@ const schema = {
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl">DTF (direct-to-film) printing wins for small-batch custom apparel (1-24 pieces), full-color gradients, and any fabric color including dark cotton. Screen printing wins for high-volume runs (50+) on cotton tees with bold simple designs because per-piece cost falls with volume. The crossover is typically around 24-36 pieces.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">DTF (direct-to-film) printing wins for small-batch custom apparel (1-24 pieces), full-color gradients, and any fabric color including dark cotton. Screen printing wins for high-volume runs (50+) on cotton tees with bold simple designs because per-piece cost falls with volume. The crossover is typically around 24-36 pieces.</p>
  </aside>
 
  <YouTubeEmbed
@@ -100,8 +112,8 @@ const schema = {
  <tr><td class="px-5 py-3">1-12 pieces</td><td class="px-5 py-3">Same per piece</td><td class="px-5 py-3">High setup penalty</td><td class="px-5 py-3 font-bold">DTF</td></tr>
  <tr><td class="px-5 py-3">12-24 pieces</td><td class="px-5 py-3">Same per piece</td><td class="px-5 py-3">Setup amortizing</td><td class="px-5 py-3 font-bold">DTF (slightly)</td></tr>
  <tr><td class="px-5 py-3">24-50 pieces</td><td class="px-5 py-3">Same per piece</td><td class="px-5 py-3">Setup nearly amortized</td><td class="px-5 py-3 font-bold">~Tie</td></tr>
- <tr><td class="px-5 py-3">50-150 pieces</td><td class="px-5 py-3">Same per piece</td><td class="px-5 py-3">~30% cheaper per piece</td><td class="px-5 py-3 font-bold">Screen Print</td></tr>
- <tr><td class="px-5 py-3">150+ pieces</td><td class="px-5 py-3">Same per piece</td><td class="px-5 py-3">~50%+ cheaper</td><td class="px-5 py-3 font-bold">Screen Print</td></tr>
+ <tr><td class="px-5 py-3">50-150 pieces</td><td class="px-5 py-3">Same per piece</td><td class="px-5 py-3">Meaningfully cheaper per piece</td><td class="px-5 py-3 font-bold">Screen Print</td></tr>
+ <tr><td class="px-5 py-3">150+ pieces</td><td class="px-5 py-3">Same per piece</td><td class="px-5 py-3">Dramatically cheaper per piece</td><td class="px-5 py-3 font-bold">Screen Print</td></tr>
  </tbody>
  </table>
  </div>

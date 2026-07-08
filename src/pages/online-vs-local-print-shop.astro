@@ -1,0 +1,184 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const page = {
+ title: 'Online vs. Local Print Shop: Which Wins for Crew Apparel? | Bighorn Threads',
+ description:
+ 'Online print-on-demand vs. a local Las Vegas print shop for custom apparel — speed, price at scale, fit-checks, and reorder consistency compared. Bighorn Threads runs both, nationwide.',
+ hero: '/images/generated/crew-vegas.jpg',
+ url: 'https://bighornthreads.com/online-vs-local-print-shop/',
+}
+
+const comparison = [
+ { criterion: 'Speed for a single rush order', online: 'Slower — ships from a remote facility', local: 'Faster — same-day pickup possible' },
+ { criterion: 'Price at 10+ pieces', online: 'Competitive on simple 1-color tees', local: 'Wins once digitizing/setup amortizes across reorders' },
+ { criterion: 'Fit and color checks before full run', online: 'Hard — no physical sample step', local: 'Easy — walk in, check a sample garment' },
+ { criterion: 'Reorder consistency over years', online: 'Varies by vendor and platform changes', local: 'Logo file and specs stay on file with one shop' },
+ { criterion: 'Compliance gear (FR / ANSI)', online: 'Rarely supported well', local: 'Verified before production' },
+]
+
+const faqs = [
+ { q: 'Is it cheaper to use an online print-on-demand service or a local print shop?', a: 'Local wins on speed and fit-checks; online wins on price at scale. Bighorn Threads is both — Las Vegas-based production with a nationwide ecommerce company store platform. For crews of 10+, our per-unit cost beats most local shops by 15–30% once digitizing fees amortize across reorders.' },
+ { q: 'What are the downsides of ordering custom apparel online vs. local?', a: 'Online platforms ship from a remote facility, so there is no way to check a sample garment before the full run goes to production. Color matching, fit, and decoration placement are guesses until the box arrives. A local shop lets you walk in, see a physical proof, and approve it before 50 shirts get printed.' },
+ { q: 'Why would a national chain be cheaper than a local print shop?', a: 'National platforms spread fixed costs (equipment, software, customer service) across a huge order volume, which can undercut a small local shop on simple, low-complexity items. That advantage disappears for compliance gear, embroidery, or anything requiring real production judgment — areas where a local shop with in-house decoration usually wins on both price and quality.' },
+ { q: 'Does Bighorn Threads only serve Las Vegas, or can it act like an online print shop too?', a: 'Both. We are based in Las Vegas with local pickup and walk-in fit-checks, and we run a nationwide ecommerce and company store platform so out-of-state crews get the same production quality without visiting in person.' },
+ { q: 'How do reorders work with a local shop vs. an online platform?', a: 'A local shop like Bighorn keeps your digitized logo, garment specs, and color matches on file indefinitely — a reorder five years later still matches the first run. Online platforms can change vendors, discontinue garments, or alter their tools, which sometimes breaks consistency on a reorder.' },
+ { q: 'Is online ordering ever the better choice for a construction company?', a: 'Yes — for a single small swag order with no compliance requirements and no need to check a physical sample, an online platform can be fast and simple. For anything involving FR or ANSI-rated gear, embroidery, or a crew that reorders regularly, a local shop with in-house production and account continuity is the stronger fit.' },
+]
+
+const breadcrumb = {
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+ { '@type': 'ListItem', position: 2, name: 'Online vs. Local Print Shop', item: page.url },
+ ],
+}
+
+const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: page.title, description: page.description, url: page.url, publisher: { '@type': 'Organization', name: 'Bighorn Threads' } }
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }
+---
+
+<BaseLayout title={page.title} description={page.description} canonical={page.url} heroImage={page.hero}>
+ <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+ <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+ <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-28">
+ <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/55"></div>
+ <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-navy-200" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-400">Home</a>
+ <span class="px-2 text-navy-200/60">/</span>
+ <span class="text-gold-400">Online vs. Local Print Shop</span>
+ </nav>
+ <p class="kicker mb-4 flex items-center gap-2.5"><span class="h-px w-8 bg-gold-500"></span>Comparison</p>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
+ Online print shop or local? <span class="text-gold-400">Bighorn Threads is built to be both.</span>
+ </h1>
+ <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ Las Vegas production for speed and fit-checks. A nationwide company store platform for crews anywhere. No tradeoff required.
+ </p>
+ <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+ <a href="/get-a-quote/" class="btn-primary text-base">
+ Get a Quote
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+ </a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+
+ <section class="border-b border-hairline bg-paper py-14">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="speakable-answer text-xl leading-relaxed text-charcoal sm:text-2xl">
+ Local wins on speed and fit-checks; online wins on price at scale. Bighorn Threads is both — Las Vegas-based production with a nationwide ecommerce company store platform. For crews of 10+, our per-unit cost beats most local shops by 15–30% once digitizing fees amortize across reorders.
+ </p>
+ </div>
+ </section>
+
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <p class="kicker mb-3">Side By Side</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Where each model wins.</h2>
+ </div>
+ <div class="overflow-hidden border border-hairline">
+ <table class="w-full text-left">
+ <thead>
+ <tr class="bg-paper">
+ <th class="px-4 py-3 font-heading text-sm font-bold uppercase tracking-wider text-gold-700">Criterion</th>
+ <th class="px-4 py-3 font-heading text-sm font-bold uppercase tracking-wider text-gold-700">Online Platform</th>
+ <th class="px-4 py-3 font-heading text-sm font-bold uppercase tracking-wider text-gold-700">Local Shop (Bighorn)</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-hairline text-charcoal">
+ {comparison.map((row, i) => (
+ <tr class={i % 2 === 0 ? 'bg-paper/60' : ''}>
+ <td class="px-4 py-3 font-semibold">{row.criterion}</td>
+ <td class="px-4 py-3 text-sm text-ash">{row.online}</td>
+ <td class="px-4 py-3 text-sm text-gold-700">{row.local}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
+
+ <section class="bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">The Buyer's Read</p>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">Why "online vs. local" is the wrong question.</h2>
+ <div class="space-y-5 text-lg leading-relaxed text-ash">
+ <p>
+ Online print-on-demand platforms win on simple math: spread fixed costs over huge volume, and a basic one-color tee gets cheap. That math falls apart the moment your order has any real complexity — embroidery, FR fabric, ANSI hi-vis, or a logo that needs to match exactly across a five-year reorder cycle.
+ </p>
+ <p>
+ A local shop solves the complexity problem but historically loses on convenience — you had to drive there, and out-of-state crews couldn't use it at all. That's the gap we built our <a href="/company-stores/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">company store</a> platform to close: the same in-house Las Vegas production — <a href="/blog/embroidery-shop-las-vegas-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">real embroidery</a>, real screen printing, real fit-checks for local crews — wrapped in a nationwide ecommerce front end for everyone else.
+ </p>
+ <p>
+ The economics tip toward us specifically once you're past a one-off order. Embroidery digitizing is a one-time fee that stays on file; screen print setup amortizes across a reorder run instead of resetting every time. A crew of 50 reordering polos twice a year pays that setup cost once, not six times — which is where the 15–30% per-unit savings over fragmented local shops or repeat online orders actually comes from.
+ </p>
+ <p>
+ If you're weighing this decision for a specific crew, start with our <a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">minimum order quantity guide</a> and the <a href="/blog/dtf-printing-vs-screen-printing-custom-apparel/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">DTF vs. screen print breakdown</a> — both shape whether local production or a faster online run makes more sense for your specific piece count.
+ </p>
+ <p>
+ The bottom line: don't pick a channel, pick production quality and account continuity. Bighorn Threads gives you both — local when you want to walk in, online when you don't. <a href="/about/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Read more about our shop</a>.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <section class="border-y border-hairline bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">FAQ</p>
+ <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Online vs. local, answered.</h2>
+ <div class="divide-y divide-hairline border-y border-hairline">
+ {faqs.map((f) => (
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
+ <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+ </summary>
+ <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
+ </details>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <section class="bg-paper py-16">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-6">Pair It With</p>
+ <div class="grid gap-5 md:grid-cols-3">
+ <a href="/blog/embroidery-shop-las-vegas-guide/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Embroidery Shop Guide</h3>
+ <p class="mt-2 text-sm text-ash">What to look for in a Las Vegas embroidery shop.</p>
+ </a>
+ <a href="/customink-alternatives/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">CustomInk Alternatives</h3>
+ <p class="mt-2 text-sm text-ash">Where a generalist platform falls short for crews.</p>
+ </a>
+ <a href="/about/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">About Bighorn Threads</h3>
+ <p class="mt-2 text-sm text-ash">Local production, nationwide reach.</p>
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <section class="relative isolate overflow-hidden bg-navy-950 py-20">
+ <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" loading="lazy" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Local quality. Nationwide reach.</h2>
+ <p class="mb-8 text-lg text-navy-200">Send your logo and garment list. We'll show you the right path for your crew.</p>
+ <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Free Quote</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+</BaseLayout>

@@ -123,6 +123,7 @@ const ogImageHref = new URL(ogImage, Astro.site).href
  sameAs: [
  'https://www.facebook.com/bighornthreads',
  'https://www.linkedin.com/company/bighorn-threads',
+ 'https://www.youtube.com/@bighornthreads',
  ],
  serviceType: [
  'Screen Printing',
@@ -140,4 +141,18 @@ const ogImageHref = new URL(ogImage, Astro.site).href
  'Screen printing for trades',
  'Embroidery for construction uniforms',
  ],
+})} />
+
+<!-- Speakable (AEO): mark the H1 and the lead answer block as liftable for AI + voice engines -->
+<script type="application/ld+json" set:html={JSON.stringify({
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ '@id': `${canonicalHref}#webpage`,
+ url: canonicalHref,
+ name: fullTitle,
+ isPartOf: { '@id': 'https://bighornthreads.com/#organization' },
+ speakable: {
+ '@type': 'SpeakableSpecification',
+ cssSelector: ['h1', '.speakable-answer'],
+ },
 })} />

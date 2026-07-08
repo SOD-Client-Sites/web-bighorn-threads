@@ -17,7 +17,7 @@ const faqs = [
  { q: 'Can you embroider on Carhartt?', a: 'Yes — Carhartt apparel embroiders cleanly on the standard placements (left chest, sleeve, back yoke). Carhartt FR garments require FR-compatible Nomex thread to preserve the certification through industrial laundering. Standard polyester thread melts in arc and flash-fire events and voids the FR rating.' },
  { q: 'What\'s the most popular Carhartt for custom embroidery?', a: 'The K87 Workwear Pocket T-Shirt and the SUP01 Midweight Hooded Sweatshirt are the two most-ordered Carhartt blanks for custom decoration. Both are heavyweight, take embroidery cleanly, and read as trade-friendly. Pair with Carhartt B11 work pants for a complete crew uniform.' },
  { q: 'Are Carhartt FR garments embroiderable?', a: 'Yes — Carhartt FR Lightweight, FR Force, and FR Henley shirts all accept embroidery using FR-compatible Nomex (aramid) thread. Decoration follows Carhartt\'s published placement guides. The certification stays valid as long as decoration meets the manufacturer spec.' },
- { q: 'How does Carhartt custom apparel cost compare to Port Authority?', a: 'Carhartt blanks run roughly 50-100% higher per piece than Port Authority equivalents. The premium is real — heavier-weight fabric, more durable construction, and the brand recognition is meaningful for trade-buyer audiences. For client-facing service techs, the Carhartt look reads as "established trade business" in a way generic blanks don\'t.' },
+ { q: 'How does Carhartt custom apparel cost compare to Port Authority?', a: 'Carhartt blanks cost more per piece than Port Authority equivalents. The premium is real — heavier-weight fabric, more durable construction, and the brand recognition is meaningful for trade-buyer audiences. For client-facing service techs, the Carhartt look reads as "established trade business" in a way generic blanks don\'t.' },
  { q: 'Where can I get Carhartt custom embroidery in Las Vegas?', a: 'Bighorn Threads runs custom embroidery on Carhartt apparel for Vegas contractors, trade businesses, and service crews. We stock K87 tees, SUP01 hoodies, B11 work pants, J131 jackets, and the Carhartt FR line in standard sizes S-4XL with FR-safe thread when applications require it.' },
  { q: 'How long does it take to embroider Carhartt?', a: 'Carhartt fabric has the same embroidery throughput as other commercial blanks — about 30-45 finished pieces per hour on a 6-head machine at standard stitch counts. Standard runs ship within a week of order confirmation; rush options are available.' },
 ]
@@ -30,10 +30,22 @@ const schema = {
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
 }
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ name: post.title,
+ speakable: {
+  '@type': 'SpeakableSpecification',
+  cssSelector: ['h1', '.speakable-answer'],
+ },
+}
 ---
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
  <article class="bg-concrete">
  <header class="border-b border-hairline bg-paper">
  <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
@@ -49,7 +61,7 @@ const schema = {
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl"><a href="https://www.carhartt.com/" rel="noopener" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Carhartt</a> embroiders cleanly using standard polyester thread for non-FR garments and FR-compatible Nomex thread for the Carhartt FR line. The K87 Workwear Pocket Tee and SUP01 Midweight Hoodie are the two most-ordered blanks for trade and contractor crews. Carhartt runs about 50-100% higher per piece than Port Authority equivalents but reads as more credible to trade-buyer audiences.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer"><a href="https://www.carhartt.com/" rel="noopener" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Carhartt</a> embroiders cleanly using standard polyester thread for non-FR garments and FR-compatible Nomex thread for the Carhartt FR line. The K87 Workwear Pocket Tee and SUP01 Midweight Hoodie are the two most-ordered blanks for trade and contractor crews. Carhartt blanks cost more per piece than Port Authority equivalents but read as more credible to trade-buyer audiences.</p>
  </aside>
 
  <h2 id="why-carhartt" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Why Carhartt for Crew Apparel</h2>
@@ -87,7 +99,7 @@ const schema = {
 
  <h2 id="vs-alternatives" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Carhartt vs Alternatives</h2>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
- <li><strong>Port Authority</strong> — 50-60% cheaper, comparable durability for office and lighter trade use, less brand recognition. Best for non-customer-facing roles.</li>
+ <li><strong>Port Authority</strong> — more economical, comparable durability for office and lighter trade use, less brand recognition. Best for non-customer-facing roles.</li>
  <li><strong>Bayside</strong> — comparable to Carhartt on durability, made in USA, slightly less recognition. Strong second choice.</li>
  <li><strong>Dickies</strong> — direct trade competitor to Carhartt, similar durability, slightly different aesthetic. Worth quoting alongside Carhartt for trade programs.</li>
  <li><strong>Red Kap</strong> — industrial-laundry standard for service trades; different aesthetic, designed specifically for industrial laundry rotation.</li>

@@ -31,10 +31,22 @@ const schema = {
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
 }
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ name: post.title,
+ speakable: {
+  '@type': 'SpeakableSpecification',
+  cssSelector: ['h1', '.speakable-answer'],
+ },
+}
 ---
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
  <article class="bg-concrete">
  <header class="border-b border-hairline bg-paper">
  <div class="mx-auto max-w-3xl px-4 pt-16 pb-12 sm:px-6 sm:pt-20 lg:px-8">
@@ -50,7 +62,7 @@ const schema = {
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl">A commercial Las Vegas screen printing shop should run automatic carousel presses with conveyor cure tunnels that verify ink cure temperature, stock common blanks (Carhartt K87, Bayside 5100, Gildan 2000, ML Kishigo hi-vis), keep screens on file for reorders, and follow ANSI 107 placement rules on hi-vis garments. Manual press operations without cure verification produce prints that crack within 5-10 washes.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">A commercial Las Vegas screen printing shop should run automatic carousel presses with conveyor cure tunnels that verify ink cure temperature, stock common blanks (Carhartt K87, Bayside 5100, Gildan 2000, ML Kishigo hi-vis), keep screens on file for reorders, and follow ANSI 107 placement rules on hi-vis garments. Manual press operations without cure verification produce prints that crack within 5-10 washes.</p>
  </aside>
 
  <h2 id="commercial-vs-garage" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Commercial vs Garage Screen Printing</h2>

@@ -17,7 +17,7 @@ const faqs = [
  { q: 'What\'s the minimum order for custom embroidered shirts?', a: 'Most commercial embroidery shops set 12-24 pieces as the practical minimum. Below that, per-piece pricing climbs because digitizing fees and setup are amortized over fewer shirts. Below 12 pieces, embroidery may not be cost-effective compared to alternatives like heat-transfer vinyl or DTF (direct-to-film).' },
  { q: 'What\'s the minimum order for screen printing?', a: 'Most commercial screen printing shops set 24 pieces as the practical floor. Setup costs — screen burning, ink mixing, registration — don\'t amortize well below 24. For 12-24 piece runs, expect higher per-piece pricing. Below 12, screen printing rarely makes financial sense vs. heat transfer or DTF.' },
  { q: 'Can I get 6 custom shirts made?', a: 'Yes, but not via traditional embroidery or screen printing economics. For runs under 12 pieces, the alternatives are: heat-transfer vinyl (HTV), direct-to-film (DTF) printing, sublimation (for polyester), or premium small-batch embroidery with a small-order surcharge. The output looks similar; the cost structure is just different.' },
- { q: 'Why do embroidery shops have minimums?', a: 'Setup costs. Digitizing the logo (one-time fee, $30-80 per logo), thread color matching, hooping, and machine prep all happen regardless of order quantity. At 24+ pieces, the setup is amortized to a few cents per shirt. At 6 pieces, the setup adds significant per-piece cost.' },
+ { q: 'Why do embroidery shops have minimums?', a: 'Setup costs. Digitizing the logo (a one-time fee per logo), thread color matching, hooping, and machine prep all happen regardless of order quantity. At 24+ pieces, the setup is amortized to a few cents per shirt. At 6 pieces, the setup adds significant per-piece cost.' },
  { q: 'How do I get cheaper per-piece pricing?', a: 'Order more pieces in a single run. The biggest cost lever in custom apparel is quantity. A 24-piece order is typically 30-50% more expensive per piece than a 144-piece order of the same shirt and decoration. For ongoing programs, batching reorders monthly or quarterly captures the volume discount.' },
  { q: 'Can I combine multiple orders to hit a minimum?', a: 'Sometimes. If you have multiple decorations on the same blank, the shop might combine the artwork into a single press run and split the finished pieces between your orders. Talk to the shop — most are willing to combine when it makes sense.' },
  { q: 'What\'s the difference between minimum order and minimum run?', a: 'Minimum order is the smallest total piece count the shop will accept (typically 12-24). Minimum run is the smallest piece count of a single SKU/color/decoration combination — sometimes shops have a 6-piece minimum per color or per garment style within a larger order.' },
@@ -31,10 +31,22 @@ const schema = {
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
 }
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ name: post.title,
+ speakable: {
+  '@type': 'SpeakableSpecification',
+  cssSelector: ['h1', '.speakable-answer'],
+ },
+}
 ---
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
  <article class="bg-concrete">
  <header class="border-b border-hairline bg-paper">
  <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
@@ -50,19 +62,19 @@ const schema = {
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl">Most commercial embroidery shops set 12-24 pieces as the minimum order; most screen print shops set 24 as the floor. Below those quantities, setup costs (digitizing, screen burning, ink mixing) don't amortize well and per-piece pricing climbs sharply. For very small runs (1-12), heat-transfer vinyl or DTF (direct-to-film) printing offers different economics that work for small batches.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Most commercial embroidery shops set 12-24 pieces as the minimum order; most screen print shops set 24 as the floor. Below those quantities, setup costs (digitizing, screen burning, ink mixing) don't amortize well and per-piece pricing climbs sharply. For very small runs (1-12), heat-transfer vinyl or DTF (direct-to-film) printing offers different economics that work for small batches.</p>
  </aside>
 
  <h2 id="why-moqs" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Why Minimum Orders Exist</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">Custom apparel decoration has fixed setup costs that happen once per run regardless of quantity:</p>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
- <li><strong>Digitizing</strong> (embroidery) — one-time fee per logo, $30-80, converts your logo into a stitch file the machine can read.</li>
+ <li><strong>Digitizing</strong> (embroidery) — a one-time fee per logo, converts your logo into a stitch file the machine can read.</li>
  <li><strong>Screen burning</strong> (screen printing) — one-time per color per run; the screen has to be coated with emulsion, exposed, washed out, and registered.</li>
  <li><strong>Ink mixing</strong> (screen printing) — pantone color matching takes time and ink that isn't recoverable.</li>
  <li><strong>Hooping / press setup</strong> — the machine has to be threaded, tensioned, and registered for each run.</li>
  <li><strong>Color matching + proofing</strong> — making sure the output matches expectations.</li>
  </ul>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">At 24 pieces, that setup is amortized to maybe $1-2 per shirt. At 6 pieces, it's $4-8 per shirt — making the per-piece total often higher than buying retail. The setup math also differs by method, which is part of <a href="/blog/screen-printing-vs-embroidery-construction/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">choosing between screen printing and embroidery</a> in the first place.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">At 24 pieces, that setup is amortized down to a small per-shirt cost. At 6 pieces, it's spread over far fewer shirts — making the per-piece total often higher than buying retail. The setup math also differs by method, which is part of <a href="/blog/screen-printing-vs-embroidery-construction/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">choosing between screen printing and embroidery</a> in the first place.</p>
 
  <h2 id="alternatives" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Alternatives for Small Batches (1-12 pieces)</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">For runs under the embroidery/screen-print MOQ, four alternatives have different economics:</p>

@@ -44,33 +44,6 @@ const whyUs = [
   },
 ]
 
-const services = [
-  'Screen Printing',
-  'Embroidery',
-  'Company Store',
-  'Promo Products',
-  'Full Crew Outfit',
-  'Not sure — help me figure it out',
-]
-
-const decorationMethods = [
-  'Screen Printing',
-  'Embroidery',
-  'DTF Transfers',
-  'Heat Transfer / Vinyl',
-  'Patches',
-  'Not sure — recommend one',
-]
-
-const timelines = [
-  'ASAP — I need it yesterday',
-  'Within 1 week',
-  'Within 2 weeks',
-  '2 to 4 weeks out',
-  '1 month+',
-  'Just gathering quotes',
-]
-
 const steps = [
   { n: '01', title: 'We review your needs', time: 'Quick reply', body: 'A real human on our team — not a chatbot — reads your request, flags any gaps, and pulls pricing on the specific blanks and decoration method that fit your job.' },
   { n: '02', title: 'You get a quote', time: 'Itemized', body: 'Pricing with garment choices, decoration cost, artwork, turnaround, and shipping. No mystery line items. If you want options, we give you options.' },
@@ -119,53 +92,32 @@ const inputClass =
 
             <div class="grid gap-6 sm:grid-cols-2">
               <div>
-                <label for="name" class="block text-sm font-semibold text-charcoal">Name <span class="text-gold-600">*</span></label>
-                <input type="text" name="name" id="name" required autocomplete="name" class={inputClass} placeholder="Jordan Reyes" />
+                <label for="name" class="block text-sm font-semibold text-charcoal">First name</label>
+                <input type="text" name="name" id="name" autocomplete="given-name" class={inputClass} placeholder="Jordan" />
               </div>
               <div>
-                <label for="company" class="block text-sm font-semibold text-charcoal">Company <span class="text-gold-600">*</span></label>
-                <input type="text" name="company" id="company" required autocomplete="organization" class={inputClass} placeholder="Reyes Concrete & Grading" />
-              </div>
-              <div>
-                <label for="email" class="block text-sm font-semibold text-charcoal">Email <span class="text-gold-600">*</span></label>
-                <input type="email" name="email" id="email" required autocomplete="email" class={inputClass} placeholder="jordan@reyesgrading.com" />
-              </div>
-              <div>
-                <label for="phone" class="block text-sm font-semibold text-charcoal">Phone</label>
+                <label for="phone" class="block text-sm font-semibold text-charcoal">Mobile phone</label>
                 <input type="tel" name="phone" id="phone" autocomplete="tel" class={inputClass} placeholder="(702) 555-0187" />
               </div>
               <div class="sm:col-span-2">
-                <label for="service" class="block text-sm font-semibold text-charcoal">What do you need?</label>
-                <select name="service" id="service" class={inputClass}>
-                  <option value="">Pick one.</option>
-                  {services.map((s) => <option value={s}>{s}</option>)}
-                </select>
+                <label for="email" class="block text-sm font-semibold text-charcoal">Business email <span class="text-gold-600">*</span></label>
+                <input type="email" name="email" id="email" required autocomplete="email" class={inputClass} placeholder="jordan@company.com" />
               </div>
               <div>
-                <label for="garments" class="block text-sm font-semibold text-charcoal">Garments / items</label>
-                <input type="text" name="garments" id="garments" class={inputClass} placeholder="e.g. tees, hoodies, hats, hi-vis" />
+                <label for="company" class="block text-sm font-semibold text-charcoal">Company name</label>
+                <input type="text" name="company" id="company" autocomplete="organization" class={inputClass} placeholder="Reyes Concrete & Grading" />
               </div>
               <div>
-                <label for="decorationMethod" class="block text-sm font-semibold text-charcoal">Decoration method</label>
-                <select name="decorationMethod" id="decorationMethod" class={inputClass}>
-                  <option value="">Pick one (or let us recommend).</option>
-                  {decorationMethods.map((d) => <option value={d}>{d}</option>)}
-                </select>
-              </div>
-              <div>
-                <label for="quantity" class="block text-sm font-semibold text-charcoal">Quantity estimate</label>
-                <input type="text" name="quantity" id="quantity" inputmode="numeric" class={`${inputClass} font-mono`} placeholder="e.g. 48 shirts + 24 hats" />
-              </div>
-              <div>
-                <label for="timeline" class="block text-sm font-semibold text-charcoal">Deadline / timeline</label>
-                <select name="timeline" id="timeline" class={inputClass}>
-                  <option value="">When do you need it?</option>
-                  {timelines.map((t) => <option value={t}>{t}</option>)}
-                </select>
+                <label for="quantity" class="block text-sm font-semibold text-charcoal">Quantity</label>
+                <input type="text" name="quantity" id="quantity" inputmode="numeric" class={`${inputClass} font-mono`} placeholder="Approx. how many pieces" />
               </div>
               <div class="sm:col-span-2">
-                <label for="message" class="block text-sm font-semibold text-charcoal">Details</label>
-                <textarea name="message" id="message" rows="5" class={inputClass} placeholder="Tell us about your crew, the garments you want, logo placement, deadlines, anything relevant."></textarea>
+                <label for="product" class="block text-sm font-semibold text-charcoal">Product you’re after</label>
+                <input type="text" name="product" id="product" class={inputClass} placeholder="e.g. cooling hoodies, polos, safety tees" />
+              </div>
+              <div class="sm:col-span-2">
+                <label for="message" class="block text-sm font-semibold text-charcoal">Any other details</label>
+                <textarea name="message" id="message" rows="4" class={inputClass} placeholder="Timeline, sizes, logo placement, anything else we should know."></textarea>
               </div>
             </div>
 
@@ -296,11 +248,11 @@ const inputClass =
           return
         }
 
-        const required = ['name', 'company', 'email']
+        const required = ['email']
         for (const field of required) {
           const el = form.elements.namedItem(field)
           if (!el || !el.value.trim()) {
-            setStatus('Please fill in your name, company, and email so we can reply.', 'error')
+            setStatus('Please add your business email so we can send your quote.', 'error')
             if (el && typeof el.focus === 'function') el.focus()
             return
           }
@@ -321,17 +273,6 @@ const inputClass =
           const fd = new FormData(form)
           fd.append('consentUrl', window.location.href)
 
-          // /api/contact reads `message` but not `garments`/`decorationMethod`,
-          // so fold those into the message text so nothing is dropped on the way to GHL.
-          const garments = (fd.get('garments') || '').toString().trim()
-          const decoration = (fd.get('decorationMethod') || '').toString().trim()
-          const extras = []
-          if (garments) extras.push('Garments / items: ' + garments)
-          if (decoration) extras.push('Decoration method: ' + decoration)
-          if (extras.length) {
-            const existing = (fd.get('message') || '').toString().trim()
-            fd.set('message', [existing, extras.join('\n')].filter(Boolean).join('\n\n'))
-          }
           const res = await fetch(form.action, {
             method: 'POST',
             headers: { Accept: 'application/json' },

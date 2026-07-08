@@ -20,8 +20,8 @@ const faqs = [
  { q: 'What is JEF?', a: 'JEF (Janome Embroidery Format) is the native format for Janome home and semi-commercial machines. JEF files include color information that DST doesn\'t. If you\'re embroidering on a Janome MB-4, MB-7, or similar machine, JEF is the right format.' },
  { q: 'What is PES?', a: 'PES (Brother Embroidery System) is the native format for Brother and Babylock home embroidery machines. PES includes color and design information. PES files are the most common home-embroidery format on the consumer market — but commercial shops typically convert PES to DST for production.' },
  { q: 'Which file format should I send my embroidery shop?', a: 'DST is the safe answer — every commercial shop reads it. If your shop runs Melco machines, EXP produces marginally better output. If your shop runs Janome or Brother semi-commercial setups, JEF or PES respectively. Ask your shop directly: "What\'s your preferred file format?" and provide that.' },
- { q: 'Can I just send a JPG or PNG of my logo?', a: 'No — that\'s a logo, not a stitch file. The shop has to digitize it (convert it to a stitch file) before they can run it. Digitizing is a one-time service typically running $40-150 depending on logo complexity. After digitizing, the shop owns a DST/EXP/JEF/PES of your logo for all future orders.' },
- { q: 'Do I get to keep the digitized embroidery file?', a: 'Industry practice varies. Some shops include the file with the digitizing fee, some keep it as their working file. Best practice: ask upfront. If you change shops or want to embroider somewhere else, having the .DST file in hand saves $40-150 on re-digitizing. Get it in writing.' },
+ { q: 'Can I just send a JPG or PNG of my logo?', a: 'No — that\'s a logo, not a stitch file. The shop has to digitize it (convert it to a stitch file) before they can run it. Digitizing is a one-time service, and the price scales with logo complexity. After digitizing, the shop owns a DST/EXP/JEF/PES of your logo for all future orders.' },
+ { q: 'Do I get to keep the digitized embroidery file?', a: 'Industry practice varies. Some shops include the file with the digitizing fee, some keep it as their working file. Best practice: ask upfront. If you change shops or want to embroider somewhere else, having the .DST file in hand saves you paying to re-digitize. Get it in writing.' },
 ]
 
 const schema = {
@@ -32,10 +32,22 @@ const schema = {
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
 }
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ name: post.title,
+ speakable: {
+  '@type': 'SpeakableSpecification',
+  cssSelector: ['h1', '.speakable-answer'],
+ },
+}
 ---
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
  <article class="bg-concrete">
  <header class="border-b border-hairline bg-paper">
  <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
@@ -51,7 +63,7 @@ const schema = {
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl">Embroidery files are stitch sequences, not logo files. DST (Tajima) is the universal commercial format and the safe default. EXP is for Melco machines, JEF is for Janome, PES is for Brother. A shop needs the right format for their machine — ask which they prefer before sending.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Embroidery files are stitch sequences, not logo files. DST (Tajima) is the universal commercial format and the safe default. EXP is for Melco machines, JEF is for Janome, PES is for Brother. A shop needs the right format for their machine — ask which they prefer before sending.</p>
  </aside>
 
  <h2 id="what-is-stitch-file" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">What an Embroidery Stitch File Actually Is</h2>

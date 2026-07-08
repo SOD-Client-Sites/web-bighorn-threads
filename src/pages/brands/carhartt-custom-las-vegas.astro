@@ -31,7 +31,7 @@ const faqs = [
  },
  {
  q: 'How is your pricing compared to Carhartt Company Gear (their direct site)?',
- a: 'Carhartt Company Gear has a higher minimum (typically 12+) and longer lead times (3–4 weeks). Local sourcing has its own advantages — pickup, in-person proofs, and direct access to stocked items.',
+ a: 'Carhartt Company Gear has a higher minimum (typically 12+) and longer lead times. Local sourcing has its own advantages — pickup, in-person proofs, and direct access to stocked items.',
  },
  {
  q: 'Can you embroider on Carhartt FR (flame-resistant) shirts without voiding the rating?',
@@ -69,11 +69,9 @@ const productSchema = {
  brand: { '@type': 'Brand', name: 'Carhartt' },
  manufacturer: { '@type': 'Organization', name: 'Carhartt' },
  offers: {
- '@type': 'AggregateOffer',
- priceCurrency: 'USD',
- lowPrice: 18,
- highPrice: 95,
- offerCount: products.length,
+ '@type': 'Offer',
+ availability: 'https://schema.org/InStock',
+ itemCondition: 'https://schema.org/NewCondition',
  seller: { '@id': 'https://bighornthreads.com/#organization' },
  },
 }
@@ -114,7 +112,7 @@ const faqSchema = {
  Custom Carhartt <span class="text-gold-400">for Vegas Crews That Actually Work.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- Embroidered K500 polos. Screen-printed K87 tees. Branded SUP01 quarter-zips for ops. FR Henleys for electrical. We stock the items Vegas contractors reorder — local production, week-long turnaround.
+ Embroidered K500 polos. Screen-printed K87 tees. Branded SUP01 quarter-zips for ops. FR Henleys for electrical. We stock the items Vegas contractors reorder — local production.
  </p>
 
  <div class="mt-10 flex flex-wrap items-center gap-3">
@@ -225,7 +223,7 @@ const faqSchema = {
  </thead>
  <tbody class="divide-y divide-hairline">
  <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-ash">Minimum order</td><td class="px-5 py-4 text-sm text-ash">12 pieces</td><td class="px-5 py-4 text-sm text-charcoal">6 (embroidery), 24 (print)</td></tr>
- <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-ash">Lead time</td><td class="px-5 py-4 text-sm text-ash">3–4 weeks</td><td class="px-5 py-4 text-sm text-charcoal">Quoted up front, rush options available</td></tr>
+ <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-ash">Lead time</td><td class="px-5 py-4 text-sm text-ash">Quick turnaround</td><td class="px-5 py-4 text-sm text-charcoal">Quoted up front, rush options available</td></tr>
  <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-ash">Local delivery</td><td class="px-5 py-4 text-sm text-ash">No</td><td class="px-5 py-4 text-sm text-charcoal">Local Las Vegas delivery available</td></tr>
  <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-ash">FR-safe decoration</td><td class="px-5 py-4 text-sm text-ash">Limited</td><td class="px-5 py-4 text-sm text-charcoal">Yes — verified per garment</td></tr>
  <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-ash">Reorder file storage</td><td class="px-5 py-4 text-sm text-ash">Account-based</td><td class="px-5 py-4 text-sm text-charcoal">On file forever, no re-setup</td></tr>
@@ -283,7 +281,7 @@ const faqSchema = {
  <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
  <div class="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 lg:px-8">
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Quote on custom Carhartt <span class="text-gold-400">fast.</span></h2>
- <p class="mb-8 text-lg text-navy-200">Stocked items ship in a week. Talk to a real human.</p>
+ <p class="mb-8 text-lg text-navy-200">Stocked items, quick turnaround. Talk to a real human.</p>
  <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
  <a href="/get-a-quote/" class="btn-primary text-base">Get a Free Quote</a>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium tracking-wide text-white transition-colors hover:text-gold-400">702.904.8923</a>

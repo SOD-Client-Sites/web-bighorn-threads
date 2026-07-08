@@ -20,7 +20,7 @@ const faqs = [
  { q: 'What businesses use embroidered aprons?', a: 'Auto detailers, mobile mechanics, automotive service writers, food service (chefs, servers, baristas, butchers), retail (florists, bakery, butcher shops), salons (hair, nails, spa), brewery and winery tasting rooms, woodshops, leather workers, and light industrial. Trade contractors typically don\'t use aprons (work shirts and pants instead) but their dispatcher and front-counter staff often do.' },
  { q: 'How long do embroidered aprons last?', a: 'A heavyweight 10 oz cotton canvas apron with proper care lasts 1-3 years of daily working use depending on the work. Food service aprons that go through industrial laundry typically last 6-12 months before fading or stitching wear. Trade aprons used for less-frequent tasks last longer because they see fewer wash cycles.' },
  { q: 'Are aprons a good giveaway item?', a: 'Yes for some industries. Aprons skew toward food service, brewery, retail, and creative trades — they\'re visible, useful, and project a professional brand image. They\'re generally NOT good giveaways for general construction trades (where work shirts dominate) or office-only businesses (where polos make more sense).' },
- { q: 'What\'s the minimum order for custom embroidered aprons?', a: 'Most commercial embroidery shops set 12-24 pieces as the practical minimum, same as other embroidery work. The digitizing fee ($30-80) is a one-time charge per logo regardless of apron quantity. For very small orders (4-12 aprons), expect higher per-piece pricing or a small-order surcharge.' },
+ { q: 'What\'s the minimum order for custom embroidered aprons?', a: 'Most commercial embroidery shops set 12-24 pieces as the practical minimum, same as other embroidery work. The digitizing fee is a one-time charge per logo regardless of apron quantity. For very small orders (4-12 aprons), expect higher per-piece pricing or a small-order surcharge.' },
 ]
 
 const schema = {
@@ -31,10 +31,22 @@ const schema = {
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
 }
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ name: post.title,
+ speakable: {
+  '@type': 'SpeakableSpecification',
+  cssSelector: ['h1', '.speakable-answer'],
+ },
+}
 ---
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
  <article class="bg-concrete">
  <header class="border-b border-hairline bg-paper">
  <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
@@ -50,7 +62,7 @@ const schema = {
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl">Custom embroidered aprons fit service trades, food service, retail, and creative shops. The most-ordered style is a heavyweight 10 oz cotton canvas bib apron with cross-back straps and a 3-3.5 inch embroidered chest logo. Per-piece economics are the same as embroidered work shirts: 12-24 piece minimum, one-time digitizing fee, fast reorders once the file is on record.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Custom embroidered aprons fit service trades, food service, retail, and creative shops. The most-ordered style is a heavyweight 10 oz cotton canvas bib apron with cross-back straps and a 3-3.5 inch embroidered chest logo. Per-piece economics are the same as embroidered work shirts: 12-24 piece minimum, one-time digitizing fee, fast reorders once the file is on record.</p>
  </aside>
 
  <h2 id="apron-styles" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The Apron Styles That Matter</h2>

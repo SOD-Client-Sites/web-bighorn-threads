@@ -49,10 +49,22 @@ const schema = {
  },
  ],
 }
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ name: post.title,
+ speakable: {
+  '@type': 'SpeakableSpecification',
+  cssSelector: ['h1', '.speakable-answer'],
+ },
+}
 ---
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
 
  <article class="bg-concrete">
  <header class="border-b border-hairline bg-paper">
@@ -78,7 +90,7 @@ const schema = {
  <!-- Answer-first TL;DR -->
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl">A company shirt is a branded shirt that identifies a business — typically a polo, tee, work shirt, or hoodie with the company logo applied via embroidery or screen printing. They're worn by employees so customers, suppliers, and the public can identify the business at a glance.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">A company shirt is a branded shirt that identifies a business — typically a polo, tee, work shirt, or hoodie with the company logo applied via embroidery or screen printing. They're worn by employees so customers, suppliers, and the public can identify the business at a glance.</p>
  </aside>
 
  <h2 id="names" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">What Are Company Shirts Called?</h2>

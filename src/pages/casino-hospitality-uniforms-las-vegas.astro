@@ -1,0 +1,216 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const page = {
+ title: 'Casino & Hospitality Uniforms in Las Vegas | Branded Staff Apparel — Bighorn Threads',
+ description:
+ 'Custom uniforms for Las Vegas casinos, resorts, hotels, and restaurants — embroidered polos, dress shirts, vests, aprons, and guest-services apparel, brand-consistent across every department. Company stores for multi-outlet properties. Get a quote.',
+ hero: '/images/generated/service-branded-apparel.jpg',
+ url: 'https://bighornthreads.com/casino-hospitality-uniforms-las-vegas/',
+}
+
+const departments = [
+ { label: 'Gaming floor', body: 'Dealer shirts, floor-supervisor vests, and pit apparel that holds a crisp look through a full shift under the lights.' },
+ { label: 'Food & beverage', body: 'Server polos and dress shirts, bartender vests, kitchen and prep wear, and embroidered aprons for every outlet on property.' },
+ { label: 'Guest services', body: 'Front desk, concierge, bell, and valet apparel — sharp, branded, and consistent from the curb to the check-in counter.' },
+ { label: 'Housekeeping & facilities', body: 'Durable branded polos and tees that take heavy laundering and keep back-of-house teams looking like one crew.' },
+]
+
+const faqs = [
+ { q: 'Who makes custom uniforms for casinos and hospitality staff in Las Vegas?', a: 'Bighorn Threads is a Las Vegas shop that outfits casinos, resorts, hotels, and restaurants with branded staff apparel — dealer shirts, server polos, bartender vests, embroidered aprons, and guest-services wear. We build each program around the property\'s brand standards and keep the look consistent across every department and outlet.' },
+ { q: 'Can you keep uniforms consistent across multiple outlets and departments?', a: 'Yes — that\'s the core of what we do for hospitality. We digitize your logo in-house and hold your brand standards on file, so a server polo in one restaurant matches a host stand in another and a valet jacket at the door. A company store lets each department order its own sizes from one approved catalog, so the brand stays sharp as staff turn over.' },
+ { q: 'What garments work best for food and beverage staff?', a: 'For F&B, we recommend embroidered polos or dress shirts for front-of-house, vests for bartenders and hosts, and durable aprons for service and kitchen roles. We match the fabric to the job — moisture-wicking for hot kitchens and patios, structured looks for fine-dining floors. Embroidery and print are chosen to survive constant washing.' },
+ { q: 'Do you set up company stores for resorts and large properties?', a: 'Yes. A company store is a private branded shop carrying only your approved staff apparel. Each department orders its own sizes, gear ships direct, and you hold no inventory. It keeps a large property brand-consistent across thousands of employees and constant turnover, with budgets and approvals you control.' },
+ { q: 'Can you add employee names and titles to hospitality uniforms?', a: 'Yes. Standard layout is the property or outlet logo on the left chest and the employee\'s first name on the right chest or a name strip. We keep placement and lettering consistent across departments so the whole staff reads as one brand to guests.' },
+ { q: 'Do you work with restaurants and bars, not just casinos?', a: 'Absolutely. We outfit standalone restaurants, bars, nightlife venues, and event and banquet teams across the valley — not only large resorts. Whether it\'s a single location or a property with a dozen outlets, the program scales to fit.' },
+ { q: 'What areas do you serve?', a: 'Bighorn Threads is based in Las Vegas and serves casinos, resorts, hotels, and restaurants across Las Vegas, the Strip, Henderson, North Las Vegas, and Summerlin, with local pickup or direct shipping. Send your logo and the roles you\'re outfitting for a quote.' },
+]
+
+const breadcrumb = {
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+ { '@type': 'ListItem', position: 2, name: 'Casino & Hospitality Uniforms Las Vegas', item: page.url },
+ ],
+}
+
+const serviceSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'Service',
+ name: 'Casino & Hospitality Uniforms in Las Vegas',
+ serviceType: 'Custom branded staff uniforms for casinos, resorts, hotels, and restaurants',
+ provider: { '@id': 'https://bighornthreads.com/#organization' },
+ areaServed: [
+ { '@type': 'City', name: 'Las Vegas' },
+ { '@type': 'City', name: 'Henderson' },
+ { '@type': 'City', name: 'North Las Vegas' },
+ { '@type': 'City', name: 'Summerlin' },
+ ],
+ description: page.description,
+ url: page.url,
+}
+
+const faqSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+}
+---
+
+<BaseLayout
+ title={page.title}
+ description={page.description}
+ canonical={page.url}
+ heroImage={page.hero}
+>
+ <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+ <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+ <!-- Hero -->
+ <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-28">
+ <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/55"></div>
+
+ <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-navy-200" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-400">Home</a>
+ <span class="px-2 text-navy-200/60">/</span>
+ <span class="text-gold-400">Casino & Hospitality Uniforms</span>
+ </nav>
+
+ <p class="kicker mb-4 flex items-center gap-2.5">
+  <span class="h-px w-8 bg-gold-500"></span>
+  Gaming & Hospitality
+ </p>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
+ Casino & hospitality uniforms in Las Vegas <span class="text-gold-400">— one brand, every department.</span>
+ </h1>
+ <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ Dealer shirts, server polos, bartender vests, embroidered aprons, and guest-services apparel — built around your brand, consistent from the gaming floor to the front door.
+ </p>
+
+ <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+ <a href="/get-a-quote/" class="btn-primary text-base">
+ Get a Quote
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+ </a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">
+ 702.904.8923
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <!-- Liftable answer -->
+ <section class="border-b border-hairline bg-paper py-14">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="text-xl leading-relaxed text-charcoal sm:text-2xl">
+ Bighorn Threads outfits Las Vegas casinos, resorts, hotels, and restaurants with custom branded staff apparel — dealer shirts, server polos, bartender vests, embroidered aprons, and guest-services wear. We build the program around your brand and keep it consistent across every department, outlet, and shift.
+ </p>
+ </div>
+ </section>
+
+ <!-- Departments -->
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <p class="kicker mb-3">Every Role On Property</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">From the gaming floor to the front door.</h2>
+ </div>
+
+ <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+ {departments.map((s) => (
+ <div class="border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="mb-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{s.label}</h3>
+ <p class="text-sm leading-relaxed text-ash">{s.body}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- Deep dive -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">The Buyer's Read</p>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">
+ In hospitality, the uniform is the first impression.
+ </h2>
+
+ <div class="space-y-5 text-lg leading-relaxed text-ash">
+ <p>
+ A guest reads your staff before they read your sign. A sharp, consistent uniform says the property is run well; a mismatched one says the opposite. On a big Las Vegas property, that consistency is hard — dozens of departments, multiple outlets, constant turnover, and a brand standard that has to hold across all of it.
+ </p>
+ <p>
+ That's the problem we solve. We digitize your logo in-house and hold your brand standards on file, so a server polo in one restaurant matches the host stand in another and the valet jacket at the door. Embroidery and print are chosen to survive constant washing, because hospitality apparel gets worn hard and laundered often.
+ </p>
+ <p>
+ Food and beverage roles carry their own requirements. Front-of-house wants a clean, branded look; kitchen and service roles need durable, easy-care fabric and aprons that hold up. Clean staff apparel is part of a professional food-service operation — the <a href="https://www.southernnevadahealthdistrict.org/permits-and-regulations/food-establishments/" rel="noopener" target="_blank" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Southern Nevada Health District</a> sets the food-establishment standards your venues already follow, and we match apparel to them.
+ </p>
+ <p>
+ For a property with thousands of employees, the real win is a <a href="/company-stores/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">company store</a>. Each department orders its own sizes from one approved catalog, gear ships direct, and you hold no inventory. You control budgets and approvals, and the brand stays consistent no matter how many new hires start this week.
+ </p>
+ <p>
+ We're a Las Vegas shop, so we know this market and answer the phone when you need gear before a grand opening or a banquet. Explore the full <a href="/industries/gaming-hospitality/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">gaming & hospitality</a> program or see how <a href="/company-stores/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">company stores</a> work.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <!-- FAQ -->
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">FAQ</p>
+ <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Hospitality uniform questions, answered.</h2>
+
+ <div class="divide-y divide-hairline border-y border-hairline">
+ {faqs.map((f) => (
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
+ <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+ </summary>
+ <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
+ </details>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- Related -->
+ <section class="border-y border-hairline bg-paper py-16">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-6">Pair It With</p>
+ <div class="grid gap-5 md:grid-cols-3">
+ <a href="/industries/gaming-hospitality/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Gaming & Hospitality</h3>
+ <p class="mt-2 text-sm text-ash">The full vertical — every property type we outfit.</p>
+ </a>
+ <a href="/company-stores/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Company Stores</h3>
+ <p class="mt-2 text-sm text-ash">Keep thousands of staff brand-consistent, zero inventory.</p>
+ </a>
+ <a href="/custom-polo-shirts-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Custom Polos</h3>
+ <p class="mt-2 text-sm text-ash">The workhorse garment for guest-facing staff.</p>
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <!-- CTA -->
+ <section class="relative isolate overflow-hidden bg-navy-950 py-20">
+ <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" loading="lazy" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Outfitting a property or a single venue?</h2>
+ <p class="mb-8 text-lg text-navy-200">Send your logo and the roles you're outfitting. We'll build the program with you.</p>
+ <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Free Quote</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+</BaseLayout>

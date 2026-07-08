@@ -31,10 +31,22 @@ const schema = {
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
 }
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ name: post.title,
+ speakable: {
+  '@type': 'SpeakableSpecification',
+  cssSelector: ['h1', '.speakable-answer'],
+ },
+}
 ---
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
  <article class="bg-concrete">
  <header class="border-b border-hairline bg-paper">
  <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
@@ -50,7 +62,7 @@ const schema = {
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl">Crewneck sweatshirts win for office, dispatcher, and customer-facing roles where the cleaner aesthetic reads as professional. Pullover hoodies win for field crews, outdoor work, and informal settings where the hood is functional. For most trade programs, hoodies dominate; for executive/office programs, crewnecks. Pair embroidered chest logo with screen-printed back design for max impact at reasonable cost.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Crewneck sweatshirts win for office, dispatcher, and customer-facing roles where the cleaner aesthetic reads as professional. Pullover hoodies win for field crews, outdoor work, and informal settings where the hood is functional. For most trade programs, hoodies dominate; for executive/office programs, crewnecks. Pair embroidered chest logo with screen-printed back design for max impact at reasonable cost.</p>
  </aside>
 
  <h2 id="when-crew" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">When Crewneck Sweatshirts Win</h2>

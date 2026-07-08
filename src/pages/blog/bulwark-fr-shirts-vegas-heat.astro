@@ -18,7 +18,7 @@ const faqs = [
  { q: 'Is Bulwark FR breathable enough for Las Vegas summer?', a: 'The 6.5 oz Excel-FR ComforTouch SLU2 is the lightest dual-rated option that hits CAT 2 — light enough that Vegas electrical and mechanical crews actually keep it on through 110° summer days. Heavier-weight FR (9 oz canvas) is overkill for most Vegas commercial work and gets shed by 11 AM in July.' },
  { q: 'Can you embroider on Bulwark FR shirts?', a: 'Yes — using FR-compatible Nomex (aramid) thread that preserves the rating through industrial laundering and arc events. Standard polyester thread melts in flash-fire and arc-flash events and voids the FR certification. Decoration placement follows Bulwark\'s published guides — typically left chest, optional right chest or sleeve, no oversized back logos that change the protective fabric area.' },
  { q: 'What\'s the difference between Bulwark Excel-FR and CoolTouch 2?', a: 'Excel-FR is the cotton-nylon blend that\'s the brand\'s flagship — durable, washable, comfortable. CoolTouch 2 is a moisture-wicking poly-blend FR fabric designed for hotter environments. CoolTouch wicks better but doesn\'t feel as natural; most Vegas crews prefer Excel-FR even in summer.' },
- { q: 'How much does a Bulwark FR shirt cost?', a: 'Wholesale pricing on the Bulwark Excel-FR ComforTouch SLU2 typically runs $50-80 per shirt depending on color and style, plus embroidery (FR thread) and any digitizing fees. Pricing climbs for hi-vis FR variants like the JLR8 (Class 3 hi-vis FR jacket).' },
+ { q: 'How much does a Bulwark FR shirt cost?', a: 'Cost depends on the garment, the color and style, the FR-thread embroidery, and a one-time digitizing fee. Hi-vis FR variants like the JLR8 (Class 3 hi-vis FR jacket) run higher than the base SLU2 shirt. Send your logo and garment and we\'ll quote it.' },
  { q: 'How long do Bulwark FR shirts last?', a: 'Bulwark publishes their FR fabric retains its rating through 100+ industrial wash cycles when laundered per the manufacturer\'s spec. Crew members typically retire shirts after 12-18 months of daily wear due to fabric wear — not loss of FR rating. Loss of rating typically requires either chemical contamination or improper laundering.' },
  { q: 'What other Bulwark FR garments do crews need?', a: 'Beyond the SLU2 base shirt, common companion items: PEW2 Excel-FR work pant for full Class 2 PPE coverage, JLR8 hi-vis FR jacket for night utility work, CT11 long-sleeve henley as a base layer, and FR coveralls (CLB6 or LFR6) for oil/gas and turnaround work. See our piece on <a href="/blog/welder-uniforms-fr-shirts-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">welder uniforms</a> for the welding-specific layering.' },
 ]
@@ -31,10 +31,22 @@ const schema = {
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
 }
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ name: post.title,
+ speakable: {
+  '@type': 'SpeakableSpecification',
+  cssSelector: ['h1', '.speakable-answer'],
+ },
+}
 ---
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
  <article class="bg-concrete">
  <header class="border-b border-hairline bg-paper">
  <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
@@ -50,7 +62,7 @@ const schema = {
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl"><a href="https://www.bulwarkprotection.com/" rel="noopener" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Bulwark</a> Excel-FR ComforTouch SLU2 is the industry-standard FR base shirt for Vegas electrical, mechanical, and welding-adjacent crews — dual NFPA 70E CAT 2 + NFPA 2112 rated, 6.5 oz cotton-nylon, light enough to keep on through 110° summer. Decoration uses Nomex (aramid) thread to preserve the rating through industrial laundering.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer"><a href="https://www.bulwarkprotection.com/" rel="noopener" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Bulwark</a> Excel-FR ComforTouch SLU2 is the industry-standard FR base shirt for Vegas electrical, mechanical, and welding-adjacent crews — dual NFPA 70E CAT 2 + NFPA 2112 rated, 6.5 oz cotton-nylon, light enough to keep on through 110° summer. Decoration uses Nomex (aramid) thread to preserve the rating through industrial laundering.</p>
  </aside>
 
  <h2 id="why-bulwark" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Why Bulwark Is the Industry Standard</h2>

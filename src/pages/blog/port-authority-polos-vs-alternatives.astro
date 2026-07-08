@@ -32,10 +32,22 @@ const schema = {
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
 }
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ name: post.title,
+ speakable: {
+  '@type': 'SpeakableSpecification',
+  cssSelector: ['h1', '.speakable-answer'],
+ },
+}
 ---
 
 <BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
  <article class="bg-concrete">
  <header class="border-b border-hairline bg-paper">
  <div class="mx-auto max-w-3xl px-4 pt-16 pb-12 sm:px-6 sm:pt-20 lg:px-8">
@@ -51,7 +63,7 @@ const schema = {
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl"><a href="https://www.portauthorityclothing.com/" rel="noopener" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Port Authority</a> dominates the budget-to-mid-tier custom polo category — the K500 Silk Touch is the workhorse for crew uniforms, and the K540 Performance Silk Touch is the summer-weather upgrade. Carhartt K570 wins for trade-pro roles, Cutter & Buck and Nike Dri-FIT win for client-facing premium tiers, and Sport-Tek ST650 wins as a budget moisture-wicking alternative.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer"><a href="https://www.portauthorityclothing.com/" rel="noopener" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Port Authority</a> dominates the budget-to-mid-tier custom polo category — the K500 Silk Touch is the workhorse for crew uniforms, and the K540 Performance Silk Touch is the summer-weather upgrade. Carhartt K570 wins for trade-pro roles, Cutter & Buck and Nike Dri-FIT win for client-facing premium tiers, and Sport-Tek ST650 wins as a budget moisture-wicking alternative.</p>
  </aside>
 
  <h2 id="port-authority" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">The Port Authority Lineup — Why It Owns the Category</h2>
@@ -125,7 +137,7 @@ const schema = {
  <h2 id="common-mistakes" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Common Mistakes Buyers Make</h2>
  <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Specifying 100% cotton for Vegas summer crews.</strong> Looks nicer at week one. Soaks through by July. Switch to K540 Performance or Sport-Tek ST650.</li>
- <li><strong>Putting field crews in premium polos.</strong> A $90 wholesale Travis Mathew on a roofing tear-off crew gets destroyed in a month. Match polo to working conditions, not just "crew uniform."</li>
+ <li><strong>Putting field crews in premium polos.</strong> A premium Travis Mathew polo on a roofing tear-off crew gets destroyed in a month. Match polo to working conditions, not just "crew uniform."</li>
  <li><strong>Ignoring industrial laundry compatibility.</strong> If your program runs through Cintas, Vestis, or Prudential, ask the laundry company which brands they have default programs for. Standardize on those.</li>
  <li><strong>Buying once, not building a program.</strong> 5 polos per employee per season is the practical baseline. Single 24-piece order doesn't cover rotation.</li>
  <li><strong>Skipping employee names on customer-facing roles.</strong> The right-chest name is the trust signal at the front door. Service techs without names look anonymous.</li>
