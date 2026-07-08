@@ -57,6 +57,8 @@ const breadcrumb = {
 const serviceSchema = {
  '@context': 'https://schema.org',
  '@type': 'Service',
+ datePublished: '2026-07-08',
+ dateModified: '2026-07-08',
  name: 'Promotional Products in Las Vegas',
  serviceType: 'Branded promotional products and corporate gifts',
  provider: { '@id': 'https://bighornthreads.com/#organization' },
@@ -77,6 +79,18 @@ const faqSchema = {
  '@type': 'FAQPage',
  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
 }
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: page.url,
+ datePublished: '2026-07-08',
+ dateModified: '2026-07-08',
+ speakable: {
+ '@type': 'SpeakableSpecification',
+ cssSelector: ['h1', '.speakable-answer'],
+ },
+}
 ---
 
 <BaseLayout
@@ -88,6 +102,7 @@ const faqSchema = {
  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
 
  <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-28">
  <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
@@ -105,8 +120,8 @@ const faqSchema = {
  <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
  Promotional Products in Las Vegas <span class="text-gold-400">— SWAG that earns shelf space, not landfill space.</span>
  </h1>
- <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- Drinkware, bags, tech, writing, awards. Sourced from the SAGE catalog. Decorated in-house. The right item, the right brand, the right decoration method.
+ <p class="speakable-answer max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ Bighorn Threads supplies promotional products in Las Vegas for trade shows, corporate events, employee onboarding, and customer gifts. Drinkware, bags, tech, writing, and awards are sourced from the SAGE catalog and decorated in house with the method that fits each item, from laser engraving on metal to embroidery on fabric.
  </p>
  <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
  <a href="/contact/" class="btn-primary text-base">

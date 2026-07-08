@@ -151,6 +151,8 @@ const ogImageHref = new URL(ogImage, Astro.site).href
  url: canonicalHref,
  name: fullTitle,
  isPartOf: { '@id': 'https://bighornthreads.com/#organization' },
+ ...(publishedDate ? { datePublished: publishedDate } : {}),
+ dateModified: new Date().toISOString().slice(0, 10),
  speakable: {
  '@type': 'SpeakableSpecification',
  cssSelector: ['h1', '.speakable-answer'],

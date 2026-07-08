@@ -32,17 +32,21 @@ const faqs = [
  { q: 'Can FR-rated or ANSI hi-vis orders be rushed?', a: 'Sometimes, but the compliance verification step is fixed and cannot be skipped. Build in slightly more lead time for compliance gear than for standard apparel, and flag it as FR or ANSI-rated when you submit the order so it gets routed correctly from the start.' },
 ]
 
+const leadAnswer = 'Standard turnaround for custom embroidered apparel is 7-14 business days industry-wide. Bighorn Threads delivers most embroidery orders in 5-8 business days, with rush options for local pickup in Las Vegas. Screen printing runs 5-7 days. What slows orders: missing art files, unapproved digitizing proofs, and last-minute size changes.'
+
 const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
  { '@type': 'ListItem', position: 2, name: 'Fastest Turnaround for Custom Apparel', item: page.url },
 ] }
-const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: page.title, description: page.description, url: page.url, publisher: { '@type': 'Organization', name: 'Bighorn Threads' } }
+const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: page.title, description: page.description, url: page.url, publisher: { '@type': 'Organization', name: 'Bighorn Threads' }, datePublished: '2026-07-08', dateModified: '2026-07-08' }
+const qaSchema = { '@context': 'https://schema.org', '@type': 'QAPage', mainEntity: { '@type': 'Question', name: 'What is the fastest turnaround for custom apparel?', acceptedAnswer: { '@type': 'Answer', text: leadAnswer } } }
 const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }
 ---
 
 <BaseLayout title={page.title} description={page.description} canonical={page.url} heroImage={page.hero}>
  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(qaSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
  <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-28">
@@ -74,7 +78,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  <section class="border-b border-hairline bg-paper py-14">
  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
  <p class="speakable-answer text-xl leading-relaxed text-charcoal sm:text-2xl">
- Standard turnaround for custom embroidered apparel is 7-14 business days industry-wide. Bighorn Threads delivers most embroidery orders in 5-8 business days, with rush options for local pickup in Las Vegas. Screen printing runs 5-7 days. What slows orders: missing art files, unapproved digitizing proofs, and last-minute size changes.
+ {leadAnswer}
  </p>
  </div>
  </section>

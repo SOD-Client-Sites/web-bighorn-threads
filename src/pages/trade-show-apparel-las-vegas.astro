@@ -54,6 +54,8 @@ const breadcrumb = {
 const serviceSchema = {
  '@context': 'https://schema.org',
  '@type': 'Service',
+ datePublished: '2026-07-08',
+ dateModified: '2026-07-08',
  name: 'Trade Show Apparel in Las Vegas',
  serviceType: 'Branded booth crew apparel — embroidered polos, executive layer, setup-crew tees',
  provider: { '@id': 'https://bighornthreads.com/#organization' },
@@ -72,6 +74,18 @@ const faqSchema = {
  '@type': 'FAQPage',
  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
 }
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: page.url,
+ datePublished: '2026-07-08',
+ dateModified: '2026-07-08',
+ speakable: {
+ '@type': 'SpeakableSpecification',
+ cssSelector: ['h1', '.speakable-answer'],
+ },
+}
 ---
 
 <BaseLayout
@@ -83,6 +97,7 @@ const faqSchema = {
  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
 
  <!-- Hero -->
  <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-28">
@@ -103,8 +118,8 @@ const faqSchema = {
  <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
  Trade Show Apparel in Las Vegas <span class="text-gold-400">— booth crews, exec layer, setup tees.</span>
  </h1>
- <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- Matching embroidered polos for floor reps, distinct piece for the exec lead, branded tees for setup. Logo + name treatment that holds across years of shows.
+ <p class="speakable-answer max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ Bighorn Threads outfits Las Vegas trade show booth crews with matching embroidered polos for floor reps, a distinct executive layer for the lead, and branded heavyweight tees for setup. Every piece shares one logo and name treatment, is decorated in house, and is reused year over year once your artwork is on file.
  </p>
 
  <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">

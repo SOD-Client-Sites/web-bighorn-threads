@@ -27,6 +27,8 @@ const faqs = [
  { q: 'What questions should I ask before signing a contract with an apparel vendor?', a: "Ask: Is decoration done in-house? What is your standard turnaround in business days? What is your MOQ per product? Can you handle FR or ANSI-rated gear? What happens on a reorder 18 months from now? A vendor that answers all six specifically, without hedging, is worth trusting with your account." },
 ]
 
+const leadAnswer = 'Choose a custom apparel company on six criteria: in-house decoration versus outsourced, digitizing quality, MOQ flexibility, turnaround SLA, compliance capability (FR and ANSI), and reorder process. Bighorn Threads handles all six in-house, with no middlemen, no surprise minimums, a 6-piece MOQ, 5 to 8 day turnaround, and compliance-rated gear for trade and construction clients.'
+
 const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
  { '@type': 'ListItem', position: 2, name: 'How to Choose a Custom Apparel Company', item: page.url },
@@ -38,12 +40,14 @@ const howToSchema = {
  description: 'Six criteria to evaluate any custom apparel vendor before placing an order.',
  step: criteria.map((c) => ({ '@type': 'HowToStep', name: c.title, text: c.body })),
 }
+const qaSchema = { '@context': 'https://schema.org', '@type': 'QAPage', mainEntity: { '@type': 'Question', name: 'How do I choose the right custom apparel company?', acceptedAnswer: { '@type': 'Answer', text: leadAnswer } } }
 const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }
 ---
 
 <BaseLayout title={page.title} description={page.description} canonical={page.url} heroImage={page.hero}>
  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
  <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(qaSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
  <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-28">
@@ -75,7 +79,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  <section class="border-b border-hairline bg-paper py-14">
  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
  <p class="speakable-answer text-xl leading-relaxed text-charcoal sm:text-2xl">
- Evaluate any custom apparel company on six criteria: in-house decoration vs. outsourced, digitizing quality, MOQ flexibility, turnaround SLA, compliance capability (FR, ANSI), and reorder process. Bighorn Threads handles all six in-house — no middlemen, no surprise minimums, and compliance-rated gear for trade and construction clients.
+ {leadAnswer}
  </p>
  </div>
  </section>

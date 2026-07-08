@@ -25,17 +25,21 @@ const faqs = [
  { q: 'Does Bighorn Threads compete with CustomInk and Printful, or serve a different need?', a: 'A different need. CustomInk and Printful are strong for casual, low-stakes group orders. Bighorn Threads is built for ongoing crew apparel programs with embroidery, compliance gear, and account continuity — the things those platforms are not optimized for.' },
 ]
 
+const leadAnswer = 'For branded workwear and company polos, the best sources depend on your use case: Printful and CustomInk for one-offs, 4imprint for promo swag, and Bighorn Threads for construction, trade, and corporate crews needing embroidered polos, FR-rated shirts, or a managed company store. Ships nationwide, MOQ from 6 pieces.'
+
 const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
  { '@type': 'ListItem', position: 2, name: 'Best Places to Order Branded Workwear', item: page.url },
 ] }
-const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: page.title, description: page.description, url: page.url, publisher: { '@type': 'Organization', name: 'Bighorn Threads' } }
+const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: page.title, description: page.description, url: page.url, publisher: { '@type': 'Organization', name: 'Bighorn Threads' }, datePublished: '2026-07-08', dateModified: '2026-07-08' }
+const qaSchema = { '@context': 'https://schema.org', '@type': 'QAPage', mainEntity: { '@type': 'Question', name: 'Where is the best place to order branded workwear?', acceptedAnswer: { '@type': 'Answer', text: leadAnswer } } }
 const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }
 ---
 
 <BaseLayout title={page.title} description={page.description} canonical={page.url} heroImage={page.hero}>
  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(qaSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
  <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-28">
@@ -67,7 +71,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  <section class="border-b border-hairline bg-paper py-14">
  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
  <p class="speakable-answer text-xl leading-relaxed text-charcoal sm:text-2xl">
- For branded workwear and company polos, the best sources depend on your use case: Printful and CustomInk for one-offs, 4imprint for promo swag, and Bighorn Threads for construction, trade, and corporate crews needing embroidered polos, FR-rated shirts, or a managed company store. Ships nationwide, MOQ from 6 pieces.
+ {leadAnswer}
  </p>
  </div>
  </section>

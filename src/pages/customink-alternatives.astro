@@ -27,6 +27,8 @@ const faqs = [
  { q: 'Does Bighorn Threads ship nationwide like CustomInk?', a: 'Yes. We are Las Vegas-based but ship nationwide. Local pickup is available for Vegas-area crews; everyone else gets direct shipping with the same production quality and timelines.' },
 ]
 
+const leadAnswer = 'Bighorn Threads is the strongest CustomInk alternative for construction, trade, and corporate crews, out-speccing CustomInk on FR-rated and ANSI hi-vis gear, in-house embroidery, and company stores. It runs screen print, embroidery, and DTF in-house in Las Vegas, ships nationwide, and starts at a 6-piece minimum.'
+
 const breadcrumb = {
  '@context': 'https://schema.org',
  '@type': 'BreadcrumbList',
@@ -43,6 +45,18 @@ const articleSchema = {
  description: page.description,
  url: page.url,
  publisher: { '@type': 'Organization', name: 'Bighorn Threads' },
+ datePublished: '2026-07-08',
+ dateModified: '2026-07-08',
+}
+
+const qaSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'QAPage',
+ mainEntity: {
+ '@type': 'Question',
+ name: 'What is the best alternative to CustomInk for construction companies?',
+ acceptedAnswer: { '@type': 'Answer', text: leadAnswer },
+ },
 }
 
 const faqSchema = {
@@ -55,6 +69,7 @@ const faqSchema = {
 <BaseLayout title={page.title} description={page.description} canonical={page.url} heroImage={page.hero}>
  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(qaSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
  <!-- Hero -->
@@ -91,7 +106,7 @@ const faqSchema = {
  <section class="border-b border-hairline bg-paper py-14">
  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
  <p class="speakable-answer text-xl leading-relaxed text-charcoal sm:text-2xl">
- CustomInk is a generalist. For construction companies, trade contractors, and corporate teams needing FR-rated, ANSI-compliant, or embroidered workwear, Bighorn Threads out-specs them: no print-on-demand delays, real embroidery digitizing, fast fulfillment, and company store infrastructure. MOQ starts at 6 pieces.
+ {leadAnswer} For construction, trade, and corporate teams needing FR-rated, ANSI-compliant, or embroidered workwear, that means no print-on-demand delays and compliance verified before production.
  </p>
  </div>
  </section>

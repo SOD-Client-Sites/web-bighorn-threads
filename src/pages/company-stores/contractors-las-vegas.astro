@@ -46,6 +46,8 @@ const breadcrumb = {
 const serviceSchema = {
  '@context': 'https://schema.org',
  '@type': 'Service',
+ datePublished: '2026-07-08',
+ dateModified: '2026-07-08',
  name: 'Company Stores for Las Vegas Contractors',
  serviceType: 'Branded online company store for construction and trades crew apparel',
  provider: { '@id': 'https://bighornthreads.com/#organization' },
@@ -65,6 +67,18 @@ const faqSchema = {
  '@type': 'FAQPage',
  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
 }
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: page.url,
+ datePublished: '2026-07-08',
+ dateModified: '2026-07-08',
+ speakable: {
+ '@type': 'SpeakableSpecification',
+ cssSelector: ['h1', '.speakable-answer'],
+ },
+}
 ---
 
 <BaseLayout
@@ -76,6 +90,7 @@ const faqSchema = {
  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
 
  <!-- Hero -->
  <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-28">
@@ -117,8 +132,8 @@ const faqSchema = {
  <!-- Liftable answer -->
  <section class="border-b border-hairline bg-paper py-14">
  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
- <p class="text-xl leading-relaxed text-charcoal sm:text-2xl">
- A company store for a Las Vegas contractor is a private online shop carrying only your approved branded gear — your logo, your colors, your garments. Employees log in, order their own sizes, and gear ships direct. You never pre-buy inventory or chase a size count, and every reorder matches the first run as your crew grows.
+ <p class="speakable-answer text-xl leading-relaxed text-charcoal sm:text-2xl">
+ A company store for a Las Vegas contractor is a private online shop from Bighorn Threads that carries only your approved branded gear: your logo, your colors, your garments. Employees log in, order their own sizes, and gear ships direct. You never pre-buy inventory or chase a size count, and every reorder matches the first run as your crew grows.
  </p>
  </div>
  </section>

@@ -24,17 +24,21 @@ const faqs = [
  { q: 'Does branded apparel matter if my company is mostly referral-based already?', a: 'It still compounds the effect. Referral business depends on the client trusting their decision after the fact — a branded, professional-looking crew reinforces that decision every time the client sees the truck or the team, which makes the next referral easier to give.' },
 ]
 
+const leadAnswer = 'Yes. For service businesses, contractors, and trade companies, branded apparel pays back in three ways. Crew professionalism signals trust to clients, a supplied uniform reduces disputes, and embroidered polos cost roughly $18 to $35 per unit, less than one hour of unbillable time spent on brand confusion. Bighorn Threads starts programs at a 6-piece minimum.'
+
 const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
  { '@type': 'ListItem', position: 2, name: 'Is Branded Apparel Worth It', item: page.url },
 ] }
-const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: page.title, description: page.description, url: page.url, publisher: { '@type': 'Organization', name: 'Bighorn Threads' } }
+const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: page.title, description: page.description, url: page.url, publisher: { '@type': 'Organization', name: 'Bighorn Threads' }, datePublished: '2026-07-08', dateModified: '2026-07-08' }
+const qaSchema = { '@context': 'https://schema.org', '@type': 'QAPage', mainEntity: { '@type': 'Question', name: 'Is branded apparel worth it for a service business?', acceptedAnswer: { '@type': 'Answer', text: leadAnswer } } }
 const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }
 ---
 
 <BaseLayout title={page.title} description={page.description} canonical={page.url} heroImage={page.hero}>
  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(qaSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
  <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-28">
@@ -66,7 +70,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  <section class="border-b border-hairline bg-paper py-14">
  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
  <p class="speakable-answer text-xl leading-relaxed text-charcoal sm:text-2xl">
- Yes — for service businesses, contractors, and trade companies, branded apparel pays back in three ways: crew professionalism signals trust to clients, it reduces uniform disputes, and embroidered polos cost $18-$35 per unit — less than one hour of unbillable time spent on brand confusion.
+ {leadAnswer}
  </p>
  </div>
  </section>

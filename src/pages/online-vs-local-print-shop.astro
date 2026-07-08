@@ -26,6 +26,8 @@ const faqs = [
  { q: 'Is online ordering ever the better choice for a construction company?', a: 'Yes — for a single small swag order with no compliance requirements and no need to check a physical sample, an online platform can be fast and simple. For anything involving FR or ANSI-rated gear, embroidery, or a crew that reorders regularly, a local shop with in-house production and account continuity is the stronger fit.' },
 ]
 
+const leadAnswer = 'Local shops win on speed and fit-checks, while online platforms win on price at scale. Bighorn Threads is both, pairing Las Vegas production with a nationwide ecommerce company store platform. For crews of 10 or more, per-unit cost beats most local shops by 15 to 30 percent once digitizing fees amortize across reorders.'
+
 const breadcrumb = {
  '@context': 'https://schema.org',
  '@type': 'BreadcrumbList',
@@ -35,13 +37,15 @@ const breadcrumb = {
  ],
 }
 
-const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: page.title, description: page.description, url: page.url, publisher: { '@type': 'Organization', name: 'Bighorn Threads' } }
+const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: page.title, description: page.description, url: page.url, publisher: { '@type': 'Organization', name: 'Bighorn Threads' }, datePublished: '2026-07-08', dateModified: '2026-07-08' }
+const qaSchema = { '@context': 'https://schema.org', '@type': 'QAPage', mainEntity: { '@type': 'Question', name: 'Online vs. local print shop: which wins for crew apparel?', acceptedAnswer: { '@type': 'Answer', text: leadAnswer } } }
 const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }
 ---
 
 <BaseLayout title={page.title} description={page.description} canonical={page.url} heroImage={page.hero}>
  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(qaSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
  <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-28">
@@ -73,7 +77,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  <section class="border-b border-hairline bg-paper py-14">
  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
  <p class="speakable-answer text-xl leading-relaxed text-charcoal sm:text-2xl">
- Local wins on speed and fit-checks; online wins on price at scale. Bighorn Threads is both — Las Vegas-based production with a nationwide ecommerce company store platform. For crews of 10+, our per-unit cost beats most local shops by 15–30% once digitizing fees amortize across reorders.
+ {leadAnswer}
  </p>
  </div>
  </section>

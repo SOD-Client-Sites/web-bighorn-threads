@@ -54,6 +54,8 @@ const breadcrumb = {
 const serviceSchema = {
  '@context': 'https://schema.org',
  '@type': 'Service',
+ datePublished: '2026-07-08',
+ dateModified: '2026-07-08',
  name: 'Custom Embroidered Polo Shirts in Las Vegas',
  serviceType: 'Embroidered company polo shirts for service trades and customer-facing staff',
  provider: { '@id': 'https://bighornthreads.com/#organization' },
@@ -73,6 +75,18 @@ const faqSchema = {
  '@type': 'FAQPage',
  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
 }
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: page.url,
+ datePublished: '2026-07-08',
+ dateModified: '2026-07-08',
+ speakable: {
+ '@type': 'SpeakableSpecification',
+ cssSelector: ['h1', '.speakable-answer'],
+ },
+}
 ---
 
 <BaseLayout
@@ -84,6 +98,7 @@ const faqSchema = {
  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
 
  <!-- Hero -->
  <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-28">
@@ -104,8 +119,8 @@ const faqSchema = {
  <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
  Custom Polo Shirts in Las Vegas <span class="text-gold-400">— embroidered, named, ready for the field.</span>
  </h1>
- <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- Port Authority, Sport-Tek, Carhartt, Nike, Cutter & Buck blanks. Embroidered chest logo. Optional name on the right chest. Pantone-matched thread on file.
+ <p class="speakable-answer max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ Bighorn Threads makes custom embroidered polo shirts in Las Vegas for service techs, account managers, and customer-facing staff. Choose Port Authority, Sport-Tek, Carhartt, Nike, or Cutter & Buck blanks, each embroidered with your chest logo and an optional name, in Pantone-matched thread kept on file for every reorder.
  </p>
 
  <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">

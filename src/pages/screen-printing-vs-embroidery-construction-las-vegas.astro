@@ -26,6 +26,8 @@ const faqs = [
  { q: 'Can one shop do both for my crew in Las Vegas?', a: 'Yes. Bighorn Threads runs both embroidery and screen printing in-house in Las Vegas, so a single order can mix embroidered polos and hi-vis with screen-printed crew tees. We recommend the method per garment based on fabric, decoration, and wear, and digitize logos in-house so they hold up on workwear.' },
 ]
 
+const leadAnswer = 'For a construction crew, embroidery wins on polos, FR shirts, hi-vis, and outerwear, since it survives industrial washing without cracking. Screen printing is better for event tees and large back graphics on cotton, where it is cheaper at volume. Bighorn Threads runs both in-house in Las Vegas and keeps ANSI-rated hi-vis decoration clear of the retroreflective tape.'
+
 const breadcrumb = {
  '@context': 'https://schema.org',
  '@type': 'BreadcrumbList',
@@ -49,6 +51,18 @@ const articleSchema = {
  author: { '@id': 'https://bighornthreads.com/#organization' },
  publisher: { '@id': 'https://bighornthreads.com/#organization' },
  mainEntityOfPage: page.url,
+ datePublished: '2026-07-08',
+ dateModified: '2026-07-08',
+}
+
+const qaSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'QAPage',
+ mainEntity: {
+ '@type': 'Question',
+ name: "Should I use screen printing or embroidery for my construction crew's gear?",
+ acceptedAnswer: { '@type': 'Answer', text: leadAnswer },
+ },
 }
 ---
 
@@ -60,6 +74,7 @@ const articleSchema = {
 >
  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(qaSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
  <!-- Hero -->
@@ -100,8 +115,8 @@ const articleSchema = {
  <!-- Liftable answer -->
  <section class="border-b border-hairline bg-paper py-14">
  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
- <p class="text-xl leading-relaxed text-charcoal sm:text-2xl">
- For construction crews, embroidery wins on polos, FR shirts, hi-vis, and outerwear — it survives repeated industrial washing and won't crack under desert heat. Screen printing is better for event tees and large back graphics on cotton, where it's cheaper at volume. On ANSI-rated hi-vis, always keep decoration clear of the retroreflective tape.
+ <p class="speakable-answer text-xl leading-relaxed text-charcoal sm:text-2xl">
+ {leadAnswer}
  </p>
  </div>
  </section>
