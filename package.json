@@ -12,7 +12,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "gsc:submit": "node scripts/gsc-submit.mjs",
-    "deploy": "npm run build && npx wrangler pages deploy dist --project-name=bighorn-threads --branch=main --commit-dirty=true && npm run gsc:submit"
+    "deploy:pages": "npm run build && npx wrangler pages deploy dist --project-name=bighorn-threads --branch=master",
+    "deploy": "npm run deploy:pages && npm run gsc:submit"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
