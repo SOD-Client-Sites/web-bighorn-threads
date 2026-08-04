@@ -13,14 +13,16 @@ npm run dev       # http://localhost:4321
 
 ```bash
 npm run build                       # Build to dist/
-npx wrangler pages deploy dist      # Deploy to CF Pages
+npm run deploy:pages                # Manual CF Pages deploy when explicitly approved
 ```
+
+Reviewed pushes to `master` build and deploy automatically through `.github/workflows/deploy-cloudflare-pages.yml`.
 
 ## Tech Stack
 
 | Layer | Tech |
 |-------|------|
-| Framework | Astro 6 (SSG) |
+| Framework | Astro 7 (SSG) |
 | Styling | Tailwind CSS 4 |
 | Typography | Space Grotesk + Inter + JetBrains Mono |
 | Hosting | Cloudflare Pages |

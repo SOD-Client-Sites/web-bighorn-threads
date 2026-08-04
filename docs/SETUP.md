@@ -4,13 +4,13 @@
 
 - Node.js >= 22.12.0
 - npm
-- Wrangler CLI (`npm install -g wrangler`)
+- GitHub access for repository operations
 
 ## Install
 
 ```bash
-cd C:\dev\sites\bighorn-threads
-npm install
+cd /Users/salesondemand/dev/clients/bighorn-threads/site-marketing
+npm ci
 ```
 
 ## Development
@@ -35,14 +35,17 @@ npm run preview
 
 ## Deploy to Cloudflare Pages
 
+Reviewed pushes to `master` deploy through `.github/workflows/deploy-cloudflare-pages.yml`.
+For an explicitly approved manual deployment:
+
 ```bash
-npx wrangler pages deploy dist
+npm run deploy:pages
 ```
 
 ## Project URLs
 
-- **Production:** https://bighornthreads.com (TBD)
-- **CF Pages:** https://bighorn-threads.pages.dev (after first deploy)
+- **Production:** https://bighornthreads.com
+- **CF Pages:** https://bighorn-threads.pages.dev
 - **Parent brand:** https://www.vp-promos.com
 
 ## Contact Info (for site content)
