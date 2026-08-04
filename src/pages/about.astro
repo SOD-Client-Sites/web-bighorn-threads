@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets'
+import { Image, Picture } from 'astro:assets'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import foremanCloseup from '@/assets/generated/foreman-closeup.jpg'
 import productStack from '@/assets/generated/product-stack.jpg'
@@ -144,7 +144,7 @@ const speakableSchema = {
 
  <!-- Hero — full-bleed photographic dark band -->
  <section class="relative isolate overflow-hidden bg-navy-950">
- <Image
+ <Picture
  src={foremanCloseup}
  alt=""
  aria-hidden="true"
@@ -211,7 +211,7 @@ const speakableSchema = {
  <div class="lg:col-span-5">
  <div class="sticky top-24 space-y-6">
  <div class="border border-hairline bg-panel p-2">
- <Image
+ <Picture
  src={workwearFlatlay}
  alt="Branded apparel laid out — embroidered polos, tees, and caps ready to ship"
  loading="lazy"
@@ -361,7 +361,7 @@ const speakableSchema = {
  <!-- Avatar column -->
  <div class="flex flex-col items-center justify-center gap-5 border-b border-hairline bg-concrete p-10 lg:border-b-0 lg:border-r lg:p-14">
  <div class="h-48 w-48 overflow-hidden border border-hairline sm:h-56 sm:w-56">
- <Image
+ <Picture
  src={founderSteve}
  alt="Steven Dodson, founder of Bighorn Threads."
  widths={[224, 448]}

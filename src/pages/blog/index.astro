@@ -252,7 +252,7 @@ const posts = [
 
 // Category accent colors — small doses only (eyebrow label + top hairline).
 // Tuned to read clearly on the navy-950 card background.
-const categoryColors = {
+const categoryColors: Record<string, string> = {
  Compliance: '#f0b34e',
  'Decoration Methods': '#6bb3d6',
  Brands: '#c6a0e0',
@@ -269,7 +269,7 @@ const categoryColors = {
  Pricing: '#7ecb7e',
  Industries: '#d6a36b',
 }
-const accentFor = (category) => categoryColors[category] ?? '#c19b3d'
+const accentFor = (category: string) => categoryColors[category] ?? '#c19b3d'
 
 const blogSchema = {
  '@context': 'https://schema.org',
