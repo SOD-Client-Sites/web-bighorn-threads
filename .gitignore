@@ -10,7 +10,6 @@ dist/
 .vercel/
 .playwright-mcp/
 .claude/
-portal/
 /*.png
 !/public/**/*.png
 .dev.vars

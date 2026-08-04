@@ -1,15 +1,14 @@
 // Bighorn Threads — shared Cloudflare Turnstile verification helper.
-// Guarded by TURNSTILE_SECRET: if the secret is unset (e.g. before it's
-// configured in the Pages project), verification is skipped so the live
-// forms keep working. Once the secret is set, every protected endpoint
-// rejects submissions that fail the challenge.
+// Every protected endpoint must have TURNSTILE_SECRET configured. Missing
+// configuration fails closed so a deployment mistake cannot silently disable
+// bot verification.
 
 const SITEVERIFY_URL = 'https://challenges.cloudflare.com/turnstile/v0/siteverify'
 
-// Returns true when the request passes (or when verification is disabled).
-// Returns false only when the secret is configured AND the token fails.
+// Returns true only when Cloudflare confirms the challenge. Missing
+// configuration, a missing token, verification failure, or an outage all fail.
 export async function verifyTurnstile({ env, request, token }) {
-  if (!env || !env.TURNSTILE_SECRET) return true // not configured -> skip
+  if (!env?.TURNSTILE_SECRET || !token) return false
 
   const response = token ? String(token) : ''
   try {

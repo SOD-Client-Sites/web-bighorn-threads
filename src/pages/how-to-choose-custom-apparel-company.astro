@@ -12,14 +12,14 @@ const page = {
 const criteria = [
  { num: '01', title: 'In-house decoration vs. outsourced', body: "Ask directly: does the shop run embroidery and screen printing on-site, or does it broker the job to a third party? Outsourced production adds time, removes quality control, and means nobody on your call has actually seen the garment." },
  { num: '02', title: 'Digitizing quality', body: "Embroidery starts with converting your logo into a stitch file. A bad digitizing job shows up as fuzzy detail, wrong proportions, or thread that puckers the fabric. Ask to see a digitized sample on the actual garment type you are ordering, not a stock photo." },
- { num: '03', title: 'MOQ flexibility', body: "A company with a flat 144-piece minimum cannot serve a new hire who needs one polo today. Look for a shop with low MOQ (6-12 pieces) so small reorders do not get stuck waiting for a bigger batch." },
+ { num: '03', title: 'Minimum-order flexibility', body: 'Ask for the minimum by garment and decoration method. Also ask whether a small reorder can use a different method or pricing structure instead of waiting for a larger batch.' },
  { num: '04', title: 'Turnaround SLA', body: 'Get a specific business-day number, not "a couple weeks." Ask what happens to that number during a rush — and whether rush options exist at all.' },
  { num: '05', title: 'Compliance capability (FR, ANSI)', body: "If any part of your order is flame-resistant or ANSI hi-vis rated, ask specifically how the shop verifies the decoration will not void the certification. Most generalist shops do not have an answer." },
  { num: '06', title: 'Reorder process', body: 'Ask what happens when you need 10 more of the same shirt in 18 months. The right answer: your logo file and specs are on file, no re-digitizing, no re-proofing, no surprises.' },
 ]
 
 const faqs = [
- { q: 'How do I choose the right custom apparel company?', a: 'Evaluate any custom apparel company on six criteria: in-house decoration vs. outsourced, digitizing quality, MOQ flexibility, turnaround SLA, compliance capability (FR, ANSI), and reorder process. Bighorn Threads handles all six in-house — no middlemen, no surprise minimums, and compliance-rated gear for trade and construction clients.' },
+ { q: 'How do I choose the right custom apparel company?', a: 'Evaluate any custom apparel company on six criteria: decoration ownership, digitizing quality, minimum-order flexibility, written turnaround, garment suitability, and the reorder process. Ask each provider to answer against the same order specification.' },
  { q: "What's the biggest red flag when picking a custom apparel vendor?", a: "A vendor that cannot tell you whether decoration is done in-house or outsourced. If they do not know or dodge the question, assume it is outsourced — which usually means longer turnaround, less quality control, and no one accountable if the run comes back wrong." },
  { q: 'Should I ask for a physical sample before placing a full order?', a: 'Yes, always, for any order over a handful of pieces. A reputable shop will produce a sample or proof on the actual garment and decoration method before running the full batch — especially for embroidery, where the stitch-out can look different from the digital mockup.' },
  { q: 'Does a lower price always mean lower quality?', a: "Not always, but it is the most common correlation. The biggest hidden cost differences come from digitizing quality, garment grade, and whether compliance verification happens at all — none of which show up in a quoted unit price until the gear is in your hands." },
@@ -27,7 +27,7 @@ const faqs = [
  { q: 'What questions should I ask before signing a contract with an apparel vendor?', a: "Ask: Is decoration done in-house? What is your standard turnaround in business days? What is your MOQ per product? Can you handle FR or ANSI-rated gear? What happens on a reorder 18 months from now? A vendor that answers all six specifically, without hedging, is worth trusting with your account." },
 ]
 
-const leadAnswer = 'Choose a custom apparel company on six criteria: in-house decoration versus outsourced, digitizing quality, MOQ flexibility, turnaround SLA, compliance capability (FR and ANSI), and reorder process. Bighorn Threads handles all six in-house, with no middlemen, no surprise minimums, a 6-piece MOQ, 5 to 8 day turnaround, and compliance-rated gear for trade and construction clients.'
+const leadAnswer = 'Choose a custom apparel company on six criteria: decoration ownership, digitizing quality, minimum-order flexibility, written turnaround, garment suitability, and the reorder process. Use the same order specification for every provider, then compare the answers in writing.'
 
 const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
@@ -62,7 +62,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  Six questions <span class="text-gold-400">before you sign with any apparel vendor.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- In-house decoration, real digitizing, low MOQ, a real turnaround number, compliance capability, and a reorder process that doesn't reset. Bighorn Threads answers all six.
+ Decoration ownership, digitizing, minimums, written timing, garment suitability, and the reorder process. Ask every provider the same six questions.
  </p>
  <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
  <a href="/get-a-quote/" class="btn-primary text-base">
@@ -112,10 +112,10 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  The six criteria above surface the risk that price hides. A shop that outsources decoration can't control quality or timeline — they're reselling someone else's production schedule. A shop with bad digitizing will hand you a logo that looks fine on screen and wrong on fabric. And a shop with no compliance process will happily print on your FR shirts using standard plastisol ink, which can compromise the rating.
  </p>
  <p>
- Bighorn Threads runs <a href="/blog/embroidery-shop-las-vegas-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">embroidery</a> and screen printing entirely in-house out of Las Vegas. We digitize every logo ourselves — see our <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">logo digitizing breakdown</a> for what good digitizing actually looks like. MOQ starts at 6 pieces, standard turnaround is 5-8 business days with rush options, and FR/ANSI gear goes through a compliance check before production, not after a customer complains.
+ Bighorn Threads offers <a href="/blog/embroidery-shop-las-vegas-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">embroidery</a> and screen printing from Las Vegas. See the <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">logo digitizing breakdown</a> for questions to ask about artwork. Minimums, timing, and garment requirements are confirmed for the specific order.
  </p>
  <p>
- On reorders, your logo file, garment specs, and color matches stay on file indefinitely. A reorder five years out pulls the exact same stitch file and ink formula as the first run — no re-digitizing fee, no drift in quality.
+ On reorders, ask which artwork and production specifications remain available, whether the original garment is still available, and what must be reviewed again. Consistency depends on both the saved production information and the current materials.
  </p>
  <p>
  If you're vetting vendors right now, run this checklist against each one before you commit. <a href="/about/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">See how Bighorn Threads answers all six</a>, then compare.

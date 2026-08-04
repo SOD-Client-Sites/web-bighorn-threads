@@ -7,12 +7,12 @@ const services = [
  {
  name: 'Screen Printing',
  serviceType: 'Screen printing for construction branded apparel',
- description: 'Multi-color screen printing on tees, hi-vis vests, hoodies, and workwear. Plastisol and water-based inks. PMS color matching. 24-piece minimums. Rush options available.',
+ description: 'Multi-color screen printing on tees, hoodies, and qualifying workwear. Ink, color, minimum, and timing requirements are confirmed for each order.',
  },
  {
  name: 'Embroidery',
  serviceType: 'Embroidery for construction uniforms, polos, headwear',
- description: 'Commercial embroidery on polos, softshells, hats, beanies, and bags. on first order. Up to 15 thread colors per design. 12-piece minimums for most garments, no minimum for caps.',
+ description: 'Commercial embroidery on qualifying polos, softshells, hats, beanies, and bags. Thread, artwork, minimum, and timing requirements are confirmed for each order.',
  },
  {
  name: 'Branded Apparel',
@@ -38,7 +38,7 @@ const faqs = [
  },
  {
  q: 'What’s the minimum order?',
- a: '24 pieces for screen printing and 12 for embroidery. Most promotional products and company-store items have no minimum. Setup fees waived on qualifying first orders — ask when you quote.',
+ a: 'Minimums vary by garment, decoration method, supplier, and order specification. We confirm the current minimum and any setup charges in the quote.',
  },
  {
  q: 'How fast can you turn around a rush job?',
@@ -137,7 +137,7 @@ const speakableSchema = {
  Screen Printing, Embroidery &amp; <span class="text-gold-400">Branded Gear</span> in Las Vegas
  </h1>
  <p class="speakable-answer mt-7 max-w-xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- Bighorn Threads runs five services for Las Vegas construction and trade crews: screen printing, embroidery, branded workwear programs, company stores, and promotional products. One partner handles art, decoration, and fulfillment in local Vegas production, with 24-piece screen-print and 12-piece embroidery minimums and rush options. From a single embroidered hat to outfitting your whole crew.
+ Bighorn Threads offers five services for Las Vegas construction and trade crews: screen printing, embroidery, branded workwear programs, company stores, and promotional products. Minimums, timing, and program terms vary by the order and are confirmed in writing.
  </p>
  </div>
  </div>
@@ -285,7 +285,7 @@ const speakableSchema = {
  <div class="border border-hairline bg-panel p-8">
  <h3 class="kicker mb-5">What's Included</h3>
  <ul class="space-y-3">
- {['Multi-color prints up to 8 colors', 'Plastisol & water-based inks', 'Specialty inks (metallic, glow, puff)', 'Large format back prints', 'Left chest & pocket prints', 'As low as 24-piece minimums'].map((item) => (
+ {['Multi-color print options', 'Plastisol & water-based ink options', 'Specialty ink options', 'Large format back prints', 'Left chest & pocket prints', 'Minimum confirmed by order specification'].map((item) => (
  <li class="flex items-center gap-3 text-ash">
  <svg class="h-5 w-5 flex-shrink-0 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
  {item}
@@ -304,7 +304,7 @@ const speakableSchema = {
  <div class="order-2 border border-hairline bg-panel p-8 lg:order-1">
  <h3 class="kicker mb-5">What's Included</h3>
  <ul class="space-y-3">
- {['Free logo digitizing on first order', 'Up to 15 thread colors', 'Left chest, sleeves, back placement', 'Hats, beanies & headwear', 'Bags & backpacks', 'No minimum order required'].map((item) => (
+ {['Logo digitizing options', 'Multi-color thread options', 'Left chest, sleeves, back placement', 'Hats, beanies & headwear', 'Bags & backpacks', 'Minimum confirmed by order specification'].map((item) => (
  <li class="flex items-center gap-3 text-ash">
  <svg class="h-5 w-5 flex-shrink-0 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
  {item}

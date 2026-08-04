@@ -10,23 +10,23 @@ const page = {
 }
 
 const comparison = [
- { criterion: 'Speed for a single rush order', online: 'Slower — ships from a remote facility', local: 'Faster — same-day pickup possible' },
- { criterion: 'Price at 10+ pieces', online: 'Competitive on simple 1-color tees', local: 'Wins once digitizing/setup amortizes across reorders' },
+ { criterion: 'Speed for a rush order', online: 'Depends on production and shipping', local: 'Pickup may reduce shipping time; production timing still applies' },
+ { criterion: 'Price', online: 'Depends on the product and specification', local: 'Depends on the product, decoration, quantity, and service' },
  { criterion: 'Fit and color checks before full run', online: 'Hard — no physical sample step', local: 'Easy — walk in, check a sample garment' },
  { criterion: 'Reorder consistency over years', online: 'Varies by vendor and platform changes', local: 'Logo file and specs stay on file with one shop' },
  { criterion: 'Compliance gear (FR / ANSI)', online: 'Rarely supported well', local: 'Verified before production' },
 ]
 
 const faqs = [
- { q: 'Is it cheaper to use an online print-on-demand service or a local print shop?', a: 'Local wins on speed and fit-checks; online wins on price at scale. Bighorn Threads is both — Las Vegas-based production with a nationwide ecommerce company store platform. For crews of 10+, our per-unit cost beats most local shops by 15–30% once digitizing fees amortize across reorders.' },
+ { q: 'Is it cheaper to use an online print-on-demand service or a local print shop?', a: 'Neither channel is always cheaper. Compare the same garment, decoration, quantity, artwork, shipping, service, and reorder terms. Local access may make sample review or pickup easier, while an online workflow may be convenient for distributed teams.' },
  { q: 'What are the downsides of ordering custom apparel online vs. local?', a: 'Online platforms ship from a remote facility, so there is no way to check a sample garment before the full run goes to production. Color matching, fit, and decoration placement are guesses until the box arrives. A local shop lets you walk in, see a physical proof, and approve it before 50 shirts get printed.' },
- { q: 'Why would a national chain be cheaper than a local print shop?', a: 'National platforms spread fixed costs (equipment, software, customer service) across a huge order volume, which can undercut a small local shop on simple, low-complexity items. That advantage disappears for compliance gear, embroidery, or anything requiring real production judgment — areas where a local shop with in-house decoration usually wins on both price and quality.' },
+ { q: 'Why might a national chain and a local print shop quote differently?', a: 'The providers may use different garments, decoration processes, production networks, shipping models, and service levels. An itemized quote based on one specification makes those differences visible.' },
  { q: 'Does Bighorn Threads only serve Las Vegas, or can it act like an online print shop too?', a: 'Both. We are based in Las Vegas with local pickup and walk-in fit-checks, and we run a nationwide ecommerce and company store platform so out-of-state crews get the same production quality without visiting in person.' },
- { q: 'How do reorders work with a local shop vs. an online platform?', a: 'A local shop like Bighorn keeps your digitized logo, garment specs, and color matches on file indefinitely — a reorder five years later still matches the first run. Online platforms can change vendors, discontinue garments, or alter their tools, which sometimes breaks consistency on a reorder.' },
+ { q: 'How do reorders work with a local shop vs. an online platform?', a: 'Ask either provider what artwork and production specifications remain available and whether the original garment is still stocked. Garment availability and production conditions can change, so every reorder should be reviewed before approval.' },
  { q: 'Is online ordering ever the better choice for a construction company?', a: 'Yes — for a single small swag order with no compliance requirements and no need to check a physical sample, an online platform can be fast and simple. For anything involving FR or ANSI-rated gear, embroidery, or a crew that reorders regularly, a local shop with in-house production and account continuity is the stronger fit.' },
 ]
 
-const leadAnswer = 'Local shops win on speed and fit-checks, while online platforms win on price at scale. Bighorn Threads is both, pairing Las Vegas production with a nationwide ecommerce company store platform. For crews of 10 or more, per-unit cost beats most local shops by 15 to 30 percent once digitizing fees amortize across reorders.'
+const leadAnswer = 'Online and local ordering each have tradeoffs. Compare the same garment, decoration, quantity, artwork, timing, shipping, service, and reorder terms. Bighorn Threads combines Las Vegas production access with online company-store options for distributed crews.'
 
 const breadcrumb = {
  '@context': 'https://schema.org',
@@ -115,13 +115,13 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">Why "online vs. local" is the wrong question.</h2>
  <div class="space-y-5 text-lg leading-relaxed text-ash">
  <p>
- Online print-on-demand platforms win on simple math: spread fixed costs over huge volume, and a basic one-color tee gets cheap. That math falls apart the moment your order has any real complexity — embroidery, FR fabric, ANSI hi-vis, or a logo that needs to match exactly across a five-year reorder cycle.
+ Online print-on-demand platforms can be convenient for simple orders, while specialized orders require a closer review of garments, decoration, artwork, and jobsite requirements. The right choice depends on the actual specification, not the ordering channel alone.
  </p>
  <p>
  A local shop solves the complexity problem but historically loses on convenience — you had to drive there, and out-of-state crews couldn't use it at all. That's the gap we built our <a href="/company-stores/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">company store</a> platform to close: the same in-house Las Vegas production — <a href="/blog/embroidery-shop-las-vegas-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">real embroidery</a>, real screen printing, real fit-checks for local crews — wrapped in a nationwide ecommerce front end for everyone else.
  </p>
  <p>
- The economics tip toward us specifically once you're past a one-off order. Embroidery digitizing is a one-time fee that stays on file; screen print setup amortizes across a reorder run instead of resetting every time. A crew of 50 reordering polos twice a year pays that setup cost once, not six times — which is where the 15–30% per-unit savings over fragmented local shops or repeat online orders actually comes from.
+ For recurring orders, ask each provider how artwork, setup, garment substitutions, and shipping are handled. Compare an itemized first-order quote with the written reorder terms instead of assuming one channel has a permanent price advantage.
  </p>
  <p>
  If you're weighing this decision for a specific crew, start with our <a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">minimum order quantity guide</a> and the <a href="/blog/dtf-printing-vs-screen-printing-custom-apparel/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">DTF vs. screen print breakdown</a> — both shape whether local production or a faster online run makes more sense for your specific piece count.

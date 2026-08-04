@@ -142,19 +142,3 @@ const ogImageHref = new URL(ogImage, Astro.site).href
  'Embroidery for construction uniforms',
  ],
 })} />
-
-<!-- Speakable (AEO): mark the H1 and the lead answer block as liftable for AI + voice engines -->
-<script type="application/ld+json" set:html={JSON.stringify({
- '@context': 'https://schema.org',
- '@type': 'WebPage',
- '@id': `${canonicalHref}#webpage`,
- url: canonicalHref,
- name: fullTitle,
- isPartOf: { '@id': 'https://bighornthreads.com/#organization' },
- ...(publishedDate ? { datePublished: publishedDate } : {}),
- dateModified: new Date().toISOString().slice(0, 10),
- speakable: {
- '@type': 'SpeakableSpecification',
- cssSelector: ['h1', '.speakable-answer'],
- },
-})} />

@@ -24,7 +24,7 @@ export async function onRequestPost({ request, env }) {
     return jsonResponse({ ok: true, contactId: null, spam: true })
   }
 
-  // Cloudflare Turnstile — bot challenge (skipped until TURNSTILE_SECRET is set)
+  // Cloudflare Turnstile — fail closed if verification is unavailable or misconfigured
   const verified = await verifyTurnstile({ env, request, token: body['cf-turnstile-response'] })
   if (!verified) {
     return errorResponse('Verification failed. Please refresh and try again.', 400)

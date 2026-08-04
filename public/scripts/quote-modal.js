@@ -334,7 +334,7 @@ function buildBody(product) {
   const submitRow = el('div', { class: 'flex flex-col-reverse gap-3 border-t border-navy-800 pt-5 sm:flex-row sm:items-center sm:justify-between' })
   submitRow.appendChild(el('p', {
     class: 'text-xs text-gray-500',
-    text: 'Quotes back inside 24 hours. No setup fees, no spam.',
+    text: 'Send the order details for a current quote. No spam.',
   }))
   const submitBtn = el('button', {
     type: 'submit',
