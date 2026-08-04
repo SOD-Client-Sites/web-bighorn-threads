@@ -16,15 +16,15 @@
     "deploy": "npm run deploy:pages && npm run gsc:submit"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.2",
-    "@tailwindcss/typography": "^0.5.19",
-    "@tailwindcss/vite": "^4.2.2",
-    "astro": "^6.1.5",
-    "tailwindcss": "^4.2.2"
+    "@astrojs/sitemap": "^3.7.3",
+    "@tailwindcss/typography": "^0.5.20",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.1.6",
+    "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.8",
-    "nodemailer": "^8.0.7",
+    "@astrojs/check": "^0.9.10",
+    "nodemailer": "^9.0.4",
     "typescript": "^5.9.3"
   }
 }
