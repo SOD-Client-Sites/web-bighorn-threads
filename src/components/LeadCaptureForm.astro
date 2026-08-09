@@ -128,6 +128,7 @@ const labelCls = 'mb-1 block font-mono text-[11px] font-bold uppercase tracking-
       quantity: String(fd.get('quantity') || '').trim(),
       product: String(fd.get('product') || '').trim(),
       details: String(fd.get('details') || '').trim(),
+      bh_hp_field: String(fd.get('bh_hp_field') || ''),
       smsTransactionalConsent: fd.get('smsTransactionalConsent') || '',
       smsMarketingConsent: fd.get('smsMarketingConsent') || '',
       sourceUrl: window.location.href,
@@ -143,8 +144,8 @@ const labelCls = 'mb-1 block font-mono text-[11px] font-bold uppercase tracking-
       })
       const data = await res.json().catch(() => ({}))
       if (!res.ok || !data.ok) throw new Error(data.error || `HTTP ${res.status}`)
-      // fire GA4 lead event
-      ;(window as any).dataLayer?.push({ event: 'generate_lead', form: `lp_${vertical}`, page_path: window.location.pathname })
+      // fire GA4 lead event — direct gtag() (no GTM container on this site); success-gated
+      ;(window as any).gtag?.('event', 'generate_lead', { form: `lp_${vertical}`, page_path: window.location.pathname })
       card?.classList.add('hidden')
       success?.classList.remove('hidden')
       success?.scrollIntoView({ behavior: 'smooth', block: 'center' })

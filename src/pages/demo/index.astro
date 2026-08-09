@@ -49,8 +49,8 @@ const breadcrumb = {
  See What <span class="text-gold-600">Your Branded Store</span> Would Look Like.
  </h1>
  <p class="mb-8 text-lg leading-relaxed text-ash sm:text-xl">
- We'll build a private preview page with your company name on the header, your gear in the catalog, and a private URL you can share with your team. No commitment, 
- </p>
+ We'll build a private preview page with your company name on the header, your gear in the catalog, and a private URL you can share with your team. No commitment, and it's completely free.
+</p>
 
  <ul class="mb-8 space-y-3 text-base text-ash">
  <li class="flex items-start gap-3">
@@ -137,6 +137,12 @@ const breadcrumb = {
  <p class="text-ash">Will appear on every product card.</p>
  </div>
  </div>
+ </div>
+
+ <!-- Honeypot: bots fill hidden fields; humans never see it -->
+ <div class="absolute -left-[9999px]" aria-hidden="true">
+ <label for="bh_hp_field">Leave blank</label>
+ <input type="text" name="bh_hp_field" id="bh_hp_field" tabindex="-1" autocomplete="off" />
  </div>
 
  <div class="cf-turnstile" data-sitekey="0x4AAAAAADW_K97ZyhlAHC4I" data-theme="light"></div>
@@ -288,6 +294,7 @@ const breadcrumb = {
  trade: payload.lead.trade,
  crewSize: payload.lead.crewSize,
  sourceUrl: window.location.href,
+ bh_hp_field: (form.querySelector('[name="bh_hp_field"]') as HTMLInputElement | null)?.value || '',
  'cf-turnstile-response': (form.querySelector('[name="cf-turnstile-response"]') as HTMLInputElement | null)?.value || '',
  }),
  signal: AbortSignal.timeout(8000),

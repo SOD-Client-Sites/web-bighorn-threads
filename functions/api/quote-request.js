@@ -74,6 +74,7 @@ export async function onRequestPost({ request, env }) {
       method: 'POST',
       body: JSON.stringify({
         locationId,
+        contactUniqueIdentifiers: ['email'],
         firstName,
         lastName,
         name,

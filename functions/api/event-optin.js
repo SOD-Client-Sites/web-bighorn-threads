@@ -60,6 +60,7 @@ export async function onRequestPost({ request, env }) {
   try {
     const upsertBody = {
       locationId,
+      contactUniqueIdentifiers: ['email'],
       firstName,
       lastName,
       name: `${firstName} ${lastName}`,

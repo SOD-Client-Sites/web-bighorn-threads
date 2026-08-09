@@ -65,8 +65,10 @@ export async function sagePost(serviceId, payload, auth, ref) {
   })
   if (!res.ok) throw new Error(`SAGE ${serviceId} HTTP ${res.status}`)
   const data = await res.json()
-  if (!data.ok && data.errNum) {
-    throw new Error(`SAGE ${serviceId} err ${data.errNum}: ${data.errMsg}`)
+  if (!data.ok) {
+    // Fail loud on any unsuccessful SAGE response — an ok:false without errNum
+    // was previously swallowed and surfaced to users as "no results".
+    throw new Error(`SAGE ${serviceId} err ${data.errNum ?? 'unknown'}: ${data.errMsg ?? 'unsuccessful response'}`)
   }
   checkSchema(serviceId, data)
   return data

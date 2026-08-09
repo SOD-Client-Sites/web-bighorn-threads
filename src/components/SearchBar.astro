@@ -16,7 +16,15 @@ const {
 const heightClass = size === 'lg' ? 'h-14 text-base' : size === 'sm' ? 'h-10 text-sm' : 'h-12 text-sm'
 ---
 
-<form method="get" action={action} class="w-full" role="search">
+{/*
+ Catalog search is intentionally NOT a <form>. A native form submit is captured
+ by GoHighLevel's external-tracking script (loaded site-wide) as a lead form,
+ which fabricates a blank "external_form" contact on every search. The results
+ page (catalog-search.js) already reads ?q client-side, so we navigate via JS
+ and keep the exact same UX without tripping the CRM tracker. role="search" +
+ the label preserve accessibility.
+*/}
+<div class="w-full" role="search" data-search data-action={action}>
  <label class="sr-only" for="catalog-search">Search products</label>
  <div class={`relative flex items-center ${heightClass}`}>
  <svg class="pointer-events-none absolute left-4 h-4 w-4 text-gold-500/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -30,13 +38,40 @@ const heightClass = size === 'lg' ? 'h-14 text-base' : size === 'sm' ? 'h-10 tex
  placeholder={placeholder}
  maxlength="120"
  autocomplete="off"
+ enterkeyhint="search"
+ data-search-input
  class="h-full w-full rounded-lg border border-navy-700/80 bg-navy-950/90 pl-11 pr-28 text-white placeholder:text-gray-500 focus:border-gold-500 focus:outline-none focus:ring-1 focus:ring-gold-500/40"
  />
  <button
- type="submit"
+ type="button"
+ data-search-go
  class="absolute right-1.5 inline-flex items-center gap-1 rounded-md bg-gold-500 px-4 py-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.15em] text-navy-950 transition-colors hover:bg-gold-400"
  >
  Search
  </button>
  </div>
-</form>
+</div>
+
+<script>
+ function runSearch(container: Element) {
+ const input = container.querySelector<HTMLInputElement>('[data-search-input]')
+ const action = container.getAttribute('data-action') || '/catalog/search/'
+ const q = (input?.value || '').trim()
+ if (!q) {
+ input?.focus()
+ return
+ }
+ const sep = action.includes('?') ? '&' : '?'
+ window.location.assign(`${action}${sep}q=${encodeURIComponent(q)}`)
+ }
+
+ document.querySelectorAll('[data-search]').forEach((container) => {
+ container.querySelector('[data-search-go]')?.addEventListener('click', () => runSearch(container))
+ container.querySelector('[data-search-input]')?.addEventListener('keydown', (e) => {
+ if ((e as KeyboardEvent).key === 'Enter') {
+ e.preventDefault()
+ runSearch(container)
+ }
+ })
+ })
+</script>

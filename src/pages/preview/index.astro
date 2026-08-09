@@ -96,7 +96,7 @@ const subcats = Array.from(new Set(tagged.map((p) => p.subcat)))
  <div>
  <p class="mb-1 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Demo Only</p>
  <p class="text-sm leading-snug text-charcoal sm:text-base">
- These are sample products. <span class="font-semibold">Your real branded store</span> is built with your curated gear and locked pricing in about fast.
+ These are sample products. <span class="font-semibold">Your real branded store</span> is built with your curated gear and pricing you approve up front.
  </p>
  </div>
  <a id="cta-email-top" href="#" class="inline-flex min-h-[44px] shrink-0 items-center gap-2 bg-charcoal px-5 py-2.5 font-mono text-xs font-bold uppercase tracking-[0.1em] text-concrete transition-colors hover:bg-charcoal/90">
@@ -107,7 +107,7 @@ const subcats = Array.from(new Set(tagged.map((p) => p.subcat)))
  </aside>
 
  <div class="mb-5 flex items-baseline justify-between">
- <h2 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal sm:text-xl">Men's</h2>
+ <h2 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal sm:text-xl">Featured Gear</h2>
  <span id="visible-count" class="font-mono text-[11px] uppercase tracking-wider text-ash">{tagged.length} items</span>
  </div>
 
@@ -137,8 +137,8 @@ const subcats = Array.from(new Set(tagged.map((p) => p.subcat)))
  <span class="font-mono text-[10px] uppercase tracking-wider text-ash">{p.colors} colors</span>
  )}
  </div>
- <button type="button" class="mt-1 w-full bg-charcoal py-2 font-mono text-[11px] font-bold uppercase tracking-wider text-concrete transition-colors hover:bg-charcoal/90">
- Select Options
+ <button type="button" disabled aria-disabled="true" title="Ordering unlocks when your real store goes live" class="mt-1 w-full cursor-not-allowed bg-charcoal/60 py-2 font-mono text-[11px] font-bold uppercase tracking-wider text-concrete/80">
+ Sample · Orders in your live store
  </button>
  </div>
  </article>
@@ -161,7 +161,7 @@ const subcats = Array.from(new Set(tagged.map((p) => p.subcat)))
  Want <span id="cta-company"></span>'s real ordering portal?
  </h2>
  <p class="mb-8 text-lg leading-relaxed text-navy-200">
- We'll build your private branded store with your logo, your colors, your crew's gear and pricing locked in. Your team logs in, picks sizes, gear ships direct. Live fast.
+ We'll build your private branded store with your logo, your colors, your crew's gear and pricing locked in. Your team logs in, picks sizes, gear ships direct. Live in about a week.
  </p>
  <div class="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
  <a id="cta-email" href="#" class="btn-primary text-base">

@@ -87,6 +87,7 @@ export async function onRequestPost({ request, env }) {
   try {
     const upsertBody = {
       locationId,
+      contactUniqueIdentifiers: ['email'],
       email,
       source: `bighornthreads.com — ${verticalLabel} company store LP`,
       tags: ['company-store-lead', `segment-${verticalSlug}`, `industry-${verticalSlug}`, ...consent.tags],

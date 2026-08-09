@@ -36,8 +36,8 @@ const { heroImage } = Astro.props
  document.addEventListener('click', function (e) {
  const a = e.target.closest('a[href^="tel:"]');
  if (a) {
+ // No PII (phone number) in GA4 params — violates Google policy. Track the click only.
  gtag('event', 'phone_click', {
- phone_number: a.getAttribute('href').replace('tel:', ''),
  link_text: (a.textContent || '').trim().slice(0, 80),
  page_path: window.location.pathname,
  lp_source: sessionStorage.getItem('lp_source') || window.location.pathname,
@@ -45,8 +45,8 @@ const { heroImage } = Astro.props
  }
  const mailto = e.target.closest('a[href^="mailto:"]');
  if (mailto) {
+ // No PII (email) in GA4 params.
  gtag('event', 'email_click', {
- email: mailto.getAttribute('href').replace('mailto:', ''),
  page_path: window.location.pathname,
  lp_source: sessionStorage.getItem('lp_source') || window.location.pathname,
  });
@@ -72,13 +72,10 @@ const { heroImage } = Astro.props
  if (!form || form.tagName !== 'FORM') return;
  const id = form.id || form.getAttribute('name') || 'unknown';
  const lpSource = sessionStorage.getItem('lp_source') || window.location.pathname;
- if (id === 'quoteForm') {
- gtag('event', 'generate_lead', { form: 'contact_quote', page_path: window.location.pathname, lp_source: lpSource });
- } else if (id === 'optinForm') {
- gtag('event', 'event_optin', { form: 'event_opt_in', page_path: window.location.pathname, lp_source: lpSource });
- } else {
+ // Attempt-level metric only. Success conversions (generate_lead / event_optin)
+ // are fired success-gated by each form's own handler / thanks page, so we do
+ // NOT fire them here (avoids double-counting and counting failed submits).
  gtag('event', 'form_submit', { form_id: id, page_path: window.location.pathname, lp_source: lpSource });
- }
  }, true);
  </script>
  <script src="https://cdn.idpixel.app/v1/idp-analytics-6a0ddfa583e9dbc113e83095.min.js" data-ga4-key="G-ZGGY24PN1Z" defer></script>
