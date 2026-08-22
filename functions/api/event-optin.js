@@ -1,17 +1,24 @@
 // Bighorn Threads — Event opt-in endpoint (QR landing pages at golf, expos, etc).
 // Validates POST body, upserts contact in GHL, applies the event tag.
-// Tag is sent from the form so the same endpoint serves every event.
+// Every allowed event is mapped server-side so visitors cannot apply arbitrary
+// tags that may trigger unrelated GHL workflows.
 
 import { parseSmsConsent } from './_consent.js'
+import { formatAttributionNote, scheduleOriginalAttribution } from './_attribution.js'
 import { verifyTurnstile } from './_turnstile.js'
+import { COMMON_FIELD_LIMITS, safeErrorName, validatePayload } from './_validation.js'
 
 const GHL_BASE = 'https://services.leadconnectorhq.com'
 const GHL_API_VERSION = '2021-07-28'
 const DEFAULT_TAG = 'event-optin'
+const EVENTS = {
+  'event-golf-tournament': 'Golf Tournament 2026',
+}
 
 const REQUIRED_FIELDS = ['firstName', 'lastName', 'email', 'business']
 
-export async function onRequestPost({ request, env }) {
+export async function onRequestPost(context) {
+  const { request, env } = context
   let body
   try {
     body = await request.json()
@@ -23,6 +30,12 @@ export async function onRequestPost({ request, env }) {
   if (body.bh_hp_field && String(body.bh_hp_field).trim()) {
     return jsonResponse({ ok: true, contactId: null, spam: true })
   }
+
+  const validationError = validatePayload(body, {
+    ...COMMON_FIELD_LIMITS,
+    eventTag: 100,
+  })
+  if (validationError) return errorResponse(validationError, 400)
 
   // Cloudflare Turnstile — fail closed if verification is unavailable or misconfigured
   const verified = await verifyTurnstile({ env, request, token: body['cf-turnstile-response'] })
@@ -53,8 +66,10 @@ export async function onRequestPost({ request, env }) {
   const phone = body.phone ? String(body.phone).trim() : ''
   const business = String(body.business).trim()
   const eventTag = (body.eventTag && String(body.eventTag).trim()) || DEFAULT_TAG
-  const eventLabel = (body.eventLabel && String(body.eventLabel).trim()) || eventTag
+  const eventLabel = EVENTS[eventTag]
+  if (!eventLabel) return errorResponse('Unknown event', 400)
   const consent = parseSmsConsent(body, body.consentUrl)
+  if (consent.any && !phone) return errorResponse('Phone is required when SMS consent is selected', 400)
 
   let contactId = null
   try {
@@ -66,7 +81,6 @@ export async function onRequestPost({ request, env }) {
       email,
       companyName: business,
       source: eventLabel,
-      tags: [eventTag, 'event-optin', ...consent.tags],
     }
     if (phone) upsertBody.phone = phone
     const upsertRes = await ghlFetch(`${GHL_BASE}/contacts/upsert`, token, {
@@ -74,37 +88,55 @@ export async function onRequestPost({ request, env }) {
       body: JSON.stringify(upsertBody),
     })
     if (!upsertRes.ok) {
-      const text = await safeText(upsertRes)
-      console.error('[event-optin] upsert failed', upsertRes.status, text)
+      console.error('[event-optin] GHL request failed', { operation: 'contact-upsert', status: upsertRes.status })
       return errorResponse(`GHL upsert failed (${upsertRes.status})`, 502)
     }
     const upsertData = await upsertRes.json()
     contactId = upsertData?.contact?.id || upsertData?.id || upsertData?.contactId
     if (!contactId) return errorResponse('GHL upsert returned no contact id', 502)
   } catch (err) {
-    console.error('[event-optin] upsert threw', err)
+    console.error('[event-optin] GHL request threw', { operation: 'contact-upsert', error: safeErrorName(err) })
     return errorResponse('GHL upsert error', 502)
   }
 
-  try {
-    await ghlFetch(`${GHL_BASE}/contacts/${contactId}/tags`, token, {
-      method: 'POST',
-      body: JSON.stringify({ tags: [eventTag, 'event-optin', ...consent.tags] }),
-    })
-  } catch (err) {
-    console.warn('[event-optin] tag add failed (non-fatal)', err)
-  }
+  await scheduleOriginalAttribution({
+    waitUntil: typeof context.waitUntil === 'function' ? context.waitUntil.bind(context) : undefined,
+    label: 'event-optin',
+    contactId,
+    token,
+    data: body,
+    fallbackDetail: `${eventLabel} event opt-in`,
+  })
 
   // Append a note so every opt-in leaves its own timestamped record,
   // even when upsert merges into an existing contact.
   try {
-    const noteBody = `Opt-in: ${eventLabel} (${eventTag}) — ${new Date().toISOString()}\nName: ${firstName} ${lastName}\nPhone: ${phone}\nEmail: ${email}\nBusiness: ${business}\n${consent.noteBlock}`
-    await ghlFetch(`${GHL_BASE}/contacts/${contactId}/notes`, token, {
+    const noteBody = `Opt-in: ${eventLabel} (${eventTag}) | ${new Date().toISOString()}\nName: ${firstName} ${lastName}\nPhone: ${phone}\nEmail: ${email}\nBusiness: ${business}\n${consent.noteBlock}${formatAttributionNote(body)}`
+    const noteRes = await ghlFetch(`${GHL_BASE}/contacts/${contactId}/notes`, token, {
       method: 'POST',
       body: JSON.stringify({ body: noteBody }),
     })
+    if (!noteRes.ok) {
+      console.error('[event-optin] GHL request failed', { operation: 'contact-note', status: noteRes.status })
+      return errorResponse('Contact saved, but consent record failed', 502)
+    }
   } catch (err) {
-    console.warn('[event-optin] note add failed (non-fatal)', err)
+    console.error('[event-optin] GHL request threw', { operation: 'contact-note', error: safeErrorName(err) })
+    return errorResponse('Contact saved, but consent record failed', 502)
+  }
+
+  try {
+    const tagRes = await ghlFetch(`${GHL_BASE}/contacts/${contactId}/tags`, token, {
+      method: 'POST',
+      body: JSON.stringify({ tags: [eventTag, 'event-optin', ...consent.tags] }),
+    })
+    if (!tagRes.ok) {
+      console.error('[event-optin] GHL request failed', { operation: 'contact-tags', status: tagRes.status })
+      return errorResponse('Contact saved, but lead routing failed', 502)
+    }
+  } catch (err) {
+    console.error('[event-optin] GHL request threw', { operation: 'contact-tags', error: safeErrorName(err) })
+    return errorResponse('Contact saved, but lead routing failed', 502)
   }
 
   return jsonResponse({ ok: true, contactId })
@@ -122,10 +154,6 @@ function ghlFetch(url, token, init = {}) {
     },
     signal: AbortSignal.timeout(15_000),
   })
-}
-
-async function safeText(res) {
-  try { return await res.text() } catch (_) { return '' }
 }
 
 function jsonResponse(payload, status = 200) {

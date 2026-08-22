@@ -16,17 +16,17 @@ const post = {
 const faqs = [
  { q: 'What is embroidery?', a: 'Embroidery is a decoration method that stitches a design directly into fabric using thread. A digital file (the "stitch file") tells a multi-needle embroidery machine where to place each stitch — building up a design out of thousands of individual stitches in different colors. The result is a textured, durable design that\'s woven into the fabric rather than printed on top.' },
  { q: 'How does an embroidery machine work?', a: 'A commercial multi-needle machine clamps the garment into a hoop, then moves the hoop in X/Y axes under a stationary needle that\'s threaded with one of multiple color spools. The machine reads a stitch file and places each stitch in sequence, switching needles automatically when a color change is needed. A 6-head machine does this on six garments simultaneously.' },
- { q: 'What\'s the embroidery process from logo to finished shirt?', a: 'Six steps: (1) digitize the logo into a stitch file, (2) hoop the garment to hold it taut, (3) load the stitch file into the machine, (4) thread the machine with the colors needed, (5) run the machine — typically 5-15 minutes per garment depending on stitch count, (6) trim loose threads and inspect. Repeat across the order quantity.' },
- { q: 'How is embroidery different from screen printing?', a: 'Embroidery stitches thread into the fabric; screen printing pushes ink through a mesh stencil onto the surface. Embroidery has texture and dimension; screen printing is flat. Embroidery handles small detailed logos on knits and wovens; screen printing handles large bold designs at volume. Most companies use both — embroidery on polos and hats, screen printing on tees and hoodies.' },
- { q: 'What makes a logo embroider well?', a: 'Bold, simple designs with distinct elements work best. Fine lines under 1mm wide can drop out; very small text becomes illegible; gradients don\'t translate to thread. The cleanest embroidery comes from logos that were designed for embroidery or simplified for stitch — a "stitch-optimized" version of a complex logo often looks better than the original.' },
- { q: 'Can you embroider on any fabric?', a: 'Most fabrics yes — cotton, polyester blends, performance fabrics, denim, canvas, and leather (with sewn-on patches) all embroider. Knit fabrics (polos, t-shirts) need backing material to keep the stitches stable; very stretchy fabrics (some performance polos) require special hooping. Solo polyester (polos, athletic wear) embroiders cleanly without dye-migration concerns.' },
- { q: 'How long has embroidery been around?', a: 'Hand embroidery dates back thousands of years across many cultures. Industrial embroidery machines have been around since the late 1800s; modern computer-controlled multi-needle embroidery machines (the kind used in commercial shops today) became standard in the 1980s. The fundamental process — building a design out of stitches — is unchanged.' },
+ { q: 'What\'s the embroidery process from logo to finished shirt?', a: 'The production partner digitizes the logo, hoops the garment with suitable backing, loads the stitch file and thread, runs the machine, then trims and inspects the result. Timing depends on the design, stitch count, garment, machine, and order.' },
+ { q: 'How is embroidery different from screen printing?', a: 'Embroidery uses thread while screen printing applies an approved ink system. The exact garment, artwork, placement, quantity, feel, care, setup, and partner determine method fit.' },
+ { q: 'What makes a logo suitable for embroidery?', a: 'The production partner reviews the exact artwork, size, garment, backing, hooping, thread, machine, and digitizing. Fine details, text, gradients, and effects may require adjustment before approval.' },
+ { q: 'Can you embroider on any fabric?', a: 'No. Compatibility depends on the exact fabric, garment construction, logo, density, backing, hooping, and placement. The production partner should confirm the proposed method and proof for the selected product.' },
+ { q: 'How long has embroidery been around?', a: 'Embroidery has a long history across many cultures. This guide focuses on the current commercial process rather than making a specific historical timeline claim.' },
 ]
 
 const schema = {
  '@context': 'https://schema.org',
  '@graph': [
- { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: post.isoDate, author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
+ { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: '2026-08-21', author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
  { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' }, { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` }] },
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
@@ -53,7 +53,7 @@ const speakableSchema = {
  <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-600">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-600">Blog</a></nav>
  <span class="kicker mb-3">{post.category}</span>
  <h1 class="mb-6 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl lg:text-5xl">{post.title}</h1>
- <p class="mb-8 text-xl leading-relaxed text-ash">A plain-English guide to the most premium decoration method in custom apparel — how it works, when it wins, and what makes a logo embroider well.</p>
+ <p class="mb-8 text-xl leading-relaxed text-ash">A plain-English guide to commercial embroidery, how it works, where it may fit, and what makes a logo suitable for stitching.</p>
  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
  </header>
@@ -62,7 +62,7 @@ const speakableSchema = {
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Embroidery is a decoration method that stitches a design directly into fabric using thread. A digital "stitch file" tells a multi-needle embroidery machine where to place each stitch in sequence, building up a design out of thousands of individual stitches. The result is a premium, textured design that's woven into the fabric — durable, washable, and the standard for polos, button-downs, hats, and jackets.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Embroidery stitches a digitized design into a compatible garment using thread. The result is textured and can suit polos, button-downs, hats, jackets, and other approved products. Appearance and durability depend on the garment, stitch design, thread, backing, placement, production, and care.</p>
  </aside>
 
  <h2 id="how-it-works" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">How Embroidery Works, Step by Step</h2>
@@ -71,32 +71,32 @@ const speakableSchema = {
  <li><strong>Hoop the garment.</strong> The garment is clamped into a hoop with stabilizer backing on the underside. The hoop holds the fabric taut so stitches sit flat without puckering.</li>
  <li><strong>Load the stitch file.</strong> The stitch file is loaded into the embroidery machine via USB or network connection.</li>
  <li><strong>Thread the machine.</strong> The needles are threaded with the thread colors needed for the design. A multi-needle machine has 6-15+ needles, each with its own color.</li>
- <li><strong>Run the machine.</strong> The machine moves the hoop under the needle in X/Y axes, placing each stitch from the file. Color changes happen automatically — the machine swaps needles. Typical run time is 5-15 minutes per garment depending on stitch count.</li>
+ <li><strong>Run the machine.</strong> The machine places the stitches from the approved file. Run time depends on stitch count, color changes, garment handling, machine, and production setup.</li>
  <li><strong>Trim and inspect.</strong> After the design completes, jump-stitch threads (threads that connected one part of the design to another) are trimmed by hand and the finished garment is inspected for thread breaks or skipped stitches.</li>
  </ol>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">A 6-head commercial machine does this on six garments simultaneously, producing roughly 30-45 finished pieces per hour at typical stitch counts.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Multi-head machines can decorate several garments in one run. Actual throughput depends on the machine, design, garment, setup, trims, and inspection.</p>
 
  <h2 id="what-makes-it-work" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">What Makes a Logo Embroider Well</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">Not every logo translates cleanly to embroidery. Five characteristics of designs that embroider well:</p>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Bold and distinct elements.</strong> Solid shapes and clear letterforms read crisply at chest-logo sizes.</li>
- <li><strong>Limited fine detail.</strong> Lines under 1mm wide tend to drop out — they\'re too narrow for stitches to render reliably.</li>
- <li><strong>Limited color count.</strong> 6-12 colors is the practical sweet spot; beyond that you start losing impact.</li>
- <li><strong>No gradients.</strong> Embroidery is solid colors of thread; gradients have to be approximated with thread blending which doesn\'t look the same as a printed gradient.</li>
- <li><strong>Readable at the intended size.</strong> A complex logo at 5 inches looks fine; the same logo at 1.5 inches becomes a blur.</li>
+ <li><strong>Reviewed fine detail.</strong> The digitizer confirms whether lines, text, and small elements need adjustment.</li>
+ <li><strong>Approved color plan.</strong> Thread colors and color changes depend on the artwork and production setup.</li>
+ <li><strong>Reviewed effects.</strong> Gradients, shadows, and transparencies may need a production-specific interpretation.</li>
+ <li><strong>Readable at the intended size.</strong> Approve the exact dimensions and treatment in the proof or sample.</li>
  </ul>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">For deeper background see <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">logo digitizing 101</a> — the digitizing file is the single biggest predictor of how good the embroidery looks.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">For deeper background, see <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">logo digitizing 101</a>. The digitizing file is one important part of the result, along with the garment, thread, backing, size, and production settings.</p>
 
  <h2 id="when-to-choose" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">When to Choose Embroidery Over Screen Printing</h2>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Embroidery wins on:</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Embroidery may be worth comparing for:</p>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
- <li><strong>Polos, button-downs, jackets, hats.</strong> The premium look of stitched thread on these garment types reads as established business in a way printing never does.</li>
- <li><strong>Small batches.</strong> Under 24 pieces, embroidery is competitive on per-piece cost.</li>
- <li><strong>Performance fabrics.</strong> Polyester polos take embroidery cleanly without dye-migration issues.</li>
- <li><strong>Multi-color logos with fine detail.</strong> Embroidery handles fine detail better than screen printing on knit fabrics.</li>
- <li><strong>FR-rated apparel.</strong> Decoration on FR garments uses Nomex thread, which is exclusively an embroidery technique.</li>
+ <li><strong>Polos, button-downs, jackets, and hats.</strong> Compare the desired texture and appearance on the exact product.</li>
+ <li><strong>Different quantities.</strong> Compare current setup, minimum, and unit pricing for the exact order.</li>
+ <li><strong>Selected fabrics.</strong> The production partner must confirm compatibility with the exact garment.</li>
+ <li><strong>Detailed artwork.</strong> Compare embroidery and other eligible methods against the exact artwork, size, and product.</li>
+ <li><strong>Protective apparel.</strong> The employer selects the garment, and current manufacturer instructions determine whether and how it may be decorated. Do not assume thread or embroidery preserves a protective rating.</li>
  </ul>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">For broader comparison see <a href="/blog/what-is-screen-printing/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">what is screen printing</a> and <a href="/blog/screen-printing-vs-embroidery-construction/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">screen printing vs embroidery</a>.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">For broader comparison see <a href="/blog/what-is-screen-printing/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">what is screen printing</a> and <a href="/screen-printing-vs-embroidery-construction-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">screen printing vs embroidery</a>.</p>
 
  <h2 id="costs" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">What Drives Embroidery Cost</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">Five factors:</p>
@@ -110,20 +110,20 @@ const speakableSchema = {
  <p class="mb-6 text-lg leading-relaxed text-charcoal">For full pricing context see <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">how much it costs to embroider a shirt</a>, or the polo-specific numbers in <a href="/blog/how-much-to-embroider-a-polo/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">how much it costs to embroider a polo</a>.</p>
 
  <h2 id="durability" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">How Long Does Embroidery Last?</h2>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Embroidered designs typically last as long as the garment itself — the thread is woven through the fabric so there's no surface print to crack, peel, or fade. Failure modes are usually unrelated to the embroidery: garment fabric wears out, gets stained, or is retired due to general wear. Properly executed embroidery survives industrial laundering and routine wash cycles indefinitely.</p>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">The exceptions: very dense embroidery on stretchy knit fabrics (some performance polos) can puckered over time as the fabric stretches around the rigid stitch area. This is rare with proper digitizing and stabilizer use.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Embroidery wear depends on the garment, thread, stitch design, backing, production quality, use, abrasion, and laundering. It does not have the same surface-film failure mode as a print, but threads can still snag, abrade, discolor, or distort.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Dense stitching on stretchy or lightweight fabric can pucker or distort. Review a proof or sample and follow the product-specific care instructions.</p>
 
  <h2 id="getting-started" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Getting Started With Custom Embroidery</h2>
  <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
- <li><strong>Pick the garment.</strong> Polo, button-down, hat, jacket — embroidery works on all of them.</li>
+ <li><strong>Pick the garment.</strong> Select a product and ask the production partner to confirm embroidery compatibility.</li>
  <li><strong>Send your logo.</strong> Vector format (.ai, .eps) is best.</li>
- <li><strong>Specify quantity and placements.</strong> Most chest-logo programs run 12-24 pieces minimum to amortize digitizing.</li>
+ <li><strong>Specify quantity and placements.</strong> Request the current minimum, setup, and unit pricing in writing.</li>
  <li><strong>Get a digital proof.</strong> A good shop will send you the digitized stitch file rendered before running the machine, so you approve the look before production.</li>
  </ol>
 
  <div class="mt-12 border border-hairline bg-panel p-7 sm:p-9">
  <h2 class="mb-3 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal">Custom embroidery in Las Vegas</h2>
- <p class="mb-5 text-lg leading-relaxed text-ash">Bighorn Threads runs commercial embroidery for Vegas contractors, trade businesses, and service companies — multi-head industrial production, FR-safe Nomex thread, digitizing in-house.</p>
+ <p class="mb-5 text-lg leading-relaxed text-ash">Bighorn Threads coordinates commercial embroidery for Vegas contractors, trade businesses, and service companies. Production partners handle embroidery and digitizing for each approved order.</p>
  <a href="/services/embroidery-las-vegas/" class="btn-primary text-base">See Our Embroidery Service →</a>
  </div>
  </div>

@@ -25,10 +25,10 @@ const tiers = [
 
 const faqs = [
  { q: 'How much does custom apparel cost for a team of 50?', a: 'There is no reliable total without a garment and decoration specification. Define the roles, pieces per person, garments, artwork, decoration, delivery, and any jobsite requirements, then request an itemized quote.' },
- { q: 'What drives the price range so wide for the same garment?', a: 'Three things: garment quality (a basic tee vs. a heavyweight moisture-wicking tee), decoration complexity (1-color logo vs. multi-color or large-format art), and compliance requirements (standard fabric vs. FR-rated or ANSI hi-vis, which require certified thread, ink, or placement verification).' },
+ { q: 'What drives the price range so wide for the same garment?', a: 'Garment, artwork, colors, placements, quantity, setup, partner capacity, and delivery can all affect price. Protective apparel also requires employer approval and current manufacturer decoration instructions.' },
  { q: 'Does the price include the embroidery digitizing fee?', a: 'Confirm whether artwork preparation or digitizing is included as a separate line item. Reorder terms should also be documented in the quote.' },
- { q: 'Is it cheaper to mix screen printing and embroidery for a 50-person crew?', a: 'Usually, yes. Field staff in screen-printed tees and office or client-facing staff in embroidered polos is the standard split — it keeps the higher embroidery cost limited to the roles where it matters most. See our screen printing vs. embroidery breakdown for the full decision framework.' },
- { q: 'How do FR and ANSI requirements change the budget for 50 people?', a: 'If a portion of your crew needs FR or ANSI-rated gear — common on construction and utility jobsites — budget the higher end of the per-unit range for those roles specifically, not the whole order. Most crews only need compliance gear for field staff, with standard apparel for office and sales roles.' },
+ { q: 'Is it cheaper to mix screen printing and embroidery for a 50-person crew?', a: 'It can be. Split the quote by role, garment, and decoration method. Compare the same approved specifications before choosing.' },
+ { q: 'How do protective apparel requirements change the budget for 50 people?', a: 'Price each employer-approved protective garment separately. The exact rating, product, size range, documentation, decoration permission, and quantity affect the quote.' },
  { q: 'How fast can Bighorn Threads quote a 50-person order?', a: 'Quote timing depends on whether the garment, artwork, decoration, quantity, delivery, and jobsite requirements are complete. Send those details for an itemized quote and a current response estimate.' },
 ]
 
@@ -38,7 +38,7 @@ const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList'
  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
  { '@type': 'ListItem', position: 2, name: 'Cost for a Team of 50', item: page.url },
 ] }
-const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: page.title, description: page.description, url: page.url, publisher: { '@type': 'Organization', name: 'Bighorn Threads' }, datePublished: '2026-07-08', dateModified: '2026-07-08' }
+const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: page.title, description: page.description, url: page.url, publisher: { '@type': 'Organization', name: 'Bighorn Threads' }, datePublished: '2026-07-08', dateModified: '2026-08-21' }
 const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }
 ---
 
@@ -61,7 +61,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  What 50 people in custom gear <span class="text-gold-400">actually costs.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- Real per-piece pricing, broken down by garment and decoration method, so you can budget before you call.
+ Build a specification by garment and decoration method, then request current per-piece pricing.
  </p>
  <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
  <a href="/get-a-quote/" class="btn-primary text-base">
@@ -134,19 +134,19 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">How to budget for 50 people without guessing.</h2>
  <div class="space-y-5 text-lg leading-relaxed text-ash">
  <p>
- Fifty people is the size where apparel budgets start to swing wildly if you don't separate by role. Office and sales staff in embroidered polos cost more per piece but you need fewer of them. Field staff in screen-printed tees cost less per piece but you typically order more — two or three per person for rotation.
+ A 50-person apparel budget becomes clearer when you separate roles. Build each group around the required garment, decoration, quantity, and job conditions.
  </p>
  <p>
- The fastest way to land a real number: split your 50 by role, multiply each group by its garment and decoration method, and add digitizing once (not per order). Our <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">embroidered shirt pricing guide</a> and <a href="/blog/how-much-to-embroider-a-polo/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">embroidered polo pricing guide</a> break down exactly what moves the per-unit cost up or down.
+ To get a useful number, split your 50 by role and define each garment and decoration method. Ask the quote to show any artwork preparation, setup, reuse, and retention terms. Our <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">embroidered shirt pricing guide</a> and <a href="/blog/how-much-to-embroider-a-polo/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">embroidered polo pricing guide</a> explain common cost drivers.
  </p>
  <p>
- If any portion of your 50-person crew needs FR-rated or ANSI hi-vis gear — common on construction and utility jobsites — budget those roles separately at the higher end of the range. Compliance gear costs more because the thread, ink, and placement all have to hold a certification, not just look right.
+ If any role needs protective or high-visibility apparel, price the employer-approved product separately. Follow the exact manufacturer's current decoration instructions. Thread choice alone does not preserve a garment rating or certification.
  </p>
  <p>
- Quantity also matters more than people expect. Our <a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">minimum order quantity guide</a> shows where embroidery starts beating screen print on small per-role batches, and where the math flips once you're ordering 24+ of one item. And if you're planning headcount by role rather than just total shirts, our <a href="/blog/how-many-shirts-per-crew-member-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">how many shirts per crew member</a> guide gives you a per-role starting point.
+ Quantity can affect setup and unit pricing. Our <a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">minimum order quantity guide</a> explains what to confirm. Use our <a href="/blog/how-many-shirts-per-crew-member-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">shirts per crew member guide</a> as a planning prompt, then quote your actual roster.
  </p>
  <p>
- Bighorn Threads itemizes every quote by garment and role, so you see exactly where the 50-person budget goes before you sign off — no flat per-head estimate that hides what's actually driving the cost.
+ Ask Bighorn Threads for an itemized quote by garment, role, decoration, setup, production, and fulfillment so the 50-person budget can be reviewed before approval.
  </p>
  </div>
  </div>
@@ -197,7 +197,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Get an itemized quote for your 50.</h2>
 <p class="mb-8 text-lg text-navy-200">Send your headcount by role for an itemized, specification-based quote.</p>
  <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
- <a href="/get-a-quote/" class="btn-primary text-base">Get a Free Quote</a>
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
  </div>
  </div>

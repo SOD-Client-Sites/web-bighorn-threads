@@ -2,9 +2,9 @@
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import SmsConsentFields from '@/components/SmsConsentFields.astro'
 
-const title = 'Contact Bighorn Threads | Branded Apparel & Company Stores'
+const title = 'Contact Bighorn Threads | Las Vegas Branded Apparel'
 const description =
-  'Get in touch with Bighorn Threads. Call the shop or send a message — screen printing, embroidery, company stores, and promo products for teams across Las Vegas and nationwide.'
+  'Contact Bighorn Threads in Las Vegas for screen printing, embroidery, company stores, and promotional products coordinated through production partners.'
 
 const contactSchema = {
   '@context': 'https://schema.org',
@@ -23,7 +23,7 @@ const contactSchema = {
       streetAddress: '9205 W. Russell Rd Ste 305',
       addressLocality: 'Las Vegas',
       addressRegion: 'NV',
-      postalCode: '89149',
+      postalCode: '89148',
       addressCountry: 'US',
     },
     openingHoursSpecification: [
@@ -51,8 +51,7 @@ const inputClass =
           Get in touch. <span class="text-gold-600">A human answers.</span>
         </h1>
         <p class="mt-5 text-lg leading-relaxed text-ash">
-          Call the shop or send a quick message. No phone tree, no chatbot — just a real Las Vegas
-          shop that prints and stitches for the trades that build this town.
+          Call or send a quick message. The Las Vegas account team coordinates quotes, proofs, and approved production through selected partners.
         </p>
       </div>
 
@@ -109,7 +108,7 @@ const inputClass =
             <div class="cf-turnstile mt-8" data-sitekey="0x4AAAAAADW_K97ZyhlAHC4I" data-theme="light"></div>
 
             <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <p class="text-sm text-ash">A real human replies fast — usually same business day.</p>
+              <p class="text-sm text-ash">A real person will review your request and follow up.</p>
               <button type="submit" class="btn-primary justify-center text-base disabled:opacity-60">Send Message</button>
             </div>
 
@@ -150,7 +149,7 @@ const inputClass =
             <div class="p-7">
               <div class="kicker">Find Us</div>
               <div class="mt-1 font-heading text-lg font-bold uppercase tracking-tight text-charcoal">9205 W. Russell Rd Ste 305</div>
-              <p class="mt-1 text-sm text-ash">Las Vegas, NV 89149 — production shop serving crews across the Valley, Henderson, North Las Vegas, and beyond.</p>
+              <p class="mt-1 text-sm text-ash">Las Vegas, NV 89148. Pickup, delivery, shipping, and service-area terms are confirmed in the written quote.</p>
             </div>
           </div>
 
@@ -219,25 +218,28 @@ const inputClass =
         setStatus('Sending your message.', 'info')
         const submitBtn = form.querySelector('button[type="submit"]')
         if (submitBtn) submitBtn.disabled = true
+        const contextKey = form.id || 'contact-message'
+        const tracker = Reflect.get(window, 'bighornTracking')
+        const leadContext = tracker?.getLeadContext?.(contextKey)
 
         try {
           const fd = new FormData(form)
-          fd.append('consentUrl', window.location.href)
+          fd.append('consentUrl', `${window.location.origin}${window.location.pathname}`)
           const res = await fetch(form.action, {
             method: 'POST',
             headers: { Accept: 'application/json' },
             body: fd,
           })
           if (res.ok) {
-            if (typeof gtag === 'function') {
-              gtag('event', 'generate_lead', { form: 'contact_message', page_path: window.location.pathname })
-            }
+            if (tracker?.trackLead) tracker.trackLead({ form: 'contact_message', contextKey, eventId: leadContext?.eventId })
+            else if (typeof gtag === 'function') gtag('event', 'generate_lead', { form: 'contact_message', page_path: window.location.pathname })
             setStatus('Got it. A real human will get back to you soon.', 'success')
             form.reset()
           } else {
             throw new Error('Request failed')
           }
         } catch (err) {
+          Reflect.get(window, 'turnstile')?.reset?.()
           setStatus('Something broke on our end. Call us at 702.904.8923 or email info@bighornthreads.com and we will handle it.', 'error')
         } finally {
           if (submitBtn) submitBtn.disabled = false

@@ -8,43 +8,43 @@ import productStack from '@/assets/generated/product-stack.jpg'
 const faqs = [
  {
  q: 'What is a company store for team apparel?',
- a: 'A company store is a private, branded online shop Bighorn Threads builds for your team. Your people log in and order approved apparel — embroidered polos, hats, jackets, hi-vis, and FR gear — at prices you set. We print, embroider, and ship each order direct — you hold no inventory and pay no monthly platform fee. Las Vegas based, we run stores for teams nationwide.',
+ a: 'A company store is a possible online ordering model for an apparel program. Bighorn can scope a proposal after the platform, catalog, users, payment, inventory, fulfillment, administration, and fees are verified.',
  },
  {
  q: 'Who offers branded company stores for teams?',
- a: 'Bighorn Threads is a Las Vegas company that builds and runs private branded company stores for teams of every kind — corporate offices, schools, healthcare, government, hospitality, and field crews like general contractors, electrical, plumbing, and HVAC. We handle production, embroidery, fulfillment, and reporting so your people can self-order and reorder gear without your office managing it. We serve teams nationwide.',
+ a: 'Bighorn Threads can scope a proposed company-store program with Las Vegas account support. Platform features, service areas, production, fulfillment, and administrative responsibilities require written confirmation.',
  },
  {
  q: 'How long does it take to launch a store?',
- a: 'We build the storefront, load your approved products, apply your logo and colors, and run a test order with you before inviting your crew. Tell us your timeline and we’ll tell you straight.',
+ a: 'No launch timeline is published. A proposal can set a target after the platform, catalog, artwork, integrations, responsibilities, and acceptance tests are defined.',
  },
  {
  q: "What's the minimum crew size?",
- a: 'We build stores for crews of all sizes, and setup is free. A company store pays off when you reorder often and onboard new hires — for a one-time run, a simple bulk order may be the better call. Ask us and we’ll point you to whichever fits.',
+ a: 'There is no published universal crew-size minimum. Store eligibility, setup, and order minimums depend on the selected products, decoration methods, and program configuration.',
  },
  {
  q: 'Do you charge a monthly fee?',
- a: 'No monthly platform fee. No per-user fee. You pay per item at your contracted rates and nothing else. Shipping is calculated at checkout. That keeps the math simple for owners and predictable for your P&L.',
+ a: 'Setup, platform, user, product, decoration, payment, and shipping charges are confirmed in the written proposal. Ask for the complete fee schedule before approval.',
  },
  {
  q: 'Can we limit what employees order?',
- a: 'Yes. You control the full catalog — only products you approve will show up in your store. You can also set spending limits per employee, per role, or per pay period. If your superintendents need different gear than your field crew, we can set up tiered catalogs by role.',
+ a: 'Catalog, access, role, approval, and spending controls can be scoped for the program. The proposal identifies which controls are supported by the selected store configuration.',
  },
  {
  q: 'Can you ship to job sites?',
- a: 'Yes. Orders can ship to the employee\u2019s home, to your office, or directly to a job site trailer. Multi-location contractors often use the job site option for active projects and the home option for standard reorders. Each employee picks at checkout.',
+ a: 'Available delivery destinations, split shipments, user-entered addresses, and related charges are confirmed in the fulfillment terms for each program.',
  },
  {
  q: 'How do we add new employees?',
- a: 'Three options. Self-signup with a company code, admin-invite by email, or a CSV upload if you\u2019re onboarding a big group at once. New hires can get an automatic starter gear allowance the moment they\u2019re added, so their first order ships before day one.',
+ a: 'User enrollment depends on the selected platform. The proposal must verify supported invitation, import, access, and allowance workflows before launch.',
  },
  {
  q: 'What if we want to change our approved products?',
- a: 'Send us a note any time and we\u2019ll update the catalog quickly. You can add seasonal items (jackets in winter, hi-vis tees in summer), swap vendors, or rotate new colors without rebuilding the whole store.',
+ a: 'Catalog changes are reviewed for product availability, decoration requirements, pricing, and production timing. The program terms define the change process.',
  },
  {
  q: 'Do you integrate with our payroll or benefits system?',
- a: 'We bill the company directly — monthly or per order — or you can put a company card on file and set a budget per person or per role. Whatever fits your accounting.',
+ a: 'Available billing, payment, allowance, payroll, and benefits integrations depend on the selected platform and program. The proposal identifies what is included and what requires separate implementation.',
  },
 ]
 
@@ -62,16 +62,12 @@ const serviceSchema = {
  '@context': 'https://schema.org',
  '@type': 'Service',
  datePublished: '2026-07-08',
- dateModified: '2026-07-08',
+ dateModified: '2026-08-21',
  name: 'Company Stores for Teams',
- serviceType: 'Branded Online Store for Team Apparel',
+ serviceType: 'Planning for a proposed online team-apparel store',
  provider: { '@id': 'https://bighornthreads.com/#organization' },
- areaServed: [
- { '@type': 'Country', name: 'United States' },
- { '@type': 'City', name: 'Las Vegas' },
- ],
  description:
- 'Private branded online stores for teams of every kind — corporate offices, schools, healthcare, government, hospitality, and field crews. Team members log in and order their own apparel — embroidered polos, hats, jackets, hi-vis, and FR gear — and Bighorn Threads prints, embroiders, and ships direct. Zero inventory for your company. Las Vegas based, serving teams nationwide.',
+ 'Planning for a proposed team-apparel store with Las Vegas account support. Platform, pricing, inventory, fulfillment, and administration require written confirmation.',
  audience: {
  '@type': 'BusinessAudience',
  name: 'Corporate, education, healthcare, government, hospitality, and field teams — including general contractors, HVAC, plumbing, electrical, and multi-location companies',
@@ -83,8 +79,8 @@ const speakableSchema = {
  '@type': 'WebPage',
  url: 'https://bighornthreads.com/company-stores/',
  datePublished: '2026-07-08',
- dateModified: '2026-07-08',
- name: 'Your Own Branded Store. Zero Inventory.',
+ dateModified: '2026-08-21',
+ name: 'A Managed Store for Approved Team Apparel',
  speakable: {
  '@type': 'SpeakableSpecification',
  cssSelector: ['h1', '.speakable-answer'],
@@ -93,8 +89,8 @@ const speakableSchema = {
 ---
 
 <BaseLayout
- title="Company Stores | Private Branded Apparel Stores for Teams"
- description="Your own branded online store for team gear. Each employee orders what they need — we print and ship. Zero inventory, no monthly fee. Las Vegas based, serving teams nationwide — crews, offices, and field teams of every kind."
+ title="Company Stores for Branded Team Apparel | Bighorn Threads"
+ description="Plan a company store for approved team apparel, including your catalog, users, budgets, payment rules, production, inventory, fulfillment, and reporting."
 >
  <!-- Hero — full-bleed photographic dark band -->
  <section class="relative isolate overflow-hidden bg-navy-950">
@@ -110,17 +106,17 @@ const speakableSchema = {
  <div class="mx-auto max-w-7xl px-4 pb-20 pt-16 sm:px-6 sm:pt-20 lg:px-8 lg:pb-28">
  <p class="kicker mb-5 flex items-center gap-2.5">
  <span class="h-px w-8 bg-gold-500"></span>
- Our Flagship Service
+ Company Store Planning
  </p>
  <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-6xl">
- Your Own Branded Store. <span class="text-gold-400">Zero Inventory.</span>
+ Your Apparel Program. <span class="text-gold-400">One Scoped Store Concept.</span>
  </h1>
  <p class="speakable-answer mb-9 max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- A company store from Bighorn Threads is a private, branded online shop for your team. Each crew member logs in, orders their own approved gear at the sizes and budget you set, and it ships direct. Bighorn is Las Vegas based, and your company holds zero inventory with no monthly platform fee.
+ Bighorn can scope a proposed online storefront around your apparel program. The platform, catalog, users, payment, production, inventory, shipping, reporting, fees, and administrative responsibilities require written confirmation.
  </p>
  <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
  <a href="/demo/" class="btn-primary text-base">
- Request a Demo Store
+ Request a Demo Concept
  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
  </a>
  <a href="#how-it-works" class="inline-flex min-h-[48px] items-center gap-2 border border-gold-500 px-6 py-3 font-subheading text-sm font-semibold uppercase tracking-wide text-gold-400 transition-colors hover:bg-gold-500 hover:text-charcoal">
@@ -128,7 +124,7 @@ const speakableSchema = {
  </a>
  </div>
  <div class="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3">
- {['No monthly platform fee', 'No long-term contract', 'Print-on-demand, no warehousing'].map((item) => (
+ {['Approved product catalog', 'Defined user access', 'Written fulfillment terms'].map((item) => (
  <div class="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-navy-200">
  <svg class="h-4 w-4 text-gold-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
  <span>{item}</span>
@@ -143,10 +139,10 @@ const speakableSchema = {
  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
  <p class="kicker mb-4">What Is a Company Store?</p>
  <p class="font-heading text-2xl font-bold leading-snug tracking-tight text-charcoal sm:text-3xl">
- <span class="text-gold-600">Bighorn Threads</span> builds and runs private, branded online company stores for teams of every kind — Las Vegas based, serving teams nationwide.
+ <span class="text-gold-600">Bighorn Threads</span> can scope a proposed online company store with Las Vegas account support.
  </p>
  <p class="mt-5 text-lg leading-relaxed text-ash">
- Each team member logs in and orders their own uniforms, embroidered polos, hats, hi-vis, and FR gear at the prices and budget you set. We print, embroider, and ship every order direct — your company stocks nothing and pays no monthly platform fee. It's built for any team that reorders often and onboards new hires year-round — offices and field crews, general contractors, electrical, plumbing, HVAC, and multi-location companies alike.
+ The proposal can evaluate a catalog, users, access, budgets, payment, production, inventory, shipping, reporting, and support. Every feature remains conditional until the selected platform and operating terms are verified.
  </p>
  </div>
  </section>
@@ -157,10 +153,10 @@ const speakableSchema = {
  <div class="mb-14 max-w-3xl">
  <p class="kicker mb-3">How It Works</p>
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-4xl lg:text-5xl">
- Five steps from kickoff to <span class="text-gold-600">crew in uniform</span>.
+ Five decisions before a <span class="text-gold-600">store launch</span>.
  </h2>
  <p class="text-lg text-ash">
- We handle the build, the production, and the shipping. You pick the gear and invite your crew. That's it.
+ We can scope the requirements. The proposal must verify the platform, responsibilities, costs, and acceptance tests before launch.
  </p>
  </div>
 
@@ -168,28 +164,28 @@ const speakableSchema = {
  {[
  {
  n: '01',
- title: 'We build your storefront',
- body: 'Your logo, your colors, your URL. We load only the products you\u2019ve approved — no off-brand gear, no surprises.',
+ title: 'Define the store concept',
+ body: 'Document the proposed logo, colors, products, URL, users, access rules, and substitutions.',
  },
  {
  n: '02',
- title: 'You invite your crew',
- body: 'Send email invites, share an employee code, or drop a CSV. Each person gets their own login in under a minute.',
+ title: 'Verify user access',
+ body: 'Confirm which enrollment, invitation, import, and access options the selected platform supports.',
  },
  {
  n: '03',
- title: 'Employees order gear',
- body: 'Shirts, hats, hi-vis, jackets, pants. They pick size and quantity within the limits you set. No more sizing guesswork.',
+ title: 'Verify ordering rules',
+ body: 'Test the proposed catalog, roles, limits, payment, approvals, and notifications before launch.',
  },
  {
  n: '04',
- title: 'We print and ship',
- body: 'We produce locally in Las Vegas — embroidery or screen print — then ship to their home, the office, or the job site.',
+ title: 'Assign operations',
+ body: 'Document responsibility for inventory, decoration, production, shipping, returns, changes, and user support.',
  },
  {
  n: '05',
- title: 'You see the reports',
- body: 'Quarterly dashboards on who ordered, who didn\u2019t, what moved, and what to rotate out. Built for owners, not IT.',
+ title: 'Approve the proposal',
+ body: 'Review the fee schedule, responsibilities, reports, acceptance tests, and launch conditions in writing.',
  },
  ].map((step) => (
  <li class="border border-hairline bg-panel p-7">
@@ -210,10 +206,10 @@ const speakableSchema = {
  <div class="mb-14 max-w-3xl">
  <p class="kicker mb-3">Who It's For</p>
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-4xl lg:text-5xl">
- Built for teams that are <span class="text-gold-600">done chasing shirts</span>.
+ Store concepts for teams that are <span class="text-gold-600">comparing ordering models</span>.
  </h2>
  <p class="text-lg text-ash">
- All kinds of companies run our company stores. If you see yourself here, we should talk.
+ These examples are discovery starting points. They do not represent active customer stores or guaranteed platform features.
  </p>
  </div>
 
@@ -228,7 +224,7 @@ const speakableSchema = {
  <h3 class="mb-2 font-heading text-xl font-bold uppercase tracking-tight text-charcoal">Multi-crew GCs</h3>
  <p class="spec mb-4 text-gold-600">50+ employees, multiple job sites</p>
  <p class="text-ash">
- When you're running three jobs across the valley, nobody has time to field uniform requests. Crew members get the right gear without calling HR, and your PMs stop playing quartermaster.
+ A proposed store could centralize requests across crews. User access, approvals, fulfillment, and support must be verified before launch.
  </p>
  </article>
 
@@ -242,7 +238,7 @@ const speakableSchema = {
  <h3 class="mb-2 font-heading text-xl font-bold uppercase tracking-tight text-charcoal">Service trades</h3>
  <p class="spec mb-4 text-gold-600">HVAC, plumbing, electrical techs</p>
  <p class="text-ash">
- New hire onboarding includes an auto-order of starter gear — two polos, a jacket, a hat, name tape — shipped before their first day. Techs in the field show up uniformed, no scramble.
+ A service-trade store can be scoped around role-based starter kits. Enrollment, approval, production, delivery, and timing requirements must be confirmed before launch.
  </p>
  </article>
 
@@ -257,7 +253,7 @@ const speakableSchema = {
  <h3 class="mb-2 font-heading text-xl font-bold uppercase tracking-tight text-charcoal">Multi-location contractors</h3>
  <p class="spec mb-4 text-gold-600">Henderson, Vegas, Pahrump</p>
  <p class="text-ash">
- One store serves every yard with consistent branding and role-based catalogs. Your Henderson foremen and your Pahrump electricians order different gear from the same URL — no extra admin work.
+ One proposed store can organize role-based catalogs for multiple yards. Access, products, payment, fulfillment, and administrative responsibilities are defined in the program specification.
  </p>
  </article>
  </div>
@@ -271,15 +267,15 @@ const speakableSchema = {
  <div class="lg:sticky lg:top-24">
  <p class="kicker mb-3">What You Get</p>
  <h2 class="mb-5 font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-4xl lg:text-5xl">
- Every feature, <span class="text-gold-600">no upsells</span>.
+ Define the features <span class="text-gold-600">before launch</span>.
  </h2>
  <p class="mb-8 text-lg text-ash">
- Every store ships with the full feature set. No tiered plans, no paywalls on the reporting, no extra charges for extra seats.
+ Company-store capabilities vary by configuration. The proposal lists the included features, limits, third-party costs, and responsibilities.
  </p>
  <div class="border border-hairline bg-panel p-2">
  <img
  src="/images/generated/service-company-stores.jpg"
- alt="Branded employee apparel portal displayed on a laptop in a construction office — polos, hi-vis shirts, jackets visible on screen"
+ alt="Concept image of a proposed employee apparel portal displayed on a laptop"
  width="1024"
  height="1024"
  loading="lazy"
@@ -293,27 +289,27 @@ const speakableSchema = {
  {[
  {
  title: 'Custom-branded storefront',
- body: 'Your URL, your logo, your color theme. Employees log in and it feels like your site, not ours.',
+ body: 'Scope the URL, logo, colors, catalog, and user experience for the selected store configuration.',
  },
  {
  title: 'Approved catalog &amp; spending rules',
- body: 'You control what they can order and how much they can spend — per-employee, per-role, per-month or per-year caps.',
+ body: 'Define the available catalog, roles, approvals, and spending rules supported by the selected configuration.',
  },
  {
  title: 'Employee credit allowances',
- body: 'Load every employee with an annual or quarterly gear credit. They spend it, you don\u2019t touch the admin.',
+ body: 'Allowance or credit features can be evaluated and included when supported by the selected platform.',
  },
  {
- title: 'Ship anywhere — home, office, or site',
- body: 'Employee picks at checkout. Multi-location crews ship direct to each job site. Reorder alerts when core items run low.',
+ title: 'Define delivery options',
+ body: 'Confirm supported destinations, address entry, split shipments, notifications, timing, and charges in the fulfillment terms.',
  },
  {
- title: 'Reporting owners actually read',
- body: 'Quarterly dashboards on who ordered, what sold, and which sizes to rotate in. Exportable for finance.',
+ title: 'Document the reporting',
+ body: 'Identify the order, user, budget, product, and finance reporting available in the selected configuration.',
  },
  {
- title: 'Zero inventory for you',
- body: 'Print-on-demand. You never warehouse, count, or write off a single shirt. We produce and ship as orders come in.',
+ title: 'Assign inventory responsibility',
+ body: 'Document whether products are pre-purchased, batched, held, or produced per order, and who carries each inventory risk.',
  },
  ].map((f) => (
  <li class="flex gap-4 border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
@@ -341,25 +337,25 @@ const speakableSchema = {
  Straightforward pricing.
  </h2>
  <p class="mb-8 max-w-2xl text-lg text-ash">
- Straightforward pricing. You pay per item at contracted rates, we handle everything else.
- <span class="font-semibold text-charcoal">No monthly platform fee. No hidden charges. No per-seat cost.</span>
+ Your proposal should separate products, decoration, setup, platform, users, payment processing, fulfillment, shipping, support, and any third-party costs.
+ <span class="font-semibold text-charcoal">Approve the complete fee schedule before the store goes live.</span>
  </p>
 
  <div class="grid gap-4 sm:grid-cols-3">
  <div class="border border-hairline bg-concrete p-5">
  <p class="spec text-gold-600">Setup</p>
- <p class="mt-2 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal">Included</p>
- <p class="mt-1 text-sm text-ash">For crews of 20 or more.</p>
+ <p class="mt-2 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal">Quoted</p>
+ <p class="mt-1 text-sm text-ash">Based on the required configuration.</p>
  </div>
  <div class="border border-hairline bg-concrete p-5">
  <p class="spec text-gold-600">Monthly</p>
- <p class="mt-2 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal">Included</p>
- <p class="mt-1 text-sm text-ash">No platform or seat fees, ever.</p>
+ <p class="mt-2 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal">Disclosed</p>
+ <p class="mt-1 text-sm text-ash">Platform and user fees listed in writing.</p>
  </div>
  <div class="border border-hairline bg-concrete p-5">
  <p class="spec text-gold-600">Per item</p>
- <p class="mt-2 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal">Your rate</p>
- <p class="mt-1 text-sm text-ash">Negotiated once, locked in.</p>
+ <p class="mt-2 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal">Itemized</p>
+ <p class="mt-1 text-sm text-ash">Product and decoration priced per quote.</p>
  </div>
  </div>
 
@@ -374,16 +370,16 @@ const speakableSchema = {
  </div>
  </section>
 
- <!-- Real use cases — concrete -->
+ <!-- Planning examples -->
  <section class="scroll-mt-20 bg-concrete py-24 sm:py-32">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-14 max-w-3xl">
- <p class="kicker mb-3">Real Use Cases</p>
+ <p class="kicker mb-3">Planning Examples</p>
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-4xl lg:text-5xl">
- What it looks like <span class="text-gold-600">in practice</span>.
+ What to discuss <span class="text-gold-600">during discovery</span>.
  </h2>
  <p class="text-lg text-ash">
- Three scenarios we see every month — from local crews to teams running nationwide.
+ Three example configurations to discuss during discovery. Final capabilities and terms depend on the approved program.
  </p>
  </div>
 
@@ -400,10 +396,9 @@ const speakableSchema = {
  <span class="spec absolute left-3 top-3 bg-charcoal px-2 py-1 text-concrete">General Contractor</span>
  </div>
  <div class="flex flex-1 flex-col p-7">
- <h3 class="mb-3 font-heading text-xl font-bold uppercase tracking-tight text-charcoal">GC gives an annual credit</h3>
+ <h3 class="mb-3 font-heading text-xl font-bold uppercase tracking-tight text-charcoal">Example: annual gear allowance</h3>
  <p class="flex-1 leading-relaxed text-ash">
- A general contractor wanted to phase out the annual "everyone gets two shirts" ritual. Half the shirts were the wrong size, half the guys hated the color, and the whole thing felt like an expense with no payoff.
- We set up a store with an annual per-employee credit auto-loaded on January 1. Employees pick their own jackets, hoodies, hats, and tees across the year — from the approved catalog. Morale is up, waste is down, and the owner gets a quarterly report showing exactly how the budget got spent, line by line.
+ A contractor could use a store to present an approved catalog and annual allowance. User eligibility, balance rules, payment, reporting, inventory, and fulfillment would need to be verified in the selected configuration.
  </p>
  <div class="mt-6 flex flex-wrap gap-2">
  <span class="spec border border-hairline px-2 py-1 text-ash">annual credit</span>
@@ -413,7 +408,7 @@ const speakableSchema = {
  </div>
  </article>
 
- <!-- Case 2: GC multi-location nationwide -->
+ <!-- Case 2: GC multi-location concept -->
  <article class="flex flex-col border border-hairline bg-panel transition-colors hover:border-gold-500">
  <div class="relative aspect-[4/3] overflow-hidden">
  <Image
@@ -425,14 +420,13 @@ const speakableSchema = {
  <span class="spec absolute left-3 top-3 bg-charcoal px-2 py-1 text-concrete">General Contractor</span>
  </div>
  <div class="flex flex-1 flex-col p-7">
- <h3 class="mb-3 font-heading text-xl font-bold uppercase tracking-tight text-charcoal">GC services multiple locations nationwide</h3>
+ <h3 class="mb-3 font-heading text-xl font-bold uppercase tracking-tight text-charcoal">Example: multiple locations</h3>
  <p class="flex-1 leading-relaxed text-ash">
- A general contractor running crews in several cities needed one storefront that could serve every yard without duplicating admin work. Instead of separate vendors at each location — and a different logo mockup floating around at every one — they consolidated into a single Bighorn store.
- Same URL, same branded catalog, same approved products. Whether a foreman in Vegas orders hi-vis or a super in another state orders a jacket, it flows through one system and ships direct to their site. Corporate finally has one clean invoice and one consistent brand across the map.
+ A multi-location contractor could use one approved catalog with role or location rules. Service areas, shipping destinations, invoicing, production, and administrative responsibilities would be confirmed in the proposal.
  </p>
  <div class="mt-6 flex flex-wrap gap-2">
  <span class="spec border border-hairline px-2 py-1 text-ash">Multi-location</span>
- <span class="spec border border-hairline px-2 py-1 text-ash">Ships nationwide</span>
+ <span class="spec border border-hairline px-2 py-1 text-ash">Quoted fulfillment</span>
  <span class="spec border border-hairline px-2 py-1 text-ash">One brand, one store</span>
  </div>
  </div>
@@ -443,21 +437,20 @@ const speakableSchema = {
  <div class="relative aspect-[4/3] overflow-hidden">
  <Image
  src={foremanCloseup}
- alt="Founder Steve Dodson in a branded Bighorn polo."
+ alt="Representative branded-apparel program coordinator in a navy polo"
  loading="lazy"
  class="h-full w-full object-cover"
  />
  <span class="spec absolute left-3 top-3 bg-charcoal px-2 py-1 text-concrete">Electrical Contractor</span>
  </div>
  <div class="flex flex-1 flex-col p-7">
- <h3 class="mb-3 font-heading text-xl font-bold uppercase tracking-tight text-charcoal">Electrical contractor outfits 300+ interns</h3>
+ <h3 class="mb-3 font-heading text-xl font-bold uppercase tracking-tight text-charcoal">Example: seasonal intern program</h3>
  <p class="flex-1 leading-relaxed text-ash">
- An electrical contractor running a large intern program needed a way to get approved polos in the right sizes to over 300 interns every season — without the office team fielding 300 size questions or boxing up 300 shipments by hand.
- We built them a locked-down intern catalog: the specific polo, in the specific colors, in every size, shipped directly to each intern's home address. HR adds the intern to the store and the rest takes care of itself. No closet full of mystery-size polos, no scramble at orientation, no lost gear in transit between offices.
+ An electrical contractor could configure a restricted catalog for a seasonal intern program. Enrollment, sizes, approvals, payment, production, delivery destinations, and deadlines would be documented before launch.
  </p>
  <div class="mt-6 flex flex-wrap gap-2">
- <span class="spec border border-hairline px-2 py-1 text-ash">300+ interns</span>
- <span class="spec border border-hairline px-2 py-1 text-ash">Ship direct to home</span>
+ <span class="spec border border-hairline px-2 py-1 text-ash">Seasonal users</span>
+ <span class="spec border border-hairline px-2 py-1 text-ash">Defined delivery</span>
  <span class="spec border border-hairline px-2 py-1 text-ash">Locked catalog</span>
  </div>
  </div>
@@ -471,24 +464,24 @@ const speakableSchema = {
  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
  <p class="kicker mb-3">The Buyer's Guide</p>
  <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl">
- How a real company-store program works for Las Vegas contractors.
+ How to evaluate a company-store proposal for a Las Vegas team.
  </h2>
 
  <div class="space-y-5 text-lg leading-relaxed text-charcoal">
  <p>
- A company store is a private, branded online storefront that lets your employees order pre-approved company apparel direct, on a recurring basis, without going through your HR or operations team. Bighorn Threads sets up company-store programs for Las Vegas general contractors, electrical contractors, mechanical and HVAC shops, plumbing companies, fleet operations, and any trade business with 15+ employees and recurring apparel needs. The store handles the SKUs you've approved, the sizing each employee needs, the per-employee allowance you set, and the monthly reporting that keeps your apparel budget visible. New hires get outfitted without your safety manager re-running approvals every time someone joins the crew.
+ A company store is one possible online ordering model for an apparel program. Its catalog, users, budgets, approvals, payment, inventory, production, fulfillment, reporting, and administration depend on the selected platform and written terms.
  </p>
  <p>
- The setup process is simpler than most contractors expect. We start with a workshop call to understand your trade, your roles, and your apparel program goals — what each role wears, how often shirts wear out, what the FR or hi-vis requirements are, and what the brand standard is for client-facing teams. From there we build out a SKU catalog with approved items, sizes, colorways, and decoration specs. Your logo, decoration placement, and (for FR) Nomex-thread compliance documentation all live on the store as the default decoration spec — no per-order approvals required.
+ Discovery starts with roles, ordering needs, brand standards, proposed products, locations, and target dates. Bighorn can then scope a proposal and request production terms from partners. Employers remain responsible for protective-apparel selection and approval.
  </p>
  <p>
- Per-employee allowances are the key budget control. You set a dollar value per employee per month, quarter, or year, and the store tracks the spend automatically. When an employee orders, their allowance balance drops; when they exceed it, they pay out of pocket or you get a notification to review. Some contractors use this as a hiring incentive (new hires get a full <a href="/branded-onboarding-kits-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">branded onboarding kit</a> when they start), others use it as an ongoing wear-and-tear allowance (replacement shirts when something gets ruined on the job). We've also seen it used for milestone rewards (anniversary gear), trade-show gear allocations, and project-specific kit (project tees for ribbon cuttings).
+ Allowances can be useful when the selected platform supports them. Define who receives a balance, when it renews, which products are eligible, who pays overages, and what administrators can review. A similar ruleset can support <a href="/branded-onboarding-kits-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">branded onboarding kits</a>, replacement gear, milestone awards, or project-specific apparel.
  </p>
  <p>
- For larger crews — 50+ employees — we add HR integration. New hires get added to the store as part of your onboarding workflow, terminated employees get deactivated automatically, and role-based SKU access keeps office staff out of the FR catalog (and field crews out of the executive polos). For shops running an industrial laundry program, we coordinate with your laundry partner so the apparel coding system matches their inventory tagging — Red Kap shirts decorated to your spec ship pre-tagged for laundry processing.
+ Larger teams may need user provisioning, role-based access, HR data exchange, or coordination with a laundry provider. These are separate integration and operating requirements, not assumed store features. The proposal must identify the system of record, supported data flow, security responsibilities, and acceptance tests before implementation.
  </p>
  <p>
- Monthly reporting shows you exactly where the apparel budget is going: spend by employee, spend by role, spend by SKU, reorder velocity (which items get worn out fastest), and forecast based on hiring projections. For the controllers, accountants, and ownership reviewing the apparel line item every quarter, this is the difference between a vague yearly total and a clear breakdown that tracks with hiring and turnover. Setup is free for qualifying accounts — typically 15+ employees with recurring apparel needs.
+ Reporting requirements should be defined before the store is approved. Ask for sample reports covering the fields your finance and operations teams need, along with export format, cadence, access, retention, and any additional cost. Setup and recurring fees are confirmed in the written proposal.
  </p>
  <p>
  Want the full walkthrough? See our <a href="/company-stores/setup-guide-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">company store setup guide for Las Vegas trades</a>. Or read <a href="/blog/company-store-vs-bulk-ordering/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">company stores vs bulk ordering</a> to see when each model fits.
@@ -540,10 +533,10 @@ const speakableSchema = {
  <div class="mx-auto max-w-4xl px-4 py-24 text-center sm:px-6 sm:py-32 lg:px-8">
  <p class="kicker mb-3 justify-center">Get Started</p>
  <h2 class="mb-5 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl lg:text-5xl">
- Ready to launch your <span class="text-gold-400">company store</span>?
+ Ready to scope a <span class="text-gold-400">company-store concept</span>?
  </h2>
  <p class="mx-auto mb-10 max-w-2xl text-lg text-navy-200">
- Tell us about your crew — size, trades, locations — and we'll build you a demo store with your logo so you can click around before you commit.
+ Tell us about your crew, roles, locations, approved products, and ordering requirements. We will scope a company-store plan and confirm whether a configured demo is included.
  </p>
  <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
  <a href="/get-a-quote/" class="btn-primary text-base">

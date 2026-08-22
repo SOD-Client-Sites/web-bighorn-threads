@@ -4,7 +4,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 const post = {
  title: 'Custom Polo Shirts: Embroidery, Fabric, and Vendor Selection Guide',
  description:
- 'Custom polos with an embroidered logo are the default for service techs, account managers, and customer-facing roles. Here\'s how to pick the right blank — Port Authority, Carhartt, Nike, Cutter & Buck — and what to ask before you order.',
+ 'Compare custom polos for service technicians, account managers, and customer-facing roles. Review current Port Authority, Carhartt, Nike, and Cutter & Buck options before ordering.',
  category: 'Products',
  readTime: '9 min read',
  date: 'May 9, 2026',
@@ -14,19 +14,19 @@ const post = {
 }
 
 const faqs = [
- { q: 'What\'s the best blank polo for a custom embroidered company shirt?', a: 'Port Authority K500 Silk Touch is the workhorse — pique cotton-poly, holds embroidery cleanly, available in 30+ colors S–6XL, comparable price across all sizes. For higher-end brands, Cutter & Buck DryTec, Nike Dri-FIT, and Travis Mathew performance polos cost noticeably more but feel and look premium. Carhartt Workwear Pocket Polo is the trade-friendly pick.' },
- { q: 'Should custom polo shirts be embroidered or screen printed?', a: 'Embroidery — almost always. The premium look of stitched thread on a pique knit polo reads as "established business" the way a screen-printed polo never does. Screen printing on polos is reserved for high-volume promotional runs where cost is the priority over feel. Embroidery is the standard for any client-facing role.' },
- { q: 'How much should custom polos cost?', a: 'Per-piece cost depends on the blank, the embroidery stitch count, the order quantity, and a one-time digitizing fee. A workhorse blank like the Port Authority K500 costs less per piece than a premium blank like Nike Dri-FIT or Travis Mathew, and the per-piece price drops as quantity climbs. Send your logo and quantity and we\'ll quote it.' },
- { q: 'Can you embroider names on every polo without slowing the order down?', a: 'Yes. Once digitizing is done, name embroidery adds about a day to the standard run — not a week. We stitch each name to order; per-shirt cost is fixed regardless of name length. Worth doing for service techs and customer-facing staff where the name on the chest is the trust signal.' },
- { q: 'What fabric should custom polos be in for Las Vegas summer?', a: 'Moisture-wicking polyester or poly-blend. Port Authority K540 Silk Touch Performance Polo and Sport-Tek ST650 are the two most-ordered for Vegas summer service work — they wick sweat, dry fast, and don\'t soak through by 11am the way 100% cotton polos do. Cotton looks nicer at week one but loses by July.' },
- { q: 'What\'s the minimum order for custom embroidered polos?', a: 'Most shops set 12-24 pieces as the practical minimum. Below that, per-piece pricing climbs because digitizing and setup is amortized over fewer shirts. For very small orders (4-12 pieces), expect a higher per-piece price or a small order surcharge.' },
- { q: 'Where can I get custom polo shirts in Las Vegas?', a: 'Bighorn Threads runs custom embroidered polos for Vegas contractors, service businesses, and trade companies. We stock Port Authority, Sport-Tek, Carhartt, and Nike polos in standard sizes S-4XL with embroidery turned around quickly when artwork is ready. Get a quote with your logo and quantity.' },
+ { q: 'What\'s the best blank polo for a custom embroidered company shirt?', a: 'The right polo depends on the role, fabric, fit, size range, care, brand rules, decoration, availability, and budget. Compare current Port Authority, Carhartt, Cutter & Buck, Nike, and TravisMathew options.' },
+ { q: 'Should custom polo shirts be embroidered or screen printed?', a: 'The right method depends on the polo, artwork, placement, quantity, desired appearance, care, and production requirements. Review the exact garment and proof before approval.' },
+ { q: 'How much should custom polos cost?', a: 'Pricing depends on the exact polo, artwork, stitch count, placement, quantity, digitizing, setup, and production quote. Confirm all fees and repeat-order terms in writing.' },
+ { q: 'Can you embroider names on every polo?', a: 'Yes, on compatible garments. Bighorn coordinates the roster and placement with a selected production partner. Your quote confirms the price and timing for personalized names.' },
+ { q: 'What fabric should custom polos use for Las Vegas summer?', a: 'Compare current lightweight and moisture-management options with cotton and blended fabrics. The best choice depends on the role, heat plan, comfort, care, employer policy, and manufacturer specifications.' },
+ { q: 'What\'s the minimum order for custom embroidered polos?', a: 'Minimums, digitizing, setup, small-order charges, and quantity pricing vary by polo and production partner. Confirm current terms in the written quote.' },
+ { q: 'Where can I get custom polo shirts in Las Vegas?', a: 'Bighorn Threads coordinates custom embroidered polos through selected production partners. Ask about current Port Authority, Sport-Tek, Carhartt, and Nike options. Your quote confirms sizes, availability, and timing.' },
 ]
 
 const schema = {
  '@context': 'https://schema.org',
  '@graph': [
- { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: post.isoDate, author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
+ { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: '2026-08-21', author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
  { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' }, { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` }] },
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
@@ -57,16 +57,16 @@ const speakableSchema = {
  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
  </header>
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Embroidered Port Authority K500 silk touch polo with company logo on left chest" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
+ <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Representative embroidered polo shown for product and placement planning" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Custom polo shirts with an embroidered chest logo are the default for service techs, account managers, sales reps, and customer-facing staff. Port Authority K500 Silk Touch is the workhorse blank (embroiders cleanly, 30+ colors). For Vegas summer service work, swap to the K540 Performance moisture-wicking version. Premium brands (Nike Dri-FIT, Travis Mathew, Cutter & Buck) cost noticeably more and read as such.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Custom polos can suit service technicians, account managers, sales teams, and customer-facing staff. Compare the exact fabric, fit, sizes, colors, care, decoration, availability, and quote before selecting a product.</p>
  </aside>
 
  <h2 id="when-polo" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">When to Use a Custom Polo</h2>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Polos are the right pick for any role where employees are seen by customers, vendors, or the public — and the visual signal needs to read as "professional, established business," not "team event." See our <a href="/custom-polo-shirts-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">custom polo shirts Las Vegas</a> page for brand options and current blank inventory.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Polos can suit roles seen by customers, vendors, or the public. See our <a href="/custom-polo-shirts-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">custom polo shirts Las Vegas</a> page for brand options. Current availability is confirmed for each quote.</p>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">For trades and service businesses, that means:</p>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li>Service technicians at a residential or commercial customer's location</li>
@@ -80,10 +80,10 @@ const speakableSchema = {
  <h2 id="blanks" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The Polo Blanks That Matter</h2>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Port Authority K500 Silk Touch — the workhorse</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">If you've seen a generic embroidered company polo in the last decade, it was probably a Port Authority K500. Pique knit cotton-poly blend, available in 30+ colors, S-6XL, holds embroidery cleanly, comparable price across the size range. The default pick for service businesses, contractors, and trade crews.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">The Port Authority K500 is one polo to compare for service businesses and trade teams. Confirm current fabric, fit, sizes, colors, care, decoration, availability, and size-specific pricing.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Port Authority K540 Performance — for Vegas heat</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Same cut and embroidery profile as the K500 but with moisture-wicking polyester. The right swap for Vegas summer where service techs are working through 110° conditions. Same per-piece price as the K500. There is no good reason to spec a 100% cotton polo for a Vegas service crew operating June through September.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">The K540 is a performance-fabric option to compare with the K500. Review current specifications, fit, care, heat-plan needs, availability, and quoted price before selecting either fabric.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Carhartt Workwear Pocket Polo — trade-friendly</h3>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">Heavier-weight polo with a chest pocket. Reads as a trade-friendly piece — fits naturally on a contractor or service tech without looking like office attire. Slightly higher per-piece cost than the K500 but the chest pocket is functional for pens, badges, and small tools.</p>
@@ -92,7 +92,7 @@ const speakableSchema = {
  <p class="mb-6 text-lg leading-relaxed text-charcoal">For client-facing executive roles, business development, and ownership. These polos cost more than a workhorse Port Authority blank, but the difference is visible at a glance. The right call when the polo is going on a person whose attire signals authority — at industry events, in client meetings, on speaking engagements. Embroidery placement and stitch density work the same way as on the workhorse blanks.</p>
 
  <h2 id="embroidery" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Embroidery on Polos</h2>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">A standard left-chest polo logo runs 5,000-8,000 stitches at 3-3.5 inches wide. Larger logos can push 12,000+ stitches but get visually heavy on a knit fabric — the embroidery starts to look distorted on stretchy pique. Smaller logos (under 2 inches) lose detail because the stitch count to maintain legibility doesn't fit in the available area.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Logo dimensions, stitch plan, detail, stability, and cost depend on the exact artwork, polo, size range, backing, digitizing, machine, and production partner. Approve the final treatment in the proof or sample.</p>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">Optional placements:</p>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Right chest:</strong> Employee name. Standard for service techs.</li>
@@ -113,14 +113,14 @@ const speakableSchema = {
  <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Pick your blank.</strong> Default to Port Authority K500/K540 unless brand identity calls for premium.</li>
  <li><strong>Send your logo.</strong> Vector format (.ai, .eps) is best.</li>
- <li><strong>Specify quantity + sizing.</strong> Most polo programs run 5 polos per employee per season as the baseline.</li>
+ <li><strong>Specify quantity and sizing.</strong> Choose the issue quantity from the work schedule, laundering, replacement policy, budget, and employee needs.</li>
  <li><strong>Decide on names.</strong> Service techs and customer-facing roles benefit from name embroidery; office staff usually don't need it.</li>
  <li><strong>Pick placements.</strong> Left chest is standard; add sleeve or right-chest name if it fits the program.</li>
  </ol>
 
  <div class="mt-12 border border-hairline bg-gold-500/5 p-7 sm:p-9">
  <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-charcoal">Custom embroidered polos in Las Vegas</h2>
- <p class="mb-5 text-lg leading-relaxed text-charcoal">Bighorn Threads runs custom embroidered polos for Vegas contractors, trade businesses, and service companies. Send your logo and crew sizes — we'll quote per piece including digitizing.</p>
+<p class="mb-5 text-lg leading-relaxed text-charcoal">Bighorn Threads coordinates embroidered polo programs through selected production partners. Send your logo, crew sizes, and deadline for a current quote.</p>
  <a href="/get-a-quote/" class="inline-flex min-h-[48px] items-center gap-2 bg-gold-500 px-7 py-3 text-base font-bold text-charcoal transition-all hover:bg-gold-600">Get a Quote →</a>
  </div>
  </div>

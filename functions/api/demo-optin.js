@@ -4,7 +4,9 @@
 // The logo data URL is intentionally NOT sent to GHL (too large; lives in the preview URL).
 
 import { parseSmsConsent } from './_consent.js'
+import { formatAttributionNote, scheduleOriginalAttribution } from './_attribution.js'
 import { verifyTurnstile } from './_turnstile.js'
+import { COMMON_FIELD_LIMITS, normalizeSiteUrl, safeErrorName, validatePayload } from './_validation.js'
 
 const GHL_BASE = 'https://services.leadconnectorhq.com'
 const GHL_API_VERSION = '2021-07-28'
@@ -12,7 +14,8 @@ const DEMO_TAG = 'company-store-demo'
 
 const REQUIRED_FIELDS = ['company', 'contact', 'email', 'trade']
 
-export async function onRequestPost({ request, env }) {
+export async function onRequestPost(context) {
+  const { request, env } = context
   let body
   try {
     body = await request.json()
@@ -25,6 +28,13 @@ export async function onRequestPost({ request, env }) {
   if (body.bh_hp_field && String(body.bh_hp_field).trim()) {
     return jsonResponse({ ok: true, contactId: null, spam: true })
   }
+
+  const validationError = validatePayload(body, {
+    ...COMMON_FIELD_LIMITS,
+    trade: 200,
+    crewSize: 20,
+  })
+  if (validationError) return errorResponse(validationError, 400)
 
   // Cloudflare Turnstile — fail closed if verification is unavailable or misconfigured
   const verified = await verifyTurnstile({ env, request, token: body['cf-turnstile-response'] })
@@ -57,7 +67,9 @@ export async function onRequestPost({ request, env }) {
   const phone = body.phone ? String(body.phone).trim() : ''
   const trade = String(body.trade).trim()
   const crewSize = body.crewSize ? parseInt(String(body.crewSize), 10) : null
-  const consent = parseSmsConsent(body, body.sourceUrl)
+  const sourceUrl = normalizeSiteUrl(body.sourceUrl, 'https://bighornthreads.com/demo/')
+  const consent = parseSmsConsent(body, sourceUrl)
+  if (consent.any && !phone) return errorResponse('Phone is required when SMS consent is selected', 400)
 
   // ---------------- Upsert contact ----------------
   let contactId = null
@@ -70,7 +82,6 @@ export async function onRequestPost({ request, env }) {
       email,
       companyName: company,
       source: 'bighornthreads.com — company store demo',
-      tags: [DEMO_TAG, 'company-store-lead', ...consent.tags],
     }
     if (phone) upsertBody.phone = phone
 
@@ -79,35 +90,59 @@ export async function onRequestPost({ request, env }) {
       body: JSON.stringify(upsertBody),
     })
     if (!upsertRes.ok) {
-      const text = await safeText(upsertRes)
-      console.error('[demo-optin] upsert failed', upsertRes.status, text)
+      console.error('[demo-optin] GHL request failed', { operation: 'contact-upsert', status: upsertRes.status })
       return errorResponse(`GHL upsert failed (${upsertRes.status})`, 502)
     }
     const upsertData = await upsertRes.json()
     contactId = upsertData?.contact?.id || upsertData?.id || upsertData?.contactId
     if (!contactId) {
-      console.error('[demo-optin] upsert returned no id', upsertData)
+      console.error('[demo-optin] GHL response missing contact id', { operation: 'contact-upsert', status: upsertRes.status })
       return errorResponse('GHL upsert returned no contact id', 502)
     }
   } catch (err) {
-    console.error('[demo-optin] upsert threw', err)
+    console.error('[demo-optin] GHL request threw', { operation: 'contact-upsert', error: safeErrorName(err) })
     return errorResponse('GHL upsert error', 502)
   }
 
+  await scheduleOriginalAttribution({
+    waitUntil: typeof context.waitUntil === 'function' ? context.waitUntil.bind(context) : undefined,
+    label: 'demo-optin',
+    contactId,
+    token,
+    data: body,
+    fallbackDetail: 'Company store demo request',
+  })
+
   // ---------------- Note with demo details ----------------
-  const noteBody = formatNote({ company, contactName, email, phone, trade, crewSize, sourceUrl: body.sourceUrl })
+  const noteBody = formatNote({ company, contactName, email, phone, trade, crewSize, sourceUrl })
     + '\n' + consent.noteBlock
+    + formatAttributionNote(body)
   try {
     const noteRes = await ghlFetch(`${GHL_BASE}/contacts/${contactId}/notes`, token, {
       method: 'POST',
       body: JSON.stringify({ body: noteBody }),
     })
     if (!noteRes.ok) {
-      const text = await safeText(noteRes)
-      console.warn('[demo-optin] note failed (non-fatal)', noteRes.status, text)
+      console.error('[demo-optin] GHL request failed', { operation: 'contact-note', status: noteRes.status })
+      return errorResponse('Contact saved, but consent record failed', 502)
     }
   } catch (err) {
-    console.warn('[demo-optin] note threw (non-fatal)', err)
+    console.error('[demo-optin] GHL request threw', { operation: 'contact-note', error: safeErrorName(err) })
+    return errorResponse('Contact saved, but consent record failed', 502)
+  }
+
+  try {
+    const tagRes = await ghlFetch(`${GHL_BASE}/contacts/${contactId}/tags`, token, {
+      method: 'POST',
+      body: JSON.stringify({ tags: [DEMO_TAG, 'company-store-lead', ...consent.tags] }),
+    })
+    if (!tagRes.ok) {
+      console.error('[demo-optin] GHL request failed', { operation: 'contact-tags', status: tagRes.status })
+      return errorResponse('Contact saved, but lead routing failed', 502)
+    }
+  } catch (err) {
+    console.error('[demo-optin] GHL request threw', { operation: 'contact-tags', error: safeErrorName(err) })
+    return errorResponse('Contact saved, but lead routing failed', 502)
   }
 
   return jsonResponse({ ok: true, contactId })
@@ -126,10 +161,6 @@ function ghlFetch(url, token, init = {}) {
     },
     signal: AbortSignal.timeout(15_000),
   })
-}
-
-async function safeText(res) {
-  try { return await res.text() } catch (_) { return '' }
 }
 
 function formatNote({ company, contactName, email, phone, trade, crewSize, sourceUrl }) {

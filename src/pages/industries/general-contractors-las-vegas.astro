@@ -4,29 +4,29 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 const page = {
  title: 'General Contractor Uniforms and Crew Apparel | Las Vegas',
  description:
- 'Branded workwear, company stores, and onboarding kits for Las Vegas general contractors. Crew uniforms, sub branding, foreman differentiation, and reorder portals.',
+ 'Branded workwear and apparel-program planning for Las Vegas general contractors. Bighorn coordinates approved products and decoration through production partners.',
  h1Pre: 'General Contractors',
  hero: '/images/generated/kit-gc.jpg',
 }
 
 const challenges = [
- { num: '01', title: 'Sub-crew identification', body: 'On a large job site, knowing who works for which sub matters for safety and accountability. Branded gear puts company identity on every back.' },
- { num: '02', title: 'New-hire turnover', body: 'When you hire 5 people a month, an HR manager managing sizing in a spreadsheet burns hours. We build standard kits per role so onboarding ships fast.' },
- { num: '03', title: 'Foreman vs field differentiation', body: 'Color, embroidery vs print, hi-vis class — small visual differences make the chain of command obvious from across the lot.' },
- { num: '04', title: 'Trade show + ribbon cutting deadlines', body: 'When you commit to outfit a 30-person crew for a Friday job walk, missing the date is not an option. Rush production is built into how we run the floor.' },
+ { num: '01', title: 'Sub-crew identification', body: 'Role and company identification can be included in an apparel plan. Employers determine what identification, protective apparel, and site controls are required.' },
+ { num: '02', title: 'New-hire turnover', body: 'Role-based kits can reduce repetitive product and sizing work. Delivery options and timing depend on the selected products and production partner.' },
+ { num: '03', title: 'Foreman vs field differentiation', body: 'Color or decoration can distinguish roles when the employer approves the layout. Hi-vis class must be selected by the employer for the exact hazard and product.' },
+ { num: '04', title: 'Trade show and event deadlines', body: 'Share the product, quantity, artwork, and deadline early. Bighorn confirms any rush option with the selected production partner before you order.' },
 ]
 
 const kits = [
- { role: 'Field Crew Standard', items: '5 polos · 3 hi-vis tees · 1 hoodie · 1 hat', notes: 'Embroidered logo + name. Most-ordered configuration for crews of 20+.' },
- { role: 'Foreman / Supervisor', items: '5 collared shirts · branded jacket · upgraded hi-vis', notes: 'Different color or treatment from field crew so authority is visible on site.' },
- { role: 'Office / Project Manager', items: '5 polos · 1 zip-up · branded notebook', notes: 'Lighter-weight options for on-site visits without losing brand consistency.' },
- { role: 'New Hire Onboarding', items: '3 tees · 2 polos · 1 hat · safety vest', notes: 'Pre-built and stocked. Ships fast when payroll signals a new hire.' },
+ { role: 'Field Crew', items: 'Polos, tees, outerwear, or headwear as requested', notes: 'Example categories only. Products, quantities, decoration, and protective requirements are confirmed in writing.' },
+ { role: 'Foreman / Supervisor', items: 'Collared shirts, outerwear, or employer-selected hi-vis', notes: 'Any role differentiation and protective product must be approved by the employer.' },
+ { role: 'Office / Project Manager', items: 'Polos, quarter-zips, outerwear, or accessories', notes: 'Exact products, quantities, use, care, availability, and decoration are confirmed in the quote.' },
+ { role: 'New Hire Onboarding', items: 'Requested tees, polos, headwear, or employer-selected safety apparel', notes: 'Example categories only. Availability, quantities, platform capabilities, and delivery timing require written confirmation.' },
 ]
 
 const faqs = [
  {
  q: 'Can you outfit our subs in our brand without going through their procurement?',
- a: 'Yes. We set up sub-tier company stores or do bulk orders billed to your account, with each sub getting their own size pull. Common arrangement: GC pays for the gear, subs distribute it.',
+ a: 'Bighorn can plan a sub-tier or bulk-order approach around the approved products, billing contact, and sizes you provide. Store, payment, and delivery capabilities require written confirmation during setup.',
  },
  {
  q: 'How fast can you turn around 100 polos for a Monday job walk?',
@@ -34,19 +34,19 @@ const faqs = [
  },
  {
  q: 'Do you stock common Carhartt and Port Authority items?',
- a: 'Yes — Carhartt K87 and K84 t-shirts, Port Authority K500 polos, Carhartt SUP01 hoodies, in stocked sizes S–4XL. We carry the items GCs reorder most without lead time.',
+ a: 'Bighorn can quote Carhartt K87 and K84 t-shirts, Port Authority K500 polos, and Carhartt SUP01 hoodies. Sizes, product availability, and lead times depend on current supplier and production partner capacity.',
  },
  {
  q: 'Can a company store handle multiple cost centers (jobs, divisions)?',
- a: 'Yes. We tag orders by job number, division, or PO so your accounting team can split costs without re-asking employees for the info every order.',
+ a: 'Job, division, and PO tracking can be included in the requested program scope. Bighorn confirms the available reporting and cost-allocation workflow in writing before setup.',
  },
  {
  q: 'What about major industry trade shows, major industry trade shows, or local AGC events?',
- a: 'We outfit booths and trade-show crews every year. Branded polos, jackets, and giveaway swag with rush production timed to the event week.',
+ a: 'Bighorn manages apparel and merchandise requests for booths and trade-show crews. Product availability, production, and delivery timing require written confirmation.',
  },
  {
  q: 'Do you offer pricing tiers based on annual spend?',
- a: 'For larger annual-spend accounts, we offer locked pricing and dedicated production scheduling. Talk to us about your projected annual volume and we\'ll structure the right program.',
+ a: 'Share your projected annual volume and Bighorn can request volume pricing and production options from the selected partners. Pricing and capacity are confirmed in each written quote.',
  },
 ]
 
@@ -66,11 +66,6 @@ const serviceSchema = {
  name: 'Custom Workwear for General Contractors',
  serviceType: 'Branded apparel and crew uniforms',
  provider: { '@id': 'https://bighornthreads.com/#organization' },
- areaServed: [
- { '@type': 'City', name: 'Las Vegas' },
- { '@type': 'City', name: 'Henderson' },
- { '@type': 'City', name: 'North Las Vegas' },
- ],
  audience: { '@type': 'BusinessAudience', audienceType: 'General Contractors' },
 }
 
@@ -110,7 +105,7 @@ const faqSchema = {
  Crew Uniforms, Sub Branding, and Onboarding Kits <span class="text-gold-400">for Vegas GCs.</span>
  </h1>
  <p class="mt-6 max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- Whether you're running a small framing outfit or a large commercial GC, we keep your crew, your subs, and your foremen branded — with rush production and reorder portals to match.
+ Whether you run a small framing outfit or a large commercial GC, Bighorn manages approved products, artwork, and reorders. Production partners handle decoration. Rush timing requires written confirmation.
  </p>
 
  <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -132,7 +127,7 @@ const faqSchema = {
  <div class="border border-l-0 border-hairline p-7 sm:p-9">
  <span class="spec mb-3 inline-block text-gold-600">Quick Answer</span>
  <p class="font-heading text-lg leading-relaxed text-charcoal sm:text-xl">
- Las Vegas general contractors run tiered apparel programs — heavyweight Carhartt K87 cotton tees and B11 work pants for field crews, embroidered Port Authority K500 polos for project managers, and ANSI 107 Class 2 hi-vis for any sitewide-required job. Most GCs over 50 employees standardize via a company-store program with role-based kits, per-employee allowances, and rush production for new-hire onboarding.
+ General contractors can organize apparel by role, such as field shirts, polos for project teams, and employer-selected hi-vis where the job requires it. Bighorn helps define the requested catalog and coordinates partner artwork and decoration. Product performance depends on the exact item, use, care, employer requirements, and manufacturer instructions. Store, allowance, rush, and delivery capabilities are confirmed in writing for the proposed program.
  </p>
  </div>
  </div>
@@ -144,7 +139,7 @@ const faqSchema = {
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
  <p class="kicker mb-3">Why GCs Hire Us</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Four problems we solve <span class="text-gold-600">every week.</span></h2>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Four apparel-program problems <span class="text-gold-600">to plan for.</span></h2>
  </div>
 
  <div class="grid gap-5 md:grid-cols-2">
@@ -163,10 +158,10 @@ const faqSchema = {
  <section class="bg-concrete py-20 sm:py-24">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
- <p class="kicker mb-3">Standard Kits</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Pre-built kits by role. <span class="text-gold-600">Ship fast.</span></h2>
+ <p class="kicker mb-3">Example Kit Categories</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Plan kits by role. <span class="text-gold-600">Confirm every order.</span></h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- We build these once with your branding, then store the spec. New hire? Send us the role + sizes. The kit ships from our floor without anyone re-thinking the configuration.
+ Bighorn can organize approved kit details by role. Send the new hire's sizes and required date. Product availability, decoration, and delivery terms are confirmed for each order.
  </p>
  </div>
 
@@ -175,7 +170,7 @@ const faqSchema = {
  <thead class="bg-paper">
  <tr class="border-b border-hairline">
  <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Role</th>
- <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Standard Items</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Example Items</th>
  <th class="hidden px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600 lg:table-cell">Notes</th>
  </tr>
  </thead>
@@ -200,27 +195,27 @@ const faqSchema = {
  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
  <p class="kicker mb-3">The Buyer's Guide</p>
  <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">
- Branded apparel programs for Las Vegas general contractors — what actually works.
+ Planning branded apparel for Las Vegas general contractors.
  </h2>
 
  <div class="space-y-5 text-lg leading-relaxed text-ash">
  <p>
- General contractors in Las Vegas run the most complex apparel programs in the trade because every program serves three audiences at once: field crews who need durable gear that survives jobsite abuse, project managers who need professional polos for client meetings, and executive leadership who need premium pieces for industry events and trade shows. Bighorn Threads outfits Vegas GCs from 20-person residential builders to 500-person commercial primes — concrete, framing, finish, MEP coordination, and all of the support staff in between.
+ General contractors often need one apparel program to serve field crews, project managers, and client-facing leadership. Bighorn provides Las Vegas account management, helps organize the requested products and artwork, and coordinates production through selected partners.
  </p>
  <p>
- The standard field crew package is a heavyweight cotton tee (Carhartt K87 or Bayside 5100) with embroidered or screen-printed left-chest logo, paired with Carhartt B11 work pants or B324 carpenter pants. For Vegas summer, we swap the heavy cotton for a moisture-wicking performance blend — Carhartt Force, Bayside Performance, or Port Authority PosiCharge — at the same price point. Caps round out the field package: Richardson 112 trucker hats with embroidered logos, hard hat stickers for ANSI Z89-rated helmets, and beanies for early-morning concrete pours.
+ A proposed field-crew package might include a tee, work pants, and headwear, with other fabric options considered for hot weather. Product performance depends on the exact item, work, fit, care, employer heat plan, and manufacturer instructions. Bighorn can quote requested brands and decoration methods after supplier availability, partner capacity, pricing, and artwork are reviewed. Hard-hat products and any decoration must be approved by the employer and helmet manufacturer before use.
  </p>
  <p>
- Project managers and superintendents need a different spec. The Vegas standard is the Carhartt Workwear Pocket Polo or the Port Authority K500 Silk Touch — pique cotton, left-chest embroidery, optional employee name on the right chest. For client-facing roles (estimators, business development, ownership) we step up to Cutter & Buck DryTec, Nike Dri-FIT, or Travis Mathew performance polos. Quarter-zips and softshells from Carhartt, Port Authority, and Eddie Bauer cover layering for cold mornings and trade-show booth duty.
+ Project managers and superintendents may need a different product mix from field crews. Polos, quarter-zips, and softshells are examples to evaluate based on brand standards, job duties, supplier availability, and the written quote. Decoration placement and employee personalization are confirmed with the production partner before approval.
  </p>
  <p>
- Hi-vis is a sitewide spec on most large commercial projects, especially anything with concurrent civil work, crane operations, or vehicle traffic. We supply ANSI 107 Class 2 mesh-back hi-vis tees from ML Kishigo and Radians for daytime crews and Class 3 long-sleeve options for night work near traffic. Decoration on hi-vis preserves the retroreflective tape coverage — a detail most catalog suppliers skip — and we document compliance on every order so your safety binder stays audit-ready.
+ Hi-vis may be part of an employer or site specification where crews work near vehicles, civil operations, or traffic. Bighorn can source proposed Class 2 and Class 3 products from brands such as ML Kishigo and Radians. The employer selects the required class, and each product and decoration placement must be reviewed against current manufacturer instructions before approval.
  </p>
  <p>
- For larger GCs, the company-store program is where everything comes together. We build out a private storefront with your approved SKUs, your sizing audit on file, and per-employee allowances. New hires get outfitted — including FR for any electrical or solar subs that work directly under your safety umbrella. Reorders, replacement shirts, and project-specific apparel (project tees for ribbon cuttings, branded gear for safety milestone events) all run through the same store. Monthly reporting shows you exactly where the apparel budget is going and which roles are driving spend.
+ For larger teams, Bighorn can scope a company-store workflow around an approved catalog and the sizes supplied by the client. Access, allowances, reporting, reorder, payment, production, fulfillment, and delivery capabilities must be confirmed in the written program plan. Employers remain responsible for hazard assessment and selection of any FR or other protective product, with decoration reviewed against current manufacturer instructions.
  </p>
  <p>
- For practical playbooks, see <a href="/blog/how-to-outfit-a-construction-crew-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">how to outfit a construction crew in Vegas</a> and <a href="/blog/how-many-shirts-per-crew-member-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">how many shirts per crew member</a>. New hires starting Monday? Run our <a href="/blog/new-hire-workwear-checklist-las-vegas-contractors/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">new hire workwear checklist</a>. And for the compliance side, our <a href="/blog/ppe-branded-workwear-regulations-construction-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">PPE and branded workwear regulations for Vegas construction</a> writeup walks through the rules that catch GCs at audit time.
+ For practical planning, see <a href="/blog/how-to-outfit-a-construction-crew-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">how to outfit a construction crew in Vegas</a> and <a href="/blog/how-many-shirts-per-crew-member-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">how many shirts per crew member</a>. The <a href="/blog/new-hire-workwear-checklist-las-vegas-contractors/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">new hire workwear checklist</a> covers order inputs. The <a href="/blog/ppe-branded-workwear-regulations-construction-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">PPE and branded workwear regulations guide</a> summarizes employer and manufacturer review considerations.
  </p>
  </div>
  </div>
@@ -253,15 +248,15 @@ const faqSchema = {
  <div class="grid gap-5 md:grid-cols-3">
  <a href="/industries/electrical-contractors-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Electrical Contractors</h3>
- <p class="mt-2 text-sm text-ash">FR shirts, hi-vis, and service uniforms with code compliance.</p>
+ <p class="mt-2 text-sm text-ash">Employer-selected FR, hi-vis, and service-uniform options coordinated through production partners.</p>
  </a>
  <a href="/industries/roofing-solar-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Roofing &amp; Solar</h3>
- <p class="mt-2 text-sm text-ash">Sun-protective branded gear for crews working the rooftops.</p>
+ <p class="mt-2 text-sm text-ash">Branded apparel options reviewed against employer heat plans and manufacturer instructions.</p>
  </a>
  <a href="/blog/how-to-outfit-a-construction-crew-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">How to Outfit a Crew</h3>
- <p class="mt-2 text-sm text-ash">A practical playbook for outfitting 10, 50, or 500 people.</p>
+ <p class="mt-2 text-sm text-ash">A planning guide for products, quantities, roles, artwork, and current order terms.</p>
  </a>
  </div>
  </div>
@@ -273,9 +268,9 @@ const faqSchema = {
  <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
  <div class="mx-auto max-w-3xl px-4 py-24 text-center sm:px-6 sm:py-28 lg:px-8">
  <h2 class="font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-4xl lg:text-5xl">Ready to standardize <span class="text-gold-400">your crew's gear?</span></h2>
- <p class="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-navy-200">Send your logo. Stock items in inventory.</p>
+ <p class="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-navy-200">Send your logo and requested products. We will confirm availability, pricing, and partner production terms.</p>
  <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
- <a href="/get-a-quote/" class="btn-primary text-base">Get a Free Quote</a>
+ <a href="/get-a-quote/" class="btn-primary text-base">Request a Quote</a>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">702.904.8923</a>
  </div>
  </div>

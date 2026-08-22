@@ -4,36 +4,36 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 const page = {
  title: 'Branded Merchandise vs. Print-on-Demand for Workwear | Bighorn Threads',
  description:
- 'Print-on-demand works for one-off swag — it fails for workwear. Why a dedicated branded merchandise company beats DTG print-on-demand for FR-rated, ANSI-compliant, and embroidered crew apparel.',
+ 'Compare print-on-demand with a managed branded apparel program for recurring crew orders, decoration options, reorders, and protective-garment review.',
  hero: '/images/generated/product-stack.jpg',
  url: 'https://bighornthreads.com/branded-merchandise-vs-print-on-demand/',
 }
 
 const comparison = [
- { criterion: 'Decoration method', pod: 'DTG (direct-to-garment) on consumer blanks', branded: 'Screen print, embroidery, DTF — matched per garment' },
- { criterion: 'FR-rated capability', pod: 'Not supported', branded: 'FR thread and FR-compatible inks, verified before production' },
- { criterion: 'ANSI hi-vis capability', pod: 'Not supported', branded: 'Decoration mapped to retain ANSI class' },
- { criterion: 'Durability for daily wear', pod: 'DTG ink can crack/fade within 20-30 washes', branded: 'Embroidery outlasts the garment; plastisol survives 40-50 washes' },
- { criterion: 'Reorder consistency', pod: 'Varies by platform and blank availability', branded: 'Logo file, garment specs on file indefinitely' },
- { criterion: 'Scaling with headcount', pod: 'Manual reorder per person', branded: 'Company store scales automatically' },
+ { criterion: 'Decoration method', pod: 'Varies by platform, product, and supplier', branded: 'Method proposed for the garment, artwork, quantity, and use' },
+ { criterion: 'Protective apparel', pod: 'Confirm available garments and decoration controls', branded: 'Employer selects protection; manufacturer instructions govern decoration' },
+ { criterion: 'Hi-vis apparel', pod: 'Confirm garment certification and permitted placements', branded: 'Review the exact garment and placement before production' },
+ { criterion: 'Durability for daily wear', pod: 'Depends on garment, decoration, cure, care, and laundering', branded: 'Specify the expected wear and care conditions in the quote' },
+ { criterion: 'Reorder consistency', pod: 'Depends on current blank and platform availability', branded: 'Approved specifications can be documented for current reorder review' },
+ { criterion: 'Scaling with headcount', pod: 'Features and workflows vary by platform', branded: 'A configured company store can streamline approved ordering' },
 ]
 
 const faqs = [
- { q: 'What is the difference between branded merchandise and print-on-demand?', a: 'Print-on-demand works for one-off swag; it fails for workwear. POD services use DTG printing on consumer blanks — not FR-rated, not ANSI-compliant, and not built for daily jobsite wear. A dedicated branded merchandise company like Bighorn Threads provides embroidery-grade durability, compliance specs, and a company store that scales with your headcount.' },
- { q: 'Why does print-on-demand fail for construction or trade apparel?', a: 'Print-on-demand platforms use DTG (direct-to-garment) printing, which lays ink onto consumer-grade blanks. It is fine for a one-off design but it has no path to FR-rated fabric, ANSI-compliant hi-vis, or embroidery on outerwear — all standard requirements in trade work. The ink also wears faster under daily abrasion and industrial washing.' },
- { q: 'Is print-on-demand cheaper than working with a dedicated apparel company?', a: 'For a single small order with no compliance needs, POD can be cheaper upfront. The math flips fast on reorders — POD has no digitizing-once advantage, no bulk-decoration discount, and platforms can swap blank vendors, breaking color or fit consistency between orders.' },
- { q: 'Can print-on-demand handle a company store for a growing crew?', a: 'Some POD platforms offer basic group-order tooling, but it is built for casual, infrequent purchases — not an ongoing program with budgets, approval workflows, and compliance gear. A dedicated company store is built specifically for that use case.' },
- { q: 'What is the durability difference between DTG print-on-demand and embroidery?', a: 'DTG ink sits on top of the fabric and can crack or fade within 20-30 washes, especially under industrial laundering. Embroidery is stitched into the garment and typically outlasts the fabric itself — the jacket wears out before the stitching does.' },
- { q: 'Does Bighorn Threads offer both DTF and embroidery, or just one method?', a: 'Both, in-house, alongside traditional screen printing. We match the decoration method to the garment and use case rather than defaulting to whatever a print-on-demand platform happens to support.' },
+ { q: 'What is the difference between branded merchandise and print-on-demand?', a: 'Print-on-demand can suit simple one-off items. A managed apparel program may offer a broader garment selection, multiple decoration paths, account support, and a company store. Protective garments require employer and manufacturer review regardless of ordering model.' },
+ { q: 'Can print-on-demand work for construction or trade apparel?', a: 'It can work for some nonprotective items. For flame-resistant or hi-vis garments, the employer must select the protection and confirm the exact garment and decoration against current manufacturer instructions. Compare each provider\'s documented controls.' },
+ { q: 'Is print-on-demand cheaper than working with a dedicated apparel company?', a: 'Neither model is always cheaper. Compare the exact garment, decoration, quantity, artwork, setup, shipping, service, and reorder terms in writing.' },
+ { q: 'Can print-on-demand handle a company store for a growing crew?', a: 'Some platforms offer team-store features. Compare catalog controls, users, budgets, approvals, payment, inventory responsibility, production, fulfillment, reporting, fees, and protective-garment handling.' },
+ { q: 'What is the durability difference between DTG print-on-demand and embroidery?', a: 'Durability depends on the garment, pretreatment, decoration, cure, stitch design, care, and laundering. Ask for product-specific care instructions and samples when wear conditions matter.' },
+ { q: 'Does Bighorn Threads coordinate multiple decoration methods?', a: 'Yes. Bighorn helps select the decoration method and coordinates production through partners. The final method depends on the garment, artwork, quantity, and intended use.' },
 ]
 
-const leadAnswer = 'Print-on-demand works for one-off swag, but it fails for workwear. POD services use DTG printing on consumer blanks, which is not FR-rated, not ANSI-compliant, and not built for daily jobsite wear. A dedicated branded merchandise company like Bighorn Threads provides embroidery-grade durability, compliance specs, and a company store that scales with your headcount.'
+const leadAnswer = 'Print-on-demand can suit simple one-off items. A managed apparel program may offer broader garment and decoration options, account continuity, and a configured company store. Compare both models against one written specification.'
 
 const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
  { '@type': 'ListItem', position: 2, name: 'Branded Merchandise vs. Print-on-Demand', item: page.url },
 ] }
-const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: page.title, description: page.description, url: page.url, publisher: { '@type': 'Organization', name: 'Bighorn Threads' }, datePublished: '2026-07-08', dateModified: '2026-07-08' }
+const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: page.title, description: page.description, url: page.url, publisher: { '@type': 'Organization', name: 'Bighorn Threads' }, datePublished: '2026-07-08', dateModified: '2026-08-21' }
 const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }
 ---
 
@@ -56,7 +56,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  Print-on-demand is for swag. <span class="text-gold-400">Workwear needs more.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- DTG ink on a consumer blank does not survive a jobsite or hold an FR or ANSI rating. Embroidery-grade durability and compliance specs do.
+ Consumer garments and protective workwear serve different requirements. Compare the exact garment, decoration, intended use, manufacturer instructions, and written program terms.
  </p>
  <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
  <a href="/get-a-quote/" class="btn-primary text-base">
@@ -108,22 +108,22 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  <section class="bg-paper py-20 sm:py-24">
  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
  <p class="kicker mb-3">The Buyer's Read</p>
- <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">Where print-on-demand quietly fails workwear buyers.</h2>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">Where workwear buyers need a closer comparison.</h2>
  <div class="space-y-5 text-lg leading-relaxed text-ash">
  <p>
- Print-on-demand platforms solved a real problem: getting a small batch of branded shirts without a screen print minimum. For a company swag drop or a one-off event tee, that is a genuine win. The trouble starts when buyers apply the same logic to workwear — gear that gets washed weekly, worn daily, and sometimes has to carry a safety certification.
+ Print-on-demand platforms can make small branded orders convenient. For recurring workwear, buyers should also evaluate garment selection, decoration controls, reorder continuity, care requirements, and any protective-garment review.
  </p>
  <p>
- DTG (direct-to-garment) printing, the method behind most POD platforms, lays ink directly onto a consumer-grade blank. It looks sharp out of the box but the ink sits on the fiber surface rather than bonding the way plastisol screen ink or embroidery thread does. Under industrial laundering and daily abrasion, that ink cracks and fades faster — often inside 20-30 washes.
+ Print-on-demand providers use different products and decoration methods, including DTG on eligible garments. Wear results vary with fabric, pretreatment, ink, curing, laundering, and use. Compare a sample and written care guidance instead of relying on a universal wash-count claim.
  </p>
  <p>
- The bigger gap is compliance. POD platforms are not built to verify FR thread chemistry or map decoration against <a href="/safety-compliance/nfpa-70e-embroidery-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">ANSI/ISEA 107 retroreflective coverage</a>. If your crew needs flame-resistant shirts or hi-vis vests, a generalist POD platform simply does not have the production process to keep that gear certified.
+ Protective garments create a separate review requirement. The employer selects the protection, and the exact product and decoration must be reviewed against current manufacturer instructions. Compare how each provider documents that process before approving flame-resistant or hi-vis apparel.
  </p>
  <p>
- Bighorn Threads runs <a href="/services/embroidery-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">embroidery</a> and <a href="/blog/dtf-printing-vs-screen-printing-custom-apparel/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">screen printing or DTF</a> matched to the garment, all in-house, with compliance verified before production starts. For ongoing programs, a <a href="/blog/company-store-vs-bulk-ordering/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">company store</a> handles scaling headcount automatically — something most POD group-order tooling was never built for.
+ Bighorn helps select <a href="/services/embroidery-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">embroidery</a>, <a href="/blog/dtf-printing-vs-screen-printing-custom-apparel/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">screen printing, or DTF</a> for the garment and artwork. Production partners perform the decoration. For recurring orders, a <a href="/blog/company-store-vs-bulk-ordering/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">company store</a> can present an approved apparel catalog to your team.
  </p>
  <p>
- The short version: keep POD for the fundraiser tee. For anything your crew wears five days a week, work with a shop built around durability and compliance, not just speed to checkout. <a href="/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">See what Bighorn Threads runs</a>.
+ The short version: POD may fit simple orders. For recurring crew apparel, compare garments, decoration, service, protective-apparel controls, and written reorder terms. <a href="/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">See what Bighorn Threads coordinates</a>.
  </p>
  </div>
  </div>
@@ -161,7 +161,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  </a>
  <a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Minimum Order Quantities</h3>
- <p class="mt-2 text-sm text-ash">Real minimums without a POD-style markup.</p>
+ <p class="mt-2 text-sm text-ash">How products and decoration methods affect current minimums.</p>
  </a>
  </div>
  </div>
@@ -171,10 +171,10 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" loading="lazy" decoding="async" />
  <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
  <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
- <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Build gear that survives the jobsite.</h2>
- <p class="mb-8 text-lg text-navy-200">Send your logo and garment list — we will match decoration method to durability.</p>
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Build a workwear program around the actual job.</h2>
+ <p class="mb-8 text-lg text-navy-200">Send your logo, garment list, and use case. We will propose a decoration path for review.</p>
  <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
- <a href="/get-a-quote/" class="btn-primary text-base">Get a Free Quote</a>
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
  </div>
  </div>

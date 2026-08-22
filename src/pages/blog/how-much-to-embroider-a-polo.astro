@@ -15,10 +15,10 @@ const post = {
 
 const faqs = [
   { q: 'How much does it cost to embroider a polo shirt?', a: 'It depends on a few things, not one flat price. The big drivers are stitch count (how complex your logo is), the polo you pick, and how many you order. A basic pique polo costs less than a Carhartt or performance polo, and per-piece cost drops as quantity rises. Send your logo and polo choice and we\'ll quote it.' },
-  { q: 'What is a digitizing fee for polo embroidery?', a: 'Digitizing converts your logo artwork into a stitch file the embroidery machine reads. It\'s a one-time charge that scales with logo complexity. Once your file is digitized, every reorder uses the same file at no extra digitizing charge. Bighorn Threads keeps your stitch file on file indefinitely. Send your logo and we\'ll quote it.' },
-  { q: 'How many stitches is a typical polo logo?', a: 'A standard left-chest logo on a polo runs 5,000–8,000 stitches. A simple bold mark might be 4,000; a detailed logo with fills and gradients can hit 10,000–12,000 at the same size. Stitch count is the primary cost driver — more stitches, more cost. Send your logo and polo choice and we\'ll quote it.' },
-  { q: 'What polo brands work best for embroidery?', a: 'Port Authority, Carhartt Force, and Red Kap are the most common for trade crews. Port Authority K500 and K540 are the workhorses — clean weave, holds embroidery flat, and available in bulk. Carhartt Force is the upgrade option for outdoor and construction crews who need moisture management. Avoid ultra-thin performance fabrics for embroidery — the needle tension can pucker the fabric.' },
-  { q: 'How fast can I get embroidered polos in Las Vegas?', a: 'Timing depends on quantity, whether your logo is already digitized, and the garment you pick. Rush options exist for most polo orders. Send your logo and quantity and we\'ll quote a real timeline.' },
+  { q: 'What is a digitizing fee for polo embroidery?', a: 'Digitizing converts your logo artwork into a stitch file the embroidery machine reads. Fees depend on logo complexity and the selected production partner. File ownership, retention, reuse, and repeat-order fees must be confirmed in your quote.' },
+  { q: 'How many stitches is a typical polo logo?', a: 'Stitch count varies with size, detail, lettering, fills, and digitizing choices. The production partner confirms stitch count after reviewing the artwork. Send your logo and intended placement for a quote.' },
+  { q: 'What polo brands work well for embroidery?', a: 'Port Authority, Carhartt, Red Kap, and other suppliers offer polos that may support embroidery. Fabric weight, construction, logo detail, availability, and intended use all matter. The quote confirms the proposed polo and decoration method.' },
+  { q: 'How fast can I get embroidered polos in Las Vegas?', a: 'Timing depends on product availability, quantity, artwork readiness, proofing, and production partner capacity. Send your logo, quantity, destination, and deadline for a written estimate.' },
 ]
 
 const schema = {
@@ -30,7 +30,7 @@ const schema = {
       description: post.description,
       image: `https://bighornthreads.com${post.image}`,
       datePublished: post.isoDate,
-      dateModified: post.isoDate,
+      dateModified: '2026-08-21',
       author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' },
       publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } },
       mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/`,
@@ -90,7 +90,7 @@ const speakableSchema = {
       <!-- Answer-first TL;DR -->
       <aside class="mb-12 border border-hairline bg-panel p-6">
         <p class="mb-2 text-xs font-bold uppercase tracking-widest text-gold-600">Quick Answer</p>
-        <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Embroidered polo cost comes down to four things: <strong>stitch count</strong> (more stitches, more cost), <strong>the polo you pick</strong>, <strong>a one-time digitizing fee</strong> for new logos, and <strong>quantity</strong> — per-piece price drops the more you order. Send your logo and polo choice and we'll quote it.</p>
+        <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Embroidered polo cost comes down to four things: <strong>stitch count</strong>, <strong>the polo you pick</strong>, <strong>digitizing or setup</strong>, and <strong>quantity</strong>. Send your logo and polo choice for a written quote.</p>
       </aside>
 
       <!-- Video embed -->
@@ -108,36 +108,36 @@ const speakableSchema = {
       </div>
 
       <h2 id="stitch-count" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Stitch Count Is the Real Cost Driver</h2>
-      <p class="mb-6 text-lg leading-relaxed text-charcoal">Embroidery on a polo is priced by stitch count, not by size or placement — more stitches, more cost. A standard left-chest logo — the one on a million contractor polos across Las Vegas — runs 5,000 to 8,000 stitches.</p>
-      <p class="mb-6 text-lg leading-relaxed text-charcoal">A simple, bold mark (text + outline, minimal fill) might be 4,000 stitches. A detailed logo with gradient fills and fine lines at the same physical size can hit 12,000. Same left chest. Very different cost. If you want to bring per-piece price down, the fastest lever is simplifying your logo for embroidery — or having a stitch-optimized version made. See <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">logo digitizing 101</a> for how that works.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Stitch count can affect embroidery cost. Size, placement, garment construction, digitizing, and production-partner pricing can also matter. The artwork review determines the quoted stitch count.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Stitch count and cost depend on the exact artwork, approved size, garment, digitizing, and production partner. Ask the partner to compare the original artwork with any proposed simplified version in the proof and written quote. See <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">logo digitizing 101</a> for planning context.</p>
 
       <h2 id="polo-cost" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The Polo Itself</h2>
       <p class="mb-6 text-lg leading-relaxed text-charcoal">The blank polo is the other half of the equation. Cost varies by brand and fabric — here's how the common tiers stack up:</p>
       <ul class="mb-6 list-none space-y-3 text-lg leading-relaxed text-charcoal">
-        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Basic pique polo</strong> (Port Authority K500, Gildan): the economical workhorse. Holds embroidery flat, available in every color.</span></li>
+        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Basic pique polo</strong> (Port Authority K500, Gildan): an economical option. Color and size availability varies by supplier.</span></li>
         <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Performance polo</strong> (Port Authority K540, Nike Dri-FIT): a step up. Moisture-wicking, better for outdoor crews in Las Vegas heat.</span></li>
         <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Carhartt Force polo</strong>: the premium pick. Built for trades, holds up to abuse, still looks sharp.</span></li>
         <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Red Kap industrial polo</strong>: the service-tech standard — HVAC, plumbing, electrical.</span></li>
       </ul>
       <p class="mb-6 text-lg leading-relaxed text-charcoal">For trade-specific polo recommendations by industry, see our pages for <a href="/industries/plumbing-hvac-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">plumbing & HVAC</a>, <a href="/industries/electrical-contractors-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">electrical contractors</a>, and <a href="/industries/general-contractors-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">general contractors</a>.</p>
 
-      <h2 id="digitizing" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Digitizing Fee — One Time, Then Free</h2>
-      <p class="mb-6 text-lg leading-relaxed text-charcoal">If this is your first order with a new logo, there's a one-time digitizing fee. Digitizing converts your logo artwork (PDF, AI, PNG) into a stitch file the embroidery machine can read. The fee scales with logo complexity.</p>
-      <p class="mb-6 text-lg leading-relaxed text-charcoal">Once digitized, the file is yours. Every reorder after that uses the same file — no re-digitizing charge. Bighorn Threads keeps your stitch file on record so reorders are frictionless.</p>
-      <p class="mb-6 text-lg leading-relaxed text-charcoal">A well-digitized file is also the single biggest factor in how clean the embroidery looks. Cheap digitizing produces pulled stitches, poor registration, and logos that look blurry from five feet away. It's worth doing right once.</p>
+      <h2 id="digitizing" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Confirm Digitizing and File Terms</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Digitizing converts logo artwork into a stitch file. Cost depends on logo complexity and the selected production partner.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Your quote should state file ownership, retention, delivery, and repeat-order fees. Confirm those terms before production.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Digitizing is one factor in the result, along with the artwork, garment, backing, hooping, thread, size, placement, and production settings. Review the proof or sample for the exact order.</p>
 
       <h2 id="quantity" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Quantity Moves the Per-Piece Price</h2>
-      <p class="mb-6 text-lg leading-relaxed text-charcoal">The more polos you order, the less each one costs. Setup spreads across the run, so a crew of a hundred pays far less per piece than a crew of a dozen. Twelve is near the practical floor for embroidery — see <a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">minimum order quantities</a> for what's realistic and the small-batch alternatives below that.</p>
-      <p class="mb-6 text-lg leading-relaxed text-charcoal">Want an exact number for your team? Send your roster size and polo choice and we'll get you a quick quote.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Quantity can affect per-piece pricing because setup is spread across the run. Minimums and price breaks vary by garment, decoration, and production partner. See <a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">minimum order quantities</a> for more planning context.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Want a current number for your team? Send your quantity, polo choice, logo, placements, destination, and deadline for a quote.</p>
 
       <h2 id="multi-placement" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Adding a Name or Back Logo</h2>
       <p class="mb-6 text-lg leading-relaxed text-charcoal">Many contractor crews want a name on the right chest or a company name on the back. Each additional placement requires re-hooping the polo and a separate machine pass — so it adds meaningfully to the per-piece cost.</p>
       <ul class="mb-6 list-none space-y-3 text-lg leading-relaxed text-charcoal">
         <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Right-chest name:</strong> adds a small per-piece cost depending on stitch count.</span></li>
-        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Back yoke logo:</strong> the biggest add — typically 8,000–15,000 stitches, so it costs more per piece.</span></li>
+        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Back yoke logo:</strong> cost depends on the approved design, size, stitch file, garment, and production partner.</span></li>
         <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Sleeve hit:</strong> a modest per-piece add for a small extra mark.</span></li>
       </ul>
-      <p class="mb-6 text-lg leading-relaxed text-charcoal">For multi-placement orders, send us your full decoration spec and we'll quote it as a package — it's usually cheaper than adding placements piecemeal. The same per-piece factors apply to any garment, not just polos — see <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">how much it costs to embroider a shirt</a> for the full five-factor breakdown.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">For multi-placement orders, send the full decoration specification. The quote will show placement and setup costs. The same pricing factors can apply to other garments. See <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">how much it costs to embroider a shirt</a> for the full five-factor breakdown.</p>
 
       <h2 id="get-quote" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Getting a Quote from Bighorn Threads</h2>
       <p class="mb-6 text-lg leading-relaxed text-charcoal">Three things to send for an accurate quote:</p>
@@ -146,7 +146,7 @@ const speakableSchema = {
         <li>Quantity and polo preference (or tell us the use case and we'll recommend)</li>
         <li>Placements needed (left chest only, or additional positions)</li>
       </ol>
-      <p class="mb-6 text-lg leading-relaxed text-charcoal">Bighorn Threads runs commercial embroidery for contractors, trades businesses, and service companies across Las Vegas. We'll get you a quick quote. <a href="/get-a-quote/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Send your logo and quantity →</a></p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Bighorn Threads coordinates commercial embroidery through selected production partners for Las Vegas businesses. <a href="/get-a-quote/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Send your logo and quantity for a quote.</a></p>
 
       <!-- FAQ -->
       <div class="mt-16 space-y-6">
@@ -165,7 +165,7 @@ const speakableSchema = {
         <ul class="space-y-3 text-lg">
           <li><a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">How Much Does It Cost to Embroider a Shirt? The 5 Factors</a></li>
           <li><a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Logo Digitizing 101: What It Is and Why It Matters</a></li>
-          <li><a href="/blog/screen-printing-vs-embroidery-construction/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Screen Printing vs Embroidery for Construction Crews</a></li>
+          <li><a href="/screen-printing-vs-embroidery-construction-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Screen Printing vs Embroidery for Construction Crews</a></li>
           <li><a href="/blog/custom-polo-shirts-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Custom Polo Shirts in Las Vegas — Buyer's Guide</a></li>
         </ul>
       </div>

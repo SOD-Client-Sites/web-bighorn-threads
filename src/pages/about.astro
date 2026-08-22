@@ -8,48 +8,45 @@ import founderSteve from '@/assets/generated/founder-steve.jpg'
 
 const values = [
  {
- title: "If it doesn't survive the job site, we don't sell it",
- body: "We've seen the tees that fall apart after two washes and the hi-vis vests where the print peels off in a week. That junk doesn't leave our production floor. Every garment we offer has been worn, washed, and scuffed up in real Nevada conditions before it earns a spot in our catalog.",
+ title: 'Products chosen for the way your team works',
+ body: 'Tell us where, when, and how your team will wear the gear. Bighorn uses those requirements to recommend products and coordinate the approved order through production partners.',
  icon: 'shield',
  },
  {
  title: 'A phone call beats a contact form',
- body: "Promo is a relationship business. You want to reach a human who knows your account, your artwork, and your rush history — not a ticket queue. Our number rings a real person at a real desk in Las Vegas. Pick up the phone. We'll pick up ours.",
+ body: 'Call the Las Vegas account team to review products, artwork, proofs, and current order terms. Response timing depends on staff availability.',
  icon: 'phone',
  },
  {
- title: 'Your deadline is our deadline',
- body: "Job walks don't wait. Ribbon cuttings don't wait. Neither do new hires showing up Monday. When you give us a date, we treat it like a pour schedule — hit or miss, no in-between. If we can't make it, we'll tell you before you commit.",
+ title: 'Timing is confirmed before approval',
+ body: "Share your required date with the complete order details. We'll review partner capacity and confirm current timing before you approve the order.",
  icon: 'clock',
  },
  {
  title: "We'd rather be the Vegas local than the cheapest online option",
- body: "There's always a website out there a few bucks cheaper. Go use them once — you'll understand why we're still here. Local means pickup, local means proofs in hand, local means we drive the order out to your office if the courier drops the ball.",
+ body: 'A Las Vegas based contact gives you one place for questions, proofs, order updates, and reorders. Current order terms are documented before approval.',
  icon: 'pin',
  },
 ]
 
 const comparison = [
  { category: 'Who you talk to', online: 'A chatbot and a ticket queue', bighorn: 'A local rep who knows your account by name' },
- { category: 'Customization', online: 'Pre-built templates you drop a logo into', bighorn: 'Dedicated art team that builds your design from scratch' },
- { category: 'Proofing', online: 'No proof — you approve a thumbnail', bighorn: 'Free digital mockups before anything hits the press' },
- { category: 'Rush orders', online: '"Not guaranteed" or surprise upcharges', bighorn: 'Quoted up front — you know the cost and the date before you commit' },
- { category: 'Delivery', online: 'Ships from a warehouse three states away', bighorn: 'Local Las Vegas delivery to your office, job trailer, or crew addresses' },
- { category: 'Industry knowledge', online: 'Generic — sells to everyone from dentists to daycares', bighorn: 'Deep on the details — from hi-vis classes and FR ratings to brand standards for client-facing teams' },
- { category: 'Pricing', online: 'Setup fees, color fees, art fees hidden at checkout', bighorn: 'Transparent quote — what we quote is what you pay' },
- { category: 'Long-term fit', online: 'Transactional — one order, then forgotten', bighorn: 'Ongoing partnership — company stores, reorders, new hires' },
+ { category: 'Customization', online: 'Pre-built templates you drop a logo into', bighorn: 'Artwork and proofing coordinated with production partners' },
+ { category: 'Proofing', online: 'Proofing process varies by provider', bighorn: 'Artwork approval is documented before production' },
+ { category: 'Timing', online: 'Confirm timing for the complete order', bighorn: 'Current timing documented before approval' },
+ { category: 'Order terms', online: 'Confirm the complete scope before ordering', bighorn: 'Current products, production, timing, and pricing documented in the quote' },
+ { category: 'Requirements', online: 'Confirm the review process', bighorn: 'Garment, artwork, use, and jobsite needs reviewed' },
+ { category: 'Pricing', online: 'Compare itemized quotes', bighorn: 'Current commercial terms documented before approval' },
+ { category: 'Long-term fit', online: 'Confirm reorder support', bighorn: 'Current artwork and order details documented for reorder review' },
 ]
 
 const founder = {
  initials: 'SD',
  name: 'Steven Dodson',
  role: 'Founder',
- bio: "Built VP Promos in Las Vegas from a one-desk operation into a working promotional apparel shop. Bighorn Threads is the branded-apparel arm — same shop, same presses, same hands-on experience, building programs for teams of every kind across the country.",
- quote: "I still pick up the phone myself. If your team needs gear, you're talking to me.",
+ bio: 'Steve coordinates branded-apparel and promotional-product programs for teams through production partners.',
  phone: '702.904.8923',
 }
-
-const serviceAreas = ['Las Vegas', 'Henderson', 'North Las Vegas', 'Boulder City', 'Pahrump', 'Summerlin', 'Spring Valley', 'Enterprise']
 
 const jsonLd = {
  '@context': 'https://schema.org',
@@ -58,8 +55,8 @@ const jsonLd = {
  '@type': 'AboutPage',
  '@id': 'https://bighornthreads.com/about#aboutpage',
  url: 'https://bighornthreads.com/about',
- name: 'About Bighorn Threads — Las Vegas Branded Apparel & Company Stores',
- description: "Bighorn Threads is a DBA of VP Promos — a Las Vegas based promotional apparel shop building branded programs for teams of every kind across construction, corporate, education, healthcare, government, gaming/hospitality, and events. Screen printing, embroidery, branded workwear, and company stores.",
+ name: 'About Bighorn Threads | Las Vegas Branded Apparel',
+ description: 'Bighorn Threads is a DBA of VP Promos. The Las Vegas based business coordinates branded apparel and promotional-product orders through production partners.',
  isPartOf: { '@id': 'https://bighornthreads.com/#website' },
  about: { '@id': 'https://bighornthreads.com/#organization' },
  },
@@ -71,36 +68,15 @@ const jsonLd = {
  founder: { '@id': 'https://bighornthreads.com/#founder' },
  url: 'https://bighornthreads.com',
  logo: 'https://bighornthreads.com/images/logo.png',
- description: "Las Vegas based branded apparel and promotional products for teams of every kind — construction crews, corporate offices, schools, healthcare, government, gaming/hospitality, and events — serving Las Vegas and nationwide. Screen printing, embroidery, hi-vis gear, uniforms, spirit wear, and company stores.",
- areaServed: [
- { '@type': 'City', name: 'Las Vegas' },
- { '@type': 'City', name: 'Henderson' },
- { '@type': 'City', name: 'North Las Vegas' },
- { '@type': 'City', name: 'Boulder City' },
- { '@type': 'City', name: 'Pahrump' },
- { '@type': 'Country', name: 'United States' },
- ],
+ description: 'Las Vegas based branded apparel and promotional products. Production is coordinated through partners.',
  address: {
  '@type': 'PostalAddress',
  streetAddress: '9205 W. Russell Rd Ste 305',
  addressLocality: 'Las Vegas',
  addressRegion: 'NV',
- postalCode: '89149',
+ postalCode: '89148',
  addressCountry: 'US',
  },
- knowsAbout: [
- 'Screen printing',
- 'Embroidery',
- 'Branded apparel',
- 'Corporate apparel',
- 'Scrubs and healthcare apparel',
- 'Uniforms',
- 'Spirit wear',
- 'Hi-vis workwear',
- 'Flame-resistant clothing',
- 'Company stores',
- 'Promotional products',
- ],
  },
  {
  '@type': 'Person',
@@ -108,16 +84,7 @@ const jsonLd = {
  name: 'Steven Dodson',
  jobTitle: 'Founder',
  worksFor: { '@id': 'https://bighornthreads.com/#organization' },
- description: "Founder of Bighorn Threads and its parent VP Promos. Built VP Promos in Las Vegas from a one-desk operation into a working promotional apparel shop; Bighorn Threads is its branded-apparel arm, building programs for teams of every kind — construction, corporate, education, healthcare, government, gaming/hospitality, and events — run hands-on by Steve himself.",
- knowsAbout: [
- 'Screen printing',
- 'Embroidery',
- 'Corporate branded apparel',
- 'Uniforms and spirit wear',
- 'ANSI/ISEA 107 hi-vis apparel',
- 'NFPA 70E flame-resistant clothing',
- 'Branded company stores',
- ],
+ description: 'Founder of Bighorn Threads and its parent VP Promos. Steve coordinates branded apparel and promotional-product programs through production partners.',
  telephone: '+17029048923',
  },
  ],
@@ -136,8 +103,8 @@ const speakableSchema = {
 ---
 
 <BaseLayout
- title="About Bighorn Threads — Las Vegas Branded Apparel & Company Stores"
- description="How a Las Vegas promo shop became the go-to for branded programs for teams of every kind — Las Vegas based, serving nationwide. Our story, our values, how we're different from online catalogs, and the team behind Bighorn Threads."
+ title="About Bighorn Threads | Las Vegas Branded Apparel"
+ description="Meet the Las Vegas team coordinating branded apparel and promotional-product orders through production partners."
 >
  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
  <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
@@ -168,10 +135,10 @@ const speakableSchema = {
  We Build Branded Programs for <span class="text-gold-400">Teams of Every Kind</span>
  </h1>
  <p class="speakable-answer max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- Bighorn Threads is the branded-apparel arm of VP Promos — Las Vegas based, serving teams nationwide. Screen printing, embroidery, and company stores for crews, offices, and field teams alike. Construction is where we cut our teeth; it's one vertical we serve, not the whole story.
+ Bighorn Threads is the branded-apparel arm of VP Promos. We are based in Las Vegas and coordinate apparel and promotional-product orders through production partners.
  </p>
  <div class="mt-8 flex flex-wrap items-center gap-2">
- {['Las Vegas based', 'Serving nationwide', 'A DBA of VP Promos'].map((tag) => (
+ {['Las Vegas based', 'Partner-coordinated production', 'A DBA of VP Promos'].map((tag) => (
  <span class="spec inline-flex items-center gap-2 border border-navy-700 px-2.5 py-1.5 text-navy-200">
  <span class="h-1.5 w-1.5 bg-gold-500"></span>
  {tag}
@@ -181,30 +148,30 @@ const speakableSchema = {
  </div>
  </section>
 
- <!-- Origin Story — concrete -->
+ <!-- Operating model — concrete -->
  <section class="bg-concrete py-20 sm:py-28">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
  <div class="lg:col-span-7">
- <p class="kicker mb-3">How we got here</p>
+ <p class="kicker mb-3">How we work</p>
  <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-4xl lg:text-5xl">
- From general promo to <span class="text-gold-600">programs that hold up</span>
+ From request to <span class="text-gold-600">approved order</span>
  </h2>
  <div class="space-y-6 text-lg leading-relaxed text-charcoal">
  <p>
- VP Promos opened in Las Vegas doing what most promo shops do — branded pens for real estate offices, logo polos for insurance brokers, tradeshow giveaways for anybody with a booth to fill. We printed for dentists, daycares, gyms, and half the HOAs in Henderson. Good work, steady work, never the same thing twice.
+ Bighorn provides Las Vegas account management for branded apparel and promotional products. Production is coordinated through selected partners.
  </p>
  <p>
- Then the construction accounts started stacking up. A framing crew here, a concrete contractor there, an electrical shop that needed hi-vis for a Strip project. And something got obvious fast: these weren't the same customers as everyone else. They needed gear that survived 115-degree summers and 30-degree night pours. They needed ink that didn't peel after the first wash with a month of drywall dust in it. They needed rush turns when a new hire showed up Monday and OSHA said "PPE first day." And they needed somebody who could tell Class 2 from Class 3 without Googling it.
+ Planning starts with the job, team, product requirements, artwork, quantities, and required date. Bighorn then checks supplier availability and partner capacity.
  </p>
  <p>
- Most online promo catalogs couldn't do that. Heck, most local shops couldn't either — they'd sell a construction company the same 4.2-ounce soft cotton tee they sold to a yoga studio, and then act surprised when it came back destroyed. We started keeping a different inventory for our construction clients. Then a different workflow. Then a different quoting process that accounted for rush-hire timelines and multi-crew sizing grids.
+ Artwork and proofs are coordinated with the selected production partner. The client reviews the proposed garment, decoration, placement, and colors before authorizing production.
  </p>
  <p>
- That trades work taught us how to build a branded program that actually holds up — durable gear, ink that survives the wash, sizing grids for whole teams, rush turns when new hires start Monday. So we built Bighorn Threads: same shop, same team, same presses, that same standard applied to every team we outfit. Construction is one vertical where it shows — hi-vis that meets ANSI, FR-rated layers that meet NFPA 2112, crew tees that don't look like corporate golf shirts — but the same care goes into a field crew, an office staff, or a company store full of polos.
+ Each quote documents current products, production, timing, pricing, and reorder terms before approval.
  </p>
  <p>
- We cover full uniforms for <a href="/industries/electrical-contractors-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">electrical</a>, <a href="/industries/plumbing-hvac-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">plumbing/HVAC</a>, <a href="/industries/data-center-contractors-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">data center</a>, and other Las Vegas construction crews. See <a href="/blog/ppe-branded-workwear-regulations-construction-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">PPE regulations</a> for our compliance approach.
+ Teams can start with the planning pages for <a href="/industries/electrical-contractors-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">electrical work</a>, <a href="/industries/plumbing-hvac-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">plumbing and HVAC</a>, or <a href="/industries/data-center-contractors-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">data center projects</a>. Every product request still requires a current review and written quote.
  </p>
  </div>
  </div>
@@ -213,19 +180,16 @@ const speakableSchema = {
  <div class="border border-hairline bg-panel p-2">
  <Picture
  src={workwearFlatlay}
- alt="Branded apparel laid out — embroidered polos, tees, and caps ready to ship"
+ alt="Branded apparel including embroidered polos, tees, and caps"
  loading="lazy"
  class="h-auto w-full"
  />
  </div>
- <blockquote class="border-l-4 border-gold-500 bg-panel p-6 pl-8">
- <p class="font-heading text-lg italic leading-relaxed text-charcoal">
- "The shirt that works for a software company at a lunch-and-learn is not the shirt that works for a concrete crew in July. We stopped pretending it was."
+ <div class="border-l-4 border-gold-500 bg-panel p-6 pl-8">
+ <p class="font-heading text-lg leading-relaxed text-charcoal">
+ Product recommendations start with how and where your team will use the apparel.
  </p>
- <footer class="mt-4 font-mono text-xs font-bold uppercase tracking-[0.15em] text-gold-600">
- — Steven Dodson, Founder
- </footer>
- </blockquote>
+ </div>
  </div>
  </div>
  </div>
@@ -238,10 +202,10 @@ const speakableSchema = {
  <div class="mb-14 max-w-3xl">
  <p class="kicker mb-3">What we believe</p>
  <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl lg:text-5xl">
- Four rules we don't break
+ Four planning principles
  </h2>
  <p class="mt-4 text-lg text-ash">
- These aren't wall posters. They're how we pick inventory, quote jobs, hire staff, and fire the accounts that don't fit. If you've worked with a promo shop that didn't operate this way — yeah, that's why.
+ These values guide product recommendations, quotes, communication, and partner coordination. They help clients understand what to expect before approving an order.
  </p>
  </div>
 
@@ -288,7 +252,7 @@ const speakableSchema = {
  Online promo catalogs vs. <span class="text-gold-600">Bighorn Threads</span>
  </h2>
  <p class="mt-4 text-lg text-ash">
- We're not the cheapest option and we never will be. Here's what you get instead.
+ Compare the complete written scope, including products, artwork, proofing, production, timing, and current commercial terms.
  </p>
  </div>
 
@@ -349,10 +313,10 @@ const speakableSchema = {
  <div class="mb-14 max-w-3xl">
  <p class="kicker mb-3">Meet the founder</p>
  <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl lg:text-5xl">
- The guy who <span class="text-gold-600">picks up the phone</span>
+ Meet <span class="text-gold-600">Steven Dodson</span>
  </h2>
  <p class="mt-4 text-lg text-ash">
- Bighorn Threads isn't a call center and it isn't a template site. It's Steve, still running the shop.
+ Steve founded Bighorn Threads and its parent, VP Promos.
  </p>
  </div>
 
@@ -363,7 +327,7 @@ const speakableSchema = {
  <div class="h-48 w-48 overflow-hidden border border-hairline sm:h-56 sm:w-56">
  <Picture
  src={founderSteve}
- alt="Steven Dodson, founder of Bighorn Threads."
+ alt="Representative branded-apparel account management portrait"
  widths={[224, 448]}
  sizes="224px"
  formats={['avif', 'webp']}
@@ -383,12 +347,6 @@ const speakableSchema = {
 
  <!-- Bio column -->
  <div class="flex flex-col justify-center gap-6 p-10 lg:p-14">
- <blockquote class="font-heading text-xl leading-relaxed text-charcoal sm:text-2xl">
- <svg class="mb-4 h-8 w-8 text-gold-600" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
- <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
- </svg>
- {founder.quote}
- </blockquote>
  <p class="leading-relaxed text-ash">{founder.bio}</p>
  <div class="flex flex-wrap items-center gap-4 pt-2">
  <a href="tel:+17029048923" class="inline-flex min-h-[44px] items-center gap-2 border border-charcoal px-5 py-2.5 font-mono text-sm font-medium tracking-wide text-charcoal transition-colors hover:border-gold-500 hover:text-gold-700">
@@ -397,7 +355,7 @@ const speakableSchema = {
  </svg>
  <span>{founder.phone}</span>
  </a>
- <span class="text-sm text-ash">Direct line — no voicemail loop.</span>
+ <span class="text-sm text-ash">Call Bighorn Threads.</span>
  </div>
  </div>
  </div>
@@ -407,7 +365,7 @@ const speakableSchema = {
  <div class="mt-16 border border-hairline bg-panel p-2">
  <Image
  src={workwearFlatlay}
- alt="Branded workwear and apparel produced in the Bighorn Threads shop"
+ alt="Branded workwear and apparel coordinated by Bighorn Threads"
  loading="lazy"
  class="h-[280px] w-full object-cover sm:h-[320px]"
  />
@@ -422,13 +380,13 @@ const speakableSchema = {
  <div>
  <p class="kicker mb-3">Based in Las Vegas</p>
  <h2 class="mb-6 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl lg:text-5xl">
- Vegas roots. <span class="text-gold-600">Nationwide reach.</span>
+ Vegas roots. <span class="text-gold-600">Confirmed order terms.</span>
  </h2>
  <p class="mb-6 text-lg leading-relaxed text-ash">
- We produce locally in Las Vegas — fast delivery to any Vegas office or job trailer, and a local team you can meet for coffee to walk through artwork. For teams outside the valley, we ship direct nationwide.
+ Bighorn is based in Las Vegas and coordinates production through partners. Product availability, production method, and timing are confirmed for each order.
  </p>
  <p class="mb-8 text-lg leading-relaxed text-ash">
- We regularly deliver to job sites all over the Vegas metro — from Strip high-rises to Henderson masterplans to out-of-town projects in Pahrump and Boulder City. If your crew's working it, we're probably already shipping there.
+ Share your product, artwork, quantity, and required date. Bighorn will document the current order terms in the quote.
  </p>
 
  <div class="mb-8 flex items-start gap-4 border border-hairline bg-panel p-6">
@@ -441,26 +399,19 @@ const speakableSchema = {
  <div>
  <div class="kicker mb-1">Shop location</div>
  <div class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal">Las Vegas, Nevada</div>
- <div class="mt-1 text-sm text-ash">Local Las Vegas production and delivery throughout the Vegas Valley.</div>
+ <div class="mt-1 text-sm text-ash">Las Vegas based account service with partner-coordinated production.</div>
  </div>
  </div>
  </div>
 
  <div>
- <div class="kicker mb-6">Service area</div>
- <div class="grid grid-cols-2 gap-3">
- {serviceAreas.map((area) => (
- <div class="flex items-center gap-3 border border-hairline bg-panel px-5 py-4 transition-colors hover:border-gold-500">
- <svg class="h-5 w-5 flex-shrink-0 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
- <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
- </svg>
- <span class="font-heading text-base font-bold uppercase tracking-tight text-charcoal">{area}</span>
- </div>
- ))}
- </div>
- <p class="mt-6 text-sm text-ash">
- Outside the Vegas metro? We ship nationwide too.
+ <div class="kicker mb-6">Before you approve</div>
+ <div class="border border-hairline bg-panel p-8">
+ <h3 class="font-heading text-2xl font-bold uppercase tracking-tight text-charcoal">Get the complete order in writing</h3>
+ <p class="mt-4 leading-relaxed text-ash">
+ Your quote should identify the products, artwork, quantities, production method, timing, pricing, and reorder terms.
  </p>
+ </div>
  </div>
  </div>
  </div>
@@ -482,7 +433,7 @@ const speakableSchema = {
  Ready to work with a team that <span class="text-gold-400">actually gets it?</span>
  </h2>
  <p class="mx-auto mb-10 max-w-2xl text-lg text-navy-200">
- Send over your logo, your rough quantities, and your deadline. We'll come back with a transparent quote, digital mockups, and a real date we can hit — usually fast.
+ Send your logo, quantities, garment needs, and deadline. We'll review the complete order and document the available products, proof, timing, and commercial terms.
  </p>
  <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
  <a href="/get-a-quote/" class="btn-primary text-base">
@@ -499,7 +450,7 @@ const speakableSchema = {
  </a>
  </div>
  <p class="mt-8 text-sm text-navy-300">
- No voicemail loop, no chatbot. You'll get a human on the first try during business hours.
+ Call the Las Vegas account team. Response timing depends on staff availability.
  </p>
  </div>
  </section>

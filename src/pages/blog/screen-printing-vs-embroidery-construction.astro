@@ -2,394 +2,108 @@
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const post = {
- title: 'Screen Printing vs Embroidery: Which Is Right for Construction Gear?',
+ title: 'Screen Printing vs Embroidery for Construction Workwear',
  description:
- 'The real difference between screen printing and embroidery for construction apparel — durability, cost, garment type, and when to use each. Straight answers from a Las Vegas shop.',
- category: 'Decoration Methods',
+ 'A practical comparison of screen printing and embroidery based on garment, artwork, quantity, use, care, protective-apparel instructions, and written pricing.',
+ category: 'Buyer Guides',
  readTime: '7 min read',
- date: 'Mar 15, 2026',
- isoDate: '2026-03-15',
- image: '/images/generated/service-embroidery.jpg',
+ date: 'May 9, 2026',
+ isoDate: '2026-05-09',
+ image: '/images/generated/service-screen-printing.jpg',
  slug: 'screen-printing-vs-embroidery-construction',
 }
 
+const primaryUrl = 'https://bighornthreads.com/screen-printing-vs-embroidery-construction-las-vegas/'
+
 const faqs = [
- { q: 'Is screen printing or embroidery better for construction apparel?', a: 'Neither is universally better — it depends on the garment. Screen printing is best for t-shirts, long sleeves, hi-vis tees, and hoodies with bold art, especially at volume (24+ pieces). Embroidery is best for polos, hats, softshells, jackets, and button-downs, and on anything client-facing. Most construction crews run a hybrid program: screen print field tees, embroider polos and outerwear.' },
- { q: 'Is embroidery or screen printing more durable?', a: 'Embroidery is more durable. A quality plastisol screen print on a 60/40 blend tee survives 40-50 industrial washes before noticeable fade or cracking. Embroidered decoration on quality outerwear typically outlasts the garment itself — the fabric wears out before the stitching does.' },
- { q: 'Is screen printing or embroidery cheaper?', a: 'It depends on quantity. Screen printing has higher per-color setup costs that amortize at volume, so it is substantially cheaper per piece on large orders. Embroidery has a one-time digitizing fee but lower minimums, so under about 12-18 pieces embroidery often wins on total cost.' },
- { q: 'Can you embroider a moisture-wicking t-shirt?', a: 'It is not recommended. The embroidery needle perforates lightweight moisture-wicking fabric and creates a stiff patch that interferes with the fabric pulling sweat away. Screen printing is the right method for field-wear performance tees.' },
+ { q: 'Is screen printing or embroidery better for workwear?', a: 'Neither method wins every order. Compare the exact garment, artwork, use, care, quantity, and written quote.' },
+ { q: 'Which method is more durable?', a: 'Durability depends on the garment, materials, production quality, abrasion, laundering, drying, and care. Review samples and care instructions.' },
+ { q: 'Which method is cheaper?', a: 'Pricing depends on garment cost, quantity, setup, artwork, ink colors or stitch count, placements, and production partner. Compare total written quotes.' },
+ { q: 'Can protective apparel be printed or embroidered?', a: 'Only after the employer and garment manufacturer approve the exact product, materials, method, size, and placement.' },
 ]
 
 const schema = {
  '@context': 'https://schema.org',
  '@graph': [
- {
- '@type': 'FAQPage',
- mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
- },
- {
- '@type': 'Article',
- headline: post.title,
- description: post.description,
- image: `https://bighornthreads.com${post.image}`,
- datePublished: post.isoDate,
- dateModified: post.isoDate,
- author: {
- '@type': 'Person',
- name: 'Steve Dodson',
- url: 'https://bighornthreads.com/about/',
- sameAs: ['https://www.linkedin.com/company/vp-promotions-vegas'],
- },
- publisher: {
- '@type': 'Organization',
- name: 'Bighorn Threads',
- logo: {
- '@type': 'ImageObject',
- url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png',
- },
- },
- mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/`,
- },
- {
- '@type': 'BreadcrumbList',
- itemListElement: [
- { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
- { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' },
- {
- '@type': 'ListItem',
- position: 3,
- name: post.title,
- item: `https://bighornthreads.com/blog/${post.slug}/`,
- },
- ],
- },
- ],
-}
-const howToSchema = {
- '@context': 'https://schema.org',
- '@type': 'HowTo',
- name: 'How to Choose Between Screen Printing and Embroidery for Workwear',
- description: 'A decision framework for picking the right decoration method for each garment in a construction or trades apparel program.',
- step: [
- { '@type': 'HowToStep', name: 'Identify the garment type', text: 'T-shirts, long sleeves, hi-vis tees, and hoodies with bold art default to screen printing. Polos, hats, softshells, jackets, button-downs, and anything client-facing default to embroidery.' },
- { '@type': 'HowToStep', name: 'Evaluate your order quantity', text: 'Screen printing has higher setup costs that amortize at volume (24+ pieces). Embroidery has a one-time digitizing fee but lower minimums — under 12-18 pieces, embroidery often wins on total cost.' },
- { '@type': 'HowToStep', name: 'Consider durability requirements', text: 'Embroidery outlasts the garment on quality outerwear. Screen printing survives 40-50 industrial washes. If the gear will be worn for years in tough conditions, spec embroidery on outerwear.' },
- { '@type': 'HowToStep', name: 'Match the decoration method to the surface', text: 'Never embroider on lightweight moisture-wicking tees — the needle perforates the fabric. Never screen print on curved surfaces like hat fronts. Each method has physical limits.' },
- { '@type': 'HowToStep', name: 'Run a hybrid program for most crews', text: 'Screen print field tees and hoodie art. Embroider polos, hats, softshells, and anything a client or superintendent sees up close. Use the same logo file — only the method changes by garment.' },
+  {
+   '@type': 'Article', headline: post.title, description: post.description,
+   image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate,
+   dateModified: '2026-08-21',
+   author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' },
+   publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } },
+   mainEntityOfPage: primaryUrl,
+  },
+  {
+   '@type': 'BreadcrumbList',
+   itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' },
+    { '@type': 'ListItem', position: 3, name: post.title, item: primaryUrl },
+   ],
+  },
+  { '@type': 'FAQPage', mainEntity: faqs.map((faq) => ({ '@type': 'Question', name: faq.q, acceptedAnswer: { '@type': 'Answer', text: faq.a } })) },
  ],
 }
 ---
 
-<BaseLayout
- title={post.title}
- description={post.description}
- canonical={`https://bighornthreads.com/blog/${post.slug}/`}
- ogImage={post.image}
- type="article"
- publishedDate={post.isoDate}
->
+<BaseLayout title={post.title} description={post.description} canonical={primaryUrl} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
- <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
-
  <article class="bg-concrete">
- <header class="border-b border-hairline bg-paper">
- <div class="mx-auto max-w-3xl px-4 pt-16 pb-12 sm:px-6 sm:pt-20 lg:px-8">
- <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
- <a href="/" class="hover:text-gold-600">Home</a>
- <span class="px-2">/</span>
- <a href="/blog/" class="hover:text-gold-600">Blog</a>
- </nav>
+  <header class="border-b border-hairline bg-paper">
+   <div class="mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
+    <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-700">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-700">Blog</a></nav>
+    <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-600">{post.category}</span>
+    <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
+    <p class="mb-8 text-xl leading-relaxed text-ash">Choose a method from the actual garment, artwork, use, care, quantity, and written terms.</p>
+    <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash">
+     <span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time>
+    </div>
+   </div>
+  </header>
 
- <span class="kicker mb-3">
- {post.category}
- </span>
- <h1 class="mb-6 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl lg:text-5xl">
- {post.title}
- </h1>
- <p class="mb-8 text-xl leading-relaxed text-ash">
- Price isn't the question. Durability, garment type, and how your logo actually reads on a jobsite — that's the question.
- </p>
+  <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8">
+   <img src={post.image} alt="Screen printing and embroidery samples for construction workwear" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" />
+  </div>
 
- <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash">
- <span class="text-gold-600">Bighorn Threads Team</span>
- <span aria-hidden="true">&middot;</span>
- <span>{post.readTime}</span>
- <span aria-hidden="true">&middot;</span>
- <time datetime={post.isoDate}>{post.date}</time>
- </div>
- </div>
- </header>
+  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+   <aside class="mb-10 border border-hairline bg-panel p-7">
+    <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
+    <p class="text-lg leading-relaxed text-charcoal sm:text-xl">Screen printing applies ink. Embroidery uses thread and backing. Either method can work when it fits the product, artwork, use, care, and approval requirements.</p>
+   </aside>
 
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8">
- <img
- src={post.image}
- alt="Screen printed t-shirt and embroidered polo laid flat showing side-by-side decoration comparison"
- width="1200"
- height="675"
- loading="eager"
- class="w-full border border-hairline object-cover"
- />
- </div>
+   <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Start With the Garment</h2>
+   <p class="mb-6 text-lg leading-relaxed text-charcoal">Record the manufacturer, model, fabric, size range, color, stretch, seams, pockets, coatings, and care instructions. Ask whether the product limits ink, heat, needles, backing, or placement.</p>
 
- <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
- <!-- TOC -->
- <aside class="mb-12 border border-hairline bg-panel p-6 lg:sticky lg:top-24">
- <h2 class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-700">In this article</h2>
- <ol class="space-y-2 font-mono text-sm text-ash">
- <li><a href="#screen-printing" class="hover:text-gold-600">1. What screen printing is best for</a></li>
- <li><a href="#embroidery" class="hover:text-gold-600">2. What embroidery is best for</a></li>
- <li><a href="#durability" class="hover:text-gold-600">3. Durability comparison</a></li>
- <li><a href="#cost" class="hover:text-gold-600">4. Cost comparison</a></li>
- <li><a href="#by-garment" class="hover:text-gold-600">5. When to use each by garment</a></li>
- <li><a href="#hybrid" class="hover:text-gold-600">6. The hybrid approach</a></li>
- <li><a href="#fr-ansi" class="hover:text-gold-600">7. FR fabric and ANSI hi-vis: special rules</a></li>
- </ol>
- </aside>
+   <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Match the Method to the Artwork</h2>
+   <p class="mb-6 text-lg leading-relaxed text-charcoal">Large graphics, small lettering, gradients, fine details, and multiple colors can affect which methods are available. Request a scaled proof and sample when the application warrants it.</p>
 
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Screen printing wins on t-shirts and high-volume orders; embroidery wins on polos, hats, outerwear, and anything you want to look premium. The right answer isn't one method — it's choosing per garment based on durability, surface type, and order quantity. Screen printing pushes ink onto flat knit fabrics and gets cheaper at volume; embroidery stitches thread into the garment and outlasts almost everything.
- </p>
+   <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Compare Price and Production Terms</h2>
+   <p class="mb-6 text-lg leading-relaxed text-charcoal">Garment cost, setup, stitch count, ink colors, placements, quantity, freight, and production partner affect the total. Put products, substitutions, proofs, pricing, timing, and delivery in writing.</p>
 
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- The details matter when you're spending serious money to outfit a crew, so here's the full breakdown of where each method belongs. If you want the pricing side first, see <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-600 underline hover:text-gold-700">how much it costs to embroider a shirt</a> and the realistic <a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="text-gold-600 underline hover:text-gold-700">minimum order quantities</a> for each method.
- </p>
+   <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Review Use and Care</h2>
+   <p class="mb-6 text-lg leading-relaxed text-charcoal">Consider abrasion, laundering, drying, chemicals, weather, and expected wear. Durability claims should match the actual material system and care instructions.</p>
 
- <h2 id="screen-printing" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">1. What Screen Printing Is Best For</h2>
+   <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Protective Apparel Needs Written Approval</h2>
+   <p class="mb-6 text-lg leading-relaxed text-charcoal">For high-visibility, FR, or arc-rated apparel, the employer selects the exact garment. Ask the manufacturer to approve decoration materials, method, size, and placement before production.</p>
+   <p class="mb-6 text-lg leading-relaxed text-charcoal">See the full <a href="/screen-printing-vs-embroidery-construction-las-vegas/" class="text-gold-700 underline hover:text-gold-600">screen printing vs embroidery comparison</a> for the primary buyer guide.</p>
 
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- <a href="/services/screen-printing-las-vegas/" class="text-gold-700 underline hover:text-gold-600">Screen printing</a> pushes ink through a fine mesh screen directly onto the garment, one color at a time. Each color needs its own screen, which is why setup costs are higher on small orders and lower per-piece on large ones.
- </p>
+   <section class="mt-12 border border-hairline bg-panel p-8">
+    <h2 class="mb-3 font-heading text-2xl font-bold text-charcoal">Compare methods for your order</h2>
+    <p class="mb-6 text-lg text-ash">Send your products, artwork, quantities, placements, care needs, and required documents.</p>
+    <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
+   </section>
 
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- It's the right choice when:
- </p>
-
- <ul class="mb-6 list-disc space-y-2 pl-6 text-lg leading-relaxed text-charcoal">
- <li>You're running volume (24 pieces and up, ideal at 50+).</li>
- <li>The garment is a t-shirt, long sleeve, hoodie, or similar flat knit.</li>
- <li>Your logo has bold, clean lines — not fine detail.</li>
- <li>You want the decoration to sit flat and breathe (important in Vegas heat).</li>
- <li>You're printing large — full back, full front, sleeve hits.</li>
- </ul>
-
- <div class="my-10 border-l-4 border-gold-500 bg-panel p-6">
- <p class="mb-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-700">Key takeaway</p>
- <p class="text-lg leading-relaxed text-charcoal">
- Screen printing is your volume method. Once you're past setup, the cost per piece drops fast. For a 200-count tee order, screen printing often comes in 40-50% cheaper per piece than embroidery.
- </p>
- </div>
-
- <h2 id="embroidery" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">2. What Embroidery Is Best For</h2>
-
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- <a href="/services/embroidery-las-vegas/" class="text-gold-700 underline hover:text-gold-600">Embroidery</a> stitches your logo into the fabric with thread. It's tactile, dimensional, and reads as premium at a glance. The setup work happens during "digitizing" — converting your logo into a stitch file that the machine can run.
- </p>
-
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- It's the right choice when:
- </p>
-
- <ul class="mb-6 list-disc space-y-2 pl-6 text-lg leading-relaxed text-charcoal">
- <li>The garment is a polo, button-down, hat, fleece, softshell, or insulated jacket.</li>
- <li>You want small-format decoration (left chest, hat front, sleeve).</li>
- <li>The garment needs to look professional in a client-facing context.</li>
- <li>You need maximum durability — embroidery outlasts almost everything.</li>
- <li>You're ordering lower quantities (6-48 pieces) where screen print setup makes no sense.</li>
- </ul>
-
- <h2 id="durability" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">3. Durability Comparison</h2>
-
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- This is where most contractors get surprised. A quality plastisol screen print on a 60/40 blend tee will survive 40-50 industrial washes before noticeable fade or cracking. A water-based discharge print fades faster but feels softer. Both are reasonable — but neither lasts like embroidery.
- </p>
-
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Embroidered decoration, on good polyester or poly-blend thread, will typically outlast the garment it's stitched into. The failure mode isn't thread degradation — it's the jacket fabric wearing out around the embroidery. On a quality softshell that's five years or more.
- </p>
-
- <h3 class="mt-8 mb-3 font-heading text-xl font-bold text-charcoal">What kills each method</h3>
- <ul class="mb-6 list-disc space-y-2 pl-6 text-lg leading-relaxed text-charcoal">
- <li><strong class="text-charcoal">Screen print killers:</strong> high-heat dryers, harsh detergents, repeated bleach exposure, abrasion from safety vests rubbing the chest print.</li>
- <li><strong class="text-charcoal">Embroidery killers:</strong> snagging thread on equipment or fencing, and picking at loose stitches (which then unravel).</li>
- </ul>
-
- <h2 id="cost" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">4. Cost Comparison</h2>
-
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Nobody wants a price list without context, so here's roughly how the economics play out for a typical logo on typical gear:
- </p>
-
- <ul class="mb-6 list-disc space-y-2 pl-6 text-lg leading-relaxed text-charcoal">
- <li><strong class="text-charcoal">Screen printing setup:</strong> a per-color setup fee, one-time. Digital proof included.</li>
- <li><strong class="text-charcoal">Screen printing per piece (2-color on tee):</strong> a per-piece fee decorated on top of the garment cost.</li>
- <li><strong class="text-charcoal">Embroidery digitizing:</strong> a one-time fee per logo, kept on file forever.</li>
- <li><strong class="text-charcoal">Embroidery per piece (left chest, up to 8,000 stitches):</strong> a per-piece fee decorated on top of the garment cost.</li>
- </ul>
-
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- At 24 pieces the gap narrows. At large orders screen printing is substantially cheaper. At 6 pieces embroidery is actually cheaper because you avoid the screen setup. Under about 12-18 pieces, embroidery almost always wins on total cost.
- </p>
-
- <h2 id="by-garment" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">5. When to Use Each by Garment Type</h2>
-
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- This is the cheat sheet we use with our contractor clients. It's not a rule — just the answer that's right about 90% of the time:
- </p>
-
- <!-- Comparison table -->
- <div class="my-8 overflow-hidden border border-hairline">
- <table class="w-full text-left">
- <thead>
- <tr class="bg-paper">
- <th class="px-4 py-3 font-heading text-sm font-bold uppercase tracking-wider text-gold-700">Garment</th>
- <th class="px-4 py-3 font-heading text-sm font-bold uppercase tracking-wider text-gold-700">Best Method</th>
- <th class="hidden px-4 py-3 font-heading text-sm font-bold uppercase tracking-wider text-gold-700 sm:table-cell">Why</th>
- </tr>
- </thead>
- <tbody class="divide-y divide-hairline text-charcoal">
- <tr class="bg-paper/60">
- <td class="px-4 py-3 font-semibold">T-shirts & long sleeves</td>
- <td class="px-4 py-3 text-gold-700">Screen print</td>
- <td class="hidden px-4 py-3 text-sm text-ash sm:table-cell">Flat, breathable, cost-effective at volume</td>
- </tr>
- <tr>
- <td class="px-4 py-3 font-semibold">Hi-vis safety tees</td>
- <td class="px-4 py-3 text-gold-700">Screen print</td>
- <td class="hidden px-4 py-3 text-sm text-ash sm:table-cell">Preserves moisture-wicking, meets ANSI contrast</td>
- </tr>
- <tr class="bg-paper/60">
- <td class="px-4 py-3 font-semibold">Polos</td>
- <td class="px-4 py-3 text-gold-700">Embroidery</td>
- <td class="hidden px-4 py-3 text-sm text-ash sm:table-cell">Premium look for client-facing staff</td>
- </tr>
- <tr>
- <td class="px-4 py-3 font-semibold">Hats & caps</td>
- <td class="px-4 py-3 text-gold-700">Embroidery</td>
- <td class="hidden px-4 py-3 text-sm text-ash sm:table-cell">Curved surface, small format, high durability</td>
- </tr>
- <tr class="bg-paper/60">
- <td class="px-4 py-3 font-semibold">Softshells & jackets</td>
- <td class="px-4 py-3 text-gold-700">Embroidery</td>
- <td class="hidden px-4 py-3 text-sm text-ash sm:table-cell">Outlasts the garment, weather-resistant</td>
- </tr>
- <tr>
- <td class="px-4 py-3 font-semibold">Hoodies (bold art)</td>
- <td class="px-4 py-3 text-gold-700">Screen print</td>
- <td class="hidden px-4 py-3 text-sm text-ash sm:table-cell">Large format full-front or full-back designs</td>
- </tr>
- <tr class="bg-paper/60">
- <td class="px-4 py-3 font-semibold">Hoodies (logo only)</td>
- <td class="px-4 py-3 text-gold-700">Embroidery</td>
- <td class="hidden px-4 py-3 text-sm text-ash sm:table-cell">Premium hand-feel, longer life</td>
- </tr>
- <tr>
- <td class="px-4 py-3 font-semibold">Button-downs</td>
- <td class="px-4 py-3 text-gold-700">Embroidery</td>
- <td class="hidden px-4 py-3 text-sm text-ash sm:table-cell">Screen print doesn't work well on woven shirts</td>
- </tr>
- <tr class="bg-paper/60">
- <td class="px-4 py-3 font-semibold">Safety vests</td>
- <td class="px-4 py-3 text-gold-700">Heat transfer</td>
- <td class="hidden px-4 py-3 text-sm text-ash sm:table-cell">ANSI compliance; screen ink can fail cert</td>
- </tr>
- </tbody>
- </table>
- </div>
-
- <div class="my-10 border-l-4 border-gold-500 bg-panel p-6">
- <p class="mb-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-700">Pro tip</p>
- <p class="text-lg leading-relaxed text-charcoal">
- Never embroider on a lightweight moisture-wicking tee. The needle perforates the fabric and creates a stiff patch that pulls sweat in the wrong direction. Screen print every time for field-wear tees.
- </p>
- </div>
-
- <h2 id="hybrid" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">6. The Hybrid Approach</h2>
-
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Most of our contractor accounts use both methods — they just run them through different product lines. Field employees get screen-printed tees and hoodies. Office staff, PMs, and sales get embroidered polos and softshells. The brand stays consistent because the logo file is the same; only the decoration method changes to suit the garment.
- </p>
-
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- If you're setting up a <a href="/company-stores/" class="text-gold-700 underline hover:text-gold-600">branded company store</a>, we'll typically stock both versions of every core product — one screen-printed, one embroidered — so employees can pick the right option for their role without thinking about it.
- </p>
-
- <h2 id="fr-ansi" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">7. FR Fabric and ANSI Hi-Vis: Special Rules</h2>
-
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Construction and trade crews carry a third constraint most office apparel never deals with: compliance. If a garment is rated FR (flame-resistant, NFPA 2112 / 70E) or ANSI/ISEA 107 hi-vis, the decoration method isn't just a style choice — it can void the rating if done wrong.
- </p>
-
- <ul class="mb-6 list-disc space-y-2 pl-6 text-lg leading-relaxed text-charcoal">
- <li><strong class="text-charcoal">FR shirts:</strong> only FR-rated thread and FR-compatible inks can go on a flame-resistant garment. Standard polyester embroidery thread or plastisol ink can melt or accelerate burn — that's a real safety failure, not a cosmetic one. We stock NFPA-compliant thread for FR embroidery jobs and verify ink chemistry before any FR screen print run.</li>
- <li><strong class="text-charcoal">ANSI hi-vis vests and tees:</strong> ANSI/ISEA 107 sets minimum background and retroreflective material coverage by class (Class 2 or Class 3 for most road and jobsite work). Decoration can't cover or interrupt the reflective striping, and large prints can push total background coverage below the certified threshold. We map every logo placement against the ANSI grid before production so the finished piece still meets class.</li>
- <li><strong class="text-charcoal">Decoration method on compliance gear:</strong> heat transfer is often the safer call on ANSI vests because it sits cleanly between reflective bands without the needle perforation embroidery requires or the ink saturation a large screen print needs. On FR shirts, small-format embroidery (left chest) with FR thread is standard; large-format screen print runs need an FR-rated ink system, not a standard plastisol set up.</li>
- </ul>
-
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- The takeaway for a Las Vegas trade or construction buyer: don't treat your compliance gear the same as your office polos. Tell us upfront which pieces are FR or ANSI-rated and we'll route them through the right decoration process — not just the cheapest or fastest one. Get the full picture in our <a href="/safety-compliance/nfpa-70e-embroidery-guide/" class="text-gold-700 underline hover:text-gold-600">NFPA 70E embroidery guide</a>.
- </p>
-
- <!-- Mid-article CTA -->
- <div class="my-12 border border-hairline bg-panel p-8 text-center">
- <h3 class="mb-3 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal">Not sure which method fits your gear?</h3>
- <p class="mb-6 text-ash">
- Send us your logo and garment list. We'll recommend the right decoration for each piece.
- </p>
- <a href="/contact/" class="btn-primary text-base">
- Talk to Our Team
- </a>
- </div>
-
- <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">The Short Version</h2>
-
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Don't pick a decoration method. Pick a method <em>per garment</em>. Screen print your tees and your bold hoodie art. Embroider your polos, hats, softshells, and anything a client or superintendent is going to see up close. Use a hybrid program to keep costs reasonable and the brand consistent.
- </p>
-
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- If you want a second opinion on a specific garment, <a href="/services/" class="text-gold-700 underline hover:text-gold-600">our services page</a> covers what we produce locally, or just reach out and we'll run the numbers on your logo and your list.
- </p>
-
- <!-- FAQ -->
- <div class="mt-16 space-y-5">
- <h2 class="font-heading text-2xl font-bold tracking-tight text-charcoal">Frequently Asked Questions</h2>
- {faqs.map((faq) => (
- <div class="border border-hairline bg-panel p-6">
- <h3 class="mb-3 font-semibold text-charcoal">{faq.q}</h3>
- <p class="leading-relaxed text-charcoal">{faq.a}</p>
- </div>
- ))}
- </div>
-
- <!-- Author bio -->
- <div class="mt-16 border border-hairline bg-panel p-6">
- <div class="flex items-start gap-4">
- <div class="flex h-14 w-14 shrink-0 items-center justify-center bg-gold-500/15">
- <span class="font-mono text-lg font-bold text-gold-700">BT</span>
- </div>
- <div>
- <p class="mb-1 font-heading text-lg font-bold text-charcoal">Bighorn Threads Team</p>
- <p class="text-sm leading-relaxed text-ash">
- Screen printing and embroidery for Las Vegas trades. We produce for general contractors, subs, and every trade on the strip. <a href="/industries/" class="text-gold-700 underline hover:text-gold-600">See who we work with.</a>
- </p>
- </div>
- </div>
- </div>
- </div>
+   <section class="mt-12">
+    <h2 class="mb-6 font-heading text-3xl font-bold tracking-tight text-charcoal">Frequently Asked Questions</h2>
+    <div class="space-y-5">
+     {faqs.map((faq) => (
+      <div class="border border-hairline bg-paper p-6">
+       <h3 class="mb-2 font-heading text-xl font-bold text-charcoal">{faq.q}</h3>
+       <p class="text-base leading-relaxed text-ash">{faq.a}</p>
+      </div>
+     ))}
+    </div>
+   </section>
+  </div>
  </article>
-
- <!-- End CTA -->
- <section class="border-t border-hairline bg-paper py-16">
- <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
- <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">
- Let's print (or stitch) your gear.
- </h2>
- <p class="mb-8 text-lg text-ash">
- Local screen printing and embroidery with quick turnaround for Las Vegas trades.
- </p>
- <a href="/contact/" class="btn-primary text-base">
- Get a Free Quote
- </a>
- </div>
- </section>
 </BaseLayout>

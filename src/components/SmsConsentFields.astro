@@ -24,7 +24,7 @@ const boxCls =
   'mt-0.5 h-4 w-4 shrink-0 rounded border-hairline bg-panel text-gold-600 focus:ring-2 focus:ring-gold-500/40 focus:ring-offset-0'
 ---
 
-<fieldset class="mt-6 space-y-3 border border-hairline bg-panel p-4">
+<fieldset data-sms-consent class="mt-6 space-y-3 border border-hairline bg-panel p-4">
   <legend class="px-1 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">
     Text Message Preferences <span class="font-sans text-ash">(optional)</span>
   </legend>
@@ -37,7 +37,7 @@ const boxCls =
     <input type="checkbox" name="smsTransactionalConsent" value="yes" class={boxCls} />
     <span class={labelCls}>
       I consent to receive transactional (non-marketing) text messages from
-      <strong class="font-semibold text-charcoal">VP Promos LLC, d/b/a Bighorn Threads</strong>
+      {' '}<strong class="font-semibold text-charcoal">VP Promos LLC, d/b/a Bighorn Threads</strong>{' '}
       at the phone number provided — quote follow-ups, order and artwork-proof updates,
       production and delivery status, and appointment reminders. Message frequency may vary.
       Message &amp; data rates may apply. Reply HELP for help or STOP to opt out.
@@ -48,7 +48,7 @@ const boxCls =
     <input type="checkbox" name="smsMarketingConsent" value="yes" class={boxCls} />
     <span class={labelCls}>
       I consent to receive marketing and promotional text messages from
-      <strong class="font-semibold text-charcoal">VP Promos LLC, d/b/a Bighorn Threads</strong>
+      {' '}<strong class="font-semibold text-charcoal">VP Promos LLC, d/b/a Bighorn Threads</strong>{' '}
       at the phone number provided — special offers, discounts, new products, and seasonal
       promotions. Message frequency may vary. Message &amp; data rates may apply. Reply HELP
       for help or STOP to opt out.
@@ -64,3 +64,29 @@ const boxCls =
     No mobile information is shared with third parties or affiliates for marketing purposes.
   </p>
 </fieldset>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-sms-consent]').forEach((fieldset) => {
+    if (fieldset.dataset.bound === 'true') return
+    fieldset.dataset.bound = 'true'
+    const form = fieldset.closest('form')
+    const phone = form?.elements.namedItem('phone')
+    if (!(form instanceof HTMLFormElement) || !(phone instanceof HTMLInputElement)) return
+    const boxes = Array.from(fieldset.querySelectorAll<HTMLInputElement>('input[type="checkbox"]'))
+    const hasSmsConsent = () => boxes.some((box) => box.checked)
+    const validatePhone = () => {
+      const missing = hasSmsConsent() && !phone.value.trim()
+      phone.setCustomValidity(missing ? 'Add a phone number or leave both text-message boxes unchecked.' : '')
+      return !missing
+    }
+    boxes.forEach((box) => box.addEventListener('change', validatePhone))
+    phone.addEventListener('input', validatePhone)
+    form.addEventListener('submit', (event) => {
+      if (validatePhone()) return
+      event.preventDefault()
+      event.stopImmediatePropagation()
+      phone.reportValidity()
+      phone.focus()
+    }, true)
+  })
+</script>

@@ -3,7 +3,9 @@
 // with the full quote details. Charles wires the notification workflow in GHL UI.
 
 import { parseSmsConsent } from './_consent.js'
+import { formatAttributionNote, scheduleOriginalAttribution } from './_attribution.js'
 import { verifyTurnstile } from './_turnstile.js'
+import { COMMON_FIELD_LIMITS, normalizeSiteUrl, safeErrorName, validatePayload } from './_validation.js'
 
 const GHL_BASE = 'https://services.leadconnectorhq.com'
 const GHL_API_VERSION = '2021-07-28'
@@ -11,7 +13,8 @@ const QUOTE_TAG = 'bighorn-quote-request'
 
 const REQUIRED_FIELDS = ['name', 'company', 'email', 'qty', 'productName']
 
-export async function onRequestPost({ request, env }) {
+export async function onRequestPost(context) {
+  const { request, env } = context
   // Parse body
   let body
   try {
@@ -26,6 +29,23 @@ export async function onRequestPost({ request, env }) {
     // Pretend success — silently drop spam
     return jsonResponse({ ok: true, contactId: null, spam: true })
   }
+
+  const validationError = validatePayload(body, {
+    ...COMMON_FIELD_LIMITS,
+    qty: 20,
+    productName: 500,
+    productSpc: 200,
+    productEId: 200,
+    productCategory: 200,
+    productImage: 2_048,
+    color: 200,
+    sizes: 1_000,
+    decorationMethod: 200,
+    decorationLocation: 200,
+    inHandsDate: 100,
+    notes: 5_000,
+  })
+  if (validationError) return errorResponse(validationError, 400)
 
   // Cloudflare Turnstile — fail closed if verification is unavailable or misconfigured
   const verified = await verifyTurnstile({ env, request, token: body['cf-turnstile-response'] })
@@ -49,8 +69,12 @@ export async function onRequestPost({ request, env }) {
     return errorResponse('Invalid email format', 400)
   }
 
-  const qty = parseInt(String(body.qty), 10)
-  if (!(qty > 0)) return errorResponse('Quantity must be a positive integer', 400)
+  const qtyText = String(body.qty).trim()
+  if (!/^\d+$/.test(qtyText)) return errorResponse('Quantity must be a positive integer', 400)
+  const qty = Number(qtyText)
+  if (!Number.isSafeInteger(qty) || qty < 1 || qty > 1_000_000) {
+    return errorResponse('Quantity must be between 1 and 1000000', 400)
+  }
 
   // Env check
   const locationId = env.GHL_LOCATION_ID
@@ -65,7 +89,9 @@ export async function onRequestPost({ request, env }) {
   const lastName = rest.join(' ').trim() || ''
   const company = String(body.company).trim()
   const phone = body.phone ? String(body.phone).trim() : ''
-  const consent = parseSmsConsent(body, body.sourceUrl)
+  const sourceUrl = normalizeSiteUrl(body.sourceUrl)
+  const consent = parseSmsConsent(body, sourceUrl)
+  if (consent.any && !phone) return errorResponse('Phone is required when SMS consent is selected', 400)
 
   // ---------------- 1. Upsert contact ----------------
   let contactId = null
@@ -78,53 +104,64 @@ export async function onRequestPost({ request, env }) {
         lastName,
         name,
         email,
-        phone,
+        ...(phone ? { phone } : {}),
         companyName: company,
         source: 'bighornthreads.com — PDP quote modal',
-        tags: [QUOTE_TAG, ...consent.tags],
       }),
     })
     if (!upsertRes.ok) {
-      const text = await safeText(upsertRes)
-      console.error('[quote-request] upsert failed', upsertRes.status, text)
+      console.error('[quote-request] GHL request failed', { operation: 'contact-upsert', status: upsertRes.status })
       return errorResponse(`GHL upsert failed (${upsertRes.status})`, 502)
     }
     const upsertData = await upsertRes.json()
     contactId = upsertData?.contact?.id || upsertData?.id || upsertData?.contactId
     if (!contactId) {
-      console.error('[quote-request] upsert returned no id', upsertData)
+      console.error('[quote-request] GHL response missing contact id', { operation: 'contact-upsert', status: upsertRes.status })
       return errorResponse('GHL upsert returned no contact id', 502)
     }
   } catch (err) {
-    console.error('[quote-request] upsert threw', err)
+    console.error('[quote-request] GHL request threw', { operation: 'contact-upsert', error: safeErrorName(err) })
     return errorResponse('GHL upsert error', 502)
   }
 
-  // ---------------- 2. Ensure tag is on the contact ----------------
-  // Upsert above accepts tags, but if the contact already existed without
-  // this tag we want to make sure it lands. POST /contacts/{id}/tags is idempotent.
-  try {
-    await ghlFetch(`${GHL_BASE}/contacts/${contactId}/tags`, token, {
-      method: 'POST',
-      body: JSON.stringify({ tags: [QUOTE_TAG, ...consent.tags] }),
-    })
-  } catch (err) {
-    console.warn('[quote-request] tag add failed (non-fatal)', err)
-  }
+  await scheduleOriginalAttribution({
+    waitUntil: typeof context.waitUntil === 'function' ? context.waitUntil.bind(context) : undefined,
+    label: 'quote-request',
+    contactId,
+    token,
+    data: body,
+    fallbackDetail: 'Product quote modal',
+  })
 
-  // ---------------- 3. Add a note with quote details ----------------
-  const noteBody = formatNote(body, qty) + '\n' + consent.noteBlock
+  // ---------------- 2. Add the consent-bearing note before routing tags ----------------
+  const noteBody = formatNote({ ...body, sourceUrl }, qty) + '\n' + consent.noteBlock + formatAttributionNote(body)
   try {
     const noteRes = await ghlFetch(`${GHL_BASE}/contacts/${contactId}/notes`, token, {
       method: 'POST',
       body: JSON.stringify({ body: noteBody, userId: undefined }),
     })
     if (!noteRes.ok) {
-      const text = await safeText(noteRes)
-      console.warn('[quote-request] note failed (non-fatal)', noteRes.status, text)
+      console.error('[quote-request] GHL request failed', { operation: 'contact-note', status: noteRes.status })
+      return errorResponse('Contact saved, but consent record failed', 502)
     }
   } catch (err) {
-    console.warn('[quote-request] note threw (non-fatal)', err)
+    console.error('[quote-request] GHL request threw', { operation: 'contact-note', error: safeErrorName(err) })
+    return errorResponse('Contact saved, but consent record failed', 502)
+  }
+
+  // ---------------- 3. Route only after the consent record is durable ----------------
+  try {
+    const tagRes = await ghlFetch(`${GHL_BASE}/contacts/${contactId}/tags`, token, {
+      method: 'POST',
+      body: JSON.stringify({ tags: [QUOTE_TAG, ...consent.tags] }),
+    })
+    if (!tagRes.ok) {
+      console.error('[quote-request] GHL request failed', { operation: 'contact-tags', status: tagRes.status })
+      return errorResponse('Contact saved, but lead routing failed', 502)
+    }
+  } catch (err) {
+    console.error('[quote-request] GHL request threw', { operation: 'contact-tags', error: safeErrorName(err) })
+    return errorResponse('Contact saved, but lead routing failed', 502)
   }
 
   return jsonResponse({ ok: true, contactId })
@@ -144,10 +181,6 @@ function ghlFetch(url, token, init = {}) {
     headers,
     signal: AbortSignal.timeout(15_000),
   })
-}
-
-async function safeText(res) {
-  try { return await res.text() } catch (_) { return '' }
 }
 
 function formatNote(body, qty) {

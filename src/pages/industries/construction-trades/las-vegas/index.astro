@@ -10,7 +10,7 @@ const trades = [
  {
  name: 'Electrical Contractors',
  href: '/industries/electrical-contractors-las-vegas/',
- desc: 'NFPA 70E FR-rated shirts, arc-flash workwear, and embroidered service uniforms.',
+ desc: 'Employer-selected electrical PPE and nonprotective service-apparel options, with decoration approved before production.',
  },
  {
  name: 'Plumbing & HVAC',
@@ -20,17 +20,17 @@ const trades = [
  {
  name: 'Concrete & Masonry',
  href: '/industries/concrete-masonry-las-vegas/',
- desc: 'ANSI hi-vis tees and long sleeves, heavy-duty work jackets, branded hard hats.',
+ desc: 'Employer-selected visibility and workwear options reviewed against current product and decoration requirements.',
  },
  {
  name: 'Steel & Ironworkers',
  href: '/industries/steel-iron-workers-las-vegas/',
- desc: 'FR-rated long-sleeve shirts, arc-rated hoodies, welding gloves, chin-strap hard hats.',
+ desc: 'Task-specific protective apparel and equipment selected by the employer; decoration requires written approval.',
  },
  {
  name: 'Data Center & Mission-Critical',
  href: '/industries/data-center-contractors-las-vegas/',
- desc: 'FR button-ups, embroidered softshells, and fine-dust-ready gear for Vegas data centers.',
+ desc: 'Employer-selected electrical PPE and nonprotective apparel options for data-center project roles.',
  },
  {
  name: 'Roofing & Solar',
@@ -45,30 +45,30 @@ const trades = [
  {
  name: 'Oil, Gas & Mechanical',
  href: '/industries/oil-gas-mechanical-las-vegas/',
- desc: 'FR-rated workwear, embroidered jackets, and branded gear for mechanical crews.',
+ desc: 'Employer-selected protective apparel and nonprotective branded-apparel options for mechanical roles.',
  },
 ]
 
 const faqs = [
  {
  q: "What's the minimum order?",
- a: '24 pieces for screen printing, 12 for embroidery. Setup fees waived on qualifying orders — ask when you quote.',
+ a: 'Minimum quantities and setup fees depend on the product, decoration method, and production partner. Bighorn confirms the current terms in your quote.',
  },
  {
  q: 'How fast can you turn around a rush job?',
- a: "Rush options are available — call us with your deadline and we'll tell you straight if we can hit it.",
+ a: 'Rush options depend on product availability, artwork readiness, quantity, and production partner capacity. Bighorn confirms timing and any surcharge in writing before you order.',
  },
  {
  q: 'Do you handle hi-vis and FR compliance?',
- a: 'Yes. ANSI/ISEA 107 Class 2 and 3 hi-vis apparel and NFPA 70E flame-resistant shirts, both printed and embroidered to spec without voiding the rating.',
+ a: 'Bighorn can source hi-vis and flame-resistant options after your employer provides the required specification. The garment manufacturer and safety lead must approve any decoration method and placement.',
  },
  {
  q: 'Can you set up a company store for our crews?',
- a: 'Yes. Your logo, your colors, and your approved gear live in one branded store. Crews log in, pick their own sizes, and gear ships direct to office, job trailer, or home — no inventory closet on your end.',
+ a: 'Bighorn can scope a store around approved products and artwork. User access, size submission, payment, production, fulfillment, and delivery capabilities are confirmed in writing during setup.',
  },
  {
  q: 'How do you handle reorders?',
- a: 'Screens, digitized files, thread colors, and placement specs are all saved. Reorder with one email or one portal click, and it matches the original.',
+ a: 'Bighorn can document approved artwork, colors, and placement details for reorder coordination. File retention, one-click ordering, and lot-to-lot matching depend on the selected production partner and written program scope.',
  },
 ]
 
@@ -89,7 +89,6 @@ const breadcrumb = {
  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
  { '@type': 'ListItem', position: 2, name: 'Industries', item: 'https://bighornthreads.com/industries/' },
  { '@type': 'ListItem', position: 3, name: 'Construction & Trades', item: 'https://bighornthreads.com/industries/construction-trades/' },
- { '@type': 'ListItem', position: 4, name: 'Las Vegas', item: 'https://bighornthreads.com/industries/construction-trades/las-vegas/' },
  ],
 }
 
@@ -98,7 +97,8 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
 
 <BaseLayout
  title="Las Vegas Construction & Trades Uniforms & Company Stores"
- description="Branded uniforms, hi-vis and FR workwear, and company stores for the crews that build Las Vegas — general contractors, electricians, roofers, plumbers, HVAC, concrete, and steel. Local production, reorders that match."
+ description="Branded uniforms, hi-vis and FR workwear, and company stores for Las Vegas construction crews. Bighorn coordinates approved products and decoration through selected production partners."
+ canonical="https://bighornthreads.com/industries/construction-trades/"
 >
  <!-- ════ HERO — concrete ════ -->
  <section class="bg-concrete">
@@ -113,14 +113,13 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  <span class="text-gold-600"> build Vegas.</span>
  </h1>
  <p class="mt-7 max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
- We outfit Las Vegas general contractors, electricians, roofers, plumbers, HVAC
- teams, concrete crews, and steel and ironworkers. Branded workwear, embroidery,
- hi-vis and FR to spec, and reorder portals — built for the jobsite, easy to
- reorder, consistent every time.
+ Bighorn provides Las Vegas account management for general contractors,
+ electricians, roofers, plumbers, HVAC teams, concrete crews, and steel and ironworkers.
+ We coordinate employer-approved products and decoration through production partners.
  </p>
  <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
  <a href="/contact/" class="btn-primary text-base">
- Get a Free Quote
+ Request a Quote
  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
  </a>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-charcoal transition-colors hover:text-gold-600">
@@ -141,9 +140,8 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  Built for the companies that <span class="text-gold-600">build Vegas.</span>
  </h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- If your crew shows up to a Las Vegas job site, we make sure they look like they
- belong to something. Pick your trade for the gear, specs, and details that fit
- the work.
+ Plan a consistent branded-apparel program around each role, job requirement,
+ and employer-approved product specification. Pick your trade to review relevant options.
  </p>
  </div>
 
@@ -167,15 +165,14 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
  <div>
- <p class="kicker mb-3">Vegas Local. Vegas Production.</p>
+ <p class="kicker mb-3">Local Program Management</p>
  <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
- We build where <span class="text-gold-600">you build.</span>
+ One local contact for <span class="text-gold-600">your crew.</span>
  </h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- Our production partners are in Las Vegas, so quotes, proofs, and reruns move at
- jobsite speed. We know what the Vegas heat does to a crew — and we spec hi-vis,
- sun-ready, and breathable workwear that holds up through summer on the roof and
- in the trench.
+ Bighorn manages product selection, proofs, and reorders for Las Vegas crews.
+ Selected production partners handle decoration. Your employer defines all safety requirements.
+ Product availability and timing are confirmed in each quote.
  </p>
  <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
  <a href="/safety-compliance/" class="btn-secondary text-sm">
@@ -193,22 +190,22 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  <div class="flex gap-4 py-5">
  <svg class="mt-0.5 h-5 w-5 shrink-0 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
  <div>
- <h3 class="font-heading text-base font-bold uppercase tracking-tight text-charcoal">Local Production &amp; Turnaround</h3>
- <p class="mt-1 text-sm leading-relaxed text-ash">Printed and embroidered through Las Vegas production partners. Quick quotes, quick mockups, rush options when you need them.</p>
+ <h3 class="font-heading text-base font-bold uppercase tracking-tight text-charcoal">Managed Production and Timing</h3>
+ <p class="mt-1 text-sm leading-relaxed text-ash">Selected production partners handle approved decoration. Your quote confirms product availability, minimums, and timing.</p>
  </div>
  </div>
  <div class="flex gap-4 py-5">
  <svg class="mt-0.5 h-5 w-5 shrink-0 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
  <div>
  <h3 class="font-heading text-base font-bold uppercase tracking-tight text-charcoal">Built for the Vegas Heat</h3>
- <p class="mt-1 text-sm leading-relaxed text-ash">Hi-vis, breathable, and sun-ready gear specced for desert summers — so the crew stays compliant and comfortable on long days.</p>
+ <p class="mt-1 text-sm leading-relaxed text-ash">Review breathable and high-visibility options for desert work. The employer selects required PPE and approves each product against current manufacturer documentation.</p>
  </div>
  </div>
  <div class="flex gap-4 py-5">
  <svg class="mt-0.5 h-5 w-5 shrink-0 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
  <div>
  <h3 class="font-heading text-base font-bold uppercase tracking-tight text-charcoal">Reorders That Match</h3>
- <p class="mt-1 text-sm leading-relaxed text-ash">Your logo, colors, and specs held on file. Reorder with one email or one portal click and it matches the original lot.</p>
+ <p class="mt-1 text-sm leading-relaxed text-ash">Bighorn can document approved artwork, colors, and placement for reorder coordination. File retention and matching terms depend on the production partner.</p>
  </div>
  </div>
  </div>
@@ -255,7 +252,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  </div>
  <div class="flex shrink-0 flex-col gap-3 sm:flex-row sm:items-center">
  <a href="/contact/" class="btn-primary text-base">
- Get a Free Quote
+ Request a Quote
  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
  </a>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 border border-gold-500 px-6 py-3.5 font-mono text-sm font-medium tracking-wide text-gold-400 transition-colors hover:bg-gold-500 hover:text-charcoal">

@@ -31,13 +31,8 @@ const schema = {
  description: post.description,
  image: `https://bighornthreads.com${post.image}`,
  datePublished: post.isoDate,
- dateModified: post.isoDate,
- author: {
- '@type': 'Person',
- name: 'Steve Dodson',
- url: 'https://bighornthreads.com/about/',
- sameAs: ['https://www.linkedin.com/company/vp-promotions-vegas'],
- },
+ dateModified: '2026-08-21',
+ author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' },
  publisher: {
  '@type': 'Organization',
  name: 'Bighorn Threads',
@@ -106,7 +101,7 @@ const speakableSchema = {
  </header>
 
  <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8">
- <img src={post.image} alt="Electrical contractor wearing FR-rated work shirt with embroidered company logo" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" />
+ <img src={post.image} alt="Representative electrical-work apparel shown for employer PPE planning" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" />
  </div>
 
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
@@ -119,9 +114,9 @@ const speakableSchema = {
  <ol class="space-y-2 font-mono text-sm text-ash">
  <li><a href="#what-is-nfpa-70e" class="hover:text-gold-600">1. What NFPA 70E actually covers</a></li>
  <li><a href="#cat-ratings" class="hover:text-gold-600">2. CAT 1 vs CAT 2 vs CAT 4</a></li>
- <li><a href="#brands" class="hover:text-gold-600">3. Brands that hold up in Vegas</a></li>
- <li><a href="#decoration" class="hover:text-gold-600">4. Embroidery without voiding the rating</a></li>
- <li><a href="#mistakes" class="hover:text-gold-600">5. Five mistakes we see weekly</a></li>
+ <li><a href="#brands" class="hover:text-gold-600">3. Comparing current garment options</a></li>
+ <li><a href="#decoration" class="hover:text-gold-600">4. Reviewing decoration requirements</a></li>
+ <li><a href="#mistakes" class="hover:text-gold-600">5. Five risks to review</a></li>
  <li><a href="#what-to-buy" class="hover:text-gold-600">6. What to actually buy</a></li>
  </ol>
  </aside>
@@ -131,7 +126,7 @@ const speakableSchema = {
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- This article is not a substitute for NFPA 70E, OSHA requirements, a qualified safety professional, or the garment manufacturer's instructions. Bighorn Threads decorates garments; the employer and its qualified safety team remain responsible for hazard assessment and PPE selection.
+This article is not a substitute for NFPA 70E, OSHA requirements, a qualified safety professional, or the garment manufacturer's instructions. Bighorn Threads coordinates approved decoration through production partners. The employer and its safety team remain responsible for hazard assessment and PPE selection.
  </p>
 
  <h2 id="what-is-nfpa-70e" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">1. What NFPA 70E Actually Covers</h2>
@@ -145,7 +140,7 @@ const speakableSchema = {
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- The standard isn't about flame-retardant treatment. It's about <em>arc-rated</em> garments — fabric that won't ignite, won't melt onto skin, and provides a measured level of thermal protection. "FR" and "arc-rated" are used interchangeably in conversation, but the formal label on a garment is its arc rating in cal/cm² (calories per square centimeter).
+ Arc-rated and flame-resistant are not interchangeable specifications. Review the exact product label and current technical data. The employer must select the complete system required by its task-specific assessment.
  </p>
 
  <h2 id="cat-ratings" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">2. CAT 1 vs CAT 2 vs CAT 4 — What Your Crew Actually Needs</h2>
@@ -176,10 +171,10 @@ const speakableSchema = {
  </p>
  </div>
 
- <h2 id="brands" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">3. Brands That Actually Hold Up in Vegas Heat</h2>
+ <h2 id="brands" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">3. Comparing Current Garment Options</h2>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Most FR fabric is engineered for moderate climates. Pull a 9 oz canvas FR shirt onto a roof at 11am in July and you'll see why the standard advice ("layer your FR") doesn't always apply. Vegas needs lighter-weight FR that still hits the cal rating.
+ Heat burden, fit, mobility, care, and availability matter after the required protection is established. Compare only currently rated garments that fit the employer's complete PPE system.
  </p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold text-charcoal">Bulwark FR</h3>
@@ -205,12 +200,12 @@ const speakableSchema = {
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold text-charcoal">FR-compatible thread</h3>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Some manufacturers or safety programs specify aramid or other compatible materials for particular garments, but the thread alone does not establish that a decorated garment remains compliant. Bighorn uses the material and process authorized for the exact garment and application.
+ Some manufacturers or safety programs specify aramid or other compatible materials for particular garments. Thread alone does not establish that a decorated garment remains compliant. Bighorn asks the selected production partner to follow the authorized specification for the exact garment and application.
  </p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold text-charcoal">Placement rules</h3>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Placement and size limits vary by manufacturer, garment, and decoration method. Bighorn verifies the current instructions for the exact garment before production. A woven label or alternate process is used only when the manufacturer permits it.
+ Placement and size limits vary by manufacturer, garment, and decoration method. Bighorn coordinates a review of the current instructions with the selected partner. The employer must approve the proposed decoration before production.
  </p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold text-charcoal">Screen printing on FR</h3>
@@ -225,7 +220,7 @@ const speakableSchema = {
  </p>
  </div>
 
- <h2 id="mistakes" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">5. Five Mistakes We See Weekly</h2>
+ <h2 id="mistakes" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">5. Five Risks to Review</h2>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold text-charcoal">1. Buying FR shirts but skipping FR pants</h3>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
@@ -267,12 +262,12 @@ const speakableSchema = {
  </ul>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- For a full breakdown of what we make for electrical contractors, see our <a href="/industries/electrical-contractors-las-vegas/" class="text-gold-700 underline hover:text-gold-600">electrical contractors page</a>. We can also set up a <a href="/company-stores/" class="text-gold-700 underline hover:text-gold-600">company store</a> stocked with your approved FR options so apprentices can order their own kits without anyone re-thinking the spec.
+ For more planning guidance, see our <a href="/industries/electrical-contractors-las-vegas/" class="text-gold-700 underline hover:text-gold-600">electrical contractors page</a>. A proposed <a href="/company-stores/" class="text-gold-700 underline hover:text-gold-600">company store</a> may present approved products and ordering rules. Availability, approvals, payment, delivery, and fulfillment depend on the written setup.
  </p>
 
  <div class="my-12 border border-hairline bg-panel p-8 text-center">
  <h3 class="mb-3 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal">Want a quote on FR for your crew?</h3>
- <p class="mb-6 text-base text-ash">Send your roster + roles. We'll come back with brand recommendations and pricing fast.</p>
+ <p class="mb-6 text-base text-ash">Send the employer-approved specification, roster, product requirements, and deadline for a current quote.</p>
  <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
  </div>
 
@@ -291,7 +286,7 @@ const speakableSchema = {
  </div>
  <div>
  <p class="mb-1 font-heading text-lg font-bold text-charcoal">Bighorn Threads Team</p>
- <p class="text-sm leading-relaxed text-ash">Garment decoration for Las Vegas electrical contractors, performed against the manufacturer's written requirements for the selected product. <a href="/industries/electrical-contractors-las-vegas/" class="text-gold-700 underline hover:text-gold-600">See what we make for electrical crews.</a></p>
+ <p class="text-sm leading-relaxed text-ash">Bighorn coordinates protective-garment decoration through selected production partners. The employer and manufacturer control the approved requirements. <a href="/industries/electrical-contractors-las-vegas/" class="text-gold-700 underline hover:text-gold-600">See electrical crew planning options.</a></p>
  </div>
  </div>
  </div>
@@ -317,7 +312,7 @@ const speakableSchema = {
  <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">FR for your electrical crew, done right.</h2>
  <p class="mb-8 text-lg text-ash">Protective-garment decoration based on the selected manufacturer's written requirements.</p>
- <a href="/get-a-quote/" class="btn-primary text-base">Get a Free Quote</a>
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
  </div>
  </section>
 </BaseLayout>

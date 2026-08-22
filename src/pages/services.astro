@@ -17,24 +17,24 @@ const services = [
  {
  name: 'Branded Apparel',
  serviceType: 'Branded workwear & uniforms for Las Vegas trades',
- description: 'Full uniform programs for construction and trades: hi-vis ANSI Class 2/3, FR-rated shirts (NFPA 70E CAT 1/2), polos, jackets, hard hats, beanies. Sourced from Carhartt, Port Authority, Red Kap, Bulwark, ML Kishigo, and other trade-trusted brands.',
+ description: 'Branded apparel planning for construction and trade teams. Product ratings, brand availability, decoration, minimums, and timing are confirmed by quote.',
  },
  {
  name: 'Company Stores',
  serviceType: 'Private branded apparel store for contractors',
- description: 'Custom online storefront where each crew member orders their own gear on a per-employee credit or company-paid budget. Print-on-demand or stocked inventory. Ship to office, job site, or employee home. No platform or per-seat fees.',
+ description: 'Planning for private branded apparel portals. Platform features, costs, inventory, ordering, and fulfillment terms are confirmed before setup.',
  },
  {
  name: 'Promotional Products',
  serviceType: 'Branded promotional products & corporate gifts',
- description: 'Drinkware, safety gear, tech accessories, tote bags, awards, and trade show giveaways. 1M+ product catalog, branded to your specs. Ideal for client gifts, crew appreciation, open-house events, and networking.',
+ description: 'Promotional product sourcing for drinkware, bags, tech accessories, awards, and event items. Availability, samples, decoration, minimums, and timing vary by product.',
  },
 ]
 
 const faqs = [
  {
  q: 'What services does Bighorn Threads offer?',
- a: 'Five services for Vegas construction crews: screen printing, embroidery, branded workwear programs, company stores, and promotional products. One partner, local production, files held on our end for matching reorders.',
+ a: 'Bighorn coordinates screen printing, embroidery, branded workwear, and promotional-product quotes through production partners. Company-store work is planning only: no platform has been selected or launched, and implementation requires a separately approved configuration.',
  },
  {
  q: 'What’s the minimum order?',
@@ -42,19 +42,19 @@ const faqs = [
  },
  {
  q: 'How fast can you turn around a rush job?',
- a: 'Rush options are available on screen print and embroidery. Tell us your deadline up front and we’ll tell you straight if we can hit it before you commit.',
+ a: 'Rush capacity depends on the product, artwork, quantity, approvals, production partner, and delivery requirements. Share your needed date so we can confirm the current schedule before you commit.',
  },
  {
  q: 'Do you handle FR-rated and ANSI hi-vis decoration?',
- a: 'Yes. We embroider and screen print on NFPA 70E FR shirts and ANSI/ISEA 107 Class 2 and 3 hi-vis using FR-compatible thread and compliance-safe placement so the rating stays valid.',
+ a: 'Bighorn coordinates decoration through production partners. Safety-rated garments require written review of the product, decoration method, placement, thread, and current supporting documents before approval.',
  },
  {
  q: 'Should I pick screen printing, embroidery, or DTF?',
- a: 'Embroidery for polos, jackets, and headwear that need to read professional. Screen print for tees, hi-vis, and high-volume crew runs. DTF for full-color artwork on small batches. We’ll spec the right method when you quote.',
+ a: 'Embroidery is common for polos, jackets, and headwear. Screen printing can fit larger runs, while DTF can fit detailed artwork and smaller quantities. The product, artwork, quantity, care needs, and quote determine the final method.',
  },
  {
  q: 'How does a company store work?',
- a: 'We build a private branded portal with your approved gear and price rules. Crew members log in, pick sizes, and orders ship direct to office, job trailer, or home. No inventory, no platform fee, no per-seat charge.',
+ a: 'A proposed company store could organize approved products and ordering rules if the selected platform and approved configuration support them. Bighorn has not selected or launched that platform. Implementation, capabilities, costs, and terms require separate written approval.',
  },
 ]
 
@@ -77,12 +77,6 @@ const serviceSchema = {
  serviceType: s.serviceType,
  description: s.description,
  provider: { '@id': 'https://bighornthreads.com/#organization' },
- areaServed: [
- { '@type': 'City', name: 'Las Vegas' },
- { '@type': 'City', name: 'Henderson' },
- { '@type': 'City', name: 'North Las Vegas' },
- { '@type': 'City', name: 'Boulder City' },
- ],
  audience: {
  '@type': 'BusinessAudience',
  name: 'General contractors, electrical contractors, plumbing companies, HVAC service companies, roofing contractors, and trade businesses',
@@ -97,7 +91,7 @@ const speakableSchema = {
  '@type': 'WebPage',
  url: 'https://bighornthreads.com/services/',
  datePublished: '2026-07-08',
- dateModified: '2026-07-08',
+ dateModified: '2026-08-21',
  name: 'Screen Printing, Embroidery & Branded Gear in Las Vegas',
  speakable: {
  '@type': 'SpeakableSpecification',
@@ -107,8 +101,8 @@ const speakableSchema = {
 ---
 
 <BaseLayout
- title="Screen Printing, Embroidery & Branded Workwear Services — Las Vegas"
- description="Five services for Vegas construction crews: screen printing, embroidery, branded workwear programs, company stores, and promotional products. Local production, in-house art, rush options."
+ title="Branded Apparel Services in Las Vegas | Bighorn Threads"
+ description="Explore screen printing, embroidery, branded workwear, company stores, and promotional products managed by a Las Vegas team through production partners."
 >
  <!-- ════ HERO — full-bleed photographic dark band ════ -->
  <section class="relative isolate overflow-hidden bg-navy-950">
@@ -137,7 +131,7 @@ const speakableSchema = {
  Screen Printing, Embroidery &amp; <span class="text-gold-400">Branded Gear</span> in Las Vegas
  </h1>
  <p class="speakable-answer mt-7 max-w-xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- Bighorn Threads offers five services for Las Vegas construction and trade crews: screen printing, embroidery, branded workwear programs, company stores, and promotional products. Minimums, timing, and program terms vary by the order and are confirmed in writing.
+ Bighorn Threads coordinates quotes for screen printing, embroidery, branded workwear, and promotional products. Company-store work is currently limited to planning; no platform has been selected or launched, and implementation requires separate written approval.
  </p>
  </div>
  </div>
@@ -147,14 +141,14 @@ const speakableSchema = {
  <section class="border-y border-hairline bg-paper py-14 sm:py-16">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <p class="mb-7 max-w-3xl text-base leading-relaxed text-ash sm:text-lg">
- Bighorn Threads runs five services for Las Vegas construction and trade crews. Pick the one you need — or call and we’ll spec the mix.
+ Bighorn Threads coordinates current product and decoration quotes through production partners. A company-store concept can also be scoped, but platform selection, implementation, and capabilities require separate written approval.
  </p>
  <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
  {[
- { href: '#screen-printing', name: 'Screen Printing', detail: 'Tees, hi-vis, hoodies — 24-piece min.' },
- { href: '#embroidery', name: 'Embroidery', detail: 'Polos, jackets, hats — 12-piece min.' },
- { href: '#branded-apparel', name: 'Branded Apparel', detail: 'FR & ANSI hi-vis crew uniforms.' },
- { href: '/company-stores/', name: 'Company Stores', detail: 'Private portals — no platform fees.' },
+ { href: '#screen-printing', name: 'Screen Printing', detail: 'Tees, hoodies, and qualifying workwear.' },
+ { href: '#embroidery', name: 'Embroidery', detail: 'Polos, jackets, hats, and bags.' },
+ { href: '#branded-apparel', name: 'Branded Apparel', detail: 'Role-based crew apparel planning.' },
+ { href: '/company-stores/', name: 'Company Stores', detail: 'Private portal planning and review.' },
  { href: '#promotional-products', name: 'Promotional Products', detail: 'Drinkware, swag, client gifts.' },
  ].map((j) => (
  <li>
@@ -166,7 +160,7 @@ const speakableSchema = {
  ))}
  </ul>
  <p class="mt-6 max-w-3xl text-sm leading-relaxed text-ash">
- Need help deciding? See how <a href="/services/screen-printing-las-vegas/" class="text-gold-600 hover:underline">screen printing</a>, <a href="/services/embroidery-las-vegas/" class="text-gold-600 hover:underline">embroidery</a>, and <a href="/services/rush-orders-las-vegas/" class="text-gold-600 hover:underline">rush orders</a> stack up — or read the <a href="/blog/screen-printing-vs-embroidery-construction/" class="text-gold-600 hover:underline">screen print vs. embroidery</a> and <a href="/blog/dtf-printing-vs-screen-printing-custom-apparel/" class="text-gold-600 hover:underline">DTF vs. screen print</a> breakdowns.
+ Need help deciding? See how <a href="/services/screen-printing-las-vegas/" class="text-gold-600 hover:underline">screen printing</a>, <a href="/services/embroidery-las-vegas/" class="text-gold-600 hover:underline">embroidery</a>, and <a href="/services/rush-orders-las-vegas/" class="text-gold-600 hover:underline">rush orders</a> stack up — or read the <a href="/screen-printing-vs-embroidery-construction-las-vegas/" class="text-gold-600 hover:underline">screen print vs. embroidery</a> and <a href="/blog/dtf-printing-vs-screen-printing-custom-apparel/" class="text-gold-600 hover:underline">DTF vs. screen print</a> breakdowns.
  </p>
  </div>
  </section>
@@ -182,13 +176,13 @@ const speakableSchema = {
  Company Stores — <span class="text-gold-600">Private Online Storefronts for Your Crew</span>
  </h2>
  <p class="mb-5 text-lg leading-relaxed text-ash">
- Your team logs into a branded storefront, picks their approved gear at sizes they actually want, and it ships direct. You set the catalog, the budget, and the spending rules. We handle decoration, fulfillment, and reporting.
+ A branded storefront can present approved products to a defined team. Available catalog, user, budget, payment, reporting, inventory, and fulfillment features depend on the selected platform and program.
  </p>
  <p class="mb-8 text-base leading-relaxed text-ash">
- No inventory in your closet. No weekend runs to the shop for the new hire. No more guessing XL vs. 2XL for a crew lead you've never met. Zero monthly platform fee, and setup is free for qualifying crews.
+ Bighorn provides Las Vegas account management and coordinates approved products and decoration through production partners. The written proposal confirms platform costs, setup responsibilities, minimums, timing, and fulfillment terms.
  </p>
  <div class="mb-8 flex flex-wrap gap-2">
- {['Quick launch', 'No monthly fee', 'Per-employee credit', 'Ship anywhere', 'Reports included'].map((tag) => (
+ {['Platform review', 'Approved catalog', 'Ordering controls', 'Fulfillment terms', 'Written proposal'].map((tag) => (
  <span class="spec border border-hairline px-2.5 py-1 text-ash">{tag}</span>
  ))}
  </div>
@@ -197,8 +191,8 @@ const speakableSchema = {
  How company stores work
  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow}/></svg>
  </a>
- <a href="/demo/" class="btn-secondary text-base">
- Request a demo store
+ <a href="/get-a-quote/" class="btn-secondary text-base">
+ Request a program review
  </a>
  </div>
  </div>
@@ -209,8 +203,8 @@ const speakableSchema = {
  {[
  '50+ employees across multiple job sites',
  'Regular new-hire onboarding that needs a starter kit',
- 'Multi-location operations (Vegas, Henderson, regional yards)',
- 'Per-employee annual apparel budgets you want to automate',
+ 'Multi-location operations with several offices or yards',
+ 'Apparel budgets and approval rules you want to document',
  ].map((item) => (
  <li class="flex gap-3">
  <svg class="mt-0.5 h-5 w-5 flex-shrink-0 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
@@ -228,15 +222,15 @@ const speakableSchema = {
  </li>
  <li class="flex gap-3">
  <span class="w-20 flex-shrink-0 font-mono text-xs font-bold text-gold-600">Catalog</span>
- <span>Catalog review + negotiated pricing</span>
+ <span>Catalog review + quoted pricing</span>
  </li>
  <li class="flex gap-3">
  <span class="w-20 flex-shrink-0 font-mono text-xs font-bold text-gold-600">QA</span>
- <span>Test order run + QA sign-off</span>
+ <span>Testing and approval plan confirmed</span>
  </li>
  <li class="flex gap-3">
  <span class="w-20 flex-shrink-0 font-mono text-xs font-bold text-gold-600">Launch</span>
- <span>Store live, invite your crew</span>
+ <span>Launch responsibilities and timing confirmed</span>
  </li>
  </ul>
  </div>
@@ -258,23 +252,23 @@ const speakableSchema = {
  </div>
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Screen Printing</h2>
  <p class="mb-4 text-lg leading-relaxed text-ash">
- Multi-color screen printing on tees, hi-vis vests, hoodies, and workwear. Bold, opaque prints that survive job-site abuse, industrial laundry cycles, and Nevada sun. Plastisol for punch and water-based for soft-hand crew tees — we pick the ink system that fits the job, not the one that's easiest.
+ Multi-color screen printing can work on tees, hoodies, and qualifying workwear. Ink, opacity, hand feel, and durability depend on the fabric, artwork, print system, curing, and care process.
  </p>
  <p class="mb-6 text-base leading-relaxed text-ash">
- PMS color matching on runs of 48+ pieces. Up to 8 ink colors per placement. Large-format back prints, left-chest, pocket, and sleeve hits all available. Specialty inks — metallic, glow-in-the-dark, puff, and high-density — for events, crew-pride orders, or brand activations.
+ Color matching, ink count, placement, print size, and specialty-ink options depend on the artwork and production partner. The proof and quote confirm the approved specification.
  </p>
  <div class="mb-6 grid grid-cols-3 gap-3">
  <div class="border border-hairline bg-panel p-3">
  <div class="spec text-gold-600">Minimum</div>
- <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">24 pieces</div>
+ <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">By quote</div>
  </div>
  <div class="border border-hairline bg-panel p-3">
  <div class="spec text-gold-600">Turnaround</div>
- <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">Fast</div>
+ <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">Confirmed</div>
  </div>
  <div class="border border-hairline bg-panel p-3">
  <div class="spec text-gold-600">Rush</div>
- <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">Available</div>
+ <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">By capacity</div>
  </div>
  </div>
  <a href="/get-a-quote/" class="btn-primary text-sm">
@@ -320,23 +314,23 @@ const speakableSchema = {
  </div>
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Embroidery</h2>
  <p class="mb-4 text-lg leading-relaxed text-ash">
- Commercial embroidery on polos, softshells, caps, beanies, jackets, and bags. The decoration that reads "professional" the second somebody walks into a client meeting or picks up a permit. Sharp, durable, and a clear notch above heat-applied vinyl on gear your name tag is going to live on.
+ Commercial embroidery can work on qualifying polos, softshells, caps, beanies, jackets, and bags. The garment, artwork, backing, thread, placement, and care process determine the final result.
  </p>
  <p class="mb-6 text-base leading-relaxed text-ash">
- Up to 15 thread colors per design. Standard placements: left chest, right sleeve, back yoke, cap front, and cap back. Free logo digitizing on your first order. Tight trade tolerances — we match your logo within 1–2 Pantone shades using Madeira Classic threads.
+ Available thread colors, placements, digitizing, color matching, and setup charges depend on the artwork, garment, and production partner. Your proof and quote confirm the specification.
  </p>
  <div class="mb-6 grid grid-cols-3 gap-3">
  <div class="border border-hairline bg-panel p-3">
  <div class="spec text-gold-600">Minimum</div>
- <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">12 pieces</div>
+ <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">By quote</div>
  </div>
  <div class="border border-hairline bg-panel p-3">
  <div class="spec text-gold-600">Turnaround</div>
- <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">Fast</div>
+ <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">Confirmed</div>
  </div>
  <div class="border border-hairline bg-panel p-3">
  <div class="spec text-gold-600">Digitizing</div>
- <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">Free 1st order</div>
+ <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">By quote</div>
  </div>
  </div>
  <a href="/get-a-quote/" class="btn-primary text-sm">
@@ -360,23 +354,23 @@ const speakableSchema = {
  </div>
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Branded Apparel</h2>
  <p class="mb-4 text-lg leading-relaxed text-ash">
- Full crew uniform programs for construction and the trades. Hi-vis ANSI Class 2 and Class 3. FR-rated tees and shirts (NFPA 70E CAT 1 and CAT 2). Work pants, coveralls, softshell jackets, beanies, and caps. All sourced from brands your foremen already trust — Carhartt, Bulwark, Red Kap, Port Authority, ML Kishigo — and decorated to your spec.
+ Branded apparel programs can include tees, polos, jackets, headwear, work pants, coveralls, and qualifying safety-rated garments. Brand and product availability varies by supplier and quote.
  </p>
  <p class="mb-6 text-base leading-relaxed text-ash">
- We don't just ship you a box of shirts. We help you build a uniform spec that actually holds up: the right weight fabric for summer pours, the right cut for guys in a harness, the right hi-vis class for your job category. If you're running a mixed crew — office staff, field superintendents, tradespeople — we'll put together a tiered catalog so everyone's on-brand without forcing your office manager into a polo she won't wear.
+ Bighorn helps document apparel needs by role, climate, fit, care process, and brand standard. Your safety lead must define PPE and garment ratings. Bighorn coordinates product and decoration review through production partners.
  </p>
  <div class="mb-6 grid grid-cols-3 gap-3">
  <div class="border border-hairline bg-panel p-3">
  <div class="spec text-gold-600">Brands</div>
- <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">Carhartt, Bulwark+</div>
+ <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">By supplier</div>
  </div>
  <div class="border border-hairline bg-panel p-3">
- <div class="spec text-gold-600">Compliance</div>
- <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">ANSI / NFPA</div>
+ <div class="spec text-gold-600">Ratings</div>
+ <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">Verify by item</div>
  </div>
  <div class="border border-hairline bg-panel p-3">
  <div class="spec text-gold-600">Sizing</div>
- <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">XS–6XL, Tall</div>
+ <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">By product</div>
  </div>
  </div>
  <a href="/get-a-quote/" class="btn-primary text-sm">
@@ -422,19 +416,19 @@ const speakableSchema = {
  </div>
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Promotional Products</h2>
  <p class="mb-4 text-lg leading-relaxed text-ash">
- Branded swag that actually gets used — not tossed in the back of a desk drawer. Access to a 1M+ product catalog through our SAGE distributor network, narrowed down to items that hold up and look sharp: insulated tumblers, branded hard hat stickers, power banks, ball caps, quality tote bags, safety kits, and trade-show-grade signage.
+ Promotional product options can include tumblers, stickers, power banks, caps, tote bags, event signage, and other branded items. Bighorn narrows the search around your audience, budget, quantity, and needed date.
  </p>
  <p class="mb-6 text-base leading-relaxed text-ash">
- Ideal for client gifts, crew appreciation, safety meetings, golf tournaments, open houses, and ribbon cuttings. We can run spec samples before you commit to a bulk buy, so you're not ordering 500 of something that feels cheap. Eco-friendly and made-in-USA options available on most categories.
+ These products can support client gifts, crew appreciation, meetings, tournaments, open houses, and events. Sample availability, country of origin, environmental claims, decoration, minimums, and timing require product-specific confirmation.
  </p>
  <div class="mb-6 grid grid-cols-3 gap-3">
  <div class="border border-hairline bg-panel p-3">
  <div class="spec text-gold-600">Catalog</div>
- <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">1M+ items</div>
+ <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">Broad selection</div>
  </div>
  <div class="border border-hairline bg-panel p-3">
  <div class="spec text-gold-600">Samples</div>
- <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">Available</div>
+ <div class="mt-1 font-heading text-sm font-bold uppercase tracking-tight text-charcoal">By product</div>
  </div>
  <div class="border border-hairline bg-panel p-3">
  <div class="spec text-gold-600">Lead time</div>
@@ -456,7 +450,7 @@ const speakableSchema = {
  <p class="kicker mb-3">Recently Published</p>
  <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Method comparisons and shop guides.</h2>
  <ul class="grid gap-3 sm:grid-cols-2">
- <li><a href="/blog/screen-printing-vs-embroidery-construction/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Screen printing vs embroidery for construction crews</a></li>
+ <li><a href="/screen-printing-vs-embroidery-construction-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Screen printing vs embroidery for construction crews</a></li>
  <li><a href="/blog/dtf-printing-vs-screen-printing-custom-apparel/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">DTF printing vs screen printing</a></li>
  <li><a href="/blog/plastisol-vs-water-based-ink-workwear/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Plastisol vs water-based ink for workwear</a></li>
  <li><a href="/blog/sublimation-printing-custom-apparel-guide/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Sublimation printing custom apparel guide</a></li>
@@ -474,10 +468,10 @@ const speakableSchema = {
  <div class="mx-auto max-w-3xl px-4 py-24 text-center sm:px-6 sm:py-32 lg:px-8">
  <p class="kicker mb-3 justify-center">Not Sure What You Need?</p>
  <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl">
- Tell us about your crew — <span class="text-gold-400">we'll handle the rest.</span>
+ Tell us about your crew. <span class="text-gold-400">We'll build the plan.</span>
  </h2>
  <p class="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-navy-200">
- We'll put together a custom recommendation. No pressure, no minimums on most products.
+ We'll prepare a recommendation and confirm current minimums, costs, timing, and production terms.
  </p>
  <div class="mt-9 flex justify-center">
  <a href="/get-a-quote/" class="btn-primary text-base">

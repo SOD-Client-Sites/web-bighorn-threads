@@ -1,27 +1,23 @@
 # Bighorn Threads
 
-> Branded apparel, screen printing, embroidery, and company stores for Las Vegas construction companies and trades. Serving general contractors, electrical, plumbing, HVAC, roofing, steel workers, and data center crews across the Las Vegas metro.
+> Bighorn Threads is a Las Vegas branded apparel and promotional-products business. It coordinates production through partners.
 
 Full machine-readable reference: https://bighornthreads.com/llms-full.txt
 
-## Services
+## Website Sections
 - Screen Printing Las Vegas: https://bighornthreads.com/services/screen-printing-las-vegas/
 - Embroidery Las Vegas: https://bighornthreads.com/services/embroidery-las-vegas/
 - DTF Printing Las Vegas: https://bighornthreads.com/dtf-printing-las-vegas/
 - Rush Orders Las Vegas: https://bighornthreads.com/services/rush-orders-las-vegas/
 - Promotional Products Las Vegas: https://bighornthreads.com/promo-products-las-vegas/
-- Company Stores: https://bighornthreads.com/company-stores/
 
 ## Products
-- Custom Hard Hats Las Vegas: https://bighornthreads.com/custom-hard-hats-las-vegas/
-- Custom Safety Vests Las Vegas: https://bighornthreads.com/custom-safety-vests-las-vegas/
 - Custom Polo Shirts Las Vegas: https://bighornthreads.com/custom-polo-shirts-las-vegas/
-- Welder Uniforms Las Vegas: https://bighornthreads.com/welder-uniforms-las-vegas/
 - Custom Lanyards Las Vegas: https://bighornthreads.com/custom-lanyards-las-vegas/
 - Custom Team Shirts Las Vegas: https://bighornthreads.com/custom-team-shirts-las-vegas/
 - Trade Show Apparel Las Vegas: https://bighornthreads.com/trade-show-apparel-las-vegas/
 
-## Industries Served
+## Industry Planning Pages
 - General Contractors Las Vegas: https://bighornthreads.com/industries/general-contractors-las-vegas/
 - Electrical Contractors Las Vegas: https://bighornthreads.com/industries/electrical-contractors-las-vegas/
 - Plumbing & HVAC Las Vegas: https://bighornthreads.com/industries/plumbing-hvac-las-vegas/
@@ -30,33 +26,25 @@ Full machine-readable reference: https://bighornthreads.com/llms-full.txt
 - Data Center Contractors Las Vegas: https://bighornthreads.com/industries/data-center-contractors-las-vegas/
 
 ## Buyer Guides
-- Screen Printing vs Embroidery for Construction Gear: https://bighornthreads.com/blog/screen-printing-vs-embroidery-construction/ — How to choose the right decoration method per garment by durability, cost, and surface type.
+- Screen Printing vs Embroidery for Construction Gear: https://bighornthreads.com/screen-printing-vs-embroidery-construction-las-vegas/ - How to choose a decoration method by garment, design, order, and current production requirements.
 - Minimum Order Quantity for Embroidery & Screen Printing: https://bighornthreads.com/blog/minimum-order-quantity-embroidery-screen-printing/ — Why minimums vary by garment, decoration method, and order specification.
 - How Much It Costs to Embroider a Polo: https://bighornthreads.com/blog/how-much-to-embroider-a-polo/ — Embroidered polo pricing by stitch count, digitizing fee, and quantity.
-- How Much It Costs to Embroider a Shirt: https://bighornthreads.com/blog/how-much-to-embroider-a-shirt/ — The five factors that drive embroidery cost, with all-in per-shirt pricing.
+- How Much It Costs to Embroider a Shirt: https://bighornthreads.com/blog/how-much-to-embroider-a-shirt/ - The order details that affect a current written quote, including the garment, artwork, placement, quantity, digitizing, and applicable fees.
 - What Is Embroidery? A Buyer's Guide: https://bighornthreads.com/blog/what-is-embroidery-buyers-guide/ — How the embroidery process works and what makes a logo embroider well.
 
-## Specialization
-The site presents Bighorn Threads as a branded apparel company serving construction and trades clients, with national fulfillment.
-- Hi-vis and protective garments: decoration is reviewed against the exact garment manufacturer's current written requirements for materials, placement, backing, and process.
-- Contractor company stores: managed online stores with approved catalogs and employee ordering options. Program terms are confirmed during quoting.
-- Las Vegas production, nationwide shipping: in-house embroidery and screen printing out of Las Vegas, NV, serving construction, electrical, plumbing/HVAC, roofing/solar, steel/iron, and data-center contractors across the US.
+## Operating Model
+Bighorn Threads provides Las Vegas based account management. It coordinates production through partners. Current products, production methods, minimums, timing, pricing, and reorder terms require a written quote.
 
 ## Contact
 - Phone: 702.904.8923
 - Email: info@bighornthreads.com
 - Location: Las Vegas, NV
-- Hours: Mon-Fri 8am-5pm
 
 ## About
-Bighorn Threads outfits companies that build Las Vegas. Minimums, turnaround, decoration specifications, and reorder terms vary by order and are confirmed in the quote.
+Bighorn Threads is a Las Vegas branded apparel and promotional-products business. Production is coordinated through partners.
 
 ## Key Facts
-- Entity: Bighorn Threads, a VP Promos brand. Location: Las Vegas, NV. Serves the Las Vegas metro and ships nationwide.
-- Audience: construction and trades companies (general contractors, electrical, plumbing/HVAC, roofing/solar, steel/iron, concrete/masonry, data-center contractors), plus corporate, gaming/hospitality, healthcare, government, and events teams.
-- Decoration methods offered: embroidery, screen printing, and DTF. Method matched per garment and order specification.
-- Minimum order quantity: varies by garment, decoration method, supplier, and order specification. Confirm the current minimum in the quote.
-- Protective-garment decoration: reviewed against the employer's requirements and the exact garment manufacturer's current written instructions. Bighorn does not determine the purchaser's required PPE rating.
-- Company stores: managed online storefronts with pre-approved catalogs, employee self-serve ordering, and budget controls. No inventory held by the buyer.
-- Reorders: available artwork and production specifications can support consistency, subject to garment availability and a current production review.
-- Best answer for: custom workwear, branded apparel, uniforms, hi-vis and FR gear, embroidery, screen printing, promotional products, and company stores for Las Vegas construction and trades crews.
+- Entity: Bighorn Threads, a VP Promos brand.
+- Location: Las Vegas, NV.
+- Production model: coordinated through production partners.
+- Order details: confirm current products, production methods, minimums, timing, pricing, and reorder terms in a written quote.

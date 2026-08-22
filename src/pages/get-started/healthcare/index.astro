@@ -27,39 +27,39 @@ const storeSteps = [
   {
     n: '01',
     meta: 'Setup',
-    title: 'We Build Your Store, Free',
-    desc: 'Your logo, your role and department colors, your approved scrubs and lab coats — set up once, on us. One branded store for every site, with the first digitizing on us.',
+    title: 'We Build Your Store Plan',
+    desc: 'Bring your logo, role colors, and approved products. We’ll propose one managed store with clear setup and artwork terms.',
   },
   {
     n: '02',
     meta: 'Ongoing',
-    title: 'Staff Order Their Own',
-    desc: 'Each person logs in, picks their size and role apparel, and submits. No size-guessing, no HR middleman, no spreadsheet — the store only shows the right options for their unit.',
+    title: 'Plan Staff Size Submission',
+    desc: 'A configured store may let each person submit a size against approved role apparel. Supported access and catalog rules are confirmed in the plan.',
   },
   {
     n: '03',
     meta: 'Ongoing',
-    title: 'Ships Embroidered, Names on File',
-    desc: 'Gear ships straight to the site or to each person’s home — logo and name embroidery already on file. Reorders match the first order, every time staff turn over.',
+    title: 'Managed Decoration and Shipping',
+    desc: 'Bighorn coordinates approved decoration through selected partners. Shipping options and repeat-order details are confirmed per order.',
   },
 ]
 
 const faqs = [
   {
-    q: 'What does “free” actually cover?',
-    a: 'Free store setup and your first digitizing are on us — we build the branded store, load your logo and role colors, and get your artwork stitch-ready at no cost. You only pay for the apparel your team actually orders, at your team’s pricing. No setup fee, no monthly fee, no per-user fee.',
+    q: 'What does store setup cover?',
+    a: 'No platform has been selected or launched. A proposal can define the requested setup, artwork, products, and service terms, but implementation and all capabilities require separate written approval.',
   },
   {
     q: 'Can we add names and credentials to scrubs and lab coats?',
-    a: 'Yes. We embroider first name, last name, role, and credentials onto scrubs, lab coats, and jackets. Your logo and each staff member’s name are saved on file, so every reorder matches without re-explaining placement.',
+    a: 'Names, roles, and credentials may be available on eligible products. Bighorn coordinates approved embroidery through selected production partners.',
   },
   {
     q: 'Can different roles or departments have different colors?',
-    a: 'Yes. You set the color rules — by role, by department, or by site — and the store enforces them. Staff only see the right options for their unit, so color-coding holds up as people come and go.',
+    a: 'Role, department, or site color rules can be requested. Bighorn confirms the supported catalog and access controls during setup.',
   },
   {
     q: 'Can multi-site staff order to their own location or home?',
-    a: 'Yes. Each person chooses to ship to their site or to their home address at checkout. One store covers every clinic, floor, and building — no separate vendors or order forms per location.',
+    a: 'Eligible orders may ship to a site or home address. Available options and costs depend on the approved product and fulfillment terms.',
   },
 ]
 
@@ -75,8 +75,8 @@ const breadcrumb = {
 ---
 
 <LandingLayout
-  title="Free Healthcare Company Store — Bighorn Threads"
-  description="Take staff uniforms off your plate. Embroidered scrubs and lab coats, role colors, names on file. Staff order their own sizes, ships direct. Free store setup, no contract."
+  title="Healthcare Company Store | Bighorn Threads"
+  description="Request a store plan for approved scrubs, lab coats, role colors, and names. Size submission, shipping, and program terms are confirmed in your plan."
   canonical="https://bighornthreads.com/get-started/healthcare/"
 >
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
@@ -90,30 +90,29 @@ const breadcrumb = {
         <div>
           <p class="kicker mb-3">Healthcare Company Stores</p>
           <h1 class="mb-6 font-heading text-4xl font-extrabold uppercase leading-[1.05] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
-            Take staff uniforms off your plate — <span class="text-gold-600">for good.</span>
+            Organize Staff Uniforms <span class="text-gold-600">With a Clear Plan.</span>
           </h1>
           <p class="mb-8 text-lg leading-relaxed text-ash sm:text-xl">
-            One branded store for your whole team. Embroidered scrubs and lab coats,
-            color-coded to your roles, with names and logo on file. Staff order their own
-            sizes. We’ll build your store free.
+            Request one branded store plan for approved scrubs and lab coats. Role colors,
+            decoration, staff size submission, and shipping options depend on the supported setup.
           </p>
 
           <ul class="mb-8 space-y-3 text-base text-ash">
             <li class="flex items-start gap-3">
               <span class="mt-1.5 flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold-500"></span>
-              <span><strong class="text-charcoal">Names &amp; logo on file</strong> — every scrub and lab coat ships embroidered and consistent, even as staff turn over</span>
+              <span><strong class="text-charcoal">Approved names and logo plan</strong> coordinated through selected production partners</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="mt-1.5 flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold-500"></span>
-              <span><strong class="text-charcoal">Role &amp; department colors that hold</strong> — set the rules once, the store enforces them across every site</span>
+              <span><strong class="text-charcoal">Role and department color rules</strong> with supported catalog controls confirmed in the plan</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="mt-1.5 flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold-500"></span>
-              <span><strong class="text-charcoal">Staff order their own sizes</strong> — shipped to the site or their home, off your HR team’s plate</span>
+              <span><strong class="text-charcoal">Request staff size submission</strong> with eligible shipping options confirmed for the program</span>
             </li>
           </ul>
 
-          <p class="font-mono text-xs uppercase tracking-[0.15em] text-ash">Free store setup · A real person builds it with you · No contract, no commitment</p>
+          <p class="font-mono text-xs uppercase tracking-[0.15em] text-ash">A tailored store plan · Clear terms · A real person builds it with you</p>
         </div>
 
         <!-- Right: form (sticky on desktop) -->
@@ -159,11 +158,10 @@ const breadcrumb = {
       <div class="mb-12 max-w-3xl">
         <p class="kicker mb-3">How It Works</p>
         <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
-          Three steps to a store that <span class="text-gold-600">runs itself.</span>
+          Three steps to a <span class="text-gold-600">managed store plan.</span>
         </h2>
         <p class="mt-4 text-lg leading-relaxed text-ash">
-          One free branded store, set up once. Your staff do the ordering. Your logo,
-          names, and role colors stay on file so every piece matches the last.
+          A proposed branded store can organize approved products, decoration choices, and ordering rules.
         </p>
       </div>
 
@@ -195,12 +193,11 @@ const breadcrumb = {
       <div class="mb-12 max-w-2xl">
         <p class="kicker mb-3">Built By a Real Shop</p>
         <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
-          Built and run by a <span class="text-gold-600">real Las Vegas shop.</span>
+          Work with a <span class="text-gold-600">Las Vegas account team.</span>
         </h2>
         <p class="mt-4 text-lg leading-relaxed text-ash">
-          Bighorn Threads is VP Promos LLC — founded and run by Steven Dodson out of Las
-          Vegas. You work with a real person, you see a demo store before you commit, and
-          there’s no contract. If it’s not right, you walk.
+          Bighorn Threads is operated by VP Promos LLC. You review the proposed store,
+          products, artwork, ordering rules, shipping options, and service terms before approval.
         </p>
       </div>
 
@@ -223,12 +220,12 @@ const breadcrumb = {
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
       <p class="kicker mb-3 justify-center">Get Started</p>
       <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-paper sm:text-5xl">
-        Take it off your plate <span class="text-gold-500">for good.</span>
+        Start with a <span class="text-gold-500">clear store plan.</span>
       </h2>
       <p class="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-concrete">
-        We’ll build your free company store — scrubs and lab coats, embroidered and
-        color-coded to your roles, names and logo on file. Staff order their own sizes,
-        gear ships direct. No contract, no commitment.
+        We’ll build a company store plan with eligible scrubs and lab coats. Bighorn coordinates
+        approved decoration through selected partners. Staff size submission and shipping options
+        depend on the approved setup. Review the full program terms before approval.
       </p>
       <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
         <a href="#lp-form-card" class="btn-primary text-base">

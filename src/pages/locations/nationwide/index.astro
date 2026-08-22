@@ -5,20 +5,20 @@ const steps = [
   {
     n: '01',
     meta: 'Setup',
-    title: 'We Build Your Store — Free',
-    desc: 'Your logo, your colors, your approved products. We set up your branded company store and hold your logo on file. First digitizing is on us, so reorders always match.',
+    title: 'Define The Program',
+    desc: 'Share your locations, approved products, artwork, and ordering needs. Bighorn coordinates a written program scope.',
   },
   {
     n: '02',
     meta: 'Ongoing',
-    title: 'Each Person Orders Their Own Size',
-    desc: 'Your team logs in, picks the right size, and submits. No spreadsheets, no size-guessing — the same flow for someone down the hall or across the country.',
+    title: 'Confirm Platform Options',
+    desc: 'Available user, sizing, approval, payment, and reorder features depend on the selected platform and program.',
   },
   {
     n: '03',
     meta: 'Ongoing',
-    title: 'Ships Direct To Any US Address',
-    desc: 'Gear ships to each person’s home or to a central office. Remote staff, multiple sites, and field crews all order the same way and ship direct.',
+    title: 'Confirm Fulfillment',
+    desc: 'The quote identifies available service areas, shipping destinations, inventory terms, minimums, and delivery timing.',
   },
 ]
 
@@ -26,55 +26,55 @@ const offerings = [
   {
     tag: 'Apparel',
     title: 'Embroidered Apparel',
-    desc: 'Embroidered polos, button-ups, quarter-zips, and softshell jackets. Your logo digitized once and held on file for consistent reorders nationwide.',
+    desc: 'Compare embroidered polos, button-ups, quarter-zips, and softshell jackets. Artwork and production requirements are confirmed by item.',
   },
   {
     tag: 'Print',
     title: 'Screen Printing & DTF',
-    desc: 'Screen-printed and direct-to-film tees, hoodies, and event apparel for distributed teams. Order what you need and ship it where it needs to go.',
+    desc: 'Compare screen-printed and direct-to-film tees, hoodies, and event apparel. Minimums and shipping terms vary by order.',
   },
   {
     tag: 'Promo',
     title: 'Promo Products',
-    desc: 'Drinkware, bags, and branded extras your team and clients actually use. Add them to your store and reorder in a click.',
+    desc: 'Evaluate drinkware, bags, and branded extras for your team or clients. Availability and reorder terms depend on the selected products.',
   },
   {
     tag: 'Onboarding',
     title: 'New-Hire Kits',
-    desc: 'A branded welcome kit ready to ship the day someone starts — sized by the new hire, not guessed by you. Ships to their address, anywhere in the country.',
+    desc: 'Plan a branded welcome-kit specification around each role. Kitting, minimums, timing, and shipping require written confirmation.',
   },
   {
     tag: 'Multi-Site',
     title: 'Multi-Location Teams',
-    desc: 'One store, one logo on file, consistent gear across every office and region. No vendor sprawl, no brand drift between locations.',
+    desc: 'Use one approved product and artwork specification as the reference for multiple locations.',
   },
   {
     tag: 'Remote',
     title: 'Remote & Field Staff',
-    desc: 'Remote employees and field crews each pick their size and ship to their own address. Everyone outfitted the same way, wherever they work.',
+    desc: 'Document how remote employees and field crews should select sizes, place orders, and receive approved gear.',
   },
 ]
 
 const faqs = [
   {
     q: 'Do you serve teams outside Las Vegas?',
-    a: 'Yes. We’re Las Vegas based, and the company-store model works the same anywhere. Your logo stays on file, each person orders their own size, and gear ships direct to any address in the US.',
+    a: 'Bighorn is based in Las Vegas. Service outside the local market depends on product availability, production partners, shipping destinations, and the approved program. We confirm coverage in writing.',
   },
   {
     q: 'How does ordering work for a team spread across the country?',
-    a: 'Everyone uses the same branded store. Each person logs in, picks their own size, and ships to their own address. Remote staff, multiple offices, and field crews all order the same way.',
+    a: 'A shared program can use one approved product and artwork specification. Available ordering, sizing, approval, and shipping features depend on the selected platform and fulfillment model.',
   },
   {
     q: 'Can gear ship to each employee’s home?',
-    a: 'Yes. Each person picks their size and ships to their home address. That makes it simple to outfit remote teams and distributed staff without routing everything through one office.',
+    a: 'Home delivery may be available for some products and programs. The quote confirms eligible destinations, shipping costs, minimums, and delivery terms.',
   },
   {
     q: 'Can you keep our branding consistent across multiple locations?',
-    a: 'Yes. Your logo, colors, and approved products live on file in one store. Every location orders from the same setup, so your brand looks the same in every city.',
+    a: 'Bighorn can coordinate one approved product and artwork specification for multiple locations. Availability and production details still require order-specific confirmation.',
   },
   {
     q: 'What does it cost to set up a company store?',
-    a: 'Store setup is free, and your first logo digitizing is on us. You stock the products you want, your people order within the budget you set, and you can add or swap products any time.',
+    a: 'Setup, platform, artwork, product, decoration, transaction, and shipping costs depend on the approved program. Bighorn provides the terms in a written proposal.',
   },
 ]
 
@@ -94,7 +94,7 @@ const breadcrumbSchema = {
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
     { '@type': 'ListItem', position: 2, name: 'Locations', item: 'https://bighornthreads.com/locations/' },
-    { '@type': 'ListItem', position: 3, name: 'Nationwide', item: 'https://bighornthreads.com/locations/nationwide/' },
+    { '@type': 'ListItem', position: 3, name: 'Distributed Teams', item: 'https://bighornthreads.com/locations/nationwide/' },
   ],
 }
 
@@ -102,8 +102,8 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
 ---
 
 <BaseLayout
-  title="Company Stores & Branded Apparel, Shipped Nationwide"
-  description="Branded apparel and company stores for teams across the US. Logo on file, each person orders their own size, ships direct to any address. Embroidery, screen printing, and promo for remote, multi-site, and distributed teams."
+  title="Apparel Programs for Distributed Teams | Terms by Quote"
+  description="Planning guidance for distributed-team apparel programs. Bighorn confirms platform capabilities, service areas, production, minimums, timing, shipping, and delivery terms in writing."
   canonical="https://bighornthreads.com/locations/nationwide/"
 >
   <!-- ════ HERO — concrete ════ -->
@@ -114,21 +114,21 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
         <span class="px-2 text-ash/60">/</span>
         <a href="/locations/" class="hover:text-gold-600">Locations</a>
         <span class="px-2 text-ash/60">/</span>
-        <span class="text-gold-600">Nationwide</span>
+        <span class="text-gold-600">Distributed Teams</span>
       </nav>
 
       <div class="max-w-3xl">
         <p class="kicker mb-5 flex items-center gap-2.5">
           <span class="h-px w-8 bg-gold-500"></span>
-          Nationwide Fulfillment
+          Distributed Team Planning
         </p>
         <h1 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
-          Company stores &amp; branded apparel,
-          <span class="text-gold-600"> shipped nationwide.</span>
+          Branded apparel programs,
+          <span class="text-gold-600"> planned for distributed teams.</span>
         </h1>
         <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
-          The company-store model works the same anywhere. Put your logo on file, let each person order
-          their own size, and ship gear direct to any address in the US.
+          Start with your locations, product needs, artwork, and ordering process. Bighorn confirms
+          platform, service-area, production, and fulfillment terms before you approve a program.
         </p>
         <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
           <a href="/get-a-quote/" class="btn-primary text-base">
@@ -150,11 +150,11 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
       <div class="mb-12 max-w-3xl">
         <p class="kicker mb-3">How It Works</p>
         <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
-          The same store, <span class="text-gold-600">anywhere your team is.</span>
+          One program scope, <span class="text-gold-600">built around your locations.</span>
         </h2>
         <p class="mt-4 text-lg leading-relaxed text-ash">
-          One logo on file, one branded store, and gear that ships direct. Whether your people sit in
-          one building or twenty cities, they order the same way.
+          A shared product and artwork specification can support consistent planning. Ordering and
+          fulfillment capabilities depend on the approved platform and program.
         </p>
       </div>
 
@@ -190,7 +190,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
         </h2>
         <p class="mt-4 text-lg leading-relaxed text-ash">
           Embroidery, screen printing, and promo for remote staff, multi-site companies, and field
-          crews. Stock as much or as little as you want and swap products any time.
+          crews. Product availability, inventory, minimums, and substitutions are confirmed by program.
         </p>
       </div>
 
@@ -212,7 +212,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
       <div class="mb-10 max-w-2xl">
         <p class="kicker mb-3">FAQ</p>
         <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
-          Nationwide fulfillment, <span class="text-gold-600">answered.</span>
+          Distributed-team planning, <span class="text-gold-600">answered.</span>
         </h2>
       </div>
 
@@ -237,11 +237,11 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
         <div class="max-w-xl">
           <p class="kicker mb-3">Get Started</p>
           <h2 class="font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-concrete sm:text-4xl">
-            Outfit your team, <span class="text-gold-400">coast to coast.</span>
+            Plan one program <span class="text-gold-400">for a distributed team.</span>
           </h2>
           <p class="mt-4 text-base leading-relaxed text-navy-200">
-            Free store setup. First digitizing on us. Each person orders their own size and it ships
-            direct. Tell us about your team and we’ll build your plan.
+            Tell us about your team, locations, products, and ordering needs. We'll confirm the available
+            platform, production, shipping, and program terms in writing.
           </p>
         </div>
         <a href="/get-a-quote/" class="btn-primary shrink-0 text-base">

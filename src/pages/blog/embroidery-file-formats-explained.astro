@@ -4,7 +4,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 const post = {
  title: 'Embroidery File Formats Explained: DST, EXP, JEF, PES',
  description:
- 'Embroidery machines read stitch files, not vector logos. DST is the universal commercial format. EXP, JEF, and PES are brand-specific. Here\'s what each format does, which machines use them, and how to know if your file is right.',
+ 'Embroidery machines use compatible stitch files rather than ordinary logo artwork. Compare DST, EXP, JEF, and PES, then confirm the preferred format with the production partner.',
  category: 'How-To',
  readTime: '8 min read',
  date: 'May 9, 2026',
@@ -15,19 +15,19 @@ const post = {
 
 const faqs = [
  { q: 'What is an embroidery file format?', a: 'An embroidery file is a machine-readable stitch sequence that tells an embroidery machine exactly where to put each stitch, in what order, what stitch type, what color, and where to trim. Unlike a vector logo (.ai, .eps, .svg) that describes shapes, an embroidery file describes physical stitches. The machine can\'t read a logo — it needs the stitch file.' },
- { q: 'What is DST?', a: 'DST (Tajima Data Stitch) is the universal commercial embroidery format. Created by Tajima for their commercial machines, it became the de facto industry standard. Almost every commercial embroidery machine — Tajima, Barudan, ZSK, Brother, Melco — reads DST. If your shop only sends one format, send DST.' },
- { q: 'What is EXP?', a: 'EXP (Melco Expanded) is the native format for Melco/Amaya commercial embroidery machines. It supports more advanced stitch information than DST including color stops and trims. Most Melco shops accept DST but produce slightly cleaner output from native EXP files.' },
+ { q: 'What is DST?', a: 'DST is a widely supported commercial embroidery stitch format associated with Tajima systems. Machine and software compatibility vary, so ask the production partner which format and version they prefer.' },
+ { q: 'What is EXP?', a: 'EXP is used with Melco and other compatible embroidery workflows. Stored information and production results depend on the software, machine, export settings, and operator review.' },
  { q: 'What is JEF?', a: 'JEF (Janome Embroidery Format) is the native format for Janome home and semi-commercial machines. JEF files include color information that DST doesn\'t. If you\'re embroidering on a Janome MB-4, MB-7, or similar machine, JEF is the right format.' },
  { q: 'What is PES?', a: 'PES (Brother Embroidery System) is the native format for Brother and Babylock home embroidery machines. PES includes color and design information. PES files are the most common home-embroidery format on the consumer market — but commercial shops typically convert PES to DST for production.' },
- { q: 'Which file format should I send my embroidery shop?', a: 'DST is the safe answer — every commercial shop reads it. If your shop runs Melco machines, EXP produces marginally better output. If your shop runs Janome or Brother semi-commercial setups, JEF or PES respectively. Ask your shop directly: "What\'s your preferred file format?" and provide that.' },
- { q: 'Can I just send a JPG or PNG of my logo?', a: 'No — that\'s a logo, not a stitch file. The shop has to digitize it (convert it to a stitch file) before they can run it. Digitizing is a one-time service, and the price scales with logo complexity. After digitizing, the shop owns a DST/EXP/JEF/PES of your logo for all future orders.' },
- { q: 'Do I get to keep the digitized embroidery file?', a: 'Industry practice varies. Some shops include the file with the digitizing fee, some keep it as their working file. Best practice: ask upfront. If you change shops or want to embroider somewhere else, having the .DST file in hand saves you paying to re-digitize. Get it in writing.' },
+ { q: 'Which file format should I send my embroidery shop?', a: 'Ask the production partner which format, version, color information, and source assets they need for the exact machine and workflow.' },
+ { q: 'Can I just send a JPG or PNG of my logo?', a: 'A shop may accept a JPG or PNG as source artwork, but it usually must create or obtain a compatible stitch file before production. Digitizing price and terms vary.' },
+ { q: 'Do I get to keep the digitized embroidery file?', a: 'Ownership, retention, access, delivery, portability, reuse, and repeat-order terms vary. Require a written agreement that states each term before paying for digitizing.' },
 ]
 
 const schema = {
  '@context': 'https://schema.org',
  '@graph': [
- { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: post.isoDate, author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
+ { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: '2026-08-21', author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
  { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' }, { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` }] },
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
@@ -63,7 +63,7 @@ const speakableSchema = {
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Embroidery files are stitch sequences, not logo files. DST (Tajima) is the universal commercial format and the safe default. EXP is for Melco machines, JEF is for Janome, PES is for Brother. A shop needs the right format for their machine — ask which they prefer before sending.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Embroidery stitch files must be compatible with the production partner's machine and software. DST is widely supported, while EXP, JEF, and PES serve other workflows. Ask which format and version the partner requires.</p>
  </aside>
 
  <h2 id="what-is-stitch-file" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">What an Embroidery Stitch File Actually Is</h2>
@@ -75,15 +75,15 @@ const speakableSchema = {
  <li>At stitch #1,247, pause and wait for thread color change.</li>
  <li>At stitch #2,930, trim and jump to next location.</li>
  </ul>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">The stitch file is that instruction sequence — sometimes 10,000+ stitches for a complex chest logo. Different machine brands invented different file formats to encode these instructions. The four common ones: DST, EXP, JEF, PES.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">The stitch file contains production instructions. Stitch count and supported file formats depend on the exact design, software, machine, and production partner. Confirm the required format before approval.</p>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">For the upstream side — turning a logo into a stitch file in the first place — see our <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">logo digitizing 101 guide</a>.</p>
 
- <h2 id="dst" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">DST — The Universal Commercial Standard</h2>
+ <h2 id="dst" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">DST: A Widely Supported Commercial Format</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal"><strong>Format:</strong> Tajima Data Stitch (.dst)</p>
  <p class="mb-6 text-lg leading-relaxed text-charcoal"><strong>Origin:</strong> <a href="https://www.tajima.com/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600" rel="noopener">Tajima</a> — the dominant commercial embroidery machine maker.</p>
  <p class="mb-6 text-lg leading-relaxed text-charcoal"><strong>What it stores:</strong> Stitch coordinates, stitch types (running, satin, fill), color change stops, jump stitches, trim commands.</p>
  <p class="mb-6 text-lg leading-relaxed text-charcoal"><strong>What it doesn't store:</strong> Specific thread colors. DST stores "color stop" markers but the operator picks the actual thread.</p>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">DST became the universal commercial format because Tajima dominated the high-volume embroidery market for decades. Almost every commercial machine — Tajima, Barudan, ZSK, SWF, Melco, Brother PR-series — reads DST natively or via direct conversion. If you only know one format, know DST.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Many commercial embroidery systems support DST natively or through conversion. Compatibility, commands, color handling, and output still depend on the software, machine, export, and operator review.</p>
 
  <h2 id="exp" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">EXP — Melco Native</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal"><strong>Format:</strong> Melco Expanded (.exp)</p>
@@ -110,7 +110,7 @@ const speakableSchema = {
  <tr><th class="px-5 py-3">Format</th><th class="px-5 py-3">Native Brand</th><th class="px-5 py-3">Stores Color?</th><th class="px-5 py-3">Universal?</th></tr>
  </thead>
  <tbody class="divide-y divide-hairline">
- <tr><td class="px-5 py-3 font-bold">DST</td><td class="px-5 py-3">Tajima</td><td class="px-5 py-3">No (color stops only)</td><td class="px-5 py-3 font-bold text-gold-600">Yes — universal</td></tr>
+ <tr><td class="px-5 py-3 font-bold">DST</td><td class="px-5 py-3">Tajima</td><td class="px-5 py-3">Color stops, not fixed thread colors</td><td class="px-5 py-3 font-bold text-gold-600">Widely supported</td></tr>
  <tr><td class="px-5 py-3 font-bold">EXP</td><td class="px-5 py-3">Melco</td><td class="px-5 py-3">Yes (Melco palette)</td><td class="px-5 py-3">Most commercial accept</td></tr>
  <tr><td class="px-5 py-3 font-bold">JEF</td><td class="px-5 py-3">Janome</td><td class="px-5 py-3">Yes (Janome palette)</td><td class="px-5 py-3">Janome only natively</td></tr>
  <tr><td class="px-5 py-3 font-bold">PES</td><td class="px-5 py-3">Brother / Babylock</td><td class="px-5 py-3">Yes (Brother palette)</td><td class="px-5 py-3">Brother + some commercial</td></tr>
@@ -132,9 +132,9 @@ const speakableSchema = {
  <p class="mb-6 text-lg leading-relaxed text-charcoal">If your shop already digitized your logo, ask what format they kept. If you're sending a logo for first-time digitizing, send the highest-quality vector you have — see our <a href="/blog/vector-logo-file-setup-for-embroidery/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">vector logo file setup guide</a>.</p>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">After digitizing:</p>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
- <li><strong>Get the DST file in your inbox.</strong> This is the portable, universal version of your logo.</li>
- <li><strong>Optionally get the EMB working file.</strong> If you ever need edits, EMB is what an embroidery digitizer needs to work from.</li>
- <li><strong>Get clarity on ownership.</strong> Some shops include files with digitizing, some treat them as proprietary. Clarify before paying.</li>
+ <li><strong>Request the agreed delivery files.</strong> Confirm format, version, access method, and machine compatibility in writing.</li>
+ <li><strong>Ask about the editable source.</strong> Source-file availability and portability depend on the software and partner agreement.</li>
+ <li><strong>Document every file term.</strong> Ownership, retention, access, delivery, reuse, changes, and repeat-order fees vary. Require a written agreement.</li>
  </ul>
 
  <h2 id="related" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Related Reading</h2>
@@ -147,7 +147,7 @@ const speakableSchema = {
 
  <div class="mt-12 border border-hairline bg-gold-500/5 p-7 sm:p-9">
  <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-charcoal">Embroidery digitizing in Las Vegas</h2>
- <p class="mb-5 text-lg leading-relaxed text-charcoal">Bighorn Threads digitizes logos and delivers DST files alongside production runs. We run Tajima commercial heads — DST native, no conversion overhead.</p>
+<p class="mb-5 text-lg leading-relaxed text-charcoal">Bighorn Threads coordinates logo digitizing and embroidery through selected production partners. Confirm format, ownership, retention, access, delivery, reuse, and repeat-order terms in writing.</p>
  <a href="/get-a-quote/" class="inline-flex min-h-[48px] items-center gap-2 bg-gold-500 px-7 py-3 text-base font-bold text-charcoal transition-all hover:bg-gold-600">Get a Quote →</a>
  </div>
  </div>

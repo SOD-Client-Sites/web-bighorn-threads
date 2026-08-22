@@ -533,6 +533,17 @@ async function submitForm(form, product, statusEl, submitBtn, bodyEl) {
     return
   }
 
+  const phoneEl = form.elements.namedItem('phone')
+  const smsSelected = isChecked(form, 'smsMarketingConsent') || isChecked(form, 'smsTransactionalConsent')
+  if (smsSelected && !String(phoneEl?.value || '').trim()) {
+    setStatus(statusEl, 'Add a phone number or leave both text-message boxes unchecked.', 'error')
+    phoneEl?.focus()
+    return
+  }
+
+  const contextKey = form.id || 'quote-modal-form'
+  const tracker = window.bighornTracking
+  const leadContext = tracker?.getLeadContext?.(contextKey)
   const payload = {
     productSpc: product.spc || '',
     productEId: product.prodEId ? String(product.prodEId) : '',
@@ -553,7 +564,10 @@ async function submitForm(form, product, statusEl, submitBtn, bodyEl) {
     smsMarketingConsent: isChecked(form, 'smsMarketingConsent') ? 'yes' : '',
     smsTransactionalConsent: isChecked(form, 'smsTransactionalConsent') ? 'yes' : '',
     website: '', // honeypot value (empty by client check above)
-    sourceUrl: window.location.href,
+    sourceUrl: `${window.location.origin}${window.location.pathname}`,
+    attribution: leadContext?.attribution || null,
+    externalLeadId: leadContext?.externalLeadId || '',
+    eventId: leadContext?.eventId || '',
     'cf-turnstile-response': getVal(form, 'cf-turnstile-response'),
   }
 
@@ -571,10 +585,17 @@ async function submitForm(form, product, statusEl, submitBtn, bodyEl) {
     if (!res.ok || !data.ok) {
       throw new Error(data.error || `Request failed (${res.status})`)
     }
-    if (typeof window.gtag === 'function') {
+    if (tracker?.trackLead) {
+      tracker.trackLead({
+        form: 'quote_modal',
+        contextKey,
+        eventId: leadContext?.eventId,
+        product: (product && (product.prName || product.spc)) || 'unknown',
+      })
+    } else if (typeof window.gtag === 'function') {
       window.gtag('event', 'generate_lead', {
         form: 'quote_modal',
-        product: (product && (product.title || product.slug)) || 'unknown',
+        product: (product && (product.prName || product.spc)) || 'unknown',
         page_path: window.location.pathname,
         lp_source: sessionStorage.getItem('lp_source') || window.location.pathname,
       })
@@ -582,6 +603,7 @@ async function submitForm(form, product, statusEl, submitBtn, bodyEl) {
     showSuccessState(bodyEl, product)
   } catch (err) {
     console.error('[quote-modal]', err)
+    window.turnstile?.reset?.()
     setStatus(statusEl, 'Something broke on our end. Call 702.904.8923 or email info@bighornthreads.com — we will handle it.', 'error')
     submitBtn.disabled = false
     submitBtn.textContent = 'Request Quote'
@@ -629,7 +651,7 @@ function showSuccessState(bodyEl, product) {
   }))
   wrap.appendChild(el('p', {
     class: 'mx-auto mt-4 max-w-md text-sm leading-relaxed text-gray-300',
-    text: `Steve or someone on the Bighorn team will reply within 2 business hours with pricing on the ${product.prName || 'product'} you picked. Full quote inside 24.`,
+    text: `The Bighorn team received your request for ${product.prName || 'the selected product'}. We will review the product, quantity, artwork, and timing before replying with current quote details.`,
   }))
 
   // Action row

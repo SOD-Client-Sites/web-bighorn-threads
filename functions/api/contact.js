@@ -4,7 +4,9 @@
 // re-submissions from the same person leave their own timestamped record.
 
 import { parseSmsConsent } from './_consent.js'
+import { formatAttributionNote, scheduleOriginalAttribution } from './_attribution.js'
 import { verifyTurnstile } from './_turnstile.js'
+import { COMMON_FIELD_LIMITS, safeErrorName, validatePayload } from './_validation.js'
 
 const GHL_BASE = 'https://services.leadconnectorhq.com'
 const GHL_API_VERSION = '2021-07-28'
@@ -20,7 +22,8 @@ const CF_QUANTITY_ESTIMATE = 'AuP8x0F7NvKOzWX0xxRh'
 const CF_TIMELINE = 'DRuIOjbLxqwSqM7EYlTV'
 const CF_QUOTE_MESSAGE = 'BPFPC44V1QiiHdrTKpUN'
 
-export async function onRequestPost({ request, env }) {
+export async function onRequestPost(context) {
+  const { request, env } = context
   let data
   try {
     const ct = request.headers.get('content-type') || ''
@@ -39,6 +42,16 @@ export async function onRequestPost({ request, env }) {
   if (data.bh_hp_field && String(data.bh_hp_field).trim()) {
     return jsonResponse({ ok: true, contactId: null, spam: true })
   }
+
+  const validationError = validatePayload(data, {
+    ...COMMON_FIELD_LIMITS,
+    service: 200,
+    quantity: 100,
+    timeline: 200,
+    product: 500,
+    message: 5_000,
+  })
+  if (validationError) return errorResponse(validationError, 400)
 
   // Cloudflare Turnstile — fail closed if verification is unavailable or misconfigured
   const verified = await verifyTurnstile({ env, request, token: data['cf-turnstile-response'] })
@@ -76,6 +89,7 @@ export async function onRequestPost({ request, env }) {
   let message = data.message ? String(data.message).trim() : ''
   if (product) message = [message, `Product: ${product}`].filter(Boolean).join('\n\n')
   const consent = parseSmsConsent(data, data.consentUrl)
+  if (consent.any && !phone) return errorResponse('Phone is required when SMS consent is selected', 400)
 
   let contactId = null
   try {
@@ -83,7 +97,6 @@ export async function onRequestPost({ request, env }) {
       locationId,
       email,
       source: 'bighornthreads.com — Contact Page',
-      tags: [TAG, ...consent.tags],
     }
     if (firstName) upsertBody.firstName = firstName
     if (lastName) upsertBody.lastName = lastName
@@ -103,26 +116,25 @@ export async function onRequestPost({ request, env }) {
       body: JSON.stringify(upsertBody),
     })
     if (!upsertRes.ok) {
-      const text = await safeText(upsertRes)
-      console.error('[contact] upsert failed', upsertRes.status, text)
+      console.error('[contact] GHL request failed', { operation: 'contact-upsert', status: upsertRes.status })
       return errorResponse(`GHL upsert failed (${upsertRes.status})`, 502)
     }
     const upsertData = await upsertRes.json()
     contactId = upsertData?.contact?.id || upsertData?.id || upsertData?.contactId
     if (!contactId) return errorResponse('GHL upsert returned no contact id', 502)
   } catch (err) {
-    console.error('[contact] upsert threw', err)
+    console.error('[contact] GHL request threw', { operation: 'contact-upsert', error: safeErrorName(err) })
     return errorResponse('GHL upsert error', 502)
   }
 
-  try {
-    await ghlFetch(`${GHL_BASE}/contacts/${contactId}/tags`, token, {
-      method: 'POST',
-      body: JSON.stringify({ tags: [TAG, ...consent.tags] }),
-    })
-  } catch (err) {
-    console.warn('[contact] tag add failed (non-fatal)', err)
-  }
+  await scheduleOriginalAttribution({
+    waitUntil: typeof context.waitUntil === 'function' ? context.waitUntil.bind(context) : undefined,
+    label: 'contact',
+    contactId,
+    token,
+    data,
+    fallbackDetail: 'Contact quote form',
+  })
 
   try {
     const lines = [`Quote request — ${new Date().toISOString()}`]
@@ -135,12 +147,33 @@ export async function onRequestPost({ request, env }) {
     if (timeline) lines.push(`Timeline: ${timeline}`)
     if (message) lines.push('', 'Message:', message)
     lines.push(consent.noteBlock)
-    await ghlFetch(`${GHL_BASE}/contacts/${contactId}/notes`, token, {
+    const attributionNote = formatAttributionNote(data)
+    if (attributionNote) lines.push(attributionNote)
+    const noteRes = await ghlFetch(`${GHL_BASE}/contacts/${contactId}/notes`, token, {
       method: 'POST',
       body: JSON.stringify({ body: lines.join('\n') }),
     })
+    if (!noteRes.ok) {
+      console.error('[contact] GHL request failed', { operation: 'contact-note', status: noteRes.status })
+      return errorResponse('Contact saved, but consent record failed', 502)
+    }
   } catch (err) {
-    console.warn('[contact] note add failed (non-fatal)', err)
+    console.error('[contact] GHL request threw', { operation: 'contact-note', error: safeErrorName(err) })
+    return errorResponse('Contact saved, but consent record failed', 502)
+  }
+
+  try {
+    const tagRes = await ghlFetch(`${GHL_BASE}/contacts/${contactId}/tags`, token, {
+      method: 'POST',
+      body: JSON.stringify({ tags: [TAG, ...consent.tags] }),
+    })
+    if (!tagRes.ok) {
+      console.error('[contact] GHL request failed', { operation: 'contact-tags', status: tagRes.status })
+      return errorResponse('Contact saved, but lead routing failed', 502)
+    }
+  } catch (err) {
+    console.error('[contact] GHL request threw', { operation: 'contact-tags', error: safeErrorName(err) })
+    return errorResponse('Contact saved, but lead routing failed', 502)
   }
 
   return jsonResponse({ ok: true, contactId })
@@ -158,10 +191,6 @@ function ghlFetch(url, token, init = {}) {
     },
     signal: AbortSignal.timeout(15_000),
   })
-}
-
-async function safeText(res) {
-  try { return await res.text() } catch (_) { return '' }
 }
 
 function jsonResponse(payload, status = 200) {

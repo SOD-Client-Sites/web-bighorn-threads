@@ -4,6 +4,8 @@
 // stage, and attaches a note with their requested details + free-text notes.
 
 import { verifyTurnstile } from './_turnstile.js'
+import { formatAttributionNote, scheduleOriginalAttribution } from './_attribution.js'
+import { COMMON_FIELD_LIMITS, normalizeSiteUrl, safeErrorName, validatePayload } from './_validation.js'
 
 const GHL_BASE = 'https://services.leadconnectorhq.com'
 const GHL_API_VERSION = '2021-07-28'
@@ -15,7 +17,8 @@ const STAGE_ID = '66aaf645-b6c9-40e1-813d-620671bab354'
 
 const REQUIRED_FIELDS = ['company', 'contact', 'email']
 
-export async function onRequestPost({ request, env }) {
+export async function onRequestPost(context) {
+  const { request, env } = context
   let body
   try {
     body = await request.json()
@@ -28,6 +31,14 @@ export async function onRequestPost({ request, env }) {
   if (body.bh_hp_field && String(body.bh_hp_field).trim()) {
     return jsonResponse({ ok: true, opportunityId: null, spam: true })
   }
+
+  const validationError = validatePayload(body, {
+    ...COMMON_FIELD_LIMITS,
+    trade: 200,
+    crewSize: 20,
+    notes: 5_000,
+  })
+  if (validationError) return errorResponse(validationError, 400)
 
   // Cloudflare Turnstile — fail closed
   const verified = await verifyTurnstile({ env, request, token: body['cf-turnstile-response'] })
@@ -61,7 +72,7 @@ export async function onRequestPost({ request, env }) {
   const trade = body.trade ? String(body.trade).trim() : ''
   const crewSize = body.crewSize ? parseInt(String(body.crewSize), 10) : null
   const notes = body.notes ? String(body.notes).trim().slice(0, 2000) : ''
-  const previewUrl = body.previewUrl ? String(body.previewUrl).trim() : ''
+  const previewUrl = normalizeSiteUrl(body.previewUrl, 'https://bighornthreads.com/preview/')
 
   // ---------------- Upsert contact ----------------
   let contactId = null
@@ -74,7 +85,6 @@ export async function onRequestPost({ request, env }) {
       email,
       companyName: company,
       source: 'bighornthreads.com — company store convert',
-      tags: [CONVERT_TAG, 'company-store-lead'],
     }
     if (phone) upsertBody.phone = phone
 
@@ -83,19 +93,43 @@ export async function onRequestPost({ request, env }) {
       body: JSON.stringify(upsertBody),
     })
     if (!upsertRes.ok) {
-      console.error('[convert-request] upsert failed', upsertRes.status, await safeText(upsertRes))
+      console.error('[convert-request] GHL request failed', { operation: 'contact-upsert', status: upsertRes.status })
       return errorResponse(`GHL upsert failed (${upsertRes.status})`, 502)
     }
     const upsertData = await upsertRes.json()
     contactId = upsertData?.contact?.id || upsertData?.id || upsertData?.contactId
     if (!contactId) return errorResponse('GHL upsert returned no contact id', 502)
   } catch (err) {
-    console.error('[convert-request] upsert threw', err)
+    console.error('[convert-request] GHL request threw', { operation: 'contact-upsert', error: safeErrorName(err) })
     return errorResponse('GHL upsert error', 502)
+  }
+
+  await scheduleOriginalAttribution({
+    waitUntil: typeof context.waitUntil === 'function' ? context.waitUntil.bind(context) : undefined,
+    label: 'convert-request',
+    contactId,
+    token,
+    data: body,
+    fallbackDetail: 'Company store conversion request',
+  })
+
+  try {
+    const tagRes = await ghlFetch(`${GHL_BASE}/contacts/${contactId}/tags`, token, {
+      method: 'POST',
+      body: JSON.stringify({ tags: [CONVERT_TAG, 'company-store-lead'] }),
+    })
+    if (!tagRes.ok) {
+      console.error('[convert-request] GHL request failed', { operation: 'contact-tags', status: tagRes.status })
+      return errorResponse('Contact saved, but lead routing failed', 502)
+    }
+  } catch (err) {
+    console.error('[convert-request] GHL request threw', { operation: 'contact-tags', error: safeErrorName(err) })
+    return errorResponse('Contact saved, but lead routing failed', 502)
   }
 
   // ---------------- Create opportunity (Company Store Requested) ----------------
   let opportunityId = null
+  let opportunityFailure = null
   try {
     const oppRes = await ghlFetch(`${GHL_BASE}/opportunities/`, token, {
       method: 'POST',
@@ -111,12 +145,17 @@ export async function onRequestPost({ request, env }) {
     if (oppRes.ok) {
       const oppData = await oppRes.json()
       opportunityId = oppData?.opportunity?.id || oppData?.id || null
+      if (!opportunityId) {
+        opportunityFailure = { operation: 'opportunity-create', status: oppRes.status, reason: 'missing-id' }
+        console.error('[convert-request] GHL response missing opportunity id', opportunityFailure)
+      }
     } else {
-      // Non-fatal: the tag + note still capture the request even if the opp call fails.
-      console.warn('[convert-request] opportunity failed (non-fatal)', oppRes.status, await safeText(oppRes))
+      opportunityFailure = { operation: 'opportunity-create', status: oppRes.status }
+      console.error('[convert-request] GHL request failed', opportunityFailure)
     }
   } catch (err) {
-    console.warn('[convert-request] opportunity threw (non-fatal)', err)
+    opportunityFailure = { operation: 'opportunity-create', status: 0, error: safeErrorName(err) }
+    console.error('[convert-request] GHL request threw', opportunityFailure)
   }
 
   // ---------------- Note ----------------
@@ -134,14 +173,20 @@ export async function onRequestPost({ request, env }) {
     if (crewSize) lines.push(`  Crew size: ${crewSize}`)
     if (notes) { lines.push('', 'NOTES FROM CUSTOMER', notes) }
     if (previewUrl) { lines.push('', 'PREVIEW', `  ${previewUrl}`) }
-    await ghlFetch(`${GHL_BASE}/contacts/${contactId}/notes`, token, {
+    const attributionNote = formatAttributionNote(body)
+    if (attributionNote) lines.push(attributionNote)
+    const noteRes = await ghlFetch(`${GHL_BASE}/contacts/${contactId}/notes`, token, {
       method: 'POST',
       body: JSON.stringify({ body: lines.join('\n') }),
     })
+    if (!noteRes.ok) console.warn('[convert-request] GHL request failed (non-fatal)', { operation: 'contact-note', status: noteRes.status })
   } catch (err) {
-    console.warn('[convert-request] note threw (non-fatal)', err)
+    console.warn('[convert-request] GHL request threw (non-fatal)', { operation: 'contact-note', error: safeErrorName(err) })
   }
 
+  if (opportunityFailure) {
+    return errorResponse('Contact saved, but opportunity creation failed', 502)
+  }
   return jsonResponse({ ok: true, contactId, opportunityId })
 }
 
@@ -159,8 +204,6 @@ function ghlFetch(url, token, init = {}) {
     signal: AbortSignal.timeout(15_000),
   })
 }
-
-async function safeText(res) { try { return await res.text() } catch (_) { return '' } }
 
 function jsonResponse(payload, status = 200) {
   return new Response(JSON.stringify(payload), {

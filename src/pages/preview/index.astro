@@ -23,7 +23,7 @@ import { demoProducts } from '@/data/demoCatalog'
  <section id="preview-notfound" class="hidden min-h-[70vh] items-center justify-center bg-concrete px-4 py-24">
  <div class="max-w-xl text-center">
  <p class="mb-3 font-mono text-xs font-bold uppercase tracking-[0.3em] text-gold-600">Preview Not Found</p>
- <h1 class="mb-5 font-heading text-4xl font-extrabold uppercase tracking-tight text-charcoal sm:text-5xl">This link's expired or invalid.</h1>
+ <h1 class="mb-5 font-heading text-4xl font-extrabold uppercase tracking-tight text-charcoal sm:text-5xl">This preview is not available in this browser.</h1>
  <a href="/demo/" class="btn-primary text-base">Build a New Preview</a>
  </div>
  </section>
@@ -59,8 +59,8 @@ import { demoProducts } from '@/data/demoCatalog'
  </div>
 
  <!-- ===================== STORE (grid) view ===================== -->
- <main id="view-store" class="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-10">
- <h2 class="mb-5 font-heading text-lg font-bold uppercase tracking-tight text-charcoal">Featured Gear</h2>
+ <section id="view-store" class="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-10" aria-labelledby="featured-gear-heading">
+ <h2 id="featured-gear-heading" class="mb-5 font-heading text-lg font-bold uppercase tracking-tight text-charcoal">Featured Gear</h2>
  <div class="grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4">
  {demoProducts.map((p) => (
  <button type="button" data-open-product={p.id} class="group flex flex-col overflow-hidden rounded border border-hairline bg-white text-left transition-shadow hover:shadow-lg hover:shadow-charcoal/5">
@@ -78,17 +78,17 @@ import { demoProducts } from '@/data/demoCatalog'
  ))}
  </div>
  <p class="mt-8 text-center font-mono text-[11px] uppercase tracking-[0.15em] text-ash">Sample store · your real gear & pricing are curated for your crew</p>
- </main>
+ </section>
 
  <!-- ===================== PRODUCT (PDP) view ===================== -->
- <main id="view-product" class="mx-auto hidden max-w-5xl px-4 py-6 sm:px-6 sm:py-8">
+ <section id="view-product" class="mx-auto hidden max-w-5xl px-4 py-6 sm:px-6 sm:py-8" aria-labelledby="pdp-name">
  <button id="pdp-back" type="button" class="mb-5 inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-ash transition-colors hover:text-gold-600">
  <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12"/></svg>
  Back to store
  </button>
  <div class="grid gap-8 lg:grid-cols-2">
  <div class="overflow-hidden rounded border border-hairline bg-white">
- <img id="pdp-image" src="" alt="" width="800" height="800" class="aspect-square w-full object-contain p-4" />
+        <img id="pdp-image" src={demoProducts[0]?.image ?? '/images/logo.svg'} alt={demoProducts[0]?.name ?? 'Product preview'} width="800" height="800" class="aspect-square w-full object-contain p-4" />
  </div>
  <div>
  <h2 id="pdp-name" class="font-heading text-2xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-3xl"></h2>
@@ -122,16 +122,16 @@ import { demoProducts } from '@/data/demoCatalog'
  </div>
  </div>
  </div>
- </main>
+ </section>
 
  <!-- Convert CTA -->
  <section class="border-t border-hairline bg-navy-950 py-14 text-white sm:py-16">
  <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
  <p class="kicker mb-3 justify-center">Make This Real</p>
  <h2 class="mb-4 font-heading text-2xl font-extrabold uppercase tracking-tight text-white sm:text-3xl">Want <span id="cta-company"></span>'s real ordering store?</h2>
- <p class="mb-8 text-base leading-relaxed text-navy-200">Your info's already in. One click and Steve sets up your live store — your logo, your gear, your team ordering direct. About a week to go live.</p>
+ <p class="mb-8 text-base leading-relaxed text-navy-200">Ask Bighorn to review an approved catalog, store features, production, fulfillment, timing, and program terms for your team.</p>
  <div class="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
- <button id="convert-btn" type="button" class="btn-primary text-base">Make my store real</button>
+ <button id="convert-btn" type="button" class="btn-primary text-base">Request a store plan</button>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">Or call 702.904.8923</a>
  </div>
  <p id="convert-done" class="mt-6 hidden font-mono text-[12px] font-bold uppercase tracking-wider text-gold-400"></p>
@@ -139,13 +139,13 @@ import { demoProducts } from '@/data/demoCatalog'
  </section>
 
  <!-- Convert modal -->
- <div id="convert-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-charcoal/70 p-4" role="dialog" aria-modal="true" aria-labelledby="convert-modal-title">
+ <div id="convert-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-charcoal/70 p-4" role="dialog" aria-modal="true" aria-labelledby="convert-modal-title" aria-describedby="convert-modal-description" tabindex="-1">
  <div class="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-lg border border-hairline bg-white p-6 shadow-2xl sm:p-8">
  <div class="mb-1 flex items-start justify-between gap-4">
  <h3 id="convert-modal-title" class="font-heading text-xl font-extrabold uppercase tracking-tight text-charcoal">Make my store real</h3>
- <button id="convert-close" type="button" aria-label="Close" class="text-ash hover:text-charcoal"><svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></button>
+ <button id="convert-close" type="button" aria-label="Close" class="flex h-11 w-11 shrink-0 items-center justify-center text-ash hover:text-charcoal"><svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></button>
  </div>
- <p class="mb-5 text-sm text-ash">Confirm your details and tell us anything specific. Steve builds your live ordering store — usually within a week.</p>
+ <p id="convert-modal-description" class="mb-5 text-sm text-ash">Enter your contact details and request a written plan for the store features and terms your team needs.</p>
 
  <form id="convert-form" class="space-y-4" novalidate>
  <div class="grid gap-4 sm:grid-cols-2">
@@ -182,10 +182,10 @@ import { demoProducts } from '@/data/demoCatalog'
  <button id="convert-submit" type="submit" class="btn-primary w-full justify-center text-base disabled:cursor-not-allowed disabled:opacity-60">
  <span id="convert-submit-label">Send my request</span>
  </button>
- <p id="convert-error" class="hidden text-center text-sm font-medium text-red-600"></p>
+ <p id="convert-error" class="hidden text-center text-sm font-medium text-red-600" role="alert"></p>
  </form>
 
- <div id="convert-success" class="hidden py-4 text-center">
+ <div id="convert-success" class="hidden py-4 text-center" role="status" aria-live="polite" aria-atomic="true" tabindex="-1">
  <div class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gold-500/20"><svg class="h-6 w-6 text-gold-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
  <h3 class="mb-1 font-heading text-lg font-bold uppercase tracking-tight text-charcoal">Request sent</h3>
  <p id="convert-success-msg" class="text-sm text-ash"></p>
@@ -197,18 +197,17 @@ import { demoProducts } from '@/data/demoCatalog'
 </BaseLayout>
 
 <script>
- type Lead = { company: string; contact: string; email: string; phone: string | null; trade: string; crewSize: number | null; logoDataUrl?: string | null }
+ type Lead = { company: string; trade: string; crewSize: number | null; logoDataUrl?: string | null }
  type Payload = { v: number; createdAt: string; lead: Lead }
  type Product = { id: string; name: string; price: number; image: string; colors: string[]; sizes: string[]; description: string[] }
 
  const $ = (id: string) => document.getElementById(id)
  const products: Product[] = JSON.parse($('demo-products')?.textContent || '[]')
 
- function decodeSlug(s: string): Payload | null {
+ function loadPreview(): Payload | null {
  try {
- const b64 = s.replace(/-/g, '+').replace(/_/g, '/')
- const padded = b64 + '='.repeat((4 - (b64.length % 4)) % 4)
- const data = JSON.parse(decodeURIComponent(escape(atob(padded))))
+ const raw = sessionStorage.getItem('bighorn_demo_preview_v1')
+ const data = raw ? JSON.parse(raw) : null
  return data?.lead?.company ? (data as Payload) : null
  } catch { return null }
  }
@@ -222,8 +221,7 @@ import { demoProducts } from '@/data/demoCatalog'
  slot.appendChild(img)
  }
 
- const slug = new URLSearchParams(location.search).get('s')
- const data = slug ? decodeSlug(slug) : null
+ const data = loadPreview()
 
  if (!data) {
  $('preview-loading')?.classList.add('hidden')
@@ -287,20 +285,40 @@ import { demoProducts } from '@/data/demoCatalog'
  if (added) { added.textContent = `Added ${q} to cart ✓`; added.classList.remove('hidden') }
  })
 
- // ---- convert modal (info prefilled; they can add notes) ----
+ // ---- convert modal ----
  const modal = $('convert-modal')
+ let modalTrigger: HTMLElement | null = null
+ const focusableSelector = 'a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+ const getModalFocusables = () => modal
+ ? Array.from(modal.querySelectorAll<HTMLElement>(focusableSelector)).filter((el) => el.getClientRects().length > 0)
+ : []
  const setVal = (id: string, v: string) => { const el = $(id) as HTMLInputElement | null; if (el) el.value = v }
  const openModal = () => {
- setVal('cf-company', lead.company || ''); setVal('cf-contact', lead.contact || '')
- setVal('cf-email', lead.email || ''); setVal('cf-phone', lead.phone || '')
+ modalTrigger = document.activeElement instanceof HTMLElement ? document.activeElement : null
+ setVal('cf-company', lead.company || '')
  $('convert-form')?.classList.remove('hidden'); $('convert-success')?.classList.add('hidden')
  modal?.classList.remove('hidden'); modal?.classList.add('flex'); document.body.style.overflow = 'hidden'
+ requestAnimationFrame(() => (($('cf-contact') as HTMLInputElement | null) || modal)?.focus())
  }
- const closeModal = () => { modal?.classList.add('hidden'); modal?.classList.remove('flex'); document.body.style.overflow = '' }
+ const closeModal = () => {
+ modal?.classList.add('hidden'); modal?.classList.remove('flex'); document.body.style.overflow = ''
+ if (modalTrigger?.isConnected) modalTrigger.focus()
+ modalTrigger = null
+ }
  $('convert-btn')?.addEventListener('click', openModal)
  $('convert-close')?.addEventListener('click', closeModal)
  $('convert-done-btn')?.addEventListener('click', closeModal)
  modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal() })
+ modal?.addEventListener('keydown', (e) => {
+ if (e.key === 'Escape') { e.preventDefault(); closeModal(); return }
+ if (e.key !== 'Tab') return
+ const focusables = getModalFocusables()
+ if (!focusables.length) { e.preventDefault(); modal.focus(); return }
+ const first = focusables[0]
+ const last = focusables[focusables.length - 1]
+ if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus() }
+ else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus() }
+ })
 
  $('convert-form')?.addEventListener('submit', async (e) => {
  e.preventDefault()
@@ -311,21 +329,35 @@ import { demoProducts } from '@/data/demoCatalog'
  if (!form.checkValidity()) { form.reportValidity(); return }
  btn.disabled = true; setText('convert-submit-label', 'Sending…')
  const fd = new FormData(form)
+ const submittedContact = String(fd.get('contact') || '').trim()
+ const contextKey = form.id || 'convert-request'
+ const tracker = (window as any).bighornTracking
+ const leadContext = tracker?.getLeadContext?.(contextKey)
  const payload = {
  company: String(fd.get('company') || ''), contact: String(fd.get('contact') || ''),
  email: String(fd.get('email') || ''), phone: String(fd.get('phone') || ''),
  trade: lead.trade || '', crewSize: lead.crewSize || null,
  notes: String(fd.get('notes') || ''), bh_hp_field: String(fd.get('bh_hp_field') || ''),
- previewUrl: location.href,
+ previewUrl: `${location.origin}${location.pathname}`,
+ attribution: leadContext?.attribution || null,
+ externalLeadId: leadContext?.externalLeadId || '',
+ eventId: leadContext?.eventId || '',
  'cf-turnstile-response': (form.querySelector('[name="cf-turnstile-response"]') as HTMLInputElement | null)?.value || '',
  }
  try {
  const res = await fetch('/api/convert-request', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
  const data = await res.json().catch(() => ({}))
  if (!res.ok || !data.ok) throw new Error(data.error || `HTTP ${res.status}`)
- setText('convert-success-msg', `Thanks, ${lead.contact.split(' ')[0] || 'we got it'} — Steve will reach out to build ${lead.company}'s store.`)
- form.classList.add('hidden'); $('convert-success')?.classList.remove('hidden')
+ if (!data.spam) {
+ tracker?.trackLead?.({ form: 'company_store_convert', contextKey, eventId: leadContext?.eventId })
+ }
+ setText('convert-success-msg', `Thanks, ${submittedContact.split(' ')[0] || 'we got it'}. The Bighorn team will review the requested plan for ${lead.company}.`)
+ form.classList.add('hidden')
+ const success = $('convert-success')
+ success?.classList.remove('hidden')
+ requestAnimationFrame(() => success?.focus())
  } catch (_) {
+ ;(window as any).turnstile?.reset?.()
  if (errEl) { errEl.textContent = 'Something went wrong. Please try again or call 702.904.8923.'; errEl.classList.remove('hidden') }
  btn.disabled = false; setText('convert-submit-label', 'Send my request')
  }

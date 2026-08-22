@@ -4,7 +4,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 const post = {
   title: 'How Much Does It Cost to Embroider a Shirt? What Drives the Price',
   description:
-    'What really drives embroidery cost: stitch count, the garment you pick, quantity, and a one-time digitizing fee. Send your logo and garment for a Las Vegas quote from Bighorn Threads.',
+    'What drives embroidery cost: artwork, stitch count, garment, placements, quantity, digitizing, and production-partner terms. Request a current Las Vegas quote.',
   category: 'Pricing',
   readTime: '9 min read',
   date: 'May 9, 2026',
@@ -16,35 +16,35 @@ const post = {
 const faqs = [
   {
     q: 'How much does it cost to embroider a shirt?',
-    a: "Embroidery is priced by stitch count — more stitches, more cost. A standard left-chest logo runs 5,000–8,000 stitches. Your total also depends on the garment you pick and your quantity, plus a one-time digitizing fee for a new logo. Send your logo and garment and we'll get you a quick quote in Las Vegas.",
+    a: "Embroidery pricing depends on the artwork, estimated stitch count, garment, placements, quantity, digitizing, and production-partner terms. Send your logo, product, quantity, and deadline for a current quote.",
   },
   {
     q: 'What is the average cost to embroider a logo on a shirt?',
-    a: "There's no single average — your price tracks the logo's stitch count, the blank you choose, and how many you order. A simple left-chest logo runs 5,000–6,000 stitches and stitches fast; a detailed logo costs more. Add the garment and a one-time digitizing fee for new logos. Send your logo and garment and we'll quote it.",
+    a: "There's no reliable average without the artwork and order details. The quote should identify the garment, decoration, placements, quantity, digitizing, and any applicable fees.",
   },
   {
     q: 'How much does custom embroidery cost for work shirts?',
-    a: "It depends on the garment and the logo. A basic work polo costs less than a performance polo, and FR-rated shirts (Bulwark, Carhartt) are the priciest blanks. Logo complexity sets the stitch count, which drives embroidery cost. Send your logo, garment, and quantity and we'll quote it — shirt, embroidery, and digitizing in one number.",
+    a: "It depends on the exact garment, artwork, placement, quantity, and partner terms. Protective garments also require employer and manufacturer review before decoration. Send the approved product and logo for a current quote.",
   },
   {
     q: 'What is a digitizing fee for embroidery?',
-    a: "A digitizing fee converts your logo artwork into a stitch file the embroidery machine can read. It's a one-time charge — complex logos take more work to digitize — and it covers your file permanently. Every reorder after that uses the same file. We keep your stitch file on record indefinitely. Send your logo and we'll quote it.",
+    a: "Digitizing converts logo artwork into a stitch file. The fee, ownership, retention, delivery, reuse, and repeat-order terms depend on the selected production partner. Confirm each term in writing.",
   },
   {
     q: 'How much does it cost to embroider 50 shirts?',
-    a: "Your per-shirt cost depends on the garment, the logo's stitch count, and the one-time digitizing for a new logo. Per-piece cost eases as quantity rises, since machine time per shirt is the main driver — not setup. Send your roster and garment and we'll quote it for your exact run.",
+    a: "Pricing for 50 shirts still depends on the garment, artwork, placements, digitizing, and current partner quote. Quantity can affect pricing, but no fixed discount or fee applies to every order.",
   },
   {
     q: 'Is embroidery cheaper than screen printing for work shirts?',
-    a: "At low quantities (under 24 pieces), embroidery and screen printing are comparable. At high volumes (100+ pieces), screen printing tends to win per piece because most of its cost is upfront setup. Embroidery scales more linearly. For polos, button-downs, and structured garments, embroidery is almost always the right choice — screen printing doesn't adhere well to pique fabrics. Send your garment and quantity and we'll quote it.",
+    a: "The lower-cost method depends on artwork, quantity, garment, placements, and the selected partner. Compare written quotes for the same approved product and design rather than relying on a universal quantity threshold.",
   },
   {
     q: 'How long does embroidery take on a shirt?',
-    a: 'A standard left-chest logo (5,000–8,000 stitches) takes 5–12 minutes of machine time per shirt on a commercial multi-needle machine. A 6-head machine can produce 30–45 finished shirts per hour at that stitch count. Timing depends on quantity, whether your logo is already digitized, and the garment. Rush options exist — send your deadline and we\'ll quote a real timeline.',
+    a: 'Timing depends on garment availability, artwork, digitizing, proof approval, quantity, partner capacity, and delivery. Send the complete order and required date for a written schedule.',
   },
   {
     q: 'Where can I get custom embroidered shirts in Las Vegas?',
-    a: 'Bighorn Threads is a Las Vegas-based custom embroidery shop serving contractors, trades crews, hospitality businesses, and service companies across the metro. We keep stitch files on record for easy reorders and offer rush options. Visit bighornthreads.com or send your logo to get a quote.',
+    a: 'Bighorn Threads coordinates embroidery through selected production partners for Las Vegas businesses. File retention, rush availability, pricing, and timing depend on the partner and final quote. Send your logo, product, quantity, and deadline.',
   },
 ]
 
@@ -57,7 +57,7 @@ const schema = {
       description: post.description,
       image: `https://bighornthreads.com${post.image}`,
       datePublished: post.isoDate,
-      dateModified: '2026-05-12',
+      dateModified: '2026-08-21',
       author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' },
       publisher: {
         '@type': 'Organization',
@@ -113,7 +113,7 @@ const schema = {
       <!-- Answer-first box — what AEO surfaces pull first -->
       <aside class="mb-10 border border-hairline bg-panel p-7">
         <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Direct Answer</p>
-        <p class="text-lg leading-relaxed text-charcoal sm:text-xl"><strong>Embroidery is priced by stitch count — more stitches, more cost.</strong> A standard left-chest logo runs 5,000–8,000 stitches. Your total also depends on the garment you choose and your quantity, plus a one-time digitizing fee for new logos. In Las Vegas, <a href="/get-a-quote/" class="text-gold-600 underline-offset-2 hover:underline">Bighorn Threads</a> will get you a quick quote — send your logo and garment and we'll quote it.</p>
+        <p class="text-lg leading-relaxed text-charcoal sm:text-xl"><strong>Embroidery cost depends on the complete order.</strong> Artwork, stitch count, garment, placements, quantity, digitizing, and partner terms all matter. Send the details to <a href="/get-a-quote/" class="text-gold-600 underline-offset-2 hover:underline">Bighorn Threads</a> for a current quote.</p>
       </aside>
 
       <!-- YouTube Short embed -->
@@ -132,15 +132,15 @@ const schema = {
 
       <!-- Quantity driver — qualitative, quote-led -->
       <h2 id="quantity-cost" class="mt-4 mb-6 font-heading text-3xl font-bold tracking-tight">How Quantity Shapes Your Per-Piece Cost</h2>
-      <p class="mb-10 text-lg leading-relaxed text-charcoal">Per-piece cost drops as quantity rises — a small crew run costs more per shirt than a full team order. The one-time digitizing fee spreads across more pieces too, so it barely registers on a larger order. The four drivers below set your number. Send your roster and garment and we'll quote it for your exact run.</p>
+      <p class="mb-10 text-lg leading-relaxed text-charcoal">Quantity can affect pricing, but the result depends on the product and partner quote. Compare the same garment, artwork, placements, and delivery terms across options.</p>
 
       <h2 id="stitch-count" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">1. Stitch Count — the Real Cost Driver</h2>
-      <p class="mb-6 text-lg leading-relaxed text-charcoal">Embroidery on a shirt is priced by the stitch, not by size — more stitches, more cost. Once your logo is digitized, machine time and thread track its stitch count. Knowing your stitch count lets you read any quote you get and understand exactly what you're paying for.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Stitch count is one common pricing input. Garment handling, placements, quantity, digitizing, and partner terms can also affect the quote.</p>
       <ul class="mb-6 list-none space-y-3 text-lg text-charcoal">
-        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Simple bold logo</strong> (text + clean outline): 3,000–5,000 stitches — the most economical to stitch</span></li>
-        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Standard left-chest logo</strong>: 5,000–8,000 stitches — the everyday workhorse hit</span></li>
-        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Detailed logo with fills/gradients</strong>: 10,000–15,000 stitches — more stitches, more cost</span></li>
-        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Full back logo</strong>: 25,000–40,000 stitches — the priciest placement to stitch</span></li>
+        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Simple bold logo:</strong> often easier to reproduce at small sizes</span></li>
+        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Left-chest logo:</strong> a common placement that still needs an artwork review</span></li>
+        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Detailed logo:</strong> may require simplification or a larger placement</span></li>
+        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Large placement:</strong> can increase stitches, handling, and production time</span></li>
       </ul>
       <p class="mb-6 text-lg leading-relaxed text-charcoal">Two logos at the same physical size can have very different stitch counts depending on fill density and detail. If you want to bring per-piece cost down, the fastest lever is simplifying your logo for embroidery. See <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">logo digitizing 101</a> for how that works.</p>
 
@@ -154,9 +154,9 @@ const schema = {
       </ul>
       <p class="mb-6 text-lg leading-relaxed text-charcoal">For trade-specific recommendations — which shirt fits which crew — see <a href="/industries/electrical-contractors-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">electrical contractors</a>, <a href="/industries/plumbing-hvac-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">plumbing & HVAC</a>, and <a href="/industries/general-contractors-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">general contractors</a>.</p>
 
-      <h2 id="digitizing" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">3. Digitizing Fee — One-Time, Then Free Forever</h2>
-      <p class="mb-6 text-lg leading-relaxed text-charcoal"><strong>Digitizing</strong> converts your logo artwork into a stitch file (.DST, .PES, or similar) the embroidery machine reads. It's a one-time charge per logo — more complex logos take more work to digitize — and you never pay it again. Every reorder uses the same file.</p>
-      <p class="mb-6 text-lg leading-relaxed text-charcoal">A well-digitized file is the single biggest factor in how good your embroidery looks. Cheap digitizing produces pulled stitches, poor registration, and blurry logos. Bighorn Threads keeps every customer's stitch file on record indefinitely so reorders are always clean and always free of re-digitizing charges.</p>
+      <h2 id="digitizing" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">3. Confirm Digitizing and File Terms</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal"><strong>Digitizing</strong> converts logo artwork into a stitch file. Cost, file ownership, retention, delivery, and repeat-order fees depend on the selected production partner and quote.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">A well-digitized file strongly affects embroidery quality. Poor digitizing can cause pulled stitches, bad registration, and blurry logos. Confirm file ownership, retention, and any repeat-order fees in the written quote.</p>
 
       <h2 id="complexity" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">4. Multiple Placements</h2>
       <p class="mb-6 text-lg leading-relaxed text-charcoal">A single left-chest logo is the base case. Each extra placement — right chest name, sleeve hit, back yoke — means re-hooping the shirt and a separate machine pass, so each one adds to your per-shirt cost. Common add-ons:</p>
@@ -167,18 +167,17 @@ const schema = {
       </ul>
 
       <h2 id="quantity" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">5. Quantity Discounts</h2>
-      <p class="mb-6 text-lg leading-relaxed text-charcoal">Volume discounts on embroidery are real but smaller than most buyers expect — usually <strong>10–25% cheaper per piece</strong> going from 24 to 100 pieces. Quantity also sets the floor: most shops won't run embroidery below a <a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">12–24 piece minimum</a> without a small-order surcharge. Unlike screen printing (where setup dominates and volume drives huge savings), embroidery cost is mostly machine time per piece, which scales nearly linearly. The savings come from better blank pricing at volume, not from eliminated setup cost.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Quantity breaks, minimums, and small-order fees vary by product and production partner. Ask for the exact quantity options in writing. Our <a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">minimum-order guide</a> explains which details to confirm.</p>
 
       <h2 id="how-long" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">How Long Does Embroidery Take?</h2>
-      <p class="mb-6 text-lg leading-relaxed text-charcoal">Commercial embroidery machines run <strong>600–1,000 stitches per minute</strong>. A standard 6,000-stitch left-chest logo takes 6–10 minutes of machine time per shirt. A 6-head commercial machine turns out roughly 30–45 finished shirts per hour at that stitch count.</p>
-      <p class="mb-6 text-lg leading-relaxed text-charcoal">Timing depends on quantity, whether your logo is already digitized, and the garment. Rush options exist — send your deadline and we'll quote a real timeline.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Timing depends on product availability, artwork, digitizing, proof approval, quantity, partner capacity, and delivery. Bighorn confirms the proposed schedule in writing.</p>
 
       <h2 id="vs-screen-printing" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Embroidery vs Screen Printing — Which Is Cheaper?</h2>
-      <p class="mb-6 text-lg leading-relaxed text-charcoal">For small runs (under 24 pieces), embroidery and screen printing are comparable in total cost. At high volumes (100+ pieces), screen printing is cheaper per piece because most of its cost is upfront setup — once screens are made, each shirt is cheap. For polos, structured work shirts, and hats, <strong>embroidery is almost always the right call</strong> regardless of cost because screen printing adhesion on pique fabrics is poor and the look doesn't hold up to washing.</p>
-      <p class="mb-6 text-lg leading-relaxed text-charcoal">Full breakdown: <a href="/blog/screen-printing-vs-embroidery-construction/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Screen printing vs. embroidery for construction crews</a>.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Compare both methods against the same garment, artwork, placement, quantity, and deadline. The selected production partner should confirm compatibility and pricing for the exact order.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Full breakdown: <a href="/screen-printing-vs-embroidery-construction-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Screen printing vs. embroidery for construction crews</a>.</p>
 
       <h2 id="get-quote" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Where to Get Custom Embroidered Shirts in Las Vegas</h2>
-      <p class="mb-6 text-lg leading-relaxed text-charcoal"><strong>Bighorn Threads</strong> is a Las Vegas custom embroidery shop serving contractors, HVAC techs, electricians, plumbers, hospitality crews, and service businesses across the metro area. We'll get you a quick quote, keep stitch files on record for easy reorders, and offer rush options.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal"><strong>Bighorn Threads</strong> manages embroidery programs for Las Vegas contractors and service businesses. Selected production partners handle digitizing and embroidery. Your quote confirms file retention, rush availability, pricing, and timing.</p>
       <p class="mb-6 text-lg leading-relaxed text-charcoal">Three things to send for an accurate quote:</p>
       <ol class="mb-8 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
         <li>Your logo (PDF, AI, PNG — any format works to start)</li>
@@ -188,7 +187,7 @@ const schema = {
 
       <div class="border border-hairline bg-gold-500/5 p-7 sm:p-9">
         <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-charcoal">Get an embroidery quote in Las Vegas</h2>
-        <p class="mb-5 text-lg leading-relaxed text-charcoal">Bighorn Threads outfits trades crews, contractors, and service businesses across Las Vegas with custom embroidered work shirts, polos, and FR-rated workwear. Send your logo and quantity — we'll get you a quick quote, digitizing included for new logos.</p>
+        <p class="mb-5 text-lg leading-relaxed text-charcoal">Bighorn Threads coordinates embroidered work shirts and polos through selected production partners. FR garments require employer and manufacturer approval. Send your logo, product, quantity, and deadline for a current quote.</p>
         <a href="/get-a-quote/" class="inline-flex min-h-[48px] items-center gap-2 bg-gold-500 px-7 py-3 text-base font-bold text-charcoal transition-all hover:bg-gold-600">Get a Quote →</a>
       </div>
 
@@ -208,7 +207,7 @@ const schema = {
         <p class="mb-6 text-xs font-bold uppercase tracking-widest text-gold-600">Related Reading</p>
         <ul class="space-y-3 text-lg">
           <li><a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Logo Digitizing 101: What It Is and Why It Matters</a></li>
-          <li><a href="/blog/screen-printing-vs-embroidery-construction/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Screen Printing vs Embroidery for Construction Crews</a></li>
+          <li><a href="/screen-printing-vs-embroidery-construction-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Screen Printing vs Embroidery for Construction Crews</a></li>
           <li><a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Minimum Order Quantities — What to Expect</a></li>
           <li><a href="/blog/custom-embroidered-t-shirts-buyer-guide/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Custom Embroidered T-Shirts Buyer's Guide</a></li>
           <li><a href="/services/embroidery-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Custom Embroidery Services — Las Vegas</a></li>

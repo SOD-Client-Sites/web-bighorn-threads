@@ -4,46 +4,46 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 const page = {
  title: 'Custom Yeti Drinkware in Las Vegas | Laser-Engraved Tumblers & Mugs — Bighorn Threads',
  description:
- 'Custom Yeti drinkware in Las Vegas — laser-engraved Rambler tumblers, lowballs, mugs, and bottles for corporate gifts, trade shows, and employee programs. Permanent engraving, full Yeti SKU range. Get a quote.',
+ 'Managed custom Yeti drinkware programs in Las Vegas. Compare current products, finishes, personalization, and partner-coordinated engraving. Get a quote.',
  hero: '/images/generated/product-stack.jpg',
  url: 'https://bighornthreads.com/custom-yeti-drinkware-las-vegas/',
 }
 
 const stack = [
- { label: 'The drinkware', body: 'Yeti Rambler tumblers (10, 14, 16, 20, 24, 30 oz), Lowball, Wine Tumbler, Mug, Bottle (18, 26, 36, 46, 64 oz), and Half Gallon Jug. Stainless and color-coated finishes.' },
- { label: 'The decoration', body: 'CO₂ laser engraving on stainless — permanent, dishwasher-safe, won\'t chip, fade, or wash off. Engraved through the powder coat to expose the steel underneath, creating sharp two-tone contrast.' },
+ { label: 'The drinkware', body: 'Ask about current Yeti Rambler tumblers, mugs, bottles, jugs, sizes, and finishes. Availability is confirmed for each quote.' },
+ { label: 'The decoration', body: 'Engraving may create a two-tone mark on eligible products. Results and care requirements depend on the product and finish.' },
  { label: 'Use cases', body: 'Corporate gifts, employee onboarding, milestone awards, trade show high-tier giveaways, customer thank-you, holiday gifting, executive recognition.' },
- { label: 'Volume tiers', body: 'Single piece for an executive recognition order. Bulk runs for employee programs and event swag. Per-piece engraving cost rounds down at scale.' },
+ { label: 'Volume tiers', body: 'Minimums and volume pricing depend on the product and production partner. Share your quantity for current terms.' },
 ]
 
 const skus = [
- { row: 'Rambler 10 oz Lowball', use: 'Whiskey, cocktails, single-serve hot drinks', notes: 'Compact, fits car cup-holder. Engraves cleanly across the side.' },
- { row: 'Rambler 14 oz Mug', use: 'Coffee mug with handle, hot or cold', notes: 'Most-ordered office gift. Wraps engraving across the body.' },
- { row: 'Rambler 20 oz Tumbler', use: 'Daily coffee, water, cold brew', notes: 'The Yeti default. Highest unit volume across corporate-gift orders.' },
- { row: 'Rambler 24 oz Mug', use: 'Bigger coffee, soup, or stew', notes: 'Camping and crew-vehicle favorite. Wide engraving area.' },
- { row: 'Rambler 30 oz Tumbler', use: 'All-day water, energy drinks, oversized coffee', notes: 'The construction-crew default. Fits jobsite cup holders.' },
- { row: 'Rambler 36 oz Bottle', use: 'All-day water, hike, gym', notes: 'Full-day hydration without refill. Carry handle on chug cap.' },
- { row: 'Wine Tumbler', use: 'Wine, cocktails, evening events', notes: 'Premium gift tier — pairs well with executive recognition.' },
- { row: 'Half Gallon Jug', use: 'Crew water, all-day jobsite, sports sideline', notes: 'Largest-format engraving canvas. High visual impact.' },
+ { row: 'Rambler 10 oz Lowball', use: 'Small hot or cold servings', notes: 'Confirm current size, finish, lid, and decoration area.' },
+ { row: 'Rambler 14 oz Mug', use: 'Handled hot or cold drinkware', notes: 'Confirm current product and eligible decoration area.' },
+ { row: 'Rambler 20 oz Tumbler', use: 'Coffee, water, or cold drinks', notes: 'Compare current lid, cup-holder fit, finish, and decoration.' },
+ { row: 'Rambler 24 oz Mug', use: 'Larger handled drinkware', notes: 'Confirm current product dimensions and decoration area.' },
+ { row: 'Rambler 30 oz Tumbler', use: 'Higher-capacity drinkware', notes: 'Check current dimensions, lid, and cup-holder compatibility.' },
+ { row: 'Rambler 36 oz Bottle', use: 'Higher-capacity water bottle', notes: 'Confirm current cap, handle, finish, and decoration area.' },
+ { row: 'Wine Tumbler', use: 'Events and recognition gifts', notes: 'Ask about current availability and personalization options.' },
+ { row: 'Half Gallon Jug', use: 'Crew, jobsite, or sideline use', notes: 'Confirm current product, handling, and decoration options.' },
 ]
 
 const giftPrograms = [
- { name: 'New-hire welcome kit', detail: 'Engraved 20 oz tumbler with the company logo. Lands on the new employee\'s desk day one. Doubles as the daily coffee cup.' },
+ { name: 'New-hire welcome kit', detail: 'Plan an eligible tumbler with the approved company logo around the new employee\'s start date.' },
  { name: 'Year-end recognition', detail: 'Engraved Wine Tumbler or 30 oz tumbler with the year and the recipient name. Personalization on every piece.' },
  { name: 'Customer thank-you', detail: 'Engraved 20 oz with company logo + a short message ("Thank you" + year). Pairs with a handwritten card at contract close.' },
  { name: 'Booth-tier giveaway', detail: 'Engraved 14 oz mug for "qualified lead" tier at trade shows. Booth visitors fill out a form, leave with a Yeti.' },
- { name: 'Service milestone', detail: '5/10/15-year service awards. Engraved 30 oz with year-of-service and employee name. Permanent gift.' },
+ { name: 'Service milestone', detail: 'Plan eligible drinkware with a service year and employee name, subject to current personalization options.' },
  { name: 'Crew-vehicle program', detail: 'Engraved 36 oz bottles for field technicians. Branded with company logo and truck/van number for fleet identity.' },
 ]
 
 const faqs = [
- { q: 'Can you laser-engrave Yeti drinkware?', a: 'Yes. Yeti stainless drinkware (Rambler tumblers, mugs, lowballs, bottles, jugs, Wine Tumbler) all accept CO₂ laser engraving. The laser engraves through the powder-coat layer to expose the steel underneath, creating a permanent two-tone contrast that won\'t chip, fade, or wash off.' },
- { q: 'Is laser engraving permanent on Yeti?', a: 'Yes — laser engraving is the most durable decoration method available for stainless drinkware. The mark is etched into the metal itself rather than applied on top, so it survives dishwashers, scratches, drops, and years of daily use without fading. This is the same engraving method used by Yeti\'s factory custom shop.' },
- { q: 'What\'s the minimum order for custom Yeti?', a: 'No formal minimum — we engrave individual pieces for executive recognition orders and run bulk programs for corporate gifts and event SWAG. Per-piece engraving cost softens with volume; common breakpoints at 12, 24, 50, and 100+ pieces.' },
- { q: 'Can I order Yeti tumblers with names on each one?', a: 'Yes. Personalization is one of the strongest reasons to use laser engraving over screen print on drinkware. Each piece can carry the company logo + an individual name, year, or message at no per-piece change-over cost. Useful for milestone awards, executive gifts, and named-employee programs.' },
- { q: 'Can you engrave through the colored Yeti finish?', a: 'Yes — most colored Yeti drinkware (the powder-coated lineup including Navy, Black, Charcoal, Sagebrush Green, Brick Red, and seasonal colors) takes laser engraving cleanly. The laser exposes the natural stainless underneath, producing a high-contrast two-tone result.' },
- { q: 'How does this compare to Yeti\'s official custom shop?', a: 'Yeti\'s in-house custom shop uses the same laser-engraving method we use. The difference is operational — Yeti\'s custom shop has long lead times during peak corporate-gift season and limited per-piece personalization. We turn small orders faster and handle per-piece engraving (named gifts) as standard work.' },
- { q: 'What other drinkware brands do you customize besides Yeti?', a: 'Hydro Flask, Corkcicle, Stanley, RTIC, MiiR, and Klean Kanteen are the other premium drinkware brands we stock and engrave. Hydro Flask and Corkcicle have similar powder-coat construction and engrave the same way as Yeti. Polymer drinkware is decorated with full-color UV print or pad print instead.' },
+  { q: 'Can you laser-engrave Yeti drinkware?', a: 'Engraving may be available for eligible Yeti products. Bighorn confirms the product and coordinates approved production through a selected partner.' },
+  { q: 'Is laser engraving permanent on Yeti?', a: 'Engraving creates a durable mark, but results depend on the product and finish. Follow the product\'s current care instructions.' },
+  { q: 'What\'s the minimum order for custom Yeti?', a: 'Minimums depend on the product and production partner. Share your quantity so we can confirm current options and pricing.' },
+ { q: 'Can I order Yeti tumblers with names on each one?', a: 'Personalization may be available on eligible products. Pricing, placements, and timelines depend on the product and production partner.' },
+ { q: 'Can you engrave through the colored Yeti finish?', a: 'Some colored products may support laser engraving. We confirm the product, finish, and expected result with the production partner before approval.' },
+  { q: 'How does this compare to Yeti\'s official custom shop?', a: 'Bighorn provides one point of contact and coordinates your approved order through selected production partners. Product options and timelines can differ by program.' },
+  { q: 'What other drinkware brands do you customize besides Yeti?', a: 'Ask about current options from Hydro Flask, Corkcicle, Stanley, RTIC, MiiR, and Klean Kanteen. Brand and decoration availability vary.' },
 ]
 
 const breadcrumb = {
@@ -53,23 +53,6 @@ const breadcrumb = {
  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
  { '@type': 'ListItem', position: 2, name: 'Custom Yeti Drinkware', item: page.url },
  ],
-}
-
-const productSchema = {
- '@context': 'https://schema.org',
- '@type': 'Service',
- name: 'Custom Yeti Drinkware in Las Vegas',
- serviceType: 'Laser-engraved Yeti tumblers, mugs, bottles, and jugs',
- provider: { '@id': 'https://bighornthreads.com/#organization' },
- areaServed: [
- { '@type': 'City', name: 'Las Vegas' },
- { '@type': 'City', name: 'Henderson' },
- { '@type': 'City', name: 'North Las Vegas' },
- { '@type': 'City', name: 'Summerlin' },
- { '@type': 'City', name: 'Spring Valley' },
- ],
- description: page.description,
- url: page.url,
 }
 
 const faqSchema = {
@@ -86,7 +69,6 @@ const faqSchema = {
  heroImage={page.hero}
 >
  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
- <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
  <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-28">
@@ -103,10 +85,10 @@ const faqSchema = {
   Premium Drinkware
  </p>
  <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
- Custom Yeti Drinkware in Las Vegas <span class="text-gold-400">— laser-engraved, permanent, gift-tier.</span>
+ Custom Yeti Drinkware in Las Vegas <span class="text-gold-400">with partner-coordinated engraving.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- The full Yeti Rambler line, laser-engraved with your logo and personalization. Permanent. Dishwasher-safe. The corporate gift recipients actually keep on their desk.
+ Ask about current Yeti products, finishes, approved decoration, personalization, minimums, and timing. Product-specific care instructions apply.
  </p>
  <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
  <a href="/contact/" class="btn-primary text-base">
@@ -124,7 +106,7 @@ const faqSchema = {
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
  <p class="kicker mb-3">What You Get</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">A drinkware program that lives on the recipient's desk.</h2>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">A drinkware program built for the recipient and occasion.</h2>
  </div>
  <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
  {stack.map((s) => (
@@ -143,7 +125,7 @@ const faqSchema = {
  <p class="kicker mb-3">Yeti SKU Range</p>
  <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">The Yeti lineup, at a glance.</h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- Every Rambler size accepts laser engraving. Pick the SKU that matches the use case and gift tier.
+ Product, size, finish, and engraving eligibility can change. Bighorn confirms current options with the production partner before approval.
  </p>
  </div>
  <div class="overflow-hidden border border-hairline bg-panel">
@@ -173,7 +155,7 @@ const faqSchema = {
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
  <p class="kicker mb-3">Gift Programs</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Six places engraved Yeti earns its cost.</h2>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Six ways to plan a branded drinkware program.</h2>
  </div>
  <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
  {giftPrograms.map((u) => (
@@ -194,16 +176,16 @@ const faqSchema = {
  </h2>
  <div class="space-y-5 text-lg leading-relaxed text-ash">
  <p>
- Yeti is the most-requested drinkware brand in the corporate-gift segment for one reason: the recipient keeps it. A branded Yeti lands on a desk and stays there. The brand impression isn\'t a one-shot at the moment of receipt — it\'s a daily impression for years. That math beats almost every other promotional product line on impression-per-dollar at the gift tier.
+ Brand recognition can make Yeti a candidate for corporate gifts, but fit depends on the recipient, budget, product, decoration, and delivery date. Compare the quoted option with other eligible drinkware rather than assuming a universal performance or impression advantage.
  </p>
  <p>
- The decoration method that fits Yeti is laser engraving. The CO₂ laser etches through the powder-coat layer (or directly into bare stainless on the silver SKUs) and exposes the steel underneath, creating a permanent two-tone contrast. The mark is etched into the metal — not applied on top — so it survives dishwashers, scratches, drops, and years of daily use without fading. This is the same engraving method Yeti\'s in-house custom shop uses on its own program.
+          Laser engraving can create a durable two-tone mark on eligible drinkware. Results depend on the product and finish. Bighorn coordinates the approved order through a selected production partner.
  </p>
  <p>
- The SKU choice tracks the use case. The Rambler 20 oz tumbler is the corporate-gift default — it fits car cup-holders, holds enough coffee for the morning, and works for cold drinks. The 14 oz Mug is the office-favorite alternative for buyers who want a handled cup. The 30 oz tumbler is the construction and field-crew default — fits jobsite cup-holders, lasts all day, and the larger size matches the trade aesthetic. The Wine Tumbler and 36 oz Bottle land in higher gift tiers — recognition, executive thank-you, or year-end personalization.
+ Choose the product around the intended use. A tumbler may suit desk or vehicle use, a handled mug may suit an office, and a bottle may suit field use. Confirm dimensions, lid, cup-holder fit, care, availability, and eligible decoration on the current product before approving it.
  </p>
  <p>
- Personalization is the multiplier. With laser engraving, per-piece personalization (individual name, year, employee number, milestone date) adds zero meaningful cost or production time once the base artwork is set. That makes named-employee gift programs and milestone-recognition orders economical at scales that screen-printed or pad-printed drinkware would not be. Most ongoing recognition programs we run pair the company logo on one face with the recipient name and year on the opposite face.
+          Personalization can add a name, year, employee number, or milestone date. Available placements, pricing, and timelines depend on the approved product and production partner.
  </p>
  <p>
  For the broader promo product context, see our <a href="/promo-products-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">promo products hub</a>. For trade show audiences, see the <a href="/trade-show-apparel-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">trade show apparel guide</a>. For the company-store program that streamlines recurring gift orders, see <a href="/company-stores/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">how the company store works</a>.
@@ -244,7 +226,7 @@ const faqSchema = {
  </a>
  <a href="/catalog/drinkware/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Browse Drinkware</h3>
- <p class="mt-2 text-sm text-ash">Yeti, Hydro Flask, Corkcicle, Stanley — every brand we stock.</p>
+          <p class="mt-2 text-sm text-ash">Compare current Yeti, Hydro Flask, Corkcicle, and Stanley options.</p>
  </a>
  </div>
  </div>
@@ -257,7 +239,7 @@ const faqSchema = {
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Ready to engrave Yeti for your team or event?</h2>
  <p class="mb-8 text-lg text-navy-200">Send your logo, SKU pick, and quantity.</p>
  <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
- <a href="/get-a-quote/" class="btn-primary text-base">Get a Free Quote</a>
+      <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
  </div>
  </div>

@@ -1,0 +1,218 @@
+---
+// Shared analytics and conversion instrumentation for both site layouts.
+// Attribution is first-party, contains no PII, and is attached only when a
+// visitor intentionally submits a lead form.
+---
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZGGY24PN1Z" is:inline></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer is:inline></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || []
+  function gtag(){window.dataLayer.push(arguments)}
+  window.gtag = gtag
+  gtag('js', new Date())
+  gtag('config', 'G-ZGGY24PN1Z')
+
+  ;(() => {
+    const FIRST_TOUCH_KEY = 'bighorn_first_non_direct_touch'
+    const LAST_TOUCH_KEY = 'bighorn_last_non_direct_touch'
+    const SESSION_LANDING_KEY = 'bighorn_session_landing'
+    const LEAD_CONTEXT_PREFIX = 'bighorn_lead_context:'
+    const ATTRIBUTION_MAX_AGE_MS = 90 * 24 * 60 * 60 * 1000
+    const CAMPAIGN_KEYS = [
+      'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
+      'gclid', 'gbraid', 'wbraid', 'fbclid', 'msclkid',
+    ]
+
+    const safeParse = (value) => {
+      if (!value) return null
+      try { return JSON.parse(value) } catch (_) { return null }
+    }
+    const safeGet = (storage, key) => {
+      try { return storage.getItem(key) } catch (_) { return null }
+    }
+    const safeSet = (storage, key, value) => {
+      try { storage.setItem(key, value) } catch (_) {}
+    }
+    const safeRemove = (storage, key) => {
+      try { storage.removeItem(key) } catch (_) {}
+    }
+    const getStoredTouch = (key) => {
+      const stored = safeParse(safeGet(window.localStorage, key))
+      const capturedAt = stored?.capturedAt ? Date.parse(stored.capturedAt) : NaN
+      const age = Date.now() - capturedAt
+      if (!stored || !Number.isFinite(capturedAt) || age < 0 || age >= ATTRIBUTION_MAX_AGE_MS) {
+        safeRemove(window.localStorage, key)
+        return null
+      }
+      return stored
+    }
+    const trimValue = (value, max = 300) => String(value || '').replace(/[\u0000-\u001F\u007F]/g, ' ').trim().slice(0, max)
+    const randomId = () => {
+      if (window.crypto && typeof window.crypto.randomUUID === 'function') return window.crypto.randomUUID()
+      return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 14)}`
+    }
+
+    // Clean malformed or expired attribution on every page view.
+    const existingFirstTouch = getStoredTouch(FIRST_TOUCH_KEY)
+    getStoredTouch(LAST_TOUCH_KEY)
+
+    const url = new URL(window.location.href)
+    const campaign = {}
+    CAMPAIGN_KEYS.forEach((key) => {
+      const value = trimValue(url.searchParams.get(key), 500)
+      if (value) campaign[key] = value
+    })
+
+    const campaignQuery = new URLSearchParams(campaign).toString()
+    const campaignPage = `${window.location.pathname}${campaignQuery ? `?${campaignQuery}` : ''}`.slice(0, 1000)
+
+    let externalReferrer = ''
+    if (document.referrer) {
+      try {
+        const referrer = new URL(document.referrer)
+        if (referrer.hostname !== window.location.hostname) {
+          externalReferrer = trimValue(referrer.origin, 300)
+        }
+      } catch (_) {}
+    }
+
+    const touch = {
+      capturedAt: new Date().toISOString(),
+      landingPage: campaignPage,
+      referrer: externalReferrer,
+      ...campaign,
+    }
+    const hasNonDirectTouch = Object.keys(campaign).length > 0 || Boolean(externalReferrer)
+
+    if (!safeGet(window.sessionStorage, SESSION_LANDING_KEY)) {
+      safeSet(window.sessionStorage, SESSION_LANDING_KEY, touch.landingPage)
+    }
+    if (hasNonDirectTouch) {
+      if (!existingFirstTouch) {
+        safeSet(window.localStorage, FIRST_TOUCH_KEY, JSON.stringify(touch))
+      }
+      safeSet(window.localStorage, LAST_TOUCH_KEY, JSON.stringify(touch))
+    }
+
+    const getAttribution = () => ({
+      firstNonDirectTouch: getStoredTouch(FIRST_TOUCH_KEY),
+      lastNonDirectTouch: getStoredTouch(LAST_TOUCH_KEY),
+      sessionLandingPage: trimValue(safeGet(window.sessionStorage, SESSION_LANDING_KEY), 1000),
+      conversionPage: campaignPage,
+    })
+
+    const getLeadContext = (formKey = 'lead') => {
+      const storageKey = `${LEAD_CONTEXT_PREFIX}${trimValue(formKey, 120)}`
+      const existing = safeParse(safeGet(window.sessionStorage, storageKey))
+      if (existing && existing.createdAt && Date.now() - existing.createdAt < 30 * 60 * 1000) return existing
+      const context = {
+        eventId: randomId(),
+        externalLeadId: randomId(),
+        createdAt: Date.now(),
+        attribution: getAttribution(),
+      }
+      safeSet(window.sessionStorage, storageKey, JSON.stringify(context))
+      return context
+    }
+
+    const clearLeadContext = (formKey = 'lead') => {
+      safeRemove(window.sessionStorage, `${LEAD_CONTEXT_PREFIX}${trimValue(formKey, 120)}`)
+    }
+
+    const trackLead = ({ form = 'lead', contextKey = form, eventId, ...params } = {}) => {
+      const context = eventId ? { eventId } : getLeadContext(contextKey)
+      const eventParams = {
+        form,
+        page_path: window.location.pathname,
+        lp_source: safeGet(window.sessionStorage, 'lp_source') || window.location.pathname,
+        event_id: context.eventId,
+        ...params,
+      }
+      window.gtag?.('event', 'generate_lead', eventParams)
+      window.fbq?.('track', 'Lead', { form, page_path: window.location.pathname }, { eventID: context.eventId })
+      clearLeadContext(contextKey)
+    }
+
+    window.bighornTracking = { getAttribution, getLeadContext, clearLeadContext, trackLead }
+
+    document.addEventListener('click', (event) => {
+      const target = event.target instanceof Element ? event.target : null
+      if (!target) return
+
+      const phone = target.closest('a[href^="tel:"]')
+      if (phone) {
+        window.gtag?.('event', 'phone_click', {
+          link_text: trimValue(phone.textContent, 80),
+          page_path: window.location.pathname,
+          lp_source: safeGet(window.sessionStorage, 'lp_source') || window.location.pathname,
+        })
+      }
+
+      const email = target.closest('a[href^="mailto:"]')
+      if (email) {
+        window.gtag?.('event', 'email_click', {
+          page_path: window.location.pathname,
+          lp_source: safeGet(window.sessionStorage, 'lp_source') || window.location.pathname,
+        })
+      }
+
+      const quoteCta = target.closest(
+        'a[href^="/get-a-quote"], a[href^="/contact"], a[href^="/win"], button[data-quote-cta]'
+      )
+      if (quoteCta) {
+        const path = window.location.pathname
+        if (!['/get-a-quote/', '/contact/', '/win/'].includes(path)) {
+          safeSet(window.sessionStorage, 'lp_source', path)
+          window.gtag?.('event', 'cta_click_quote', {
+            cta_text: trimValue(quoteCta.textContent, 80),
+            lp_source: path,
+            destination: trimValue(quoteCta.getAttribute('href') || 'modal', 300),
+          })
+        }
+      }
+    })
+
+    document.addEventListener('submit', (event) => {
+      const form = event.target instanceof HTMLFormElement ? event.target : null
+      if (!form) return
+      const attemptParams = {
+        form_id: form.id || form.getAttribute('name') || 'unknown',
+        page_path: window.location.pathname,
+        lp_source: safeGet(window.sessionStorage, 'lp_source') || window.location.pathname,
+        submission_state: 'attempt',
+      }
+      window.gtag?.('event', 'form_submit_attempt', attemptParams)
+    }, true)
+
+    // FormData-based forms receive the same attribution contract without
+    // duplicating field logic in each page-specific submit handler.
+    document.addEventListener('formdata', (event) => {
+      const form = event.target instanceof HTMLFormElement ? event.target : null
+      if (!form) return
+      const formKey = form.id || form.getAttribute('name') || 'lead'
+      const context = getLeadContext(formKey)
+      event.formData.set('attribution', JSON.stringify(context.attribution))
+      event.formData.set('externalLeadId', context.externalLeadId)
+      event.formData.set('eventId', context.eventId)
+    })
+  })()
+</script>
+
+<script src="https://cdn.idpixel.app/v1/idp-analytics-6a0ddfa583e9dbc113e83095.min.js" data-ga4-key="G-ZGGY24PN1Z" defer is:inline></script>
+
+<!-- Meta Pixel Code -->
+<script is:inline>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '401727073718157');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=401727073718157&ev=PageView&noscript=1" /></noscript>
+<!-- End Meta Pixel Code -->

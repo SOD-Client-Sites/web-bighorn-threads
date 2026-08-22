@@ -15,18 +15,18 @@ const post = {
 
 const faqs = [
  { q: 'What is a rush order for t-shirts?', a: 'A rush order is a custom apparel order produced and delivered faster than the shop\'s standard turnaround. How much faster depends on the quantity, the decoration method, and how much production prep is already done. The best way to know your timeline is to call with your deadline and your artwork.' },
- { q: 'How fast can you get rush shirts in Las Vegas?', a: 'It depends on the drivers, not a fixed number. Small orders with finalized artwork, blanks in stock, and open press time move fastest. Larger runs and new artwork that needs digitizing or color separation take longer. Call with your quantity and deadline and the shop will tell you straight what\'s achievable.' },
- { q: 'What breaks a rush order?', a: 'Five things: artwork that needs revision or digitizing from scratch, blank garments not in stock at the shop or wholesaler, color matching for non-standard pantone colors, embroidery thread not on hand for the colorway needed, and a production queue that\'s already booked. The shop should tell you up front which (if any) of these apply to your specific job.' },
- { q: 'Is RushOrderTees legitimate?', a: 'RushOrderTees (rushordertees.com) is a national online custom apparel retailer that specializes in fast turnaround. They\'re a legitimate operation. Trade-off: they\'re a national online shop, so you\'re shipping from out of state. For Las Vegas buyers needing rush turnaround on local crews, a Vegas commercial shop has an edge on speed simply because there\'s no cross-country shipping.' },
- { q: 'How does RushOrderTees compare for delivery?', a: 'RushOrderTees ships from Pennsylvania, so shipping time from out of state eats into the speed advantage for a Vegas customer. A local Vegas shop with your files on record skips the cross-country leg entirely. Call a local shop with your deadline to compare honestly against any mail-order quote.' },
- { q: 'Can you rush embroidery?', a: 'Yes — embroidery rushes the same way screen printing does, with the same five drivers (artwork readiness, blank availability, color matching, thread availability, queue). New logos require digitizing first, which adds prep time; existing logos with files on record skip that step.' },
- { q: 'Is there a rush order surcharge?', a: 'A rush surcharge may apply, depending on how aggressive the rush is and what production prep has to be expedited. Any surcharge gets quoted up front before you commit — never a surprise on the invoice. Repeat customers with files on record often pay less.' },
+ { q: 'How fast can you get rush shirts in Las Vegas?', a: 'It depends on artwork readiness, product availability, decoration method, quantity, partner capacity, and delivery. Send your deadline and specification. Bighorn will confirm the date a selected production partner can support in writing.' },
+ { q: 'What breaks a rush order?', a: 'Common constraints include artwork revisions, product sourcing, color matching, material availability, partner capacity, and delivery. Bighorn will identify known constraints in the written quote before you approve the order.' },
+ { q: 'Is RushOrderTees legitimate?', a: 'RushOrderTees is a national online custom apparel retailer. Compare any provider on the supported delivery date, complete specification, production location, shipping path, and written terms.' },
+ { q: 'How does RushOrderTees compare for delivery?', a: 'Delivery depends on the supported production date and shipping path. Ask each provider to confirm the complete schedule in writing for your Las Vegas deadline.' },
+ { q: 'Can you rush embroidery?', a: 'Rush embroidery may be available. Artwork readiness, product and thread availability, quantity, partner capacity, and delivery determine the supported date. Any file preparation or setup appears in the written quote.' },
+ { q: 'Is there a rush order surcharge?', a: 'Rush charges depend on the approved specification and selected production partner. The written quote confirms any setup, rush, shipping, or delivery charges before you approve the order.' },
 ]
 
 const schema = {
  '@context': 'https://schema.org',
  '@graph': [
- { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: post.isoDate, author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
+ { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: '2026-08-21', author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
  { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' }, { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` }] },
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
@@ -62,7 +62,7 @@ const speakableSchema = {
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Rush speed isn't a fixed number — it's driven by a handful of things: whether your artwork is finalized, whether the shop already has your digitized file, whether the blanks are in stock, the decoration method, the quantity, and how open the press queue is. Local Vegas shops have a built-in edge on rush because there's no cross-country shipping. Call with your deadline and artwork and we'll tell you straight what's achievable.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Rush speed isn't a fixed number. Artwork readiness, product availability, decoration method, quantity, partner capacity, and delivery all affect timing. Send your deadline and specification. Bighorn will confirm the supported date in writing.</p>
  </aside>
 
  <h2 id="rush-tiers" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">What Drives Rush Speed</h2>
@@ -71,8 +71,8 @@ const speakableSchema = {
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Small orders move fastest</h3>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">A short rush window is realistic when:</p>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
- <li>Artwork is finalized — no revisions, no digitizing from scratch</li>
- <li>Blanks are in stock at the shop</li>
+ <li>Artwork is finalized, with no revisions or new file preparation</li>
+ <li>The selected product and sizes are available</li>
  <li>The shop has open press or embroidery machine time</li>
  <li>Standard ink/thread colors</li>
  </ul>
@@ -94,30 +94,30 @@ const speakableSchema = {
  <p class="mb-6 text-lg leading-relaxed text-charcoal">Five constraints make or break rush turnaround:</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">1. Artwork readiness</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">If the logo needs digitizing for embroidery (a one-time fee per logo), that adds prep before production starts. Color separation revisions for screen printing add prep too. New artwork stretches any rush job. Existing artwork on file ships at full rush speed.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">If a logo needs embroidery file preparation, that adds work before production. Screen-print color separation can add work too. The quote confirms setup, artwork requirements, and whether an approved file can support the order.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">2. Blank garment availability</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">If the shop has the blank in stock, rush production starts right away. If they have to order from a wholesaler, regional shipping adds lead time. Specialty FR garments and non-standard sizes take longer because they're less commonly stocked.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Product and size availability can change. Sourcing and inbound shipping may add lead time. Specialty protective garments also require exact manufacturer documentation and employer approval.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">3. Color matching</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Standard pantone colors and trade-common thread colors are typically on hand. Custom pantone matching for screen printing or specialty thread colors for embroidery add sourcing time. Non-standard colors are the most common silent rush-killer.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Color matching and material sourcing may add time. Confirm the approved color standard, partner tolerance, and available materials before relying on a deadline.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">4. Production queue</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">A shop's press and embroidery machine time is finite. If the queue is already booked solid, no amount of paying for rush moves things faster — physical capacity is the constraint. A good shop tells you up front whether the queue accommodates your timeline.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Production capacity changes by partner and date. Bighorn confirms available partner capacity and the supported delivery date in the written quote.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">5. Thread spec for compliance work</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">For FR garments requiring Nomex thread, FR-safe thread isn't always in stock if the shop doesn't routinely run FR work. Ask the shop whether they keep FR thread on hand if your rush job involves FR garments.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Protective garments may require specific thread, backing, placement, and decoration methods. Your employer and the garment manufacturer must approve the complete specification. Confirm material availability before relying on a rush schedule.</p>
 
  <h2 id="local-vs-national" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Local Vegas Shop vs National Online Rush Services</h2>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">National online rush services like RushOrderTees publish aggressive turnaround on their fastest tiers — but shipping from out of state eats into the speed advantage. RushOrderTees ships from Pennsylvania, so a Vegas customer waits on the cross-country leg on top of production.</p>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">A local Vegas commercial shop with your files on record skips that shipping entirely — production happens here and you pick it up here. For trade-show timing, ribbon cuttings, and last-minute job walks, local pickup is the speed advantage.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">National services and local account teams may use different production and shipping paths. Compare each provider's supported delivery date, complete specification, and written terms.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">A local account team can compare available production and handoff options for a Las Vegas deadline. Confirm the production location, pickup or delivery path, and supported date in writing before you commit.</p>
 
  <h2 id="how-to-rush" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">How to Maximize Your Rush Chances</h2>
  <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
- <li><strong>Call early.</strong> On any rush, calling first thing Monday morning beats calling Wednesday afternoon. The shop's production queue books from morning to evening.</li>
+ <li><strong>Ask early.</strong> More lead time gives the account team more partner, product, and delivery options.</li>
  <li><strong>Send finalized artwork.</strong> Vector format (.ai, .eps, .pdf), no revisions, no "we might want to change the colors." Lock the spec before quoting.</li>
- <li><strong>Confirm blank availability.</strong> Ask the shop to confirm they have the blank in stock before committing to the timeline.</li>
- <li><strong>Build a relationship before you need rush.</strong> Shops with your files on record, your sizing on file, and a working relationship can run rush faster than a first-time customer.</li>
+ <li><strong>Confirm product availability.</strong> Ask the provider to confirm the product and required sizes before committing to the timeline.</li>
+ <li><strong>Keep an approved specification.</strong> A documented garment, artwork, placement, colors, and sizes can reduce clarification on a reorder. File availability and retention still require confirmation.</li>
  <li><strong>Be honest about the actual deadline.</strong> "Need by Friday" gives the shop room to optimize; "need yesterday" doesn't help anyone.</li>
  </ol>
 
@@ -130,7 +130,7 @@ const speakableSchema = {
 
  <div class="mt-12 border border-hairline bg-panel p-7 sm:p-9">
  <h2 class="mb-3 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal">Need rush shirts in Las Vegas?</h2>
- <p class="mb-5 text-lg leading-relaxed text-ash">Bighorn Threads runs rush production for Vegas contractors, trades, event crews, and last-minute trade shows. Send your timeline and artwork — we'll tell you straight what's achievable.</p>
+<p class="mb-5 text-lg leading-relaxed text-ash">Bighorn Threads coordinates rush requests through selected production partners. Send your product, quantity, artwork, and deadline. Availability and timing require written confirmation before ordering.</p>
  <a href="/services/rush-orders-las-vegas/" class="btn-primary text-base">See Rush Orders →</a>
  </div>
  </div>

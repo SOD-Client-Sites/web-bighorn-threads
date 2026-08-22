@@ -4,50 +4,50 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 const page = {
  title: 'Branded Employee Onboarding Kits for Construction Companies in Las Vegas | Bighorn Threads',
  description:
- 'Branded employee onboarding kits for construction companies in Las Vegas. Embroidered polo, hi-vis vest, hard hat, and branded bag, kitted and shipped to your office or the new hire. Minimum 10 kits, 10 to 14 day turnaround. Get a quote.',
+ 'Branded employee onboarding-kit planning for Las Vegas construction companies. Bighorn coordinates approved products and decoration through production partners. Get a quote.',
  hero: '/images/generated/kit-gc.jpg',
  url: 'https://bighornthreads.com/branded-onboarding-kits-las-vegas/',
 }
 
 const kit = [
- { label: 'Embroidered polo', body: 'A company polo with your logo stitched on the chest. The new hire looks like part of the crew from day one. Pick the color and we match it across every kit.' },
- { label: 'Hi-vis vest', body: 'An ANSI 107 Class 2 or Class 3 vest, branded with your logo. Meets the jobsite visibility rule and carries the company name on the back.' },
- { label: 'Hard hat', body: 'An ANSI Z89.1 shell with manufacturer-approved decals. We brand the front and sides without voiding the certification.' },
- { label: 'Branded bag', body: 'A drawstring or duffel that holds the kit and doubles as the gear bag. Logo embroidered or printed. It makes the whole package feel like a real welcome.' },
+ { label: 'Embroidered polo', body: 'A company polo with an approved chest logo can give each new hire a consistent first-day look.' },
+ { label: 'Hi-vis vest', body: 'If visibility apparel is needed, select the required garment class before reviewing decoration placement.' },
+ { label: 'Hard hat', body: 'Choose the required shell type first. Any proposed decal or decoration must follow current manufacturer instructions.' },
+ { label: 'Branded bag', body: 'A drawstring or duffel can hold the selected kit. Decoration options depend on the bag material and artwork.' },
 ]
 
 const process = [
- { row: '1. You pick the items', meaning: 'Approve the kit contents', use: 'Send your logo and choose the polo, vest, hard hat, and bag. We mock it up so you see it before we build.' },
- { row: '2. We digitize and decorate', meaning: 'One logo file, every kit', use: 'We digitize your logo once and decorate every item. Embroidery on the polo and bag, decals on the hard hat, print on the vest.' },
- { row: '3. We kit and assemble', meaning: 'Packed per head', use: 'Each kit is packed as one bundle. Sizes are sorted by name when you give us a roster, so nothing gets mixed up.' },
- { row: '4. We ship where you want', meaning: 'Office or new hire', use: 'Ship the batch to your office for handout, or send a single kit straight to a new hire before their start date.' },
+ { row: '1. You pick the items', meaning: 'Approve the kit contents', use: 'Send your logo and proposed product list. Bighorn confirms availability, artwork needs, and quote terms.' },
+ { row: '2. We coordinate decoration', meaning: 'One approved logo treatment', use: 'Bighorn coordinates logo preparation and decoration through production partners. You approve the proposed treatment before the order proceeds.' },
+ { row: '3. We confirm kitting', meaning: 'Packing plan', use: 'If kitting is available, the written quote confirms assembly, roster handling, packing, and minimums.' },
+ { row: '4. We confirm delivery', meaning: 'Approved destination', use: 'Available shipping destinations, costs, timing, and delivery responsibilities are confirmed before production.' },
 ]
 
 const whoFor = [
  { name: 'General contractors', detail: 'Standardize what every new framer, laborer, and finisher gets on day one. One kit spec across the whole crew.' },
- { name: 'Electrical and HVAC shops', detail: 'Pair a branded polo and bag with the trade PPE your techs need. Class E hard hat options for electrical crews.' },
+ { name: 'Electrical and HVAC shops', detail: 'Pair apparel and bags with separately approved trade PPE. A qualified safety lead should define each requirement.' },
  { name: 'Solar and roofing crews', detail: 'High turnover means frequent onboarding. A standing kit spec means you reorder in minutes, not hours.' },
  { name: 'Concrete and site work', detail: 'Hi-vis vest, hard hat, and a tough bag built for the dust and the heat. Branded so the crew reads as one company.' },
- { name: 'Growing companies hiring fast', detail: 'Add a head and a kit ships. No scrambling to assemble gear the night before a start date.' },
- { name: 'Safety managers', detail: 'Every new hire gets the same compliant PPE every time. No gaps, no guesswork, one documented kit.' },
+ { name: 'Growing companies hiring fast', detail: 'A documented kit specification can make each new-hire request easier to review.' },
+ { name: 'Safety managers', detail: 'Use one documented kit specification while verifying PPE requirements for each role and worksite.' },
 ]
 
 const diyVsKit = [
  { ok: false, label: 'DIY assembly', body: 'Someone in the office orders a polo here, a vest there, and a hard hat from a third site. Then they sort sizes and pack it by hand. Hours per hire.' },
- { ok: true, label: 'Done-for-you kit', body: 'You approve the spec once. We build, pack, and ship every kit. Your team spends zero time on it after the first approval.' },
+ { ok: true, label: 'Coordinated kit', body: 'Bighorn coordinates the approved product, artwork, and production-partner handoffs from one account.' },
  { ok: false, label: 'Mismatched branding', body: 'Buy from three vendors and the logo looks different on each piece. The crew reads as a patchwork, not a company.' },
- { ok: true, label: 'One consistent look', body: 'One digitized logo file decorates every item. The polo, the vest, and the bag all match. The crew looks unified.' },
+ { ok: true, label: 'One approved standard', body: 'Use one approved artwork and placement reference across the selected items.' },
  { ok: false, label: 'Last-minute scrambles', body: 'A new hire starts Monday and the gear is not ready. Someone runs to the store. The first impression is chaos.' },
- { ok: true, label: 'Ship on demand', body: 'Add a name, a kit ships. We can send it to your office or straight to the new hire ahead of day one.' },
+ { ok: true, label: 'Documented reorder', body: 'Keep the approved kit specification available for future quote and reorder requests.' },
 ]
 
 const faqs = [
- { q: 'What goes in a construction onboarding kit?', a: 'A standard kit holds an embroidered company polo, an ANSI 107 hi-vis vest, an ANSI Z89.1 hard hat, and a branded bag. You can add a beanie, a t-shirt, gloves, or a water bottle. We build the kit around what your trade needs and what your budget allows. Every item carries your logo, decorated the right way for that material.' },
- { q: "What's the minimum order for branded onboarding kits?", a: 'The minimum is 10 kits. That covers your first batch of hires and lets us digitize your logo once for the whole run. After the first order, reorders are easy. Add a name and we build and ship a single kit on demand, so you never have to assemble gear the night before a start date.' },
- { q: 'How fast can onboarding kits ship?', a: 'Typical turnaround is 10 to 14 business days from artwork approval. The first order takes the longest because we digitize your logo and source the items. After that, reorders move faster since the artwork is already on file. Tell us your start dates and we plan the batch around them. Rush options are available when a hire starts sooner.' },
- { q: 'Can you ship kits directly to new hires?', a: 'Yes. Give us a name and address and we ship a single kit straight to the new hire before day one. A welcome kit on the doorstep makes the company look organized and the hire feel wanted. You can also ship the whole batch to your office for handout at orientation. You pick the model that fits your process.' },
- { q: 'How does pricing work on onboarding kits?', a: 'Pricing is per kit. You approve the contents and we quote one all-in price per head. That covers the items, the decoration, the assembly, and the packing. No separate setup line on reorders since the artwork stays on file. Add or remove items and the per-head price adjusts. You always know the cost before we build.' },
- { q: 'Do you handle the logo digitizing and decoration?', a: 'Yes. We digitize your logo once and decorate every item in house. Embroidery on the polo and bag, manufacturer-approved decals on the hard hat, and a print on the hi-vis vest. You send the logo and approve the mockup. We handle the rest. The same file works across every future reorder, so your branding stays consistent.' },
+ { q: 'What goes in a construction onboarding kit?', a: 'A proposed kit may include a polo, hi-vis vest, hard hat, and branded bag. You can also consider a beanie, t-shirt, gloves, or bottle. PPE and decoration decisions require product-specific review.' },
+ { q: "What's the minimum order for branded onboarding kits?", a: 'Minimums depend on the products, suppliers, decoration methods, packing, and delivery model. Bighorn confirms current minimums and setup charges in the quote.' },
+ { q: 'How fast can onboarding kits ship?', a: 'Timing depends on the items, quantity, artwork, approvals, partner capacity, and delivery requirements. Share your needed date so Bighorn can confirm the current schedule in writing.' },
+ { q: 'Can you ship kits directly to new hires?', a: 'Direct-to-recipient shipping may be available for some programs. Provide the locations and needed dates so Bighorn can confirm destinations, costs, minimums, and timing in writing.' },
+ { q: 'How does pricing work on onboarding kits?', a: 'Pricing depends on products, quantities, decoration, artwork, assembly, packing, and shipping. The written quote identifies each included cost and any reorder requirements.' },
+ { q: 'Do you handle the logo digitizing and decoration?', a: 'Yes. Bighorn coordinates logo preparation and decoration through production partners. You send the logo, review the proposed treatment, and approve it before the order proceeds.' },
 ]
 
 const breadcrumb = {
@@ -63,17 +63,10 @@ const serviceSchema = {
  '@context': 'https://schema.org',
  '@type': 'Service',
  datePublished: '2026-07-08',
- dateModified: '2026-07-08',
+ dateModified: '2026-08-21',
  name: 'Branded Employee Onboarding Kits for Construction Companies in Las Vegas',
  serviceType: 'Branded Apparel and Promotional Products',
  provider: { '@id': 'https://bighornthreads.com/#organization' },
- areaServed: [
- { '@type': 'City', name: 'Las Vegas' },
- { '@type': 'City', name: 'Henderson' },
- { '@type': 'City', name: 'North Las Vegas' },
- { '@type': 'City', name: 'Summerlin' },
- { '@type': 'City', name: 'Spring Valley' },
- ],
  description: page.description,
  url: page.url,
 }
@@ -89,7 +82,7 @@ const speakableSchema = {
  '@type': 'WebPage',
  url: 'https://bighornthreads.com/branded-onboarding-kits-las-vegas/',
  datePublished: '2026-07-08',
- dateModified: '2026-07-08',
+ dateModified: '2026-08-21',
  speakable: {
  '@type': 'SpeakableSpecification',
  cssSelector: ['h1', '.speakable-answer'],
@@ -125,10 +118,10 @@ const speakableSchema = {
  New Hire Kits
  </p>
  <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
- Branded Employee Onboarding Kits for Construction Companies. <span class="text-gold-400">Built, kitted, and shipped.</span>
+ Branded Employee Onboarding Kits for Construction Companies. <span class="text-gold-400">Planned around your roles.</span>
  </h1>
  <p class="speakable-answer max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- Bighorn Threads builds branded employee onboarding kits for construction companies in Las Vegas. An embroidered polo, hi-vis vest, hard hat, and branded bag, kitted and shipped to your office or straight to the employee. Minimum 10 kits. Typical turnaround is 10 to 14 business days. We handle digitizing, decoration, and assembly.
+ Bighorn Threads coordinates branded onboarding-kit programs for Las Vegas construction companies. Choose the apparel and gear, approve the logo treatment, and confirm the current production and delivery terms in writing.
  </p>
 
  <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -161,7 +154,7 @@ const speakableSchema = {
  </div>
 
  <p class="mt-8 max-w-3xl text-base leading-relaxed text-ash">
- That is the standard four. You can add a beanie, a t-shirt, gloves, a water bottle, or a hoodie. We build the kit around your trade and your budget.
+ Those four products are a common starting point. You can also consider a beanie, t-shirt, gloves, bottle, or hoodie. Final products depend on your roles, budget, and safety requirements.
  </p>
  </div>
  </section>
@@ -171,9 +164,9 @@ const speakableSchema = {
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-10 max-w-2xl">
  <p class="kicker mb-3">How It Works</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Four steps from <span class="text-gold-600">logo to doorstep.</span></h2>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Four steps from <span class="text-gold-600">scope to approval.</span></h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- You approve the kit once. We build it, pack it per head, and ship it where you want. Your team is done after the first sign-off.
+ You approve the products and artwork treatment. Bighorn then confirms production, packing, minimums, timing, and delivery terms in writing.
  </p>
  </div>
 
@@ -223,7 +216,7 @@ const speakableSchema = {
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
  <p class="kicker mb-3">Why It Beats DIY</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Assembling kits in house costs more than you think.</h2>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Internal kit assembly costs more than you think.</h2>
  </div>
 
  <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -255,13 +248,13 @@ const speakableSchema = {
  A branded onboarding kit is the gear a new hire gets on day one, packed as one bundle and carrying your logo on every piece. For a Las Vegas construction company, that usually means an embroidered polo, an ANSI 107 hi-vis vest, an ANSI Z89.1 hard hat, and a branded bag to hold it. The point is simple. A new hire who shows up in matching company gear reads as part of the crew, not a stranger on the site.
  </p>
  <p>
- The work most companies dread is the assembly. Someone in the office orders a polo from one vendor, a vest from another, and a hard hat from a third. Then they sort sizes, match the branding, and pack each bundle by hand. That is hours per hire, and the branding rarely lines up. We take that whole job off your desk. You approve the kit spec once, we digitize your logo once, and we build and pack every kit from there.
+ The work most companies dread is coordinating every item. Someone in the office orders a polo from one vendor, a vest from another, and a hard hat from a third. Then they sort sizes and match the branding. Bighorn coordinates the approved kit specification and production-partner handoffs from one account.
  </p>
  <p>
- The real value shows up after the first order. Once your logo is on file and your kit spec is locked, a reorder takes minutes. Add a name to the list and a kit ships. The minimum is 10 kits on the first run, which covers a starting batch and lets us set up the artwork. After that, single-kit reorders are easy, so you are never assembling gear the night before a start date. Typical turnaround runs 10 to 14 business days, and reorders move faster since nothing needs setup again.
+ A documented product and artwork specification can simplify future quote requests. Reorder minimums, product availability, artwork charges, partner capacity, and timing still require confirmation for each order.
  </p>
  <p>
- You also choose where the kit lands. Ship the whole batch to your office and hand kits out at orientation, or send a single kit straight to a new hire before their first day. A welcome kit on the doorstep makes the company look organized and makes the hire feel wanted. Both models work, and you can mix them.
+ Your preferred delivery model belongs in the initial scope. Some programs may support bulk delivery, direct-to-recipient shipping, or both. The quote confirms eligible destinations and current shipping terms.
  </p>
  <p>
  For deeper reads, see our <a href="/blog/new-hire-workwear-checklist-las-vegas-contractors/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">new hire workwear checklist</a>, our guide on <a href="/blog/how-to-outfit-a-construction-crew-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">how to outfit a construction crew</a>, and our <a href="/company-stores/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">company store</a> option for ongoing reorders.
@@ -301,11 +294,11 @@ const speakableSchema = {
  </a>
  <a href="/company-stores/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Company Stores</h3>
- <p class="mt-2 text-sm text-ash">A private store so reorders and per-employee kits run on autopilot.</p>
+ <p class="mt-2 text-sm text-ash">Review portal options for approved products and reorder requests.</p>
  </a>
  <a href="/catalog/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Browse Catalog</h3>
- <p class="mt-2 text-sm text-ash">Polos, hi-vis vests, bags, and PPE. Every item we kit.</p>
+ <p class="mt-2 text-sm text-ash">Browse possible kit items, then request a product-specific quote.</p>
  </a>
  </div>
  </div>
@@ -317,9 +310,9 @@ const speakableSchema = {
  <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
  <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Ready to set up your onboarding kits?</h2>
- <p class="mb-8 text-lg text-navy-200">Send your logo, your kit list, and how many heads. We quote one price per kit.</p>
+ <p class="mb-8 text-lg text-navy-200">Send your logo, proposed kit list, quantity, locations, and needed date.</p>
  <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
- <a href="/get-a-quote/" class="btn-primary text-base">Get a Free Quote</a>
+ <a href="/get-a-quote/" class="btn-primary text-base">Request a Quote</a>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
  </div>
  </div>

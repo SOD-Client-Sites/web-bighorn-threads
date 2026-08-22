@@ -2,25 +2,25 @@
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const page = {
- title: 'Rush Custom Apparel Orders in Las Vegas',
+ title: 'Rush Custom Apparel in Las Vegas | Bighorn Threads',
  description:
- 'Rush screen printing and embroidery in Las Vegas. We tell you up front whether your deadline is realistic and what it costs — no surprises at invoice.',
+ 'Ask about a rush apparel order in Las Vegas. Bighorn checks product availability, partner capacity, timing, and rush costs before you approve the quote.',
  hero: '/images/generated/cta-bluehour.jpg',
 }
 
 const factors = [
- { title: 'Blank availability', desc: 'Garments we keep stocked locally move quickly from artwork approval. Specialty blanks, premium polos, niche FR colorways, or anything we order in adds time to the timeline.' },
- { title: 'Decoration method', desc: 'Embroidery has no minimum and runs efficiently on small orders. Screen printing requires screen burning and curing but scales well on larger orders. DTF transfers skip setup entirely on full-color art.' },
+ { title: 'Product availability', desc: 'Availability depends on the garment supplier and selected production partner. Specialty products and uncommon colorways can add time.' },
+ { title: 'Decoration method', desc: 'Each method has different setup, quantity, and capacity constraints. The selected partner determines what can fit the requested schedule.' },
  { title: 'Artwork readiness', desc: 'Print-ready vector art on file is the fastest path. New artwork that needs vectorization or digitizing adds prep time before production can even start.' },
  { title: 'Order size and complexity', desc: 'Single-color, single-location work is quicker than multi-color, multi-location decoration. Large quantities and mixed processes take longer per piece.' },
 ]
 
 const eligible = [
- { yes: true, item: 'Single + multi-color screen printing on cotton tees' },
- { yes: true, item: 'Embroidery on stocked Port Authority polos' },
- { yes: true, item: 'Hi-vis ANSI Class 2 (stocked sizes)' },
- { yes: true, item: 'Hat embroidery (most common styles)' },
- { yes: true, item: 'FR shirts (Bulwark / Carhartt FR — stocked)' },
+ { yes: true, item: 'Simple apparel programs when product and partner capacity are confirmed' },
+ { yes: true, item: 'Repeat orders with approved artwork and specifications already available' },
+ { yes: true, item: 'Common garment styles when supplier stock is confirmed' },
+ { yes: true, item: 'Single-location decoration with a production-ready file' },
+ { yes: false, item: 'Protective apparel without employer and manufacturer approval' },
  { yes: false, item: 'Specialty fabrics requiring custom ink' },
  { yes: false, item: 'Multi-process jobs (screen + embroidery + DTF combined)' },
  { yes: false, item: 'Items not on hand requiring multi-day shipping from supplier' },
@@ -29,23 +29,23 @@ const eligible = [
 const faqs = [
  {
  q: 'Do you charge a rush fee?',
- a: 'Sometimes. Rush surcharge applies when we have to overlap shifts or push other production back to hit your date. When that\'s the case, we tell you upfront and you decide whether the cost makes sense.',
+ a: 'Sometimes. Any rush fee depends on the selected partner and requested schedule. We include it in the quote before you approve the order.',
  },
  {
  q: 'Can you rush orders with new artwork?',
- a: 'Yes — but new artwork adds prep time for digitizing (embroidery) or screen burn (printing). We\'ll be straight about it on the quote so the timeline you sign off on is the timeline we actually deliver.',
+ a: 'Possibly. New artwork can add production-file and proofing time. We confirm the available schedule with the selected partner before you approve it.',
  },
  {
  q: 'How big can a rush order be?',
- a: 'It depends on the work involved. Single-color screen prints scale the fastest. Multi-color or multi-location adds time per piece. Tell us the spec and we\'ll tell you the realistic max for your specific job.',
+ a: 'It depends on the garment, artwork, quantity, decoration method, partner capacity, and delivery path. Send the full specification and we will quote what is currently available.',
  },
  {
  q: 'What if my deadline is impossible?',
- a: 'We\'ll tell you. We don\'t take orders we can\'t deliver. If the math doesn\'t work, we\'ll propose a split (half now, half later) or a simpler version that hits the date.',
+ a: 'We will not promise an unconfirmed date. If the requested schedule is unavailable, we can quote a different product, method, delivery plan, or split schedule when a partner supports it.',
  },
  {
  q: 'Will rush production lower the quality?',
- a: 'No. Same press, same operators, same QC. We move the order ahead in the queue, we don\'t cut corners on production. The only difference is the schedule.',
+ a: 'A rush should not change the approved specification. We confirm the selected partner, proof, and available quality controls before you approve production.',
  },
 ]
 
@@ -65,11 +65,6 @@ const serviceSchema = {
  name: 'Rush Custom Apparel Production',
  serviceType: 'Rush screen printing and embroidery',
  provider: { '@id': 'https://bighornthreads.com/#organization' },
- areaServed: [
- { '@type': 'City', name: 'Las Vegas' },
- { '@type': 'City', name: 'Henderson' },
- { '@type': 'City', name: 'North Las Vegas' },
- ],
 }
 
 const faqSchema = {
@@ -105,7 +100,7 @@ const faqSchema = {
 
  <p class="kicker mb-3">Service</p>
  <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-6xl">
- Rush Custom Apparel <span class="text-gold-400">Without the Panic Surcharge.</span>
+ Rush Custom Apparel <span class="text-gold-400">With Terms Confirmed Up Front.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
  Tell us your deadline, your spec, and your quantity. We'll tell you straight whether it works, what it costs, and any rush surcharge before you commit — no surprises at invoice.
@@ -184,16 +179,16 @@ const faqSchema = {
  Rush orders are a normal part of the Las Vegas trade calendar. Trade shows announce booth assignments weeks before the event. Project ribbon cuttings get scheduled around dignitary calendars and slip both directions. New hires show up Monday for a Friday-quoted job. The honest framing: we'll tell you what's realistic when they start rather than promising a date and missing it. If we can't hit your deadline, you find out when you ask, not the day before delivery.
  </p>
  <p>
- The variables that govern a rush order are blank inventory, decoration method, and order quantity. Stocked blanks — heavyweight cotton tees, performance tees, polo standbys, ANSI Class 2 hi-vis, common FR SKUs in core colors and sizes — move from artwork approval more quickly than items we order in. Specialty blanks (premium polos, specific colorways, FR in larger quantities) add time to the timeline. Decoration method matters too: embroidery has no minimum and runs efficiently on small orders; screen printing requires screen burning and curing time but scales well on larger orders.
+ The variables that govern a rush order are supplier inventory, production-partner capacity, decoration method, artwork readiness, order quantity, and delivery. Common products may move faster after stock is confirmed. Specialty products and protective apparel often require more review and lead time.
  </p>
  <p>
- Realistic rush turnarounds depend on your spec — call us with the deadline, the quantity, the decoration method, and the garment, and we'll tell you straight whether it works and what it costs. Any rush surcharge gets quoted up front so there are no surprises at invoice. If your timeline forces a switch to DTF transfers (full-color, no setup, no minimum) instead of screen printing, we'll quote both options and let you decide on cost vs. look.
+ Realistic rush turnarounds depend on the full specification. Call us with the deadline, quantity, artwork, garment, decoration method, and destination. We will confirm current partner capacity and quote the available options and any rush cost before you commit.
  </p>
  <p>
- What we can't do: if your deadline is too tight and the artwork still needs vectorization, the math doesn't work. If you need a large run of FR in a non-stock colorway with a rush deadline, the math doesn't work. We'd rather tell you that up front than scramble and ship something subpar. The rushes that go smoothest are repeat work: artwork already on file, blanks in stock, and a clean left-chest-only decoration spec.
+ What we can't do: promise a rush before the artwork, garment availability, production capacity, and shipping path are confirmed. Repeat work can move faster when the approved artwork and program specification are already available. Your quote will state the schedule the selected partner can support.
  </p>
  <p>
- For ongoing rush exposure — trade-show season, event-driven projects, or fast-growth crews onboarding new hires weekly — the company-store program is the right structure. We pre-stock approved blanks, save your decoration spec on file, and trigger production when an order drops. That's the difference between rush as a one-off panic and rush as a managed business process.
+ For ongoing deadline pressure, a managed company-store program can reduce repeated setup work. We keep the approved program specification organized and coordinate each order with the selected production partner. Inventory, production, and delivery terms remain specific to the approved program.
  </p>
  <p>
  For more, see <a href="/blog/rush-order-shirts-las-vegas-whats-possible/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">rush order shirts in Las Vegas — what's actually possible</a>. And for a common rush use case, our <a href="/blog/trade-show-apparel-booth-crew/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">trade show apparel for booth crews</a> guide covers what to ship and when.
@@ -229,15 +224,15 @@ const faqSchema = {
  <div class="grid gap-5 md:grid-cols-3">
  <a href="/services/screen-printing-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">Screen Printing</h3>
- <p class="mt-2 text-sm text-ash">Pantone-matched ink, FR-safe options, rush available.</p>
+<p class="mt-2 text-sm text-ash">Ink, garment, and timing options confirmed in your quote.</p>
  </a>
  <a href="/services/embroidery-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">Embroidery</h3>
- <p class="mt-2 text-sm text-ash">on first orders. Rush available.</p>
+<p class="mt-2 text-sm text-ash">Embroidery setup and rush timing depend on partner capacity.</p>
  </a>
  <a href="/industries/general-contractors-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">For GCs</h3>
- <p class="mt-2 text-sm text-ash">Crew uniforms and onboarding kits with built-in rush.</p>
+<p class="mt-2 text-sm text-ash">Crew uniforms and onboarding kits with quoted timing.</p>
  </a>
  </div>
  </div>

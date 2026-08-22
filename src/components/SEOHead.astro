@@ -10,7 +10,7 @@ interface Props {
  noindex?: boolean
 }
 
-const DEFAULT_DESCRIPTION = 'Branded apparel, uniforms, embroidery, and company stores for teams of every kind. Las Vegas based, serving nationwide.'
+const DEFAULT_DESCRIPTION = 'Branded apparel and promotional products coordinated by a Las Vegas account team through selected production partners.'
 
 const {
  title,
@@ -26,7 +26,7 @@ const {
 const metaDescription = description?.trim() ? description : DEFAULT_DESCRIPTION
 
 const siteName = 'Bighorn Threads'
-const fullTitle = title === siteName || title.includes(`| ${siteName}`) || title.endsWith(siteName)
+const fullTitle = title.includes(siteName)
  ? title
  : `${title} | ${siteName}`
 const canonicalHref = canonical ?? new URL(Astro.url.pathname, Astro.site).href
@@ -51,8 +51,6 @@ const ogImageHref = new URL(ogImage, Astro.site).href
 <!-- Local / Geo -->
 <meta name="geo.region" content="US-NV" />
 <meta name="geo.placename" content="Las Vegas" />
-<meta name="geo.position" content="36.1699;-115.1398" />
-<meta name="ICBM" content="36.1699, -115.1398" />
 
 <!-- Open Graph -->
 <meta property="og:title" content={fullTitle} />
@@ -87,7 +85,7 @@ const ogImageHref = new URL(ogImage, Astro.site).href
  '@type': 'LocalBusiness',
  '@id': 'https://bighornthreads.com/#organization',
  name: 'Bighorn Threads',
- description: 'Branded apparel, screen printing, embroidery, and company stores for Las Vegas construction companies and trades.',
+ description: 'Branded apparel and promotional products coordinated by a Las Vegas account team through selected production partners.',
  url: 'https://bighornthreads.com',
  logo: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png',
  image: 'https://bighornthreads.com/images/og-default.jpg',
@@ -98,47 +96,7 @@ const ogImageHref = new URL(ogImage, Astro.site).href
  streetAddress: '9205 W. Russell Rd Ste 305',
  addressLocality: 'Las Vegas',
  addressRegion: 'NV',
- postalCode: '89149',
+ postalCode: '89148',
  addressCountry: 'US',
  },
- geo: {
- '@type': 'GeoCoordinates',
- latitude: 36.1699,
- longitude: -115.1398,
- },
- areaServed: [
- { '@type': 'City', name: 'Las Vegas', sameAs: 'https://www.wikidata.org/wiki/Q38696' },
- { '@type': 'City', name: 'Henderson', sameAs: 'https://www.wikidata.org/wiki/Q505250' },
- { '@type': 'City', name: 'North Las Vegas', sameAs: 'https://www.wikidata.org/wiki/Q79862' },
- { '@type': 'AdministrativeArea', name: 'Summerlin' },
- { '@type': 'AdministrativeArea', name: 'Spring Valley' },
- { '@type': 'AdministrativeArea', name: 'Boulder City' },
- { '@type': 'AdministrativeArea', name: 'Enterprise' },
- { '@type': 'AdministrativeArea', name: 'Paradise' },
- { '@type': 'AdministrativeArea', name: 'Whitney' },
- ],
- priceRange: '$$',
- currenciesAccepted: 'USD',
- openingHours: 'Mo-Fr 08:00-17:00',
- sameAs: [
- 'https://www.facebook.com/bighornthreads',
- 'https://www.linkedin.com/company/bighorn-threads',
- 'https://www.youtube.com/@bighornthreads',
- ],
- serviceType: [
- 'Screen Printing',
- 'Embroidery',
- 'Branded Apparel',
- 'Company Stores',
- 'Promotional Products',
- ],
- knowsAbout: [
- 'ANSI/ISEA 107 hi-vis apparel',
- 'NFPA 70E flame-resistant clothing',
- 'Construction branded workwear',
- 'Company store platforms',
- 'Pantone color matching',
- 'Screen printing for trades',
- 'Embroidery for construction uniforms',
- ],
 })} />

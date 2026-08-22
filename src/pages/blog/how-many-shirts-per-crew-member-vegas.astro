@@ -2,9 +2,9 @@
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const post = {
- title: 'How Many Shirts Should You Order Per Crew Member? (Vegas GC Rule of Thumb)',
+ title: 'How Many Shirts Should You Order Per Crew Member? A Vegas Planning Guide',
  description:
- 'A practical formula for how many branded shirts to order per construction employee in Las Vegas. By role, by season, with realistic wash rotations. Avoid both shortages and dead inventory.',
+ 'Plan branded shirt quantities for a Las Vegas construction crew by role, schedule, laundering, replacement policy, season, and budget.',
  category: 'Operations',
  readTime: '8 min read',
  date: 'Apr 14, 2026',
@@ -14,12 +14,12 @@ const post = {
 }
 
 const faqs = [
- { q: 'How many shirts should you order per construction crew member?', a: 'For a working field crew member in Las Vegas the baseline is the 5-3-1 kit: 5 daily-wear tees or polos (one per workday with one in the wash), 3 secondary garments such as long-sleeves, hi-vis layers, or hoodies, and 1 outerwear piece such as a branded jacket, vest, or pullover. That is 9 pieces total, assuming the crew member does laundry once a week.' },
- { q: 'Why is ordering only 2 shirts per crew member a mistake?', a: 'Most contractors run on 2 shirts per crew member, which means daily washing. Daily washing wears out gear in about 4 months instead of 12. Doubling your front-end order cuts your annual replacement spend by roughly 40 percent.' },
- { q: 'How many shirts do foremen and office staff need?', a: 'Foremen and superintendents bump to 5 polos plus 3 button-downs plus 1 jacket because they are visible to clients, GCs, and inspectors and need a slightly elevated kit. Office staff and project managers need 3 polos plus 2 button-downs plus 1 zip-up since they do not burn through shirts the way field crews do.' },
- { q: 'How should you adjust the shirt formula for Vegas summer?', a: 'From May through September crews sweat through gear in 4 hours instead of 8, and some shops do mid-day shirt swaps. The summer-adjusted kit is 7 daily-wear tees instead of 5, 2 long-sleeve UPF shirts for sun protection, and a single hoodie since it sits in the truck all summer. Switch to polyester or poly-cotton blends that wick instead of pure cotton that stays wet.' },
- { q: 'How do you build crew turnover into an apparel order?', a: 'Two approaches work. Option A is to order plus 20 percent and accept some waste, so a 30-person crew orders kits for 36 to absorb new hires for 4 to 6 months. Option B, which almost always wins above 25 employees, is to stand up a company store and order on demand so each new hire gets a kit sized to them with no closet inventory and no waste.' },
- { q: 'How many garments does it take to outfit a 30-person Vegas crew for a year?', a: 'For a typical Vegas GC running 25 field, 4 foremen, and 1 office: the field crews need about 270 pieces (25 times 9 pieces plus a 20 percent buffer), the foremen need 36 pieces, and the office needs 6 pieces. That totals roughly 310 garments to outfit the crew for the year.' },
+ { q: 'How many shirts should you order per construction crew member?', a: 'There is no universal quantity. Start with workdays between laundry cycles, role, garment policy, season, replacement process, and available budget. Build a roster-based estimate, then request current product and pricing options.' },
+ { q: 'Is ordering only two shirts per crew member a mistake?', a: 'It may create a tight laundry rotation, but the right quantity depends on schedule, laundry access, garment care, and replacement policy. Review the exact garment manufacturer\'s care guidance.' },
+ { q: 'How many shirts do foremen and office staff need?', a: 'Set quantities by each role\'s schedule, dress requirements, laundry cycle, and approved product list. Client-facing roles may need a different product mix from field roles.' },
+ { q: 'How should you adjust shirt quantities for Vegas summer?', a: 'Review the employer\'s heat plan, work schedule, garment changes, laundering, and replacement needs. The employer must approve fabric, coverage, visibility, and sun-protection requirements.' },
+ { q: 'How do you build crew turnover into an apparel order?', a: 'Use your hiring history and replacement policy to set a documented buffer. A proposed company store may support recurring orders, but products, inventory, fees, approvals, timing, and delivery depend on the written program.' },
+ { q: 'How many garments does it take to outfit a 30-person Vegas crew for a year?', a: 'Build a role-based roster and multiply each approved item by the planned issue quantity. Add only the buffer supported by your hiring and replacement history. Product availability and pricing require a current quote.' },
 ]
 
 const schema = {
@@ -31,13 +31,8 @@ const schema = {
  description: post.description,
  image: `https://bighornthreads.com${post.image}`,
  datePublished: post.isoDate,
- dateModified: post.isoDate,
- author: {
- '@type': 'Person',
- name: 'Steve Dodson',
- url: 'https://bighornthreads.com/about/',
- sameAs: ['https://www.linkedin.com/company/vp-promotions-vegas'],
- },
+ dateModified: '2026-08-21',
+ author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' },
  publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } },
  mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/`,
  },
@@ -78,7 +73,7 @@ const schema = {
  <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-600">{post.category}</span>
  <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
  <p class="mb-8 text-xl leading-relaxed text-ash">
- A field-tested formula for outfitting construction crews in Las Vegas — broken down by role, by season, and by how often the laundry actually gets done.
+ A planning worksheet for Las Vegas crews, organized by role, season, laundry cycle, replacement policy, and budget.
  </p>
 
  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash">
@@ -99,42 +94,42 @@ const schema = {
  <aside class="mb-12 border border-hairline bg-panel p-6 lg:sticky lg:top-24">
  <h2 class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-600">In this article</h2>
  <ol class="space-y-2 font-mono text-sm text-charcoal">
- <li><a href="#the-formula" class="hover:text-gold-700">1. The 5-3-1 starting formula</a></li>
+ <li><a href="#the-formula" class="hover:text-gold-700">1. Build a role-based estimate</a></li>
  <li><a href="#by-role" class="hover:text-gold-700">2. By role: field, foreman, office</a></li>
  <li><a href="#vegas-summer" class="hover:text-gold-700">3. Vegas summer adjustment</a></li>
  <li><a href="#turnover" class="hover:text-gold-700">4. Building in turnover</a></li>
- <li><a href="#actual-math" class="hover:text-gold-700">5. The actual math for a 30-person crew</a></li>
+ <li><a href="#actual-math" class="hover:text-gold-700">5. Build the roster worksheet</a></li>
  </ol>
  </aside>
 
  <p class="speakable-answer mb-6 text-lg leading-relaxed text-charcoal">
- We've been outfitting Vegas construction crews today and there's one question we get more than any other: <em>how many shirts do we actually need per person?</em> The honest answer is that most contractors order too few of the things crews wear daily, too many of the things they don't, and end up with a closet full of dead inventory plus a constant scramble for the right sizes.
+ The right quantity starts with one question: <em>how many garments does each role need between laundry cycles?</em> Add the work schedule, approved products, replacement policy, and roster before setting the order.
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Here's the formula we recommend after watching plenty of Vegas crews wear and trash gear in 110° conditions.
+ The example below is a worksheet, not a universal prescription. Adjust it to the employer's actual program.
  </p>
 
- <h2 id="the-formula" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">1. The 5-3-1 Starting Formula</h2>
+ <h2 id="the-formula" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">1. Build a Role-Based Starting Estimate</h2>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- For a working field crew member in Las Vegas, the baseline kit per employee is:
+ A field-crew worksheet might review:
  </p>
 
  <ul class="mb-6 list-disc space-y-2 pl-6 text-lg leading-relaxed text-charcoal">
- <li><strong>5 daily-wear tees or polos</strong> — one per workday with one in the wash</li>
- <li><strong>3 secondary garments</strong> — long-sleeves, hi-vis layers, hoodies</li>
- <li><strong>1 outerwear piece</strong> — branded jacket, vest, or pullover</li>
+ <li><strong>Daily-wear tees or polos</strong> based on workdays and laundry access</li>
+ <li><strong>Secondary garments</strong> based on employer-approved coverage and job needs</li>
+ <li><strong>Outerwear</strong> based on role, season, and work conditions</li>
  </ul>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- That's 9 pieces total. It assumes the crew member does laundry once a week, has one hot-swap shirt for emergencies, and rotates through the kit so individual pieces last 6–12 months.
+ Document the assumptions behind each quantity. Include laundry frequency, garment changes, replacement approvals, and expected hiring.
  </p>
 
  <div class="my-10 border-l-4 border-gold-500 bg-gold-500/5 p-6">
  <p class="mb-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-600">Reality check</p>
  <p class="text-lg leading-relaxed text-charcoal">
- Most contractors we onboard are running on 2 shirts per crew member. Two shirts means daily washing. Daily washing means crews wear out gear in 4 months instead of 12. Doubling your front-end order cuts your annual replacement spend by ~40%.
+ A tight rotation may increase laundering and replacement frequency. The exact effect depends on the garment, use, care, and manufacturer guidance. Compare current quotes instead of assuming a fixed savings rate.
  </p>
  </div>
 
@@ -142,79 +137,79 @@ const schema = {
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Field crew (laborers, journeymen, apprentices)</h3>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Standard 5-3-1 kit. Cotton or poly-blend tees, hi-vis layers, branded hoodies. The shirts will be filthy by Friday — they're consumables, not heirlooms. Spec for durability and washability over premium feel.
+ Review work tees, approved visibility layers, and weather garments. Compare manufacturer materials and care instructions for the actual work conditions.
  </p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Foreman / Superintendent</h3>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Bump to 5 polos + 3 button-downs + 1 jacket. Foremen are visible to clients, GCs, and inspectors. They need a slightly elevated kit — embroidered polos beat printed tees here. Differentiate visually from the field crew (different color, embroidery vs print) so authority is obvious from across the lot.
+ Foremen may need client-facing polos, service shirts, or outerwear. Set quantities from their schedule and laundry cycle. Use employer-approved role identification where appropriate.
  </p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Office / Project Manager</h3>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- 3 polos + 2 button-downs + 1 zip-up. Office staff don't burn through shirts the way field crews do. Quarterly orders make sense here, not the annual replacement cycle.
+ Office and project staff may need a smaller or different mix. Review their schedule, dress requirements, and ordering cadence.
  </p>
 
  <h2 id="vegas-summer" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">3. The Vegas Summer Adjustment</h2>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Standard apparel formulas come from people working in Ohio. Vegas changes the math. From May through September, your crew member is sweating through gear in 4 hours instead of 8. Some shops do mid-day shirt swaps. That doubles your daily-wear rotation.
+ Vegas heat can change work schedules, garment changes, and laundry needs. The employer's heat plan and hazard assessment control apparel choices.
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- The summer-adjusted kit:
+ Summer planning questions include:
  </p>
 
  <ul class="mb-6 list-disc space-y-2 pl-6 text-lg leading-relaxed text-charcoal">
- <li><strong>7 daily-wear tees</strong> instead of 5 (covers mid-day swaps + Monday hand-out delays)</li>
- <li><strong>2 long-sleeve UPF</strong> for sun protection — counterintuitive but actually keeps crews cooler than direct sun on bare arms</li>
- <li>Drop the heavyweight hoodie to a single piece — it sits in the truck May through September anyway</li>
+ <li>How many garment changes does the employer's plan support?</li>
+ <li>Which approved products meet coverage, visibility, and sun-protection requirements?</li>
+ <li>How will the team handle laundering, damaged items, and seasonal layers?</li>
  </ul>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Switch fabric choice in summer too. Polyester or poly-cotton blends wick instead of trapping. Pure cotton becomes wet-and-stays-wet quickly.
+ Compare the exact product's fabric, care, fit, and manufacturer performance data. The employer approves the final warm-weather garment.
  </p>
 
  <h2 id="turnover" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">4. Building Turnover Into the Order</h2>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Construction crews turn over steadily through the year. If you order for the headcount you have today, you're going to be short by Q2 and bleeding on dead inventory by Q4.
+ Hiring and turnover can change the size mix. Use your own records to set a practical buffer.
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
  Two approaches work:
  </p>
 
- <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Option A: Order +20%, accept some waste</h3>
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Option A: Set a documented buffer</h3>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- For a 30-person crew, order kits for 36. The extras absorb new hires for 4–6 months. You'll write off some leftover gear when you rebrand or change vendors, but the cushion is worth it for crews ordering once a year.
+ Review recent hiring, size distribution, replacement history, and product lead times. Use those records to set the buffer instead of a universal percentage.
  </p>
 
- <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Option B: Stand up a company store and order on demand</h3>
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Option B: Request a company-store proposal</h3>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Above 25 employees, this almost always wins. Each new hire gets a kit sized to them, no closet inventory, no waste. We wrote a full breakdown in <a href="/blog/company-store-vs-bulk-ordering/" class="text-gold-600 underline hover:text-gold-700">Bulk Ordering vs Company Store: The Real Math for Contractors</a> — short version, the math flips around 25–30 employees.
+ A company store may present approved products and ordering rules. Inventory, payment, approvals, fees, timing, and delivery depend on the written setup. See <a href="/blog/company-store-vs-bulk-ordering/" class="text-gold-600 underline hover:text-gold-700">Bulk Ordering vs Company Store</a> for the comparison questions.
  </p>
 
- <h2 id="actual-math" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">5. The Actual Math for a 30-Person Crew</h2>
+ <h2 id="actual-math" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">5. Build the Roster Worksheet</h2>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- For a typical Vegas GC running 25 field, 4 foremen, 1 office:
+ Separate the roster by role. For each role, document the approved products and planned issue quantity.
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- <strong>Field (25 × 9 pieces + 20% buffer):</strong> 270 pieces total — 175 daily-wear tees, 75 secondary, 30 outerwear
+ <strong>Field roles:</strong> roster count multiplied by each approved daily-wear, secondary, and outerwear quantity
  </p>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- <strong>Foreman (4 × 9 pieces):</strong> 36 pieces — 20 polos, 12 button-downs, 4 jackets
+ <strong>Foreman roles:</strong> roster count multiplied by each approved client-facing and worksite garment
  </p>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- <strong>Office (1 × 6 pieces):</strong> 6 pieces — 3 polos, 2 button-downs, 1 zip-up
+ <strong>Office roles:</strong> roster count multiplied by each approved polo, service shirt, or outerwear quantity
  </p>
 
  <div class="my-10 border-l-4 border-gold-500 bg-gold-500/5 p-6">
- <p class="mb-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-600">Total annual</p>
+ <p class="mb-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-600">Total planned order</p>
  <p class="text-lg leading-relaxed text-charcoal">
- ~310 garments to outfit a a Vegas GC for the year. At our typical (decoration included), that's annual apparel spend. Compared to the most under-supplied crews end up spending on emergency reorders, it pays for itself.
+ Add the role subtotals and only the buffer supported by your records. Your actual product mix, availability, decoration, delivery, and pricing require a current quote.
  </p>
  </div>
 
@@ -230,10 +225,10 @@ const schema = {
 
  <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The Short Version</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Field crew: 5 daily + 3 secondary + 1 outer = 9 pieces. Foremen: bump to embroidered polos with a jacket. Add 20% for turnover, or skip the buffer entirely with a company store. Adjust up by 30% in summer for sweat-through and mid-day swaps.
+ Build quantities by role, laundry cycle, season, replacement policy, hiring history, and approved products. Treat any company store as a separate written proposal.
  </p>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Order too few and you bleed on emergency reorders all year. Order right once and you stop thinking about apparel until next April.
+ Review the plan throughout the year. Product availability, roster changes, and replacement needs can change.
  </p>
 
  <div class="mt-16 border border-hairline bg-panel p-6">
@@ -243,7 +238,7 @@ const schema = {
  </div>
  <div>
  <p class="mb-1 font-heading text-lg font-bold text-charcoal">Bighorn Threads Team</p>
- <p class="text-sm leading-relaxed text-charcoal">Outfitting Vegas crews today. <a href="/industries/general-contractors-las-vegas/" class="text-gold-600 underline hover:text-gold-700">See what we make for general contractors.</a></p>
+ <p class="text-sm leading-relaxed text-charcoal">Bighorn manages Las Vegas crew-apparel programs and coordinates production through selected partners. <a href="/industries/general-contractors-las-vegas/" class="text-gold-600 underline hover:text-gold-700">See general-contractor planning options.</a></p>
  </div>
  </div>
  </div>
@@ -254,7 +249,7 @@ const schema = {
  <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
  <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Spec your crew's kit. We'll build the order.</h2>
  <p class="mb-8 text-lg text-ash">Send your roster, we'll send back recommended kits and a quote.</p>
- <a href="/get-a-quote/" class="inline-flex min-h-[44px] items-center justify-center bg-gold-500 px-8 py-4 text-lg font-bold text-charcoal transition-all hover:bg-gold-600">Get a Free Quote</a>
+ <a href="/get-a-quote/" class="inline-flex min-h-[44px] items-center justify-center bg-gold-500 px-8 py-4 text-lg font-bold text-charcoal transition-all hover:bg-gold-600">Get a Quote</a>
  </div>
  </section>
 </BaseLayout>

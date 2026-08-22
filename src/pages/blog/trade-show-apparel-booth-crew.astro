@@ -15,19 +15,19 @@ const post = {
 
 const faqs = [
  { q: 'What should trade show booth crews wear?', a: 'Branded polos for senior reps and customer-facing roles, branded long-sleeve button-downs or quarter-zips for executives, branded tees for booth setup and breakdown crews. All three should share the same logo placement, color palette, and embroidery style. Match the booth visual identity — if your booth is navy and gold, the apparel is navy with gold-stitched logos.' },
- { q: 'How many shirts should each booth person have?', a: 'Three minimum for a 3-day event: one for setup day, one for show floor day 1, one for show floor day 2. Vegas trade show events run 12-hour days and shirts get sweat-wrecked, especially during setup. Bring a fourth as a spare. Industry-typical orders run 4-5 shirts per crew member for a major event.' },
- { q: 'What trade shows do Vegas contractors attend?', a: 'World of Concrete (Vegas every January, ~57,000 attendees), AHR Expo (HVAC, rotates locations), International Builders\' Show / IBS (Vegas every other February, ~70,000 attendees), AGC Annual Convention, ConExpo-Con/Agg (Vegas every 3 years, ~140,000 attendees), and SEMA Show (auto/aftermarket, Vegas November). Each draws different crew apparel needs.' },
- { q: 'Should the booth crew all wear identical shirts?', a: 'Mostly yes — visual unity reads as professional. Tier the shirts by role: identical polo for booth reps, slightly different garment (vest, jacket, button-down) for the executive lead, and a "STAFF" or "SETUP" tee for breakdown crew. Name embroidery on each shirt is the new standard — it humanizes the crew and helps attendees remember conversations.' },
- { q: 'What\'s the best polo for trade show wear?', a: 'Three picks: (1) Port Authority K500 Silk Touch Polo for budget-conscious large crews, (2) Cutter & Buck DryTec polo for executive-tier customer-facing roles, (3) Nike Dri-FIT polo for fashion-forward brands wanting recognizable swoosh-adjacent quality. All embroider cleanly. See our Port Authority comparison piece for tradeoffs.' },
- { q: 'Should we put names on trade show shirts?', a: 'Yes — name embroidery has become the industry standard for major trade shows. Standard placement: company logo left chest, first name + last initial right chest. Letter height: 0.4-0.5 inches. Helps attendees who collect business cards remember which conversation went with which person. Name embroidery adds a small per-shirt cost.' },
- { q: 'Do we need different apparel for setup and show floor?', a: 'Different garments, same brand language. Setup crew: branded heavyweight tees and work pants — dirty work, hauling crates, climbing scaffolds. Show floor crew: branded polos and pressed pants. Most exhibitors order both as one apparel program with consistent logo treatment.' },
- { q: 'What\'s a realistic order timeline for trade show apparel?', a: 'Industry standard: 4-6 weeks before the show for embroidery, 2-3 weeks for screen printing. Add a week if you\'re digitizing a logo for the first time. Vegas-area shops can sometimes turn rush in 7-10 days for premium fees. World of Concrete and IBS hit annually — order in October for January, December for February shows.' },
+ { q: 'How many shirts should each booth person have?', a: 'Build the quantity around setup, show-floor shifts, laundry access, and a backup plan. Confirm the event schedule and crew roster before ordering.' },
+ { q: 'What trade shows do Vegas contractors attend?', a: 'World of Concrete, AHR Expo, International Builders\' Show, AGC events, CONEXPO-CON/AGG, and SEMA can be relevant. Confirm the current venue, dates, and exhibitor requirements with each event organizer.' },
+ { q: 'Should the booth crew all wear identical shirts?', a: 'A shared color and logo treatment can create visual unity. You can vary garments by role while keeping the approved brand specification consistent.' },
+ { q: 'What\'s the best polo for trade show wear?', a: 'Choose by fit, fabric, size range, color, decoration area, and budget. Product availability and embroidery suitability require confirmation in the written quote and proof.' },
+ { q: 'Should we put names on trade show shirts?', a: 'Name embroidery can help visitors identify booth staff. Confirm spelling, placement, dimensions, and price in the approved roster and proof.' },
+ { q: 'Do we need different apparel for setup and show floor?', a: 'You can specify separate garments for setup and customer-facing roles. Keep the approved logo, colors, and placement consistent across the program.' },
+ { q: 'What\'s a realistic order timeline for trade show apparel?', a: 'Timing depends on product availability, artwork readiness, quantity, partner capacity, proof approval, and delivery. Start before your event deadline and require written confirmation of the supported date.' },
 ]
 
 const schema = {
  '@context': 'https://schema.org',
  '@graph': [
- { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: post.isoDate, author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
+ { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: '2026-08-21', author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
  { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' }, { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` }] },
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
@@ -63,7 +63,7 @@ const speakableSchema = {
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Trade show apparel is a brand asset. Standard pattern: matching embroidered polos for booth reps with company logo on left chest and first name + last initial on right chest. Different garment for the exec lead, branded tees for setup crew. Order 4-6 weeks ahead — Vegas hosts most major trade construction shows annually.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Trade show apparel supports a consistent booth identity. You can use coordinated polos for booth reps and tees for setup crews. Confirm products, artwork, proof, partner capacity, and delivery in writing before the event.</p>
  </aside>
 
  <h2 id="why-it-matters" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Why Trade Show Apparel Is Different</h2>
@@ -72,18 +72,18 @@ const speakableSchema = {
  <li><strong>It will be photographed</strong> — by attendees, by event photographers, by your own marketing team. Cheap garments look cheap in 4K.</li>
  <li><strong>It signals the company tier.</strong> A booth crew in basic Gildan tees vs premium Cutter & Buck polos sets a totally different perception of the company before anyone says a word.</li>
  <li><strong>It supports recall.</strong> Attendees collect 50+ business cards in a day. The shirt is the visual cue that ties a card back to a face and conversation.</li>
- <li><strong>It works for 12-hour days.</strong> Standing on concrete, talking to 200 people, in lobby HVAC. Performance fabric matters.</li>
+ <li><strong>It fits the work.</strong> Consider shift length, climate, movement, and the venue when selecting fabric and fit.</li>
  </ul>
 
  <h2 id="vegas-shows" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Major Vegas Trade Shows for Construction & Trades</h2>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
- <li><strong><a href="https://www.worldofconcrete.com/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600" rel="noopener">World of Concrete</a></strong> — January, Las Vegas Convention Center, ~57,000 attendees. Concrete contractors, masonry, equipment.</li>
- <li><strong><a href="https://www.buildersshow.com/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600" rel="noopener">International Builders' Show (IBS)</a></strong> — February (Vegas every other year), ~70,000 attendees. Residential builders, remodelers, suppliers.</li>
- <li><strong><a href="https://www.ahrexpo.com/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600" rel="noopener">AHR Expo</a></strong> — January-February, rotating locations including Vegas. HVAC and refrigeration.</li>
- <li><strong><a href="https://www.conexpoconagg.com/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600" rel="noopener">ConExpo-Con/Agg</a></strong> — March, every 3 years (next 2026), Las Vegas. ~140,000 attendees. The biggest construction equipment show in North America.</li>
- <li><strong>AGC Annual Convention</strong> — Associated General Contractors, varying locations.</li>
- <li><strong>SEMA Show</strong> — November, Vegas. Automotive aftermarket — relevant for fleet/auto contractors.</li>
- <li><strong>NECA Show</strong> — National Electrical Contractors Association, varying locations including Vegas.</li>
+ <li><strong><a href="https://www.worldofconcrete.com/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600" rel="noopener">World of Concrete</a></strong>: concrete, masonry, and equipment audiences.</li>
+ <li><strong><a href="https://www.buildersshow.com/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600" rel="noopener">International Builders' Show</a></strong>: residential builders, remodelers, and suppliers.</li>
+ <li><strong><a href="https://www.ahrexpo.com/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600" rel="noopener">AHR Expo</a></strong>: HVAC and refrigeration audiences.</li>
+ <li><strong><a href="https://www.conexpoconagg.com/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600" rel="noopener">CONEXPO-CON/AGG</a></strong>: construction and equipment audiences.</li>
+ <li><strong>AGC events</strong>: general contractor audiences.</li>
+ <li><strong>SEMA Show</strong>: automotive aftermarket audiences.</li>
+ <li><strong>NECA events</strong>: electrical contractor audiences.</li>
  </ul>
 
  <h2 id="apparel-tiers" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">The Three Apparel Tiers for a Booth</h2>
@@ -92,7 +92,7 @@ const speakableSchema = {
  <p class="mb-6 text-lg leading-relaxed text-charcoal">Matching embroidered polos. Company logo on left chest, first name + last initial on right chest. Picks:</p>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Port Authority K500 Silk Touch Polo</strong> — budget pick for large crews. See our <a href="/blog/port-authority-polos-vs-alternatives/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Port Authority polos comparison</a>.</li>
- <li><strong>Cutter & Buck DryTec Pique Polo</strong> — premium pick, performance fabric, holds shape through 12-hour days.</li>
+ <li><strong>Cutter & Buck DryTec Pique Polo</strong>: compare fit, fabric, size range, availability, and approved decoration area.</li>
  <li><strong>Nike Dri-FIT Micro Pique Polo</strong> — fashion-tier, modern fit.</li>
  </ul>
 
@@ -112,24 +112,24 @@ const speakableSchema = {
  </ul>
 
  <h2 id="logo-placement" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Logo Placement for Trade Show Polos</h2>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">The standard 2026 placement pattern:</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Common placement options include:</p>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
- <li><strong>Left chest:</strong> Company logo, 3.5-4 inches wide.</li>
- <li><strong>Right chest:</strong> First name + last initial (e.g., "Mike T."), 0.4-0.5 inch letters.</li>
- <li><strong>Optional back yoke:</strong> Company name in 1-inch letters across upper back — readable from across the booth aisle.</li>
- <li><strong>Optional sleeve:</strong> Booth number or event year on the right sleeve hem (small, 0.3-0.4 inch letters).</li>
+ <li><strong>Left chest:</strong> Company logo, sized to the garment and approved proof.</li>
+ <li><strong>Right chest:</strong> First name and last initial, subject to legibility and available area.</li>
+ <li><strong>Optional back yoke:</strong> Company name, sized to the garment and viewing distance.</li>
+ <li><strong>Optional sleeve:</strong> Booth number or event year, when the garment supports the placement.</li>
  </ul>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">For digitizing your logo for crisp embroidery output, see our <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">logo digitizing 101</a> and <a href="/blog/embroidery-file-formats-explained/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">embroidery file formats</a> guides.</p>
 
- <h2 id="timeline" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Realistic Timeline by Show</h2>
+ <h2 id="timeline" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Plan the Timeline Around Your Show</h2>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
- <li><strong>World of Concrete (January):</strong> Order by mid-November.</li>
- <li><strong>IBS (February):</strong> Order by mid-December.</li>
- <li><strong>AHR Expo (January-February):</strong> Order by November-December.</li>
- <li><strong>ConExpo (March, every 3 years):</strong> Order by mid-January.</li>
- <li><strong>SEMA (November):</strong> Order by mid-September.</li>
+ <li><strong>Confirm the event:</strong> Verify current dates, venue, crew access, and exhibitor rules.</li>
+ <li><strong>Lock the roster:</strong> Document roles, sizes, names, and backup quantities.</li>
+ <li><strong>Approve the specification:</strong> Confirm garments, artwork, placement, and colors.</li>
+ <li><strong>Approve the proof:</strong> Production should follow the documented result.</li>
+ <li><strong>Confirm delivery:</strong> Require the selected partner's supported date in writing.</li>
  </ul>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">First-time digitizing adds a week. Rush options exist — see our <a href="/blog/rush-order-shirts-las-vegas-whats-possible/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">rush order shirts in Las Vegas guide</a> for what's actually possible.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">New file preparation can affect timing. See our <a href="/blog/rush-order-shirts-las-vegas-whats-possible/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">rush order shirts in Las Vegas guide</a> for the factors to confirm.</p>
 
  <h2 id="industry-fit" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Industries That Trade Show Most</h2>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
@@ -151,7 +151,7 @@ const speakableSchema = {
 
  <div class="mt-12 border border-hairline bg-panel p-7 sm:p-9">
  <h2 class="mb-3 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal">Trade show booth apparel in Las Vegas</h2>
- <p class="mb-5 text-lg leading-relaxed text-ash">Bighorn Threads runs trade show apparel programs for Vegas-based exhibitors and out-of-town crews. Embroidered polos, name customization, tiered roles, all coordinated.</p>
+<p class="mb-5 text-lg leading-relaxed text-ash">Bighorn Threads manages trade show apparel programs for Vegas-based exhibitors and visiting crews. Selected production partners handle approved decoration. Product availability and timing are confirmed in the quote.</p>
  <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote →</a>
  </div>
  </div>

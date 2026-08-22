@@ -2,9 +2,9 @@
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const page = {
- title: 'Custom Workwear and Branded Apparel in Spring Valley, Las Vegas',
+ title: 'Branded Apparel Planning for Spring Valley Teams',
  description:
- 'Embroidered service-tech uniforms and branded crew apparel for Spring Valley HVAC, plumbing, electrical, and residential service trades. Frequent reorder cycle.',
+ 'Spring Valley teams can request branded-apparel planning. Service-area eligibility, products, production, timing, and handoff terms require a current written quote.',
  h1Pre: 'Spring Valley',
  hero: '/images/generated/cta-bluehour.jpg',
 }
@@ -12,8 +12,8 @@ const page = {
 const localContext = [
  {
  code: 'Major Activity',
- title: 'Mixed residential and a service-trade base',
- body: 'Spring Valley is established residential — built-out neighborhoods, mixed-use along Rainbow and Tropicana, condo conversions and apartment retrofit. The big build-out happened a generation ago, but the service work never stops. Roof replacements, HVAC swap-outs, re-pipes, electrical upgrades — Spring Valley keeps the trades busy.',
+ title: 'Plan around the project and crew',
+ body: 'A Spring Valley apparel request can be organized by role, work setting, employer requirements, product, artwork, quantity, and deadline.',
  },
  {
  code: 'Active Trades',
@@ -22,8 +22,8 @@ const localContext = [
  },
  {
  code: 'What Crews Need Locally',
- title: 'Frequent reorder, local production, no drama',
- body: 'Service shops here run lean — most don\'t want a closet full of shirts they have to manage. They want a known supplier with their spec on file who can drop 24 polos in under a week when a new tech starts. We do that. Most Spring Valley shops run on a 60-day reorder cycle.',
+  title: 'Plan repeat-order details',
+ body: 'Service shops here often want a repeatable apparel specification without managing a closet of uncertain sizes. Bighorn coordinates product and decoration options through partners, with quantities and timing confirmed in each quote.',
  },
 ]
 
@@ -58,7 +58,7 @@ const useCases = [
  'Residential HVAC techs in embroidered polos with name + title for Spring Valley service routes',
  'Plumbing service trucks getting wrapped + crew uniformed at the same time, license-visible chest layout',
  'Residential electricians in branded polos with truck-matching colorway for service calls',
- 'New-hire onboarding kits dropped fast when the next tech starts mid-month',
+ 'New-hire onboarding kits requested for upcoming start dates',
  'Smaller remodel GCs in branded polos that look professional on apartment-complex walk-throughs',
  'Pool and pest service crews in lightweight moisture-wicking polos for summer route work',
 ]
@@ -70,23 +70,23 @@ const faqs = [
  },
  {
  q: 'A new tech starts next week. How fast can you get me 4 polos with his name on them?',
- a: 'If we already have your logo and spec on file, name embroidery on a stocked polo color is quick. Rush options if you need them. Once you\'re a regular, we keep the artwork hot and reorders fly.',
+ a: 'Available artwork and production specifications can support a reorder. Garment availability, name changes, setup, timing, and any rush option are confirmed before approval.',
  },
  {
  q: 'Do you carry moisture-wicking polos that hold up to Vegas summer route work?',
- a: 'Yes. Port Authority K500 and Sport-Tek ST650 in 100% poly micro-mesh — stocked S–4XL in 8 colors. Cotton blend looks nicer week one but it\'s soaked through by lunch in July. Service techs end up in the poly polo every time.',
+ a: 'Port Authority K500 and Sport-Tek ST650 are options to compare. Sizes, colors, fabric, availability, pricing, and timing depend on the current quote. Your employer controls any heat-plan requirements.',
  },
  {
  q: 'Can you put our license number and service line on every shirt?',
- a: 'Yes. Standard layout is license number on the sleeve and the service phone on the back collar or hem tag. Keeps the chest clean for the logo and tech name, and customers still see the contact info when the tech turns to grab a tool.',
+ a: 'A proposed layout can include the license number and service phone when your business requirements call for them. The exact garment, placement, artwork, and production method are reviewed in the proof and partner quote.',
  },
  {
  q: 'Where do we pick up if we don\'t want to wait on delivery?',
- a: 'Our Las Vegas shop is 10–15 min from most Spring Valley addresses. Pickup is usually quick on a stocked-polo embroidery run. We\'ll text you when it\'s ready.',
+  a: 'Bighorn is based in Las Vegas. Service-area eligibility, pickup, delivery, product availability, and timing are not assumed and must be confirmed in the written quote.',
  },
  {
  q: 'Do you set up company stores for service shops with 15+ techs?',
- a: 'Yes — that\'s the sweet spot. Each tech logs in, sees only their approved kit (with allowance if you set one), and orders direct. We embroider and ship — no closet inventory or sizing-spreadsheet headaches on your end. Most shops save more in admin time than the store costs.',
+ a: 'A managed company store can be scoped around an approved kit. Catalog access, allowances, payment, inventory responsibility, production, shipping, and fees are confirmed in the program proposal.',
  },
 ]
 
@@ -98,19 +98,6 @@ const breadcrumb = {
  { '@type': 'ListItem', position: 2, name: 'Service Areas', item: 'https://bighornthreads.com/service-areas/' },
  { '@type': 'ListItem', position: 3, name: 'Spring Valley', item: 'https://bighornthreads.com/service-areas/spring-valley/' },
  ],
-}
-
-const serviceSchema = {
- '@context': 'https://schema.org',
- '@type': 'Service',
- name: 'Custom Workwear and Branded Apparel in Spring Valley',
- serviceType: 'Embroidered service-tech uniforms and branded crew apparel for residential service trades',
- provider: { '@id': 'https://bighornthreads.com/#organization' },
- areaServed: {
- '@type': 'Place',
- name: 'Spring Valley, Las Vegas, NV',
- address: { '@type': 'PostalAddress', addressLocality: 'Las Vegas', addressRegion: 'NV', addressCountry: 'US' },
- },
 }
 
 const faqSchema = {
@@ -131,7 +118,6 @@ const faqSchema = {
  heroImage={page.hero}
 >
  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
- <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
  <!-- Hero — full-bleed photographic dark band -->
@@ -150,10 +136,10 @@ const faqSchema = {
 
  <p class="kicker mb-3">{page.h1Pre}</p>
  <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-6xl">
- Custom Workwear and Branded Apparel <span class="text-gold-400">in Spring Valley.</span>
+ Planning Branded Apparel for <span class="text-gold-400">Spring Valley Teams.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- Embroidered service-tech uniforms and branded crew apparel for the HVAC, plumbing, electrical, and residential service shops headquartered across Spring Valley. Lean reorder cycle, fast new-hire turnaround, no drama. We keep your spec on file and ship when you need it.
+ Spring Valley teams can request a branded-apparel quote. Service-area eligibility, products, production partner, timing, and handoff terms require written confirmation.
  </p>
 
  <div class="mt-10 flex flex-wrap items-center gap-3">
@@ -197,7 +183,7 @@ const faqSchema = {
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
  <p class="kicker mb-3">The Trades</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Trades we serve in <span class="text-gold-600">Spring Valley.</span></h2>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Planning by trade for <span class="text-gold-600">Spring Valley teams.</span></h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
  Service shops dominate the mix. Embroidered polos for the customer-facing techs, branded tees for shop and ride-along. Click through for trade-specific gear and brands.
  </p>
@@ -224,10 +210,10 @@ const faqSchema = {
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
  <div>
- <p class="kicker mb-3">Typical Orders</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">What we run for <span class="text-gold-600">Spring Valley shops.</span></h2>
+ <p class="kicker mb-3">Planning Scenarios</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Program options for <span class="text-gold-600">Spring Valley shops.</span></h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- Smaller, more frequent runs. New-hire kits in fives. Reorders every 60–90 days as routes grow. The shops here don\'t want a closet full of inventory — they want a known supplier and a fast turn.
+ Smaller orders and new-hire kits can support growing service teams. Minimums, reorders, inventory responsibility, and timing depend on the selected program and production partner.
  </p>
  <div class="mt-8 flex flex-wrap gap-3">
  <a href="/services/" class="btn-secondary text-sm">All Services →</a>
@@ -257,22 +243,22 @@ const faqSchema = {
 
  <div class="space-y-5 text-lg leading-relaxed text-ash">
  <p>
- Spring Valley is one of the largest unincorporated communities in Clark County and a major service-trade hub for the west side of the Vegas Valley. Residential service contractors — plumbing, HVAC, electrical, pool service, pest control, landscape — run high-volume route-based businesses serving the Spring Valley, Enterprise, and Mountain's Edge communities. Bighorn Threads offers local delivery to Spring Valley business addresses on qualifying orders, and we supply the industrial work shirts, branded service uniforms, and ANSI 107 hi-vis that the dense service-trade economy in this market depends on.
+ Spring Valley service businesses can request apparel planning for plumbing, HVAC, electrical, pool, pest-control, and landscaping roles. Service-area eligibility, delivery options, regulated garments, and production terms require written confirmation.
  </p>
  <p>
- The dominant trade contractor profile in Spring Valley is the residential service-truck business: a fleet of branded vans servicing 20-50 calls a day across the southwest valley. For these operations, the apparel spec is Red Kap industrial work shirts (SP14 short sleeve or SC30 contrast collar), Red Kap PT20 work pants, embroidered company logo on the left chest with name patches on the right. The uniform processes through industrial laundry every week and lasts 2-3 years before the seams give out. We integrate with the major industrial laundry programs in the southwest valley and pre-decorate shirts to match their inventory codes.
+ Residential service fleets may use industrial work shirts, pants, embroidered logos, and name patches. If a laundry program is involved, its current product and tagging requirements must be supplied before quoting. Bighorn can coordinate the approved brief with a selected production partner.
  </p>
  <p>
- For Spring Valley plumbing, HVAC, and electrical service shops, the brand impression matters as much as the technical work. Homeowners in the Mountain's Edge and Spring Valley Ranch communities expect service techs to show up in identifying, professional uniforms — and that branding supports repeat-work and referral economics. We build full uniform programs that scale from small-truck operations up through larger fleets, with company-store programs handling new-hire onboarding, replacement shirts, and seasonal apparel adjustments.
+ Spring Valley plumbing, HVAC, and electrical service shops may use branded uniforms to help customers identify technicians. Bighorn can review a proposed program, but service area, company-store access, onboarding, replacement, seasonal, inventory, production, and fulfillment terms depend on the written configuration.
  </p>
  <p>
- Spring Valley landscape and grounds-maintenance contractors operate at the same intensity. The Mountain's Edge and Spring Valley HOA communities require professional-grade contractor apparel — embroidered polos for supervisors, branded performance long-sleeve shirts for crew, ANSI 107 hi-vis vests for crews working near vehicle traffic on community streets. We supply the full kit and run quarterly reorder cycles tied to seasonal work volume for the larger southwest-valley landscape companies.
+ Landscaping and grounds-maintenance employers select apparel through their own work and safety requirements. Bighorn can quote polos, long-sleeve shirts, and selected hi-vis garments. Reorder cadence and production terms depend on the approved program.
  </p>
  <p>
- We deliver to every Spring Valley business address inside the Vegas Valley on qualifying orders. Drop direct to your office, your service-truck staging lot, or your active jobsite. Most Spring Valley service-trade accounts run weekly delivery cycles tied to ongoing company-store programs, and we coordinate local production on rush orders for new-hire kits or replacement uniforms when something gets ruined on the job.
+We coordinate delivery options for Spring Valley business addresses when the selected program supports them. Your quote will confirm the destination, production partner, schedule, and any delivery cost before the order moves forward.
  </p>
  <p>
- Common requests in Spring Valley: <a href="/blog/ansi-107-class-2-vs-class-3-hi-vis-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Class 2 hi-vis</a>, <a href="/blog/rush-order-shirts-las-vegas-whats-possible/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">rush orders</a>, <a href="/blog/new-hire-workwear-checklist-las-vegas-contractors/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">new hire checklist</a>, and <a href="/industries/plumbing-hvac-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">plumbing &amp; HVAC service uniforms</a>.
+ Related planning resources for Spring Valley: <a href="/blog/ansi-107-class-2-vs-class-3-hi-vis-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Class 2 hi-vis</a>, <a href="/blog/rush-order-shirts-las-vegas-whats-possible/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">rush orders</a>, <a href="/blog/new-hire-workwear-checklist-las-vegas-contractors/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">new hire checklist</a>, and <a href="/industries/plumbing-hvac-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">plumbing &amp; HVAC service uniforms</a>.
  </p>
  </div>
  </div>
@@ -282,7 +268,7 @@ const faqSchema = {
  <section class="bg-concrete py-20 sm:py-24">
  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
  <p class="kicker mb-3">FAQ</p>
- <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Questions Spring Valley shops ask us.</h2>
+ <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Questions to ask before ordering.</h2>
 
  <div class="divide-y divide-hairline border-y border-hairline">
  {faqs.map((f) => (
@@ -328,10 +314,10 @@ const faqSchema = {
  <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" loading="lazy" decoding="async" />
  <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
  <div class="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 lg:px-8">
- <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Spec on file. <span class="text-gold-400">Reorders in days, not weeks.</span></h2>
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Plan the program. <span class="text-gold-400">Confirm every reorder.</span></h2>
  <p class="mb-8 text-lg text-navy-200">Talk to a real human who knows what service-tech polos need to do all day in Vegas.</p>
  <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
- <a href="/get-a-quote/" class="btn-primary text-base">Get a Free Quote</a>
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium tracking-wide text-white transition-colors hover:text-gold-400">702.904.8923</a>
  </div>
  </div>

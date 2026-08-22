@@ -2,7 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const post = {
- title: 'Plastisol vs Water-Based Ink for Workwear: What Holds Up on a Vegas Job Site',
+ title: 'Plastisol vs Water-Based Ink for Workwear: A Buyer Comparison',
  description:
  'A practical breakdown of plastisol vs water-based ink for construction crew apparel in Las Vegas. Durability, hand-feel, ink behavior on cotton vs poly, and which one to spec for which garment.',
  category: 'Decoration Methods',
@@ -22,13 +22,8 @@ const schema = {
  description: post.description,
  image: `https://bighornthreads.com${post.image}`,
  datePublished: post.isoDate,
- dateModified: post.isoDate,
- author: {
- '@type': 'Person',
- name: 'Steve Dodson',
- url: 'https://bighornthreads.com/about/',
- sameAs: ['https://www.linkedin.com/company/vp-promotions-vegas'],
- },
+ dateModified: '2026-08-21',
+ author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' },
  publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } },
  mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/`,
  },
@@ -59,7 +54,7 @@ const schema = {
  <span class="kicker mb-3">{post.category}</span>
  <h1 class="mb-6 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl lg:text-5xl">{post.title}</h1>
  <p class="mb-8 text-xl leading-relaxed text-ash">
- The two ink families behind almost every printed work shirt in Vegas. Different chemistry, different feel, very different lifespan. Here's how to pick the right one for the job.
+ Compare two common ink families by garment, artwork, hand feel, opacity, care, curing, and intended use.
  </p>
 
  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash">
@@ -81,7 +76,7 @@ const schema = {
  <h2 class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-700">In this article</h2>
  <ol class="space-y-2 font-mono text-sm text-ash">
  <li><a href="#how-they-differ" class="hover:text-gold-600">1. How the two inks actually differ</a></li>
- <li><a href="#plastisol-pros" class="hover:text-gold-600">2. Why plastisol still dominates workwear</a></li>
+ <li><a href="#plastisol-pros" class="hover:text-gold-600">2. Where plastisol may fit workwear</a></li>
  <li><a href="#water-based-pros" class="hover:text-gold-600">3. Where water-based wins</a></li>
  <li><a href="#by-fabric" class="hover:text-gold-600">4. Behavior by fabric (cotton vs poly)</a></li>
  <li><a href="#vegas-conditions" class="hover:text-gold-600">5. The Vegas heat factor</a></li>
@@ -90,7 +85,7 @@ const schema = {
  </aside>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Most contractors don't ask which ink we're using. They ask the cost, see a mockup, and approve. That's fine — for tee orders going to a giveaway. It's not fine when those shirts have to survive 12 months of Vegas heat, sweat, and industrial laundering. The wrong ink will crack, peel, or fade in 3 months. The right one will outlast the garment.
+ Buyers should ask which ink system and curing process a production partner proposes. Wear depends on the exact garment, ink, cure, artwork, use, storage, and laundering, so a universal month or wash-count claim is not reliable.
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
@@ -117,10 +112,10 @@ const schema = {
  That fundamental difference — sits on top vs sinks in — drives almost every pro and con of each method.
  </p>
 
- <h2 id="plastisol-pros" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">2. Why Plastisol Still Dominates Workwear</h2>
+ <h2 id="plastisol-pros" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">2. Where Plastisol May Fit Workwear</h2>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Eighty percent of construction work shirts we print are plastisol. Here's why:
+ Plastisol is a common choice for construction work shirts. Here's why:
  </p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold text-charcoal">Opacity on dark fabric</h3>
@@ -130,12 +125,12 @@ const schema = {
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold text-charcoal">Color match precision</h3>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Pantone matching with plastisol is exact. We mix the ink to your brand color, run a swatch, and what you see on the press is what you get on every shirt. Water-based shifts slightly with fabric color and weave.
+ Color matching depends on the ink system, garment, artwork, proof, and production partner. Bighorn coordinates the approved color specification and written proof before production.
  </p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold text-charcoal">Wash durability</h3>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Properly cured plastisol holds up through extensive industrial wash cycles. Construction laundering is brutal — high-heat, harsh detergent, often at a contracted FR laundry service. Plastisol takes that abuse better than almost any other decoration method.
+ Properly cured plastisol can be durable, but results depend on the ink system, cure, garment, care, and laundry process. Confirm compatibility with the garment manufacturer and any commercial laundry provider. Protective apparel requires a separate employer and manufacturer review.
  </p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold text-charcoal">Bold graphics</h3>
@@ -144,36 +139,36 @@ const schema = {
  </p>
 
  <div class="my-10 border-l-4 border-gold-500 bg-panel p-6">
- <p class="mb-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-700">Default for trades</p>
+ <p class="mb-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-700">One common option</p>
  <p class="text-lg leading-relaxed text-charcoal">
- For 80% of construction shirts — t-shirts, hoodies, hi-vis tees, hard-wearing daily kits — plastisol is the right call. It's loud, durable, and Pantone-precise.
+ Plastisol is one common candidate for opaque graphics. The production partner should confirm the exact garment, ink system, cure, color target, and care before approval.
  </p>
  </div>
 
  <h2 id="water-based-pros" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">3. Where Water-Based Wins</h2>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Water-based isn't a downgrade — it's a different tool. It wins clearly in a few specific scenarios:
+ Water-based is a different tool that may fit specific garments, artwork, and hand-feel goals:
  </p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold text-charcoal">Soft hand-feel</h3>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Because the ink dyes the fabric instead of sitting on top, water-based prints feel like nothing. Run your hand over a water-based tee and you barely feel where the print is. For premium or upscale-looking apparel — branded crew gear meant to feel "not work-shirty" — water-based wins.
+ Water-based printing can create a softer hand on compatible garments. The result depends on the ink system, fabric, color, underbase, artwork, and cure, so review a sample or product-specific proof.
  </p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold text-charcoal">Vintage / faded look</h3>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Water-based fades intentionally over time, in a way that reads as "lived-in" rather than "worn out." For brand-forward gear with that retro look (think craft beer or premium brand merch), water-based delivers an aesthetic plastisol can't.
+ Some water-based systems can support a softer or vintage-style result. Expected color and aging depend on the garment, ink, process, and care.
  </p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold text-charcoal">Hot conditions, breathability</h3>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- A large plastisol back print on a tee creates a non-breathing zone — the ink film blocks air movement through the fabric. On a Vegas summer day, that matters. Water-based keeps the breathability of the original fabric. For crews running in 110° conditions, this is a real comfort difference on big designs.
+ A large surface print can change local hand feel and air movement. Compare print area, ink deposit, garment fabric, and a sample when comfort matters. Decoration does not replace an employer heat-illness plan.
  </p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold text-charcoal">Light fabric on light shirt</h3>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Water-based excels at light-on-light printing — gray ink on a white shirt, cream on natural cotton. Subtle tonal designs are where water-based looks better than plastisol can.
+ Water-based ink may suit some light-on-light or tonal designs. Final color and hand depend on the exact garment, ink system, artwork, and cure.
  </p>
 
  <h2 id="by-fabric" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">4. Behavior by Fabric: Cotton vs Poly</h2>
@@ -189,26 +184,26 @@ const schema = {
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold text-charcoal">100% polyester (hi-vis, performance)</h3>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Plastisol only — but it has to be specialty plastisol with low-bleed additives. Standard plastisol on polyester causes dye migration: the polyester dye bleeds up into the cured ink and changes the color (white prints turn pink on red shirts, etc.). We use bleed-resistant inks specifically formulated for synthetics. Water-based does not work on polyester.
+ Polyester can require ink and curing choices that control dye migration. The selected production partner must confirm a compatible process for the exact garment and artwork.
  </p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold text-charcoal">Cotton-poly blends (50/50, 60/40)</h3>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Plastisol with bleed-resistant additives. Water-based can work but the polyester portion of the fabric won't take the dye, leading to a mottled or patchy look. Most blended workwear gets plastisol.
+ Blends require product-specific testing because fiber content, dyes, ink, additives, and cure affect the result. The production partner should recommend and document a compatible process.
  </p>
 
  <h2 id="vegas-conditions" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">5. The Vegas Heat Factor</h2>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Vegas changes the math on a few specific ink choices. Plastisol prints in 110° conditions can soften slightly when stacked or stored against another print — in extreme heat (a delivery truck baking in July), prints can transfer or stick. We've seen it happen on the worst days.
+ Hot storage can affect some decorated products. Ask the production partner for ink-specific curing, packing, storage, and care guidance for the exact order.
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Mitigations: cure plastisol at the upper end of the temperature range (340°F instead of 320°F) for full plasticizer cross-linking, and pack with absorbent paper between heavy prints. Shops that don't cure properly produce plastisol that softens in heat. We don't ship under-cured ink.
+ Ink and curing requirements depend on the garment and ink system. The selected production partner must confirm its documented process for the exact order.
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Water-based has no heat issue — once dry, it's dye in the fabric and behaves like the fabric does. For shirts that will live in a service truck in July, water-based has an edge.
+ Water-based results also depend on the ink system, cure, garment, storage, and care. Ask for product-specific guidance when apparel may remain in a hot vehicle.
  </p>
 
  <h2 id="decision" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">6. Decision Tree by Garment</h2>
@@ -219,16 +214,16 @@ const schema = {
 
  <ul class="mb-6 list-disc space-y-2 pl-6 text-lg leading-relaxed text-charcoal">
  <li><strong>Crew tees (cotton, daily wear)</strong> → plastisol if you want bold, water-based if you want premium</li>
- <li><strong>Hi-vis polyester</strong> → bleed-resistant plastisol (only option that works)</li>
- <li><strong>Cotton-poly blend tees</strong> → plastisol</li>
- <li><strong>Hoodies + crewnecks</strong> → plastisol on the chest, plastisol on the back, period</li>
+ <li><strong>Hi-vis polyester</strong>: employer selects the protective garment; manufacturer instructions and the production partner govern eligible decoration</li>
+ <li><strong>Cotton-poly blend tees</strong>: test for dye migration and confirm a compatible ink and cure</li>
+ <li><strong>Hoodies and crewnecks</strong>: compare ink systems by fabric, artwork, hand feel, opacity, and care</li>
  <li><strong>Premium brand merch (giveaways, recruiting)</strong> → water-based for the soft-hand premium feel</li>
- <li><strong>Polos</strong> → embroidery, not screen print at all (see <a href="/blog/screen-printing-vs-embroidery-construction/" class="text-gold-700 underline hover:text-gold-600">screen vs embroidery breakdown</a>)</li>
- <li><strong>FR shirts</strong> → FR-rated specialty inks only, separate conversation</li>
+ <li><strong>Polos</strong>: compare embroidery and other eligible methods for the exact product (see <a href="/screen-printing-vs-embroidery-construction-las-vegas/" class="text-gold-700 underline hover:text-gold-600">screen vs embroidery breakdown</a>)</li>
+ <li><strong>Flame-resistant shirts</strong>: employer selection and current manufacturer decoration instructions control; do not assume an ink preserves protection</li>
  </ul>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- For the full breakdown of how we print, see our <a href="/services/screen-printing-las-vegas/" class="text-gold-700 underline hover:text-gold-600">screen printing service page</a>. We carry plastisol, water-based, discharge, and athletic-grade inks — and we choose the right one based on the garment, the conditions, and how the gear will be used.
+ For more details, see our <a href="/services/screen-printing-las-vegas/" class="text-gold-700 underline hover:text-gold-600">screen printing service page</a>. Bighorn coordinates the selected ink and garment with a production partner. Available methods depend on the partner and product.
  </p>
 
  <div class="my-12 border border-hairline bg-panel p-8 text-center">
@@ -239,10 +234,10 @@ const schema = {
 
  <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">The Short Version</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Plastisol for daily-wear workwear, hi-vis polyester, hoodies, and any time bold opacity matters. Water-based for premium brand merch, soft-hand crew gear, and large back prints where breathability counts. Both, sometimes, on the same crew — different garments, different jobs.
+ Plastisol and water-based ink can each fit certain garments and artwork. Choose from the exact garment, ink system, proof, cure, use, care, and production-partner documentation. Protective apparel needs employer selection and manufacturer review.
  </p>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Most shops only run one. We carry both. The right answer depends on the garment, not the shop's default.
+ Some shops specialize in one ink system. The right choice depends on the garment, artwork, and intended use. The production partner confirms available methods.
  </p>
 
  <div class="mt-16 border border-hairline bg-panel p-6">
@@ -262,8 +257,8 @@ const schema = {
  <section class="border-t border-hairline bg-paper py-16">
  <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Need print that holds up in Vegas heat?</h2>
- <p class="mb-8 text-lg text-ash">Plastisol, water-based, and FR-safe inks. We pick the right one for your job.</p>
- <a href="/get-a-quote/" class="btn-primary text-base">Get a Free Quote</a>
+ <p class="mb-8 text-lg text-ash">Send the garment, artwork, quantity, use, and care requirements for a partner-confirmed decoration recommendation.</p>
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
  </div>
  </section>
 </BaseLayout>

@@ -2,45 +2,40 @@
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const page = {
- title: 'Custom Hard Hats in Las Vegas | ANSI Z89.1 Branded Decals — Bighorn Threads',
+ title: 'Custom Hard Hats in Las Vegas | Bighorn Threads',
  description:
- 'Custom hard hats for Las Vegas crews — ANSI Z89.1 shells from MSA, Honeywell, Bullard, 3M, and Pyramex, branded with manufacturer-approved vinyl decals. Type I or Type II, Class E for electrical. Get a quote.',
+ 'Plan branding for employer-selected hard hats. Bighorn can coordinate a proposed decal review with the helmet manufacturer and production partner.',
  hero: '/images/generated/kit-electrical.jpg',
  url: 'https://bighornthreads.com/custom-hard-hats-las-vegas/',
 }
 
 const stack = [
- { label: 'The shell', body: 'ANSI/ISEA Z89.1-certified hard hats from MSA, Honeywell (North), Bullard, 3M, and Pyramex. Stocked in white, yellow, orange, blue, red, and black. Full-brim and cap-style.' },
- { label: 'The branding', body: 'Manufacturer-approved vinyl decals — front, back, and sides. Reflective vinyl options for night-shift and DOT crews. The shell stays untouched, so the ANSI rating stays valid.' },
- { label: 'Class & type', body: 'Type I (top impact) for general construction. Type II (top + lateral) for data centers, high-rise, and refining. Class E for electrical work up to 20,000V. Class G for everyone else.' },
- { label: 'Program-ready', body: 'Re-order spares with the same decals so the visual ID holds across years. Per-employee allowances available through a private company store. Replacement-rate planning on request.' },
+ { label: 'Employer-selected model', body: 'Your employer selects the exact hard hat for the workplace. Send the current model information with your request.' },
+ { label: 'Manufacturer review', body: 'The helmet manufacturer must confirm whether the proposed decal material, size, and placement are permitted.' },
+ { label: 'Scoped production', body: 'Bighorn can ask a production partner to quote a manufacturer-approved decal plan. Availability and terms are confirmed in writing.' },
+ { label: 'Order documentation', body: 'The proposal can record the selected model, approved artwork, quantity, and current production terms for review.' },
 ]
 
-const ansiTable = [
- { row: 'Type I', meaning: 'Top-of-head impact only', use: 'General construction, framing, finish trades, GC' },
- { row: 'Type II', meaning: 'Top + lateral impact', use: 'Data centers, high-rise, refining, swinging-load operations' },
- { row: 'Class G', meaning: 'Up to 2,200V (general)', use: 'Most non-electrical trades' },
- { row: 'Class E', meaning: 'Up to 20,000V (electrical)', use: 'Electricians, linemen, solar, utility' },
- { row: 'Class C', meaning: 'No electrical (conductive)', use: 'Aluminum-shell — niche, rare on Vegas sites' },
+const reviewPlan = [
+ { row: 'Hard-hat selection', owner: 'Employer', confirm: 'Exact manufacturer and model selected for the workplace' },
+ { row: 'Branding permission', owner: 'Helmet manufacturer', confirm: 'Current written instructions for the proposed decal' },
+ { row: 'Artwork and quote', owner: 'Bighorn and production partner', confirm: 'Proposed size, placement, quantity, availability, and price' },
+ { row: 'Final approval', owner: 'Employer', confirm: 'Written plan reviewed before production' },
 ]
 
-const decoration = [
- { ok: true, label: 'Vinyl decals', body: 'Front, back, sides. Manufacturer-approved on every major shell. Standard for branded hard hat programs.' },
- { ok: true, label: 'Reflective vinyl', body: '3M reflective stripes on front, sides, back. Pairs with hi-vis for night work and DOT-adjacent visibility programs.' },
- { ok: true, label: 'Pre-printed stickers', body: 'For project-specific IDs (gate badges, cert stickers). Removable without residue.' },
- { ok: false, label: 'Paint or screen print', body: 'Voids the ANSI rating. Solvents and cured inks change the shell chemistry.' },
- { ok: false, label: 'Drilling or screws', body: 'Voids the ANSI rating. Penetrates the shell. Never approved.' },
- { ok: false, label: 'Heat-applied transfers', body: 'Voids the ANSI rating on most thermoplastic shells. Skip it.' },
+const brandingReview = [
+ { label: 'Start with the exact model', body: 'Manufacturer instructions can vary by product. A general brand name is not enough for review.' },
+ { label: 'Submit the proposed artwork', body: 'Include the logo, requested size, color, material, and placement for written review.' },
+ { label: 'Wait for written confirmation', body: 'Do not treat a catalog image or prior order as approval for a new model or application.' },
+ { label: 'Review every reorder', body: 'Product availability and manufacturer instructions can change. Confirm the current terms before each run.' },
 ]
 
 const faqs = [
- { q: 'Are custom hard hats OSHA compliant?', a: 'Yes — when the underlying shell carries an ANSI/ISEA Z89.1 marking and the decoration follows the manufacturer\'s written guidance. OSHA enforces ANSI Z89.1 through 29 CFR 1926.100. Vinyl decals are accepted by every major U.S. hard hat manufacturer; paint, screen print, and shell drilling are not.' },
- { q: 'Type I vs Type II — which one does my crew need?', a: 'Type I protects against impact from above. Type II protects against impact from above and the side. General construction defaults to Type I. Data center, high-rise, refinery, and any project with side-strike risk should spec Type II. Many Vegas hyperscaler data center jobs require Type II.' },
- { q: 'Do you supply Class E electrical hard hats for linemen?', a: 'Yes. Class E hard hats are rated for incidental contact up to 20,000V and are the standard for electricians, linemen, solar installers, and utility crews. Stocked in white, yellow, and orange. Pairs cleanly with our FR shirt programs for full electrical-trade kit.' },
- { q: 'Can you put reflective stickers on a hard hat?', a: 'Yes — ANSI/ISEA Z89.1 explicitly permits retroreflective decals. We use 3M reflective vinyl on front, sides, and back for night-shift, road-construction, and DOT-adjacent programs. Common pair-up with ANSI 107 hi-vis vests for full visibility programs.' },
- { q: 'How do you brand a hard hat without voiding ANSI Z89.1?', a: 'Vinyl decals or pre-printed reflective stickers — applied to the shell within the manufacturer\'s placement zones, never within ½" of any drainage channel or shell edge. No drilling, no painting, no screen printing, no heat. We follow the published guidance for every shell brand we stock.' },
- { q: 'Can you supply hard hats with our company logo and a worker name?', a: 'Yes. Standard layout: front decal carries the company logo, side decals carry crew or project ID, back decal carries the worker\'s last name. Every decal goes on without affecting the certification.' },
- { q: 'Do you offer safety helmets (climbing-style) instead of traditional hard hats?', a: 'Yes. Safety helmets wrap the sides of the head, include a chinstrap, and meet either Type I or Type II ANSI Z89.1 — gaining adoption on Vegas data center, solar, and high-rise projects. Branded the same way as traditional hard hats: vinyl decals on approved zones.' },
+ { q: 'Who selects the hard hat?', a: 'The employer selects the exact manufacturer and model for the workplace. Bighorn does not prescribe protective equipment.' },
+ { q: 'Who approves the logo application?', a: 'The helmet manufacturer must permit the proposed material and placement. The employer reviews that written guidance before production.' },
+ { q: 'Can Bighorn recommend a hard hat for our job?', a: 'Bighorn can quote branding after receiving the employer-selected model. Product selection stays with the employer and its safety lead.' },
+ { q: 'Can you add a company logo or worker name?', a: 'Bighorn can scope a proposed layout. Availability depends on the exact model, manufacturer permission, and production-partner terms.' },
+ { q: 'Does a prior decorated order approve the next one?', a: 'No. Confirm the current product and manufacturer instructions before each production run.' },
 ]
 
 const breadcrumb = {
@@ -56,15 +51,8 @@ const serviceSchema = {
  '@context': 'https://schema.org',
  '@type': 'Service',
  name: 'Custom Hard Hats in Las Vegas',
- serviceType: 'Branded ANSI Z89.1 hard hats with vinyl decal decoration',
+ serviceType: 'Branding coordination for employer-selected hard hats',
  provider: { '@id': 'https://bighornthreads.com/#organization' },
- areaServed: [
- { '@type': 'City', name: 'Las Vegas' },
- { '@type': 'City', name: 'Henderson' },
- { '@type': 'City', name: 'North Las Vegas' },
- { '@type': 'City', name: 'Summerlin' },
- { '@type': 'City', name: 'Spring Valley' },
- ],
  description: page.description,
  url: page.url,
 }
@@ -100,13 +88,13 @@ const faqSchema = {
 
  <p class="kicker mb-4 flex items-center gap-2.5">
  <span class="h-px w-8 bg-gold-500"></span>
- Branded PPE
+ Hard Hat Branding Planning
  </p>
  <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
- Custom Hard Hats in Las Vegas <span class="text-gold-400">— ANSI-rated, decal-branded, ready for the jobsite.</span>
+ Custom Hard Hats in Las Vegas <span class="text-gold-400">with selection and branding reviewed first.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- ANSI Z89.1 shells from MSA, Honeywell, Bullard, 3M, and Pyramex. Branded with manufacturer-approved vinyl decals — front, back, and sides. The certification stays intact.
+ Your employer selects the exact hard hat. Bighorn can coordinate a proposed decal plan for manufacturer review.
  </p>
 
  <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -126,7 +114,7 @@ const faqSchema = {
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
  <p class="kicker mb-3">What You Get</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">A branded hard hat program, not a one-off order.</h2>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">A documented plan before production.</h2>
  </div>
 
  <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
@@ -140,14 +128,14 @@ const faqSchema = {
  </div>
  </section>
 
- <!-- ANSI table — paper -->
+ <!-- Responsibility table -->
  <section class="border-y border-hairline bg-paper py-20 sm:py-24">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-10 max-w-2xl">
- <p class="kicker mb-3">ANSI Z89.1</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Type and Class — <span class="text-gold-600">what to spec.</span></h2>
+ <p class="kicker mb-3">Selection Responsibility</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Who confirms <span class="text-gold-600">each decision.</span></h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- Every ANSI hard hat carries a Type (impact protection) and a Class (electrical protection). You spec both at order time.
+ The employer selects the hard hat. The manufacturer reviews branding. Bighorn scopes the proposed order.
  </p>
  </div>
 
@@ -155,17 +143,17 @@ const faqSchema = {
  <table class="w-full">
  <thead class="bg-concrete">
  <tr class="border-b border-hairline">
- <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Designation</th>
- <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Protects Against</th>
- <th class="hidden px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600 lg:table-cell">Typical Use</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Decision</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Owner</th>
+ <th class="hidden px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600 lg:table-cell">Confirm Before Production</th>
  </tr>
  </thead>
  <tbody class="divide-y divide-hairline">
- {ansiTable.map((r) => (
+ {reviewPlan.map((r) => (
  <tr>
  <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-700">{r.row}</td>
- <td class="px-6 py-5 align-top font-heading text-base font-bold text-charcoal">{r.meaning}</td>
- <td class="hidden px-6 py-5 align-top text-sm text-ash lg:table-cell">{r.use}</td>
+ <td class="px-6 py-5 align-top font-heading text-base font-bold text-charcoal">{r.owner}</td>
+ <td class="hidden px-6 py-5 align-top text-sm text-ash lg:table-cell">{r.confirm}</td>
  </tr>
  ))}
  </tbody>
@@ -174,21 +162,18 @@ const faqSchema = {
  </div>
  </section>
 
- <!-- Decoration rules — concrete -->
+ <!-- Branding review -->
  <section class="bg-concrete py-20 sm:py-24">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
- <p class="kicker mb-3">Decoration Rules</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">What's allowed on an ANSI shell — and what voids the rating.</h2>
+ <p class="kicker mb-3">Branding Review</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Review the exact proposal with the manufacturer.</h2>
  </div>
 
- <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
- {decoration.map((d) => (
- <div class={`border p-6 ${d.ok ? 'border-hairline bg-panel' : 'border-red-300 bg-red-50'}`}>
+ <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+ {brandingReview.map((d) => (
+ <div class="border border-hairline bg-panel p-6">
  <div class="mb-3 flex items-center gap-2">
- <span class={`flex h-6 w-6 items-center justify-center text-xs font-bold ${d.ok ? 'bg-gold-500 text-charcoal' : 'bg-red-200 text-red-700'}`}>
- {d.ok ? '✓' : '✕'}
- </span>
  <h3 class="font-heading text-base font-bold uppercase tracking-tight text-charcoal">{d.label}</h3>
  </div>
  <p class="text-sm leading-relaxed text-ash">{d.body}</p>
@@ -208,13 +193,13 @@ const faqSchema = {
 
  <div class="space-y-5 text-lg leading-relaxed text-ash">
  <p>
- A custom hard hat starts as a stock ANSI/ISEA Z89.1-certified shell from a major manufacturer — MSA, Honeywell (formerly North), Bullard, 3M, or Pyramex. Branding gets added through a decoration method the manufacturer approves in writing. For nearly every hard hat sold in the U.S., that means vinyl decals or pre-printed reflective stickers applied to the shell within the published placement zones.
+ A custom hard-hat request starts with the exact model selected by the employer. The proposed branding must follow the helmet manufacturer's current written instructions.
  </p>
  <p>
- The reason to follow the rules: <a href="https://safetyequipment.org/standards/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500" rel="noopener nofollow" target="_blank">ANSI/ISEA Z89.1</a> is performance-tested. Drilling, painting with solvents, screen printing with cured inks, or applying heat changes the shell chemistry and voids the certification. <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.100" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500" rel="noopener" target="_blank">OSHA enforces the standard through 29 CFR 1926.100</a>. A non-compliant hard hat is a citation risk and a head-injury exposure that no insurance carrier wants on file.
+ Review the applicable <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.100" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500" rel="noopener" target="_blank">OSHA head-protection rule</a> and the exact manufacturer's instructions. Your employer remains responsible for selection, inspection, and use.
  </p>
  <p>
- For a long-running program, the spec list looks like this: shell brand and Type/Class match (locked once per crew so spares always match), decal artwork on file (front, back, sides, with a reflective option for night work), shell color tied to role (white for supervisors, yellow for journeymen, orange for first-day apprentices is one common scheme — yours can be whatever), and a re-order cadence tied to your project rotation. We carry replacement decals so a cracked shell can be swapped without re-ordering custom artwork.
+ For a repeat program, document the exact model and manufacturer-reviewed artwork. Bighorn can request current production terms from selected partners for each order.
  </p>
  <p>
  For deeper compliance reads, see our <a href="/blog/custom-hard-hats-las-vegas-buyer-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">custom hard hats buyer's guide</a> and the <a href="/blog/custom-hard-hats-osha-z89-decals-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">OSHA Z89 decal guide</a>. For the pairing with hi-vis programs, see our <a href="/blog/ansi-107-class-2-vs-class-3-hi-vis-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">ANSI 107 Class 2 vs Class 3 guide</a>.
@@ -250,15 +235,15 @@ const faqSchema = {
  <div class="grid gap-5 md:grid-cols-3">
  <a href="/industries/electrical-contractors-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Electrical Contractors</h3>
- <p class="mt-2 text-sm text-ash">Class E hard hats + FR shirts for the full electrical trade kit.</p>
+ <p class="mt-2 text-sm text-ash">Plan branded apparel around the employer's approved product list.</p>
  </a>
  <a href="/industries/data-center-contractors-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Data Center Contractors</h3>
- <p class="mt-2 text-sm text-ash">Type II hard hats are the spec on most Vegas hyperscaler jobs.</p>
+ <p class="mt-2 text-sm text-ash">Review site requirements before requesting branded equipment or apparel.</p>
  </a>
  <a href="/catalog/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Browse Catalog</h3>
- <p class="mt-2 text-sm text-ash">FR shirts, hi-vis vests, work pants, polos — full PPE + apparel range.</p>
+ <p class="mt-2 text-sm text-ash">Browse apparel options, then request current product and decoration terms.</p>
  </a>
  </div>
  </div>
@@ -270,9 +255,9 @@ const faqSchema = {
  <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
  <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Ready to brand your crew's hard hats?</h2>
- <p class="mb-8 text-lg text-navy-200">Send your logo, count, and decoration spec.</p>
+ <p class="mb-8 text-lg text-navy-200">Send your logo, count, and employer-selected hard-hat model.</p>
  <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
- <a href="/get-a-quote/" class="btn-primary text-base">Get a Free Quote</a>
+      <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
  </div>
  </div>

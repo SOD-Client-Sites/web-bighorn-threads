@@ -2,44 +2,44 @@
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const page = {
- title: 'Welder Uniforms in Las Vegas | NFPA 2112 FR + Leather Layered System — Bighorn Threads',
+ title: 'Welder Uniform Planning in Las Vegas | Bighorn Threads',
  description:
- 'Welder uniforms for Las Vegas welding shops and contractors — NFPA 2112 FR base shirts and pants, leather over-layers, gloves, and helmets. Bulwark, Carhartt FR, Lincoln Electric, Black Stallion. FR-safe Nomex embroidery. Get a quote.',
+ 'Welder uniform planning for Las Vegas shops and contractors. Bighorn coordinates qualifying garments and decoration through production partners. Safety requirements need employer review. Get a quote.',
  hero: '/images/generated/kit-steel.jpg',
  url: 'https://bighornthreads.com/welder-uniforms-las-vegas/',
 }
 
 const stack = [
- { label: 'FR base layer', body: 'NFPA 2112-certified FR shirts and pants — Bulwark Excel-FR ComforTouch, Carhartt FR Force, Lapco, Tyndale. Dual NFPA 70E + 2112 ratings on the most-specified picks.' },
- { label: 'Leather over-layer', body: 'Welding jackets and split-cowhide sleeves from Black Stallion and Lincoln Electric. Worn over the FR base for direct slag and spatter.' },
- { label: 'Hands and head', body: 'Welding gloves (TIG / MIG / stick), welding helmets with auto-darkening lenses, and FR balaclavas or hoods. Branded the same as the rest of the kit.' },
- { label: 'Branding', body: 'Nomex (aramid) thread embroidery on every FR garment — keeps the certification valid. Polyester thread melts and voids the rating; we don\'t use it on FR.' },
+ { label: 'Base garments', body: 'Start with the employer hazard assessment and required garment ratings. Verify each product using current manufacturer documents.' },
+ { label: 'Protective layers', body: 'Jackets, sleeves, and other layers depend on the process, exposure, site rules, and employer PPE program.' },
+ { label: 'Hands and head', body: 'Gloves, helmets, hoods, and related PPE require selection by a qualified safety lead for the specific work.' },
+ { label: 'Branding', body: 'Any decoration on safety-rated garments requires written review of the product, method, placement, materials, and manufacturer guidance.' },
 ]
 
 const standards = [
- { row: 'NFPA 2112', meaning: 'Flash-fire protection (certified)', use: 'Oil/gas, refining, process work, conservative welding shops' },
- { row: 'NFPA 70E', meaning: 'Arc-rated electrical PPE', use: 'Welders working near live electrical, dual-purpose FR shirts' },
+ { row: 'NFPA 2112', meaning: 'Flash-fire garment standard', use: 'Only when the employer identifies a flash-fire hazard and selects the exact product' },
+ { row: 'NFPA 70E', meaning: 'Electrical-safety framework', use: 'Only when the employer identifies an electrical hazard and selects the complete PPE system' },
  { row: 'AWS Z49.1', meaning: 'Welding industry safety standard', use: 'Standard guidance for general stick / MIG / TIG welding' },
- { row: 'OSHA 1910.252', meaning: 'Federal welding-cutting-brazing rule', use: 'Enforced floor for FR clothing on every welding job' },
+ { row: 'OSHA 1910.252', meaning: 'Federal welding, cutting, and brazing rule', use: 'Review with the employer safety lead for the specific operation' },
 ]
 
 const layers = [
- { name: 'FR shirt', detail: 'Bulwark Excel-FR ComforTouch SLU2 (7 oz, dual NFPA 70E + 2112) is the most-specified base shirt for Vegas welding crews. Carhartt FR Force is the next tier.' },
- { name: 'FR pants', detail: 'Bulwark FR work pants or Carhartt FR Force jeans. Same NFPA 2112 rating as the shirt — the pants matter as much as the top.' },
- { name: 'Welding jacket', detail: 'Heavy split-cowhide. Black Stallion and Lincoln Electric are the standard. For high-amperage stick / MIG above 200A, jacket goes on over the FR.' },
- { name: 'Sleeves', detail: 'Leather welding sleeves for lighter-duty work where a full jacket is too hot. Standard for summer work in Vegas welding shops.' },
- { name: 'Gloves', detail: 'Goatskin TIG gloves for fine work, cowhide MIG gloves for general fab, heavy elk-skin stick gloves for high-heat.' },
- { name: 'Helmet + hood', detail: 'Auto-darkening helmet (Miller, Lincoln) + FR balaclava or beanie under it. Branded with company logo on the helmet shell using approved methods.' },
+ { name: 'FR shirt', detail: 'Compare qualifying shirts only after the employer defines the required hazard rating, fabric, fit, and care process.' },
+ { name: 'FR pants', detail: 'Pants should be reviewed as part of the complete protective clothing system, not selected from a general brand list.' },
+ { name: 'Welding jacket', detail: 'Jacket material and coverage depend on the welding process, heat, spatter, position, and worksite requirements.' },
+ { name: 'Sleeves', detail: 'Sleeves may be one component of a PPE system. A qualified safety lead should determine where they are appropriate.' },
+ { name: 'Gloves', detail: 'Glove material and construction should match the welding process and exposure defined by the employer.' },
+ { name: 'Helmet and hood', detail: 'Helmet, lens, hood, and any decoration must follow current employer, product, and manufacturer requirements.' },
 ]
 
 const faqs = [
- { q: 'Do welders need flame-resistant clothing?', a: 'Yes. OSHA 29 CFR 1910.252 and AWS Z49.1 both require flame-resistant clothing for welding, cutting, and brazing. The base shirt and pants must be FR-rated — typically NFPA 2112-certified or recognized FR cotton. A leather jacket alone is not enough; the underlayer ignites if a leather seam fails.' },
- { q: 'NFPA 2112 vs FR cotton — what should a welder wear?', a: 'NFPA 2112 is the certified standard for flash-fire protection and is the conservative pick for any welding shop with safety-driven contracts. Heavy FR cotton (Carhartt FR, Bulwark Excel-FR) is acceptable under AWS Z49.1 for general welding. For oil/gas, refining, and process work, NFPA 2112 is required.' },
- { q: 'What FR shirt brands hold up for Vegas welders?', a: 'Bulwark Excel-FR ComforTouch SLU2 is the most-specified base shirt for Vegas welding and electrical crews — dual NFPA 70E + NFPA 2112 rating, 7 oz weight, breathes in summer heat. Carhartt FR Force is the next tier. Lapco and Tyndale also produce solid FR options at different price points.' },
- { q: 'Do I need a welding jacket if I\'m wearing FR?', a: 'For most stick, MIG, and TIG welding above 200A, yes. The leather jacket or sleeves protect against direct slag and spatter that an FR shirt resists but isn\'t designed to deflect. Heavy split-cowhide jackets from Black Stallion or Lincoln Electric are the standard. For light-duty TIG on thin material, FR alone is often enough.' },
- { q: 'Can welder uniforms be embroidered without losing the FR rating?', a: 'Yes — with Nomex (aramid) thread, applied by an FR-aware shop. Standard polyester embroidery thread melts and drips, which is worse than printing. NFPA 2112 garments retain certification when decorated with Nomex thread. Plastisol screen printing on FR is generally not approved by garment manufacturers.' },
- { q: 'Are uniform rental services worth it for a welding shop?', a: 'Sometimes. Cintas and UniFirst rent FR uniforms with weekly laundry and replacement programs — useful for shops with 30+ welders and high turnover. The downside: rental garments are shared, sized loosely, and the FR rating depends on the rental shop\'s laundering protocol. Owned-uniform programs give crews better-fitting gear and more brand control.' },
- { q: 'Where can I get welder uniforms in Las Vegas?', a: 'Bighorn Threads supplies and decorates welder uniforms for Vegas welding shops and contractors. NFPA 2112 FR base layers from Bulwark and Carhartt FR, leather over-layers from Black Stallion and Lincoln Electric, FR-safe Nomex embroidery. Send your roster size and program spec for a quote.' },
+ { q: 'Do welders need flame-resistant clothing?', a: 'The employer must evaluate the welding process, hazards, regulations, standards, and site requirements. A qualified safety professional should define the complete PPE and clothing system for each task.' },
+ { q: 'NFPA 2112 vs FR cotton: what should a welder wear?', a: 'These terms are not interchangeable. The required garment and rating depend on the documented hazard and worksite. Review current standards, product certificates, and employer requirements with a qualified safety professional.' },
+ { q: 'What FR shirt brands hold up for Vegas welders?', a: 'Do not select a protective garment by brand alone. Compare the exact model, current ratings, fabric, fit, care instructions, availability, and employer requirements.' },
+ { q: 'Do I need a welding jacket if I\'m wearing FR?', a: 'That decision depends on the welding process, amperage, position, spatter, heat, base garments, and employer PPE program. Ask the employer safety lead to define the required layers.' },
+ { q: 'Can welder uniforms be embroidered without losing the FR rating?', a: 'Do not assume any thread or decoration preserves a garment rating. Get written confirmation for the exact garment, thread, backing, placement, and method from the manufacturer and employer safety lead.' },
+ { q: 'Are uniform rental services worth it for a welding shop?', a: 'Compare rental and ownership programs using total cost, garment control, fit, inspection, repair, replacement, laundering, and documentation requirements.' },
+ { q: 'Where can I get welder uniforms in Las Vegas?', a: 'Bighorn Threads provides Las Vegas account management and coordinates qualifying garments and decoration through production partners. The employer remains responsible for PPE selection and approval.' },
 ]
 
 const breadcrumb = {
@@ -55,15 +55,8 @@ const serviceSchema = {
  '@context': 'https://schema.org',
  '@type': 'Service',
  name: 'Welder Uniforms in Las Vegas',
- serviceType: 'NFPA 2112 FR welder uniforms with leather over-layers and FR-safe Nomex embroidery',
+ serviceType: 'Welder uniform product and decoration coordination',
  provider: { '@id': 'https://bighornthreads.com/#organization' },
- areaServed: [
- { '@type': 'City', name: 'Las Vegas' },
- { '@type': 'City', name: 'Henderson' },
- { '@type': 'City', name: 'North Las Vegas' },
- { '@type': 'City', name: 'Summerlin' },
- { '@type': 'City', name: 'Spring Valley' },
- ],
  description: page.description,
  url: page.url,
 }
@@ -102,10 +95,10 @@ const faqSchema = {
   FR + Leather Kit
  </p>
  <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
- Welder Uniforms in Las Vegas <span class="text-gold-400">— NFPA 2112 base, leather over, branded FR-safe.</span>
+ Welder Uniform Planning in Las Vegas <span class="text-gold-400">with product-specific safety review.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- The full layered system — FR shirts, FR pants, welding jackets, leather sleeves, gloves, helmets. Embroidered with Nomex thread that holds the FR rating.
+ Review base garments, protective layers, gloves, helmets, and decoration against the employer's documented hazards and current product guidance.
  </p>
 
  <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -146,7 +139,7 @@ const faqSchema = {
  <p class="kicker mb-3">Standards</p>
  <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">The standards your welders need to meet.</h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- Federal floor + industry standard + project-specific certifications. We spec garments to the strictest applicable.
+ Standards and site requirements vary by operation. The employer and qualified safety lead must define the applicable requirements.
  </p>
  </div>
 
@@ -202,16 +195,16 @@ const faqSchema = {
 
  <div class="space-y-5 text-lg leading-relaxed text-ash">
  <p>
- A welder uniform is a layered protection system, not a single garment. The base layer — FR-rated shirt and pants — handles flash fire and arc events. The over-layer — leather jacket or sleeves — handles direct slag, spatter, and high-amperage stick work where the FR base alone isn't designed to deflect. Together they meet the requirements of <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.252" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500" rel="noopener" target="_blank">OSHA 1910.252</a> and AWS Z49.1, the two standards that define welder PPE in the U.S.
+ Welding PPE should be treated as a complete system. The required base garments, jackets, sleeves, gloves, helmets, and other protection depend on the documented hazards. Employers should review <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.252" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500" rel="noopener" target="_blank">OSHA 1910.252</a>, applicable standards, and site rules with a qualified safety professional.
  </p>
  <p>
- For Vegas welders, the base shirt question usually comes down to NFPA 2112 versus heavy FR cotton. <a href="https://www.nfpa.org/codes-and-standards/all-codes-and-standards/list-of-codes-and-standards/detail?code=2112" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500" rel="noopener nofollow" target="_blank">NFPA 2112</a> is the certified standard for flash-fire protection — the conservative spec for any shop bidding on oil/gas, refining, process, or safety-driven commercial contracts. Bulwark Excel-FR ComforTouch SLU2 is the most-specified pick for Vegas crews because it carries the dual NFPA 70E and NFPA 2112 rating in a 7 oz weight that breathes in summer heat. Carhartt FR Force is the next tier. For general fab and lighter-duty welding under AWS Z49.1, heavy FR cotton from Carhartt FR or Lapco is acceptable.
+ Product labels such as FR, arc rated, and <a href="https://www.nfpa.org/codes-and-standards/all-codes-and-standards/list-of-codes-and-standards/detail?code=2112" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500" rel="noopener nofollow" target="_blank">NFPA 2112</a> describe different properties or standards. Verify the exact model, current certificate, hazard rating, fit, and care instructions before approval.
  </p>
  <p>
- The leather decision is about heat input. Stick and high-amperage MIG (above 200A) generate enough slag and spatter that the FR shirt — designed to resist ignition, not deflect molten metal — needs a leather over-layer to handle the direct hit. Black Stallion and Lincoln Electric jackets are the standard; leather sleeves are a common compromise for summer work where a full jacket runs too hot. TIG on thin material often runs FR-only.
+ Protective-layer decisions depend on the process, heat, spatter, welding position, duration, environment, and site rules. A qualified safety lead should decide whether a jacket, sleeves, or another system is required.
  </p>
  <p>
- Decoration is the part most shops get wrong. Standard polyester embroidery thread melts and drips on FR garments — a worse outcome than not decorating at all. We use Nomex (aramid) thread on every Bulwark, Carhartt FR, and Lapco garment we decorate, and we document the thread spec on the certification sheet that ships with every order. This is the document your safety officer needs in the binder when an inspector arrives.
+ Decoration can affect a protective garment. Bighorn does not approve PPE or guarantee that a decoration preserves a rating. The exact garment, thread, backing, placement, method, and current manufacturer guidance require written review before production.
  </p>
  <p>
  For deeper reads, see our <a href="/blog/welder-uniforms-las-vegas-buyer-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">welder uniforms buyer's guide</a>, the <a href="/blog/welder-uniforms-fr-shirts-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">welder FR shirts deep-dive</a>, and the <a href="/blog/nfpa-2112-fr-coveralls-buyer-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">NFPA 2112 FR coveralls guide</a>.
@@ -255,7 +248,7 @@ const faqSchema = {
  </a>
  <a href="/catalog/fr-clothing/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Browse FR Catalog</h3>
- <p class="mt-2 text-sm text-ash">Every FR garment we stock — shirts, pants, coveralls, jackets.</p>
+ <p class="mt-2 text-sm text-ash">Browse possible FR products, then verify ratings and availability by item.</p>
  </a>
  </div>
  </div>
@@ -269,7 +262,7 @@ const faqSchema = {
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Ready to outfit your welders?</h2>
  <p class="mb-8 text-lg text-navy-200">Send your roster size and program spec.</p>
  <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
- <a href="/get-a-quote/" class="btn-primary text-base">Get a Free Quote</a>
+ <a href="/get-a-quote/" class="btn-primary text-base">Request a Quote</a>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
  </div>
  </div>

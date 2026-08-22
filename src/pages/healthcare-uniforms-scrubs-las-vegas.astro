@@ -4,26 +4,26 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 const page = {
  title: 'Custom Scrubs & Healthcare Uniforms in Las Vegas | Embroidered Medical Apparel — Bighorn Threads',
  description:
- 'Custom embroidered scrubs, lab coats, and medical staff apparel for Las Vegas hospitals, clinics, dental offices, and multi-site groups. Facility logo, name and credentials, color-coded by role. Company stores for healthcare teams. Get a quote.',
+ 'Custom embroidered scrubs, lab coats, and medical staff apparel planning for Las Vegas healthcare teams. Bighorn coordinates approved products and decoration through production partners. Get a quote.',
  hero: '/images/generated/service-embroidery.jpg',
  url: 'https://bighornthreads.com/healthcare-uniforms-scrubs-las-vegas/',
 }
 
 const roles = [
- { label: 'Clinical staff', body: 'Embroidered scrubs with facility logo, name, and credentials — color-coded by role or department so patients and staff read the team at a glance.' },
+ { label: 'Clinical staff', body: 'Consider scrubs with an approved facility logo, name, credentials, and role-based colors.' },
  { label: 'Providers', body: 'Branded lab coats and consultation jackets, embroidered with name and title, in weights that hold a professional look all day.' },
  { label: 'Front desk & admin', body: 'Polos, blouses, and button-downs that match the clinical look without scrubs — a consistent brand from the waiting room in.' },
- { label: 'Lab & support', body: 'Durable branded coats and tops built for lab and support roles — and the hard, frequent washing they take.' },
+ { label: 'Lab & support', body: 'Compare branded coats and tops against each role, laundering process, and facility requirement.' },
 ]
 
 const faqs = [
- { q: 'Where can I get custom embroidered scrubs and lab coats in Las Vegas?', a: 'Bighorn Threads embroiders scrubs, lab coats, and medical staff apparel for Las Vegas hospitals, clinics, dental offices, and multi-site groups. We add your facility logo, employee names, and credentials, and can color-code by role or department. Decoration is done to hold up through repeated medical laundering.' },
- { q: 'Can you color-code scrubs by department or role?', a: 'Yes — color-coding is one of the most useful things we set up for healthcare teams. Assigning a color to each role or department helps patients and staff identify who does what at a glance. We keep the facility logo and name embroidery consistent across every color so the whole team still reads as one brand.' },
- { q: 'Can you embroider names and credentials on medical apparel?', a: 'Yes. Standard layout is the facility logo on one chest and the employee name with credentials (RN, MA, DDS, and the like) on the other, or on the sleeve. We keep placement and lettering consistent across the team so it looks deliberate, not improvised.' },
- { q: 'Do you set up company stores for multi-site healthcare groups?', a: 'Yes. A company store is a private branded shop carrying only your approved scrubs and apparel. Each location or department orders its own sizes from one catalog, gear ships direct, and you hold no inventory. It keeps a multi-site group consistent across every clinic, with budgets and approvals you control.' },
- { q: 'Will embroidery hold up to medical laundering?', a: 'Yes — that\'s why embroidery is the standard for healthcare apparel. Stitched logos and names survive frequent, high-temperature washing far better than printed decoration, which can crack or fade. We pick thread and placement that keep the mark sharp over the garment\'s working life.' },
- { q: 'Do you work with dental and specialty practices, not just hospitals?', a: 'Absolutely. We outfit dental offices, specialty clinics, urgent care, veterinary practices, and physical-therapy and wellness groups across the valley — single locations and multi-site organizations alike. The program scales to fit the size of your team.' },
- { q: 'What areas do you serve?', a: 'Bighorn Threads is based in Las Vegas and serves healthcare teams across Las Vegas, Henderson, North Las Vegas, and Summerlin, with local pickup or direct shipping. Send your logo and the roles you\'re outfitting for a quote.' },
+ { q: 'Where can I get custom embroidered scrubs and lab coats in Las Vegas?', a: 'Bighorn Threads coordinates embroidered scrubs, lab coats, and medical staff apparel through production partners. You can specify a facility logo, employee names, credentials, and colors by role or department.' },
+ { q: 'Can you color-code scrubs by department or role?', a: 'Color-coding can help distinguish roles or departments. Bighorn coordinates the approved colors, products, artwork, and decoration specification through production partners.' },
+ { q: 'Can you embroider names and credentials on medical apparel?', a: 'Names and credentials may be available on qualifying garments. The quote confirms artwork, placement, lettering, minimums, and production requirements.' },
+ { q: 'Do you set up company stores for multi-site healthcare groups?', a: 'Bighorn can review company-store options for an approved apparel catalog. Platform, ordering, budget, inventory, and fulfillment capabilities must be confirmed before setup.' },
+ { q: 'Will embroidery hold up to medical laundering?', a: 'Durability depends on the garment, thread, construction, decoration, wash temperature, chemicals, and drying process. Confirm the facility laundering protocol and follow the current manufacturer care instructions.' },
+ { q: 'Do you work with dental and specialty practices, not just hospitals?', a: 'Bighorn provides Las Vegas account management for hospitals, dental offices, specialty clinics, urgent care, veterinary practices, and wellness groups. Product and program terms are confirmed by quote.' },
+ { q: 'What areas do you serve?', a: 'Bighorn is based in Las Vegas. Confirm product availability, pickup, shipping, delivery, and service-area terms in your written quote.' },
 ]
 
 const breadcrumb = {
@@ -41,12 +41,6 @@ const serviceSchema = {
  name: 'Custom Scrubs & Healthcare Uniforms in Las Vegas',
  serviceType: 'Embroidered scrubs, lab coats, and medical staff apparel',
  provider: { '@id': 'https://bighornthreads.com/#organization' },
- areaServed: [
- { '@type': 'City', name: 'Las Vegas' },
- { '@type': 'City', name: 'Henderson' },
- { '@type': 'City', name: 'North Las Vegas' },
- { '@type': 'City', name: 'Summerlin' },
- ],
  description: page.description,
  url: page.url,
 }
@@ -88,7 +82,7 @@ const faqSchema = {
  Custom scrubs & healthcare uniforms in Las Vegas <span class="text-gold-400">— embroidered, color-coded, consistent.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- Scrubs, lab coats, and staff apparel — your facility logo, names, and credentials, color-coded by role and built to take medical laundering.
+ Scrubs, lab coats, and staff apparel with an approved facility logo, names, credentials, and role colors. Product and decoration choices should match your laundering requirements.
  </p>
 
  <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -107,7 +101,7 @@ const faqSchema = {
  <section class="border-b border-hairline bg-paper py-14">
  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
  <p class="text-xl leading-relaxed text-charcoal sm:text-2xl">
- Bighorn Threads embroiders custom scrubs, lab coats, and medical staff apparel for Las Vegas hospitals, clinics, dental offices, and multi-site groups. We add your facility logo, names, and credentials, color-code by role, and decorate to survive medical laundering.
+ Bighorn Threads coordinates custom scrubs, lab coats, and medical staff apparel for Las Vegas healthcare teams. Production partners apply your approved logo, names, credentials, and role colors.
  </p>
  </div>
  </section>
@@ -144,16 +138,16 @@ const faqSchema = {
  A patient who can tell the nurse from the tech from the front-desk coordinator feels looked after. Branded, color-coded scrubs make the team legible — who does what, who to ask, who's in charge. Add your facility logo and it reads as a real organization, not a roster of strangers in random scrubs.
  </p>
  <p>
- The trick is keeping it consistent. Across a clinic — let alone a multi-site group — scrubs drift fast: different colors, off-brand logos, names done five different ways. We fix that by digitizing your logo in-house and holding your standards on file, so every garment matches whether it's ordered today or next year.
+ The trick is keeping it consistent. Across a clinic, scrubs can drift into different colors, off-brand logos, and mismatched names. Bighorn coordinates digitizing through a production partner against the logo standard you approve.
  </p>
  <p>
- Embroidery is the right call for healthcare. It survives the frequent, high-temperature washing medical apparel goes through, where printed decoration cracks and fades. Lab coats and clinical wear also have a hygiene dimension — staff apparel is part of the controls that limit contamination, alongside the <a href="https://www.osha.gov/bloodborne-pathogens" rel="noopener" target="_blank" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">OSHA bloodborne pathogens</a> standards your facility already works under and broader <a href="https://www.cdc.gov/infection-control/hcp/" rel="noopener" target="_blank" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">CDC infection-control</a> guidance.
+ Embroidery can work well for healthcare apparel, but laundering conditions matter. Compare the garment, thread, decoration, and care instructions against your facility process. Your safety and infection-control leads should verify requirements under applicable <a href="https://www.osha.gov/bloodborne-pathogens" rel="noopener" target="_blank" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">OSHA bloodborne pathogens</a> standards and <a href="https://www.cdc.gov/infection-control/hcp/" rel="noopener" target="_blank" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">CDC infection-control</a> guidance.
  </p>
  <p>
- For a multi-site group, a <a href="/company-stores/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">company store</a> is the clean way to run it. Each location orders its own sizes from one approved catalog, gear ships direct, and you hold no inventory. New hires order their scrubs on day one, and the brand stays consistent across every clinic.
+ A multi-site group can evaluate a <a href="/company-stores/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">company store</a> as one possible ordering model. Available catalog, user, budget, inventory, and fulfillment capabilities depend on the selected platform and program.
  </p>
  <p>
- We're a Las Vegas shop, so you reach a real person who knows your account. See how <a href="/company-stores/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">company stores</a> work, or explore the full <a href="/industries/healthcare/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">healthcare</a> program.
+ Bighorn provides Las Vegas account management and coordinates production through partners. Review <a href="/company-stores/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">company-store planning</a> or explore the <a href="/industries/healthcare/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">healthcare apparel</a> guide.
  </p>
  </div>
  </div>
@@ -186,15 +180,15 @@ const faqSchema = {
  <div class="grid gap-5 md:grid-cols-3">
  <a href="/industries/healthcare/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Healthcare</h3>
- <p class="mt-2 text-sm text-ash">The full vertical — every healthcare team we outfit.</p>
+ <p class="mt-2 text-sm text-ash">Planning considerations for healthcare apparel programs.</p>
  </a>
  <a href="/company-stores/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Company Stores</h3>
- <p class="mt-2 text-sm text-ash">Keep multi-site teams consistent, zero inventory.</p>
+ <p class="mt-2 text-sm text-ash">Review ordering-platform options for multi-site teams.</p>
  </a>
  <a href="/services/embroidery-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Embroidery</h3>
- <p class="mt-2 text-sm text-ash">In-house digitizing that holds up through medical wash.</p>
+ <p class="mt-2 text-sm text-ash">Partner-coordinated digitizing based on your approved logo standard.</p>
  </a>
  </div>
  </div>
@@ -206,9 +200,9 @@ const faqSchema = {
  <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
  <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Outfitting a clinic or a whole group?</h2>
- <p class="mb-8 text-lg text-navy-200">Send your logo and the roles you're outfitting. We'll build the program with you.</p>
+ <p class="mb-8 text-lg text-navy-200">Send your logo, roles, quantities, and laundering requirements. We'll prepare a recommendation.</p>
  <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
- <a href="/get-a-quote/" class="btn-primary text-base">Get a Free Quote</a>
+ <a href="/get-a-quote/" class="btn-primary text-base">Request a Quote</a>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
  </div>
  </div>

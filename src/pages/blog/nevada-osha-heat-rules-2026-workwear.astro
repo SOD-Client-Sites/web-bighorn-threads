@@ -2,85 +2,71 @@
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const post = {
- title: 'Nevada OSHA Heat Rules 2026: What Las Vegas Contractors Need to Know About Workwear',
+ title: 'Nevada OSHA Heat Rules 2026: Workwear Planning for Las Vegas Contractors',
  description:
- "Nevada's heat illness standard takes effect in 2026 and changes what construction crews must wear, when work must stop, and what employers must document. A practical guide to compliant workwear for Las Vegas contractors — from breathable hi-vis to FR-rated heat-tolerant shirts.",
+ 'A practical workwear planning guide for Nevada heat exposure. Start with the employer job hazard analysis, current Nevada OSHA guidance, and product documentation.',
  category: 'Compliance',
- readTime: '12 min read',
+ readTime: '9 min read',
  date: 'Apr 27, 2026',
  isoDate: '2026-04-27',
  image: '/images/generated/workwear-flatlay.jpg',
- imageAlt: 'Flat-lay of breathable hi-vis and FR workwear approved for Nevada OSHA heat rule compliance',
+ imageAlt: 'Breathable workwear options prepared for employer review in Las Vegas',
  slug: 'nevada-osha-heat-rules-2026-workwear',
 }
+
+const faqs = [
+ {
+  q: 'What does the Nevada heat illness regulation require?',
+  a: 'Nevada Regulation R131-24 requires covered employers to assess working conditions that may cause occupational heat illness. Covered employers must address identified hazards in their written safety program. Use current Nevada OSHA guidance for the complete requirements.',
+ },
+ {
+  q: 'Does Nevada OSHA require a specific work shirt?',
+  a: 'The regulation does not prescribe one universal shirt. Clothing and PPE are factors in the job hazard analysis. The employer selects controls and products for the actual task, environment, and other hazards.',
+ },
+ {
+  q: 'Can lightweight clothing replace other required PPE?',
+  a: 'No. Heat planning does not remove requirements identified for traffic, electrical, chemical, fall, or other hazards. The employer and safety lead must review the complete protective system.',
+ },
+ {
+  q: 'Can Bighorn Threads certify heat-rule compliance?',
+  a: 'No. Bighorn can quote apparel options and request available product documents. The employer remains responsible for its hazard analysis, safety program, training, controls, and product approval.',
+ },
+]
 
 const schema = {
  '@context': 'https://schema.org',
  '@graph': [
- {
- '@type': 'Article',
- headline: post.title,
- description: post.description,
- image: `https://bighornthreads.com${post.image}`,
- datePublished: post.isoDate,
- dateModified: post.isoDate,
- author: {
- '@type': 'Organization',
- name: 'Bighorn Threads',
- url: 'https://bighornthreads.com/about/',
- },
- publisher: {
- '@type': 'Organization',
- name: 'Bighorn Threads',
- logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' },
- },
- mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/`,
- },
- {
- '@type': 'BreadcrumbList',
- itemListElement: [
- { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
- { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' },
- { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` },
- ],
- },
- {
- '@type': 'FAQPage',
- mainEntity: [
- {
- '@type': 'Question',
- name: 'What does the Nevada OSHA heat rule require contractors to provide?',
- acceptedAnswer: {
- '@type': 'Answer',
- text: 'Nevada employers must provide cool drinking water, paid rest breaks in shaded or air-conditioned areas, training on heat illness, a written heat illness prevention plan, and reasonable accommodations for high-heat conditions. Workwear is part of the prevention plan — breathable, light-colored, moisture-wicking garments are favored, and any required PPE (like FR or hi-vis) must be selected with heat tolerance in mind.',
- },
- },
- {
- '@type': 'Question',
- name: 'Are there specific workwear requirements under the Nevada heat standard?',
- acceptedAnswer: {
- '@type': 'Answer',
- text: 'The Nevada heat standard does not mandate specific garments, but it requires that workwear and PPE not contribute to heat stress. In practice this means lightweight, breathable, moisture-wicking shirts; light-colored garments where possible; ventilated hi-vis where ANSI 107 compliance is required; and lighter-weight FR options (around 5–6 oz) for electrical work in summer instead of heavier 9–10 oz fabrics.',
- },
- },
- {
- '@type': 'Question',
- name: 'What are the regulations around PPE and branded workwear for construction site workers in Las Vegas?',
- acceptedAnswer: {
- '@type': 'Answer',
- text: 'Las Vegas construction workers are subject to federal OSHA general industry and construction standards plus Nevada OSHA state-specific rules. Required PPE depends on the trade — hi-vis (ANSI 107) for road, utility, and night work; flame-resistant apparel (NFPA 70E) for electrical and arc-flash environments; cut-resistant gloves and hard hats sitewide. Branded workwear is permitted as long as the decoration method preserves PPE certifications: FR garments require FR-safe inks and Nomex thread, and hi-vis garments require decoration that does not break retroreflective tape coverage.',
- },
- },
- {
- '@type': 'Question',
- name: 'When does the Nevada OSHA heat rule take effect?',
- acceptedAnswer: {
- '@type': 'Answer',
- text: 'Nevada adopted heat illness prevention regulations under NRS 618 with phased enforcement beginning in 2026. Employers should have written heat illness prevention plans in place before the start of the summer work season and should review their workwear and PPE selection to ensure compliance with both the heat standard and any trade-specific PPE requirements.',
- },
- },
- ],
- },
+  {
+   '@type': 'Article',
+   headline: post.title,
+   description: post.description,
+   image: `https://bighornthreads.com${post.image}`,
+   datePublished: post.isoDate,
+   dateModified: '2026-08-21',
+   author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/about/' },
+   publisher: {
+    '@type': 'Organization',
+    name: 'Bighorn Threads',
+    logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' },
+   },
+   mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/`,
+  },
+  {
+   '@type': 'BreadcrumbList',
+   itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' },
+    { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` },
+   ],
+  },
+  {
+   '@type': 'FAQPage',
+   mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: { '@type': 'Answer', text: faq.a },
+   })),
+  },
  ],
 }
 ---
@@ -96,151 +82,81 @@ const schema = {
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
  <article class="bg-concrete">
- <header class="border-b border-hairline bg-paper">
- <div class="mx-auto max-w-3xl px-4 pt-16 pb-12 sm:px-6 sm:pt-20 lg:px-8">
- <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
- <a href="/" class="hover:text-gold-600">Home</a>
- <span class="px-2">/</span>
- <a href="/blog/" class="hover:text-gold-600">Blog</a>
- </nav>
+  <header class="border-b border-hairline bg-paper">
+   <div class="mx-auto max-w-3xl px-4 pt-16 pb-12 sm:px-6 sm:pt-20 lg:px-8">
+    <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
+     <a href="/" class="hover:text-gold-600">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-600">Blog</a>
+    </nav>
+    <span class="kicker mb-3">{post.category}</span>
+    <h1 class="mb-6 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl lg:text-5xl">{post.title}</h1>
+    <p class="mb-8 text-xl leading-relaxed text-ash">Use current Nevada OSHA guidance and your job hazard analysis to evaluate clothing and PPE for heat exposure.</p>
+    <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash">
+     <span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time>
+    </div>
+   </div>
+  </header>
 
- <span class="kicker mb-3">{post.category}</span>
- <h1 class="mb-6 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl lg:text-5xl">{post.title}</h1>
- <p class="mb-8 text-xl leading-relaxed text-ash">
- The new heat standard changes how Vegas crews dress in summer. Here's what's required, what's recommended, and what your safety officer is going to ask about when they start.
- </p>
+  <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8">
+   <img src={post.image} alt={post.imageAlt} width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" />
+  </div>
 
- <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash">
- <span class="text-gold-600">Bighorn Threads Team</span>
- <span aria-hidden="true">&middot;</span>
- <span>{post.readTime}</span>
- <span aria-hidden="true">&middot;</span>
- <time datetime={post.isoDate}>{post.date}</time>
- </div>
- </div>
- </header>
+  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+   <aside class="mb-10 border border-hairline bg-panel p-7">
+    <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
+    <p class="text-lg leading-relaxed text-charcoal sm:text-xl">Workwear is one input in heat-risk planning. The employer must evaluate the task, weather, workload, duration, radiant heat, air movement, protective clothing, and other PPE. No shirt can certify compliance by itself.</p>
+   </aside>
 
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8">
- <img src={post.image} alt={post.imageAlt} width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" />
- </div>
+   <p class="mb-6 text-lg leading-relaxed text-charcoal">Nevada approved Regulation R131-24 in 2024. Nevada OSHA's official guidance says covered employers must perform a written job hazard analysis for occupational heat exposure. The analysis must be reviewed when a job task materially changes.</p>
+   <p class="mb-6 text-lg leading-relaxed text-charcoal">The regulation and guidance control. This article is educational and is not legal, medical, or safety advice.</p>
 
- <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
- <aside class="mb-12 border border-hairline bg-panel p-6 lg:sticky lg:top-24">
- <h2 class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-700">In this article</h2>
- <ol class="space-y-2 font-mono text-sm text-ash">
- <li><a href="#what-the-rule-requires" class="hover:text-gold-600">1. What the rule requires</a></li>
- <li><a href="#workwear-implications" class="hover:text-gold-600">2. What it means for workwear</a></li>
- <li><a href="#hi-vis-in-summer" class="hover:text-gold-600">3. Hi-vis crews in 110° summers</a></li>
- <li><a href="#fr-in-summer" class="hover:text-gold-600">4. FR crews in Vegas heat</a></li>
- <li><a href="#what-to-spec" class="hover:text-gold-600">5. What to actually spec</a></li>
-  </ol>
- </aside>
+   <h2 id="official-sources" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Start With Current Nevada OSHA Sources</h2>
+   <p class="mb-6 text-lg leading-relaxed text-charcoal">Read the <a href="https://www.leg.state.nv.us/Register/2024Register/R131-24AP.pdf" rel="noopener" target="_blank" class="text-gold-700 underline hover:text-gold-600">approved regulation</a> and <a href="https://dir.nv.gov/uploadedFiles/dirnvgov/content/OSHA/Guidance/2025-01-29%20%28Heat%20Illness%20Prevention%20Guidance%29.pdf" rel="noopener" target="_blank" class="text-gold-700 underline hover:text-gold-600">Nevada OSHA guidance</a>. Check the <a href="https://dir.nv.gov/OSHA/Home/" rel="noopener" target="_blank" class="text-gold-700 underline hover:text-gold-600">Nevada OSHA home page</a> for updates.</p>
+   <p class="mb-6 text-lg leading-relaxed text-charcoal">The official materials distinguish required actions from recommended practices. They also explain coverage, written safety program duties, training, emergency response, and climate-controlled exemptions.</p>
 
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Nevada has the highest sustained summer temperatures of any state in the union, and Las Vegas construction crews work through every degree of it. In 2026, Nevada's adopted heat illness prevention standard formalizes what most good contractors were already doing — but with documentation requirements, training mandates, and PPE expectations that are now enforceable.
- </p>
+   <h2 id="hazard-analysis" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Connect Apparel to the Job Hazard Analysis</h2>
+   <p class="mb-6 text-lg leading-relaxed text-charcoal">Do not choose a summer uniform from temperature alone. Document the actual job and all required protection.</p>
+   <ul class="mb-8 ml-6 list-disc space-y-3 text-lg leading-relaxed text-charcoal">
+    <li><strong>Work conditions.</strong> Review air temperature, humidity, radiant and conductive heat, air movement, workload, and exposure duration.</li>
+    <li><strong>Protective system.</strong> Include required high-visibility, arc-rated, flame-resistant, chemical, cut, and other PPE.</li>
+    <li><strong>Garment documents.</strong> Compare product labels, fabric details, care instructions, and manufacturer data.</li>
+    <li><strong>Worker factors.</strong> Follow the employer's program for training, communication, acclimatization, monitoring, and emergency response.</li>
+   </ul>
 
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- This isn't a legal compliance manual. We outfit Vegas trades — electrical contractors, road crews, framers, roofers, and utility teams — figuring out which workwear actually keeps people working when the asphalt's at 145°. Here's what the new rule changes for your crew's apparel program — and what to do about it.
- </p>
+   <h2 id="workwear-review" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Questions to Ask Before Ordering Workwear</h2>
+   <ul class="mb-8 ml-6 list-disc space-y-3 text-lg leading-relaxed text-charcoal">
+    <li>Which hazards and project rules apply to each role?</li>
+    <li>Which garment classifications and manufacturer documents are required?</li>
+    <li>How do fabric weight, construction, color, ventilation, fit, and layering affect the complete program?</li>
+    <li>Will decoration add ink, thread, backing, heat, or covered area that needs manufacturer review?</li>
+    <li>Are every product, size, substitution, price, and delivery term confirmed in writing?</li>
+   </ul>
 
- <h2 id="what-the-rule-requires" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">1. What the Nevada Heat Rule Actually Requires</h2>
+   <h2 id="hi-vis-fr" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Heat Planning With Hi-Vis and FR Requirements</h2>
+   <p class="mb-6 text-lg leading-relaxed text-charcoal">Heat exposure does not cancel another identified hazard. If the employer requires high-visibility or arc-rated apparel, evaluate products within that approved category.</p>
+   <p class="mb-6 text-lg leading-relaxed text-charcoal">Review the exact product with the employer, safety lead, and manufacturer. Do not infer a garment's class, arc rating, or suitability from color, fabric weight, or marketing language.</p>
+   <p class="mb-6 text-lg leading-relaxed text-charcoal">Decoration can affect a protective garment. Obtain written approval for thread, backing, ink, curing, size, and placement before production.</p>
 
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Nevada's heat illness prevention regulation, adopted under NRS 618 and enforced by Nevada OSHA, requires employers with outdoor workers exposed to high heat to maintain a written heat illness prevention plan covering five core elements:
- </p>
+   <h2 id="quote" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">What Bighorn Can Put in a Quote</h2>
+   <p class="mb-6 text-lg leading-relaxed text-charcoal">Bighorn can coordinate product options through selected production partners. A proposal can identify the exact garments, available product documents, decoration plan, quantities, pricing, and expected timing.</p>
+   <p class="mb-6 text-lg leading-relaxed text-charcoal">Availability, substitutions, freight, documentation, and production terms depend on the selected partner. Your employer and safety lead approve the final product.</p>
 
- <ul class="mb-8 ml-6 list-disc space-y-2 text-lg leading-relaxed text-charcoal">
- <li><strong>Cool drinking water</strong> — accessible, replenished, and at a temperature workers will actually drink.</li>
- <li><strong>Shade or cool-down areas</strong> — covered or air-conditioned spaces large enough for the crew to take rest breaks during high-heat conditions.</li>
- <li><strong>Paid recovery breaks</strong> — when conditions exceed thresholds (typically 95°F triggers heightened requirements), workers must be given preventive cool-down rest periods.</li>
- <li><strong>Heat illness training</strong> — every worker, every supervisor, before exposure. Documented in writing.</li>
- <li><strong>Emergency response procedures</strong> — including how heat-related symptoms get reported, treated, and escalated.</li>
- </ul>
+   <section class="mt-12 border border-hairline bg-panel p-8">
+    <h2 class="mb-3 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal">Review workwear options for your heat plan</h2>
+    <p class="mb-6 text-lg text-ash">Send the crew roles, work environment, required PPE, quantities, and current garment list. We will build a written proposal for employer review.</p>
+    <a href="/contact/" class="btn-primary text-base">Request a Workwear Review</a>
+   </section>
 
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- The standard does not specify exact garments. But it does require that workwear and PPE selection consider heat stress — meaning the gear you require your crew to wear can't itself become the hazard. That's where workwear specs come in.
- </p>
-
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- For the full text and Nevada-specific implementation details, see our <a href="/safety-compliance/nevada-osha-heat-rules-2026/" class="text-gold-700 underline hover:text-gold-600">Nevada OSHA heat rules compliance guide</a>.
- </p>
-
- <h2 id="workwear-implications" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">2. What This Means for Your Workwear Program</h2>
-
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Before the rule, "company gear" was mostly a branding decision. After the rule, it's also a heat-illness prevention decision. The same logo can land on a 6.5 oz cotton tee or a 4 oz moisture-wicking poly performance shirt — but only one of them is defensible in a Nevada OSHA inspection following a heat-related incident.
- </p>
-
- <h3 class="mt-8 mb-3 font-heading text-xl font-bold text-charcoal">Fabric weight matters more than it used to</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- A 9 oz heavyweight cotton tee was the trade standard for years because it held up to wash cycles and didn't pill. In a 110° Vegas summer, that same shirt traps body heat and slows sweat evaporation. The shift now is toward 4–5.5 oz blends — still durable enough for jobsite wear, dramatically better for body temperature regulation. Performance polyester, poly-cotton blends, and moisture-wicking cotton-tech blends from Carhartt's Force line, Bayside's performance line, and Port Authority's PosiCharge fabrics all hit this spec.
- </p>
-
- <h3 class="mt-8 mb-3 font-heading text-xl font-bold text-charcoal">Color matters</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Dark navy and black look sharp on a polo and absorb 30–40% more solar radiation than white, gray, or khaki. For roof crews, road crews, and any trade in direct sun, lighter shirt colors meaningfully reduce heat load. Save the dark colors for office staff, evening events, and indoor service techs.
- </p>
-
- <h3 class="mt-8 mb-3 font-heading text-xl font-bold text-charcoal">Sleeve length is a tradeoff</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Long sleeves protect from sun exposure and reduce skin cancer risk on long-term outdoor crews — but only if the fabric breathes. A long-sleeve technical UPF shirt outperforms a short-sleeve heavy cotton tee on hot days. Crews working multiple summers outdoors should consider lightweight UPF 30+ long sleeve performance shirts as their standard summer issue, even though it sounds counterintuitive.
- </p>
-
- <h2 id="hi-vis-in-summer" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">3. Hi-Vis Crews in 110° Summers</h2>
-
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Road crews, utility contractors, paving crews, traffic control, and any trade working near vehicle traffic still need <a href="/safety-compliance/ansi-107-hi-vis-guide/" class="text-gold-700 underline hover:text-gold-600">ANSI 107 Class 2 or Class 3 hi-vis</a>. The heat rule doesn't waive that requirement. But it does push you toward hi-vis options that don't double the heat load.
- </p>
-
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Look for hi-vis shirts with mesh-back panels, performance fabric construction (poly mesh or birdseye knit), and ventilated underarm gussets. ML Kishigo's Premium Black Series hi-vis tees, Radians' Cooling Series, and OccuNomix's mesh-back vests all hit this category. The retroreflective tape coverage stays compliant; the fabric stays breathable.
- </p>
-
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- For night-shift utility crews working in cooler conditions, the standard polyester hi-vis is still fine. But for daytime road work in July, mesh-back is the spec. We carry both and we'll quote both options on every hi-vis request so you can make the call by season.
- </p>
-
- <h2 id="fr-in-summer" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">4. FR Crews in Vegas Heat</h2>
-
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Electrical, solar, and arc-flash work still requires <a href="/safety-compliance/nfpa-70e-embroidery-guide/" class="text-gold-700 underline hover:text-gold-600">NFPA 70E flame-resistant apparel</a> at the appropriate CAT rating. The heat rule doesn't change that — but it does force a real conversation about FR fabric weight in summer.
- </p>
-
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Heavyweight 9 oz canvas FR shirts are arc-rated for serious incident energy, but they're miserable in Vegas summer. The play is to spec lightweight FR — 5.5 to 7 oz — that still hits the CAT 1 or CAT 2 rating you need without becoming a heat casualty risk. Bulwark's iQ Series, Carhartt FR's lightweight twill, and Wrangler FR's lightweight ripstop all run in the 5–6 oz range while maintaining 8 cal/cm² protection. That's the sweet spot for most Vegas commercial electrical work in summer.
- </p>
-
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- For decoration: standard polyester thread and screen-printed logos can compromise FR certification. We use FR-safe inks and Nomex thread on every FR garment we decorate. Documentation goes with the order so your safety officer can show the inspector exactly what was used.
- </p>
-
- <h2 id="what-to-spec" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">5. What to Actually Spec for a 2026 Summer-Ready Crew</h2>
-
- <div class="my-10 border-l-4 border-gold-500 bg-panel p-6">
- <p class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-700">Quick spec sheet</p>
- <ul class="space-y-3 text-base leading-relaxed text-charcoal">
- <li><strong>General field crew (framers, concrete, GC labor):</strong> 4.5 oz performance cotton-poly blend tee, light gray or khaki, embroidered or screen-printed left chest. Carhartt Force, Bayside Performance, or Port Authority PosiCharge.</li>
- <li><strong>Road / utility / paving:</strong> ANSI 107 Class 2 mesh-back hi-vis polo or tee, lime-yellow. ML Kishigo Premium Black Series or Radians Cooling Series.</li>
- <li><strong>Electrical / solar:</strong> Lightweight FR shirt at 5.5–7 oz, CAT 2 (8 cal/cm²) minimum. Bulwark iQ Series or Carhartt FR Lightweight.</li>
- <li><strong>Office / PM / client-facing:</strong> Performance polo with moisture-wicking, light to mid-tone colors. Cutter & Buck DryTec or Nike Dri-FIT.</li>
- <li><strong>Outerwear (mornings / shoulder season):</strong> Lightweight UPF long-sleeve sun shirt for daytime layering — replaces the old "long-sleeve cotton tee under hi-vis vest" combo that traps heat.</li>
- </ul>
- </div>
-
- <p class="mb-6 text-lg leading-relaxed text-charcoal">
- If you're outfitting a new crew or refreshing your <a href="/services/company-stores/" class="text-gold-700 underline hover:text-gold-600">company store</a> for the 2026 season, swap any 9 oz heavyweight cotton tees out of the catalog before April. Replace with performance-blend shirts at the same price point. Your crew will work longer hours without heat issues, and your heat illness prevention plan documentation will reflect a deliberate workwear choice — which is what an inspector wants to see.
- </p>
-
- <div class="my-12 border border-hairline bg-panel p-8">
- <h3 class="mb-3 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal">Spec a heat-compliant workwear program for your 2026 crew</h3>
- <p class="mb-6 text-lg text-ash">
- We'll review your current apparel program, flag any garments that conflict with the new heat standard, and quote replacements at the same price tier. Free, no obligation, local production.
- </p>
- <a href="/contact/" class="btn-primary text-base">
- Request a Workwear Review
- </a>
- </div>
- </div>
+   <section class="mt-12">
+    <h2 class="mb-6 font-heading text-3xl font-bold tracking-tight text-charcoal">Frequently Asked Questions</h2>
+    <div class="space-y-5">
+     {faqs.map((faq) => (
+      <div class="border border-hairline bg-paper p-6">
+       <h3 class="mb-2 font-heading text-xl font-bold text-charcoal">{faq.q}</h3>
+       <p class="text-base leading-relaxed text-ash">{faq.a}</p>
+      </div>
+     ))}
+    </div>
+   </section>
+  </div>
  </article>
 </BaseLayout>

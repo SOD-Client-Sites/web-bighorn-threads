@@ -4,7 +4,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 const post = {
  title: 'Minimum Order Quantity for Embroidery and Screen Printing: What\'s Realistic',
  description:
- 'Most embroidery and screen-print shops set 12-24 pieces as the practical minimum. Here\'s why MOQs exist, what drives them, and how to get small-batch (1-12 piece) work done when you genuinely need it.',
+ 'Embroidery and screen-printing minimums vary by product, artwork, method, and production partner. Learn what drives small-batch pricing.',
  category: 'Operational',
  readTime: '7 min read',
  date: 'May 9, 2026',
@@ -14,19 +14,19 @@ const post = {
 }
 
 const faqs = [
- { q: 'What\'s the minimum order for custom embroidered shirts?', a: 'Most commercial embroidery shops set 12-24 pieces as the practical minimum. Below that, per-piece pricing climbs because digitizing fees and setup are amortized over fewer shirts. Below 12 pieces, embroidery may not be cost-effective compared to alternatives like heat-transfer vinyl or DTF (direct-to-film).' },
- { q: 'What\'s the minimum order for screen printing?', a: 'Most commercial screen printing shops set 24 pieces as the practical floor. Setup costs — screen burning, ink mixing, registration — don\'t amortize well below 24. For 12-24 piece runs, expect higher per-piece pricing. Below 12, screen printing rarely makes financial sense vs. heat transfer or DTF.' },
- { q: 'Can I get 6 custom shirts made?', a: 'Yes, but not via traditional embroidery or screen printing economics. For runs under 12 pieces, the alternatives are: heat-transfer vinyl (HTV), direct-to-film (DTF) printing, sublimation (for polyester), or premium small-batch embroidery with a small-order surcharge. The output looks similar; the cost structure is just different.' },
- { q: 'Why do embroidery shops have minimums?', a: 'Setup costs. Digitizing the logo (a one-time fee per logo), thread color matching, hooping, and machine prep all happen regardless of order quantity. At 24+ pieces, the setup is amortized to a few cents per shirt. At 6 pieces, the setup adds significant per-piece cost.' },
- { q: 'How do I get cheaper per-piece pricing?', a: 'Order more pieces in a single run. The biggest cost lever in custom apparel is quantity. A 24-piece order is typically 30-50% more expensive per piece than a 144-piece order of the same shirt and decoration. For ongoing programs, batching reorders monthly or quarterly captures the volume discount.' },
- { q: 'Can I combine multiple orders to hit a minimum?', a: 'Sometimes. If you have multiple decorations on the same blank, the shop might combine the artwork into a single press run and split the finished pieces between your orders. Talk to the shop — most are willing to combine when it makes sense.' },
- { q: 'What\'s the difference between minimum order and minimum run?', a: 'Minimum order is the smallest total piece count the shop will accept (typically 12-24). Minimum run is the smallest piece count of a single SKU/color/decoration combination — sometimes shops have a 6-piece minimum per color or per garment style within a larger order.' },
+ { q: 'What\'s the minimum order for custom embroidered shirts?', a: 'Minimums depend on the garment, artwork, placement, selected production partner, and current capacity. Send your required quantity for a written quote.' },
+ { q: 'What\'s the minimum order for screen printing?', a: 'Minimums depend on the garment, artwork, colors, placements, selected production partner, and current capacity. Send your required quantity for a written quote.' },
+ { q: 'Can I get a small custom shirt order?', a: 'A small order may be available through embroidery, screen printing, HTV, DTF, or sublimation. Product compatibility, minimums, setup, and pricing require a written quote.' },
+ { q: 'Why do embroidery shops have minimums?', a: 'File preparation, thread setup, hooping, proofing, and machine preparation can create fixed work. The quote confirms any setup and how quantity affects unit pricing.' },
+ { q: 'How do I get lower per-piece pricing?', a: 'Ask for written quantity breaks on the same garment and decoration specification. A larger order may lower unit pricing, but the result depends on current partner terms.' },
+ { q: 'Can I combine multiple orders to hit a minimum?', a: 'It depends on garment, artwork, color, placement, scheduling, and partner terms. Ask the selected partner to confirm whether the specifications can share a run.' },
+ { q: 'What\'s the difference between minimum order and minimum run?', a: 'Minimum order can refer to the total accepted quantity. Minimum run can apply to each garment, color, artwork, or placement combination. Confirm both in the quote.' },
 ]
 
 const schema = {
  '@context': 'https://schema.org',
  '@graph': [
- { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: post.isoDate, author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
+ { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: '2026-08-21', author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
  { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' }, { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` }] },
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
@@ -62,54 +62,54 @@ const speakableSchema = {
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Most commercial embroidery shops set 12-24 pieces as the minimum order; most screen print shops set 24 as the floor. Below those quantities, setup costs (digitizing, screen burning, ink mixing) don't amortize well and per-piece pricing climbs sharply. For very small runs (1-12), heat-transfer vinyl or DTF (direct-to-film) printing offers different economics that work for small batches.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Embroidery and screen-printing minimums vary by product, artwork, placement, partner capacity, and current terms. Ask for a written quote that shows setup, unit pricing, and quantity breaks.</p>
  </aside>
 
  <h2 id="why-moqs" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Why Minimum Orders Exist</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">Custom apparel decoration has fixed setup costs that happen once per run regardless of quantity:</p>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
- <li><strong>Digitizing</strong> (embroidery) — a one-time fee per logo, converts your logo into a stitch file the machine can read.</li>
- <li><strong>Screen burning</strong> (screen printing) — one-time per color per run; the screen has to be coated with emulsion, exposed, washed out, and registered.</li>
+ <li><strong>Digitizing</strong> converts approved artwork into an embroidery production file. Setup, reuse, and retention terms require confirmation.</li>
+ <li><strong>Screen preparation</strong> can require separate work for each color and run.</li>
  <li><strong>Ink mixing</strong> (screen printing) — pantone color matching takes time and ink that isn't recoverable.</li>
  <li><strong>Hooping / press setup</strong> — the machine has to be threaded, tensioned, and registered for each run.</li>
  <li><strong>Color matching + proofing</strong> — making sure the output matches expectations.</li>
  </ul>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">At 24 pieces, that setup is amortized down to a small per-shirt cost. At 6 pieces, it's spread over far fewer shirts — making the per-piece total often higher than buying retail. The setup math also differs by method, which is part of <a href="/blog/screen-printing-vs-embroidery-construction/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">choosing between screen printing and embroidery</a> in the first place.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Fixed setup work spreads across the approved quantity. The effect on unit pricing varies by method, artwork, and partner. Compare written quantity breaks when <a href="/screen-printing-vs-embroidery-construction-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">choosing between screen printing and embroidery</a>.</p>
 
- <h2 id="alternatives" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Alternatives for Small Batches (1-12 pieces)</h2>
+ <h2 id="alternatives" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Alternatives for Small Batches</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">For runs under the embroidery/screen-print MOQ, four alternatives have different economics:</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Heat-Transfer Vinyl (HTV)</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">A vinyl decal is laser-cut from your logo, then heat-pressed onto the garment. Per-piece cost is low because there's no setup beyond the cut file. Output is a solid-color flat decal that works for simple logos and team names. Limitations: gradients and fine detail don't translate, and the decal can lift over time after many washes.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">HTV is one method to compare for eligible garments and artwork. Setup, unit pricing, finish, detail, durability, compatibility, and care depend on the exact system, application, partner, use, and written quote.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Direct-to-Film (DTF)</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">A newer technology that prints your design onto a film, then heat-transfers it to the garment. Handles full-color gradients and detail that HTV can't. Per-piece cost is low because there's minimal setup. Durability is improving but generally less than properly cured plastisol screen prints.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">DTF is another method to compare for eligible garments and artwork. Setup, unit pricing, color, detail, finish, durability, compatibility, and care depend on the exact system, application, partner, use, and written quote.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Sublimation (polyester only)</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Heat-transfers dye into polyester fibers permanently. Excellent durability and color reproduction, but only works on white or light-colored polyester. Common for athletic wear and event tees.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Sublimation transfers dye into compatible polyester material. The exact blank, color, process, care, minimum, and price require confirmation.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Small-batch embroidery with surcharge</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Some shops will run 4-12 piece embroidery orders with a small-order surcharge that covers the setup. Per-piece price is higher but you get the premium look of stitched embroidery on a polo or work shirt. Worth asking for if HTV/DTF doesn't fit the use case.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Some production partners may support small embroidery orders. Ask for the current minimum, setup, unit price, and any small-order charge in writing.</p>
 
  <h2 id="optimizing-larger" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Optimizing Larger Orders for Better Per-Piece Pricing</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">Three patterns that capture volume discount without overshooting demand:</p>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
- <li><strong>Batch monthly or quarterly.</strong> Instead of ordering 12 pieces for new hires every month, batch into a 36-piece quarterly order. Per-piece pricing drops without overstocking.</li>
- <li><strong>Standardize SKUs.</strong> If you can run the same Carhartt K87 in three colors (24 black, 12 navy, 12 charcoal) the entire 48-piece batch shares setup costs.</li>
- <li><strong>Use a <a href="/company-stores/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">company store</a>.</strong> Aggregate employee orders into a single weekly or monthly press run. Bigger run, lower per-piece cost, no inventory overhead.</li>
+ <li><strong>Batch planned reorders.</strong> Compare written quantity breaks before increasing the order. Include expected usage and overstock risk.</li>
+ <li><strong>Standardize specifications.</strong> Reusing the same garment, artwork, and placement may reduce setup work. The quote confirms whether the partner can combine the run.</li>
+ <li><strong>Consider a <a href="/company-stores/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">company store</a>.</strong> A program may organize employee orders around an approved catalog. Batch timing, pricing, inventory responsibility, and fulfillment depend on the written setup.</li>
  </ul>
 
  <h2 id="other-factors" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Other Cost Factors Beyond Quantity</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">Even within a single quantity tier, three factors move the per-piece price meaningfully:</p>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Stitch count or color count.</strong> A simple bold logo embroiders cheaper than a detailed multi-color one. A single-color screen print costs much less than a 6-color print. See <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">how much to embroider a shirt</a> for the full pricing breakdown.</li>
- <li><strong>Garment cost.</strong> A Gildan 2000 vs. a Bulwark FR shirt is a 10x cost spread on the blank.</li>
+ <li><strong>Garment cost.</strong> Basic and protective garments can have very different prices. Compare current quotes for the exact products.</li>
  <li><strong>Decoration placements.</strong> A single left-chest logo costs less than a chest + sleeve + back combination because each placement is a separate press operation.</li>
  </ul>
 
  <div class="mt-12 border border-hairline bg-gold-500/5 p-7 sm:p-9">
  <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-charcoal">Need to figure out the right order size?</h2>
- <p class="mb-5 text-lg leading-relaxed text-charcoal">Bighorn Threads quotes embroidery and screen printing for Vegas contractors, trades, and crews of all sizes. We'll tell you straight when small-batch HTV or DTF makes more sense than traditional embroidery, and we'll help you size larger orders for the volume discount.</p>
+ <p class="mb-5 text-lg leading-relaxed text-charcoal">Bighorn Threads coordinates embroidery, screen printing, and other available decoration methods through production partners. The quote confirms the current minimum, setup, unit pricing, and any quantity break for the selected specification.</p>
  <a href="/get-a-quote/" class="inline-flex min-h-[48px] items-center gap-2 bg-gold-500 px-7 py-3 text-base font-bold text-charcoal transition-all hover:bg-gold-600">Get a Quote →</a>
  </div>
  </div>

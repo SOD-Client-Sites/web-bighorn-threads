@@ -2,32 +2,32 @@
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const page = {
- title: 'How to Choose a Custom Apparel Company | 6-Point Checklist — Bighorn Threads',
+ title: 'How to Choose a Custom Apparel Company | 6-Point Checklist | Bighorn Threads',
  description:
- 'Six criteria to evaluate any custom apparel company before you order: in-house decoration, digitizing quality, MOQ, turnaround, compliance capability, and reorder process. Bighorn Threads handles all six in-house.',
+ 'Six criteria to evaluate any custom apparel company: production accountability, artwork quality, minimums, written timing, garment suitability, and reorders.',
  hero: '/images/generated/hero-foreman.jpg',
  url: 'https://bighornthreads.com/how-to-choose-custom-apparel-company/',
 }
 
 const criteria = [
- { num: '01', title: 'In-house decoration vs. outsourced', body: "Ask directly: does the shop run embroidery and screen printing on-site, or does it broker the job to a third party? Outsourced production adds time, removes quality control, and means nobody on your call has actually seen the garment." },
- { num: '02', title: 'Digitizing quality', body: "Embroidery starts with converting your logo into a stitch file. A bad digitizing job shows up as fuzzy detail, wrong proportions, or thread that puckers the fabric. Ask to see a digitized sample on the actual garment type you are ordering, not a stock photo." },
+ { num: '01', title: 'Production accountability', body: 'Ask who manages your order and who performs each production step. A good provider explains its model, names your accountable contact, and documents the approved specification.' },
+ { num: '02', title: 'Digitizing review', body: 'Embroidery requires a stitch file prepared for the exact artwork, garment, size, backing, hooping, machine, and placement. Ask for a proof or sample and approve the production-specific treatment.' },
  { num: '03', title: 'Minimum-order flexibility', body: 'Ask for the minimum by garment and decoration method. Also ask whether a small reorder can use a different method or pricing structure instead of waiting for a larger batch.' },
- { num: '04', title: 'Turnaround SLA', body: 'Get a specific business-day number, not "a couple weeks." Ask what happens to that number during a rush — and whether rush options exist at all.' },
- { num: '05', title: 'Compliance capability (FR, ANSI)', body: "If any part of your order is flame-resistant or ANSI hi-vis rated, ask specifically how the shop verifies the decoration will not void the certification. Most generalist shops do not have an answer." },
- { num: '06', title: 'Reorder process', body: 'Ask what happens when you need 10 more of the same shirt in 18 months. The right answer: your logo file and specs are on file, no re-digitizing, no re-proofing, no surprises.' },
+ { num: '04', title: 'Written timing', body: 'Get the current production timing in writing for your exact garment, artwork, quantity, and delivery requirements.' },
+ { num: '05', title: 'Protective-apparel process', body: 'The employer selects protective apparel. Require current manufacturer approval for the exact decoration method and placement before production; a shop cannot certify the complete workplace PPE system.' },
+ { num: '06', title: 'Reorder process', body: 'Ask which artwork and production specifications remain available. Also ask what must be reviewed again when products or requirements change.' },
 ]
 
 const faqs = [
- { q: 'How do I choose the right custom apparel company?', a: 'Evaluate any custom apparel company on six criteria: decoration ownership, digitizing quality, minimum-order flexibility, written turnaround, garment suitability, and the reorder process. Ask each provider to answer against the same order specification.' },
- { q: "What's the biggest red flag when picking a custom apparel vendor?", a: "A vendor that cannot tell you whether decoration is done in-house or outsourced. If they do not know or dodge the question, assume it is outsourced — which usually means longer turnaround, less quality control, and no one accountable if the run comes back wrong." },
- { q: 'Should I ask for a physical sample before placing a full order?', a: 'Yes, always, for any order over a handful of pieces. A reputable shop will produce a sample or proof on the actual garment and decoration method before running the full batch — especially for embroidery, where the stitch-out can look different from the digital mockup.' },
- { q: 'Does a lower price always mean lower quality?', a: "Not always, but it is the most common correlation. The biggest hidden cost differences come from digitizing quality, garment grade, and whether compliance verification happens at all — none of which show up in a quoted unit price until the gear is in your hands." },
- { q: 'How important is local production vs. a national vendor?', a: 'It depends on your needs. Local production means faster turnaround, in-person sample checks, and a real account contact. A national vendor can work fine for simple, low-stakes orders, but loses ground fast once compliance gear or tight reorder timing is involved.' },
- { q: 'What questions should I ask before signing a contract with an apparel vendor?', a: "Ask: Is decoration done in-house? What is your standard turnaround in business days? What is your MOQ per product? Can you handle FR or ANSI-rated gear? What happens on a reorder 18 months from now? A vendor that answers all six specifically, without hedging, is worth trusting with your account." },
+ { q: 'How do I choose the right custom apparel company?', a: 'Evaluate each company on production accountability, artwork quality, minimums, written timing, garment suitability, and reorders. Ask every provider to quote the same order specification.' },
+ { q: "What's the biggest red flag when picking a custom apparel vendor?", a: 'A vendor that cannot explain who manages the order, who performs production, and who owns problems. Transparent providers document the process before you approve it.' },
+ { q: 'Should I ask for a physical sample before placing a full order?', a: 'Ask what proof or sample options are available for your order. Confirm any related cost, timing, and approval terms in writing.' },
+ { q: 'Does a lower price always mean lower quality?', a: 'No. Compare itemized quotes against the same garment, artwork, decoration, quantity, timing, and reorder terms. Price alone does not explain the complete order.' },
+ { q: 'How important is a local account contact?', a: 'A local contact can make requirement reviews and communication easier. Production location alone does not guarantee timing or quality. Compare the complete process in writing.' },
+ { q: 'What questions should I ask before signing a contract with an apparel vendor?', a: 'Ask who manages the order, who performs production, what the current minimum and timing are, how artwork approval works, and how reorders are reviewed.' },
 ]
 
-const leadAnswer = 'Choose a custom apparel company on six criteria: decoration ownership, digitizing quality, minimum-order flexibility, written turnaround, garment suitability, and the reorder process. Use the same order specification for every provider, then compare the answers in writing.'
+const leadAnswer = 'Choose a custom apparel company on six criteria: production accountability, artwork quality, minimums, written timing, garment suitability, and the reorder process. Use the same order specification for every provider.'
 
 const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
@@ -62,7 +62,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  Six questions <span class="text-gold-400">before you sign with any apparel vendor.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- Decoration ownership, digitizing, minimums, written timing, garment suitability, and the reorder process. Ask every provider the same six questions.
+ Production accountability, artwork, minimums, written timing, garment suitability, and reorders. Ask every provider the same six questions.
  </p>
  <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
  <a href="/get-a-quote/" class="btn-primary text-base">
@@ -106,13 +106,13 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">Why most apparel vendor comparisons miss the real risk.</h2>
  <div class="space-y-5 text-lg leading-relaxed text-ash">
  <p>
- Most buyers compare apparel companies on price per shirt, which is the easiest number to see and the worst predictor of whether the order goes smoothly. Price doesn't tell you whether decoration happens in-house, whether digitizing is done by someone who knows what they're doing, or whether a reorder eighteen months from now will match the original.
+ Most buyers start with price per shirt. That number does not explain who owns the order, how artwork gets approved, or what happens when you reorder later.
  </p>
  <p>
- The six criteria above surface the risk that price hides. A shop that outsources decoration can't control quality or timeline — they're reselling someone else's production schedule. A shop with bad digitizing will hand you a logo that looks fine on screen and wrong on fabric. And a shop with no compliance process will happily print on your FR shirts using standard plastisol ink, which can compromise the rating.
+ The six criteria above expose the details that price hides. Partner production can work well when the provider documents responsibilities, specifications, approvals, and timing. Poor artwork or unclear ownership creates avoidable risk in any production model.
  </p>
  <p>
- Bighorn Threads offers <a href="/blog/embroidery-shop-las-vegas-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">embroidery</a> and screen printing from Las Vegas. See the <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">logo digitizing breakdown</a> for questions to ask about artwork. Minimums, timing, and garment requirements are confirmed for the specific order.
+ Bighorn Threads provides Las Vegas account management and coordinates <a href="/blog/embroidery-shop-las-vegas-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">embroidery</a> and screen printing through production partners. See the <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">logo digitizing breakdown</a> for questions to ask about artwork. Minimums, timing, and garment requirements are confirmed for the specific order.
  </p>
  <p>
  On reorders, ask which artwork and production specifications remain available, whether the original garment is still available, and what must be reviewed again. Consistency depends on both the saved production information and the current materials.
@@ -167,9 +167,9 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
  <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Run the checklist against us.</h2>
- <p class="mb-8 text-lg text-navy-200">Send your logo and garment list — we'll answer all six, in writing.</p>
+ <p class="mb-8 text-lg text-navy-200">Send your logo and garment list. We'll answer all six in writing.</p>
  <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
- <a href="/get-a-quote/" class="btn-primary text-base">Get a Free Quote</a>
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
  </div>
  </div>

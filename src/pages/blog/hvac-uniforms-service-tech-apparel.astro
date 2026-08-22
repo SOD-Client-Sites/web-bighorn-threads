@@ -2,9 +2,9 @@
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const post = {
- title: 'HVAC Service Tech Uniforms: What Vegas Crews Actually Wear',
+ title: 'HVAC Service Tech Uniforms: A Las Vegas Buyer\'s Guide',
  description:
- 'HVAC service techs in Las Vegas wear moisture-wicking polos for residential calls, Red Kap mechanic shirts for commercial work, and branded jackets for cool-morning installs. Here\'s the actual spec — what techs wear, what wears well in 130° attics, and how to brand it.',
+ 'Compare HVAC service tech uniforms for Las Vegas work. Review products, role needs, heat exposure, employer requirements, decoration, care, availability, and current order terms.',
  category: 'Trades',
  readTime: '8 min read',
  date: 'May 9, 2026',
@@ -14,19 +14,19 @@ const post = {
 }
 
 const faqs = [
- { q: 'What do HVAC workers wear?', a: 'HVAC service techs in residential roles typically wear embroidered polos with the company logo, technician name, and Nevada State Contractors Board license number. Commercial and install crews wear mechanic-style work shirts (Red Kap SP14 or SY24) with woven name patches. In summer, both groups switch to moisture-wicking poly fabrics to handle 110°+ ambient and 130°+ attic temperatures.' },
- { q: 'What\'s the best uniform for HVAC techs in Vegas summer?', a: 'Moisture-wicking polo (Port Authority K540) for residential service or moisture-wicking work shirt (Red Kap SY24) for commercial. Cotton-blend shirts soak through by 11 AM in July; performance fabrics keep wicking even after multiple service calls. Pair with vented work pants and a wide-brim cap for outdoor unit work.' },
- { q: 'Do HVAC techs wear FR shirts?', a: 'Most residential and light commercial HVAC techs don\'t need FR. FR is required for techs working on energized electrical panels (some commercial mechanical service) or in environments with arc-flash risk. Most HVAC service work is non-FR; the safety officer determines whether FR is required for specific roles or jobs.' },
- { q: 'What pants do HVAC techs wear?', a: 'Carhartt B11 work pants and Red Kap PT20/PT88 industrial work pants are the most-ordered. Some techs prefer Carhartt B324 carpenter pants with reinforced double-knee panels for crews doing a lot of attic and crawlspace work where the knees take constant abuse.' },
- { q: 'What\'s the dress code for an HVAC service tech?', a: 'Standard residential service: branded company polo with embroidered name and license number, work pants (Carhartt or Red Kap), closed-toe work boots, and a branded cap. The look should communicate "professional service business" the moment a homeowner opens the door — clean, branded, identifiable.' },
- { q: 'How many uniforms does an HVAC service tech need?', a: 'A typical baseline is 5 polos (or work shirts) per tech for a standard work week rotation, plus 2-3 work pants, 1 hoodie or quarter-zip for cool mornings, and 1-2 caps. Service techs working through Vegas summer often add 2-3 extra moisture-wicking polos to handle the rotation when shirts soak through during a day.' },
- { q: 'Where can I get custom HVAC uniforms in Las Vegas?', a: 'Bighorn Threads outfits Vegas HVAC and plumbing service shops with embroidered polos, mechanic-style work shirts, branded outerwear, and hard hat decals. We integrate with industrial laundry programs and pre-decorate shirts to match laundry inventory codes when needed.' },
+ { q: 'What do HVAC workers wear?', a: 'The employer selects workwear for each role, hazard, task, climate, and dress code. Polos, work shirts, pants, outerwear, and approved visibility or protective apparel may be options. Confirm the exact product, current manufacturer documentation, availability, and decoration before ordering.' },
+ { q: 'What\'s the best uniform for HVAC techs in Vegas summer?', a: 'There is no universal best uniform. Start with the employer\'s heat plan and task requirements. Compare exact products by fabric, fit, coverage, care, manufacturer performance data, availability, and current quote.' },
+ { q: 'Do HVAC techs wear FR shirts?', a: 'The employer must determine protective-apparel needs through its hazard assessment and applicable safety requirements. Do not assign FR or arc-rated apparel from a job title alone. Follow current manufacturer instructions for the exact garment and any decoration.' },
+ { q: 'Which pants should an HVAC team compare?', a: 'Carhartt B11 and selected Red Kap work pants may be options to compare. Review the exact product\'s construction, fit, care, protective status, availability, price, and manufacturer documentation for the intended work.' },
+ { q: 'What\'s the dress code for an HVAC service tech?', a: 'The employer sets the dress code for each role. A program may include branded tops, work pants, footwear, and identification. Confirm any license-display or safety requirement with the applicable authority before approving placement.' },
+ { q: 'How many uniforms does an HVAC service tech need?', a: 'Set quantities from the roster, schedule, changeout needs, laundry cycle, replacement policy, work conditions, and budget. Current product availability, quantity breaks, fees, and timing belong in the written quote.' },
+ { q: 'Where can I get custom HVAC uniforms in Las Vegas?', a: 'Bighorn Threads coordinates apparel programs for Vegas HVAC and plumbing shops. Selected production partners handle approved decoration. Your quote confirms exact products, availability, commercial terms, and timing. Laundry integration requires provider approval.' },
 ]
 
 const schema = {
  '@context': 'https://schema.org',
  '@graph': [
- { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: post.isoDate, author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
+ { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: '2026-08-21', author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
  { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' }, { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` }] },
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
@@ -53,66 +53,66 @@ const speakableSchema = {
  <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-700">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-700">Blog</a></nav>
  <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-600">{post.category}</span>
  <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
- <p class="mb-8 text-xl leading-relaxed text-ash">A working buyer's guide to HVAC service tech uniforms — what works in Vegas summer, how to spec by role, and what reads as "professional service business" at the customer\'s door.</p>
+ <p class="mb-8 text-xl leading-relaxed text-ash">A buyer's guide to HVAC service tech uniforms. Compare role needs, heat exposure, employer requirements, product documentation, and current order terms.</p>
  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
  </header>
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="HVAC service tech wearing embroidered Port Authority polo with company logo for Las Vegas residential service" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
+ <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Representative service-uniform apparel shown for role planning" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Las Vegas HVAC service techs wear moisture-wicking embroidered polos (Port Authority K540) for residential service work and Red Kap mechanic-style work shirts (SY24 Performance Plus) for commercial mechanical and install crews. Both feature company logo, technician name, and Nevada State Contractors Board license number. In summer, performance poly fabric is non-negotiable for 110°+ ambient and 130°+ attic temperatures.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Build an HVAC uniform program around each role, task, hazard, climate, and employer policy. Compare exact products by fit, fabric, care, current manufacturer data, availability, approved decoration, price, and timing.</p>
  </aside>
 
  <h2 id="why-it-matters" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Why HVAC Uniforms Are a Sales Tool</h2>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">An HVAC service call is a trust transaction. The homeowner is letting a stranger into their house to diagnose, charge, and repair a system they don\'t understand. The visual cues at the front door — clean uniformed tech, embroidered company logo, name on the chest, license number visible — close the trust gap before the tech speaks. A tech in a random t-shirt with a clipboard does the opposite.</p>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">For commercial mechanical service, the same logic applies in a different form: facility managers and building owners are looking for evidence the contracting company runs a professional operation. Coordinated branded uniforms across the crew is one of the cheapest, fastest signals a contractor can send.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Clear identification can help customers recognize an authorized service technician. Choose names, logos, license information, and other markings under the employer's policy and applicable requirements.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Commercial teams may also use coordinated apparel for identification. The program still needs to fit the work, safety requirements, budget, care process, and replacement plan.</p>
 
  <h2 id="role-spec" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Uniforms by Role</h2>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Residential Service Techs</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Front-of-house apparel. Standard kit:</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Possible options for customer-facing roles include:</p>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
- <li><strong>Embroidered moisture-wicking polo</strong> (Port Authority K540 Silk Touch Performance) with company logo on left chest, employee name on right chest</li>
- <li><strong>Carhartt B11 work pants</strong> or similar — durable, comfortable for crawl spaces and attic work</li>
+ <li><strong>Embroidered performance polo:</strong> Compare products such as the Port Authority K540. Confirm current fabric data, care, availability, and decoration compatibility.</li>
+ <li><strong>Work pants:</strong> Compare the Carhartt B11 or other exact products against the role, fit, use, care, and employer requirements.</li>
  <li><strong>Branded service cap</strong> (Richardson 112 trucker hat with embroidered logo)</li>
  <li><strong>Closed-toe work boots</strong> — separate from the workwear program</li>
  </ul>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Commercial / Install Crews</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Heavier-duty apparel for new install and commercial mechanical service. Standard kit:</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Possible options for install and commercial mechanical roles include:</p>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
- <li><strong>Red Kap SY24 Performance Plus Work Shirt</strong> — moisture-wicking poly version of the SP14, dual-button-front, two chest pockets</li>
- <li><strong>Red Kap PT20 or PT88 work pants</strong> — durable, industrial-laundry-compatible</li>
+ <li><strong>Red Kap SY24 Performance Plus Work Shirt:</strong> Verify current manufacturer specifications, care, availability, and decoration compatibility.</li>
+ <li><strong>Red Kap PT20 or PT88 work pants:</strong> Confirm the exact product with the employer and any laundry provider.</li>
  <li><strong>Branded jacket or quarter-zip</strong> for cool desert mornings</li>
- <li><strong>ANSI 107 hi-vis vest</strong> — required on jobsites with active vehicle traffic, crane operations, or sitewide hi-vis specs</li>
+ <li><strong>Hi-vis apparel:</strong> The employer selects the exact class and garment from its hazard assessment and site requirements.</li>
  </ul>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Office Staff and Dispatchers</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Lighter-weight branded polos for the front counter and dispatcher roles where customers walk in or video calls happen. Same Port Authority blank as service techs but in a slightly different colorway, often without the name embroidery.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">A lighter branded polo may fit office or dispatcher roles. Confirm the exact product, color, sizing, care, availability, and approved decoration.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Service Managers and Supervisors</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Differentiated colorway or polo upgrade — Cutter & Buck DryTec or Travis Mathew performance polo for client meetings and on-site supervision. Visual signal of authority without breaking the brand consistency.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">A different colorway or polo may help identify managers and supervisors. Compare exact products by fit, fabric, care, availability, price, and employer policy.</p>
 
  <h2 id="vegas-summer" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Vegas Summer Specifics</h2>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">HVAC techs are the trade most-exposed to extreme heat in Vegas summer. Attic and rooftop work hits 130°+ surface temperatures from June through September, and the AC repair calls themselves come during the hottest hours. Three things matter:</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">HVAC work can include significant heat exposure. Apparel is only one part of the employer's heat-illness prevention plan. Review the task, environment, protective requirements, and current <a href="https://www.osha.gov/heat-exposure" rel="noopener" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">OSHA heat guidance</a>.</p>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
- <li><strong>Moisture-wicking fabric.</strong> Cotton blends soak through and stay wet. Performance polyester (Port Authority K540, Sport-Tek ST650) wicks sweat and dries between calls.</li>
- <li><strong>Light colorways.</strong> Light gray, khaki, or sand colors absorb 30-40% less solar radiation than dark colors. Some HVAC companies switch to lighter summer colorways while maintaining brand consistency through embroidered logos in brand colors.</li>
- <li><strong>Adequate rotation.</strong> 5 polos covers a normal week, but Vegas summer often requires 7+ as techs go through 2 shirts per day during heat-stress conditions. <a href="https://www.osha.gov/heat-exposure" rel="noopener" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">OSHA heat exposure guidance</a> recommends adequate hydration and shaded breaks; clean dry shirts is a smaller but real component.</li>
+ <li><strong>Fabric and construction:</strong> Compare current manufacturer data for moisture management, coverage, breathability, care, and intended use.</li>
+ <li><strong>Color:</strong> Review the work environment, visibility needs, employer policy, and manufacturer information before choosing a colorway.</li>
+ <li><strong>Rotation:</strong> Set quantities from the schedule, changeout needs, laundry cycle, replacement policy, and heat plan.</li>
  </ul>
 
  <h2 id="branding-spec" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Branding Spec</h2>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
- <li><strong>Left chest:</strong> Company logo, 3-3.5 inches wide, embroidered</li>
- <li><strong>Right chest:</strong> Employee first name embroidered (most service shops use first name only)</li>
- <li><strong>Sleeve or back collar:</strong> Nevada State Contractors Board license number — Nevada customers expect to see it</li>
+ <li><strong>Left chest:</strong> Possible logo placement, subject to the exact garment and production approval.</li>
+ <li><strong>Right chest:</strong> Possible employee-name placement under the employer's identification policy.</li>
+ <li><strong>Sleeve or back collar:</strong> Confirm any license-display requirement and approved placement before production.</li>
  <li><strong>Back yoke (optional):</strong> Service phone number for fleet-vehicle visibility when techs are working on outdoor units</li>
  </ul>
 
  <h2 id="industrial-laundry" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Industrial Laundry Programs</h2>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Most HVAC shops with 10+ techs run industrial laundry programs through Cintas, Vestis, or Prudential Uniforms. The laundry company processes shirts on a weekly rotation, replaces damaged garments, and bills monthly. <a href="/industries/plumbing-hvac-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Plumbing and HVAC service uniforms</a> covers the laundry-program decision in more depth.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">An industrial laundry program may fit some HVAC teams. Service scope, garment eligibility, decoration, rotation, replacement, billing, and performance depend on the provider's current written agreement. <a href="/industries/plumbing-hvac-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Plumbing and HVAC service uniforms</a> covers factors to compare.</p>
 
  <h2 id="related" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Related Reading</h2>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
@@ -124,7 +124,7 @@ const speakableSchema = {
 
  <div class="mt-12 border border-hairline bg-gold-500/5 p-7 sm:p-9">
  <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-charcoal">HVAC service uniforms in Las Vegas</h2>
- <p class="mb-5 text-lg leading-relaxed text-charcoal">Bighorn Threads outfits Vegas HVAC service shops with embroidered polos, Red Kap mechanic shirts, branded outerwear, and complete crew programs.</p>
+<p class="mb-5 text-lg leading-relaxed text-charcoal">Bighorn Threads coordinates apparel programs for Vegas HVAC service shops. Selected production partners handle approved decoration. Your quote confirms exact products, availability, commercial terms, and timing.</p>
  <a href="/industries/plumbing-hvac-las-vegas/" class="inline-flex min-h-[48px] items-center gap-2 bg-gold-500 px-7 py-3 text-base font-bold text-charcoal transition-all hover:bg-gold-600">See HVAC Apparel →</a>
  </div>
  </div>

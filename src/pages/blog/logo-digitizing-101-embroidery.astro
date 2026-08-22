@@ -4,7 +4,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 const post = {
  title: 'Logo Digitizing 101: Why Your First File Matters More Than Your Tenth Order',
  description:
- 'A practical guide to logo digitizing for embroidery — what it is, why it matters, what to send your shop, and how to avoid the rework spiral that wastes money on every reorder.',
+ 'A practical guide to logo digitizing for embroidery: what it is, what artwork to send, how to review proofs, and which stitch-file terms to confirm.',
  category: 'Decoration Methods',
  readTime: '7 min read',
  date: 'Apr 28, 2026',
@@ -22,13 +22,8 @@ const schema = {
  description: post.description,
  image: `https://bighornthreads.com${post.image}`,
  datePublished: post.isoDate,
- dateModified: post.isoDate,
- author: {
- '@type': 'Person',
- name: 'Steve Dodson',
- url: 'https://bighornthreads.com/about/',
- sameAs: ['https://www.linkedin.com/company/vp-promotions-vegas'],
- },
+ dateModified: '2026-08-21',
+ author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' },
  publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } },
  mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/`,
  },
@@ -46,13 +41,13 @@ const howToSchema = {
  '@context': 'https://schema.org',
  '@type': 'HowTo',
  name: 'How to Prepare a Logo for Embroidery Digitizing',
- description: 'A step-by-step guide to getting your logo ready for embroidery digitizing so the first run produces a crisp, durable stitch file with no rework.',
+ description: 'A practical guide to preparing artwork, reviewing a proof, and confirming stitch-file terms before approving embroidered apparel.',
  step: [
- { '@type': 'HowToStep', name: 'Understand what digitizing is', text: 'Learn that digitizing converts your logo into a machine-readable stitch file (.dst, .emb, .pes) — a craft decision made by a person, not auto-software.' },
- { '@type': 'HowToStep', name: 'Send a vector logo file', text: 'Provide your logo as an .ai, .eps, or .svg file. If only a raster file is available, send it at 300 DPI minimum. Also include Pantone colors, exact embroidery size, and fabric type.' },
- { '@type': 'HowToStep', name: 'Review what a good digitizing file looks like', text: 'Know the signs of quality: clean satin stitch edges, even fill density, readable type at size, no fabric puckering, and crisp color registration.' },
- { '@type': 'HowToStep', name: 'Approve the sew-out before production', text: 'Require a physical sew-out on the actual fabric before the full order runs. Catch puckering, thread color shifts, or illegible small text at the one-piece stage, not on 100 shirts.' },
- { '@type': 'HowToStep', name: 'Confirm file ownership', text: 'Ask your shop who owns the digitized stitch file. Confirm you receive a copy of the.dst so you are not locked to a single vendor for every reorder.' },
+ { '@type': 'HowToStep', name: 'Understand what digitizing is', text: 'Digitizing converts logo artwork into a machine-readable stitch file. The selected production partner confirms its supported file formats.' },
+ { '@type': 'HowToStep', name: 'Send the best available logo file', text: 'Provide the best artwork available. Include color references, intended size, placement, garment, and any brand restrictions.' },
+ { '@type': 'HowToStep', name: 'Review the proof', text: 'Check legibility, placement, color references, and the proposed garment before approval.' },
+ { '@type': 'HowToStep', name: 'Confirm the sample process', text: 'Ask whether the quote includes a digital proof, physical sew-out, or production sample. Confirm any sample cost and approval steps.' },
+ { '@type': 'HowToStep', name: 'Confirm file terms', text: 'Ask who owns, stores, and can deliver the stitch file. Put retention and repeat-order terms in writing.' },
  ],
 }
 ---
@@ -74,7 +69,7 @@ const howToSchema = {
  <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-600">{post.category}</span>
  <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
  <p class="mb-8 text-xl leading-relaxed text-ash">
- The single biggest predictor of how good your embroidered shirts will look isn't your logo, your fabric, or your shop. It's the digitizing file behind it. Here's why it matters and how to get it right the first time.
+ The digitizing file affects how artwork becomes stitches. Learn what to send, what to review, and which file terms to confirm before approval.
  </p>
 
  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash">
@@ -88,7 +83,7 @@ const howToSchema = {
  </header>
 
  <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8">
- <img src={post.image} alt="Embroidery machine stitching a digitized logo onto a Carhartt polo" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" />
+ <img src={post.image} alt="Representative embroidery production image for digitizing and placement planning" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" />
  </div>
 
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
@@ -99,17 +94,17 @@ const howToSchema = {
  <li><a href="#why-matters" class="hover:text-gold-700">2. Why a bad file haunts every reorder</a></li>
  <li><a href="#what-to-send" class="hover:text-gold-700">3. What to send your embroidery shop</a></li>
  <li><a href="#what-good-looks-like" class="hover:text-gold-700">4. What a good digitizing file looks like</a></li>
- <li><a href="#sew-out" class="hover:text-gold-700">5. Why we always do a sew-out</a></li>
+ <li><a href="#sew-out" class="hover:text-gold-700">5. Confirm the sew-out process</a></li>
  <li><a href="#owning" class="hover:text-gold-700">6. Who owns the file?</a></li>
  </ol>
  </aside>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Embroidery is the only decoration method where the file you send to the machine is fundamentally different from the file you sent the shop. Screen printing? You send a vector logo, the shop burns a screen, the screen makes the print. Embroidery? You send a vector logo, the shop has to <em>convert</em> it into a stitch file — and the conversion is where 90% of the quality difference between shops lives.
+ Embroidery requires a stitch file that differs from ordinary logo artwork. The production partner converts the art into instructions for its embroidery equipment. That conversion affects the finished appearance.
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- That conversion is called <em>digitizing</em>. It's not a software click. It's a craft. And once it's done right, your logo embroiders the same way every time forever — but if it's done wrong, every reorder is going to look slightly off until somebody re-does it.
+ That conversion is called <em>digitizing</em>. It requires judgment about stitch direction, density, underlay, and fabric. Review the file and proof for every approved garment program.
  </p>
 
  <h2 id="what-it-is" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">1. What Digitizing Actually Is</h2>
@@ -132,7 +127,7 @@ const howToSchema = {
  </ul>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- A 2-inch left-chest logo that looks simple in your brand guide might require 5,000 individual stitch decisions. Auto-digitizing software exists. The output is universally bad. Real digitizing is done by a person at a workstation, usually in 30–90 minutes per logo.
+ A simple-looking logo can still require many stitch decisions. Ask how the selected partner reviews small type, stitch direction, density, and the intended garment.
  </p>
 
  <h2 id="why-matters" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">2. Why a Bad File Haunts Every Reorder</h2>
@@ -142,13 +137,13 @@ const howToSchema = {
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Six months later you reorder. Same shop, same logo. They pull the file. Same flaws — because they're stitched into the file forever. Now you've embroidered 200 polos with a slightly off logo. Year three: 600 polos. Eventually somebody at a trade show points out the puckering and now you have to fix it — which means re-digitizing, re-running test stitches, and the next reorder costs you a digitizing fee for the second time.
+ A reorder that reuses the same uncorrected file can repeat the same issue. Review the garment, placement, and proof before each production approval. File changes and fees depend on the partner agreement.
  </p>
 
  <div class="my-10 border-l-4 border-gold-500 bg-gold-500/5 p-6">
  <p class="mb-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-600">The compounding cost</p>
  <p class="text-lg leading-relaxed text-charcoal">
- A bad first digitizing file costs you on every reorder for the life of the brand. A good first file gives you crisp embroidery for the next five years without anyone touching it again.
+ A poor digitizing file can create repeated problems. A strong file gives the production partner a better starting point. Each reorder still needs a current garment and proof review.
  </p>
  </div>
 
@@ -159,7 +154,7 @@ const howToSchema = {
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- If you only have a JPG or PNG, send it at the highest resolution you have — 300 DPI minimum, 600 DPI ideal. We can work from raster files, but the digitizer is making more interpretive decisions. Vector eliminates ambiguity.
+ If you only have a JPG or PNG, send the highest-resolution version available. The production partner will confirm whether it can use the file or needs new artwork.
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
@@ -168,7 +163,7 @@ const howToSchema = {
 
  <ul class="mb-6 list-disc space-y-2 pl-6 text-lg leading-relaxed text-charcoal">
  <li><strong>Pantone colors</strong> for every part of the logo (PMS coated and uncoated if you have both)</li>
- <li><strong>The actual size</strong> you want it embroidered (most chest logos are 3–3.5" wide)</li>
+ <li><strong>The intended placement and size</strong>, confirmed against the exact garment, artwork, and approved proof</li>
  <li><strong>The fabric</strong> we'll be embroidering on (canvas vs polyester pique vs FR fabric all behave differently)</li>
  <li><strong>Any "do not touch" rules</strong> — minimum logo widths, brand colors that can't shift, type that must remain readable</li>
  </ul>
@@ -191,10 +186,10 @@ const howToSchema = {
  Bad digitizing has the opposite — uneven edges, thin fill, illegible small text, fabric that bunches under the embroidery, and colors that don't quite line up. Some of those are a press operator issue. Most of them trace back to the file.
  </p>
 
- <h2 id="sew-out" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">5. Why We Always Do a Sew-Out Before Production</h2>
+ <h2 id="sew-out" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">5. Confirm the Sew-Out Process Before Production</h2>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- After digitizing, before we run your 50-piece polo order, we sew the digitized logo onto a single test garment in the same fabric. This is the sew-out. We send a photo, you approve, we run production.
+ A production partner may sew the digitized logo onto a test garment before the full order. This is the sew-out. Confirm the proof process, approval steps, and any sample cost in your quote.
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
@@ -202,7 +197,7 @@ const howToSchema = {
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Shops that skip the sew-out are gambling. We don't gamble.
+ Confirm whether the quote includes a sew-out, production sample, or digital proof. Put the approval process and any sample cost in writing.
  </p>
 
  <h2 id="owning" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">6. Who Owns the File?</h2>
@@ -212,7 +207,7 @@ const howToSchema = {
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Our position: the file is yours. We do on first orders, store the file on our system for instant reorders, and if you ever want a copy of the `.dst` we'll send it. You're paying for the work, you should own the output.
+ Ask for file ownership, delivery, storage, and reuse terms in writing. Bighorn confirms those terms in the quote for the selected production partner.
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
@@ -220,18 +215,18 @@ const howToSchema = {
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- For the full breakdown of how we run embroidery, see our <a href="/services/embroidery-las-vegas/" class="text-gold-600 underline hover:text-gold-700">embroidery service page</a>. And if you're trying to decide whether to embroider or screen print in the first place, our <a href="/blog/screen-printing-vs-embroidery-construction/" class="text-gold-600 underline hover:text-gold-700">screen vs embroidery breakdown</a> covers when each one is the right call.
+ For the full breakdown of how Bighorn coordinates embroidery through production partners, see our <a href="/services/embroidery-las-vegas/" class="text-gold-600 underline hover:text-gold-700">embroidery service page</a>. Our <a href="/screen-printing-vs-embroidery-construction-las-vegas/" class="text-gold-600 underline hover:text-gold-700">screen vs embroidery breakdown</a> explains where each method may fit.
  </p>
 
  <div class="my-12 border border-hairline bg-gold-500/5 p-8 text-center">
  <h3 class="mb-3 font-heading text-2xl font-bold text-charcoal">Want a quote on embroidery for your crew?</h3>
- <p class="mb-6 text-base text-ash">on first orders. Stitch file is yours forever, no lock-in.</p>
+<p class="mb-6 text-base text-ash">Your quote confirms digitizing cost, file ownership, storage, and delivery terms.</p>
  <a href="/get-a-quote/" class="inline-flex min-h-[48px] items-center gap-2 bg-gold-500 px-7 py-3 text-base font-bold text-charcoal transition-all hover:bg-gold-600">Get a Quote</a>
  </div>
 
  <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The Short Version</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Send a vector file. Specify exact size and Pantone colors. Insist on a sew-out before production. Ask who owns the digitized file. The first run sets the quality of every order after it — get the file right once and your brand looks consistent for years.
+ Send a vector file. Specify exact size and color references. Request a sew-out before production. Ask who owns the digitized file. Review the approved sample and confirm file terms before placing future orders.
  </p>
 
  <div class="mt-16 border border-hairline bg-panel p-6">
@@ -241,7 +236,7 @@ const howToSchema = {
  </div>
  <div>
  <p class="mb-1 font-heading text-lg font-bold text-charcoal">Bighorn Threads Team</p>
- <p class="text-sm leading-relaxed text-charcoal">Embroidery for Vegas trades today. on first orders, file is yours. <a href="/services/embroidery-las-vegas/" class="text-gold-600 underline hover:text-gold-700">See our embroidery service.</a></p>
+ <p class="text-sm leading-relaxed text-charcoal">Embroidery programs for Vegas trades. File ownership and digitizing terms depend on the quote. <a href="/services/embroidery-las-vegas/" class="text-gold-600 underline hover:text-gold-700">See our embroidery service.</a></p>
  </div>
  </div>
  </div>
@@ -250,9 +245,9 @@ const howToSchema = {
 
  <section class="border-t border-hairline bg-panel py-16">
  <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
- <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Send your logo. We'll digitize it free.</h2>
- <p class="mb-8 text-lg text-ash">First-order digitizing is on us. Stitch file is yours forever.</p>
- <a href="/get-a-quote/" class="inline-flex min-h-[44px] items-center justify-center bg-gold-500 px-8 py-4 text-lg font-bold text-charcoal transition-all hover:bg-gold-600">Get a Free Quote</a>
+ <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Send your logo for a digitizing quote.</h2>
+ <p class="mb-8 text-lg text-ash">Your quote confirms digitizing cost, file ownership, and retention terms.</p>
+ <a href="/get-a-quote/" class="inline-flex min-h-[44px] items-center justify-center bg-gold-500 px-8 py-4 text-lg font-bold text-charcoal transition-all hover:bg-gold-600">Get a Quote</a>
  </div>
  </section>
 </BaseLayout>

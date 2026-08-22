@@ -13,22 +13,24 @@ const post = {
  slug: 'rush-order-shirts-las-vegas-2-day-3-day-options',
 }
 
+const canonicalUrl = 'https://bighornthreads.com/blog/rush-order-shirts-las-vegas-whats-possible/'
+
 const faqs = [
- { q: 'What determines how fast a rush order can go?', a: 'Your spec does. Print-ready vector artwork, blanks already in stock, a decoration method that suits the job, and a quantity the press can handle all push a rush faster. Anything missing slows it down. Call us with the details and we\'ll tell you straight whether your timeline works.' },
- { q: 'Can I get custom shirts on a tight deadline in Las Vegas?', a: 'Often, yes — for smaller batches on stock blank tees with a print-ready vector logo, decorated with DTF or heat transfer vinyl. The fastest tier breaks down on embroidery, large quantities, unusual blanks, or complex multi-color screen printing. Send us the job and we\'ll give you a real answer.' },
- { q: 'How much does a rush order cost extra?', a: 'A rush surcharge may apply, and we quote it up front. What you pay depends on the spec and how much it disrupts the schedule. There are no surprise fees — you see the number before you approve.' },
- { q: 'What breaks a rush order?', a: 'Five things: (1) raster logos that need vectorizing, (2) embroidery without an existing digitized file, (3) blanks that aren\'t in local stock, (4) art revisions after approval, and (5) order quantity beyond press capacity for that decoration method. Each one adds time.' },
- { q: 'Can you embroider shirts on a rush?', a: 'It\'s harder. Embroidery needs a digitized stitch file (.DST, .EXP, .PES), and digitizing takes time unless we already have your file from a prior order. A fast embroidery turn is realistic mainly for repeat customers with a stored file. First-time embroidery needs more runway.' },
+ { q: 'What determines how fast a rush order can go?', a: 'Artwork, product availability, decoration method, quantity, approval timing, production-partner capacity, and delivery destination all matter. Bighorn confirms the available schedule in a written quote.' },
+ { q: 'Can I get custom shirts on a tight deadline in Las Vegas?', a: 'Possibly. Feasibility depends on the complete order and current partner capacity. Send the artwork, product, sizes, quantity, destination, and required date for a written answer.' },
+ { q: 'How much does a rush order cost extra?', a: 'Any rush charge depends on the order and selected production partner. Bighorn includes applicable fees in the written quote before approval.' },
+ { q: 'What breaks a rush order?', a: 'Common blockers include incomplete artwork, unavailable products, missing stitch files, late revisions, proof delays, partner capacity, and delivery constraints.' },
+ { q: 'Can you embroider shirts on a rush?', a: 'Possibly. Embroidery needs an approved stitch file, available garments, proof approval, and partner capacity. File retention and rush timing depend on the selected partner and current quote.' },
  { q: 'How do I give my rush the best shot?', a: 'Send print-ready vector artwork, confirm your blank and color early, lock the art so there are no revisions, and tell us the real deadline. The cleaner the spec, the faster we can move. Call us and we\'ll walk through it.' },
- { q: 'What\'s the largest rush order that\'s realistic?', a: 'It depends on the decoration method and press capacity. Small batches move fastest. Larger runs need more press time, and past a certain size the press only runs so fast — no surcharge changes that. Tell us your quantity and we\'ll tell you what\'s realistic.' },
+ { q: 'What\'s the largest rush order that\'s realistic?', a: 'There is no universal limit. Product availability, decoration, quantity, approvals, partner capacity, destination, and required date determine feasibility.' },
  { q: 'Should I rush order or just plan ahead?', a: 'Plan ahead if you can. A possible rush surcharge, substitution risk on blanks, and fewer decoration options make rush orders more expensive and more constrained. Use rush when an event date is locked or a job pivots — not as your default. A standard run gives you full vendor and decoration options.' },
 ]
 
 const schema = {
  '@context': 'https://schema.org',
  '@graph': [
- { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: post.isoDate, author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
- { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' }, { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` }] },
+ { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: '2026-08-21', author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: canonicalUrl },
+ { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' }, { '@type': 'ListItem', position: 3, name: post.title, item: canonicalUrl }] },
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
 }
@@ -36,7 +38,7 @@ const schema = {
 const speakableSchema = {
  '@context': 'https://schema.org',
  '@type': 'WebPage',
- url: `https://bighornthreads.com/blog/${post.slug}/`,
+ url: canonicalUrl,
  name: post.title,
  speakable: {
   '@type': 'SpeakableSpecification',
@@ -45,7 +47,7 @@ const speakableSchema = {
 }
 ---
 
-<BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
+<BaseLayout title={post.title} description={post.description} canonical={canonicalUrl} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
  <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
  <article class="bg-concrete">
@@ -58,28 +60,28 @@ const speakableSchema = {
  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
  </header>
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Rush order custom shirts in production at a Las Vegas screen printing shop" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
+ <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Custom shirt decoration for a rush-order planning guide" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">How fast a rush can go depends on your spec — your artwork, your blanks, your decoration method, and your quantity. The fastest tier suits small DTF or HTV runs on stock blanks. Embroidery is the hardest to rush. Plan ahead when you can. Call us with your deadline and we\'ll tell you straight whether it works. Any rush surcharge is quoted up front.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Rush timing depends on artwork, product availability, decoration, quantity, approvals, partner capacity, and delivery. Bighorn confirms the schedule and any rush fee in writing.</p>
  </aside>
 
  <h2 id="what-drives-speed" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">What Actually Drives Rush Speed</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">There\'s no single rush speed — there\'s your job and its bottleneck. Bighorn\'s full <a href="/services/rush-orders-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">rush order service in Las Vegas</a> walks through how we quote a rush. A handful of factors decide how fast yours can move:</p>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Artwork readiness.</strong> Print-ready vector art moves straight to production. A raster JPG or PNG has to be vectorized first, and that\'s a step in the way.</li>
- <li><strong>Whether the logo\'s already digitized.</strong> For embroidery, we need a digitized stitch file. If we made one on a past order, you\'re ahead. If not, digitizing comes first.</li>
- <li><strong>Blank availability.</strong> If your garment\'s in local stock, we run it. If it\'s out, expect a substitution or a wait while we source it.</li>
- <li><strong>Decoration method.</strong> DTF and heat transfer vinyl spin up fast. Screen printing needs screens burned and ink mixed. Embroidery needs that stitch file. Each method has its own runway.</li>
- <li><strong>Quantity vs press capacity.</strong> Small batches move fastest. Larger runs need more press time, and past a point the press only runs so fast.</li>
+ <li><strong>Whether the logo is already digitized.</strong> Embroidery needs an approved stitch file. Confirm whether the selected partner can reuse an existing file.</li>
+ <li><strong>Product availability.</strong> The selected partner must confirm every garment, color, and size.</li>
+ <li><strong>Decoration method.</strong> Each method has different artwork, proof, setup, and production requirements.</li>
+ <li><strong>Quantity and partner capacity.</strong> The selected partner confirms what its current schedule can support.</li>
  <li><strong>Art revisions.</strong> Every change after approval resets part of the clock. Lock the art and you keep your speed.</li>
  </ul>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">For the broader picture on what\'s physically possible, see our companion piece on <a href="/blog/rush-order-shirts-las-vegas-whats-possible/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">rush order shirts in Las Vegas — what\'s actually possible</a>.</p>
 
  <h2 id="fastest-tier" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">When the Fastest Tier Is in Play</h2>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">The tightest turns suit simple jobs on stock blanks. The simpler the art and the smaller the batch, the more realistic a fast rush becomes:</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Simple, fully approved orders may offer more scheduling options. Current capacity still controls the result:</p>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Last-minute trade show booth crew.</strong> The keynote shifted, the booth setup is tonight, and you need a handful of polos.</li>
  <li><strong>Emergency replacement order.</strong> A crew member ruined their uniform and has a customer site visit coming up.</li>
@@ -92,27 +94,27 @@ const speakableSchema = {
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>New crew launch with a hard start date.</strong> The first day of work is locked and you remembered late.</li>
  <li><strong>Larger event runs.</strong> Race events, fundraisers, trade show giveaways.</li>
- <li><strong>Multi-color screen printing.</strong> A little time lets us burn screens, mix Pantone-matched ink, and run color separations cleanly.</li>
- <li><strong>DTG photographic prints.</strong> Some runway lets a DTG operator pre-treat, print, and cure properly without rushing the cure.</li>
+ <li><strong>Multi-color screen printing.</strong> The production partner needs time for approved artwork, separations, setup, and production.</li>
+ <li><strong>DTG photographic prints.</strong> The production partner confirms file, product, pretreatment, curing, and scheduling requirements.</li>
  </ul>
 
  <h2 id="standard-run" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">When a Standard Bulk Run Is the Right Pick</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">Some jobs are better off on a standard run than forced into a rush — you keep your options and your costs down:</p>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
- <li><strong>Large screen-printed orders.</strong> Press capacity becomes the binding constraint, not setup time.</li>
+ <li><strong>Large screen-printed orders.</strong> Product availability and current partner capacity may require more time.</li>
  <li><strong>Embroidery with a stored digitized file.</strong> Repeat customers can move faster on embroidery; first-timers usually can\'t.</li>
- <li><strong>Mixed orders.</strong> Some embroidered polos, some screen-printed tees, some hi-vis vests — a standard run lets us sequence the work without stalling other jobs.</li>
- <li><strong>Substitution-tolerant orders.</strong> If your blank is out of stock, the extra runway gives time to source from a secondary distributor.</li>
+ <li><strong>Mixed orders.</strong> Multiple products and decoration methods may require more partner scheduling time.</li>
+ <li><strong>Substitution-tolerant orders.</strong> An approved alternate may help when the requested product is unavailable.</li>
  </ul>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">A standard run is the right call for most crew launches that can wait. Any surcharge stays off the table, decoration options stay open, and we can sequence the work without disrupting the schedule.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">A standard schedule may preserve more product and decoration choices. The quote confirms timing, fees, and alternatives.</p>
 
  <h2 id="what-breaks-rush" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">What Breaks a Rush Order</h2>
  <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Raster logo files.</strong> A JPG or PNG has to be vectorized first. Send vector — see our <a href="/blog/vector-logo-file-setup-for-embroidery/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">vector logo setup guide</a>.</li>
- <li><strong>First-time embroidery.</strong> The logo has to be digitized before we can stitch. See <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">logo digitizing 101</a>.</li>
- <li><strong>Out-of-stock blanks.</strong> Distributor authorities like <a href="https://www.ssactivewear.com/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600" rel="noopener" target="_blank">S&S Activewear</a> and <a href="https://www.alphabroder.com/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600" rel="noopener" target="_blank">alphabroder</a> stock most local Vegas shops; if your blank is out, expect a substitution or a delay.</li>
+ <li><strong>First-time embroidery.</strong> The production partner needs an approved stitch file before production. See <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">logo digitizing 101</a>.</li>
+ <li><strong>Unavailable products.</strong> Any alternate garment requires customer approval and a revised schedule.</li>
  <li><strong>Art revisions after approval.</strong> Each revision resets part of the clock.</li>
- <li><strong>Order size beyond press capacity.</strong> A single automatic carousel runs only so many pieces per shift. Bigger orders need multiple shifts.</li>
+ <li><strong>Order size beyond current partner capacity.</strong> Larger jobs may require a different schedule or production plan.</li>
  </ol>
 
  <h2 id="how-fast" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">So How Fast Can Your Rush Go?</h2>

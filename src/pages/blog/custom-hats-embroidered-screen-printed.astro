@@ -14,19 +14,19 @@ const post = {
 }
 
 const faqs = [
- { q: 'Should custom hats be embroidered or screen printed?', a: 'Embroidery is the default for hats — it lasts longer, looks more premium, and works on the curved structured front panel where screen printing struggles. Screen printing is reserved for flat-bill snapbacks and large-area designs that wrap the side or back panel. Patches (woven or leather) are a third option, often used for trucker caps and outdoor brand styles.' },
- { q: 'What hat brands are best for company branding?', a: 'Richardson 112 trucker hats are the most-ordered for trade and construction crews — durable mesh-back, fits well, embroiders cleanly. Yupoong/Flexfit for performance fits. New Era for premium structured caps. Carhartt CT103847 wide-brim for outdoor sun-exposed crews. Beanies typically use Sportsman or Atlantis blanks.' },
- { q: 'How many stitches does a hat logo take?', a: 'A standard front-panel hat logo runs 5,000-10,000 stitches depending on detail. Hat embroidery uses smaller hoops than apparel and the curved front panel limits design size — most hat logos are 2.5-3 inches wide and 1-1.5 inches tall.' },
+ { q: 'Should custom hats be embroidered or screen printed?', a: 'The best method depends on the exact hat, panel construction, artwork, placement, use, and care. Embroidery, screen printing, and patches can each work on compatible products.' },
+ { q: 'What hat brands are best for company branding?', a: 'Compare current Richardson, Yupoong/Flexfit, New Era, Carhartt, Sportsman, and Atlantis options. Review fit, fabric, panel construction, care, decoration compatibility, availability, and price.' },
+ { q: 'How is a hat logo sized and priced?', a: 'The exact hat construction, panel, artwork, dimensions, digitizing, hooping, stitch plan, machine, and production partner determine viability and cost. Approve the final treatment in the proof or sample.' },
  { q: 'Can you embroider on a beanie?', a: 'Yes — beanies embroider cleanly using a special beanie hoop. The folded cuff is the standard placement; logo size is constrained to 2-2.5 inches wide by 1-1.5 inches tall to keep the design legible when the cuff stretches. Avoid heavy fills on knit beanies because the stretchy fabric can distort dense stitch areas.' },
- { q: 'What\'s the minimum order for custom embroidered hats?', a: 'Per-piece embroidery on hats has minimal setup (digitizing aside) so minimums can be as low as 12 pieces with a small per-order setup fee. Bulk discounts kick in at 48+ and again at 144+.' },
- { q: 'Can you put a leather patch on a Richardson 112?', a: 'Yes — leather (real or PU) patches are a popular Richardson 112 decoration. The patch is laser-cut with the company logo, then sewn or heat-pressed onto the front panel. Works especially well for outdoor brands, ranches, breweries, and construction crews wanting a premium look. Higher per-piece cost than embroidery.' },
- { q: 'How do hard hat decals work — are those custom hats?', a: 'Hard hats are a separate category — they\'re ANSI Z89.1 PPE, not branded headwear. Decoration is limited to vinyl decals applied to the shell within manufacturer-approved zones. See our piece on custom hard hat decoration for the compliance rules.' },
+ { q: 'What\'s the minimum order for custom embroidered hats?', a: 'Minimums, digitizing, setup, quantity pricing, and repeat-order terms vary by hat and production partner. Confirm the current terms in writing.' },
+ { q: 'Can you put a leather patch on a Richardson 112?', a: 'A leather or synthetic patch may be available for a compatible Richardson 112. Confirm the patch material, attachment method, placement, care, price, and current manufacturer guidance.' },
+ { q: 'How do hard hat decals work?', a: 'The employer and safety lead select the hard hat for the task. Any decal requires the exact helmet manufacturer\'s current written approval for the material, adhesive, size, and placement. Site policy may add stricter rules.' },
 ]
 
 const schema = {
  '@context': 'https://schema.org',
  '@graph': [
- { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: post.isoDate, author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
+ { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: '2026-08-21', author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
  { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' }, { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` }] },
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
@@ -57,40 +57,40 @@ const speakableSchema = {
  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
  </header>
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Custom embroidered Richardson 112 trucker hats with company logo on the front panel" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
+ <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Representative decorated hats shown for product and artwork planning" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Embroidery is the default for custom hats — it lasts longer, looks more premium, and handles the curved front panel cleanly. Screen printing is reserved for flat-bill snapbacks and large designs that wrap the side panel. Leather or woven patches are a third option for premium trucker-cap styles. Most crew programs land on Richardson 112 trucker hats with embroidered front-panel logos.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Embroidery, screen printing, and patches can decorate compatible hats. The right method depends on the exact hat, panel, artwork, placement, use, care, and quote. Review the product and proof before production.</p>
  </aside>
 
  <h2 id="hat-blanks" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The Hat Blanks That Matter</h2>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">For trade and contractor crews, four blanks dominate:</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">For trade and contractor crews, compare these four product families:</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Richardson 112 — the workhorse trucker hat</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Mesh-back trucker, structured front panel, plastic snapback. The single most-ordered hat blank for construction, landscaping, and trade crews — breathes well in summer heat, fits a wide range of head sizes, embroiders cleanly on the front panel, and the price point works for crew-wide programs. <a href="https://www.richardsonsports.com/" rel="noopener" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Richardson Sports</a> publishes detailed colorway and size charts.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">The Richardson 112 is a mesh-back trucker style with a structured front panel and adjustable closure. Review current color, fit, fabric, care, decoration area, availability, and price. <a href="https://www.richardsonsports.com/" rel="noopener" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Richardson Sports</a> publishes current product details.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Yupoong / Flexfit — fitted performance</h3>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">Stretch-band fitted caps. Better for crews where everyone wants a fitted look (versus snapback adjustment) and where moisture-wicking matters. Sizing is S/M, L/XL — easier to spec across a crew than 7 1/8-7 5/8 fitted sizing.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Carhartt CT103847 — wide-brim outdoor</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Wide-brim canvas hat for crews with sustained sun exposure — landscaping, roofing, solar install. Provides UPF protection a baseball cap can't match. Embroiders cleanly on the front crown.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">A wide-brim option may suit outdoor roles. Confirm the exact product's current sun-protection claim, fit, care, and decoration compatibility in manufacturer documentation.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Beanies — Sportsman + Atlantis</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">For cool desert mornings and pre-dawn 5 AM Nevada starts. Knit beanies embroider cleanly on the cuff using a beanie hoop. Sportsman SP12 and Atlantis Wind are the two most-ordered.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Knit beanies may support cuff embroidery when the product and artwork are compatible. Compare current Sportsman and Atlantis options.</p>
 
  <h2 id="decoration" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Decoration Methods Compared</h2>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Embroidery (the default)</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Embroidery is the right call for the vast majority of custom hats. It handles the curved structured front panel of trucker hats and snapbacks cleanly, looks premium, and lasts as long as the hat itself. A standard front-panel logo runs 5,000-10,000 stitches with a 2.5-3 inch width — perfect for company logos that read well from a few feet away.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Embroidery can work on compatible structured panels. The final size, stitch count, backing, placement, appearance, and durability depend on the exact hat, artwork, production method, use, and care.</p>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">For deeper background on what makes a logo embroider well versus badly, see <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">logo digitizing 101</a>.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Screen printing (for flat-bill and large designs)</h3>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">Screen printing on hats is mostly for flat-bill snapback caps where you want a large, bold, single-piece design that wraps from front to side panel. The flat brim is a popular canvas for screen-printed urban brand styles. Curved-bill structured caps don't take screen printing well — the curve distorts ink alignment.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Patches (woven, leather, PVC)</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Patches are increasingly popular on trucker hats. A woven, leather, or PVC patch is decorated separately, then sewn or heat-pressed onto the front panel. Pros: works for very detailed multi-color logos that don't embroider cleanly. Cons: higher per-piece cost than embroidery, and heat-pressed patches occasionally lift over time.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">A woven, leather, synthetic, or PVC patch can be made separately and attached to a compatible front panel. Confirm detail, attachment, care, durability, and quoted cost for the exact product.</p>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">Leather patches in particular have become the signature look for outdoor and craft brands — well worth the upcharge if it matches the brand identity.</p>
 
  <h2 id="placement" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Standard Hat Placements</h2>
@@ -109,14 +109,14 @@ const speakableSchema = {
  <li><strong>Hat blank</strong> — Richardson 112 in your colorway, or specify the brand and SKU you want.</li>
  <li><strong>Quantity + sizing</strong> — most trucker and snapback styles are one-size-adjustable so you don't need to break out by employee size. Beanies and fitted caps need a size breakdown.</li>
  </ol>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Pricing follows the same five factors as <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">embroidered shirts</a>: stitch count, blank cost, digitizing fee, decoration complexity, quantity. Hats run cheaper per piece than shirts at low quantities because the embroidery is smaller.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Pricing depends on the hat, artwork, method, placement, quantity, digitizing, setup, and current production quote. Confirm each fee and repeat-order term in writing.</p>
 
  <h2 id="hard-hats" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">A Note on Hard Hats</h2>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Hard hats are PPE, not branded headwear — they're governed by <a href="https://safetyequipment.org/standards/ansi-z89-1/" rel="noopener" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">ANSI Z89.1</a> and decoration is restricted to manufacturer-approved vinyl decals. We cover the compliance rules in detail in <a href="/blog/custom-hard-hats-osha-z89-decals-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">custom hard hats</a>.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Hard hats are protective equipment selected by the employer and safety lead. Site policy and the exact helmet manufacturer's current written instructions govern any decal. Confirm material, adhesive, size, and placement before use. See our <a href="/blog/custom-hard-hats-osha-z89-decals-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">custom hard hat guide</a>.</p>
 
  <div class="mt-12 border border-hairline bg-gold-500/5 p-7 sm:p-9">
  <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-charcoal">Need custom hats for a Vegas crew?</h2>
- <p class="mb-5 text-lg leading-relaxed text-charcoal">Bighorn Threads runs embroidered Richardson 112 trucker hats and the rest of the trade-standard hat blanks for Vegas contractors. Send your logo and quantity — we'll quote.</p>
+<p class="mb-5 text-lg leading-relaxed text-charcoal">Bighorn Threads coordinates embroidered hats through selected production partners for Vegas contractors. Send your logo, preferred product, quantity, and deadline for a quote.</p>
  <a href="/get-a-quote/" class="inline-flex min-h-[48px] items-center gap-2 bg-gold-500 px-7 py-3 text-base font-bold text-charcoal transition-all hover:bg-gold-600">Get a Quote →</a>
  </div>
  </div>

@@ -4,7 +4,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 const post = {
  title: 'Custom Embroidered Hoodies & Sweatshirts: A Buyer\'s Guide',
  description:
- 'Embroidered hoodies are the workhorse for cool-morning trades, branded crew gear, and giveaway swag. Here\'s how to pick the right blank — Carhartt SUP01, Champion S700, Independent Trading IND4000 — and when embroidery beats screen printing on hoodies.',
+ 'Compare embroidered hoodies for trade crews, branded apparel, and event programs. Review exact products, decoration, care, availability, pricing, and current order terms.',
  category: 'Products',
  readTime: '8 min read',
  date: 'May 9, 2026',
@@ -14,19 +14,19 @@ const post = {
 }
 
 const faqs = [
- { q: 'Should hoodies be embroidered or screen printed?', a: 'Embroidery for chest logos, screen printing for back prints. The premium textured look of embroidered thread on a heavy fleece reads as quality; screen-printed chest logos can crack at the fold over time. For a single full-back design, screen printing wins on impact and cost. Most crews run a small embroidered chest logo + a screen-printed back if both are wanted.' },
- { q: 'What\'s the best blank hoodie for embroidery?', a: 'Carhartt SUP01 Midweight Hooded Sweatshirt is the trade-friendly default — heavyweight 10.5 oz cotton-poly fleece, takes embroidery cleanly, survives crew use. Champion S700 Powerblend is the lighter, athletic-feel option. Independent Trading IND4000 Heavyweight is the premium streetwear-leaning choice. Gildan 18500 is the budget option for crew-wide programs.' },
- { q: 'How many stitches does a hoodie chest logo take?', a: 'A standard left-chest hoodie logo runs 6,000-9,000 stitches at 3-3.5 inches wide. Slightly higher stitch count than a polo logo because hoodie fleece is thicker and needs higher density to read crisply. Larger chest placements (4-5 inches wide) push 12,000+ stitches.' },
- { q: 'Can you embroider on a zip-up hoodie?', a: 'Yes — zip hoodies embroider as cleanly as pullovers. The embroidery sits on the chest panel above or beside the zipper. Avoid placements that cross the zipper line; the metal teeth and stitch path don\'t mix well. Both Carhartt and Independent Trading make zip hoodie versions of their popular pullover blanks.' },
- { q: 'Are embroidered hoodies worth the cost vs screen printed?', a: 'For chest-logo-only programs, embroidery is comparable in cost at moderate quantities (24-100 pieces) and reads as a higher-end gift. For high-volume programs (200+ pieces) where cost is the driver, screen printing wins on per-piece pricing. For one-off or small runs (<24), embroidery wins on relative cost because there\'s less setup.' },
- { q: 'What\'s the minimum order for custom embroidered hoodies?', a: 'Most shops set 12-24 pieces as the practical floor. Below that, the per-piece price climbs because digitizing and setup is amortized over fewer shirts. For very small orders (4-12), expect higher per-piece pricing or a small-order surcharge.' },
- { q: 'Can you embroider on quarter-zip pullovers?', a: 'Yes — quarter-zips embroider the same as hoodies. Common for sales and management roles where the look is more polished than a full hoodie. Port Authority F228 and Sport-Tek ST253 are the most-ordered quarter-zip blanks for embroidery.' },
+ { q: 'Should hoodies be embroidered or screen printed?', a: 'Choose the method after reviewing artwork, placement, garment, quantity, feel, care, and current pricing. A production partner should confirm compatibility for the exact hoodie.' },
+ { q: 'What\'s the best blank hoodie for embroidery?', a: 'There is no universal best blank. Compare the exact Carhartt, Champion, Independent Trading, Gildan, or other product by fabric, weight, fit, color, care, availability, and price.' },
+ { q: 'How many stitches does a hoodie chest logo take?', a: 'Stitch count depends on the artwork, size, detail, fabric, and digitizing decisions. The selected production partner confirms the estimate after reviewing the exact logo and garment.' },
+ { q: 'Can you embroider on a zip-up hoodie?', a: 'Many zip-up hoodies can be embroidered. Placement and access vary by product. The production partner must approve the exact garment and proposed design before production.' },
+ { q: 'Are embroidered hoodies worth the cost vs screen printed?', a: 'Compare written quotes for the same garment, artwork, placement, quantity, and deadline. No universal quantity threshold makes one method the better value.' },
+ { q: 'What\'s the minimum order for custom embroidered hoodies?', a: 'Minimums and small-order fees vary by product and production partner. Bighorn confirms the current terms in the quote.' },
+ { q: 'Can you embroider on quarter-zip pullovers?', a: 'Many quarter-zips may support embroidery. Compare products such as the Port Authority F228 and Sport-Tek ST253. The production partner must approve the exact garment, artwork, placement, backing, and care process.' },
 ]
 
 const schema = {
  '@context': 'https://schema.org',
  '@graph': [
- { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: post.isoDate, author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
+ { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: '2026-08-21', author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
  { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' }, { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` }] },
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
@@ -57,61 +57,61 @@ const speakableSchema = {
  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
  </header>
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Custom embroidered Carhartt hoodie with company logo on the chest" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
+ <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Representative hoodie shown for garment and embroidery planning" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Custom embroidered hoodies are the right call for crew programs where you want a chest-logo-only program with a premium textured look. Carhartt SUP01 Midweight is the trade-friendly default; Champion S700 Powerblend for athletic feel; Independent Trading IND4000 for premium. For full-back designs, switch to screen printing — embroidery doesn't fit a back-print scale.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Choose a hoodie and decoration method after reviewing the artwork, placement, fabric, fit, quantity, care, availability, deadline, and current quote. Bighorn coordinates approved production through selected partners.</p>
  </aside>
 
  <h2 id="when-hoodies" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">When Custom Hoodies Make Sense</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">For trades and contractor crews, hoodies fill a specific role:</p>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
- <li><strong>Cool desert mornings.</strong> Pre-dawn 5 AM starts in Vegas summer (mandated by Nevada heat-stress guidance) need a layer crews shed by 8 AM. A branded hoodie is that layer.</li>
- <li><strong>Winter desert work.</strong> 38° at 6 AM in Pahrump in January isn't unusual. A heavyweight cotton-poly hoodie covers the cold mornings without the cost of a full insulated jacket.</li>
- <li><strong>Crew swag programs.</strong> Holiday gifts, milestone rewards, anniversary gear — branded hoodies are perennially popular and crews actually wear them off the clock.</li>
+ <li><strong>Cool desert mornings.</strong> A branded layer may fit the employer's schedule and approved warm-up plan.</li>
+ <li><strong>Winter desert work.</strong> Compare approved hoodies and outerwear for the crew's schedule and work conditions.</li>
+ <li><strong>Crew swag programs.</strong> Hoodies may fit holiday gifts, milestone rewards, and anniversary programs.</li>
  <li><strong>Trade show and event crews.</strong> Industry events, AGC dinners, ribbon cuttings — a sharp branded zip-up hoodie hits a different note than a polo.</li>
  </ul>
 
  <h2 id="blanks" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The Hoodie Blanks That Matter</h2>
 
- <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Carhartt SUP01 Midweight Hooded Sweatshirt — the workhorse</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Heavyweight 10.5 oz cotton-poly fleece. The default for trade and construction crews — durable enough to survive a working environment, takes embroidery cleanly, available in colors that match most brand palettes. Slightly more expensive than the budget options but the durability difference is real.</p>
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Carhartt SUP01 Midweight Hooded Sweatshirt</h3>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Review the current product's fabric, weight, fit, colors, care instructions, availability, and price. The production partner must approve the proposed decoration.</p>
 
- <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Independent Trading IND4000 Heavyweight Hooded Sweatshirt — premium</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">12 oz cotton-poly fleece, slightly heavier and more expensive than the Carhartt SUP01. Streetwear-leaning fit, very popular with younger crew members and brands that want a "premium giveaway" feel. Embroiders cleanly.</p>
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Independent Trading IND4000 Heavyweight Hooded Sweatshirt</h3>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">This line may suit teams seeking a heavier, streetwear-leaning fit. Confirm current specifications, colors, availability, price, and decoration compatibility.</p>
 
- <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Champion S700 Powerblend Eco — athletic feel</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Lighter weight (9 oz) than the Carhartt or Independent options, with a more athletic cut and a distinct softer hand. The right pick for crews who don't want the heavy trade-style hoodie look. Slightly higher cost than Gildan but lower than Carhartt.</p>
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Champion S700 Powerblend Eco</h3>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">This line may suit teams seeking a lighter, athletic-style fit. Confirm current specifications, colors, availability, price, and decoration compatibility.</p>
 
- <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Gildan 18500 Heavy Blend — budget</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">The budget option for high-volume crew programs where per-piece cost dominates. 8 oz cotton-poly, embroiders fine, lasts well for the price. The default at 50+ piece runs where margins matter.</p>
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Gildan 18500 Heavy Blend</h3>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">This line may be one value-oriented option. Confirm the current product data, price, availability, and approved decoration for the exact order.</p>
 
  <h2 id="decoration" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Decoration: Embroidery vs Screen Printing on Hoodies</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">The decoration choice depends on what you're decorating where.</p>
 
- <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Chest logos: embroider</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Embroidered chest logos on hoodies look premium and last as long as the hoodie itself. Screen-printed chest logos crack at the fold lines (around the body) over time as the fleece flexes. For chest-only programs, embroidery is the right call almost universally.</p>
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Chest logos</h3>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Embroidery can create a textured chest mark. Screen printing creates a different look and feel. Compare both methods on the exact garment and follow the manufacturer care instructions.</p>
 
- <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Full-back designs: screen print</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Embroidery doesn't scale to a full-back design — the stitch count and machine time make it cost-prohibitive. Screen printing is the standard for back logos, full-back designs, and any wraparound graphic. Pair a screen-printed back with an embroidered chest logo for a complete program.</p>
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Full-back designs</h3>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">A large back design may change stitch count, handling, price, and comfort. Ask the production partner to compare embroidery, screen printing, and other compatible methods for the exact artwork.</p>
 
- <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Sleeve hits: embroider</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Sleeve hits (forearm or upper arm) embroider cleanly. Common for trade-local affiliations, certifications, or secondary brand marks.</p>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">For broader context on the embroidery vs screen printing decision, see <a href="/blog/screen-printing-vs-embroidery-construction/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">screen printing vs embroidery</a>.</p>
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Sleeve hits</h3>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">A sleeve may support a secondary mark on some products. The production partner must approve access, artwork, placement, backing, and care for the exact garment.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">For broader context on the embroidery vs screen printing decision, see <a href="/screen-printing-vs-embroidery-construction-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">screen printing vs embroidery</a>.</p>
 
  <h2 id="costs" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">What Custom Embroidered Hoodies Cost</h2>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Per-piece cost is driven by the same five factors as <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">embroidered shirts</a>: stitch count, blank cost, digitizing fee, decoration complexity, and quantity. Hoodie blanks cost more than tee blanks but the embroidery is comparable, so the per-piece cost is mostly driven by the blank choice.</p>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Bulk discounts kick in at 24+ pieces and again at 144+. For crews of 12-24, expect comparable per-piece pricing across blanks because volume discounts haven't kicked in.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Cost depends on the hoodie, artwork, placements, stitch count, digitizing, quantity, partner, and delivery. See our <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">embroidery pricing guide</a> for the details to confirm.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Quantity breaks, minimums, and fees vary by product and partner. Request current written options for your exact order.</p>
 
  <h2 id="programs" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Hoodies in a Crew Program</h2>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">A typical crew package allocates 1 hoodie per employee per year — enough for the cool morning rotation, replaced when worn out. For trade-show and event crews, additional hoodies in special colorways or premium blanks signal the event.</p>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">For larger operations, hoodies are managed through a <a href="/company-stores/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">company store</a> with employee allowances and direct shipping. Common pattern: a standard hoodie included in the new-hire kit, replacement available on the company store after the first year.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Set hoodie quantities from your roster, work conditions, replacement policy, and budget. Event colorways and premium blanks can be quoted as separate options.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">A <a href="/company-stores/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">company store</a> may present approved hoodies and employee allowances. Availability, payment, delivery, replacement, and fulfillment features depend on the written program setup.</p>
 
  <div class="mt-12 border border-hairline bg-gold-500/5 p-7 sm:p-9">
  <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-charcoal">Custom embroidered hoodies in Las Vegas</h2>
- <p class="mb-5 text-lg leading-relaxed text-charcoal">Bighorn Threads runs custom embroidered hoodies for Vegas contractors, trade businesses, and crew programs. Send your logo and quantity — we'll quote per piece with all costs broken out.</p>
+<p class="mb-5 text-lg leading-relaxed text-charcoal">Bighorn Threads coordinates embroidered hoodies through selected production partners. Send your logo, product, quantity, and deadline for a current quote.</p>
  <a href="/get-a-quote/" class="inline-flex min-h-[48px] items-center gap-2 bg-gold-500 px-7 py-3 text-base font-bold text-charcoal transition-all hover:bg-gold-600">Get a Quote →</a>
  </div>
  </div>

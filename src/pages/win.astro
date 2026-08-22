@@ -1,18 +1,19 @@
 ---
 import '@/styles/global.css'
 import SmsConsentFields from '@/components/SmsConsentFields.astro'
+import TrackingHead from '@/components/TrackingHead.astro'
 
-// Bighorn Threads — Event opt-in landing page (QR target).
-// Hardcoded for the current event. To repurpose: change EVENT_TAG + EVENT_LABEL + headline copy.
-const EVENT_TAG = 'event-golf-tournament'
-const EVENT_LABEL = 'Golf Tournament 2026'
-const HEADLINE_LINE_1 = "Drop your info."
-const HEADLINE_LINE_2 = "Grab your free gift."
+// Inactive event template. Activate only after the event, offer, inventory,
+// eligibility, fulfillment, consent, and routing terms are approved.
+const EVENT_TAG = 'event-inactive-template'
+const EVENT_LABEL = 'Inactive Event Template'
+const HEADLINE_LINE_1 = "Event offer"
+const HEADLINE_LINE_2 = "is not active."
 const SUBHEAD =
- "Quick form. No spam. We'll text you when your gift's ready at the Bighorn Threads tent — plus a heads-up on what's new for your crew."
+ "There is no active giveaway or event registration on this page. Contact Bighorn Threads for current information."
 
-const title = 'Free Gift — Bighorn Threads'
-const description = 'Sign up for your free gift from Bighorn Threads at the event.'
+const title = 'Event Offer Inactive | Bighorn Threads'
+const description = 'There is no active Bighorn Threads event offer on this page.'
 ---
 
 <!doctype html>
@@ -23,9 +24,9 @@ const description = 'Sign up for your free gift from Bighorn Threads at the even
  <meta name="robots" content="noindex,nofollow" />
  <title>{title}</title>
  <meta name="description" content={description} />
- <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="icon" href="/favicon.ico" />
  <meta name="theme-color" content="#f4f2ee" />
- <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer is:inline></script>
+ <TrackingHead />
  </head>
  <body class="min-h-dvh bg-concrete text-charcoal antialiased">
  <main class="relative isolate min-h-dvh overflow-hidden">
@@ -40,7 +41,7 @@ const description = 'Sign up for your free gift from Bighorn Threads at the even
  <div class="mb-8 flex items-center justify-between">
  <a href="/" class="flex items-center gap-2.5">
  <img
- src="/images/logo-mark.svg"
+    src="/images/logo.svg"
  alt=""
  width="32"
  height="32"
@@ -63,7 +64,7 @@ const description = 'Sign up for your free gift from Bighorn Threads at the even
  <span
  class="mb-3 inline-block font-subheading text-xs font-bold uppercase tracking-[0.22em] text-gold-700"
  >
- Free Gift · While Supplies Last
+ Inactive Template
  </span>
  <h1
  class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-5xl"
@@ -76,10 +77,16 @@ const description = 'Sign up for your free gift from Bighorn Threads at the even
  </p>
  </header>
 
- <!-- Form -->
+ <div class="mb-6 border border-hairline bg-panel p-6 text-center">
+ <h2 class="font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal">No active event offer</h2>
+ <p class="mt-3 text-sm leading-relaxed text-ash">This route is retained as an inactive template. No eligibility, inventory, fulfillment, or event terms are currently offered.</p>
+ <a href="/contact/" class="btn-primary mt-5 text-sm">Contact Bighorn Threads</a>
+ </div>
+
+ <!-- Inactive form template -->
  <form
  id="optinForm"
- class="border border-hairline bg-panel p-5 sm:p-6"
+ class="hidden border border-hairline bg-panel p-5 sm:p-6"
  novalidate
  >
  <!-- Honeypot: name kept obscure to avoid password-manager / browser autofill -->
@@ -174,11 +181,11 @@ const description = 'Sign up for your free gift from Bighorn Threads at the even
  type="submit"
  class="btn-primary mt-6 w-full justify-center text-base disabled:opacity-60"
  >
- Claim My Free Gift
+ Inactive Offer
  </button>
 
  <p class="mt-4 text-center text-xs text-ash">
- We won't share your info. Unsubscribe anytime.
+ See our <a href="/legal/privacy-policy/" class="underline decoration-gold-500/50 underline-offset-2 hover:text-gold-700">Privacy Policy</a>. You can opt out of texts at any time.
  </p>
 
  <div
@@ -279,6 +286,15 @@ const description = 'Sign up for your free gift from Bighorn Threads at the even
 
  const smsMarketing = form.querySelector('input[name="smsMarketingConsent"]')
  const smsTransactional = form.querySelector('input[name="smsTransactionalConsent"]')
+ const smsSelected = (smsMarketing && smsMarketing.checked) || (smsTransactional && smsTransactional.checked)
+ if (smsSelected && !form.phone.value.trim()) {
+ setStatus('Add a phone number or leave both text-message boxes unchecked.', 'error')
+ form.phone.focus()
+ return
+ }
+ const contextKey = form.id || 'event-optin'
+ const tracker = Reflect.get(window, 'bighornTracking')
+ const leadContext = tracker?.getLeadContext?.(contextKey)
  const payload = {
  firstName: form.firstName.value.trim(),
  lastName: form.lastName.value.trim(),
@@ -289,7 +305,10 @@ const description = 'Sign up for your free gift from Bighorn Threads at the even
  eventLabel: form.eventLabel.value,
  smsMarketingConsent: smsMarketing && smsMarketing.checked ? 'yes' : '',
  smsTransactionalConsent: smsTransactional && smsTransactional.checked ? 'yes' : '',
- consentUrl: window.location.href,
+ consentUrl: `${window.location.origin}${window.location.pathname}`,
+ attribution: leadContext?.attribution || null,
+ externalLeadId: leadContext?.externalLeadId || '',
+ eventId: leadContext?.eventId || '',
  bh_hp_field: hp ? hp.value : '',
  'cf-turnstile-response': (form.querySelector('[name="cf-turnstile-response"]') || {}).value || '',
  }
@@ -300,12 +319,17 @@ const description = 'Sign up for your free gift from Bighorn Threads at the even
  headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
  body: JSON.stringify(payload),
  })
- if (res.ok) {
+ const data = await res.json().catch(() => ({}))
+ if (res.ok && data.ok && !data.spam) {
+ tracker?.trackLead?.({ form: 'event_optin', contextKey, eventId: leadContext?.eventId })
+ window.location.href = '/win/thanks'
+ } else if (res.ok && data.spam) {
  window.location.href = '/win/thanks'
  } else {
  throw new Error('Request failed')
  }
  } catch (err) {
+ Reflect.get(window, 'turnstile')?.reset?.()
  setStatus(
  "Couldn't submit. Try again, or text us at 702.904.8923.",
  'error'

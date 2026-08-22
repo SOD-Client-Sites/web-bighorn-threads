@@ -2,47 +2,47 @@
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const page = {
- title: 'Promotional Products in Las Vegas | Branded SWAG, Drinkware, Bags — Bighorn Threads',
+ title: 'Promotional Products in Las Vegas | Branded SWAG, Drinkware, Bags | Bighorn Threads',
  description:
- 'Promotional products for Las Vegas trade shows, corporate events, employee onboarding, and customer gifts. Drinkware, bags, tech, writing, awards — sourced from the SAGE catalog and decorated in-house. Get a quote.',
+ 'Promotional products for Las Vegas trade shows, corporate events, employee onboarding, and customer gifts. Bighorn coordinates sourcing, proofs, and partner decoration.',
  hero: '/images/generated/product-stack.jpg',
  url: 'https://bighornthreads.com/promo-products-las-vegas/',
 }
 
 const stack = [
- { label: 'The catalog', body: 'Sourced from SAGE — the wholesale promo industry\'s primary supplier database. Hundreds of thousands of branded items across drinkware, bags, tech, apparel, writing, awards, and event SWAG.' },
- { label: 'The decoration', body: 'Branded in-house with embroidery, screen print, DTF, laser engraving, pad print, and full-color UV. The decoration matches the substrate — laser on metal, embroidery on fabric, UV on plastic.' },
+ { label: 'The catalog', body: 'Bighorn can search SAGE for current supplier options across drinkware, bags, tech, apparel, writing, awards, and event items.' },
+ { label: 'The decoration', body: 'Bighorn coordinates the approved decoration through production partners. The available method is confirmed for the selected product before you approve the order.' },
  { label: 'Use cases', body: 'Trade show booth giveaways, corporate event swag, employee onboarding kits, customer thank-you gifts, conference attendee bags, recruiting drives, milestone awards.' },
- { label: 'Program-ready', body: 'Approved-vendor list on file for repeat orders. Reorder the same item at the same per-piece price. Common SKUs (drinkware, polos, bags) become house items after the first run.' },
+ { label: 'Program-ready', body: 'Bighorn can document approved products and artwork for future orders. Each reorder receives a current availability, pricing, and production review.' },
 ]
 
 const categories = [
- { row: 'Drinkware', use: 'Yeti, Hydro Flask, Corkcicle, Stanley, RTIC, MiiR, Klean Kanteen', notes: 'Laser engraving on stainless. Print on poly. The most-requested promo category.' },
- { row: 'Bags', use: 'Tote bags, backpacks, duffels, computer cases — Herschel, Patagonia, Igloo, Yeti', notes: 'Embroidery, screen print, or transfer depending on fabric and detail.' },
- { row: 'Tech', use: 'Power banks, wireless chargers, Bluetooth speakers, USB drives, laptop stands', notes: 'Pad print or full-color UV print. Bose and JBL co-branded options available.' },
- { row: 'Apparel', use: 'T-shirts, polos, hoodies, jackets, hats — full Bighorn workwear catalog', notes: 'Embroidery or screen print. See our apparel-specific pages for blank picks.' },
- { row: 'Writing', use: 'Pens, notebooks, journals, highlighters — Moleskine, Leuchtturm, Cross', notes: 'Laser engraving, pad print, or debossed for premium notebooks.' },
+ { row: 'Drinkware', use: 'Ask about current stainless, insulated, and reusable options', notes: 'Decoration depends on the exact material, finish, and manufacturer approval.' },
+ { row: 'Bags', use: 'Ask about current totes, backpacks, duffels, and computer bags', notes: 'Embroidery, print, or transfer may be available by product.' },
+ { row: 'Tech', use: 'Ask about current chargers, speakers, drives, and desk accessories', notes: 'Brand, electrical specifications, decoration, and availability require quote review.' },
+ { row: 'Apparel', use: 'T-shirts, polos, hoodies, jackets, and hats', notes: 'Decoration is proposed for the exact garment and artwork.' },
+ { row: 'Writing', use: 'Ask about current pens, notebooks, journals, and highlighters', notes: 'Decoration depends on the product, material, and supplier.' },
  { row: 'Awards & gifts', use: 'Crystal, glass, plaques, recognition gifts, milestone tokens', notes: 'Laser engraving and color-fill. Year-end employee recognition programs.' },
  { row: 'Event SWAG', use: 'Lanyards, badge holders, tote bags, water bottles, hand sanitizer', notes: 'High-volume convention items, often ordered against an event date.' },
 ]
 
 const eventTypes = [
- { name: 'Trade show booths', detail: 'Vegas hosts the big ones — World of Concrete, IBS, ConExpo, AHR, AGC, SEMA. We outfit booth crews and supply giveaway items aligned to the audience.' },
+ { name: 'Trade show booths', detail: 'Plan booth apparel and giveaway items around the audience, event date, quantity, destination, and current supplier terms.' },
  { name: 'Corporate events', detail: 'All-hands meetings, sales kickoffs, customer-appreciation dinners. Branded gifts that match event theme and exec-tier expectations.' },
  { name: 'Employee onboarding', detail: 'New-hire welcome kits — branded notebook, water bottle, pen, tote, t-shirt, lanyard, badge holder. Everything one team member needs day one.' },
  { name: 'Customer thank-you', detail: 'High-touch client gifts at contract signing or quarterly check-ins. Premium drinkware, leather notebooks, recognized brand-name items.' },
- { name: 'Recruiting drives', detail: 'Career fair giveaways and sign-on bonuses. Items recruits actually keep — water bottles, tech accessories, branded backpacks.' },
+ { name: 'Recruiting drives', detail: 'Compare career-fair and new-hire items by audience fit, usefulness, budget, availability, and delivery date.' },
  { name: 'Milestone & service awards', detail: 'Year-of-service recognition, project-completion gifts, retirement pieces. Engraved crystal, leather portfolios, or premium drinkware.' },
 ]
 
 const faqs = [
- { q: 'What promotional products do you carry?', a: 'We source from the SAGE wholesale promotional product catalog, the industry-standard database used by every legitimate promo distributor. That covers hundreds of thousands of items across drinkware, bags, tech, apparel, writing instruments, awards, and event SWAG. If you have a specific item in mind, we can almost always find it.' },
- { q: 'What\'s the minimum order for promo products?', a: 'Minimums vary by item — branded pens often start at 100, premium drinkware at 24-48, custom apparel at 12-24, and award pieces at one. We quote against the specific item and decoration method.' },
- { q: 'How do you decorate promotional products?', a: 'The decoration method matches the substrate. Laser engraving on metal drinkware and award pieces. Embroidery or screen print on apparel. Pad print or full-color UV on plastics and tech accessories. Debossing on premium leather notebooks. We pick the method that produces the cleanest result for the substrate.' },
- { q: 'Can I order promotional products for a Las Vegas trade show?', a: 'Yes — Vegas hosts most major trade shows in the construction, building products, HVAC, and equipment segments. World of Concrete in January, IBS in February, ConExpo every three years, AHR Expo on rotation, AGC Annual, SEMA in November. We supply booth giveaways and crew apparel for all of them.' },
- { q: 'Do you supply Yeti, Hydro Flask, and other premium drinkware brands?', a: 'Yes. Yeti, Hydro Flask, Corkcicle, Stanley, RTIC, MiiR, and Klean Kanteen are stocked in the SAGE catalog and are the most-ordered drinkware brands for corporate gifts. Decoration is laser engraving on stainless models and print on the polymer models.' },
+ { q: 'What promotional products can you source?', a: 'Bighorn searches the SAGE wholesale promotional product catalog for drinkware, bags, tech, apparel, writing instruments, awards, and event items. Product availability, decoration, minimums, pricing, and timing are confirmed in the quote.' },
+ { q: 'What\'s the minimum order for promo products?', a: 'Minimums vary by product, supplier, decoration, and current production requirements. Bighorn confirms the current minimum in your quote.' },
+ { q: 'How do you decorate promotional products?', a: 'Bighorn recommends a decoration approach for the selected product and coordinates the approved work through production partners. Available methods are confirmed in the quote.' },
+ { q: 'Can I request promotional products for a Las Vegas trade show?', a: 'Yes. Send the event date, product ideas, quantities, artwork, and required destination. Bighorn will confirm current availability, decoration, production, and fulfillment options.' },
+ { q: 'Can you source premium drinkware brands?', a: 'Send the brand, model, quantity, and deadline you need. Bighorn will confirm current availability, approved decoration options, and commercial terms before you order.' },
  { q: 'What\'s the lead time on promotional products?', a: 'Lead time depends on item availability, decoration complexity, and order size. Common items with on-file artwork move quickly. Specialty or imported items take longer. Send your event date with your inquiry and we\'ll quote a real production timeline against the calendar.' },
- { q: 'Can you build a recurring promo program?', a: 'Yes. Most ongoing promo programs settle into 5-15 standard SKUs (a polo, a tee, a water bottle, a notebook, a lanyard) reordered against a quarterly cadence. We keep the artwork, sizing, and supplier on file so reorders run at the same per-piece pricing as the initial run.' },
+ { q: 'Can you build a recurring promo program?', a: 'Bighorn can document approved products and artwork for repeat orders. Each reorder receives a current review for availability, pricing, decoration, and timing.' },
 ]
 
 const breadcrumb = {
@@ -58,18 +58,10 @@ const serviceSchema = {
  '@context': 'https://schema.org',
  '@type': 'Service',
  datePublished: '2026-07-08',
- dateModified: '2026-07-08',
+ dateModified: '2026-08-21',
  name: 'Promotional Products in Las Vegas',
  serviceType: 'Branded promotional products and corporate gifts',
  provider: { '@id': 'https://bighornthreads.com/#organization' },
- areaServed: [
- { '@type': 'City', name: 'Las Vegas' },
- { '@type': 'City', name: 'Henderson' },
- { '@type': 'City', name: 'North Las Vegas' },
- { '@type': 'City', name: 'Summerlin' },
- { '@type': 'City', name: 'Spring Valley' },
- { '@type': 'City', name: 'Paradise' },
- ],
  description: page.description,
  url: page.url,
 }
@@ -85,7 +77,7 @@ const speakableSchema = {
  '@type': 'WebPage',
  url: page.url,
  datePublished: '2026-07-08',
- dateModified: '2026-07-08',
+ dateModified: '2026-08-21',
  speakable: {
  '@type': 'SpeakableSpecification',
  cssSelector: ['h1', '.speakable-answer'],
@@ -121,7 +113,7 @@ const speakableSchema = {
  Promotional Products in Las Vegas <span class="text-gold-400">— SWAG that earns shelf space, not landfill space.</span>
  </h1>
  <p class="speakable-answer max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- Bighorn Threads supplies promotional products in Las Vegas for trade shows, corporate events, employee onboarding, and customer gifts. Drinkware, bags, tech, writing, and awards are sourced from the SAGE catalog and decorated in house with the method that fits each item, from laser engraving on metal to embroidery on fabric.
+ Bighorn Threads coordinates promotional products for Las Vegas trade shows, corporate events, employee onboarding, and customer gifts. Production partners perform the approved decoration. Bighorn manages selection, proofs, orders, and reorders.
  </p>
  <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
  <a href="/contact/" class="btn-primary text-base">
@@ -188,7 +180,7 @@ const speakableSchema = {
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
  <p class="kicker mb-3">Use Cases</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Six places promo products earn their cost.</h2>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Six ways to plan promotional products.</h2>
  </div>
  <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
  {eventTypes.map((u) => (
@@ -209,16 +201,16 @@ const speakableSchema = {
  </h2>
  <div class="space-y-5 text-lg leading-relaxed text-ash">
  <p>
- Promotional products work as a marketing channel when the item is something the recipient actually keeps and uses. The cheap pen, the foam stress ball, and the plastic-imitation drinkware all end up in the trash within a week — the brand-impression-per-dollar math on those items rounds toward zero. A premium water bottle, a real Yeti tumbler, a quality leather notebook, or a recognized-brand backpack lives on someone's desk or in their car for years and earns the brand impression every time it's seen.
+ Promotional products work best when the item is useful to the intended recipient. Compare product quality, audience fit, quantity, decoration, delivery, and total cost before choosing between low-cost giveaways and premium branded items.
  </p>
  <p>
- The category that wins on impression-per-dollar across nearly every event type is drinkware, specifically premium stainless drinkware: Yeti, Hydro Flask, Corkcicle, Stanley, RTIC, MiiR, and Klean Kanteen. These items survive normal wear, look premium on first impression, and get used daily. Laser engraving on stainless gives a clean, permanent decoration that matches the quality of the underlying piece. The economic math at corporate-gift volume is favorable enough that drinkware is the most-requested category in the SAGE catalog.
+ Drinkware can be a strong candidate when it fits the audience and occasion. Compare the current product, brand, finish, decoration, care instructions, minimum, delivery, and total quoted cost. Engraving results and durability depend on the exact material and finish, so approve the product-specific proof and care guidance.
  </p>
  <p>
- The trade show segment is its own use case. Vegas hosts the largest construction-adjacent trade shows in North America — World of Concrete, the International Builders' Show, ConExpo, AHR Expo, AGC Annual, SEMA. Booth giveaway strategy ranges from low-cost high-volume items (branded lanyards, mini hand sanitizer, pens) to mid-tier "second visit" gifts (drinkware, tote bags) to premium "qualified-lead" gifts (jackets, premium notebooks, leather portfolios). The right mix depends on booth traffic, qualifying questions, and what the sales team needs to send home with each lead category.
+ Trade shows are a distinct planning case. A giveaway mix can range from high-volume items to products reserved for qualified prospects. The right mix depends on audience, expected traffic, qualifying questions, budget, event rules, delivery date, and what the sales team wants each lead category to receive.
  </p>
  <p>
- Recurring promo programs settle into a small set of standard SKUs after the first few orders — a polo, a t-shirt, a water bottle, a notebook, a lanyard. Once those are on file with approved artwork and supplier numbers, reorders run at the same per-piece pricing without re-quoting. Most ongoing programs reorder against a quarterly cadence (events, new-hire onboarding, customer thank-you windows).
+ Recurring promo programs often settle into a small set of standard products after the first few orders. Keeping approved products and artwork on file can simplify future orders. Every reorder still needs a current review for availability, pricing, decoration, and timing.
  </p>
  <p>
  For event-specific programs, see our <a href="/trade-show-apparel-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">trade show apparel guide</a>. For deeper reads on apparel and decoration, see our <a href="/blog/trade-show-apparel-booth-crew/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">booth-crew apparel playbook</a> and the <a href="/services/embroidery-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">embroidery service page</a> for decoration specifics.
@@ -272,7 +264,7 @@ const speakableSchema = {
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Ready to spec your promo program?</h2>
  <p class="mb-8 text-lg text-navy-200">Send your event date, audience, and budget tier.</p>
  <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
- <a href="/get-a-quote/" class="btn-primary text-base">Get a Free Quote</a>
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
  </div>
  </div>

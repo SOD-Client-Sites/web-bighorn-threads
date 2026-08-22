@@ -2,43 +2,43 @@
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const page = {
- title: 'Fastest Turnaround for Custom Apparel | 5-8 Day Embroidery — Bighorn Threads',
+ title: 'Custom Apparel Turnaround in Las Vegas | Bighorn Threads',
  description:
- 'Standard turnaround for custom embroidered and screen-printed apparel, what slows orders down, and how Bighorn Threads delivers 5-8 business day embroidery with rush options in Las Vegas.',
+ 'Learn what affects custom apparel turnaround, then ask Bighorn Threads to confirm garment availability, partner capacity, proofing, shipping, and timing in writing.',
  hero: '/images/generated/service-screen-printing.jpg',
  url: 'https://bighornthreads.com/fastest-turnaround-custom-apparel/',
 }
 
 const timeline = [
- { method: 'Embroidery (standard)', industry: '7–14 business days', bighorn: '5–8 business days' },
- { method: 'Screen printing (standard)', industry: '7–12 business days', bighorn: '5–7 business days' },
- { method: 'DTF printing', industry: '5–10 business days', bighorn: '3–6 business days' },
- { method: 'Rush / local pickup (Las Vegas)', industry: 'Often unavailable', bighorn: 'Available, case by case' },
+ { method: 'Embroidery', industry: 'Varies by shop and specification', bighorn: 'Confirmed after artwork and capacity review' },
+ { method: 'Screen printing', industry: 'Varies by shop and specification', bighorn: 'Confirmed after garment and capacity review' },
+ { method: 'DTF printing', industry: 'Varies by shop and specification', bighorn: 'Confirmed after method and capacity review' },
+ { method: 'Rush or pickup request', industry: 'Depends on current availability', bighorn: 'Quoted only when a partner supports it' },
 ]
 
 const blockers = [
  { label: 'Missing or low-res art files', body: 'A blurry logo or wrong file format stalls the project before digitizing or screen burning can even start. Send vector files (AI, EPS, SVG) when you have them.' },
- { label: 'Unapproved digitizing proofs', body: 'Embroidery cannot start production until you sign off on the stitch-out proof. Faster proof approval directly shortens your timeline — same-day approval saves a full day or more.' },
- { label: 'Last-minute size changes', body: 'Changing quantities or sizes after garments are ordered from the supplier resets part of the clock. Lock sizes before approving the order to protect your delivery date.' },
- { label: 'Compliance verification on FR/ANSI gear', body: 'FR-rated and ANSI hi-vis pieces go through an extra placement and material check. It is a fixed step, but skipping it is not an option — build it into your timeline expectations upfront.' },
+ { label: 'Unapproved artwork or proofs', body: 'Production authorization depends on the proofing requirements in the quote. Delayed approval can move the confirmed schedule.' },
+ { label: 'Late quantity or size changes', body: 'Changing quantities or sizes can affect garment availability, pricing, setup, and timing. Confirm the final specification before approval.' },
+ { label: 'Protective-garment review', body: 'The employer and garment manufacturer control protective requirements. Allow time to review the exact garment and proposed decoration before production approval.' },
 ]
 
 const faqs = [
- { q: 'What is the fastest turnaround for custom apparel?', a: 'Standard turnaround for custom embroidered apparel is 7-14 business days industry-wide. Bighorn Threads delivers most embroidery orders in 5-8 business days, with rush options for local pickup in Las Vegas. Screen printing runs 5-7 days. What slows orders: missing art files, unapproved digitizing proofs, and last-minute size changes.' },
- { q: 'How fast can a rush order be turned around?', a: 'Rush availability depends on order size, garment availability, and whether your art is already digitized. Local Las Vegas pickup can sometimes be turned around in 2-3 business days for in-stock garments with an existing logo file. Call ahead to confirm capacity before counting on a specific date.' },
+ { q: 'What is the fastest turnaround for custom apparel?', a: 'There is no universal fastest turnaround. It depends on the garment, quantity, artwork, proofing, decoration method, partner capacity, shipping, and required date. Bighorn confirms the supported schedule in writing before you approve the order.' },
+ { q: 'How fast can a rush order be turned around?', a: 'Rush availability depends on the complete specification and current partner capacity. Share the required date before ordering and rely only on the schedule confirmed in the written quote.' },
  { q: 'Why does embroidery take longer than screen printing?', a: 'Embroidery requires digitizing the logo into a stitch file before any production starts, and you need to approve a physical or digital proof before the run begins. Screen printing has a similar setup step (burning screens) but typically runs slightly faster once approved, especially on simple 1-2 color designs.' },
- { q: 'What is the single biggest thing I can do to speed up my order?', a: 'Approve the digitizing or screen proof the same day it is sent. Proof turnaround sits entirely on the customer side, and a one or two-day delay in approval pushes your delivery date back by exactly that much.' },
- { q: 'Does a larger order take longer to produce?', a: 'Not necessarily for embroidery and screen printing, since most production runs through the same machine cycle regardless of quantity within a reasonable range. Very large orders (200+) may need an extra day or two for garment sourcing if a specific size or color is not in stock.' },
- { q: 'Can FR-rated or ANSI hi-vis orders be rushed?', a: 'Sometimes, but the compliance verification step is fixed and cannot be skipped. Build in slightly more lead time for compliance gear than for standard apparel, and flag it as FR or ANSI-rated when you submit the order so it gets routed correctly from the start.' },
+ { q: 'What is the single biggest thing I can do to speed up my order?', a: 'Provide complete artwork, garment, color, size, quantity, decoration, destination, and deadline details at the start. Respond promptly to any required proof, substitution, or specification question.' },
+ { q: 'Does a larger order take longer to produce?', a: 'It can. Quantity affects sourcing, setup, production capacity, packaging, and shipping. Bighorn confirms the available schedule after the complete order is reviewed.' },
+ { q: 'Can FR-rated or ANSI hi-vis orders be rushed?', a: 'Do not compress the employer and manufacturer review required for protective garments. Bighorn will confirm whether the selected product, decoration, and partner capacity support the requested date.' },
 ]
 
-const leadAnswer = 'Standard turnaround for custom embroidered apparel is 7-14 business days industry-wide. Bighorn Threads delivers most embroidery orders in 5-8 business days, with rush options for local pickup in Las Vegas. Screen printing runs 5-7 days. What slows orders: missing art files, unapproved digitizing proofs, and last-minute size changes.'
+const leadAnswer = 'Custom apparel turnaround depends on the garment, quantity, artwork, proofing, decoration method, current partner capacity, shipping, and required date. Bighorn Threads confirms the supported schedule in writing before order approval.'
 
 const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
  { '@type': 'ListItem', position: 2, name: 'Fastest Turnaround for Custom Apparel', item: page.url },
 ] }
-const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: page.title, description: page.description, url: page.url, publisher: { '@type': 'Organization', name: 'Bighorn Threads' }, datePublished: '2026-07-08', dateModified: '2026-07-08' }
+const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: page.title, description: page.description, url: page.url, publisher: { '@type': 'Organization', name: 'Bighorn Threads' }, datePublished: '2026-07-08', dateModified: '2026-08-21' }
 const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }
 ---
 
@@ -58,10 +58,10 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  </nav>
  <p class="kicker mb-4 flex items-center gap-2.5"><span class="h-px w-8 bg-gold-500"></span>Turnaround</p>
  <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
- Fastest turnaround on custom apparel <span class="text-gold-400">— 5 to 8 business days.</span>
+ Custom apparel turnaround <span class="text-gold-400">confirmed before approval.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- Industry standard is 7-14 days. Here is what actually slows an order down, and how to avoid it.
+ Learn what affects the schedule, then provide a complete specification so current partner capacity can be checked.
  </p>
  <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
  <a href="/get-a-quote/" class="btn-primary text-base">
@@ -85,7 +85,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
  <p class="kicker mb-3">Turnaround Comparison</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Industry standard vs. Bighorn Threads.</h2>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">What each production path requires.</h2>
  </div>
  <div class="overflow-hidden border border-hairline">
  <table class="w-full text-left">
@@ -133,19 +133,19 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">How to actually hit a tight deadline.</h2>
  <div class="space-y-5 text-lg leading-relaxed text-ash">
  <p>
- Most quoted turnaround numbers assume a clean order — good art, fast proof approval, no last-minute changes. The gap between a quoted 7-day estimate and an actual 14-day delivery almost always comes from one of the four blockers above, not from production capacity itself.
+ A schedule depends on a complete order, usable artwork, proof approval, garment availability, current production capacity, shipping, and no late specification changes.
  </p>
  <p>
- Embroidery has a built-in dependency screen printing does not: a digitizing proof you have to approve before production starts. <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Logo digitizing</a> itself takes us 1-2 business days; how fast you sign off on the result is the variable you control. Same-day approval is the single biggest lever on your own timeline.
+ Embroidery may require digitizing and proof approval before production. <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Logo digitizing</a>, proofing, sew-outs, timing, and fees depend on the selected partner and final specification.
  </p>
  <p>
- If you know you have a hard deadline, say so when you request the quote — not after the order is placed. We will flag whether rush production or <a href="/services/rush-orders-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">local pickup</a> in Las Vegas is realistic for your specific garment, quantity, and decoration method.
+ If you have a hard deadline, include it in the quote request. Bighorn will confirm whether a <a href="/services/rush-orders-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">rush production option</a>, pickup, or shipping path is supported for the complete specification.
  </p>
  <p>
- Compliance gear adds a fixed step that cannot be compressed — FR thread and ANSI placement verification take the time they take. Build that into your planning if any part of the order is flame-resistant or hi-vis rated, and submit those pieces in the same order, flagged clearly, rather than as a late add-on.
+ Protective garments require the employer to identify the required protection and the exact product and decoration to be reviewed against current manufacturer instructions. Include those requirements at the start.
  </p>
  <p>
- The honest math: a clean order with fast art and fast proof approval is the real fastest path to delivery, faster than any rush fee can buy back once the order is already moving. <a href="/about/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Get in touch</a> and we will tell you exactly where your specific order sits on the timeline.
+ The practical path is a complete specification, prompt approvals, and a schedule confirmed before production authorization. <a href="/about/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Get in touch</a> to request a written timeline for your order.
  </p>
  </div>
  </div>
@@ -175,7 +175,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  <div class="grid gap-5 md:grid-cols-3">
  <a href="/services/rush-orders-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Rush Orders in Las Vegas</h3>
- <p class="mt-2 text-sm text-ash">Local pickup and rush production options.</p>
+ <p class="mt-2 text-sm text-ash">How to request current rush capacity, destination, and handoff terms.</p>
  </a>
  <a href="/blog/logo-digitizing-101-embroidery/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Logo Digitizing 101</h3>
@@ -196,7 +196,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Got a deadline? Tell us now.</h2>
  <p class="mb-8 text-lg text-navy-200">Send your logo, garment list, and the date you need it. We will tell you what is realistic.</p>
  <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
- <a href="/get-a-quote/" class="btn-primary text-base">Get a Free Quote</a>
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
  </div>
  </div>

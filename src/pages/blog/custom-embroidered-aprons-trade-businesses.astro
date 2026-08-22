@@ -14,19 +14,19 @@ const post = {
 }
 
 const faqs = [
- { q: 'What apron styles work best for embroidery?', a: 'Bib aprons (full-coverage, neck strap + waist tie) and waist aprons (half-apron from waist down) are the two most-embroidered styles. Bib aprons offer chest real estate for logos and pockets; waist aprons keep arms free and embroider on the front pocket. For mobile and service trades, the heavyweight cross-back bib apron is most-ordered because it distributes weight better than neck-strap.' },
- { q: 'What fabric weight should a work apron be?', a: '8-10 oz cotton or cotton-poly canvas is the practical sweet spot. Lighter (5-6 oz) feels flimsy and doesn\'t protect; heavier (12+ oz) is uncomfortable for sustained wear. For food service, 7-8 oz cotton-poly twill resists stains and washes cleanly. For trade and shop work, 10 oz cotton canvas (Dickies Industrial, Hudson Durable Goods) survives the abuse.' },
- { q: 'Where do you embroider on an apron?', a: 'Standard placement is upper-left chest panel on bib aprons (3-3.5 inches wide logo, ~5,000-8,000 stitches typical). Front pocket is the secondary placement. Some businesses run a second smaller logo or employee name on the right chest. For waist aprons, front pocket is the primary placement. Avoid placements that cross seams or hit pocket edges.' },
+ { q: 'What apron styles work best for embroidery?', a: 'Bib and waist aprons can support embroidery when the fabric, seams, pockets, straps, and proposed placement are compatible. Review the exact product and proof before production.' },
+ { q: 'What fabric weight should a work apron be?', a: 'Choose fabric weight from the work, comfort needs, laundering, care instructions, and manufacturer specifications. Compare physical samples before approving a program.' },
+ { q: 'Where do you embroider on an apron?', a: 'Placement depends on the apron construction and artwork. Chest panels and pockets may be options when seams, edges, and straps do not interfere. The production partner confirms the final size and placement.' },
  { q: 'What businesses use embroidered aprons?', a: 'Auto detailers, mobile mechanics, automotive service writers, food service (chefs, servers, baristas, butchers), retail (florists, bakery, butcher shops), salons (hair, nails, spa), brewery and winery tasting rooms, woodshops, leather workers, and light industrial. Trade contractors typically don\'t use aprons (work shirts and pants instead) but their dispatcher and front-counter staff often do.' },
- { q: 'How long do embroidered aprons last?', a: 'A heavyweight 10 oz cotton canvas apron with proper care lasts 1-3 years of daily working use depending on the work. Food service aprons that go through industrial laundry typically last 6-12 months before fading or stitching wear. Trade aprons used for less-frequent tasks last longer because they see fewer wash cycles.' },
+ { q: 'How long do embroidered aprons last?', a: 'Service life depends on the exact apron, work, abrasion, laundering, care, and decoration. Follow the manufacturer and laundry provider instructions, then inspect and replace products based on condition.' },
  { q: 'Are aprons a good giveaway item?', a: 'Yes for some industries. Aprons skew toward food service, brewery, retail, and creative trades — they\'re visible, useful, and project a professional brand image. They\'re generally NOT good giveaways for general construction trades (where work shirts dominate) or office-only businesses (where polos make more sense).' },
- { q: 'What\'s the minimum order for custom embroidered aprons?', a: 'Most commercial embroidery shops set 12-24 pieces as the practical minimum, same as other embroidery work. The digitizing fee is a one-time charge per logo regardless of apron quantity. For very small orders (4-12 aprons), expect higher per-piece pricing or a small-order surcharge.' },
+ { q: 'What\'s the minimum order for custom embroidered aprons?', a: 'Minimums, digitizing, setup, small-order charges, and repeat-order terms vary by product and production partner. Confirm every term in the written quote.' },
 ]
 
 const schema = {
  '@context': 'https://schema.org',
  '@graph': [
- { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: post.isoDate, author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
+ { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: '2026-08-21', author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
  { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' }, { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` }] },
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
@@ -62,7 +62,7 @@ const speakableSchema = {
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Custom embroidered aprons fit service trades, food service, retail, and creative shops. The most-ordered style is a heavyweight 10 oz cotton canvas bib apron with cross-back straps and a 3-3.5 inch embroidered chest logo. Per-piece economics are the same as embroidered work shirts: 12-24 piece minimum, one-time digitizing fee, fast reorders once the file is on record.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Custom embroidered aprons can fit service trades, food service, retail, and creative shops. Compare the exact style, fabric, straps, pockets, care, and decoration placement. Your quote confirms minimums, digitizing, setup, file terms, pricing, and timing.</p>
  </aside>
 
  <h2 id="apron-styles" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The Apron Styles That Matter</h2>
@@ -81,16 +81,16 @@ const speakableSchema = {
 
  <h2 id="fabric" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Fabric Weights for Working Aprons</h2>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
- <li><strong>5-6 oz lightweight cotton</strong> — feels flimsy in working environments. Acceptable for low-stakes uses (one-time event aprons, light retail).</li>
- <li><strong>7-8 oz cotton-poly twill</strong> — food service standard. Stain-resistant blend, washes cleanly through industrial laundry programs.</li>
- <li><strong>10 oz heavyweight cotton canvas</strong> — the trade-and-shop default. Survives daily working abuse, holds embroidery cleanly, lasts 1-3 years of working use.</li>
- <li><strong>12+ oz waxed canvas or duck</strong> — premium, for environments where durability is paramount. Stiffer feel; some users find it uncomfortable initially but it breaks in well.</li>
+ <li><strong>Lightweight cotton</strong>: compare comfort, coverage, care, and suitability for the intended task.</li>
+ <li><strong>Cotton-poly twill</strong>: review the exact finish, laundering instructions, and food-service requirements.</li>
+ <li><strong>Heavyweight cotton canvas</strong>: compare abrasion, comfort, embroidery compatibility, and care for trade or shop use.</li>
+ <li><strong>Waxed canvas or duck</strong>: confirm stiffness, care, heat exposure, and workplace suitability with the manufacturer.</li>
  </ul>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Common blank brands for embroidery: <strong>Dickies Industrial</strong>, <strong>Hudson Durable Goods</strong>, <strong>Tilit Workwear</strong>, <strong>Port Authority A700</strong>, <strong>Augusta Sportswear</strong>. Most accept 10 oz cotton canvas or 7-8 oz cotton-poly twill.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Potential brands include <strong>Dickies Industrial</strong>, <strong>Hudson Durable Goods</strong>, <strong>Tilit Workwear</strong>, <strong>Port Authority</strong>, and <strong>Augusta Sportswear</strong>. Confirm the current product, fabric, availability, and decoration compatibility.</p>
 
  <h2 id="placement" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Embroidery Placement</h2>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
- <li><strong>Bib aprons:</strong> upper-left chest panel (3-3.5 inches wide logo, 5,000-8,000 stitches typical). Front pocket is secondary placement.</li>
+ <li><strong>Bib aprons:</strong> ask the production partner to confirm eligible placements, dimensions, stitch plan, pocket clearance, and proof for the exact apron and artwork.</li>
  <li><strong>Waist aprons:</strong> front pocket — both options for centered placement or aligned to one side.</li>
  <li><strong>Tool aprons:</strong> upper bib panel, above the tool pockets.</li>
  <li><strong>Avoid:</strong> placements that cross seams, hit pocket edges, or interfere with strap attachment points.</li>
@@ -113,7 +113,7 @@ const speakableSchema = {
  <li><strong>Pick the fabric weight</strong> — 8 oz for food service / light retail, 10 oz for trade and shop work</li>
  <li><strong>Send your logo</strong> — vector format preferred (.ai, .eps, .pdf). See our piece on <a href="/blog/vector-logo-file-setup-for-embroidery/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">vector logo file setup</a></li>
  <li><strong>Specify placement</strong> — chest, pocket, both</li>
- <li><strong>Quantity and color</strong> — most apron blanks come in 6-15 colors with comparable per-piece pricing</li>
+ <li><strong>Quantity and color</strong>: confirm current colors, sizes, minimums, and quoted pricing.</li>
  </ol>
 
  <h2 id="related" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Related Reading</h2>
@@ -125,7 +125,7 @@ const speakableSchema = {
 
  <div class="mt-12 border border-hairline bg-gold-500/5 p-7 sm:p-9">
  <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-charcoal">Custom embroidered aprons in Las Vegas</h2>
- <p class="mb-5 text-lg leading-relaxed text-charcoal">Bighorn Threads runs commercial embroidery on heavyweight cotton canvas aprons for Vegas service businesses, food service, retail, and trade dispatchers. Send your logo and crew sizes for a quote.</p>
+<p class="mb-5 text-lg leading-relaxed text-charcoal">Bighorn Threads coordinates embroidery on compatible aprons through selected production partners. Send your logo, preferred product, crew sizes, and deadline for a quote.</p>
  <a href="/get-a-quote/" class="inline-flex min-h-[48px] items-center gap-2 bg-gold-500 px-7 py-3 text-base font-bold text-charcoal transition-all hover:bg-gold-600">Get a Quote →</a>
  </div>
  </div>

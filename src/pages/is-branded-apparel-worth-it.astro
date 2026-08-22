@@ -4,24 +4,24 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 const page = {
  title: 'Is Branded Apparel Worth It for a Service Business? | Bighorn Threads',
  description:
- 'Does branded apparel actually pay back for contractors and service businesses? Crew professionalism, fewer uniform disputes, and real per-unit cost — the honest math from a Las Vegas shop.',
+ 'See how branded apparel can support crew recognition and a consistent uniform standard. Compare options with a current Bighorn Threads quote.',
  hero: '/images/generated/foreman-closeup.jpg',
  url: 'https://bighornthreads.com/is-branded-apparel-worth-it/',
 }
 
 const payoffs = [
- { label: 'Client trust, fast', body: 'A crew that shows up in matching, clean branded gear signals competence before anyone says a word. On service calls and jobsite walk-throughs, that first impression shapes how much the client trusts the estimate.' },
- { label: 'Fewer uniform disputes', body: 'A defined, supplied uniform removes the ongoing argument over what counts as acceptable jobsite or client-facing clothing — no more judgment calls about a faded tee or the wrong logo.' },
+ { label: 'Clear crew recognition', body: 'Consistent branded gear can help clients and site teams identify your crew. It also creates a more uniform presentation across customer visits and jobsites.' },
+ { label: 'A defined uniform standard', body: 'A documented apparel program gives managers and employees a shared standard for approved jobsite and client-facing clothing.' },
  { label: 'Cost vs. operational value', body: 'Program cost depends on the garment, decoration, artwork, and quantity. Compare the quoted cost with the value of a consistent, recognizable crew presentation.' },
 ]
 
 const faqs = [
  { q: 'Is branded apparel worth the cost for a service business?', a: 'It can be valuable for service businesses that need consistent crew identification and a defined uniform standard. The business case depends on program cost, how often the garments are worn, and the role presentation plays in the customer experience.' },
- { q: 'How does branded apparel actually generate ROI?', a: 'It is mostly indirect but measurable in the metrics that matter: higher close rates on estimates when the crew looks credible, fewer client complaints about who showed up, and stronger word-of-mouth referrals when a branded crew is visible in a neighborhood or jobsite for an extended period.' },
+ { q: 'How can a business evaluate branded apparel ROI?', a: 'Track the full program cost against measurable operating goals. Those goals may include uniform adoption, reorder administration, garment replacement, and customer feedback. Do not assume branded apparel alone will increase sales.' },
  { q: 'What is the minimum order to start a branded apparel program?', a: 'Minimums vary by garment and decoration method. Bighorn Threads confirms the current minimum after reviewing the proposed starter program.' },
  { q: 'Should branded apparel be embroidered or screen printed for a service business?', a: 'For client-facing roles — sales, project managers, anyone walking a property with a homeowner — embroidered polos read as more professional and last longer. For field-only roles, screen-printed tees are more cost-effective and just as brand-consistent.' },
  { q: 'How much should a small service business budget to start?', a: 'Budget depends on crew size, garment selection, decoration, artwork, and quantity. An itemized quote is the reliable way to compare a starter kit with future reorder needs.' },
- { q: 'Does branded apparel matter if my company is mostly referral-based already?', a: 'It still compounds the effect. Referral business depends on the client trusting their decision after the fact — a branded, professional-looking crew reinforces that decision every time the client sees the truck or the team, which makes the next referral easier to give.' },
+ { q: 'Does branded apparel matter if my company is mostly referral-based already?', a: 'It can still support consistent crew identification and presentation. Whether that value justifies the cost depends on your customer experience, uniform policy, and reorder needs.' },
 ]
 
 const leadAnswer = 'Branded apparel can support crew recognition, consistent presentation, and a clearer uniform standard. Whether it is worth the cost depends on the program specification, how often the garments are worn, and the needs of the business. Bighorn Threads can quote a program after reviewing those details.'
@@ -30,7 +30,7 @@ const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList'
  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
  { '@type': 'ListItem', position: 2, name: 'Is Branded Apparel Worth It', item: page.url },
 ] }
-const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: page.title, description: page.description, url: page.url, publisher: { '@type': 'Organization', name: 'Bighorn Threads' }, datePublished: '2026-07-08', dateModified: '2026-07-08' }
+const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: page.title, description: page.description, url: page.url, publisher: { '@type': 'Organization', name: 'Bighorn Threads' }, datePublished: '2026-07-08', dateModified: '2026-08-21' }
 const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }
 ---
 
@@ -50,10 +50,10 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  </nav>
  <p class="kicker mb-4 flex items-center gap-2.5"><span class="h-px w-8 bg-gold-500"></span>The Real Math</p>
  <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
- Is branded apparel worth it? <span class="text-gold-400">Yes — here is the math.</span>
+ Is branded apparel worth it? <span class="text-gold-400">Build the business case.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- Trust, fewer disputes, and a per-unit cost lower than one hour of unbillable time. The honest case for outfitting your crew.
+ Compare program cost with your goals for crew recognition, uniform standards, and repeat ordering.
  </p>
  <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
  <a href="/get-a-quote/" class="btn-primary text-base">
@@ -77,7 +77,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
  <p class="kicker mb-3">Where The Payback Comes From</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Three ways branded apparel pays for itself.</h2>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Three factors to include in your decision.</h2>
  </div>
  <div class="grid gap-5 md:grid-cols-3">
  {payoffs.map((p) => (
@@ -96,16 +96,16 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">Why this question keeps coming up — and why the answer is simple.</h2>
  <div class="space-y-5 text-lg leading-relaxed text-ash">
  <p>
- Owners ask whether branded apparel is "worth it" because the return is not on an invoice line item. Nobody signs a contract because of a polo. But the absence of branded apparel shows up everywhere — in the client who is not sure which truck pulled up, in the foreman who has to vouch for who is actually on the crew, in the slightly-off first impression that makes a homeowner hesitate before signing the estimate.
+ Owners ask whether branded apparel is worth it because the return is not always a direct invoice line item. Start with goals you can define, such as crew recognition, uniform adoption, or easier repeat ordering.
  </p>
  <p>
  Program cost changes with the garment, decoration, artwork, and quantity. Use an itemized quote to compare options and understand what can be reused on later orders. See the <a href="/blog/how-much-to-embroider-a-polo/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">embroidered polo cost guide</a> for the factors that shape a quote.
  </p>
  <p>
- The professionalism effect compounds specifically in trade and construction work, where the client often cannot evaluate the actual craftsmanship until the job is done — they are evaluating you on what they can see: punctuality, communication, and how the crew presents. A clean, consistent uniform is one of the few signals a client has before the work speaks for itself.
+ In trade and construction work, a consistent uniform can help clients and other site teams identify your crew. It should support clear communication and solid work, not substitute for either one.
  </p>
  <p>
- It also solves a quieter internal problem: uniform disputes. Without a supplied, defined uniform, "appropriate" jobsite or client-facing clothing becomes a judgment call every manager has to make individually. A standard kit — see <a href="/blog/how-many-shirts-per-crew-member-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">how many shirts per crew member</a> for sizing the program — removes that conversation entirely.
+ It can also reduce ambiguity around approved jobsite or client-facing clothing. A written uniform standard gives managers and employees the same reference point. See <a href="/blog/how-many-shirts-per-crew-member-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">how many shirts per crew member</a> when planning the program.
  </p>
  <p>
  If you are starting small, <a href="/about/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">talk to us</a> about your team size. Minimums vary by garment and decoration method and are confirmed in the quote.
@@ -157,9 +157,9 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
  <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Build a program around your crew.</h2>
- <p class="mb-8 text-lg text-navy-200">Send your logo — we will show you what a starter kit costs.</p>
+ <p class="mb-8 text-lg text-navy-200">Send your logo and crew details. We will quote a starter program.</p>
  <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
- <a href="/get-a-quote/" class="btn-primary text-base">Get a Free Quote</a>
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
  </div>
  </div>

@@ -4,7 +4,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 const post = {
  title: 'Sublimation Printing for Custom Apparel: When It Wins, When It Doesn\'t',
  description:
- 'Sublimation printing dyes polyester fibers permanently — vivid, no-feel, but only on white/light-colored polyester. Here\'s how it works, when to choose it over screen printing or embroidery, and what fabrics it actually fits.',
+ 'Sublimation printing dyes compatible polyester materials. Learn how fabric, color, artwork, care, and partner specifications shape the result.',
  category: 'Decoration Methods',
  readTime: '8 min read',
  date: 'May 9, 2026',
@@ -14,20 +14,20 @@ const post = {
 }
 
 const faqs = [
- { q: 'What is sublimation printing?', a: 'Sublimation printing uses heat and pressure to convert solid dye into gas, which permanently bonds with polyester fibers. The result is a no-feel, vivid, full-color print that becomes part of the fabric — not a layer sitting on top. The print won\'t crack, peel, or fade like surface decoration methods can.' },
- { q: 'How does sublimation printing work?', a: 'Five steps: (1) print the design onto sublimation transfer paper using sublimation ink, (2) place the paper face-down on a polyester garment, (3) apply heat (~400°F) and pressure with a heat press for 45-60 seconds, (4) the dye sublimates from solid to gas and bonds with polyester molecules, (5) remove paper and the design is permanently embedded in the fabric.' },
- { q: 'What fabrics work with sublimation printing?', a: '100% polyester is the only true substrate. Dye molecules bond chemically with polyester polymer chains. Cotton does not work — there\'s no chemical bond, the print sits on the surface and washes out within a few cycles. Cotton-poly blends partially sublimate (only the poly fibers take the dye), giving a vintage/faded look that some buyers actually want.' },
- { q: 'Sublimation vs screen printing — which is better?', a: 'Different tools for different jobs. Sublimation wins on full-color photographic designs, all-over prints, performance polyester athletic wear, and small-batch runs (no setup cost per piece). Screen printing wins on cotton/cotton-blend tees and hoodies, high-volume runs, dark fabrics, and bold simple designs. Most shops use both — sublimation for performance gear, screen printing for tees.' },
- { q: 'Sublimation vs DTF printing — which one for my use case?', a: 'Sublimation only works on light-colored polyester. DTF (direct-to-film) works on any fabric color and any blend including cotton, but the print sits on top with a slight feel. For all-over polyester athletic prints, sublimation wins. For small-batch custom orders on dark cotton tees, DTF wins. The fabric and color answer the question.' },
- { q: 'Can sublimation print on dark fabrics?', a: 'No — sublimation requires light-colored polyester (white, light gray, light heather, pastel colors). The dye is translucent, so dark base colors show through and contaminate the print. For dark polyester, the only option is to print onto a white sublimation block first, which adds cost and creates the surface-feel sublimation tries to avoid.' },
- { q: 'How long does sublimation last?', a: 'Effectively forever. Because the dye bonds with polyester polymer molecules, it can\'t crack, peel, or fade through normal wash cycles. Industry tests show sublimated polyester maintains color through 100+ industrial wash cycles — the fabric will wear out before the print does.' },
- { q: 'What\'s the minimum order for sublimation?', a: 'As low as 1 piece. Unlike screen printing (24+ piece minimum to amortize setup) and embroidery (12+ piece minimum to amortize digitizing), sublimation has minimal setup. Each piece is printed individually with the same per-piece cost. This makes sublimation the right pick for one-off and small-batch custom apparel.' },
+ { q: 'What is sublimation printing?', a: 'Sublimation uses heat and pressure to transfer dye into compatible polyester material. The finished feel, color, and durability depend on the exact blank, coating, artwork, process, and care instructions.' },
+ { q: 'How does sublimation printing work?', a: 'A production partner prints approved artwork onto transfer paper, then applies the transfer under a documented heat-press specification. Time, temperature, pressure, and finishing must follow the material and equipment instructions.' },
+ { q: 'What fabrics work with sublimation printing?', a: 'Sublimation generally requires compatible polyester content or a purpose-made coating. Results on blends vary with polyester content, color, construction, and partner testing. Confirm the exact blank and proof before production.' },
+ { q: 'Sublimation vs screen printing: which is better?', a: 'Choose by fabric, garment color, artwork, quantity, feel, care, and price. Sublimation often fits compatible light polyester. Screen printing may fit cotton, blends, dark garments, or larger runs. The written quote confirms the method.' },
+ { q: 'Sublimation vs DTF printing: which one for my use case?', a: 'Sublimation often fits compatible light polyester. DTF may support a broader set of garments and colors. Confirm fabric compatibility, finish, care, quantity, and price with the selected production partner.' },
+ { q: 'Can sublimation print on dark fabrics?', a: 'Traditional sublimation uses translucent dye, so garment color affects the result. Ask the selected partner to confirm whether the exact dark product supports the requested artwork or requires another method.' },
+ { q: 'How long does sublimation last?', a: 'There is no universal life or wash count. Follow the exact product and decorator care instructions. Ask for testing or manufacturer documentation when durability is a purchasing requirement.' },
+ { q: 'What\'s the minimum order for sublimation?', a: 'Minimums and setup depend on the product, artwork, and selected production partner. Send the quantity you need and request a written quote.' },
 ]
 
 const schema = {
  '@context': 'https://schema.org',
  '@graph': [
- { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: post.isoDate, author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
+ { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: '2026-08-21', author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
  { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' }, { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` }] },
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
@@ -63,7 +63,7 @@ const speakableSchema = {
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Sublimation printing uses heat to convert solid dye into gas that permanently bonds with polyester fibers — no-feel, vivid, full-color, won't crack or peel. Only works on light-colored polyester. Wins for all-over athletic wear, photographic designs, and small-batch custom polyester orders. Loses to screen printing on cotton tees and to DTF on dark fabrics.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Sublimation uses heat and pressure to transfer dye into compatible polyester material. It often fits light polyester and full-color artwork. Confirm the exact blank, color, process, care instructions, minimum, and price in writing.</p>
  </aside>
 
  <h2 id="how-it-works" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">How Sublimation Printing Actually Works</h2>
@@ -71,9 +71,9 @@ const speakableSchema = {
  <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Design printed on sublimation transfer paper</strong> using sublimation-specific ink and a sublimation printer (typically Epson SureColor or Sawgrass).</li>
  <li><strong>Transfer paper placed face-down</strong> on a 100% polyester garment.</li>
- <li><strong>Heat press applies 380-400°F at moderate pressure</strong> for 45-60 seconds.</li>
+ <li><strong>The heat press follows the documented production specification</strong> for the selected ink, paper, material, and equipment.</li>
  <li><strong>Sublimation: dye converts from solid to gas</strong> (skipping the liquid phase) and bonds chemically with polyester polymer chains.</li>
- <li><strong>Paper is removed</strong> and the design is permanently embedded in the fabric — not on top of it.</li>
+ <li><strong>The transfer is finished and inspected</strong> against the approved proof and partner specification.</li>
  </ol>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">For deeper background on the alternative methods, see our pieces on <a href="/blog/what-is-screen-printing/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">what is screen printing</a> and <a href="/blog/what-is-embroidery-buyers-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">what is embroidery</a>.</p>
 
@@ -81,7 +81,7 @@ const speakableSchema = {
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>All-over polyester athletic wear.</strong> Cycling jerseys, basketball uniforms, soccer kits, dye-sublimated team apparel — sublimation handles full-coverage prints that screen printing can't approach.</li>
  <li><strong>Photographic and gradient designs.</strong> Sublimation reproduces full-color photographic detail that screen printing requires elaborate halftone separation to fake.</li>
- <li><strong>Small-batch custom polyester runs.</strong> 1-12 piece orders where screen printing setup costs don't amortize. Sublimation has no per-piece setup penalty.</li>
+ <li><strong>Small-batch custom polyester runs.</strong> Sublimation may offer suitable setup economics. Minimums and unit pricing still require a quote.</li>
  <li><strong>White-base sportswear.</strong> Light-colored polyester athletic gear takes sublimation cleanly with brilliant color.</li>
  <li><strong>Performance fabric programs.</strong> Moisture-wicking polyester polos, performance tees, athletic shorts.</li>
  <li><strong>Mugs, mousepads, drinkware.</strong> Sublimation's most-recognized application — but the same technology applies to apparel.</li>
@@ -89,9 +89,9 @@ const speakableSchema = {
 
  <h2 id="when-it-loses" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">When Sublimation Loses</h2>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
- <li><strong>Cotton tees and hoodies.</strong> Cotton has no chemical bond with sublimation dye. The print washes out within a few cycles. Use screen printing or DTF instead.</li>
+ <li><strong>Cotton tees and hoodies.</strong> Standard sublimation requires compatible polyester content or a purpose-made coating. Ask about screen printing or DTF instead.</li>
  <li><strong>Dark-colored polyester.</strong> Sublimation dye is translucent. Dark base colors contaminate the print. Use DTF for dark fabrics.</li>
- <li><strong>High-volume runs on cotton-blend tees.</strong> Even at 200+ pieces, sublimation per-piece cost stays comparable while screen printing per-piece cost falls dramatically.</li>
+ <li><strong>Larger runs on cotton-blend tees.</strong> Screen printing may offer better economics. Compare current quotes for the same garment and artwork.</li>
  <li><strong>Embroidery-appropriate garments</strong> (polos, jackets, hats) where the premium textured look reads better than a flat printed graphic.</li>
  </ul>
 
@@ -103,31 +103,31 @@ const speakableSchema = {
  </thead>
  <tbody class="divide-y divide-hairline">
  <tr><td class="px-5 py-3">All-over polyester athletic jerseys</td><td class="px-5 py-3 font-bold">Sublimation</td></tr>
- <tr><td class="px-5 py-3">Cotton tees, high volume (50+ pieces)</td><td class="px-5 py-3 font-bold">Screen Printing</td></tr>
- <tr><td class="px-5 py-3">Cotton tees, small batch (1-24 pieces)</td><td class="px-5 py-3 font-bold">DTF or HTV</td></tr>
+ <tr><td class="px-5 py-3">Cotton tees, larger run</td><td class="px-5 py-3 font-bold">Compare Screen Printing</td></tr>
+ <tr><td class="px-5 py-3">Cotton tees, small batch</td><td class="px-5 py-3 font-bold">Compare DTF or HTV</td></tr>
  <tr><td class="px-5 py-3">Dark polyester athletic shirts</td><td class="px-5 py-3 font-bold">DTF</td></tr>
  <tr><td class="px-5 py-3">Custom polos, hats, jackets</td><td class="px-5 py-3 font-bold">Embroidery</td></tr>
  <tr><td class="px-5 py-3">Photo-realistic designs on white poly</td><td class="px-5 py-3 font-bold">Sublimation</td></tr>
  <tr><td class="px-5 py-3">Hi-vis safety apparel decoration</td><td class="px-5 py-3 font-bold">Screen Printing or Embroidery</td></tr>
- <tr><td class="px-5 py-3">FR-rated workwear decoration</td><td class="px-5 py-3 font-bold">Embroidery (Nomex thread)</td></tr>
+ <tr><td class="px-5 py-3">Protective workwear decoration</td><td class="px-5 py-3 font-bold">Follow exact manufacturer instructions</td></tr>
  </tbody>
  </table>
  </div>
 
  <h2 id="bighorn-context" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Bighorn's Trade Apparel Context</h2>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">For Vegas trade contractors, service businesses, and crew programs — sublimation rarely wins. The reasons: most crew apparel runs on cotton or cotton-blend tees and polos (sublimation doesn't work), the volumes are 24-200+ pieces (screen printing wins), and FR/hi-vis compliance work needs embroidery (Nomex thread).</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">For Vegas crew programs, start with the exact garment and job requirements. Compare compatible methods by artwork, quantity, feel, care, partner capacity, and price. Protective apparel requires employer approval and current manufacturer documentation.</p>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">Where sublimation does fit: athletic-style team apparel for events, ride-along shirts for charitable runs (Vegas has dozens of trade-association charity events), and promotional one-offs where a trade business wants a custom polyester gift item.</p>
 
  <h2 id="related" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Related Reading</h2>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><a href="/blog/what-is-screen-printing/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">What is screen printing</a></li>
- <li><a href="/blog/screen-printing-vs-embroidery-construction/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Screen printing vs embroidery for construction</a></li>
+ <li><a href="/screen-printing-vs-embroidery-construction-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Screen printing vs embroidery for construction</a></li>
  <li><a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Minimum order quantity for embroidery and screen printing</a></li>
  </ul>
 
  <div class="mt-12 border border-hairline bg-panel p-7 sm:p-9">
  <h2 class="mb-3 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal">Custom apparel decoration in Las Vegas</h2>
- <p class="mb-5 text-lg leading-relaxed text-ash">Bighorn Threads runs embroidery and screen printing for Vegas trade contractors. For sublimation-specific projects (athletic-style polyester apparel, full-color photographic designs), we'll route to a sublimation-equipped partner shop.</p>
+<p class="mb-5 text-lg leading-relaxed text-ash">Bighorn Threads coordinates decoration through selected production partners for Vegas trade contractors. Sublimation availability depends on the product, artwork, and partner capabilities.</p>
  <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote →</a>
  </div>
  </div>

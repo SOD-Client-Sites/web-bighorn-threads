@@ -4,7 +4,9 @@
 // Quantity Estimate custom field, and attaches a structured note with every answer.
 
 import { parseSmsConsent } from './_consent.js'
+import { formatAttributionNote, scheduleOriginalAttribution } from './_attribution.js'
 import { verifyTurnstile } from './_turnstile.js'
+import { COMMON_FIELD_LIMITS, normalizeSiteUrl, safeErrorName, validatePayload } from './_validation.js'
 
 const GHL_BASE = 'https://services.leadconnectorhq.com'
 const GHL_API_VERSION = '2021-07-28'
@@ -29,7 +31,8 @@ const VERTICALS = {
   trades: 'Construction & Trades',
 }
 
-export async function onRequestPost({ request, env }) {
+export async function onRequestPost(context) {
+  const { request, env } = context
   let body
   try {
     body = await request.json()
@@ -42,6 +45,15 @@ export async function onRequestPost({ request, env }) {
   if (body.bh_hp_field && String(body.bh_hp_field).trim()) {
     return jsonResponse({ ok: true, contactId: null, spam: true })
   }
+
+  const validationError = validatePayload(body, {
+    ...COMMON_FIELD_LIMITS,
+    vertical: 100,
+    quantity: 100,
+    product: 500,
+    details: 5_000,
+  })
+  if (validationError) return errorResponse(validationError, 400)
 
   // Cloudflare Turnstile — bot challenge (skipped until TURNSTILE_SECRET is set)
   const verified = await verifyTurnstile({ env, request, token: body['cf-turnstile-response'] })
@@ -79,8 +91,9 @@ export async function onRequestPost({ request, env }) {
   const quantity = body.quantity ? String(body.quantity).trim() : ''
   const product = body.product ? String(body.product).trim() : ''
   const details = body.details ? String(body.details).trim() : ''
-  const sourceUrl = body.sourceUrl ? String(body.sourceUrl).trim() : ''
-  const consent = parseSmsConsent(body, body.sourceUrl)
+  const sourceUrl = normalizeSiteUrl(body.sourceUrl)
+  const consent = parseSmsConsent(body, sourceUrl)
+  if (consent.any && !phone) return errorResponse('Phone is required when SMS consent is selected', 400)
 
   // ---------------- Upsert contact ----------------
   let contactId = null
@@ -89,7 +102,6 @@ export async function onRequestPost({ request, env }) {
       locationId,
       email,
       source: `bighornthreads.com — ${verticalLabel} company store LP`,
-      tags: ['company-store-lead', `segment-${verticalSlug}`, `industry-${verticalSlug}`, ...consent.tags],
     }
     if (firstName) upsertBody.firstName = firstName
     if (lastName) upsertBody.lastName = lastName
@@ -107,35 +119,59 @@ export async function onRequestPost({ request, env }) {
       body: JSON.stringify(upsertBody),
     })
     if (!upsertRes.ok) {
-      const text = await safeText(upsertRes)
-      console.error('[lp-optin] upsert failed', upsertRes.status, text)
+      console.error('[lp-optin] GHL request failed', { operation: 'contact-upsert', status: upsertRes.status })
       return errorResponse(`GHL upsert failed (${upsertRes.status})`, 502)
     }
     const upsertData = await upsertRes.json()
     contactId = upsertData?.contact?.id || upsertData?.id || upsertData?.contactId
     if (!contactId) {
-      console.error('[lp-optin] upsert returned no id', upsertData)
+      console.error('[lp-optin] GHL response missing contact id', { operation: 'contact-upsert', status: upsertRes.status })
       return errorResponse('GHL upsert returned no contact id', 502)
     }
   } catch (err) {
-    console.error('[lp-optin] upsert threw', err)
+    console.error('[lp-optin] GHL request threw', { operation: 'contact-upsert', error: safeErrorName(err) })
     return errorResponse('GHL upsert error', 502)
   }
 
+  await scheduleOriginalAttribution({
+    waitUntil: typeof context.waitUntil === 'function' ? context.waitUntil.bind(context) : undefined,
+    label: 'lp-optin',
+    contactId,
+    token,
+    data: body,
+    fallbackDetail: `${verticalLabel} company store landing page`,
+  })
+
   // ---------------- Note with full detail ----------------
-  const noteBody = formatNote({ verticalLabel, company, contactName, email, phone, quantity, product, details, sourceUrl: body.sourceUrl })
+  const noteBody = formatNote({ verticalLabel, company, contactName, email, phone, quantity, product, details, sourceUrl })
     + '\n' + consent.noteBlock
+    + formatAttributionNote(body)
   try {
     const noteRes = await ghlFetch(`${GHL_BASE}/contacts/${contactId}/notes`, token, {
       method: 'POST',
       body: JSON.stringify({ body: noteBody }),
     })
     if (!noteRes.ok) {
-      const text = await safeText(noteRes)
-      console.warn('[lp-optin] note failed (non-fatal)', noteRes.status, text)
+      console.error('[lp-optin] GHL request failed', { operation: 'contact-note', status: noteRes.status })
+      return errorResponse('Contact saved, but consent record failed', 502)
     }
   } catch (err) {
-    console.warn('[lp-optin] note threw (non-fatal)', err)
+    console.error('[lp-optin] GHL request threw', { operation: 'contact-note', error: safeErrorName(err) })
+    return errorResponse('Contact saved, but consent record failed', 502)
+  }
+
+  try {
+    const tagRes = await ghlFetch(`${GHL_BASE}/contacts/${contactId}/tags`, token, {
+      method: 'POST',
+      body: JSON.stringify({ tags: ['company-store-lead', `segment-${verticalSlug}`, `industry-${verticalSlug}`, ...consent.tags] }),
+    })
+    if (!tagRes.ok) {
+      console.error('[lp-optin] GHL request failed', { operation: 'contact-tags', status: tagRes.status })
+      return errorResponse('Contact saved, but lead routing failed', 502)
+    }
+  } catch (err) {
+    console.error('[lp-optin] GHL request threw', { operation: 'contact-tags', error: safeErrorName(err) })
+    return errorResponse('Contact saved, but lead routing failed', 502)
   }
 
   return jsonResponse({ ok: true, contactId })
@@ -154,10 +190,6 @@ function ghlFetch(url, token, init = {}) {
     },
     signal: AbortSignal.timeout(15_000),
   })
-}
-
-async function safeText(res) {
-  try { return await res.text() } catch (_) { return '' }
 }
 
 function formatNote({ verticalLabel, company, contactName, email, phone, quantity, product, details, sourceUrl }) {

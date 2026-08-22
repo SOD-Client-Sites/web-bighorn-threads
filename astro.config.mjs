@@ -10,12 +10,18 @@ export default defineConfig({
     sitemap({
       changefreq: 'weekly',
       priority: 0.7,
-      lastmod: new Date(),
       filter: (page) => ![
         '/demo/',
         '/preview/',
         '/catalog/search/',
-      ].some((path) => page.includes(path)) && !page.includes('/product?'),
+        '/get-started/',
+        '/product/',
+        '/win/',
+        '/404/',
+        '/blog/rush-order-shirts-las-vegas-2-day-3-day-options/',
+        '/blog/screen-printing-vs-embroidery-construction/',
+        '/industries/construction-trades/las-vegas/',
+      ].some((path) => page.includes(path)),
     }),
   ],
   vite: {

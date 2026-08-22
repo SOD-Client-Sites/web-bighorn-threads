@@ -12,12 +12,12 @@ const page = {
 const stack = [
  { label: 'The garment', body: 'Cotton tees, performance polyester (moisture-wicking), tri-blends, mesh jerseys, raglans, hoodies, long-sleeves. Picked to match the use case — court, field, office, or event.' },
  { label: 'The decoration', body: 'Screen printing for high-volume color blocks, DTF for full-color or photographic art, embroidery for premium polos, sublimation for full-coverage jerseys.' },
- { label: 'Names and numbers', body: 'Player names on the back yoke, numbers front and back. Heat-applied or sublimated. Per-shirt customization without slowing the run.' },
+ { label: 'Names and numbers', body: 'Eligible products can support player names and numbers. Pricing and timing depend on the approved method and partner.' },
  { label: 'Use cases', body: 'Youth and adult sports leagues, corporate softball / kickball / dodgeball, charity walks and 5Ks, family reunions, school spirit groups, bachelor / bachelorette events.' },
 ]
 
 const garments = [
- { row: 'Cotton tee', use: 'Casual events, family reunions, charity walks, school spirit', notes: 'Soft hand, lower cost. Holds screen print and DTF cleanly. Loses to performance fabric in summer Vegas heat.' },
+ { row: 'Cotton tee', use: 'Casual events, family reunions, charity walks, school spirit', notes: 'Compare exact fabric, fit, care, decoration compatibility, comfort, availability, and quoted cost.' },
  { row: 'Performance polyester', use: 'Active sports, summer outdoor events, jobsite team shirts', notes: 'Moisture-wicking, dries fast. Sport-Tek ST350 is the workhorse blank. Sublimation-friendly.' },
  { row: 'Tri-blend tee', use: 'Premium soft-feel for corporate or event tier', notes: 'Cotton-poly-rayon blend. Drapes well, feels expensive. Common for company tee programs.' },
  { row: 'Mesh jersey', use: 'Basketball, soccer, hockey, lacrosse', notes: 'Breathable mesh, sublimation-friendly. Augusta and Sport-Tek are the standard team-jersey brands.' },
@@ -27,7 +27,7 @@ const garments = [
 ]
 
 const teamTypes = [
- { name: 'Youth sports leagues', detail: 'Little League, AYSO, club soccer, youth basketball, Pop Warner. Sized 6–7 through adult XL. Bulk per-team pricing on full-roster orders.' },
+ { name: 'Youth sports leagues', detail: 'Youth-team apparel options to compare by current size range, product availability, artwork, quantity, and quoted terms.' },
  { name: 'Adult rec leagues', detail: 'Corporate softball, kickball, dodgeball, volleyball. Often ordered as one-off season runs with team name + sponsor logo.' },
  { name: 'Corporate event teams', detail: 'Company softball, charity 5K teams, all-hands team-building events. Branded with company logo and a team or event identifier.' },
  { name: 'Charity walks and 5Ks', detail: 'Branded with the cause name, sponsor logos on the back. High-volume orders coordinated against the event date.' },
@@ -36,13 +36,13 @@ const teamTypes = [
 ]
 
 const faqs = [
- { q: 'Can I get team shirts with names and numbers on each one?', a: 'Yes. Player names go on the back yoke, numbers on front (small) and back (large). Heat-applied vinyl or dye-sublimation depending on the garment and method. Per-piece personalization adds a small cost per shirt and minimal production time once the base run is set up.' },
- { q: 'What\'s the best fabric for team shirts in Las Vegas summer heat?', a: 'Performance polyester. Sport-Tek ST350 and similar moisture-wicking tees stay drier and cooler than 100% cotton through the long Vegas afternoon. For active sports (basketball, soccer, baseball), polyester or poly blend is the default. Cotton works for casual or post-game use, less so for play.' },
+ { q: 'Can I get team shirts with names and numbers on each one?', a: 'Personalization may be available on eligible products. Placement, pricing, and timing depend on the garment, method, and production partner.' },
+ { q: 'What fabric should we compare for team shirts in Las Vegas heat?', a: 'Compare current cotton, polyester, and blended products for the actual activity, fit, coverage, care, comfort, decoration, and employer or league requirements. Product labels and current manufacturer information control.' },
  { q: 'How many shirts should I order per team member?', a: 'For a single-season league, one shirt per player is standard. For event teams (charity 5Ks, reunions, single-day events), one shirt per participant. For ongoing recreational teams or company programs, two to three per player covers wash rotation and replacement. Order spares — kids and adults both lose shirts.' },
- { q: 'What\'s the minimum team shirt order?', a: 'Most decoration methods have practical minimums. Screen printing is most economical at 24+ pieces (setup costs amortize). DTF prints small runs (6-12 pieces) at competitive per-piece costs. Embroidery on polos starts at 12. Single-piece names and numbers can be added without minimum once the base run exists.' },
- { q: 'Can you sublimate full-coverage jerseys?', a: 'Yes. Dye-sublimation prints edge-to-edge full-color graphics directly into white polyester fabric — the method behind every modern team jersey, basketball uniform, soccer kit, and cycling jersey. Sublimation requires polyester garments and works on light or white base fabric only.' },
- { q: 'Should I screen print or DTF for team shirts?', a: 'Screen printing wins on per-piece cost above ~24-30 pieces of one design. DTF wins on small runs, multi-color or photographic designs, and runs where multiple garment types share the same artwork. For team shirts with simple front and back designs in 1-3 colors at scale, screen print is usually the right call.' },
- { q: 'Where can I get custom team shirts in Las Vegas?', a: 'Bighorn Threads runs custom team shirts for Vegas youth and adult sports leagues, corporate event teams, charity walks, school groups, and family events. Send your team name, roster size, garment preference, and event date for a quote.' },
+  { q: 'What\'s the minimum team shirt order?', a: 'Minimums depend on the shirt, decoration method, and production partner. Share your roster so we can confirm suitable options.' },
+ { q: 'Can you sublimate full-coverage jerseys?', a: 'Full-coverage sublimation may be available on eligible polyester jerseys. Bighorn confirms current products and coordinates approved production through a selected partner.' },
+ { q: 'Should I screen print or use DTF for team shirts?', a: 'The best method depends on quantity, art, fabric, and partner pricing. We compare eligible options before you approve production.' },
+ { q: 'Where can I get custom team shirts in Las Vegas?', a: 'Bighorn Threads manages custom team-shirt programs for Vegas groups. Send your roster, garment preference, and event date for a quote.' },
 ]
 
 const breadcrumb = {
@@ -60,13 +60,6 @@ const serviceSchema = {
  name: 'Custom Team Shirts in Las Vegas',
  serviceType: 'Custom team apparel for sports, corporate teams, charity walks, and event groups',
  provider: { '@id': 'https://bighornthreads.com/#organization' },
- areaServed: [
- { '@type': 'City', name: 'Las Vegas' },
- { '@type': 'City', name: 'Henderson' },
- { '@type': 'City', name: 'North Las Vegas' },
- { '@type': 'City', name: 'Summerlin' },
- { '@type': 'City', name: 'Spring Valley' },
- ],
  description: page.description,
  url: page.url,
 }
@@ -199,10 +192,10 @@ const faqSchema = {
  The garment decision tracks the use case. For active sports — basketball, soccer, baseball, lacrosse — the right call is performance polyester or mesh jersey. The fabric breathes and dries fast enough to wear through play in Vegas heat without becoming a wet rag. Cotton tees lose this comparison decisively. For casual, post-game, or non-athletic events — family reunions, charity walks at moderate pace, school spirit, office team-building — cotton tees or tri-blend soft-feel shirts win on cost and comfort.
  </p>
  <p>
- The decoration method tracks the order size and the art complexity. For high-volume single-design runs (24+ pieces of one design in 1–3 spot colors), screen printing is the right call — setup cost amortizes out and per-piece cost drops to its floor. For small-batch full-color art (12-piece reunion shirts with photographic logos, multi-color event branding), DTF wins. For full-coverage athletic jerseys (basketball, soccer kits, cycling jerseys), dye-sublimation is the standard — edge-to-edge color printed directly into the polyester fabric.
+          Decoration method depends on the order quantity, artwork, fabric, and production partner. Screen printing, DTF, and sublimation each fit different combinations. Compare current pricing and product eligibility before approval.
  </p>
  <p>
- Names and numbers separate team shirts from generic group apparel. Player names on the back yoke and numbers front and back convert a "matching shirt" into a real team uniform. Heat-applied vinyl is the standard for spot-color names and numbers; dye-sublimation handles them when the rest of the jersey is sublimated. Per-shirt personalization adds a small cost and minimal production time once the base run is set up — well worth it for any team that wants the visual identity to read as professional rather than improvised.
+          Names and numbers separate team shirts from generic group apparel. Heat-applied vinyl can suit spot-color names and numbers. Sublimation can handle personalization on eligible jerseys. Pricing and production time depend on the approved product and partner.
  </p>
  <p>
  For broader apparel context, see our <a href="/services/screen-printing-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">screen printing service page</a>, our <a href="/dtf-printing-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">DTF printing guide</a>, and our <a href="/blog/how-many-shirts-per-crew-member-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">shirts-per-crew math piece</a> for ordering quantity guidance.
@@ -243,7 +236,7 @@ const faqSchema = {
  </a>
  <a href="/catalog/t-shirts/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Browse T-Shirt Catalog</h3>
- <p class="mt-2 text-sm text-ash">Every blank we stock — cotton, performance, blend, jersey.</p>
+          <p class="mt-2 text-sm text-ash">Compare current cotton, performance, blend, and jersey options.</p>
  </a>
  </div>
  </div>
@@ -256,7 +249,7 @@ const faqSchema = {
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Ready to outfit your team?</h2>
  <p class="mb-8 text-lg text-navy-200">Send your team name, roster, and event date.</p>
  <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
- <a href="/get-a-quote/" class="btn-primary text-base">Get a Free Quote</a>
+      <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
  </div>
  </div>

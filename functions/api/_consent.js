@@ -4,6 +4,8 @@
 //
 // Files prefixed with "_" are not routed as endpoints by Cloudflare Pages Functions.
 
+import { normalizeSiteUrl } from './_validation.js'
+
 export const SMS_CONSENT_COPY = {
   transactional:
     'I consent to receive transactional (non-marketing) text messages from VP Promos LLC, d/b/a ' +
@@ -25,31 +27,34 @@ function truthy(v) {
  * Parse the two A2P consent checkboxes from a request body.
  * @param {object} data       parsed request body (JSON object or FormData entries object)
  * @param {string} [sourceUrl] page URL the form was submitted from
- * @returns {{marketing:boolean, transactional:boolean, any:boolean, tags:string[], noteBlock:string}}
+ * @returns {{marketing:boolean, transactional:boolean, any:boolean, consentPhone:string, tags:string[], noteBlock:string}}
  */
 export function parseSmsConsent(data, sourceUrl) {
   const marketing = truthy(data && data.smsMarketingConsent)
   const transactional = truthy(data && data.smsTransactionalConsent)
   const any = marketing || transactional
+  const consentPhone = any && data?.phone ? String(data.phone).trim() : ''
 
   const tags = []
   if (any) tags.push('sms-opt-in')
   if (marketing) tags.push('sms-consent-marketing')
   if (transactional) tags.push('sms-consent-transactional')
 
-  const url =
+  const rawUrl =
     (sourceUrl && String(sourceUrl).trim()) ||
     (data && data.consentUrl && String(data.consentUrl).trim()) ||
     (data && data.sourceUrl && String(data.sourceUrl).trim()) ||
     ''
+  const url = normalizeSiteUrl(rawUrl)
 
   const lines = ['', '--- SMS / EMAIL CONSENT (A2P 10DLC) ---', `Captured: ${new Date().toISOString()}`]
   if (url) lines.push(`Source page: ${url}`)
+  if (consentPhone) lines.push(`Consented phone: ${consentPhone}`)
   lines.push(`Marketing texts: ${marketing ? 'YES — opted in' : 'no'}`)
   lines.push(`Non-marketing texts: ${transactional ? 'YES — opted in' : 'no'}`)
   if (transactional) lines.push('', 'Non-marketing consent language shown:', SMS_CONSENT_COPY.transactional)
   if (marketing) lines.push('', 'Marketing consent language shown:', SMS_CONSENT_COPY.marketing)
   if (!any) lines.push('(User did not check either SMS consent box.)')
 
-  return { marketing, transactional, any, tags, noteBlock: lines.join('\n') }
+  return { marketing, transactional, any, consentPhone, tags, noteBlock: lines.join('\n') }
 }

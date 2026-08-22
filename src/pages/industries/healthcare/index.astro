@@ -34,20 +34,20 @@ const storeSteps = [
   {
     n: '01',
     meta: 'Setup',
-    title: 'We Build Your Free Store',
-    desc: 'Your logo, your role and department colors, your approved scrubs and coats — set up once, on us. One branded store for every site.',
+    title: 'We Plan Your Branded Store',
+    desc: 'Bring your logo, role colors, sites, and approved products. Bighorn proposes a managed store with written setup and artwork terms.',
   },
   {
     n: '02',
     meta: 'Ongoing',
-    title: 'Staff Order Their Own',
-    desc: 'Each person logs in, picks their size and role apparel, and submits. No size-guessing, no HR middleman, no spreadsheet.',
+    title: 'Plan Staff Size Submission',
+    desc: 'Staff size submission can be requested against approved role apparel. Supported users and ordering steps are confirmed in the proposal.',
   },
   {
     n: '03',
     meta: 'Ongoing',
-    title: 'Ships Direct, Embroidered',
-    desc: 'Gear ships straight to the site or to each person’s home — logo and name embroidery already on file. Reorders match the first order, every time.',
+    title: 'Coordinated Delivery and Decoration',
+    desc: 'Choose an available delivery option during setup. Bighorn coordinates approved logo and name details with the selected production partner for each order.',
   },
 ]
 
@@ -59,7 +59,7 @@ const storeItems = [
   },
   {
     title: 'Lab Coats & Jackets',
-    desc: 'Embroidered lab coats, warm-up jackets, and fleece for providers and clinical staff. Names and credentials on file, consistent every reorder.',
+    desc: 'Consider embroidered lab coats, warm-up jackets, and fleece. File handling, proofing, product availability, and reorder terms require confirmation.',
     tag: 'Outerwear',
   },
   {
@@ -74,7 +74,7 @@ const storeItems = [
   },
   {
     title: 'Name & Credential Embroidery',
-    desc: 'First name, last name, role, and credentials — stitched on and saved to your account so every new hire matches the team.',
+    desc: 'Request approved names, roles, and credentials on compatible garments. Bighorn confirms roster handling, proofing, and file terms in writing.',
     tag: 'Decoration',
   },
 ]
@@ -82,23 +82,23 @@ const storeItems = [
 const faqs = [
   {
     q: 'What is a healthcare company store?',
-    a: 'It’s a private branded store we build for your organization. Your logo, your role and department colors, and your approved scrubs, lab coats, and staff apparel live in one place. Staff order their own sizes, and gear ships direct — embroidered and consistent across every site.',
+    a: 'It’s a proposed private store for approved products and brand standards. The plan confirms size submission, decoration, delivery options, and service terms.',
   },
   {
     q: 'Can we add names and credentials to scrubs and lab coats?',
-    a: 'Yes. We embroider first name, last name, role, and credentials onto scrubs, lab coats, and jackets. Your logo and each staff member’s name are saved on file, so every reorder matches without re-explaining placement.',
+    a: 'Yes. Production partners can embroider approved names, roles, and credentials on compatible garments. Bighorn coordinates the roster and placement. Each reorder requires a current proof and product check.',
   },
   {
     q: 'Can different roles or departments have different colors?',
-    a: 'Yes. You set the color rules — by role, by department, or by site — and the store enforces them. Staff only see the right options for their unit, so color-coding holds up as people come and go.',
+    a: 'Role, department, or site color rules can be requested. The proposal confirms supported catalogs, user access, and ordering controls.',
   },
   {
     q: 'Can multi-site staff order to their own location or home?',
-    a: 'Yes. Each person chooses to ship to their site or to their home address at checkout. One store covers every clinic, floor, and building — no separate vendors or order forms per location.',
+    a: 'Site and home delivery options may be available. The proposal confirms supported locations, eligible orders, shipping costs, and program terms.',
   },
   {
     q: 'How do reorders work as staff change?',
-    a: 'Your logo, embroidery placement, colors, and garment specs stay saved on your account. When you hire, the new person logs in, picks their size, and orders — the result matches your existing team with no setup to repeat.',
+    a: 'Approved product and artwork details can support repeat orders. New hires submit their sizes. Bighorn confirms current product availability, proof, pricing, and timing before each order.',
   },
 ]
 
@@ -125,7 +125,7 @@ const breadcrumb = {
 
 <BaseLayout
   title="Embroidered Scrubs & Company Stores for Healthcare Teams"
-  description="Branded scrubs, embroidered lab coats, and company stores for hospitals, clinics, and multi-site healthcare groups. Role-based colors, names on file, staff order their own sizes, ships direct."
+  description="Branded scrubs, embroidered lab coats, and company stores for hospitals, clinics, and multi-site healthcare groups. Role-based colors, names, and delivery options are coordinated for each program."
   canonical="https://bighornthreads.com/industries/healthcare/"
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
@@ -152,9 +152,8 @@ const breadcrumb = {
           <span class="text-gold-600"> healthcare teams.</span>
         </h1>
         <p class="mt-7 max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
-          One branded store for every site. Staff order their own sizes, role and
-          department colors hold, and names and logos ship embroidered — consistent
-          across the hospital, the clinic, and the front desk.
+          Plan one approved catalog for clinical and administrative teams. Request staff size submission.
+          Bighorn confirms decoration, store capabilities, shipping options, and service terms in writing.
         </p>
         <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
           <a href="/get-started/healthcare/" class="btn-primary text-base">
@@ -205,8 +204,8 @@ const breadcrumb = {
           How a company store works for a <span class="text-gold-600">clinic or hospital.</span>
         </h2>
         <p class="mt-4 text-lg leading-relaxed text-ash">
-          One free branded store, set up once. Your staff do the ordering. Your logo and
-          names stay on file so every piece matches the last.
+          A branded store can organize approved products and staff size submissions. Artwork storage,
+          proofing, product availability, and reorder terms are confirmed in your plan.
         </p>
       </div>
 
@@ -238,11 +237,11 @@ const breadcrumb = {
       <div class="mb-12 max-w-2xl">
         <p class="kicker mb-3">What Goes In the Store</p>
         <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
-          Every piece your team wears, <span class="text-gold-600">in one place.</span>
+          Approved team apparel, <span class="text-gold-600">organized in one plan.</span>
         </h2>
         <p class="mt-4 text-lg leading-relaxed text-ash">
-          Clinical, admin, and outerwear — embroidered with your logo, names, and
-          credentials, set to your role and department colors.
+          Compare eligible clinical, administrative, and outerwear products. Decoration,
+          personalization, colors, and availability are confirmed in your quote.
         </p>
       </div>
 
@@ -290,9 +289,8 @@ const breadcrumb = {
         Ready to standardize <span class="text-gold-600">your team’s look?</span>
       </h2>
       <p class="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-ash">
-        We’ll build your free company store plan — scrubs, lab coats, and admin
-        apparel, embroidered and color-coded to your roles. Staff order their own sizes,
-        gear ships direct.
+        We’ll build your company store plan for scrubs, lab coats, and admin
+        apparel. The proposal confirms staff size submission, approved decoration, and delivery options.
       </p>
       <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
         <a href="/get-started/healthcare/" class="btn-primary text-base">

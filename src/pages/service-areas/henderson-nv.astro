@@ -2,9 +2,9 @@
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const page = {
- title: 'Custom Workwear and Branded Apparel in Henderson, NV',
+ title: 'Branded Apparel Planning for Henderson, NV Teams',
  description:
- 'Embroidered uniforms, screen-printed crew gear, and FR/hi-vis workwear for Henderson contractors and service trades. Local delivery to Henderson commercial addresses.',
+ 'Henderson teams can request branded-apparel planning. Service-area eligibility, products, production, timing, and handoff terms require a current written quote.',
  h1Pre: 'Henderson, NV',
  hero: '/images/generated/cta-bluehour.jpg',
 }
@@ -12,18 +12,18 @@ const page = {
 const localContext = [
  {
  code: 'Major Projects',
- title: 'Master-planned community build-out is the work',
- body: 'Cadence, Inspirada, Skye Canyon, Tuscany — Henderson is one of the busiest residential build environments in the valley. GCs and the subs trailing them (electrical, plumbing, HVAC, framing, concrete) are running multiple phases concurrently. The Henderson Hospital expansion and the Henderson Pavilion arts district add commercial fit-out volume on top.',
+ title: 'Plan around the project and crew',
+ body: 'A Henderson apparel request can be organized by role, work setting, employer requirements, product, artwork, quantity, and deadline. Project and jobsite requirements must be confirmed by the buyer.',
  },
  {
  code: 'Active Trades',
- title: 'Who we already outfit out here',
- body: 'Subs running for regional GCs working Henderson tracts. Service trades anchored on the south side — HVAC and plumbing shops covering Anthem, Green Valley, and MacDonald Highlands. ',
+ title: 'Trades to plan for',
+ body: 'General contractors and service trades can compare role-based apparel options. Service-area eligibility and all order terms require written confirmation.',
  },
  {
  code: 'What Crews Need Locally',
- title: 'Sharper presentation, faster turnaround',
- body: 'Henderson commercial work runs cleaner than off-Strip industrial — owners and superintendents notice uniformed crews. We deliver free to Henderson commercial addresses (Eastgate, Gibson, Stephanie corridor) and run quick reorders for shops that already have a spec on file.',
+ title: 'Sharper presentation, clear order terms',
+ body: 'Approved apparel can support crew identification. Bighorn can review a request and prepare current product, production, timing, and handoff terms for written approval.',
  },
 ]
 
@@ -55,38 +55,38 @@ const trades = [
 ]
 
 const useCases = [
- 'New-tract framing crews getting branded tees + hats before the first slab pours in Cadence',
- 'HVAC service techs in embroidered polos for Green Valley and Anthem residential routes',
- 'Electrical subs running FR layers on hospital expansion and Henderson Hospital build-out',
- 'GC superintendents in differentiated polos walking jobs in Inspirada and Skye Canyon',
- 'Concrete and framing companies reordering branded long-sleeves for sun-exposed Henderson tract work',
- 'Office staff and estimators in lighter-weight polos for Eastgate and Gibson corridor offices',
+ 'Branded tees and hats requested for field crews',
+ 'Embroidered polos requested for customer-facing service roles',
+ 'Employer-selected protective apparel requested for electrical work',
+ 'Differentiated apparel requested for supervisors and field crews',
+ 'Long-sleeve options reviewed for the exact work and employer requirements',
+ 'Lighter-weight polos requested for office and estimating roles',
 ]
 
 const faqs = [
  {
  q: 'Do you deliver to Henderson, or do we have to drive to your shop?',
- a: 'We deliver to Henderson commercial addresses on qualifying orders — Eastgate, Gibson, Stephanie, the south Henderson industrial pockets. For residential or smaller orders, pickup at our Las Vegas shop is the quickest option. Delivery cost (if any) is itemized on the quote — no surprises at invoice.',
+  a: 'Service-area eligibility, delivery, pickup, availability, and cost are not assumed. The written quote must confirm the exact destination and handoff plan before approval.',
  },
  {
  q: 'How fast can you turn an order around for a Henderson contractor?',
- a: 'Standard production runs from our local Las Vegas shop. from artwork approval. Rush options available — we have repeat Henderson clients who reorder on a rush cycle for new-hire kits.',
+  a: 'Production timing starts after artwork approval and depends on the selected partner, product availability, and order details. Share your deadline and we will quote a realistic schedule.',
  },
  {
  q: 'We\'re a sub running multiple Cadence and Inspirada phases. Can you keep our gear consistent across reorders?',
- a: 'Yes — that\'s exactly what our spec sheets are for. Once you approve the first run, we keep the garment, color, thread, and decoration locked. Phase 4 looks identical to phase 1, even if it\'s 18 months later.',
+ a: 'Bighorn can organize the approved garment, color, artwork, and decoration details for reorders. Each reorder remains subject to current product availability, manufacturer specifications, partner capacity, proof approval, and written terms.',
  },
  {
  q: 'Can you handle a fleet of service trucks getting wrapped at the same time as the crew gets uniforms?',
- a: 'Yes. We coordinate with truck wrap shops in Henderson regularly so the logo, colorway, and license number layout match across both. Send us the wrap proof and we\'ll align the uniform program to it.',
+ a: 'Send the approved vehicle-wrap artwork and brand references. Bighorn can organize a matching apparel brief for review by the selected production partner. Product color, decoration, proof, and timing are confirmed before approval.',
  },
  {
  q: 'Do you stock anything for hot-weather Henderson summer work?',
- a: 'Yes — Port Authority K500 micro-mesh polos, lightweight long-sleeve sun shirts, ANSI hi-vis in moisture-wicking poly. We also carry FR-rated lightweight options for crews that need arc-rated layers without cooking in 110°.',
+ a: 'Bighorn can request current quotes for lightweight polos, long-sleeve sun shirts, hi-vis products, and FR-rated products when required. Your employer sets the hazard and heat plan, then approves the exact garment from current manufacturer information.',
  },
  {
  q: 'What\'s the minimum order for branded gear?',
- a: '24 pieces for screen printing, 12 for embroidery. Most Henderson shops we work with order in 25–50 piece runs and reorder quarterly. Smaller is fine — we just don\'t waive setup under 25.',
+ a: 'Minimums and setup terms depend on the selected product, decoration method, production partner, and current quote. Share your quantities and schedule so the proposal can define the order terms.',
  },
 ]
 
@@ -98,19 +98,6 @@ const breadcrumb = {
  { '@type': 'ListItem', position: 2, name: 'Service Areas', item: 'https://bighornthreads.com/service-areas/' },
  { '@type': 'ListItem', position: 3, name: 'Henderson, NV', item: 'https://bighornthreads.com/service-areas/henderson-nv/' },
  ],
-}
-
-const serviceSchema = {
- '@context': 'https://schema.org',
- '@type': 'Service',
- name: 'Custom Workwear and Branded Apparel in Henderson, NV',
- serviceType: 'Branded apparel, embroidered uniforms, and FR/hi-vis workwear',
- provider: { '@id': 'https://bighornthreads.com/#organization' },
- areaServed: {
- '@type': 'City',
- name: 'Henderson',
- address: { '@type': 'PostalAddress', addressRegion: 'NV', addressCountry: 'US' },
- },
 }
 
 const faqSchema = {
@@ -131,7 +118,6 @@ const faqSchema = {
  heroImage={page.hero}
 >
  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
- <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
  <!-- Hero — full-bleed photographic dark band -->
@@ -150,10 +136,10 @@ const faqSchema = {
 
  <p class="kicker mb-3">{page.h1Pre}</p>
  <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-6xl">
- Custom Workwear and Branded Apparel <span class="text-gold-400">in Henderson, NV.</span>
+ Planning Branded Apparel for <span class="text-gold-400">Henderson, NV Teams.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- Embroidered uniforms, screen-printed crew gear, and FR/hi-vis workwear for Henderson contractors and service trades. Local delivery to Henderson commercial addresses. We know the master-planned community build-out — Cadence, Inspirada, Skye Canyon — and we keep your spec on file for clean reorders.
+ Henderson teams can request a branded-apparel quote. Service-area eligibility, products, production partner, timing, and handoff terms require written confirmation.
  </p>
 
  <div class="mt-10 flex flex-wrap items-center gap-3">
@@ -176,7 +162,7 @@ const faqSchema = {
  <p class="kicker mb-3">Local Context</p>
  <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Why Henderson is <span class="text-gold-600">its own market.</span></h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- Henderson isn't just "south of Las Vegas." It's the master-planned-community capital of the valley, with its own GCs, its own permit office, and its own pace. We outfit crews working the tracts, the hospital expansion, and the Pavilion-area commercial pockets.
+ Henderson teams can organize an apparel request around crew roles, jobsite requirements, artwork, quantities, and deadlines. Bighorn confirms whether it can support the exact project and destination in the written quote.
  </p>
  </div>
 
@@ -197,7 +183,7 @@ const faqSchema = {
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
  <p class="kicker mb-3">The Trades</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Trades we serve in <span class="text-gold-600">Henderson.</span></h2>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Planning by trade for <span class="text-gold-600">Henderson teams.</span></h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
  Most Henderson work falls into one of these four buckets. Click through for the gear, brands, and compliance specifics for each trade.
  </p>
@@ -224,8 +210,8 @@ const faqSchema = {
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
  <div>
- <p class="kicker mb-3">Typical Orders</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">What we run for Henderson crews <span class="text-gold-600">every week.</span></h2>
+ <p class="kicker mb-3">Planning Scenarios</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Program options for <span class="text-gold-600">Henderson crews.</span></h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
  Tract framing crews, residential service techs, commercial fit-out subs, hospital-expansion electrical and mechanical. The Henderson order mix leans residential and master-planned — different from off-Strip industrial.
  </p>
@@ -257,22 +243,22 @@ const faqSchema = {
 
  <div class="space-y-5 text-lg leading-relaxed text-ash">
  <p>
- Henderson is the second-largest city in Nevada and home to one of the densest concentrations of trade contractors in the Vegas metro — general contractors building out the Inspirada and Cadence master-planned communities, electrical contractors wiring the Black Mountain residential boom, mechanical and plumbing shops servicing the Green Valley commercial corridor, and the data center contractors working the Henderson hyperscaler campuses east of the 95. Bighorn Threads delivers free to every Henderson business address inside the Las Vegas Valley on qualifying orders — production happens in our Las Vegas shop and the truck rolls out as part of our daily delivery route.
+Teams in Henderson can request Las Vegas based account management. Service area, products, production, destination, handoff, timing, and cost require a current written quote.
  </p>
  <p>
- Henderson construction has a different mix than central Las Vegas. The residential development scale is enormous — Inspirada alone is 2,000 acres of master-planned community, with 12,000+ homes planned at buildout. That drives sustained demand for residential framing crews, concrete subs, MEP coordination teams, and finish trades that all need branded crew apparel. Bighorn supplies these residential-focused crews with the same Carhartt, Bayside, and Port Authority programs we run for commercial primes — but with a sizing and reorder cadence tuned to residential build velocity.
+ Henderson contractors can request apparel planning for field, supervisory, office, and customer-facing roles. Service-area eligibility, sizing, product, production, reorder, and handoff terms require written confirmation.
  </p>
  <p>
- For Henderson HOA grounds-maintenance, irrigation specialists, and landscape design firms working the master-planned communities, branded uniforms are a competitive requirement. Anthem, Sun City Anthem, MacDonald Highlands, and the Lake Las Vegas communities all expect service contractors to show up in identifiable, professional apparel — and that branding directly influences which firms get the next project. We outfit Henderson landscape companies with embroidered polos, branded caps, and ANSI 107 hi-vis for crews working near vehicle traffic on community projects.
+ Henderson HOA grounds-maintenance, irrigation, and landscape firms often use branded uniforms to identify crews. Bighorn can coordinate quotes for polos, caps, and employer-approved hi-vis products through selected production partners.
  </p>
  <p>
- The Henderson hyperscaler data center cluster east of the 95 drives heavy demand for FR-rated electrical apparel and ANSI 107 hi-vis for the trades working those projects. We supply Bulwark Excel-FR, Carhartt FR Lightweight, ML Kishigo Class 2 hi-vis, and the full company-store program for contractors deploying crews into Henderson hyperscaler builds. Decoration on FR uses Nomex thread; decoration on hi-vis preserves retroreflective tape coverage; documentation on every order keeps your safety binder audit-ready.
+ Data center projects can require FR-rated electrical apparel and ANSI 107 hi-vis. The employer or site safety team must define and approve the required product. Bighorn coordinates selected products and decoration with production partners, subject to current manufacturer instructions and written order terms.
  </p>
  <p>
- We deliver to every Henderson business address on qualifying orders — Eastside, Westside, Anthem, Green Valley, Inspirada, Cadence, Lake Las Vegas, the works. Drop-off direct to your office, warehouse, or active jobsite. Most Henderson clients run weekly delivery cycles for ongoing company-store programs, and we coordinate delivery to project lay-down yards for crews working data center, residential mass-build, and commercial multifamily projects.
+ Delivery, pickup, and company-store capabilities are not assumed. Service area, platform, production partner, destination, schedule, cost, and implementation require separate written approval.
  </p>
  <p>
- Common requests in Henderson: <a href="/blog/ansi-107-class-2-vs-class-3-hi-vis-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Class 2 hi-vis</a>, <a href="/blog/rush-order-shirts-las-vegas-whats-possible/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">rush orders</a>, <a href="/blog/new-hire-workwear-checklist-las-vegas-contractors/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">new hire checklist</a>, and <a href="/industries/data-center-contractors-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">data center contractor uniforms</a>.
+ Related planning resources for Henderson: <a href="/blog/ansi-107-class-2-vs-class-3-hi-vis-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Class 2 hi-vis</a>, <a href="/blog/rush-order-shirts-las-vegas-whats-possible/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">rush orders</a>, <a href="/blog/new-hire-workwear-checklist-las-vegas-contractors/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">new hire checklist</a>, and <a href="/industries/data-center-contractors-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">data center contractor uniforms</a>.
  </p>
  </div>
  </div>
@@ -282,7 +268,7 @@ const faqSchema = {
  <section class="bg-concrete py-20 sm:py-24">
  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
  <p class="kicker mb-3">FAQ</p>
- <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Questions Henderson contractors ask us.</h2>
+ <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Questions to ask before ordering.</h2>
 
  <div class="divide-y divide-hairline border-y border-hairline">
  {faqs.map((f) => (
@@ -324,10 +310,10 @@ const faqSchema = {
  <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" loading="lazy" decoding="async" />
  <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
  <div class="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 lg:px-8">
- <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Serving <span class="text-gold-400">Henderson.</span></h2>
- <p class="mb-8 text-lg text-navy-200">Talk to a real human who knows the Henderson market — Cadence, Inspirada, Skye Canyon, the Pavilion district.</p>
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Confirm options for <span class="text-gold-400">Henderson.</span></h2>
+ <p class="mb-8 text-lg text-navy-200">Send the project location, roles, requested products, quantities, and deadline for a current written quote.</p>
  <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
- <a href="/get-a-quote/" class="btn-primary text-base">Get a Free Quote</a>
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium tracking-wide text-white transition-colors hover:text-gold-400">702.904.8923</a>
  </div>
  </div>

@@ -89,11 +89,11 @@ const labelCls = 'mb-1 block font-mono text-[11px] font-bold uppercase tracking-
       <span id="lp-submit-label">{submitLabel}</span>
     </button>
 
-    <p class="text-center font-mono text-[10px] uppercase tracking-[0.15em] text-ash">No commitment · Free store setup · A real person follows up</p>
+    <p class="text-center font-mono text-[10px] uppercase tracking-[0.15em] text-ash">No commitment · Written setup terms · A real person follows up</p>
   </form>
 
   <!-- success state (hidden until submit) -->
-  <div id="lp-success" class="hidden">
+  <div id="lp-success" class="hidden" role="status" aria-live="polite" aria-atomic="true" tabindex="-1">
     <div class="border border-gold-500 bg-panel p-6 text-center">
       <svg class="mx-auto mb-3 h-10 w-10 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
       <h3 class="font-heading text-xl font-extrabold uppercase tracking-tight text-charcoal">You’re in.</h3>
@@ -105,7 +105,6 @@ const labelCls = 'mb-1 block font-mono text-[11px] font-bold uppercase tracking-
 
 <script>
   const form = document.getElementById('lp-form') as HTMLFormElement | null
-  const card = document.getElementById('lp-form-card')
   const success = document.getElementById('lp-success')
   const submitBtn = document.getElementById('lp-submit') as HTMLButtonElement | null
   const submitLabel = document.getElementById('lp-submit-label')
@@ -118,6 +117,9 @@ const labelCls = 'mb-1 block font-mono text-[11px] font-bold uppercase tracking-
 
     const fd = new FormData(form)
     const vertical = form.dataset.vertical || ''
+    const contextKey = form.id || `lp-${vertical}`
+    const tracker = (window as any).bighornTracking
+    const leadContext = tracker?.getLeadContext?.(contextKey)
 
     const payload = {
       vertical,
@@ -131,7 +133,10 @@ const labelCls = 'mb-1 block font-mono text-[11px] font-bold uppercase tracking-
       bh_hp_field: String(fd.get('bh_hp_field') || ''),
       smsTransactionalConsent: fd.get('smsTransactionalConsent') || '',
       smsMarketingConsent: fd.get('smsMarketingConsent') || '',
-      sourceUrl: window.location.href,
+      sourceUrl: `${window.location.origin}${window.location.pathname}`,
+      attribution: leadContext?.attribution || null,
+      externalLeadId: leadContext?.externalLeadId || '',
+      eventId: leadContext?.eventId || '',
       'cf-turnstile-response': (form.querySelector('[name="cf-turnstile-response"]') as HTMLInputElement | null)?.value || '',
     }
 
@@ -140,17 +145,25 @@ const labelCls = 'mb-1 block font-mono text-[11px] font-bold uppercase tracking-
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
-        signal: AbortSignal.timeout(12000),
+        signal: AbortSignal.timeout(65000),
       })
       const data = await res.json().catch(() => ({}))
       if (!res.ok || !data.ok) throw new Error(data.error || `HTTP ${res.status}`)
-      // fire GA4 lead event — direct gtag() (no GTM container on this site); success-gated
-      ;(window as any).gtag?.('event', 'generate_lead', { form: `lp_${vertical}`, page_path: window.location.pathname })
-      card?.classList.add('hidden')
+      // Honeypot submissions keep the same silent-success UI but never fire lead analytics.
+      if (!data.spam) {
+        if (tracker?.trackLead) {
+          tracker.trackLead({ form: `lp_${vertical}`, contextKey, eventId: leadContext?.eventId })
+        } else {
+          ;(window as any).gtag?.('event', 'generate_lead', { form: `lp_${vertical}`, page_path: window.location.pathname })
+        }
+      }
+      form.classList.add('hidden')
       success?.classList.remove('hidden')
+      success?.focus({ preventScroll: true })
       success?.scrollIntoView({ behavior: 'smooth', block: 'center' })
     } catch (err) {
       console.error('[lp-form] submit failed:', err)
+      ;(window as any).turnstile?.reset?.()
       if (submitBtn) submitBtn.disabled = false
       if (submitLabel) submitLabel.textContent = 'Try again →'
       alert('Something went wrong sending your request. Please try again or call us at 702.904.8923.')

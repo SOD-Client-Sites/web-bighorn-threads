@@ -35,38 +35,38 @@ const steps = [
     n: '01',
     meta: 'Setup',
     title: 'We Build the Store or Run the Order',
-    desc: 'Tell us the event, the gear, and the date. We set up your event store or run the order direct, and your logo and artwork stay on file for the next one.',
+    desc: 'Tell us the event, gear, and date. Bighorn coordinates the store or approved order through selected production partners.',
   },
   {
     n: '02',
     meta: 'Ongoing',
-    title: 'Everyone Picks Their Own Size',
-    desc: 'Each person picks their own size and submits — booth staff, volunteers, players, attendees. No spreadsheets, no size-guessing, no chasing counts from a hundred people.',
+    title: 'Plan Individual Size Submission',
+    desc: 'Individual size submission can be requested for staff, volunteers, players, or attendees. Supported users and ordering steps are confirmed in the proposal.',
   },
   {
     n: '03',
     meta: 'Ongoing',
-    title: 'Produced & Shipped to Hit Your Date',
-    desc: 'Gear is produced and shipped to land before doors open — to the venue or to each person. Artwork is on file, so the next event is a click.',
+    title: 'Production and Delivery Plan',
+    desc: 'Bighorn confirms production capacity and eligible shipping options before you approve the event order.',
   },
 ]
 
 const faqs = [
   {
     q: 'Can you hit my date?',
-    a: 'Tell us your date and we will tell you straight. Some timelines work and some are too tight to do right — we would rather be honest up front than miss your event. Give us the date early and we will build a plan that lands gear before doors open.',
+    a: 'Tell us your date. We’ll confirm product availability, production capacity, and an estimated delivery window before approval. Some timelines may be too tight.',
   },
   {
     q: 'Do I have to collect everyone’s sizes?',
-    a: 'No. Each person orders their own size and submits — staff, volunteers, players, or attendees. You skip the spreadsheet, and everyone gets gear that actually fits instead of a guess. Shipping goes to the venue or to each person’s door.',
+    a: 'Individual size submission can be requested. Eligible shipping options depend on the supported setup, product, order, and fulfillment terms.',
   },
   {
     q: 'What about the next event?',
-    a: 'Your logo and artwork stay on file. For a recurring event, series, or season, the next order is a click — same artwork, consistent branding, no starting over and no re-sending files each time.',
+    a: 'Approved artwork may support a repeat order. File retention, reuse, proofing, product availability, pricing, and timing are confirmed for each reorder.',
   },
   {
     q: 'Is this for a single event or a season-long team?',
-    a: 'Both. A one-off conference and a season-long league are different jobs, and we handle each on its own terms. For teams we can do names and numbers where you need them, with artwork on file for every new roster.',
+    a: 'Both. A one-off conference and a season-long league need different plans. Bighorn coordinates eligible names, numbers, and approved artwork through selected partners.',
   },
 ]
 
@@ -74,8 +74,8 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
 ---
 
 <LandingLayout
-  title="Event Gear That Ships to Hit Your Date | Bighorn Threads"
-  description="Free event store setup. Everyone orders their own size, gear ships to the venue or their door, and your artwork stays on file for the next one. Tell us your date and we'll tell you straight."
+  title="Managed Event Gear for Your Date | Bighorn Threads"
+  description="Request a date-aware event gear plan. Size submission, shipping options, product availability, and timing are confirmed before production."
   canonical="https://bighornthreads.com/get-started/events/"
   noindex={true}
 >
@@ -90,30 +90,30 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
         <div>
           <p class="kicker mb-3">Event apparel &amp; stores</p>
           <h1 class="mb-6 font-heading text-4xl font-extrabold uppercase leading-[1.05] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
-            Your Event Has a Date. Your Gear <span class="text-gold-600">Ships to Hit It.</span>
+            Your Event Has a Date. Your Gear Plan <span class="text-gold-600">Starts With It.</span>
           </h1>
           <p class="mb-8 text-lg leading-relaxed text-ash sm:text-xl">
-            Hard date, lots of people, no time to chase sizes. We build your event store or run the
-            order, everyone picks their own gear, and it ships to land before doors open. Single
+            Hard date, lots of people, no time to chase sizes. Bighorn coordinates the proposed store
+            or approved order through selected partners. Available delivery terms are confirmed in writing. Single
             events, recurring series, trade shows, and teams.
           </p>
 
           <ul class="mb-8 space-y-3 text-base text-ash">
             <li class="flex items-start gap-3">
               <span class="mt-1.5 flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold-500"></span>
-              <span><strong class="text-charcoal">Free store setup</strong> — your logo and artwork held on file, ready to reorder for the next event</span>
+              <span><strong class="text-charcoal">Managed store setup</strong> with approved artwork and terms confirmed in your plan</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="mt-1.5 flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold-500"></span>
-              <span><strong class="text-charcoal">Everyone orders their own size</strong> — shipped to the venue or their door, no size-guessing on your end</span>
+              <span><strong class="text-charcoal">Request individual size submission</strong> with eligible shipping options confirmed for the order</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="mt-1.5 flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold-500"></span>
-              <span><strong class="text-charcoal">Built around your date</strong> — tell us when and we’ll tell you straight, then ship to land before doors open</span>
+              <span><strong class="text-charcoal">Built around your date</strong> with capacity and estimated delivery confirmed before approval</span>
             </li>
           </ul>
 
-          <p class="font-mono text-xs uppercase tracking-[0.15em] text-ash">No commitment · Free store setup · A real person follows up</p>
+          <p class="font-mono text-xs uppercase tracking-[0.15em] text-ash">A date-aware plan · Clear terms · A real person follows up</p>
         </div>
 
         <!-- Right: form (sticky on desktop) -->
@@ -162,8 +162,8 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
           How it works <span class="text-gold-600">for your event.</span>
         </h2>
         <p class="mt-4 text-lg leading-relaxed text-ash">
-          Your logo and artwork on file, sizes handled by the people wearing the gear, and a plan built
-          around your date. You give us the event. We handle the rest.
+          Approved artwork, sizes handled by the people wearing the gear, and a plan built
+          around your date. Bighorn coordinates the approved program and keeps you updated.
         </p>
       </div>
 
@@ -213,9 +213,8 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
 
       <div class="mt-10 border border-hairline bg-panel p-7">
         <p class="text-sm leading-relaxed text-ash">
-          <strong class="text-charcoal">Bighorn Threads</strong> is a Las Vegas shop run by VP Promos LLC.
-          When you reach out, founder <strong class="text-charcoal">Steven Dodson</strong> — a real
-          person, not a call center — follows up to talk through your event. Call him direct at
+          <strong class="text-charcoal">Bighorn Threads</strong> is operated by VP Promos LLC.
+          The Las Vegas account team follows up to discuss your event requirements. Call the business at
           <a href="tel:+17029048923" class="font-mono text-charcoal hover:text-gold-600">702.904.8923</a>.
         </p>
       </div>
@@ -231,9 +230,9 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
           You’ve got a date. <span class="text-gold-400">Let’s get the gear right.</span>
         </h2>
         <p class="mt-4 text-lg leading-relaxed text-navy-200">
-          Free store setup, first digitizing on us, no contract and no inventory to hold. Everyone
-          orders their own size, drinkware and giveaways like Yeti round out the kit, and your artwork
-          stays on file for next time. Tell us your date and we’ll tell you straight.
+          Get a store or order plan with clear setup, artwork, product, and shipping terms. Everyone
+          can request individual size submission. Drinkware and giveaways can be quoted when available.
+          Tell us your date so we can confirm suitable options and timing.
         </p>
         <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
           <a href="#lp-form-card" class="btn-primary text-base">

@@ -2,22 +2,22 @@
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const page = {
- title: 'DTF Printing in Las Vegas | Direct-to-Film Custom Apparel — Bighorn Threads',
+ title: 'DTF Printing in Las Vegas | Bighorn Threads',
  description:
- 'DTF (direct-to-film) printing in Las Vegas — full-color prints on cotton, poly, blends, dark fabrics. No screen-setup fees. Photo-detail decoration on small runs. Get a quote.',
+ 'Explore DTF printing for Las Vegas apparel programs. Bighorn coordinates products, artwork, and partner production, with terms confirmed in your quote.',
  hero: '/images/generated/service-screen-printing.jpg',
  url: 'https://bighornthreads.com/dtf-printing-las-vegas/',
 }
 
 const stack = [
- { label: 'The method', body: 'Design printed onto PET film, hot-melt adhesive applied, cured, then heat-pressed onto the garment. The film transfers a full-color, photo-detail image — no screen, no setup per color.' },
- { label: 'Where it wins', body: 'Small-batch runs (under 24 pieces), full-color or photo-realistic art, mixed garment programs (tees + hoodies + bags in one run), and decorating dark fabrics where light prints fade.' },
- { label: 'Fabric range', body: 'Cotton, polyester, blends, denim, canvas, leather, nylon — adheres cleanly to nearly every common apparel substrate. Light or dark colored garment, no contrast issues.' },
- { label: 'Decoration program', body: 'Same artwork file works across t-shirts, polos, hoodies, hats, and tote bags. One digitization, every garment in the order. Reorder transfers separately and apply on demand.' },
+ { label: 'The method', body: 'A design is printed onto PET film, combined with adhesive, cured, and heat-pressed onto a qualifying garment.' },
+ { label: 'Where it can fit', body: 'DTF is worth comparing for smaller runs, detailed artwork, mixed products, and some dark fabrics.' },
+ { label: 'Product compatibility', body: 'Compatibility depends on the exact fabric, finish, color, construction, transfer system, application, and manufacturer guidance.' },
+ { label: 'Decoration program', body: 'One artwork file may support several qualifying products. Each fabric, garment, placement, and reorder still requires production review.' },
 ]
 
 const dtfVsOthers = [
- { row: 'DTF', meaning: 'Full-color, photo-detail, any fabric color', use: 'Small to mid runs, mixed garment programs, complex art, dark fabrics' },
+ { row: 'DTF', meaning: 'Full-color transfer on compatible products', use: 'Orders where the approved art, product, and transfer system align' },
  { row: 'Screen printing', meaning: 'Spot-color inks, very large runs', use: 'High-volume single-design runs (50+), bold one-to-three color graphics' },
  { row: 'Embroidery', meaning: 'Stitched thread, dimensional finish', use: 'Polos, jackets, hats, FR garments, premium logo placement' },
  { row: 'DTG (direct-to-garment)', meaning: 'Inkjet directly onto cotton', use: 'Cotton-only runs, photo prints; struggles on poly and dark fabrics' },
@@ -26,22 +26,22 @@ const dtfVsOthers = [
 ]
 
 const useCases = [
- { name: 'Small-run team apparel', detail: '12–48 piece team shirts, raglans, or hoodies in full color. No screen-setup penalty for low volume.' },
+ { name: 'Small-run team apparel', detail: 'DTF can be worth comparing for smaller full-color orders. The quote confirms minimums and setup charges.' },
  { name: 'Photo + gradient logos', detail: 'Brand marks with shadows, gradients, or photographic elements that screen printing can\'t hold cleanly.' },
- { name: 'Mixed garment programs', detail: 'Same logo across tees, hoodies, polos, hats, and tote bags in one run. One file, every garment.' },
- { name: 'Dark-fabric decoration', detail: 'Black, navy, charcoal, forest tees with full-color logos that pop. White underbase printed automatically.' },
- { name: 'Event + gang-sheet orders', detail: 'Buy DTF transfers as a gang sheet. Apply on demand — useful for new-hire shirts, event-day pop-up runs, name additions.' },
- { name: 'On-demand reorders', detail: 'Transfer sheets stay shelf-stable. Apply later, ship after. Useful for event SWAG with unknown final headcount.' },
+ { name: 'Mixed garment programs', detail: 'One artwork file may support several qualifying tees, hoodies, polos, hats, or tote bags.' },
+ { name: 'Dark-fabric decoration', detail: 'A white underbase can support full-color artwork on some black, navy, charcoal, or forest garments.' },
+ { name: 'Event and gang-sheet orders', detail: 'Gang sheets can support some event or name-addition workflows. Confirm transfer, application, and storage requirements.' },
+ { name: 'Reorder planning', detail: 'Ask whether approved transfers can support future reorders. Product availability and application terms still apply.' },
 ]
 
 const faqs = [
- { q: 'What is DTF printing?', a: 'DTF — direct-to-film printing — prints a design onto a special PET film coated with hot-melt adhesive, then heat-presses the film onto the garment. The result is a full-color, photo-detail decoration that adheres to almost any fabric. No screens, no setup fees per color, and works on dark fabrics where most other methods fail.' },
- { q: 'DTF vs screen printing — which one should I use?', a: 'DTF wins on small runs (under 24 pieces), full-color or photo-realistic art, mixed garment programs, and dark fabrics. Screen printing wins on large single-design runs (50+) where setup cost is amortized over volume and the per-piece cost drops below DTF. Most production shops use both methods depending on the order.' },
- { q: 'How durable is a DTF print?', a: 'Properly applied DTF transfers survive 50+ wash cycles in normal home laundering. Wash inside-out in cold water and tumble dry low for the best lifespan. Industrial laundering at high temperatures shortens lifespan; for industrial-laundry programs (uniform rentals), embroidery or screen print holds up longer.' },
- { q: 'What fabrics can you DTF on?', a: 'Cotton, polyester, polyester-cotton blends, tri-blends, denim, canvas, nylon, leather, and most synthetic substrates. The transfer adheres to nearly every common apparel material. Light or dark colored fabric — no contrast issues. The handful of materials that don\'t take DTF well are silicone-coated technical fabrics and some treated water-resistant shells.' },
- { q: 'Can DTF print on FR garments?', a: 'Standard DTF adhesives are not generally approved for NFPA 2112 FR-rated garments — the adhesive can melt and drip in arc events, voiding the certification. For FR garments, we use Nomex thread embroidery instead. See our welder uniforms page for FR decoration specifics.' },
- { q: 'What\'s the minimum DTF order?', a: 'No formal minimum. Single pieces are economical with DTF in a way that screen printing isn\'t. Per-piece pricing softens with volume — typical breakpoints at 12, 24, 48, and 100+ pieces.' },
- { q: 'Where can I get DTF printing in Las Vegas?', a: 'Bighorn Threads runs DTF printing for Vegas contractors, event promoters, sports teams, and small-batch promotional programs. Same artwork file across mixed garments — t-shirts, hoodies, polos, hats, tote bags. Send your art file and quantity for a quote.' },
+ { q: 'What is DTF printing?', a: 'Direct-to-film printing places artwork on a PET film with adhesive, then applies the transfer to a qualifying garment with heat and pressure. It can support detailed, full-color artwork on many products.' },
+ { q: 'DTF vs screen printing: which one should I use?', a: 'DTF can fit smaller or detailed orders. Screen printing can fit larger single-design runs. Compare both methods using the exact product, artwork, quantity, care needs, setup, and quoted price.' },
+ { q: 'How durable is a DTF print?', a: 'Durability depends on the transfer system, application, garment, wash process, and care. Follow the written care instructions for the approved product and decoration.' },
+ { q: 'What fabrics can you DTF on?', a: 'DTF can work on many cotton, polyester, blend, denim, canvas, and synthetic products. Coatings, heat sensitivity, seams, and construction can affect suitability. Confirm the exact garment before production.' },
+ { q: 'Can DTF print on FR garments?', a: 'Do not assume a standard DTF transfer is acceptable on a safety-rated garment. The employer and safety professional should verify the garment, decoration method, placement, and current manufacturer guidance in writing.' },
+ { q: 'What\'s the minimum DTF order?', a: 'Minimums and setup charges depend on the product, artwork, quantity, decoration specification, and production partner. Bighorn confirms current terms in the quote.' },
+ { q: 'Where can I get DTF printing in Las Vegas?', a: 'Bighorn Threads provides Las Vegas account management and coordinates DTF decoration through production partners. Send your artwork, product list, quantity, and needed date for review.' },
 ]
 
 const breadcrumb = {
@@ -59,13 +59,6 @@ const serviceSchema = {
  name: 'DTF Printing in Las Vegas',
  serviceType: 'Direct-to-film custom apparel printing',
  provider: { '@id': 'https://bighornthreads.com/#organization' },
- areaServed: [
- { '@type': 'City', name: 'Las Vegas' },
- { '@type': 'City', name: 'Henderson' },
- { '@type': 'City', name: 'North Las Vegas' },
- { '@type': 'City', name: 'Summerlin' },
- { '@type': 'City', name: 'Spring Valley' },
- ],
  description: page.description,
  url: page.url,
 }
@@ -101,10 +94,10 @@ const faqSchema = {
  Decoration Method
  </p>
  <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
- DTF Printing in Las Vegas <span class="text-gold-400">— full-color, any fabric, no screen-setup fees.</span>
+ DTF Printing in Las Vegas <span class="text-gold-400">for qualifying products and artwork.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- Direct-to-film transfers for small-batch runs, photo-detail logos, and mixed garment programs. One artwork file, every garment in the order.
+ Direct-to-film transfers can support smaller runs, detailed logos, and mixed-product programs. Each product and placement still requires review.
  </p>
  <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
  <a href="/contact/" class="btn-primary text-base">
@@ -141,7 +134,7 @@ const faqSchema = {
  <p class="kicker mb-3">Method Comparison</p>
  <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">DTF vs every other <span class="text-gold-600">decoration method.</span></h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- No single method wins every order. We pick the one that fits the volume, art, fabric, and garment mix.
+ No single method fits every order. Bighorn coordinates a recommendation based on the product, artwork, quantity, care needs, and quote.
  </p>
  </div>
  <div class="overflow-hidden border border-hairline bg-panel">
@@ -192,19 +185,19 @@ const faqSchema = {
  </h2>
  <div class="space-y-5 text-lg leading-relaxed text-ash">
  <p>
- Direct-to-film printing is the fastest-growing decoration method in custom apparel because it solves the two problems screen printing was bad at: small-volume orders and full-color art on dark fabric. The process prints a CMYK + white image onto a PET film, applies hot-melt adhesive powder, cures the film, and heat-presses it onto the garment. The result is a soft-hand, full-color, photo-detail print that adheres cleanly to cotton, polyester, blends, denim, canvas, and most synthetic substrates.
+ Direct-to-film printing creates a transfer that a production partner applies to a compatible product. The process can support full-color artwork on some light and dark garments. Compatibility, feel, appearance, and durability depend on the exact transfer system, fabric, finish, application, use, care, and manufacturer guidance.
  </p>
  <p>
- The economic case is straightforward. Screen printing requires a setup fee per color — the screens need to be burned, registered, and proofed before the first shirt comes off the line. That setup cost is meaningful at low volume and rounds toward zero at high volume. DTF has no per-color setup, which means a 24-piece full-color run costs dramatically less than the same run screen-printed. Past about 50 pieces per design, the math flips and screen printing wins on per-piece cost. We pick the method that fits the order, not the method that fits the shop.
+ Screen printing and DTF use different production steps and pricing models. DTF may reduce color-related setup on some smaller or complex-art orders. Screen printing may price better at higher quantities. The actual breakpoint depends on the artwork, product, quantity, partner, and quote.
  </p>
  <p>
- The art-quality case is also straightforward. Screen printing reproduces solid spot colors cleanly but struggles with photographic gradients, fine type below 6 point, and complex shadows. DTF prints those without compromise — the same way a high-end inkjet does on paper. For a brand mark with a gradient, a photographic logo, or anything resembling a complex illustration, DTF is the right call.
+ DTF can reproduce gradients, photographic elements, and complex artwork. Fine detail still depends on resolution, color, transfer, garment texture, and application. Review a proof before approving production.
  </p>
  <p>
- The fabric case is where DTF really earns its place. Sublimation only works on white or light polyester. DTG prints cotton beautifully but loses fidelity on poly. Heat-transfer vinyl handles names and numbers but not full-color art. DTF works on every fabric a normal apparel order ships in, light or dark, with no setup change between fabric types. That makes mixed garment programs (tees + hoodies + polos + hats + tote bags) economical to run as one job.
+ DTF can support many common apparel fabrics, including some cotton, polyester, and blended products. Coatings, heat sensitivity, seams, texture, and garment construction can change the result. Mixed-product orders require review by product and placement.
  </p>
  <p>
- The one place DTF doesn't fit: NFPA 2112 FR-rated garments. The adhesive used in standard DTF transfers can melt and drip in arc events, voiding the FR certification. For welder uniforms, electrical FR shirts, and oil/gas FR coveralls, we decorate with Nomex (aramid) thread embroidery instead. For deeper reads, see our <a href="/blog/dtf-printing-vs-screen-printing-custom-apparel/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">DTF vs screen printing comparison</a>, the <a href="/services/screen-printing-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">screen-printing service page</a>, and our <a href="/welder-uniforms-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">welder uniforms guide</a> for FR decoration specifics.
+ Safety-rated garments need a separate written review. Do not add DTF, embroidery, or any other decoration based on a general rule. Verify the exact garment, method, placement, materials, and current manufacturer guidance with the employer's safety professional. For deeper reads, see our <a href="/blog/dtf-printing-vs-screen-printing-custom-apparel/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">DTF vs screen printing comparison</a>, the <a href="/services/screen-printing-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">screen-printing service page</a>, and our <a href="/welder-uniforms-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">welder uniforms guide</a>.
  </p>
  </div>
  </div>
@@ -238,11 +231,11 @@ const faqSchema = {
  </a>
  <a href="/services/embroidery-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Embroidery</h3>
- <p class="mt-2 text-sm text-ash">Stitched thread for polos, jackets, hats, and FR garments.</p>
+ <p class="mt-2 text-sm text-ash">Stitched decoration for qualifying polos, jackets, hats, and bags.</p>
  </a>
  <a href="/catalog/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Browse Catalog</h3>
- <p class="mt-2 text-sm text-ash">T-shirts, hoodies, polos, bags — every blank we DTF on.</p>
+ <p class="mt-2 text-sm text-ash">Browse products, then confirm DTF suitability by item.</p>
  </a>
  </div>
  </div>
@@ -255,7 +248,7 @@ const faqSchema = {
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Ready to DTF a small-batch run?</h2>
  <p class="mb-8 text-lg text-navy-200">Send your art file and garment list.</p>
  <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
- <a href="/get-a-quote/" class="btn-primary text-base">Get a Free Quote</a>
+ <a href="/get-a-quote/" class="btn-primary text-base">Request a Quote</a>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
  </div>
  </div>

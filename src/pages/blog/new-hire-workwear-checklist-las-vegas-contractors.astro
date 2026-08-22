@@ -4,7 +4,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 const post = {
  title: "New Hire Workwear Checklist for Las Vegas Contractors: What to Order Before Day One",
  description:
- "A practical day-one workwear checklist for new construction hires in Las Vegas. By trade — GC, electrical, HVAC, plumbing, hi-vis road, solar, fleet — with brand specs, sizing tips, and the real cost of a complete kit.",
+ "A practical planning checklist for new construction hires in Las Vegas, with example product categories, sizing questions, and employer safety approvals to gather before ordering.",
  category: 'Operations',
  readTime: '10 min read',
  date: 'Apr 28, 2026',
@@ -23,7 +23,7 @@ const schema = {
  description: post.description,
  image: `https://bighornthreads.com${post.image}`,
  datePublished: post.isoDate,
- dateModified: post.isoDate,
+ dateModified: '2026-08-21',
  author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/about/' },
  publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } },
  mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/`,
@@ -52,7 +52,7 @@ const schema = {
  <span class="kicker mb-3">{post.category}</span>
  <h1 class="mb-6 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl lg:text-5xl">{post.title}</h1>
  <p class="mb-8 text-xl leading-relaxed text-ash">
- The day-one workwear kit that gets a new hire on the jobsite looking like they've been on the team for six months. By trade, by role, with realistic costs and sizing tips.
+ A planning checklist for a new hire's apparel. Confirm each product, size, decoration, safety requirement, price, and delivery estimate before ordering.
  </p>
  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash">
  <span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time>
@@ -70,7 +70,7 @@ const schema = {
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Bighorn Threads runs <a href="/company-stores/" class="text-gold-700 underline hover:text-gold-600">company-store programs</a> for Las Vegas trades that automate this entirely — pre-approved SKUs, sizing on file, fully decorated apparel shipped to the new hire's home address before day one. For everyone not yet on a company store, here's the spec by trade for what to actually order. Realistic budgets, realistic timelines, the brands that hold up.
+ Bighorn Threads can scope a proposed <a href="/company-stores/" class="text-gold-700 underline hover:text-gold-600">company-store program</a>. No platform has been selected or launched. Product presentation, size submission, implementation, decoration, delivery, and timing capabilities require separate written approval.
  </p>
 
  <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal"><a href="/industries/general-contractors-las-vegas/" class="hover:text-gold-600">General Contractor Field Crew</a></h2>
@@ -82,22 +82,22 @@ const schema = {
  <li>2× Carhartt B11 work pants or B324 carpenter pants (hemmed if specified)</li>
  <li>1× Carhartt K121 pullover hoodie (for fall/winter starts)</li>
  <li>1× Carhartt 100286 FastDry Logo Cap or Richardson 112 trucker hat with embroidered logo</li>
- <li>Hard hat sticker (vinyl decal for ANSI Z89-rated hard hat)</li>
+ <li>Hard-hat decal only after employer and helmet-manufacturer approval</li>
  </ul>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Talk to us for current kit pricing and lead time. For Vegas summer hires, swap heavyweight tees for Carhartt Force performance tees at the same price point.
+ Ask Bighorn to quote the employer-approved kit. Product availability, pricing, decoration, and lead time require written confirmation.
  </p>
 
  <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal"><a href="/industries/electrical-contractors-las-vegas/" class="hover:text-gold-600">Electrical Contractor (FR-Required)</a></h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Electrical hires need the FR baseline when they start — no exceptions. Apprentices and journeymen working anywhere near energized panels, switchgear, or commercial 480V systems must have NFPA 70E CAT 2 minimum.
+ The employer's hazard assessment determines whether a new electrical hire needs arc-rated apparel and which rating applies. Bighorn does not prescribe a PPE category.
  </p>
  <ul class="mb-8 ml-6 list-disc space-y-2 text-lg leading-relaxed text-charcoal">
- <li>5× Bulwark SLU2 Excel-FR ComforTouch work shirts (CAT 2, 6.5 oz, dual NFPA 70E + 2112)</li>
- <li>5× Bulwark PEW2 Excel-FR work pants</li>
- <li>1× Bulwark JLR8 hi-vis lined bomber (for night utility work)</li>
+ <li>Employer-selected arc-rated shirt options with current product documentation</li>
+ <li>Employer-selected protective pants when required by the hazard assessment</li>
+ <li>Employer-selected high-visibility outerwear when required for the task and site</li>
  <li>1× embroidered Carhartt cap with company logo</li>
- <li>FR-safe certification sheet for safety binder (we include this with every order)</li>
+ <li>Manufacturer and production-partner documentation requested for the safety binder</li>
  </ul>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
  Talk to us for current kit pricing and lead time. <a href="/blog/nfpa-70e-fr-shirts-vegas-electricians/" class="text-gold-700 underline hover:text-gold-600">More on NFPA 70E FR selection here</a>.
@@ -105,7 +105,7 @@ const schema = {
 
  <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal"><a href="/industries/plumbing-hvac-las-vegas/" class="hover:text-gold-600">HVAC, Plumbing, Mechanical Service</a></h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Service-trade hires need a clean professional uniform from day one because their first impression is at a customer's front door. Industrial work shirts with embroidered logos and woven name patches are the Vegas standard.
+ Service-trade hires may need a consistent uniform for customer visits. Industrial work shirts with approved logos and name patches are one option to compare.
  </p>
  <ul class="mb-8 ml-6 list-disc space-y-2 text-lg leading-relaxed text-charcoal">
  <li>5× Red Kap SP14 industrial work shirts (short sleeve summer / long sleeve winter)</li>
@@ -115,19 +115,19 @@ const schema = {
  <li>1× Richardson 112 trucker hat with embroidered logo</li>
  </ul>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Talk to us for current kit pricing and lead time. For shops on industrial laundry programs, we coordinate with your laundry partner so the apparel ships pre-tagged.
+ Talk to us for current kit pricing and lead time. Laundry tagging and delivery depend on written confirmation from the laundry provider and production partner.
  </p>
 
  <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Hi-Vis Road, Utility, Paving Crews</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Road and utility hires need ANSI 107-compliant hi-vis decorated with embroidered company logo that preserves retroreflective tape coverage. The class depends on the work — daytime traffic under 50 mph is Class 2; highway work over 50 mph or night-shift utility is Class 3.
+ Road and utility employers select the required visibility class from the hazard assessment, project specification, and current standard. Each proposed decoration method and placement must be approved against manufacturer instructions.
  </p>
  <ul class="mb-8 ml-6 list-disc space-y-2 text-lg leading-relaxed text-charcoal">
- <li>5× ML Kishigo Class 2 mesh-back tees (Premium Black Series 9100 series for daytime / 1565 long-sleeve Class 3 for night)</li>
- <li>2× Carhartt B11 work pants or Class E hi-vis pants</li>
- <li>1× ML Kishigo 2024 Class 3 contrast color block jacket (for night/winter)</li>
- <li>Embroidered company logo, compliant placement (we follow Kishigo decoration guides)</li>
- <li>ANSI 107 compliance certification sheet for safety binder</li>
+ <li>Employer-selected high-visibility shirts with current product documentation</li>
+ <li>Employer-selected work pants or supplemental visibility products when required</li>
+ <li>Employer-selected high-visibility outerwear for applicable work conditions</li>
+ <li>Company logo only in a manufacturer-approved decoration method and placement</li>
+ <li>Current garment and decoration documentation requested for the safety binder</li>
  </ul>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
  Talk to us for current kit pricing and lead time. <a href="/blog/ansi-107-class-2-vs-class-3-hi-vis-las-vegas/" class="text-gold-700 underline hover:text-gold-600">More on Class 2 vs Class 3 selection here</a>.
@@ -135,14 +135,14 @@ const schema = {
 
  <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal"><a href="/industries/roofing-solar-las-vegas/" class="hover:text-gold-600">Solar EPC and PV Maintenance</a></h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Solar hires need FR for combiner and inverter work, lightweight UPF performance for sun protection, and (for crews working remote sites near vehicle traffic) hi-vis FR for combined ANSI 107 + NFPA 2112 protection.
+ Solar employers determine FR, visibility, and sun-exposure requirements from the task hazard assessment. Product labels and manufacturer documentation must support the approved selection.
  </p>
  <ul class="mb-8 ml-6 list-disc space-y-2 text-lg leading-relaxed text-charcoal">
- <li>5× Bulwark Excel-FR shirts (CAT 2 minimum) or Carhartt FR Lightweight</li>
- <li>5× FR-rated work pants</li>
- <li>3× lightweight UPF performance long-sleeve shirts (for non-electrical day work)</li>
- <li>1× Bulwark JLR8 hi-vis lined bomber (for vehicle-traffic remote sites)</li>
- <li>Hard hat with embroidered company decal</li>
+ <li>Employer-selected protective shirts when required by the hazard assessment</li>
+ <li>Employer-selected protective work pants when required</li>
+ <li>Lightweight long-sleeve options with current manufacturer sun-protection documentation</li>
+ <li>Employer-selected high-visibility outerwear when required for traffic exposure</li>
+ <li>Hard-hat decal only after employer and helmet-manufacturer approval</li>
  </ul>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
  Talk to us for current kit pricing and lead time.
@@ -150,7 +150,7 @@ const schema = {
 
  <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Project Manager / Office / Client-Facing</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- PMs, estimators, business development, and ownership need a different baseline — sharp, professional, jobsite-walkable. The Vegas standard is embroidered performance polos with optional name embroidery.
+ PMs, estimators, business development, and ownership may need a different product list. Compare current polo and outerwear options for the role and site.
  </p>
  <ul class="mb-8 ml-6 list-disc space-y-2 text-lg leading-relaxed text-charcoal">
  <li>5× Port Authority K540 Silk Touch Performance polos with embroidered logo + name</li>
@@ -164,12 +164,12 @@ const schema = {
 
  <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Sizing Tips</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Get the new hire's t-shirt size and the size of the work pants they currently wear. Carhartt and Bulwark run "loose fit" generally — most hires order their normal size and the fit works. Red Kap industrial shirts run slightly large because they're designed to layer; size down one if the hire is between sizes. Hi-vis Class 2 garments are sized for over-shirt wear; size to fit over a t-shirt comfortably. For FR pants, the waist and inseam matter — get both numbers, don't guess.
+ Collect the new hire's measurements and compare them with the current size chart for each exact SKU. Do not assume sizes convert across brands or products. Confirm layering, mobility, and required protective coverage with an approved sample or fit process.
  </p>
 
  <h2 class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">The Company-Store Solution</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- For shops hiring more than a few new crew members per quarter, the company-store program eliminates this entire workflow. Pre-approved SKUs, sizing on file, per-employee allowances, and direct shipping to the new hire's home address before day one — all triggered by your HR onboarding checklist. New hires show up Monday in a fully-decorated kit that matches the existing crew, and your operations manager doesn't spend Friday afternoon chasing apparel orders.
+ A company-store workflow may help organize approved products and employee sizes. User access, allowances, HR integration, payment, production, fulfillment, home delivery, timing, reporting, and file retention all depend on the selected configuration and must be confirmed in writing before setup.
  </p>
 
  <div class="my-12 border border-hairline bg-panel p-8">
