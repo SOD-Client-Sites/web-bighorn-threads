@@ -4,7 +4,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 const post = {
  title: 'Bulk Ordering vs Company Store: The Real Math for Contractors',
  description:
- 'Compare bulk apparel ordering with a proposed company-store program. Review roster, storage, approvals, product, fulfillment, and quoted costs before choosing.',
+ 'Compare bulk apparel ordering with a company-store program. Review roster, storage, approvals, product, fulfillment, and quoted costs before choosing.',
  category: 'Operations',
  readTime: '8 min read',
  date: 'Apr 1, 2026',
@@ -15,9 +15,9 @@ const post = {
 
 const faqs = [
  { q: 'What costs should you review with bulk apparel?', a: 'Review product and decoration cost, size accuracy, storage, internal handling, replacement, obsolete artwork, and unused garments. The effect varies by company, so use your own order history.' },
- { q: 'How does a branded company store work?', a: 'A proposed store could present approved products and support size or order submission if the selected platform and approved configuration do. No platform has been selected or launched. Payment, delivery, fulfillment, and all capabilities require separate written approval.' },
+ { q: 'How does a branded company store work?', a: 'A company store presents approved products and support size or order submission.' },
  { q: 'At what crew size does a company store beat bulk ordering?', a: 'There is no universal crew-size threshold. Compare quoted program costs with your roster, order frequency, turnover, approval process, storage, delivery needs, and staff time.' },
- { q: 'Why can a company store help with new-hire onboarding?', a: 'A proposed store could support new-hire size submission against approved products if the selected platform and configuration do. No platform has been selected or launched. Implementation, delivery, timing, and capabilities require separate written approval.' },
+ { q: 'Why can a company store help with new-hire onboarding?', a: 'A company store can support new-hire size submission against approved products.' },
  { q: 'When should you still order in bulk instead of using a company store?', a: 'Bulk may suit a defined event, a stable roster, or one approved product. A company store may suit recurring, role-based ordering. Compare both against the same products, quantities, fees, and delivery terms.' },
  { q: 'How do you measure the true cost of work apparel?', a: 'Track invoice cost, internal handling, storage, unused garments, replacements, delivery, program fees, and staff time. Use your own records and a current written quote for each option.' },
 ]
@@ -67,7 +67,7 @@ const schema = {
  {
  '@type': 'WebPage',
  url: `https://bighornthreads.com/blog/${post.slug}/`,
- speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.speakable-answer'] },
+ speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1','.speakable-answer'] },
  },
  ],
 }
@@ -182,7 +182,7 @@ const schema = {
  <h2 id="how-stores-work" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">2. How Company Stores Actually Work</h2>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- A proposed <a href="/company-stores/" class="text-gold-600 underline hover:text-gold-700">branded company store</a> could present approved products and support size or order submission if the selected platform and approved configuration do. No platform has been selected or launched. Delivery, fulfillment, implementation, and capabilities require separate written approval. See the <a href="/company-stores/contractors-las-vegas/" class="text-gold-600 underline hover:text-gold-700">contractor store planning guide</a>.
+ A proposed <a href="/company-stores/" class="text-gold-600 underline hover:text-gold-700">branded company store</a> could present approved products and support size or order submission. See the <a href="/company-stores/contractors-las-vegas/" class="text-gold-600 underline hover:text-gold-700">contractor store planning guide</a>.
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
@@ -228,7 +228,7 @@ const schema = {
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- A proposed company store could support new-hire size submission if the selected platform and approved configuration do. No platform has been selected or launched. Implementation, delivery, product availability, timing, and capabilities require separate written approval.
+ A company store can support new-hire size submission.
  </p>
 
 

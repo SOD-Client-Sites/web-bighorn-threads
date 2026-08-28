@@ -18,7 +18,7 @@ const faqs = [
  { q: 'Is ordering only two shirts per crew member a mistake?', a: 'It may create a tight laundry rotation, but the right quantity depends on schedule, laundry access, garment care, and replacement policy. Review the exact garment manufacturer\'s care guidance.' },
  { q: 'How many shirts do foremen and office staff need?', a: 'Set quantities by each role\'s schedule, dress requirements, laundry cycle, and approved product list. Client-facing roles may need a different product mix from field roles.' },
  { q: 'How should you adjust shirt quantities for Vegas summer?', a: 'Review the employer\'s heat plan, work schedule, garment changes, laundering, and replacement needs. The employer must approve fabric, coverage, visibility, and sun-protection requirements.' },
- { q: 'How do you build crew turnover into an apparel order?', a: 'Use your hiring history and replacement policy to set a documented buffer. A proposed company store may support recurring orders, but products, inventory, fees, approvals, timing, and delivery depend on the written program.' },
+ { q: 'How do you build crew turnover into an apparel order?', a: 'Use your hiring history and replacement policy to set a documented buffer. A company store may support recurring orders, but products, inventory, fees, approvals, timing, and delivery depend on the written program.' },
  { q: 'How many garments does it take to outfit a 30-person Vegas crew for a year?', a: 'Build a role-based roster and multiply each approved item by the planned issue quantity. Add only the buffer supported by your hiring and replacement history. Product availability and pricing require a current quote.' },
 ]
 
@@ -51,7 +51,7 @@ const schema = {
  {
  '@type': 'WebPage',
  url: `https://bighornthreads.com/blog/${post.slug}/`,
- speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.speakable-answer'] },
+ speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1','.speakable-answer'] },
  },
  ],
 }

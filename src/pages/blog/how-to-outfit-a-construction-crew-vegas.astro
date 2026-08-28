@@ -16,7 +16,7 @@ const post = {
 const faqs = [
  { q: 'What should you decide first when outfitting a construction crew?', a: 'Start with the employer\'s hazard assessment and current site requirements. The safety lead selects any required protective garments and performance classes before decoration.' },
  { q: 'What apparel categories might a construction crew use?', a: 'A role-based program may include field wear, employer-approved hi-vis garments, office apparel, outerwear, and headwear. Quantities depend on roles, shifts, laundry, weather, and replacement needs.' },
- { q: 'Should you bulk order or evaluate a company store for a construction crew?', a: 'Compare crew size, turnover, approvals, and delivery needs. No store platform has been selected or launched. Size submission, delivery, fulfillment, implementation, and capabilities require separate written approval.' },
+ { q: 'Should you bulk order or evaluate a company store for a construction crew?', a: 'Compare crew size, turnover, approvals, and delivery needs. Bulk ordering suits one-time outfitting; a company store suits ongoing hiring.' },
  { q: 'What artwork files help with decorated crew apparel?', a: 'A vector file such as .ai, .eps, or .svg is often helpful, plus a single-color and simplified small-format version. Exact artwork and file requirements depend on the selected production partner and are confirmed in the quote.' },
  { q: 'How can you reduce rush-order risk on crew apparel?', a: 'Forecast hiring and seasonal needs early, submit approved artwork before the order window, and ask for current product availability and partner capacity. Do not rely on unconfirmed inventory or timing.' },
  { q: 'When should a contractor consider a company store?', a: 'Consider a store when recurring orders, approvals, and size collection create measurable admin work. User access, allowances, reporting, payment, production, fulfillment, and delivery capabilities must be confirmed in the written setup plan.' },
@@ -67,7 +67,7 @@ const schema = {
  {
  '@type': 'WebPage',
  url: `https://bighornthreads.com/blog/${post.slug}/`,
- speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.speakable-answer'] },
+ speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1','.speakable-answer'] },
  },
  ],
 }
@@ -212,7 +212,7 @@ const howToSchema = {
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Larger or high-turnover crews may evaluate a <a href="/company-stores/contractors-las-vegas/" class="text-gold-600 underline hover:text-gold-700">proposed company store</a>. No platform has been selected or launched. Size submission, delivery, fulfillment, implementation, and capabilities require separate written approval. See <a href="/blog/company-store-vs-bulk-ordering/" class="text-gold-600 underline hover:text-gold-700">Bulk Ordering vs Company Store</a> for planning questions.
+ Larger or high-turnover crews may evaluate a <a href="/company-stores/contractors-las-vegas/" class="text-gold-600 underline hover:text-gold-700">company store</a>. See <a href="/blog/company-store-vs-bulk-ordering/" class="text-gold-600 underline hover:text-gold-700">Bulk Ordering vs Company Store</a> for planning questions.
  </p>
 
 
@@ -258,7 +258,7 @@ const howToSchema = {
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- A proposed company store may help organize approved catalogs and employee sizes. Access tiers, allowances, onboarding emails, HR integration, user ordering, and automation are configuration-dependent and must be confirmed in writing before setup.
+ A company store may help organize approved catalogs and employee sizes. Access tiers, allowances, onboarding emails, HR integration, user ordering, and automation are configuration-dependent and must be confirmed in writing before setup.
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">

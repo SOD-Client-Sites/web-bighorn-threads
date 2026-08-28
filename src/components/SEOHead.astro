@@ -99,4 +99,16 @@ const ogImageHref = new URL(ogImage, Astro.site).href
  postalCode: '89148',
  addressCountry: 'US',
  },
+ // Identity graph: lets Google/LLMs cross-confirm this entity off-site instead
+ // of taking the page's word for it. Only verified owned profiles belong here.
+ sameAs: [
+ 'https://www.youtube.com/@bighornthreads',
+ ],
+ // Bighorn Threads is the branded-apparel arm of VP Promos (see /about).
+ // Ties this new entity to the established parent.
+ parentOrganization: {
+ '@type': 'Organization',
+ name: 'VP Promos',
+ url: 'https://www.vp-promos.com/',
+ },
 })} />
