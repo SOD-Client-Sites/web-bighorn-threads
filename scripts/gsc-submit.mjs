@@ -31,10 +31,27 @@ function normalizePath(p) {
   }
   return p
 }
-const KEY_PATH = normalizePath(process.env.GOOGLE_SERVICE_ACCOUNT_KEY)
+// GOOGLE_SERVICE_ACCOUNT_KEY still points at the pre-migration Windows path on
+// some machines (/c/dev/...). Fall back to the seo-cli service-account location
+// that the other Google connectors already use.
+const FALLBACK_KEY_PATHS = [
+  `${homedir()}/Library/Application Support/Sales On Demand/seo-cli/service-account.json`,
+]
+
+function resolveKeyPath() {
+  const configured = normalizePath(process.env.GOOGLE_SERVICE_ACCOUNT_KEY)
+  if (configured && existsSync(configured)) return configured
+  for (const candidate of FALLBACK_KEY_PATHS) {
+    if (existsSync(candidate)) return candidate
+  }
+  return null
+}
+
+const KEY_PATH = resolveKeyPath()
 
 if (!KEY_PATH) {
-  console.error('GOOGLE_SERVICE_ACCOUNT_KEY env var missing (checked current env + ~/.env)')
+  console.error('No Google service-account key found. Set GOOGLE_SERVICE_ACCOUNT_KEY to a readable path, or place the key at:')
+  for (const candidate of FALLBACK_KEY_PATHS) console.error(`  ${candidate}`)
   process.exit(1)
 }
 
