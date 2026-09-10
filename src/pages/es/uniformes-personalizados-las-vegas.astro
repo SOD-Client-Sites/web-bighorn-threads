@@ -1,0 +1,200 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const page = {
+ title: 'Uniformes Personalizados en Las Vegas | Bordado y Serigrafía | Bighorn Threads',
+ description:
+ 'Uniformes personalizados en Las Vegas para cuadrillas de construcción, casinos y hoteles, clínicas y equipos de servicio. Polos y camisas de trabajo bordadas, chalecos de alta visibilidad y gorras con su logo. Cotización por escrito, sin contrato de renta.',
+ hero: '/images/generated/crew-vegas.jpg',
+ url: 'https://bighornthreads.com/es/uniformes-personalizados-las-vegas/',
+ en: 'https://bighornthreads.com/custom-uniforms-las-vegas/',
+}
+
+const stack = [
+ { label: 'Uniformes que son suyos', body: 'Usted compra los uniformes una sola vez. Sin factura semanal de renta, sin contrato de varios años, sin penalidad cuando cambia el tamaño de su equipo.' },
+ { label: 'Un solo logo, todos los departamentos', body: 'Campo, oficina, cocina y piso de casino reciben la prenda correcta con el mismo logo, los mismos colores de hilo y la misma ubicación.' },
+ { label: 'Tallas y nombres', body: 'Tallas de XS a 5XL y tallas altas según la marca, más nombre bordado para el personal que atiende clientes. Todo se confirma en cada pedido.' },
+ { label: 'Reposiciones sin complicaciones', body: 'Una tienda privada para su empresa guarda las prendas aprobadas, tallas y presupuestos para que los nuevos empleados reciban su uniforme sin empezar de cero.' },
+]
+
+const teams = [
+ { row: 'Construcción y oficios', use: 'Camisas de trabajo, playeras y chalecos de alta visibilidad, camisas FR, cascos', notes: 'Las prendas ANSI 107 y NFPA 70E se decoran solo según las indicaciones del fabricante.' },
+ { row: 'Casinos y hotelería', use: 'Camisas de crupier, polos para meseros y bartenders, chalecos, uniformes de limpieza y valet', notes: 'Los colores por departamento y el código de vestimenta de la propiedad se respetan en la prueba.' },
+ { row: 'Clínicas y salud', use: 'Scrubs bordados, batas de laboratorio, polos administrativos', notes: 'Logo y nombre de la clínica en el pecho; puesto o credencial en la manga si la política lo permite.' },
+ { row: 'Servicio técnico (HVAC, plomería, electricidad)', use: 'Polos de alto rendimiento, camisas de botones, chamarras, gorras', notes: 'Nombre en el pecho derecho para que el cliente sepa quién llega a su puerta.' },
+ { row: 'Oficinas y empresas', use: 'Polos, quarter-zips, camisas de botones, chamarras softshell', notes: 'Opciones ejecutivas para ventas y dirección; opción estándar para el personal.' },
+ { row: 'Eventos y personal temporal', use: 'Playeras impresas, polos, lanyards, mandiles', notes: 'Pedidos cortos y urgentes se cotizan por evento.' },
+]
+
+const faqs = [
+ { q: '¿Cuánto cuestan los uniformes personalizados en Las Vegas?', a: 'Depende de la prenda, el método de decoración, el número de ubicaciones del logo y la cantidad. Un programa básico de polos bordados cuesta menos por pieza que un programa FR o de alta visibilidad con varias ubicaciones. Bighorn cotiza la prenda y la decoración exacta por escrito para que pueda comparar antes de aprobar.' },
+ { q: '¿Es mejor rentar o comprar los uniformes?', a: 'Los programas de renta de proveedores nacionales cobran una cuota semanal por empleado bajo un contrato de varios años, con un catálogo limitado. Comprar uniformes personalizados significa elegir las marcas y estilos, ser dueño de las prendas y reordenar solo cuando lo necesite. Para la mayoría de los equipos en Las Vegas que pueden lavar sus propios uniformes, comprar cuesta menos a lo largo del programa.' },
+ { q: '¿Cuál es el pedido mínimo?', a: 'El mínimo depende de la prenda y del método. El bordado permite pedidos pequeños porque no requiere preparar pantallas. Bighorn confirma los mínimos y cargos de preparación vigentes en su cotización.' },
+ { q: '¿Bordado o serigrafía para uniformes?', a: 'El bordado es el estándar para polos, camisas de botones, chamarras y gorras porque resiste el lavado industrial y se ve como un uniforme terminado. La serigrafía es ideal para playeras y prendas de alta visibilidad donde conviene un logo más grande. La mayoría de los programas usan ambos según la prenda.' },
+ { q: '¿Pueden poner el nombre de cada empleado?', a: 'Sí. El nombre bordado en el pecho derecho es común para técnicos de servicio, crupieres y personal de atención al cliente. Los nombres, puestos y credenciales se confirman en la prueba antes de producir.' },
+ { q: '¿Qué tan rápido entregan en Las Vegas?', a: 'El tiempo depende del inventario de la prenda, la decoración y la capacidad de nuestros socios de producción. Bighorn revisa ambos antes de confirmar la fecha de envío por escrito en su cotización, y las opciones urgentes se cotizan por pedido.' },
+ { q: '¿Atienden en español?', a: 'Sí. Envíe su logo, el número de empleados por puesto y cualquier requisito de código de vestimenta o seguridad, y recibirá una cotización por escrito. Llame al 702.904.8923 o use el formulario de cotización.' },
+]
+
+const breadcrumb = {
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://bighornthreads.com/' },
+ { '@type': 'ListItem', position: 2, name: 'Uniformes Personalizados Las Vegas', item: page.url },
+ ],
+}
+const serviceSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'Service',
+ inLanguage: 'es',
+ datePublished: '2026-09-10',
+ dateModified: '2026-09-10',
+ name: 'Uniformes personalizados en Las Vegas',
+ serviceType: 'Uniformes de trabajo y de personal bordados y serigrafiados para empresas de Las Vegas',
+ provider: { '@id': 'https://bighornthreads.com/#organization' },
+ areaServed: [{ '@type': 'City', name: 'Las Vegas' }, { '@type': 'City', name: 'Henderson' }, { '@type': 'City', name: 'North Las Vegas' }],
+ description: page.description,
+ url: page.url,
+}
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', inLanguage: 'es', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }
+const speakableSchema = { '@context': 'https://schema.org', '@type': 'WebPage', inLanguage: 'es', url: page.url, datePublished: '2026-09-10', dateModified: '2026-09-10', speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.speakable-answer'] } }
+---
+
+<BaseLayout
+ title={page.title}
+ description={page.description}
+ canonical={page.url}
+ heroImage={page.hero}
+ lang="es"
+ alternates={[
+ { hreflang: 'es', href: page.url },
+ { hreflang: 'en', href: page.en },
+ { hreflang: 'x-default', href: page.en },
+ ]}
+>
+ <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+ <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
+
+ <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-28">
+ <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/55"></div>
+ <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-navy-200" aria-label="Ruta">
+ <a href="/" class="hover:text-gold-400">Inicio</a><span class="px-2 text-navy-200/60">/</span>
+ <span class="text-gold-400">Uniformes Personalizados</span>
+ <span class="px-2 text-navy-200/60">·</span>
+ <a href="/custom-uniforms-las-vegas/" class="hover:text-gold-400" hreflang="en">English</a>
+ </nav>
+ <p class="kicker mb-4 flex items-center gap-2.5"><span class="h-px w-8 bg-gold-500"></span> Programas de uniformes</p>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
+ Uniformes personalizados en Las Vegas <span class="text-gold-400">que son de su empresa, no rentados.</span>
+ </h1>
+ <p class="speakable-answer max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ Bighorn Threads suministra uniformes personalizados para empresas de Las Vegas y Henderson: polos y camisas de trabajo bordadas para cuadrillas, uniformes para casinos y restaurantes, scrubs para clínicas y prendas de alta visibilidad para equipos de campo. Usted compra los uniformes, nosotros manejamos el logo, las tallas y las reposiciones, y cada pedido se cotiza por escrito.
+ </p>
+ <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+ <a href="/get-a-quote/" class="btn-primary text-base">Pedir cotización</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <p class="kicker mb-3">Lo que recibe</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Un programa de uniformes, no un contrato de renta.</h2>
+ </div>
+ <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+ {stack.map((s) => (
+ <div class="border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="mb-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{s.label}</h3>
+ <p class="text-sm leading-relaxed text-ash">{s.body}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-10 max-w-2xl">
+ <p class="kicker mb-3">Uniformes por equipo</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">La prenda correcta para cada puesto, un solo estándar de logo.</h2>
+ </div>
+ <div class="overflow-hidden border border-hairline bg-panel">
+ <table class="w-full">
+ <thead class="bg-concrete"><tr class="border-b border-hairline">
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Equipo</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Uniforme típico</th>
+ <th class="hidden px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600 lg:table-cell">Notas</th>
+ </tr></thead>
+ <tbody class="divide-y divide-hairline">
+ {teams.map((t) => (
+ <tr>
+ <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-700">{t.row}</td>
+ <td class="px-6 py-5 align-top font-heading text-base font-bold text-charcoal">{t.use}</td>
+ <td class="hidden px-6 py-5 align-top text-sm text-ash lg:table-cell">{t.notes}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
+
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">Antes de pedir</p>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">Cómo funciona un programa de uniformes propio en Las Vegas.</h2>
+ <div class="space-y-5 text-lg leading-relaxed text-ash">
+ <p>
+ La mayoría de las empresas que buscan uniformes en Las Vegas encuentran dos tipos de proveedores: programas nacionales de renta y tiendas de uniformes. La renta incluye lavandería y reposición por una cuota semanal bajo contrato de varios años, con el catálogo que tenga la flota. La tienda vende prendas sin logo y lo manda a otro lado para el bordado. Bighorn Threads está en medio: usted elige prendas de marca, nosotros coordinamos el bordado o la impresión con socios de producción en Las Vegas, y las prendas son suyas.
+ </p>
+ <p>
+ El clima de Las Vegas define la lista de prendas más que el logo. Las cuadrillas de campo necesitan polos o camisas de trabajo que respiren de mayo a septiembre, y el empleador debe cumplir las reglas de calor de Nevada OSHA para agua, descanso y sombra sin importar la prenda. Los casinos y restaurantes trabajan las 24 horas, así que el programa necesita suficientes piezas por empleado para aguantar el ciclo de lavandería. Las clínicas necesitan scrubs que conserven el color con lavados calientes.
+ </p>
+ <p>
+ La decoración sigue a la prenda. El bordado es el estándar para polos, camisas de botones, chamarras y gorras porque resiste el lavado industrial. La serigrafía lleva logos grandes en playeras y prendas de alta visibilidad. Las prendas resistentes al fuego y de alta visibilidad se decoran solo dentro de las indicaciones del fabricante, y eso lo confirmamos antes de cotizar.
+ </p>
+ <p>
+ Para equipos que reordenan, una tienda privada de empresa guarda las prendas aprobadas, los archivos del logo, las tallas de cada empleado y los presupuestos, para que el uniforme de un nuevo empleado se envíe sin empezar un proyecto nuevo. Vea la versión en inglés de esta página, <a href="/custom-uniforms-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Custom Uniforms Las Vegas</a>, y las páginas de <a href="/casino-hospitality-uniforms-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">uniformes para casinos y hotelería</a>, <a href="/branded-apparel-construction-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">ropa de trabajo para construcción</a> y <a href="/company-stores/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">tiendas de empresa</a>.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">Preguntas frecuentes</p>
+ <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Preguntas sobre uniformes personalizados.</h2>
+ <div class="divide-y divide-hairline border-y border-hairline">
+ {faqs.map((f) => (
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
+ <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+ </summary>
+ <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
+ </details>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <section class="relative isolate overflow-hidden bg-navy-950 py-20">
+ <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1920" height="1080" loading="lazy" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">¿Listo para uniformar a su equipo?</h2>
+ <p class="mb-8 text-lg text-navy-200">Envíe su logo, el número de empleados por puesto y cualquier requisito de seguridad o código de vestimenta.</p>
+ <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+ <a href="/get-a-quote/" class="btn-primary text-base">Pedir cotización</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+</BaseLayout>

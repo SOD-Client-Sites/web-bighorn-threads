@@ -1,0 +1,201 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import ProofStrip from '@/components/ProofStrip.astro'
+
+const page = {
+ title: 'How Much a Uniform Program Costs per Employee | Bighorn Threads',
+ description:
+ 'What a branded uniform program costs per employee per year, what drives the number (garment tier, pieces per person, decoration, turnover, rental vs owned), and how to estimate yours before requesting a quote.',
+ hero: '/images/generated/kit-office-sales.jpg',
+ url: 'https://bighornthreads.com/uniform-program-cost-per-employee/',
+}
+
+const drivers = [
+ { row: 'Garment tier', meaning: 'Value twill or basic polo vs brand-name performance, FR, or hi-vis', use: 'The single biggest lever. An FR shirt costs several times a cotton polo before any logo goes on.' },
+ { row: 'Pieces per person', meaning: 'How many shirts, and whether jackets, caps, or hi-vis are included', use: 'Five to seven shirts per daily-wear worker; two to three for a customer-facing role that rotates with a jacket.' },
+ { row: 'Decoration', meaning: 'Placements, stitch count, colors, personalization', use: 'Left-chest logo is the baseline. A name, a sleeve mark, or a back print each add a per-piece charge.' },
+ { row: 'Turnover and growth', meaning: 'How many new hires and replacements per year', use: 'A crew that turns over 30% a year replaces a third of its uniforms annually. Plan for it up front.' },
+ { row: 'Rental vs owned', meaning: 'Weekly per-wearer fee under contract vs one-time purchase', use: 'Rental spreads cost weekly and adds laundering; owned front-loads it and you keep the garments.' },
+ { row: 'Reorder path', meaning: 'Ad hoc emails vs a company store', use: 'A store does not change the garment price, but it removes the admin hours and stops off-spec orders.' },
+]
+
+const faqs = [
+ { q: 'How much does a uniform program cost per employee per year?', a: 'It depends almost entirely on garment tier and pieces per person. A basic embroidered polo program for office or service staff sits at the low end; a field program with several work shirts, hi-vis, and a jacket per person sits in the middle; an FR or multi-placement program sits at the top. Bighorn quotes the exact garments and decoration for your headcount in writing so you can see the per-employee number before approving.' },
+ { q: 'Is rental or owned cheaper per employee?', a: 'Rental charges a weekly fee per wearer for the life of a multi-year contract and includes laundering. Owned charges once per garment and you launder. For teams that can wash their own uniforms, owned is usually cheaper per employee over the program\'s life; for teams that need daily industrial laundering, rental can still make sense. Compare your last twelve weekly invoices to a written owned quote for the same headcount.' },
+ { q: 'How many uniforms should each employee get?', a: 'Five to seven shirts for a daily-wear field worker so laundry never leaves them short; three to four for a customer-facing role that wears a polo with a jacket; two sets of scrubs per shift pattern for clinical staff. Bighorn plans the count per role before pricing.' },
+ { q: 'What does embroidery add to the cost per piece?', a: 'A left-chest logo is the baseline and depends on stitch count. A name on the right chest, a sleeve mark, or a back print each add a per-piece charge, and 3D puff on caps costs more than flat embroidery. There is a one-time digitizing fee the first time a logo is set up.' },
+ { q: 'Can I lower the per-employee cost without cheaper shirts?', a: 'Yes. Reduce placements to one, standardize on fewer garment styles so quantities hit better price breaks, order in size curves rather than one-offs, and run reorders through a company store so nobody buys off-spec garments at retail.' },
+ { q: 'Does Bighorn charge for the company store?', a: 'Store terms are confirmed in the program quote. What a store changes most is administrative cost: sizes on file, approved garments only, and per-employee allowances that stop overspending.' },
+ { q: 'How do I get an exact per-employee number?', a: 'Send Bighorn your headcount by role, the garments each role needs, and the number of pieces per person. You get a written quote with the per-garment and per-employee cost, no rental contract attached.' },
+]
+
+const breadcrumb = {
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+ { '@type': 'ListItem', position: 2, name: 'Custom Uniforms Las Vegas', item: 'https://bighornthreads.com/custom-uniforms-las-vegas/' },
+ { '@type': 'ListItem', position: 3, name: 'Cost per Employee', item: page.url },
+ ],
+}
+
+const articleSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'Article',
+ headline: 'How much a branded uniform program costs per employee per year',
+ description: page.description,
+ datePublished: '2026-09-10',
+ dateModified: '2026-09-10',
+ author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' },
+ publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } },
+ mainEntityOfPage: page.url,
+}
+
+const faqSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+}
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: page.url,
+ datePublished: '2026-09-10',
+ dateModified: '2026-09-10',
+ speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.speakable-answer'] },
+}
+---
+
+<BaseLayout title={page.title} description={page.description} canonical={page.url} heroImage={page.hero} type="article" publishedDate="2026-09-10">
+ <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+ <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
+
+ <!-- Hero -->
+ <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-24">
+ <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/55"></div>
+ <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-navy-200" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-400">Home</a>
+ <span class="px-2 text-navy-200/60">/</span>
+ <a href="/custom-uniforms-las-vegas/" class="hover:text-gold-400">Custom Uniforms</a>
+ <span class="px-2 text-navy-200/60">/</span>
+ <span class="text-gold-400">Cost per Employee</span>
+ </nav>
+ <p class="kicker mb-4 flex items-center gap-2.5"><span class="h-px w-8 bg-gold-500"></span> Pricing Guide</p>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
+ How much a uniform program costs <span class="text-gold-400">per employee, and what moves the number.</span>
+ </h1>
+ <p class="speakable-answer max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ A branded uniform program's cost per employee per year is set by six things: the garment tier, the number of pieces per person, the decoration on each piece, annual turnover, whether you rent or own, and how reorders are handled. Garment tier and pieces per person account for most of it. Bighorn Threads quotes the exact garments for your headcount in writing, so the per-employee number is known before you approve.
+ </p>
+ <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+
+ <!-- Drivers table -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-10 max-w-2xl">
+ <p class="kicker mb-3">Cost Drivers</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Six things that set the per-employee number.</h2>
+ </div>
+ <div class="overflow-hidden border border-hairline bg-panel">
+ <table class="w-full">
+ <thead class="bg-concrete"><tr class="border-b border-hairline">
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Driver</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">What It Means</th>
+ <th class="hidden px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600 lg:table-cell">How It Plays Out</th>
+ </tr></thead>
+ <tbody class="divide-y divide-hairline">
+ {drivers.map((d) => (
+ <tr>
+ <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-700">{d.row}</td>
+ <td class="px-6 py-5 align-top font-heading text-base font-bold text-charcoal">{d.meaning}</td>
+ <td class="hidden px-6 py-5 align-top text-sm text-ash lg:table-cell">{d.use}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
+
+ <!-- Deep dive -->
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">The Buyer's Read</p>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">How to estimate your own number before you ask for a quote.</h2>
+ <div class="space-y-5 text-lg leading-relaxed text-ash">
+ <p>
+ Start with roles, not garments. List each role, how many people are in it, and whether they wear the uniform every day or only when customer-facing. A field crew of daily-wear workers needs five to seven shirts each so the laundry cycle never leaves anyone short; the <a href="/blog/how-many-shirts-per-crew-member-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">shirts-per-crew-member guide</a> shows the math by shift pattern. An office or sales role wearing a polo under a jacket needs three or four.
+ </p>
+ <p>
+ Then pick the garment tier per role. This is where most of the money goes. A value twill work shirt, a mid-tier performance polo, and an FR shirt are different price classes before a single stitch of embroidery. The <a href="/custom-work-shirts-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">work shirt page</a> and the <a href="/custom-polo-shirts-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">polo page</a> lay out the tiers. Do not put the executive polo on the field crew and do not put the field crew's twill on the sales team.
+ </p>
+ <p>
+ Decoration is the third input. One left-chest logo is the baseline. Every additional placement, a name, a sleeve mark, a back print, adds a per-piece charge, and personalization is priced per name. Our <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">embroidery cost guide</a> covers stitch count and digitizing. If the budget is tight, cut placements before you cut garment quality; a cheap shirt with three logos fails faster than a good shirt with one.
+ </p>
+ <p>
+ Now multiply: people × pieces × (garment + decoration) gives the first-issue cost. Divide by headcount for the per-employee number. Add turnover: a crew that replaces 30% of its people each year replaces roughly a third of its uniforms, plus a few damaged garments per hundred. That annualized figure is what to compare against a rental invoice; the <a href="/cintas-unifirst-aramark-alternatives-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">rental vs owned comparison</a> walks through the contract side.
+ </p>
+ <p>
+ The last driver is administrative, and it is the one most teams forget. Ad hoc reorders by email cost hours, produce off-spec garments, and push people to buy at retail when they are short. A <a href="/company-stores/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">company store</a> holds sizes, approved garments, and per-employee allowances so the per-employee number you planned is the one you actually spend. For a worked example on a mid-size crew, see <a href="/cost-custom-apparel-team-of-50/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">what custom apparel costs for a team of 50</a>.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <ProofStrip tone="paper" />
+
+ <!-- FAQ -->
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">FAQ</p>
+ <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Uniform cost questions, answered.</h2>
+ <div class="divide-y divide-hairline border-y border-hairline">
+ {faqs.map((f) => (
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
+ <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+ </summary>
+ <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
+ </details>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- Related -->
+ <section class="border-y border-hairline bg-paper py-16">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-6">Go Deeper</p>
+ <div class="grid gap-5 md:grid-cols-3">
+ <a href="/custom-uniforms-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500"><h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Custom Uniforms Las Vegas</h3><p class="mt-2 text-sm text-ash">Garments by team and the owned-program model.</p></a>
+ <a href="/cintas-unifirst-aramark-alternatives-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500"><h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Rental vs Owned</h3><p class="mt-2 text-sm text-ash">The contract side of the cost comparison.</p></a>
+ <a href="/cost-custom-apparel-team-of-50/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500"><h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Cost for a Team of 50</h3><p class="mt-2 text-sm text-ash">A worked example on a mid-size crew.</p></a>
+ </div>
+ </div>
+ </section>
+
+ <!-- CTA -->
+ <section class="relative isolate overflow-hidden bg-navy-950 py-20">
+ <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1920" height="1080" loading="lazy" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Want the exact per-employee number?</h2>
+ <p class="mb-8 text-lg text-navy-200">Send headcount by role, garments per role, and pieces per person.</p>
+ <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+</BaseLayout>

@@ -14,17 +14,19 @@ interface Props {
  publishedDate?: string
  noindex?: boolean
  heroImage?: string
+ lang?: string
+ alternates?: { hreflang: string; href: string }[]
 }
 
-const props = Astro.props
-const { heroImage } = Astro.props
+const { heroImage, lang = 'en', alternates = [], ...props } = Astro.props
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
  <head>
  <SEOHead {...props} />
  {heroImage && <link rel="preload" as="image" href={heroImage} fetchpriority="high" />}
+ {alternates.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
  <TrackingHead />
  </head>
  <body class="min-h-screen bg-concrete pb-[60px] text-charcoal antialiased min-[1120px]:pb-0">

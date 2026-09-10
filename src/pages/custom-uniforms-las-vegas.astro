@@ -83,6 +83,12 @@ const speakableSchema = {
  description={page.description}
  canonical={page.url}
  heroImage={page.hero}
+ lang="en"
+ alternates={[
+ { hreflang: 'en', href: page.url },
+ { hreflang: 'es', href: 'https://bighornthreads.com/es/uniformes-personalizados-las-vegas/' },
+ { hreflang: 'x-default', href: page.url },
+ ]}
 >
  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />

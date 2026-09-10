@@ -1,0 +1,163 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import ProofStrip from '@/components/ProofStrip.astro'
+
+const page = {
+ title: 'Professional Shop vs DIY Heat Press for Business Shirts | Bighorn Threads',
+ description:
+ 'Should a small business press its own shirts or use a professional shop? Compare real cost per shirt, durability, time, failure rates, and the quantity where a heat press stops making sense, with a clear rule for Las Vegas businesses.',
+ hero: '/images/generated/service-screen-printing.jpg',
+ url: 'https://bighornthreads.com/professional-shop-vs-diy-heat-press/',
+}
+
+const compare = [
+ { row: 'Upfront cost', diy: 'Press, blanks, transfers or vinyl, cutter, weeding tools, and the space to run them', pro: 'None. You pay per finished shirt.' },
+ { row: 'Cost per shirt', diy: 'Looks cheap on paper; add misprints, wasted transfers, and your hourly rate', pro: 'Quoted per piece with price breaks by quantity' },
+ { row: 'Durability', diy: 'Consumer vinyl and transfers crack and peel within a season of washing', pro: 'Screen print, DTF, or embroidery rated for commercial laundering' },
+ { row: 'Consistency', diy: 'Temperature, pressure, and dwell drift between shirts', pro: 'Proofed once, produced to that proof' },
+ { row: 'Garments', diy: 'Limited to what a flat press can reach; no caps, seams, or heavy shells', pro: 'Polos, work shirts, caps, jackets, hi-vis, FR (within guidance)' },
+ { row: 'Time', diy: 'Two to five minutes per shirt, plus cutting, weeding, and rework', pro: 'Yours back. Ship date confirmed in writing.' },
+ { row: 'Where it makes sense', diy: 'Under a dozen one-off pieces, hobby runs, prototypes', pro: 'Anything the crew wears daily, anything a customer sees, anything you will reorder' },
+]
+
+const faqs = [
+ { q: 'Is it cheaper to make my own shirts with a heat press?', a: 'Only for a handful of one-off pieces, and only if your time is free. Once you count the press, the transfers or vinyl, the misprints, and the hours per shirt, a professional run of two dozen or more costs less per finished, durable shirt. The crossover for most small businesses is around 12 to 24 pieces, sooner if the shirts are worn daily.' },
+ { q: 'How long do heat-press vinyl shirts last?', a: 'Consumer heat-transfer vinyl and inkjet transfers typically start cracking or peeling within one season of regular washing, faster on shirts that see a commercial washer or the Las Vegas sun. Screen printing, professional DTF, and embroidery are made to survive the life of the garment.' },
+ { q: 'What is the minimum order at a professional shop?', a: 'Embroidery can run in small quantities because there is no screen setup. Screen printing has a practical minimum per design, usually a dozen or two. DTF and DTG fill the gap for small full-color runs. Bighorn confirms minimums in the quote.' },
+ { q: 'Can a heat press do polos, caps, or jackets?', a: 'Poorly. A flat press struggles with seams, plackets, and curved cap fronts, and heavy or waterproof shells can be damaged by the heat. Those garments are embroidered or professionally printed.' },
+ { q: 'When should a small business move from DIY to a shop?', a: 'The first time you reorder. A repeat order means the design is settled, the quantity justifies setup, and the shirts have become part of how customers recognize the business. That is the point where a proof, a written quote, and a durable method pay for themselves.' },
+ { q: 'Can I keep pressing one-offs and use a shop for the rest?', a: 'Yes, and many businesses do: a shop for the crew uniform and the event run, the press for a prototype or a single replacement. Just do not let the press become the uniform program.' },
+ { q: 'Where can I get professional custom shirts in Las Vegas?', a: 'Bighorn Threads prints and embroiders custom shirts for Las Vegas and Henderson businesses, crews, and events, with local account management and production through vetted partners. Send your artwork, quantity, and date for a written quote.' },
+]
+
+const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+ { '@type': 'ListItem', position: 2, name: 'Custom T-Shirts Las Vegas', item: 'https://bighornthreads.com/custom-t-shirts-las-vegas/' },
+ { '@type': 'ListItem', position: 3, name: 'Pro Shop vs Heat Press', item: page.url },
+] }
+const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: 'Professional shop vs DIY heat press for business shirts', description: page.description, datePublished: '2026-09-10', dateModified: '2026-09-10', author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: page.url }
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }
+const speakableSchema = { '@context': 'https://schema.org', '@type': 'WebPage', url: page.url, datePublished: '2026-09-10', dateModified: '2026-09-10', speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.speakable-answer'] } }
+---
+
+<BaseLayout title={page.title} description={page.description} canonical={page.url} heroImage={page.hero} type="article" publishedDate="2026-09-10">
+ <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+ <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
+
+ <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-24">
+ <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/55"></div>
+ <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-navy-200" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-400">Home</a><span class="px-2 text-navy-200/60">/</span>
+ <a href="/custom-t-shirts-las-vegas/" class="hover:text-gold-400">Custom T-Shirts</a><span class="px-2 text-navy-200/60">/</span>
+ <span class="text-gold-400">Pro Shop vs Heat Press</span>
+ </nav>
+ <p class="kicker mb-4 flex items-center gap-2.5"><span class="h-px w-8 bg-gold-500"></span> Decision Guide</p>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
+ Professional shop or DIY heat press? <span class="text-gold-400">Press the prototype, not the uniform.</span>
+ </h1>
+ <p class="speakable-answer max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ Use a professional shop for anything the crew wears daily, anything a customer sees, and anything you will reorder: the print survives commercial washing, every shirt matches the proof, and the per-shirt cost drops with quantity. A DIY heat press makes sense for a handful of one-offs and prototypes under about a dozen pieces. Once a small business reorders a design, the press has stopped saving money.
+ </p>
+ <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-10 max-w-2xl">
+ <p class="kicker mb-3">Side by Side</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">The honest comparison.</h2>
+ </div>
+ <div class="overflow-hidden border border-hairline bg-panel">
+ <table class="w-full">
+ <thead class="bg-concrete"><tr class="border-b border-hairline">
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Factor</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">DIY Heat Press</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Professional Shop</th>
+ </tr></thead>
+ <tbody class="divide-y divide-hairline">
+ {compare.map((c) => (
+ <tr>
+ <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-700">{c.row}</td>
+ <td class="px-6 py-5 align-top text-sm text-ash">{c.diy}</td>
+ <td class="px-6 py-5 align-top text-sm text-charcoal">{c.pro}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
+
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">The Buyer's Read</p>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">The math small businesses skip, and the point where it flips.</h2>
+ <div class="space-y-5 text-lg leading-relaxed text-ash">
+ <p>
+ A heat press looks like a bargain because the per-shirt math ignores three things: the failure rate, the durability, and the hours. Consumer vinyl and inkjet transfers are unforgiving of a few degrees of drift or a second too short on the dwell, so a beginner scraps shirts. The ones that survive start cracking after a season of washing, sooner in a commercial machine or under the Las Vegas sun. And each shirt is minutes of cutting, weeding, aligning, and pressing that come out of the owner's day.
+ </p>
+ <p>
+ A professional run reverses all three. The artwork is proofed once and every shirt is made to that proof. The method is chosen for the job: <a href="/services/screen-printing-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">screen printing</a> for bulk, <a href="/dtf-printing-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">DTF or DTG</a> for small full-color runs, <a href="/services/embroidery-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">embroidery</a> for polos and caps. The <a href="/screen-printing-vs-dtg-vs-embroidery/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">method comparison</a> explains which fits which garment. And the price per shirt drops with quantity; the <a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">minimum order guide</a> shows where the breaks fall.
+ </p>
+ <p>
+ The point where it flips is the reorder. A first batch of six shirts for a market stall is a fine press job. The moment the design is settled and you need thirty more because the crew grew or the event sold out, you have a uniform, and a uniform should be made once, correctly, with a written quote and a ship date. The <a href="/custom-t-shirts-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">custom t-shirts page</a> covers blanks and pricing; the <a href="/branded-merchandise-vs-print-on-demand/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">merchandise vs print-on-demand comparison</a> covers the online-platform middle ground.
+ </p>
+ <p>
+ Keep the press if you have one. It is useful for a prototype, a single replacement, or a test of a new design before a run. It is not useful for the polo your technician wears to a customer's door. The <a href="/online-vs-local-print-shop/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">online vs local print shop guide</a> covers what to expect from a Las Vegas shop versus a national website once you make the move.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <ProofStrip tone="paper" />
+
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">FAQ</p>
+ <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Heat press vs shop questions, answered.</h2>
+ <div class="divide-y divide-hairline border-y border-hairline">
+ {faqs.map((f) => (
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
+ <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+ </summary>
+ <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
+ </details>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <section class="border-y border-hairline bg-paper py-16">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-6">Go Deeper</p>
+ <div class="grid gap-5 md:grid-cols-3">
+ <a href="/custom-t-shirts-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500"><h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Custom T-Shirts</h3><p class="mt-2 text-sm text-ash">Blanks, methods, and bulk pricing.</p></a>
+ <a href="/screen-printing-vs-dtg-vs-embroidery/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500"><h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Screen Print vs DTG vs Embroidery</h3><p class="mt-2 text-sm text-ash">Which method for which garment.</p></a>
+ <a href="/online-vs-local-print-shop/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500"><h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Online vs Local Shop</h3><p class="mt-2 text-sm text-ash">What changes when you order locally.</p></a>
+ </div>
+ </div>
+ </section>
+
+ <section class="relative isolate overflow-hidden bg-navy-950 py-20">
+ <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1920" height="1080" loading="lazy" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Ready to retire the heat press for the crew shirts?</h2>
+ <p class="mb-8 text-lg text-navy-200">Send the artwork and the quantity. You get a proof and a written quote.</p>
+ <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+</BaseLayout>

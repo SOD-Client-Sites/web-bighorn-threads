@@ -1,0 +1,180 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import ProofStrip from '@/components/ProofStrip.astro'
+
+const page = {
+ title: 'Embroidery vs Patches for Uniforms | Which Lasts, Which Costs Less | Bighorn Threads',
+ description:
+ 'Direct embroidery or sewn patches for work uniforms? Compare durability, cost per piece, reassignment, FR and hi-vis compatibility, and look, with a clear rule for Las Vegas crews and service teams.',
+ hero: '/images/generated/service-embroidery.jpg',
+ url: 'https://bighornthreads.com/embroidery-vs-patches-uniforms/',
+}
+
+const compare = [
+ { row: 'Look', emb: 'Stitched into the garment; reads as a finished uniform', patch: 'A bordered emblem; reads as workwear or a rental garment' },
+ { row: 'Durability', emb: 'Lasts the life of the garment through industrial laundering', patch: 'Lasts as long as the stitching; edges can lift on heavy wash cycles' },
+ { row: 'Cost per piece', emb: 'Per-piece embroidery plus a one-time digitizing fee', patch: 'Patch unit cost plus sew-on labor; cheaper per piece at very high volume' },
+ { row: 'Reassigning garments', emb: 'Logo stays; names cannot be removed', patch: 'Name patches can be removed and replaced when crews change' },
+ { row: 'FR and hi-vis garments', emb: 'Only within the manufacturer\'s guidance', patch: 'Only FR-rated or manufacturer-approved patches; same rule' },
+ { row: 'Heavy outerwear', emb: 'Works on most jackets; thick or quilted shells can be a problem', patch: 'Often the better choice on quilted, insulated, or waterproof shells' },
+ { row: 'Small runs', emb: 'No screen setup, so small quantities are fine', patch: 'Patch minimums can be higher than embroidery minimums' },
+]
+
+const faqs = [
+ { q: 'Is embroidery or a patch better for work uniforms?', a: 'Direct embroidery for polos, button-down work shirts, caps, and most jackets: it lasts the life of the garment and looks like a uniform, not a rental. Patches for heavy or waterproof outerwear, for name labels on garments that get reassigned, and for FR programs where an approved FR patch is easier than direct embroidery within the manufacturer\'s guidance. Most Las Vegas crews use both by garment.' },
+ { q: 'Which is cheaper, embroidery or patches?', a: 'At small and mid quantities, direct embroidery is usually cheaper per piece because there is no separate patch to buy and then sew on. At very high volume with one logo on many garment types, a patch can be cheaper because one patch run serves everything. The digitizing fee for embroidery is one-time and small relative to the program.' },
+ { q: 'Do patches hold up in the wash?', a: 'A well-made woven or embroidered patch sewn on all the way around holds up well. Iron-on or adhesive patches do not survive industrial laundering and should not be used on uniforms. Direct embroidery does not have an edge to lift.' },
+ { q: 'Can I put a patch on an FR shirt?', a: 'Only an FR-rated patch applied within the garment manufacturer\'s guidance, and the same applies to direct embroidery on FR garments. The employer and safety professional own the PPE selection. See the NFPA 70E embroidery guide.' },
+ { q: 'Should employee names be embroidered or on a patch?', a: 'If garments get reassigned when crews change, a sewn name patch can be swapped. If garments stay with the employee, direct name embroidery looks cleaner. Many programs embroider the company logo and patch the name.' },
+ { q: 'What about leather or PVC patches on hats?', a: 'Patch caps are a style choice for merch and crews alike. Leather, woven, and PVC patches are quoted alongside direct cap embroidery on the custom hats page.' },
+ { q: 'Where can I get embroidered or patched uniforms in Las Vegas?', a: 'Bighorn Threads runs uniform programs for Las Vegas and Henderson crews and service teams with local account management and production through vetted partners. Send your logo, garment list, and headcount for a written quote covering both options.' },
+]
+
+const breadcrumb = {
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+ { '@type': 'ListItem', position: 2, name: 'Custom Embroidery Las Vegas', item: 'https://bighornthreads.com/services/embroidery-las-vegas/' },
+ { '@type': 'ListItem', position: 3, name: 'Embroidery vs Patches', item: page.url },
+ ],
+}
+const articleSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'Article',
+ headline: 'Embroidery vs patches for work uniforms',
+ description: page.description,
+ datePublished: '2026-09-10',
+ dateModified: '2026-09-10',
+ author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' },
+ publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } },
+ mainEntityOfPage: page.url,
+}
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }
+const speakableSchema = { '@context': 'https://schema.org', '@type': 'WebPage', url: page.url, datePublished: '2026-09-10', dateModified: '2026-09-10', speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.speakable-answer'] } }
+---
+
+<BaseLayout title={page.title} description={page.description} canonical={page.url} heroImage={page.hero} type="article" publishedDate="2026-09-10">
+ <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+ <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
+
+ <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-24">
+ <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/55"></div>
+ <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-navy-200" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-400">Home</a><span class="px-2 text-navy-200/60">/</span>
+ <a href="/services/embroidery-las-vegas/" class="hover:text-gold-400">Embroidery</a><span class="px-2 text-navy-200/60">/</span>
+ <span class="text-gold-400">Embroidery vs Patches</span>
+ </nav>
+ <p class="kicker mb-4 flex items-center gap-2.5"><span class="h-px w-8 bg-gold-500"></span> Decision Guide</p>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
+ Embroidery or patches for uniforms? <span class="text-gold-400">Embroider the shirt, patch the shell and the name.</span>
+ </h1>
+ <p class="speakable-answer max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ Choose direct embroidery for polos, button-down work shirts, caps, and most jackets: it lasts the life of the garment and reads as a finished uniform. Choose sewn patches for heavy or waterproof outerwear, for name labels on garments that get reassigned, and where an FR-rated patch is the approved route. Iron-on patches do not belong on a uniform. Most Las Vegas crews use both, decided garment by garment.
+ </p>
+ <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-10 max-w-2xl">
+ <p class="kicker mb-3">Side by Side</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Seven lines that decide it.</h2>
+ </div>
+ <div class="overflow-hidden border border-hairline bg-panel">
+ <table class="w-full">
+ <thead class="bg-concrete"><tr class="border-b border-hairline">
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Factor</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Direct Embroidery</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Sewn Patch</th>
+ </tr></thead>
+ <tbody class="divide-y divide-hairline">
+ {compare.map((c) => (
+ <tr>
+ <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-700">{c.row}</td>
+ <td class="px-6 py-5 align-top text-sm text-charcoal">{c.emb}</td>
+ <td class="px-6 py-5 align-top text-sm text-ash">{c.patch}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
+
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">The Buyer's Read</p>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">Where each one wins, and the mistakes to avoid.</h2>
+ <div class="space-y-5 text-lg leading-relaxed text-ash">
+ <p>
+ Direct embroidery stitches the logo into the fabric. On a knit polo, a twill work shirt, or a structured cap it produces a clean chest mark that survives hundreds of washes and never lifts at the edge. That is why it is the default for uniform programs and why the <a href="/services/embroidery-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">embroidery service page</a> is where most Las Vegas uniform orders start. The one-time digitizing fee sets up the stitch file; after that, per-piece cost tracks stitch count.
+ </p>
+ <p>
+ Patches earn their place on garments embroidery struggles with. Quilted, insulated, or waterproof shells can pucker or lose their water resistance under a dense embroidery field; a sewn patch sits on top without penetrating the membrane. Rental-style programs use patches because garments move between wearers, and a name patch can be unpicked and replaced. If your crews turn over and you reassign shirts, a sewn name patch with an embroidered company logo is a sensible split.
+ </p>
+ <p>
+ Flame-resistant and hi-vis garments follow one rule regardless of method: decorate only within the manufacturer's guidance, using FR-rated thread or patches where required. Bighorn confirms the guidance before quoting; see the <a href="/safety-compliance/nfpa-70e-embroidery-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">NFPA 70E embroidery guide</a> and the <a href="/safety-compliance/ansi-107-hi-vis-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">ANSI 107 hi-vis guide</a>.
+ </p>
+ <p>
+ Two mistakes cost crews money every year. The first is iron-on or adhesive patches on anything that will see a commercial washer; they let go within weeks. The second is a low-cost patch with a bordered, rental-look emblem on a customer-facing polo, which undercuts a brand that paid for good garments. If the point of the uniform is to look like a company, embroider it.
+ </p>
+ <p>
+ On hats the choice is style as much as durability: leather, woven, and PVC patches have become a look of their own, and the <a href="/custom-hats-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">custom hats page</a> quotes patch caps alongside direct embroidery. For the rest of the program, see <a href="/custom-uniforms-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">custom uniforms in Las Vegas</a> and <a href="/custom-work-shirts-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">custom work shirts</a>.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <ProofStrip tone="paper" />
+
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">FAQ</p>
+ <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Embroidery vs patch questions, answered.</h2>
+ <div class="divide-y divide-hairline border-y border-hairline">
+ {faqs.map((f) => (
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
+ <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+ </summary>
+ <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
+ </details>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <section class="border-y border-hairline bg-paper py-16">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-6">Go Deeper</p>
+ <div class="grid gap-5 md:grid-cols-3">
+ <a href="/services/embroidery-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500"><h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Custom Embroidery</h3><p class="mt-2 text-sm text-ash">Digitizing, thread matching, and stitch counts.</p></a>
+ <a href="/custom-hats-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500"><h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Custom Hats</h3><p class="mt-2 text-sm text-ash">Embroidered and patch caps side by side.</p></a>
+ <a href="/custom-uniforms-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500"><h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Custom Uniforms</h3><p class="mt-2 text-sm text-ash">The full owned-program picture by team.</p></a>
+ </div>
+ </div>
+ </section>
+
+ <section class="relative isolate overflow-hidden bg-navy-950 py-20">
+ <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1920" height="1080" loading="lazy" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Want both options priced on your garments?</h2>
+ <p class="mb-8 text-lg text-navy-200">Send your logo and garment list. The quote shows embroidery and patch side by side.</p>
+ <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+</BaseLayout>

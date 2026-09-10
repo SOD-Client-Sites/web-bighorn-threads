@@ -4,8 +4,33 @@
 // visitor intentionally submits a lead form.
 ---
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZGGY24PN1Z" is:inline></script>
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer is:inline></script>
+<script is:inline>
+  // Third-party loading is deferred: gtag loads on first interaction or 1.5s after
+  // load (whichever comes first); Turnstile loads only on pages that render a widget.
+  ;(function () {
+    var done = false
+    function loadGtag () {
+      if (done) return
+      done = true
+      var s = document.createElement('script')
+      s.async = true
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZGGY24PN1Z'
+      document.head.appendChild(s)
+    }
+    ;['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (e) {
+      window.addEventListener(e, loadGtag, { once: true, passive: true })
+    })
+    window.addEventListener('load', function () { setTimeout(loadGtag, 1500) })
+    document.addEventListener('DOMContentLoaded', function () {
+      if (!document.querySelector('.cf-turnstile')) return
+      var t = document.createElement('script')
+      t.async = true
+      t.defer = true
+      t.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js'
+      document.head.appendChild(t)
+    })
+  })()
+</script>
 <script is:inline>
   window.dataLayer = window.dataLayer || []
   function gtag(){window.dataLayer.push(arguments)}

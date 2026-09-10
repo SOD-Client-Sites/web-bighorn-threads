@@ -1,0 +1,164 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import ProofStrip from '@/components/ProofStrip.astro'
+
+const page = {
+ title: 'Screen Printing vs DTG vs Embroidery | Which Method for Which Garment | Bighorn Threads',
+ description:
+ 'Screen printing, DTG, DTF, or embroidery? A plain comparison of durability, cost by quantity, artwork limits, and the garments each method suits, with a one-paragraph rule for choosing.',
+ hero: '/images/generated/services-flatlay-bg.jpg',
+ url: 'https://bighornthreads.com/screen-printing-vs-dtg-vs-embroidery/',
+}
+
+const methods = [
+ { row: 'Screen printing', best: 'Bulk tees, hoodies, hi-vis; one to a few ink colors', limits: 'Setup per color; not economical under about a dozen pieces; fine detail and photos are hard', durability: 'Excellent with plastisol; very good with water-based' },
+ { row: 'DTG (direct to garment)', best: 'Small runs of full-color or photo artwork on cotton tees', limits: 'Cotton-rich fabrics only; higher per-piece cost at volume; softer than screen print on darks', durability: 'Good; fades sooner than screen print with heavy washing' },
+ { row: 'DTF (direct to film)', best: 'Small to mid runs, full color, mixed garment types, polyester and blends', limits: 'A transfer with a hand feel on large solid areas; not for FR without manufacturer approval', durability: 'Very good when applied correctly' },
+ { row: 'Embroidery', best: 'Polos, button-downs, caps, jackets, uniforms', limits: 'Stitch count drives cost; small text and gradients do not translate; heavy on thin tees', durability: 'Lasts the life of the garment' },
+ { row: 'Sublimation', best: 'All-over prints on white or light polyester: jerseys, performance polos', limits: 'Polyester only; no dark garments; no cotton', durability: 'Permanent; the ink is in the fiber' },
+]
+
+const faqs = [
+ { q: 'What is the difference between screen printing, DTG, and embroidery?', a: 'Screen printing pushes ink through a stencil onto the garment, one screen per color, and is the bulk method. DTG prints ink directly into cotton like a photo printer and suits small full-color runs. Embroidery stitches the design in thread and is the uniform method for polos, caps, and jackets. DTF transfers a printed film with heat and covers the small-run, mixed-fabric gap between them.' },
+ { q: 'Which is most durable?', a: 'Embroidery lasts the life of the garment. Screen printing with plastisol ink is next and holds up through years of washing. DTF is very good when applied correctly. DTG is good but fades sooner under heavy commercial laundering. Sublimation is permanent but only exists on polyester.' },
+ { q: 'Which is cheapest?', a: 'At quantity, screen printing has the lowest cost per piece for simple artwork because setup is spread across the run. Under a dozen pieces, DTF or DTG is cheaper because there is no screen setup. Embroidery is priced by stitch count, so a small chest logo is affordable at any quantity while a large back design is not.' },
+ { q: 'Should a company polo be printed or embroidered?', a: 'Embroidered. A knit polo takes embroidery cleanly, the logo survives industrial laundering, and it reads as a uniform. Screen print a polo only for large multi-color artwork on a big run where embroidery stitch count would be prohibitive.' },
+ { q: 'Can you print photos or full-color logos?', a: 'Yes, with DTG on cotton or DTF on most fabrics. Screen printing can simulate full color with process or simulated-process printing at volume. Embroidery cannot reproduce gradients or photos; the logo is simplified to solid shapes.' },
+ { q: 'Which method for hi-vis or FR garments?', a: 'Whatever the garment manufacturer allows, and nothing else. ANSI hi-vis and NFPA-rated FR garments have decoration guidance that Bighorn confirms before quoting. See the ANSI 107 and NFPA 70E guides.' },
+ { q: 'Do I have to choose one method for the whole program?', a: 'No, and most programs mix: screen print the tees and hi-vis, embroider the polos and caps, DTF the small event run. One artwork file, one proof standard, several methods by garment.' },
+ { q: 'Where can I get screen printing, DTG, or embroidery in Las Vegas?', a: 'Bighorn Threads coordinates all of these through vetted Las Vegas production partners with local account management and written quotes. Send the artwork, garment, and quantity and the quote names the method and why.' },
+]
+
+const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+ { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://bighornthreads.com/services/' },
+ { '@type': 'ListItem', position: 3, name: 'Screen Printing vs DTG vs Embroidery', item: page.url },
+] }
+const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: 'Screen printing vs DTG vs embroidery: which method for which garment', description: page.description, datePublished: '2026-09-10', dateModified: '2026-09-10', author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: page.url }
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }
+const speakableSchema = { '@context': 'https://schema.org', '@type': 'WebPage', url: page.url, datePublished: '2026-09-10', dateModified: '2026-09-10', speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.speakable-answer'] } }
+---
+
+<BaseLayout title={page.title} description={page.description} canonical={page.url} heroImage={page.hero} type="article" publishedDate="2026-09-10">
+ <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+ <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
+
+ <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-24">
+ <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/55"></div>
+ <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-navy-200" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-400">Home</a><span class="px-2 text-navy-200/60">/</span>
+ <a href="/services/" class="hover:text-gold-400">Services</a><span class="px-2 text-navy-200/60">/</span>
+ <span class="text-gold-400">Method Comparison</span>
+ </nav>
+ <p class="kicker mb-4 flex items-center gap-2.5"><span class="h-px w-8 bg-gold-500"></span> Decoration Methods</p>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
+ Screen printing vs DTG vs embroidery: <span class="text-gold-400">the garment picks the method.</span>
+ </h1>
+ <p class="speakable-answer max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ Screen print bulk tees, hoodies, and hi-vis with one to a few colors. Use DTG or DTF for small runs and full-color or photo artwork, DTG on cotton and DTF on almost anything. Embroider polos, button-downs, caps, and jackets, where a stitched logo lasts the life of the garment and reads as a uniform. Sublimate all-over designs on light polyester. Most Las Vegas programs use two or three of these, decided garment by garment on one proof standard.
+ </p>
+ <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-10 max-w-2xl">
+ <p class="kicker mb-3">Five Methods</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">What each one is for, and where it stops.</h2>
+ </div>
+ <div class="overflow-hidden border border-hairline bg-panel">
+ <table class="w-full">
+ <thead class="bg-concrete"><tr class="border-b border-hairline">
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Method</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Best For</th>
+ <th class="hidden px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600 lg:table-cell">Limits</th>
+ <th class="hidden px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600 md:table-cell">Durability</th>
+ </tr></thead>
+ <tbody class="divide-y divide-hairline">
+ {methods.map((m) => (
+ <tr>
+ <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-700">{m.row}</td>
+ <td class="px-6 py-5 align-top font-heading text-base font-bold text-charcoal">{m.best}</td>
+ <td class="hidden px-6 py-5 align-top text-sm text-ash lg:table-cell">{m.limits}</td>
+ <td class="hidden px-6 py-5 align-top text-sm text-ash md:table-cell">{m.durability}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
+
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">The Buyer's Read</p>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">Three questions that choose the method every time.</h2>
+ <div class="space-y-5 text-lg leading-relaxed text-ash">
+ <p>
+ <strong>What is the garment?</strong> Knit polos, twill work shirts, caps, and jackets want <a href="/services/embroidery-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">embroidery</a>; the fabric carries the stitches and the result survives industrial laundering. Cotton and blend tees and hoodies want print. Light polyester performance wear can be sublimated edge to edge. Flame-resistant and hi-vis garments want whatever the manufacturer permits and nothing else; the <a href="/safety-compliance/nfpa-70e-embroidery-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">NFPA 70E guide</a> and the <a href="/safety-compliance/ansi-107-hi-vis-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">ANSI 107 guide</a> explain the boundaries.
+ </p>
+ <p>
+ <strong>How many, and how many colors?</strong> Two dozen or more shirts with one to three ink colors is <a href="/services/screen-printing-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">screen printing</a> territory; the setup is spread across the run and the per-piece cost is the lowest of any method. Under a dozen, or with photo-style artwork, <a href="/dtf-printing-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">DTF or DTG</a> avoids the screen setup entirely. The <a href="/blog/dtf-printing-vs-screen-printing-custom-apparel/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">DTF vs screen printing guide</a> works through examples, and the <a href="/blog/plastisol-vs-water-based-ink-workwear/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">ink guide</a> covers feel and durability on darks.
+ </p>
+ <p>
+ <strong>What does the logo look like?</strong> Solid shapes and clean text embroider well; gradients, photos, and tiny type do not, and a logo built for a website often needs a simplified embroidery version. The <a href="/blog/vector-logo-file-setup-for-embroidery/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">logo file setup guide</a> explains what to send. Full-color, photographic, or many-color artwork points to DTG or DTF; a bold one- or two-color mark points to screen print.
+ </p>
+ <p>
+ Answer those three and the method is usually obvious, and it is usually more than one. A typical Las Vegas crew program screen prints the tees and hi-vis, embroiders the polos and caps, and DTFs the short event run, all from one artwork file and one proof standard. For the construction-specific version of this decision, see <a href="/screen-printing-vs-embroidery-construction-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">screen printing vs embroidery for construction gear</a>; for the DIY question, see <a href="/professional-shop-vs-diy-heat-press/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">professional shop vs heat press</a>.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <ProofStrip tone="paper" />
+
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">FAQ</p>
+ <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Method questions, answered.</h2>
+ <div class="divide-y divide-hairline border-y border-hairline">
+ {faqs.map((f) => (
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
+ <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+ </summary>
+ <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
+ </details>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <section class="border-y border-hairline bg-paper py-16">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-6">Go Deeper</p>
+ <div class="grid gap-5 md:grid-cols-3">
+ <a href="/services/screen-printing-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500"><h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Screen Printing</h3><p class="mt-2 text-sm text-ash">The bulk method for crews and events.</p></a>
+ <a href="/dtf-printing-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500"><h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">DTF, DTG &amp; Sublimation</h3><p class="mt-2 text-sm text-ash">Small runs, full color, performance fabrics.</p></a>
+ <a href="/services/embroidery-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500"><h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Embroidery</h3><p class="mt-2 text-sm text-ash">Polos, caps, jackets, and uniforms.</p></a>
+ </div>
+ </div>
+ </section>
+
+ <section class="relative isolate overflow-hidden bg-navy-950 py-20">
+ <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1920" height="1080" loading="lazy" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Not sure which method? Send the artwork.</h2>
+ <p class="mb-8 text-lg text-navy-200">The quote names the method for each garment and why.</p>
+ <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+</BaseLayout>
