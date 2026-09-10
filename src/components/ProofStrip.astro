@@ -1,0 +1,69 @@
+---
+// Real Google reviews for VP Promos LLC, the legal entity doing business as
+// Bighorn Threads (see footer). Pulled 2026-09-10: 5.0 rating, 11 reviews.
+// Quotes are verbatim excerpts. No Review/AggregateRating schema on purpose:
+// self-served review markup is not eligible for rich results and can be flagged.
+interface Props {
+ tone?: 'paper' | 'concrete'
+}
+const { tone = 'paper' } = Astro.props
+const bg = tone === 'paper' ? 'border-y border-hairline bg-paper' : 'bg-concrete'
+
+const quotes = [
+ {
+ text: 'One of the most reliable and honest vendors we\'ve worked with. Incredibly responsive, communicates clearly, and always makes sure every detail is double-checked before moving forward. We\'ve thrown him some last-minute requests and he\'s always handled them with patience, transparency, and realistic timelines.',
+ who: 'Desha B.',
+ what: 'Google review',
+ },
+ {
+ text: 'I\'ve worked with them for over 14 years for all my event promotional needs. From branded apparel to unique giveaways, their products are always high-quality and delivered on time. The embroidery work is especially impressive: clean, detailed, and consistent every time.',
+ who: 'Nadia G.',
+ what: 'Google review, 14-year client',
+ },
+ {
+ text: 'We\'ve been working with them for years for our company uniforms and branded swag, and they\'ve consistently delivered. The products are top quality and competitively priced.',
+ who: 'K. Stephens',
+ what: 'Google review',
+ },
+ {
+ text: 'The order was placed and ready earlier than the date we had discussed. The shipment came right away and everyone loves the shirts.',
+ who: 'Elisa K.',
+ what: 'Google review, Cram Middle School',
+ },
+]
+---
+
+<section class={`${bg} py-16 sm:py-20`}>
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+ <div class="max-w-2xl">
+ <p class="kicker mb-3">What Clients Say</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">
+ Rated 5.0 on Google <span class="text-gold-600">by the teams we outfit.</span>
+ </h2>
+ </div>
+ <p class="max-w-md text-sm leading-relaxed text-ash">
+ Verbatim from Google reviews of VP Promos LLC, the company behind Bighorn Threads. Same owner, same account team, same production partners, new name for the workwear side of the business.
+ </p>
+ </div>
+
+ <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+ {quotes.map((q) => (
+ <figure class="flex h-full flex-col border border-hairline bg-panel p-6">
+ <div class="mb-4 flex items-center gap-1 text-gold-600" aria-label="5 out of 5 stars">
+ {[0, 1, 2, 3, 4].map(() => (
+ <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 14.9l-5.3 2.8 1.1-5.9L1.5 7.7l5.9-.8L10 1.5z"/></svg>
+ ))}
+ </div>
+ <blockquote class="flex-1 text-sm leading-relaxed text-charcoal">
+ “{q.text}”
+ </blockquote>
+ <figcaption class="mt-5 border-t border-hairline pt-4">
+ <span class="block font-heading text-sm font-bold uppercase tracking-tight text-charcoal">{q.who}</span>
+ <span class="block font-mono text-xs text-ash">{q.what}</span>
+ </figcaption>
+ </figure>
+ ))}
+ </div>
+ </div>
+</section>

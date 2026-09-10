@@ -1,0 +1,238 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import ProofStrip from '@/components/ProofStrip.astro'
+
+const page = {
+ title: 'Cintas, UniFirst & Aramark Alternatives in Las Vegas | Bighorn Threads',
+ description:
+ 'Looking for an alternative to Cintas, UniFirst, or Aramark uniform rental in Las Vegas? Compare renting versus owning your uniforms, what a rental contract really costs, and how a local owned program with embroidery and a company store works.',
+ hero: '/images/generated/crew-vegas.jpg',
+ url: 'https://bighornthreads.com/cintas-unifirst-aramark-alternatives-las-vegas/',
+}
+
+const compare = [
+ { row: 'Contract', rental: 'Multi-year term, often auto-renewing, with a notice window to cancel', owned: 'No term. Order when you need garments.' },
+ { row: 'Garment choice', rental: 'The rental fleet catalog', owned: 'Any brand: Red Kap, Carhartt, Port Authority, Bulwark, Dickies, and more' },
+ { row: 'Cost model', rental: 'Weekly fee per wearer, plus emblem, prep, and replacement charges', owned: 'Per-garment purchase, priced in writing before you approve' },
+ { row: 'Laundering', rental: 'Included, on a route schedule', owned: 'Yours: home wash, in-house laundry, or a local commercial laundry' },
+ { row: 'Lost or damaged garments', rental: 'Replacement charges under the contract', owned: 'You own it. Reorder at the quoted price.' },
+ { row: 'Logo', rental: 'Sewn-on emblem', owned: 'Direct embroidery or print, matched to your brand standard' },
+ { row: 'Headcount changes', rental: 'Contract minimums and change fees', owned: 'Order more or fewer next time' },
+ { row: 'Who you deal with', rental: 'National route driver and call center', owned: 'A Las Vegas account manager who quotes, proofs, and reorders' },
+]
+
+const faqs = [
+ { q: 'Is it cheaper to rent uniforms or buy them?', a: 'For a team that can launder its own uniforms, owning is usually cheaper over the life of the program: you pay for garments once instead of a weekly fee per wearer for years, and there are no replacement or change charges. Rental can still win where garments are heavily soiled every day and industrial laundering is mandated, or where the business has no laundry capacity at all. Bighorn quotes the owned program in writing so you can compare it to your current weekly invoice.' },
+ { q: 'What are the alternatives to Cintas in Las Vegas?', a: 'National rental alternatives include UniFirst, Aramark (now Vestis), Alsco, and Prudential Overall Supply, all of which run route-based rental programs. The other alternative is to stop renting: buy brand-name uniforms once, have them embroidered locally, and reorder through a company store. Bighorn Threads runs that owned model for Las Vegas crews, casinos, clinics, and service companies.' },
+ { q: 'How do I get out of a uniform rental contract?', a: 'Read the term and the cancellation clause. Most rental agreements run several years, renew automatically, and require written notice inside a specific window before the renewal date. Some carry a buyout for early termination. This is not legal advice; check the contract and, if the amount is significant, have counsel read it. Bighorn can size and stage an owned program to start the week the rental ends.' },
+ { q: 'Do you launder uniforms?', a: 'No. Bighorn supplies uniforms you own. Most Las Vegas teams wash their own; casinos and hotels typically run in-house laundry; crews with heavy soil can use a local commercial laundry on a per-piece basis without a garment contract.' },
+ { q: 'Can an owned uniform program handle a large team?', a: 'Yes. A private company store holds the approved garments, logo files, employee sizes, budgets, and department rules, so a 200-person property or a multi-crew contractor reorders without a new project each time. See the company store page for how it works.' },
+ { q: 'What is the minimum order to switch from rental to owned?', a: 'Minimums depend on the garment and decoration method, and embroidery allows small runs. A switch usually starts with a size run per employee and a first issue of several garments each. Bighorn confirms the count, the price, and the ship date in writing.' },
+ { q: 'Where can I get an owned uniform program in Las Vegas?', a: 'Bighorn Threads runs owned uniform programs for Las Vegas, Henderson, and North Las Vegas businesses with a local account team and production through vetted partners. Send your current garment list, headcount by role, and your rental renewal date for a written quote.' },
+]
+
+const breadcrumb = {
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+ { '@type': 'ListItem', position: 2, name: 'Custom Uniforms Las Vegas', item: 'https://bighornthreads.com/custom-uniforms-las-vegas/' },
+ { '@type': 'ListItem', position: 3, name: 'Rental Alternatives', item: page.url },
+ ],
+}
+
+const articleSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'Article',
+ headline: 'Alternatives to Cintas, UniFirst, and Aramark uniform rental in Las Vegas',
+ description: page.description,
+ datePublished: '2026-09-10',
+ dateModified: '2026-09-10',
+ author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' },
+ publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } },
+ mainEntityOfPage: page.url,
+}
+
+const faqSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+}
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: page.url,
+ datePublished: '2026-09-10',
+ dateModified: '2026-09-10',
+ speakable: {
+ '@type': 'SpeakableSpecification',
+ cssSelector: ['h1', '.speakable-answer'],
+ },
+}
+---
+
+<BaseLayout
+ title={page.title}
+ description={page.description}
+ canonical={page.url}
+ heroImage={page.hero}
+>
+ <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+ <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
+
+ <!-- Hero -->
+ <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-28">
+ <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/55"></div>
+
+ <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-navy-200" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-400">Home</a>
+ <span class="px-2 text-navy-200/60">/</span>
+ <a href="/custom-uniforms-las-vegas/" class="hover:text-gold-400">Custom Uniforms</a>
+ <span class="px-2 text-navy-200/60">/</span>
+ <span class="text-gold-400">Rental Alternatives</span>
+ </nav>
+
+ <p class="kicker mb-4 flex items-center gap-2.5">
+ <span class="h-px w-8 bg-gold-500"></span>
+ Rent vs Own
+ </p>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
+ A Las Vegas alternative to Cintas, UniFirst, and Aramark: <span class="text-gold-400">own your uniforms.</span>
+ </h1>
+ <p class="speakable-answer max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ For Las Vegas businesses that can launder their own uniforms, the alternative to a rental program is an owned program: buy brand-name garments once, have them embroidered locally, and reorder through a company store. Bighorn Threads runs owned uniform programs for crews, casinos, clinics, and service companies with written quotes and no multi-year contract.
+ </p>
+
+ <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+ <a href="/get-a-quote/" class="btn-primary text-base">
+ Get a Quote
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+ </a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">
+ 702.904.8923
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <!-- Comparison table -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-10 max-w-2xl">
+ <p class="kicker mb-3">Rental vs Owned</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">What actually changes when you stop renting.</h2>
+ <p class="mt-4 text-lg leading-relaxed text-ash">
+ Rental programs bundle garments, laundering, and replacement into one weekly fee. Owning separates them. Here is the line-by-line.
+ </p>
+ </div>
+
+ <div class="overflow-hidden border border-hairline bg-panel">
+ <table class="w-full">
+ <thead class="bg-concrete">
+ <tr class="border-b border-hairline">
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Line</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Rental Program</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Owned Program (Bighorn)</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-hairline">
+ {compare.map((c) => (
+ <tr>
+ <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-700">{c.row}</td>
+ <td class="px-6 py-5 align-top text-sm text-ash">{c.rental}</td>
+ <td class="px-6 py-5 align-top font-heading text-base font-bold text-charcoal">{c.owned}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
+
+ <!-- Deep dive -->
+ <ProofStrip tone="paper" />
+
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">The Buyer's Read</p>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">
+ When rental still wins, when owning wins, and how to switch without a gap.
+ </h2>
+
+ <div class="space-y-5 text-lg leading-relaxed text-ash">
+ <p>
+ Rental programs exist for a reason. If your crew comes off a shift in garments that need industrial laundering every day, or a regulation requires it, or you have no laundry capacity and no appetite to build any, a route-based program from Cintas, UniFirst, Aramark, or Alsco does the whole job for a weekly fee. The tradeoff is the contract: a multi-year term, a catalog limited to the rental fleet, an emblem sewn on instead of embroidery, and per-wearer charges that keep running whether or not the garment is worn.
+ </p>
+ <p>
+ Owning wins for most Las Vegas teams that can wash their own uniforms, which is most of them. Casinos and hotels run in-house laundry. Contractors' crews wash workwear at home. Clinics launder scrubs on site or at home under their own policy. For those teams, an owned program means choosing the actual garment, such as a <a href="/custom-work-shirts-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Red Kap or Carhartt work shirt</a> or a <a href="/custom-polo-shirts-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">performance polo</a>, embroidering it to your brand standard, and paying once. The <a href="/custom-uniforms-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">custom uniforms page</a> covers garments by team.
+ </p>
+ <p>
+ The switch is a staging problem, not a garment problem. Find the renewal date and the notice window in the rental agreement. Run sizes for every employee. Issue a first set of several garments per person timed to the week the rental ends, so nobody is short. Then load the approved garments, sizes, and department rules into a <a href="/company-stores/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">company store</a> so replacements and new hires are a reorder, not a project. The <a href="/company-stores/setup-guide-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">company store setup guide</a> and the <a href="/blog/company-store-vs-bulk-ordering/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">store vs bulk ordering comparison</a> lay out the two ways to run it.
+ </p>
+ <p>
+ Two cautions. Flame-resistant and hi-vis garments are decorated only within the manufacturer's guidance whether you rent or own; see the <a href="/safety-compliance/nfpa-70e-embroidery-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">NFPA 70E embroidery guide</a>. And the numbers are yours to compare: put your last twelve weekly rental invoices next to Bighorn's written quote for the same headcount, and the answer is usually clear inside a year. For the same comparison against online print shops rather than rental, read <a href="/customink-alternatives/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">CustomInk alternatives for crews</a> and <a href="/online-vs-local-print-shop/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">online vs local print shop</a>.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <!-- FAQ -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">FAQ</p>
+ <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Rental alternative questions, answered.</h2>
+
+ <div class="divide-y divide-hairline border-y border-hairline">
+ {faqs.map((f) => (
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
+ <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+ </summary>
+ <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
+ </details>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- Related -->
+ <section class="bg-concrete py-16">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-6">Go Deeper</p>
+ <div class="grid gap-5 md:grid-cols-3">
+ <a href="/custom-uniforms-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Custom Uniforms Las Vegas</h3>
+ <p class="mt-2 text-sm text-ash">Garments by team: crews, casinos, clinics, and service companies.</p>
+ </a>
+ <a href="/company-stores/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Company Stores</h3>
+ <p class="mt-2 text-sm text-ash">How reorders, sizes, and budgets run once you own the program.</p>
+ </a>
+ <a href="/customink-alternatives/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">CustomInk Alternatives</h3>
+ <p class="mt-2 text-sm text-ash">The same comparison against online print shops.</p>
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <!-- CTA -->
+ <section class="relative isolate overflow-hidden bg-navy-950 py-20">
+ <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1920" height="1080" loading="lazy" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Ready to compare your rental invoice to an owned program?</h2>
+ <p class="mb-8 text-lg text-navy-200">Send your garment list, headcount by role, and your renewal date.</p>
+ <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+</BaseLayout>

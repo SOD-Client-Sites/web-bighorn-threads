@@ -1,0 +1,264 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import ProofStrip from '@/components/ProofStrip.astro'
+
+const page = {
+ title: 'Custom Uniforms Las Vegas | Work & Staff Uniforms You Own | Bighorn Threads',
+ description:
+ 'Custom uniforms in Las Vegas for construction crews, casinos and hospitality, healthcare, and service teams. Embroidered polos, work shirts, hi-vis, and scrubs you own outright with no rental contract. Quoted in writing.',
+ hero: '/images/generated/service-branded-apparel.jpg',
+ url: 'https://bighornthreads.com/custom-uniforms-las-vegas/',
+}
+
+const stack = [
+ { label: 'Owned, not rented', body: 'You buy the uniforms once and keep them. No weekly rental invoice, no multi-year contract, no penalty when headcount changes.' },
+ { label: 'One standard, every department', body: 'Front of house, back of house, field, and office each get the right garment with the same logo, thread colors, and placement.' },
+ { label: 'Sizing and names handled', body: 'Size runs from XS to 5XL and tall where the brand offers it, plus name embroidery for customer-facing roles. Confirmed per order.' },
+ { label: 'Reorders without the chase', body: 'A private company store keeps approved uniforms, sizes, and budgets on file so new hires and replacements ship without a new project.' },
+]
+
+const teams = [
+ { row: 'Construction and trades', use: 'Work shirts, hi-vis tees and vests, FR shirts, hard hats, jackets', notes: 'ANSI 107 and NFPA 70E items follow manufacturer decoration guidance. See the construction apparel page.' },
+ { row: 'Casino and hospitality', use: 'Dealer shirts, server and bartender polos, host vests, housekeeping and valet uniforms', notes: 'Department color coding and property dress standards are matched in the proof.' },
+ { row: 'Healthcare and clinics', use: 'Embroidered scrubs, lab coats, admin polos, fleece', notes: 'Logo and clinic name on the chest, role or credential on the sleeve where policy allows.' },
+ { row: 'HVAC, plumbing, electrical service', use: 'Performance polos, button-down work shirts, quarter-zips, caps', notes: 'Name on the right chest so customers know who is at the door.' },
+ { row: 'Corporate and office', use: 'Polos, quarter-zips, button-downs, softshell jackets', notes: 'Executive-tier options for sales and leadership, standard tier for staff.' },
+ { row: 'Events and staffing', use: 'Printed tees, polos, lanyards, aprons', notes: 'Short-run and rush options are quoted per event.' },
+]
+
+const faqs = [
+ { q: 'How much do custom uniforms cost in Las Vegas?', a: 'Cost depends on the garment, the decoration method, the number of logo placements, and quantity. A basic embroidered polo program costs less per piece than a multi-placement FR or hi-vis program. Bighorn quotes the exact garment and decoration in writing so you can compare tiers before approving.' },
+ { q: 'Is it better to rent uniforms or buy them?', a: 'Rental programs from national providers bundle laundering and replacement into a weekly fee under a multi-year contract, with a limited garment catalog. Buying custom uniforms means you choose the brands and styles, own the garments, and reorder only when you need to. For most Las Vegas teams that can launder their own uniforms, owning costs less over the life of the program.' },
+ { q: 'What is the minimum order for custom uniforms?', a: 'Minimums depend on the garment and decoration method. Embroidery generally allows smaller runs than screen printing. Bighorn confirms current minimums and setup charges in your quote.' },
+ { q: 'Should uniform logos be embroidered or screen printed?', a: 'Embroidery is the standard for polos, button-downs, jackets, and caps because it lasts through industrial laundering and reads as a finished uniform. Screen printing suits tees and hi-vis where a larger, bolder logo makes sense. Most programs use both by garment.' },
+ { q: 'Can you put employee names on uniforms?', a: 'Yes. Name embroidery on the right chest is common for service technicians, dealers, and front-of-house staff. Names, titles, and credentials are confirmed on the proof before production.' },
+ { q: 'Can you match our property or brand colors?', a: 'Thread and ink colors are matched to your brand standard as closely as the garment and the partner thread library allow. You review the proposed match on the proof before anything is produced.' },
+ { q: 'How fast can you deliver custom uniforms in Las Vegas?', a: 'Timing depends on garment stock, decoration, and partner capacity. Bighorn checks both before confirming a ship date in your quote, and rush options are quoted per order. See the fast turnaround page for what affects the schedule.' },
+ { q: 'Where can I get custom uniforms in Las Vegas?', a: 'Bighorn Threads supplies custom uniforms for Las Vegas and Henderson businesses with local account management and production through vetted partners. Send your logo, headcount by role, and any dress-code or safety requirements for a written quote.' },
+]
+
+const breadcrumb = {
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+ { '@type': 'ListItem', position: 2, name: 'Custom Uniforms Las Vegas', item: page.url },
+ ],
+}
+
+const serviceSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'Service',
+ datePublished: '2026-09-10',
+ dateModified: '2026-09-10',
+ name: 'Custom Uniforms in Las Vegas',
+ serviceType: 'Custom branded work and staff uniforms for Las Vegas businesses',
+ provider: { '@id': 'https://bighornthreads.com/#organization' },
+ areaServed: [{ '@type': 'City', name: 'Las Vegas' }, { '@type': 'City', name: 'Henderson' }, { '@type': 'City', name: 'North Las Vegas' }],
+ description: page.description,
+ url: page.url,
+}
+
+const faqSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+}
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: page.url,
+ datePublished: '2026-09-10',
+ dateModified: '2026-09-10',
+ speakable: {
+ '@type': 'SpeakableSpecification',
+ cssSelector: ['h1', '.speakable-answer'],
+ },
+}
+---
+
+<BaseLayout
+ title={page.title}
+ description={page.description}
+ canonical={page.url}
+ heroImage={page.hero}
+>
+ <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+ <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
+
+ <!-- Hero -->
+ <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-28">
+ <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/55"></div>
+
+ <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-navy-200" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-400">Home</a>
+ <span class="px-2 text-navy-200/60">/</span>
+ <span class="text-gold-400">Custom Uniforms</span>
+ </nav>
+
+ <p class="kicker mb-4 flex items-center gap-2.5">
+ <span class="h-px w-8 bg-gold-500"></span>
+ Uniform Programs
+ </p>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
+ Custom uniforms in Las Vegas <span class="text-gold-400">your team owns, not rents.</span>
+ </h1>
+ <p class="speakable-answer max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ Bighorn Threads supplies custom uniforms for Las Vegas businesses: embroidered polos and work shirts for crews, front-of-house and back-of-house uniforms for casinos and restaurants, scrubs for clinics, and hi-vis for field teams. You buy the uniforms outright, we manage logos, sizing, and reorders, and every order is quoted in writing.
+ </p>
+
+ <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+ <a href="/get-a-quote/" class="btn-primary text-base">
+ Get a Quote
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+ </a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">
+ 702.904.8923
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <!-- Stack -->
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <p class="kicker mb-3">What You Get</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">A uniform program, not a rental contract.</h2>
+ </div>
+
+ <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+ {stack.map((s) => (
+ <div class="border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="mb-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{s.label}</h3>
+ <p class="text-sm leading-relaxed text-ash">{s.body}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- Teams table -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-10 max-w-2xl">
+ <p class="kicker mb-3">Uniforms by Team</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">The right uniform for each role, one logo standard.</h2>
+ <p class="mt-4 text-lg leading-relaxed text-ash">
+ A casino floor, a jobsite, and a clinic need different garments. They do not need different vendors. One account, one artwork file, one proof standard across every department.
+ </p>
+ </div>
+
+ <div class="overflow-hidden border border-hairline bg-panel">
+ <table class="w-full">
+ <thead class="bg-concrete">
+ <tr class="border-b border-hairline">
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Team</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Typical Uniform</th>
+ <th class="hidden px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600 lg:table-cell">Notes</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-hairline">
+ {teams.map((t) => (
+ <tr>
+ <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-700">{t.row}</td>
+ <td class="px-6 py-5 align-top font-heading text-base font-bold text-charcoal">{t.use}</td>
+ <td class="hidden px-6 py-5 align-top text-sm text-ash lg:table-cell">{t.notes}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
+
+ <!-- Deep dive -->
+ <ProofStrip tone="paper" />
+
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">The Buyer's Read</p>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">
+ Owning your uniforms in Las Vegas: what changes, and what to plan for.
+ </h2>
+
+ <div class="space-y-5 text-lg leading-relaxed text-ash">
+ <p>
+ Most Las Vegas businesses that search for uniforms land on two kinds of vendors: national rental programs and uniform stores. Rental programs bundle garments, laundering, and replacement into a weekly fee under a multi-year contract, and the catalog is whatever the rental fleet carries. Uniform stores sell blanks off the rack and send you elsewhere for the logo. Bighorn Threads sits between them: you choose brand-name garments, we handle the embroidery or printing through vetted Las Vegas production partners, and you own the result.
+ </p>
+ <p>
+ Owning changes the math. There is no weekly invoice for garments that sit in a locker, no minimum-headcount clause, and no fee when a crew grows or shrinks. What you take on is laundering and a reorder cadence. For crews that already wash their own workwear, and for properties with in-house laundry, that trade favors owning. For a team that needs industrial laundering of heavily soiled garments every week, a rental program can still make sense. Read <a href="/branded-merchandise-vs-print-on-demand/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">how owned programs compare to other buying models</a> before you decide.
+ </p>
+ <p>
+ The Las Vegas climate shapes the garment list more than the logo does. Field crews need moisture-wicking polos or performance work shirts from May through September, and employers must follow the <a href="/safety-compliance/nevada-osha-heat-rules-2026/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Nevada OSHA heat-illness rules</a> for water, rest, and shade regardless of what the crew wears. Casinos and restaurants run 24-hour shifts, so a uniform program needs enough units per employee to survive the laundry cycle. Clinics need scrubs that hold color through hot washes. Each of those is a garment decision we make with you in the proof, not a surprise after delivery.
+ </p>
+ <p>
+ Decoration follows the garment. Embroidery is the default for polos, button-downs, jackets, and caps because it survives industrial laundering and reads as a uniform rather than a promotional shirt. Screen printing carries larger logos on tees and hi-vis. Flame-resistant and ANSI-rated garments are only decorated within the manufacturer's guidance, which we confirm before quoting; see the <a href="/safety-compliance/nfpa-70e-embroidery-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">NFPA 70E embroidery guide</a> and the <a href="/safety-compliance/ansi-107-hi-vis-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">ANSI 107 hi-vis guide</a>.
+ </p>
+ <p>
+ For teams that reorder, a <a href="/company-stores/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">private company store</a> keeps the approved garments, logo files, employee sizes, and budgets in one place so a new hire's uniform ships without a new project. Department-specific pages cover the details: <a href="/casino-hospitality-uniforms-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">casino and hospitality uniforms</a>, <a href="/branded-apparel-construction-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">construction and trade apparel</a>, <a href="/healthcare-uniforms-scrubs-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">healthcare uniforms and scrubs</a>, <a href="/welder-uniforms-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">welder uniforms</a>, and <a href="/blog/hvac-uniforms-service-tech-apparel/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">HVAC and service-tech apparel</a>.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <!-- FAQ -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">FAQ</p>
+ <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Custom uniform questions, answered.</h2>
+
+ <div class="divide-y divide-hairline border-y border-hairline">
+ {faqs.map((f) => (
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
+ <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+ </summary>
+ <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
+ </details>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- Related -->
+ <section class="bg-concrete py-16">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-6">Go Deeper</p>
+ <div class="grid gap-5 md:grid-cols-3">
+ <a href="/casino-hospitality-uniforms-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Casino & Hospitality Uniforms</h3>
+ <p class="mt-2 text-sm text-ash">Dealer shirts, server polos, and department color standards for Las Vegas properties.</p>
+ </a>
+ <a href="/custom-polo-shirts-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Custom Polo Shirts</h3>
+ <p class="mt-2 text-sm text-ash">The workhorse uniform piece: brands, fabrics, and logo placements compared.</p>
+ </a>
+ <a href="/company-stores/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Company Stores</h3>
+ <p class="mt-2 text-sm text-ash">How reorders, sizes, and budgets run once the uniform standard is set.</p>
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <!-- CTA -->
+ <section class="relative isolate overflow-hidden bg-navy-950 py-20">
+ <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1920" height="1080" loading="lazy" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Ready to put your team in uniform?</h2>
+ <p class="mb-8 text-lg text-navy-200">Send your logo, headcount by role, and any dress-code or safety requirements.</p>
+ <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+</BaseLayout>

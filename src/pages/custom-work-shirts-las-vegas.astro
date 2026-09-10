@@ -1,0 +1,265 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import ProofStrip from '@/components/ProofStrip.astro'
+
+const page = {
+ title: 'Custom Work Shirts with Logo | Las Vegas Crews & Trades | Bighorn Threads',
+ description:
+ 'Custom work shirts with your company logo for Las Vegas construction, HVAC, electrical, plumbing, and industrial crews. Red Kap, Carhartt, Dickies, and FR options, embroidered or printed, quoted in writing.',
+ hero: '/images/generated/kit-electrical.jpg',
+ url: 'https://bighornthreads.com/custom-work-shirts-las-vegas/',
+}
+
+const stack = [
+ { label: 'The shirt', body: 'Industrial twill, performance blends, and FR fabrics from Red Kap, Carhartt, Dickies, Bulwark, and Port Authority, matched to the role and the season.' },
+ { label: 'Logo and name', body: 'Left-chest company logo, right-chest name or role, and optional sleeve marks. Embroidery for twill and button-downs, print for tees and hi-vis.' },
+ { label: 'Compliance built in', body: 'FR and ANSI hi-vis shirts are decorated only within manufacturer guidance, confirmed before the quote, so a logo never voids a rating.' },
+ { label: 'Crew program', body: 'Size profiles per worker, a set number of shirts each, and a reorder path for new hires through a private company store.' },
+]
+
+const shirts = [
+ { row: 'Red Kap SP24 short sleeve', use: 'Mechanics, fleet, warehouse, general industrial', notes: 'Poly-cotton twill, snap or button front. The classic industrial work shirt.' },
+ { row: 'Red Kap SP14 long sleeve', use: 'Cooler months, sun protection, uniform standard', notes: 'Same twill as the SP24 with full sleeves. See the Red Kap buyer guide.' },
+ { row: 'Carhartt Force performance', use: 'Summer field crews, framers, roofers', notes: 'Moisture-wicking, lighter than twill. Brand-name program tier.' },
+ { row: 'Dickies 1574 / LS535', use: 'General trades, maintenance, property crews', notes: 'Value twill with a broad size run.' },
+ { row: 'Bulwark FR work shirts', use: 'Electricians, utility, oil and gas, welders', notes: 'NFPA 70E and 2112 rated. Decoration follows the manufacturer guide only.' },
+ { row: 'Port Authority S608 easy-care', use: 'Supervisors, service techs, customer-facing roles', notes: 'Button-down look with a work-shirt price.' },
+ { row: 'ANSI Class 2 and 3 hi-vis shirts', use: 'Roadway, utility, airport, night work', notes: 'Class by exposure. See the ANSI 107 guide.' },
+]
+
+const faqs = [
+ { q: 'How much do custom work shirts with a logo cost?', a: 'Cost depends on the shirt, the number of embroidery or print placements, and quantity. A left-chest logo on an industrial twill shirt is the baseline; adding a name, a sleeve mark, or a back print adds per-placement cost. FR and hi-vis shirts cost more as garments. Bighorn quotes the exact shirt and decoration in writing.' },
+ { q: 'What is the minimum order for custom work shirts?', a: 'Embroidered work shirts can run in small quantities because there is no screen setup, which suits crews of a few people. Printed work tees have a practical minimum per design. Current minimums are confirmed in your quote.' },
+ { q: 'Should the logo on a work shirt be embroidered or printed?', a: 'Embroidery on twill and button-down work shirts survives jobsite washing and reads as a uniform. Screen printing suits cotton and poly work tees and hi-vis where a larger logo is wanted. Most crews embroider the button-up shirt and print the tee.' },
+ { q: 'Can you add employee names to work shirts?', a: 'Yes. A name or role on the right chest is standard for service technicians and supervisors. Names are confirmed on the proof before production.' },
+ { q: 'Can you put our logo on FR work shirts?', a: 'Only within the manufacturer\'s decoration guidance, which Bighorn confirms before quoting. The employer and safety professional own the PPE selection from the hazard assessment. See the NFPA 70E embroidery guide.' },
+ { q: 'How many work shirts should each worker get?', a: 'Five to seven for a daily-wear field program, so laundry never leaves a worker short. Read the guide on how many shirts per crew member for the math by shift pattern.' },
+ { q: 'Do you make mechanic shirts with a name patch?', a: 'Yes. Red Kap and Dickies industrial shirts take a direct-embroidered name or a sewn name patch. The patch option makes it easier to reassign shirts when crews change.' },
+ { q: 'Where can I get custom work shirts in Las Vegas?', a: 'Bighorn Threads supplies custom work shirts for Las Vegas, Henderson, and North Las Vegas crews with local account management and production through vetted partners. Send your logo, crew size, and the roles that need shirts for a written quote.' },
+]
+
+const breadcrumb = {
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+ { '@type': 'ListItem', position: 2, name: 'Custom Work Shirts Las Vegas', item: page.url },
+ ],
+}
+
+const serviceSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'Service',
+ datePublished: '2026-09-10',
+ dateModified: '2026-09-10',
+ name: 'Custom Work Shirts with Logo in Las Vegas',
+ serviceType: 'Embroidered and printed company work shirts for trade and industrial crews',
+ provider: { '@id': 'https://bighornthreads.com/#organization' },
+ areaServed: [{ '@type': 'City', name: 'Las Vegas' }, { '@type': 'City', name: 'Henderson' }, { '@type': 'City', name: 'North Las Vegas' }],
+ description: page.description,
+ url: page.url,
+}
+
+const faqSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+}
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: page.url,
+ datePublished: '2026-09-10',
+ dateModified: '2026-09-10',
+ speakable: {
+ '@type': 'SpeakableSpecification',
+ cssSelector: ['h1', '.speakable-answer'],
+ },
+}
+---
+
+<BaseLayout
+ title={page.title}
+ description={page.description}
+ canonical={page.url}
+ heroImage={page.hero}
+>
+ <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+ <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
+
+ <!-- Hero -->
+ <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-28">
+ <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/55"></div>
+
+ <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-navy-200" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-400">Home</a>
+ <span class="px-2 text-navy-200/60">/</span>
+ <span class="text-gold-400">Custom Work Shirts</span>
+ </nav>
+
+ <p class="kicker mb-4 flex items-center gap-2.5">
+ <span class="h-px w-8 bg-gold-500"></span>
+ Workwear
+ </p>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
+ Custom work shirts with your logo, <span class="text-gold-400">built for Las Vegas crews.</span>
+ </h1>
+ <p class="speakable-answer max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ Bighorn Threads supplies custom work shirts with company logos for Las Vegas construction, HVAC, electrical, plumbing, fleet, and industrial crews: Red Kap and Dickies industrial twill, Carhartt performance shirts, Bulwark FR, and ANSI hi-vis, embroidered or printed through vetted partners and quoted in writing.
+ </p>
+
+ <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+ <a href="/get-a-quote/" class="btn-primary text-base">
+ Get a Quote
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+ </a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">
+ 702.904.8923
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <!-- Stack -->
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <p class="kicker mb-3">What You Get</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">A work shirt program the crew keeps wearing.</h2>
+ </div>
+
+ <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+ {stack.map((s) => (
+ <div class="border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="mb-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{s.label}</h3>
+ <p class="text-sm leading-relaxed text-ash">{s.body}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- Shirts table -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-10 max-w-2xl">
+ <p class="kicker mb-3">Work Shirt Options</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Match the shirt to the role and the season.</h2>
+ <p class="mt-4 text-lg leading-relaxed text-ash">
+ One crew can run two or three shirts: a twill button-up for the standard, a performance shirt for summer, and an FR or hi-vis shirt where the hazard requires it. Current models, colors, and sizes are confirmed in your quote.
+ </p>
+ </div>
+
+ <div class="overflow-hidden border border-hairline bg-panel">
+ <table class="w-full">
+ <thead class="bg-concrete">
+ <tr class="border-b border-hairline">
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Shirt</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Best For</th>
+ <th class="hidden px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600 lg:table-cell">Notes</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-hairline">
+ {shirts.map((s) => (
+ <tr>
+ <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-700">{s.row}</td>
+ <td class="px-6 py-5 align-top font-heading text-base font-bold text-charcoal">{s.use}</td>
+ <td class="hidden px-6 py-5 align-top text-sm text-ash lg:table-cell">{s.notes}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
+
+ <!-- Deep dive -->
+ <ProofStrip tone="paper" />
+
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">The Buyer's Read</p>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">
+ What separates a work shirt from a shirt worn to work.
+ </h2>
+
+ <div class="space-y-5 text-lg leading-relaxed text-ash">
+ <p>
+ A work shirt is built for laundering and abuse: heavier poly-cotton twill, a stain-release finish, reinforced pockets, and snaps or buttons that survive a hundred washes. That construction is why the <a href="/blog/red-kap-industrial-work-shirts-buyer-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Red Kap industrial line</a> has been the fleet and shop standard for decades, and why a fashion button-down with a logo on it falls apart on a jobsite by the second month.
+ </p>
+ <p>
+ Las Vegas changes the fabric decision by season. Twill is right from October to April. From May through September, crews outdoors do better in a moisture-wicking performance work shirt, and employers must follow the <a href="/safety-compliance/nevada-osha-heat-rules-2026/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Nevada OSHA heat-illness rules</a> for water, rest, and shade whatever the crew wears. Many programs issue both and let the foreman call it by the forecast.
+ </p>
+ <p>
+ Logo placement on a work shirt is a system. Company logo on the left chest, worker name or role on the right, and a small sleeve mark for certifications or a project. Supervisors often get a different shirt color or a second placement so the crew can spot them across a site; the <a href="/blog/foreman-supervisor-shirts-visual-authority/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">foreman and supervisor shirt guide</a> covers the options. Embroidery is the right method on twill; it does not crack, and it reads as a uniform. Printed work tees round out the program for hot days and dirty jobs.
+ </p>
+ <p>
+ Compliance shirts are a separate lane. Flame-resistant shirts for <a href="/blog/nfpa-70e-fr-shirts-vegas-electricians/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">electricians under NFPA 70E</a> and <a href="/welder-uniforms-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">welders</a> are decorated only within the manufacturer's guidance, and the employer selects the garment from the hazard assessment. The same holds for <a href="/safety-compliance/ansi-107-hi-vis-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">ANSI 107 hi-vis</a>. Bighorn confirms the decoration guidance before quoting so a logo never costs a rating. The <a href="/brands/bulwark-fr-custom-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Bulwark FR page</a> covers the common garments.
+ </p>
+ <p>
+ Plan the count before the logo. Five to seven shirts per daily-wear worker keeps the crew in uniform through the laundry cycle; the <a href="/blog/how-many-shirts-per-crew-member-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">shirts-per-crew-member guide</a> shows the math by shift pattern, and the <a href="/blog/new-hire-workwear-checklist-las-vegas-contractors/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">new-hire workwear checklist</a> covers what a first-day kit should include. When the program is set, a <a href="/company-stores/contractors-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">contractor company store</a> handles reorders and new hires without a new project each time. For the wider apparel plan, see <a href="/branded-apparel-construction-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">construction and trade apparel in Las Vegas</a>.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <!-- FAQ -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">FAQ</p>
+ <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Work shirt questions, answered.</h2>
+
+ <div class="divide-y divide-hairline border-y border-hairline">
+ {faqs.map((f) => (
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
+ <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+ </summary>
+ <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
+ </details>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- Related -->
+ <section class="bg-concrete py-16">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-6">Pair It With</p>
+ <div class="grid gap-5 md:grid-cols-3">
+ <a href="/branded-apparel-construction-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Construction & Trade Apparel</h3>
+ <p class="mt-2 text-sm text-ash">The full crew program: shirts, hi-vis, FR, hard hats, and jackets.</p>
+ </a>
+ <a href="/blog/red-kap-industrial-work-shirts-buyer-guide/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Red Kap Buyer Guide</h3>
+ <p class="mt-2 text-sm text-ash">SP24, SP14, and the rest of the industrial line compared.</p>
+ </a>
+ <a href="/company-stores/contractors-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Contractor Company Stores</h3>
+ <p class="mt-2 text-sm text-ash">Sizes, budgets, and reorders for crews that change month to month.</p>
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <!-- CTA -->
+ <section class="relative isolate overflow-hidden bg-navy-950 py-20">
+ <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1920" height="1080" loading="lazy" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Ready to put the logo on the crew?</h2>
+ <p class="mb-8 text-lg text-navy-200">Send your logo, crew size by role, and whether any roles need FR or hi-vis.</p>
+ <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+</BaseLayout>

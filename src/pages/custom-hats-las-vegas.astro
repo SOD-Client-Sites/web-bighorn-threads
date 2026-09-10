@@ -1,0 +1,267 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import ProofStrip from '@/components/ProofStrip.astro'
+
+const page = {
+ title: 'Custom Hats Las Vegas | Embroidered Caps & Beanies | Bighorn Threads',
+ description:
+ 'Custom embroidered hats in Las Vegas: Richardson 112 truckers, Flexfit, New Era, Carhartt caps, and beanies with your logo on the front, side, or back. Crew caps, company merch, and event hats, quoted in writing.',
+ hero: '/images/generated/workwear-flatlay.jpg',
+ url: 'https://bighornthreads.com/custom-hats-las-vegas/',
+}
+
+const stack = [
+ { label: 'The cap', body: 'Richardson, Flexfit, Yupoong, New Era, Carhartt, and Port Authority caps compared by structure, closure, fabric, and price for crews, merch, or events.' },
+ { label: 'The embroidery', body: 'Flat or 3D puff on the front panel, with stitch counts and thread colors matched to your logo and approved on a proof before production.' },
+ { label: 'Placements', body: 'Front panel, left or right side, and back arch above the closure. One cap can carry a logo, a name, and a tagline.' },
+ { label: 'Crew or merch program', body: 'Issued caps for field crews with reorders through a company store, or a merch run your customers will actually wear.' },
+]
+
+const caps = [
+ { row: 'Richardson 112 trucker', use: 'Crews, contractors, merch that sells', notes: 'Structured mesh-back. The most-requested cap in the trades. Wide color combos.' },
+ { row: 'Richardson 115 low-pro trucker', use: 'Lower profile version of the 112', notes: 'Same mesh back, shorter crown. Smaller front embroidery area.' },
+ { row: 'Flexfit 6277 fitted', use: 'Uniform-tier caps, no closure to lose', notes: 'Wool-blend stretch fit. Sized S/M and L/XL.' },
+ { row: 'Yupoong 6006 snapback', use: 'Flat-bill merch and events', notes: 'Flat visor, structured crown. Takes 3D puff well.' },
+ { row: 'New Era 39THIRTY', use: 'Premium team and brand programs', notes: 'Stretch-fit, athletic look. Confirm current models and colors.' },
+ { row: 'Carhartt Odessa and canvas caps', use: 'Trade crews and brand-name programs', notes: 'Unstructured canvas. Carhartt label stays on the side.' },
+ { row: 'Port Authority C112 trucker', use: 'Value tier for large runs and giveaways', notes: 'Same silhouette as the Richardson 112 at a lower price point.' },
+ { row: 'Beanies and knit caps', use: 'Winter crews, merch, events', notes: 'Carhartt Watch A18, Sportsman, and cuffed knit options. Front embroidery on the cuff.' },
+ { row: 'Boonie and wide-brim sun hats', use: 'Summer field crews, landscaping, roofing', notes: 'Full-brim sun protection for Las Vegas jobsites. Front or side logo.' },
+]
+
+const faqs = [
+ { q: 'How much does custom hat embroidery cost?', a: 'Cost depends on the cap, the stitch count of the logo, whether it is flat or 3D puff, the number of placements, and quantity. A front-panel logo on a trucker cap at a couple dozen pieces is the baseline; a second placement or puff embroidery adds per-cap cost. Bighorn quotes the exact cap and embroidery in writing.' },
+ { q: 'What is the minimum order for custom hats?', a: 'Embroidered caps can run in small quantities because there is no screen setup. A one-time digitizing fee applies the first time a logo is set up for caps. Current minimums are confirmed in your quote.' },
+ { q: 'Flat embroidery or 3D puff for hats?', a: 'Flat embroidery handles detail, small text, and fine lines. 3D puff raises bold shapes and block letters off the cap and suits simple, chunky logos. Many logos use both: puff on the main mark, flat on the tagline. The proof shows the recommendation.' },
+ { q: 'Can you embroider on the side or back of the cap?', a: 'Yes. Left or right side panels take a small secondary mark such as a name, flag, or certification, and the back arch above the closure takes a company name or website. Each placement is priced separately.' },
+ { q: 'Can I put my logo on Richardson 112 hats?', a: 'Yes. The Richardson 112 is the most-requested cap for Las Vegas crews and merch. Bighorn embroiders it through Las Vegas production partners in the color combinations Richardson currently stocks.' },
+ { q: 'Do you do leather or woven patches on hats?', a: 'Patch caps, where a leather, woven, or PVC patch is sewn to the front panel, can be quoted alongside direct embroidery. Patch material, size, and attachment are confirmed in the quote.' },
+ { q: 'What hat works for crews in the Las Vegas summer?', a: 'For field crews, a boonie or wide-brim sun hat protects the neck and ears, and a mesh-back trucker breathes better than a full-fabric cap. Employers must follow the Nevada OSHA heat-illness rules for water, rest, and shade regardless of the hat.' },
+ { q: 'Where can I get custom hats embroidered in Las Vegas?', a: 'Bighorn Threads supplies custom embroidered hats for Las Vegas and Henderson crews, companies, teams, and events, with local account management and production through vetted partners. Send your logo, the cap you want, and the quantity for a written quote.' },
+]
+
+const breadcrumb = {
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+ { '@type': 'ListItem', position: 2, name: 'Custom Hats Las Vegas', item: page.url },
+ ],
+}
+
+const serviceSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'Service',
+ datePublished: '2026-09-10',
+ dateModified: '2026-09-10',
+ name: 'Custom Embroidered Hats in Las Vegas',
+ serviceType: 'Custom cap and beanie embroidery for crews, companies, teams, and events',
+ provider: { '@id': 'https://bighornthreads.com/#organization' },
+ areaServed: [{ '@type': 'City', name: 'Las Vegas' }, { '@type': 'City', name: 'Henderson' }, { '@type': 'City', name: 'North Las Vegas' }],
+ description: page.description,
+ url: page.url,
+}
+
+const faqSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+}
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: page.url,
+ datePublished: '2026-09-10',
+ dateModified: '2026-09-10',
+ speakable: {
+ '@type': 'SpeakableSpecification',
+ cssSelector: ['h1', '.speakable-answer'],
+ },
+}
+---
+
+<BaseLayout
+ title={page.title}
+ description={page.description}
+ canonical={page.url}
+ heroImage={page.hero}
+>
+ <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+ <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
+
+ <!-- Hero -->
+ <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-28">
+ <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/55"></div>
+
+ <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-navy-200" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-400">Home</a>
+ <span class="px-2 text-navy-200/60">/</span>
+ <span class="text-gold-400">Custom Hats</span>
+ </nav>
+
+ <p class="kicker mb-4 flex items-center gap-2.5">
+ <span class="h-px w-8 bg-gold-500"></span>
+ Headwear
+ </p>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
+ Custom hats in Las Vegas <span class="text-gold-400">embroidered with your logo, cap by cap.</span>
+ </h1>
+ <p class="speakable-answer max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ Bighorn Threads embroiders custom hats for Las Vegas crews, companies, teams, and events: Richardson 112 truckers, Flexfit and Yupoong caps, New Era, Carhartt, beanies, and sun hats, with flat or 3D puff embroidery on the front, side, or back. Production runs through vetted Las Vegas partners and every order is quoted in writing.
+ </p>
+
+ <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+ <a href="/get-a-quote/" class="btn-primary text-base">
+ Get a Quote
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+ </a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">
+ 702.904.8923
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <!-- Stack -->
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <p class="kicker mb-3">What You Get</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">The cap people keep, not the one they leave in the truck.</h2>
+ </div>
+
+ <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+ {stack.map((s) => (
+ <div class="border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="mb-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{s.label}</h3>
+ <p class="text-sm leading-relaxed text-ash">{s.body}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- Caps table -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-10 max-w-2xl">
+ <p class="kicker mb-3">Cap Options</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Pick the cap that fits the crew and the logo.</h2>
+ <p class="mt-4 text-lg leading-relaxed text-ash">
+ Structure, closure, and front-panel height decide how a logo sits. Current models, colors, and stock are confirmed in your quote.
+ </p>
+ </div>
+
+ <div class="overflow-hidden border border-hairline bg-panel">
+ <table class="w-full">
+ <thead class="bg-concrete">
+ <tr class="border-b border-hairline">
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Cap</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Best For</th>
+ <th class="hidden px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600 lg:table-cell">Notes</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-hairline">
+ {caps.map((c) => (
+ <tr>
+ <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-700">{c.row}</td>
+ <td class="px-6 py-5 align-top font-heading text-base font-bold text-charcoal">{c.use}</td>
+ <td class="hidden px-6 py-5 align-top text-sm text-ash lg:table-cell">{c.notes}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
+
+ <!-- Deep dive -->
+ <ProofStrip tone="paper" />
+
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">The Buyer's Read</p>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">
+ What makes a hat logo look right, and what makes it look like a giveaway.
+ </h2>
+
+ <div class="space-y-5 text-lg leading-relaxed text-ash">
+ <p>
+ Cap embroidery is a different job from shirt embroidery. The front panel is curved, seamed, and often only a couple of inches tall, so a logo that works on a left chest usually needs to be simplified: fewer small letters, thicker lines, and a layout that fits a wide, short space. Our <a href="/blog/custom-hats-embroidered-screen-printed/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">custom hats guide</a> covers what to send, and the <a href="/blog/vector-logo-file-setup-for-embroidery/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">logo file setup guide</a> explains why a vector file matters.
+ </p>
+ <p>
+ Structured caps, like the Richardson 112 and the Yupoong snapback, have a stiff front panel that holds a logo flat and takes 3D puff embroidery well. Unstructured caps, like the Carhartt canvas styles and most dad hats, crush and curve, so a smaller flat logo reads better. The cap picks the embroidery style as much as the logo does. The proof shows both before anything is stitched.
+ </p>
+ <p>
+ For issued crew caps, treat the hat like a uniform piece: pick one cap, one color combination, and one front logo, and add the worker's name or a certification on the side only if the crew needs it. For merch, the opposite rule applies: the cap should be one your customers would buy at retail, which is why the Richardson 112 dominates. The <a href="/services/embroidery-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">embroidery service page</a> covers thread matching and digitizing, and the <a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">minimum order guide</a> covers run sizes.
+ </p>
+ <p>
+ Las Vegas jobsites need sun hats as much as caps. From May through September a boonie or wide-brim hat protects the neck and ears on roofing, landscaping, and concrete crews, and employers must follow the <a href="/safety-compliance/nevada-osha-heat-rules-2026/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Nevada OSHA heat-illness rules</a> whatever the crew wears on its head. Where a hard hat is required, see <a href="/custom-hard-hats-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">custom hard hats</a> and <a href="/custom-hard-hat-stickers-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">hard hat decals</a> instead.
+ </p>
+ <p>
+ Caps pair with the rest of the program. Match the cap color to the <a href="/custom-polo-shirts-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">polo</a> or <a href="/custom-work-shirts-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">work shirt</a> line, load the approved cap into a <a href="/company-stores/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">company store</a>, and new hires get the same cap the crew already wears.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <!-- FAQ -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">FAQ</p>
+ <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Custom hat questions, answered.</h2>
+
+ <div class="divide-y divide-hairline border-y border-hairline">
+ {faqs.map((f) => (
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
+ <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+ </summary>
+ <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
+ </details>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- Related -->
+ <section class="bg-concrete py-16">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-6">Pair It With</p>
+ <div class="grid gap-5 md:grid-cols-3">
+ <a href="/services/embroidery-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Custom Embroidery</h3>
+ <p class="mt-2 text-sm text-ash">Digitizing, thread matching, and stitch counts explained.</p>
+ </a>
+ <a href="/custom-polo-shirts-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Custom Polo Shirts</h3>
+ <p class="mt-2 text-sm text-ash">Match the cap to the polo line for a complete crew look.</p>
+ </a>
+ <a href="/custom-hard-hats-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Custom Hard Hats</h3>
+ <p class="mt-2 text-sm text-ash">Where a cap is not enough: branded hard hats and decals for the jobsite.</p>
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <!-- CTA -->
+ <section class="relative isolate overflow-hidden bg-navy-950 py-20">
+ <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1920" height="1080" loading="lazy" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Ready to put your logo on a cap?</h2>
+ <p class="mb-8 text-lg text-navy-200">Send your logo, the cap style you want, and the quantity.</p>
+ <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+</BaseLayout>

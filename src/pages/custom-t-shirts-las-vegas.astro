@@ -1,0 +1,266 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import ProofStrip from '@/components/ProofStrip.astro'
+
+const page = {
+ title: 'Custom T-Shirt Printing Las Vegas | Crews, Teams & Events | Bighorn Threads',
+ description:
+ 'Custom t-shirt printing in Las Vegas: screen printed, DTF, and embroidered tees for crews, company events, trade shows, and teams. Bulk pricing on brand-name blanks and a written quote with the ship date.',
+ hero: '/images/generated/service-screen-printing.jpg',
+ url: 'https://bighornthreads.com/custom-t-shirts-las-vegas/',
+}
+
+const stack = [
+ { label: 'The blank', body: 'Gildan, Bella+Canvas, Next Level, Port & Company, Sport-Tek, and Carhartt tees compared by weight, feel, fit, and price for the job.' },
+ { label: 'The print method', body: 'Screen printing for bulk runs, DTF for small or full-color orders, DTG for one-offs, embroidery for heavier tees. We recommend one and you approve the proof.' },
+ { label: 'Bulk pricing', body: 'Price breaks at quantity tiers, quoted per garment and per print location so you can see what a second color or a back print adds.' },
+ { label: 'The date in writing', body: 'Garment stock and partner capacity are checked before the ship date goes in your quote. Rush options are quoted per order.' },
+]
+
+const blanks = [
+ { row: 'Gildan 5000 Heavy Cotton', use: 'Jobsite tees, giveaways, high-volume runs', notes: 'Lowest cost per piece, widest color range. Confirm current colors and stock.' },
+ { row: 'Gildan 64000 Softstyle', use: 'Company events, softer everyday tee', notes: 'Lighter ring-spun cotton, fitted cut.' },
+ { row: 'Port & Company PC61', use: 'Bulk crew tees, uniform-tier basics', notes: 'Heavier 6.1 oz cotton, holds up to jobsite washing.' },
+ { row: 'Bella+Canvas 3001', use: 'Retail-feel company merch, fundraisers', notes: 'Soft, fitted, premium look. Best with water-based or DTF prints.' },
+ { row: 'Next Level 6210', use: 'Events, staff, and merch that gets worn off the clock', notes: 'Cotton-poly blend, soft hand, wide size run.' },
+ { row: 'Sport-Tek ST350 PosiCharge', use: 'Summer field crews, sports, outdoor events', notes: 'Moisture-wicking polyester. Screen print or sublimation.' },
+ { row: 'Carhartt Force / Workwear Pocket Tee', use: 'Trade crews, foremen, brand-name programs', notes: 'Pocket placement changes the print area. Confirm before proofing.' },
+ { row: 'ANSI 107 hi-vis tees', use: 'Roadway, utility, and night work', notes: 'Decorated within manufacturer guidance only. See the safety vest page.' },
+]
+
+const faqs = [
+ { q: 'How much do custom t-shirts cost in Las Vegas?', a: 'Per-shirt cost depends on the blank, the number of print locations and colors, the print method, and quantity. A one-color front print on a basic cotton tee at 48 or more pieces costs a fraction of a full-color two-location print at 12 pieces. Bighorn quotes the exact garment and print spec in writing so you can adjust either before approving.' },
+ { q: 'What is the minimum order for custom t-shirts?', a: 'Screen printing has a practical minimum because of screen setup, usually around a dozen or two per design. DTF and DTG can go lower for small or full-color orders. Current minimums and setup charges are confirmed in your quote.' },
+ { q: 'Can I get custom t-shirts fast or same day in Las Vegas?', a: 'Rush is quoted per order based on garment stock and partner capacity, and the ship date is put in writing before you approve. Send the artwork, quantity, sizes, and needed date and we will tell you the same business day what is possible.' },
+ { q: 'Screen printing or DTF for my t-shirts?', a: 'Screen printing is the standard for bulk runs of one to a few colors and gives the most durable, lowest-cost-per-piece result at quantity. DTF suits smaller runs, photo-style or many-color artwork, and orders that mix garment types. We recommend the method for your artwork and quantity, and you approve a proof.' },
+ { q: 'Can I supply my own shirts?', a: 'Some production partners accept customer-supplied garments for certain methods, with no replacement guarantee on misprints. Confirm in your quote before buying blanks elsewhere.' },
+ { q: 'Do you print youth sizes and women\'s cuts?', a: 'Yes. Most blanks above are offered in youth and women\'s cuts, and a single order can mix them. Size availability is confirmed at quoting.' },
+ { q: 'Do you ship custom t-shirts outside Las Vegas?', a: 'Yes. Bighorn is based in Las Vegas and ships nationwide. Delivery method and timing are confirmed in the quote.' },
+ { q: 'Where can I get custom t-shirts printed in Las Vegas?', a: 'Bighorn Threads handles custom t-shirt printing for Las Vegas and Henderson crews, companies, teams, and events, with local account management and production through vetted partners. Send your artwork, quantity, and date for a written quote.' },
+]
+
+const breadcrumb = {
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+ { '@type': 'ListItem', position: 2, name: 'Custom T-Shirts Las Vegas', item: page.url },
+ ],
+}
+
+const serviceSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'Service',
+ datePublished: '2026-09-10',
+ dateModified: '2026-09-10',
+ name: 'Custom T-Shirt Printing in Las Vegas',
+ serviceType: 'Screen printed, DTF, DTG, and embroidered custom t-shirts',
+ provider: { '@id': 'https://bighornthreads.com/#organization' },
+ areaServed: [{ '@type': 'City', name: 'Las Vegas' }, { '@type': 'City', name: 'Henderson' }, { '@type': 'City', name: 'North Las Vegas' }],
+ description: page.description,
+ url: page.url,
+}
+
+const faqSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+}
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: page.url,
+ datePublished: '2026-09-10',
+ dateModified: '2026-09-10',
+ speakable: {
+ '@type': 'SpeakableSpecification',
+ cssSelector: ['h1', '.speakable-answer'],
+ },
+}
+---
+
+<BaseLayout
+ title={page.title}
+ description={page.description}
+ canonical={page.url}
+ heroImage={page.hero}
+>
+ <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+ <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
+
+ <!-- Hero -->
+ <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-28">
+ <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/55"></div>
+
+ <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-navy-200" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-400">Home</a>
+ <span class="px-2 text-navy-200/60">/</span>
+ <span class="text-gold-400">Custom T-Shirts</span>
+ </nav>
+
+ <p class="kicker mb-4 flex items-center gap-2.5">
+ <span class="h-px w-8 bg-gold-500"></span>
+ T-Shirt Printing
+ </p>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
+ Custom t-shirts in Las Vegas <span class="text-gold-400">printed for crews, events, and teams.</span>
+ </h1>
+ <p class="speakable-answer max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ Bighorn Threads prints custom t-shirts for Las Vegas crews, companies, teams, and events: screen printing for bulk runs, DTF for small or full-color orders, and embroidery where a tee needs a finished logo. Brand-name blanks, bulk pricing, and a ship date confirmed in writing before you approve.
+ </p>
+
+ <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+ <a href="/get-a-quote/" class="btn-primary text-base">
+ Get a Quote
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+ </a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">
+ 702.904.8923
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <!-- Stack -->
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <p class="kicker mb-3">What You Get</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Four decisions, one written quote.</h2>
+ </div>
+
+ <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+ {stack.map((s) => (
+ <div class="border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="mb-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{s.label}</h3>
+ <p class="text-sm leading-relaxed text-ash">{s.body}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- Blanks table -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-10 max-w-2xl">
+ <p class="kicker mb-3">T-Shirt Blanks</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Pick the tee for the job, not the cheapest one on the list.</h2>
+ <p class="mt-4 text-lg leading-relaxed text-ash">
+ A jobsite tee, an event tee, and a merch tee are different garments. Current colors, sizes, stock, and price are confirmed in your quote.
+ </p>
+ </div>
+
+ <div class="overflow-hidden border border-hairline bg-panel">
+ <table class="w-full">
+ <thead class="bg-concrete">
+ <tr class="border-b border-hairline">
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Blank</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Best For</th>
+ <th class="hidden px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600 lg:table-cell">Notes</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-hairline">
+ {blanks.map((b) => (
+ <tr>
+ <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-700">{b.row}</td>
+ <td class="px-6 py-5 align-top font-heading text-base font-bold text-charcoal">{b.use}</td>
+ <td class="hidden px-6 py-5 align-top text-sm text-ash lg:table-cell">{b.notes}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
+
+ <!-- Deep dive -->
+ <ProofStrip tone="paper" />
+
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">The Buyer's Read</p>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">
+ How to order custom t-shirts in Las Vegas without overpaying or missing the date.
+ </h2>
+
+ <div class="space-y-5 text-lg leading-relaxed text-ash">
+ <p>
+ Quantity picks the method. At two dozen or more shirts with one to three ink colors, <a href="/services/screen-printing-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">screen printing</a> gives the lowest cost per piece and the most durable print. Under a dozen, or with photo-style artwork that has more colors than a screen run can carry economically, <a href="/dtf-printing-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">DTF or DTG</a> wins. Our <a href="/blog/dtf-printing-vs-screen-printing-custom-apparel/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">DTF vs screen printing comparison</a> walks through the tradeoffs with examples.
+ </p>
+ <p>
+ Print locations drive cost more than shirt color does. A left-chest logo plus a full back is two setups and two passes. If the back print is the point, consider dropping the front to a small one-color mark. Ink choice matters on dark shirts, where an underbase adds a pass; the <a href="/blog/plastisol-vs-water-based-ink-workwear/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">plastisol vs water-based ink guide</a> covers feel and durability.
+ </p>
+ <p>
+ The Las Vegas summer is a garment decision. Crews working outdoors from May through September do better in a moisture-wicking polyester tee than in heavy cotton, and employers must follow the <a href="/safety-compliance/nevada-osha-heat-rules-2026/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Nevada OSHA heat-illness rules</a> regardless. Roadway and utility crews need <a href="/custom-safety-vests-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">ANSI 107 hi-vis</a>, which is decorated only within the manufacturer's guidance.
+ </p>
+ <p>
+ Deadlines are where t-shirt orders go wrong. Blank stock changes daily at the distributors, and a color that is out in 2XL can hold the whole order. Bighorn checks garment availability and partner capacity before the ship date goes in your quote, and <a href="/fastest-turnaround-custom-apparel/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">rush options</a> are quoted per order. For trade-show and event crews, see <a href="/trade-show-apparel-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">trade show apparel</a>; for sports, charity, and school runs, see <a href="/custom-team-shirts-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">custom team shirts</a>.
+ </p>
+ <p>
+ Send the artwork as a vector file when you have one; the <a href="/blog/vector-logo-file-setup-for-embroidery/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">logo file setup guide</a> explains what to send and what we can rebuild. For order sizes and minimums by method, read the <a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">minimum order quantity guide</a>.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <!-- FAQ -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">FAQ</p>
+ <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Custom t-shirt questions, answered.</h2>
+
+ <div class="divide-y divide-hairline border-y border-hairline">
+ {faqs.map((f) => (
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
+ <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+ </summary>
+ <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
+ </details>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- Related -->
+ <section class="bg-concrete py-16">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-6">Pair It With</p>
+ <div class="grid gap-5 md:grid-cols-3">
+ <a href="/services/screen-printing-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Screen Printing</h3>
+ <p class="mt-2 text-sm text-ash">The bulk method: setup, ink, and what changes the per-shirt price.</p>
+ </a>
+ <a href="/dtf-printing-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">DTF, DTG & Sublimation</h3>
+ <p class="mt-2 text-sm text-ash">Small runs, full-color artwork, and performance fabrics.</p>
+ </a>
+ <a href="/custom-team-shirts-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Custom Team Shirts</h3>
+ <p class="mt-2 text-sm text-ash">Sports, charity walks, school groups, and reunions.</p>
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <!-- CTA -->
+ <section class="relative isolate overflow-hidden bg-navy-950 py-20">
+ <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1920" height="1080" loading="lazy" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Ready to print your t-shirts?</h2>
+ <p class="mb-8 text-lg text-navy-200">Send the artwork, quantity by size, and the date you need them.</p>
+ <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+</BaseLayout>

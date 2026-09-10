@@ -1,0 +1,267 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import ProofStrip from '@/components/ProofStrip.astro'
+
+const page = {
+ title: 'Custom Hard Hat Stickers & Logo Decals | Las Vegas | Bighorn Threads',
+ description:
+ 'Custom hard hat stickers and logo decals for Las Vegas crews: durable vinyl company logos, name and role labels, certification and project decals, sized and placed within the helmet maker\'s guidance. Quoted in writing.',
+ hero: '/images/generated/hero-foreman.jpg',
+ url: 'https://bighornthreads.com/custom-hard-hat-stickers-las-vegas/',
+}
+
+const stack = [
+ { label: 'Vinyl that lasts', body: 'Outdoor-rated cast vinyl with a UV laminate, cut to your logo, so the decal survives Las Vegas sun, sweat, and a season of jobsite abuse.' },
+ { label: 'Placement the maker allows', body: 'Decal size and location follow the hard hat manufacturer\'s guidance, confirmed before quoting, so a sticker never interferes with inspection or the shell rating.' },
+ { label: 'Name, role, and cert sets', body: 'Company logo up front, worker name and role on the side, certification stripes on the back. Ordered as a set per worker or as bulk sheets.' },
+ { label: 'Pairs with branded hard hats', body: 'Order decals alone for the hard hats you already issue, or with new hard hats through the custom hard hat page.' },
+]
+
+const decals = [
+ { row: 'Company logo decal', use: 'Front of the shell, the primary brand mark', notes: 'Die-cut to the logo shape or a clean rectangle. Sized to the front panel of the specific hard hat model.' },
+ { row: 'Name and role label', use: 'Side or rear, so the crew can identify a worker at a glance', notes: 'Individual names printed per worker. Role labels such as Foreman, Safety, or Apprentice in a fixed color.' },
+ { row: 'Certification stripes', use: 'OSHA 10 and 30, first aid, CPR, forklift, rigging', notes: 'Color-coded stripes or small labels. Employer confirms which credentials it wants displayed.' },
+ { row: 'Project and site decals', use: 'Job number, GC logo, site badge', notes: 'Short-run decals for the length of a project, removable without residue.' },
+ { row: 'Reflective decals', use: 'Night work, roadway, utility', notes: 'Reflective vinyl where the hard hat manufacturer permits it. Not a substitute for ANSI hi-vis apparel.' },
+ { row: 'Full-brim wrap', use: 'Larger logo area on full-brim hard hats', notes: 'Uses the brim edge or rear panel. Confirm with the manufacturer guidance for the model.' },
+]
+
+const faqs = [
+ { q: 'Can you put stickers on a hard hat?', a: 'In most cases, yes. OSHA defers to the hard hat manufacturer, and most manufacturers allow decals as long as the adhesive is compatible with the shell, the decal does not cover cracks or the inspection area, and it is not applied over damage. Bighorn confirms the guidance for your specific model before quoting. See the OSHA and ANSI Z89 decal guide for the details.' },
+ { q: 'How much do custom hard hat stickers cost?', a: 'Cost depends on the size, the vinyl, whether the decal is die-cut or a printed shape, and quantity. A company logo decal in bulk is inexpensive per piece; personalized name labels cost more because each one is unique. Bighorn quotes the decal set in writing.' },
+ { q: 'What is the minimum order for hard hat decals?', a: 'Decals run in small quantities, and name labels are printed per worker, so a crew of five is a normal order. Current minimums and setup are confirmed in the quote.' },
+ { q: 'Will the stickers peel in the Las Vegas heat?', a: 'Calendared vinyl and paper stickers do. Outdoor-rated cast vinyl with a UV laminate is made for vehicle and equipment use in desert conditions and holds up on a hard hat through the summer. Application on a clean, dry shell matters as much as the material.' },
+ { q: 'Can the decal be reflective?', a: 'Reflective vinyl is available where the hard hat manufacturer permits it. It improves visibility at night but does not replace ANSI 107 hi-vis apparel required for roadway or utility work.' },
+ { q: 'Do you supply the hard hats too?', a: 'Yes. Order decals alone for the hard hats you already issue, or pair them with branded hard hats from MSA, 3M, Pyramex, Lift, and other makers through the custom hard hat page. The employer selects the hard hat from the hazard assessment.' },
+ { q: 'Can each worker get their own name on their hard hat?', a: 'Yes. Send a crew list with names and roles and each worker gets a labeled set. Replacement labels for new hires are reordered from the same file.' },
+ { q: 'Where can I get custom hard hat stickers in Las Vegas?', a: 'Bighorn Threads supplies custom hard hat stickers and decals for Las Vegas, Henderson, and North Las Vegas crews with local account management and production through vetted partners. Send your logo, the hard hat model, and the crew size for a written quote.' },
+]
+
+const breadcrumb = {
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+ { '@type': 'ListItem', position: 2, name: 'Custom Hard Hats Las Vegas', item: 'https://bighornthreads.com/custom-hard-hats-las-vegas/' },
+ { '@type': 'ListItem', position: 3, name: 'Hard Hat Stickers & Decals', item: page.url },
+ ],
+}
+
+const serviceSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'Service',
+ datePublished: '2026-09-10',
+ dateModified: '2026-09-10',
+ name: 'Custom Hard Hat Stickers and Decals in Las Vegas',
+ serviceType: 'Custom vinyl logo, name, and certification decals for hard hats',
+ provider: { '@id': 'https://bighornthreads.com/#organization' },
+ areaServed: [{ '@type': 'City', name: 'Las Vegas' }, { '@type': 'City', name: 'Henderson' }, { '@type': 'City', name: 'North Las Vegas' }],
+ description: page.description,
+ url: page.url,
+}
+
+const faqSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+}
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: page.url,
+ datePublished: '2026-09-10',
+ dateModified: '2026-09-10',
+ speakable: {
+ '@type': 'SpeakableSpecification',
+ cssSelector: ['h1', '.speakable-answer'],
+ },
+}
+---
+
+<BaseLayout
+ title={page.title}
+ description={page.description}
+ canonical={page.url}
+ heroImage={page.hero}
+>
+ <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+ <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
+
+ <!-- Hero -->
+ <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-28">
+ <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/55"></div>
+
+ <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-navy-200" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-400">Home</a>
+ <span class="px-2 text-navy-200/60">/</span>
+ <a href="/custom-hard-hats-las-vegas/" class="hover:text-gold-400">Custom Hard Hats</a>
+ <span class="px-2 text-navy-200/60">/</span>
+ <span class="text-gold-400">Stickers & Decals</span>
+ </nav>
+
+ <p class="kicker mb-4 flex items-center gap-2.5">
+ <span class="h-px w-8 bg-gold-500"></span>
+ Jobsite Branding
+ </p>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
+ Custom hard hat stickers and decals <span class="text-gold-400">that survive the Las Vegas sun.</span>
+ </h1>
+ <p class="speakable-answer max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ Bighorn Threads supplies custom hard hat stickers and logo decals for Las Vegas crews: outdoor-rated vinyl company logos, worker name and role labels, certification stripes, and project decals, sized and placed within the hard hat manufacturer's guidance. Produced through vetted partners and quoted in writing.
+ </p>
+
+ <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+ <a href="/get-a-quote/" class="btn-primary text-base">
+ Get a Quote
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+ </a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">
+ 702.904.8923
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <!-- Stack -->
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-12 max-w-2xl">
+ <p class="kicker mb-3">What You Get</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">A decal set that brands the crew and keeps the rating.</h2>
+ </div>
+
+ <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+ {stack.map((s) => (
+ <div class="border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="mb-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{s.label}</h3>
+ <p class="text-sm leading-relaxed text-ash">{s.body}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- Decals table -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-10 max-w-2xl">
+ <p class="kicker mb-3">Decal Types</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Six decals a crew actually uses.</h2>
+ <p class="mt-4 text-lg leading-relaxed text-ash">
+ Most crews run a logo up front, a name on the side, and certification stripes on the back. Sizes are cut to the specific hard hat model.
+ </p>
+ </div>
+
+ <div class="overflow-hidden border border-hairline bg-panel">
+ <table class="w-full">
+ <thead class="bg-concrete">
+ <tr class="border-b border-hairline">
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Decal</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Where and Why</th>
+ <th class="hidden px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600 lg:table-cell">Notes</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-hairline">
+ {decals.map((d) => (
+ <tr>
+ <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-700">{d.row}</td>
+ <td class="px-6 py-5 align-top font-heading text-base font-bold text-charcoal">{d.use}</td>
+ <td class="hidden px-6 py-5 align-top text-sm text-ash lg:table-cell">{d.notes}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
+
+ <!-- Deep dive -->
+ <ProofStrip tone="paper" />
+
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">The Buyer's Read</p>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">
+ Decals, hard hat ratings, and the desert: what to get right.
+ </h2>
+
+ <div class="space-y-5 text-lg leading-relaxed text-ash">
+ <p>
+ A hard hat is rated equipment, so the first question is not the logo, it is the shell. OSHA's position is that decals are acceptable when the manufacturer allows them, and most manufacturers do, with conditions: an adhesive that will not attack the shell, a placement that leaves the shell inspectable, and no decal over a crack or gouge. Our <a href="/blog/custom-hard-hats-osha-z89-decals-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">OSHA and ANSI Z89.1 decal guide</a> walks through the manufacturer language, and Bighorn confirms the guidance for your model before quoting.
+ </p>
+ <p>
+ The Las Vegas climate is the second question. A calendared vinyl or paper sticker curls at the edges after one summer on a jobsite. Outdoor-rated cast vinyl with a UV laminate, the same material used for fleet graphics, holds its color and edge through years of sun. Application matters too: a shell wiped clean and dry, a decal pressed from the center out, and a day before the crew sweats on it.
+ </p>
+ <p>
+ Decals do a safety job as well as a branding job. A name on the side lets a superintendent call a worker across a site. A role label in a fixed color, such as red for Safety or white for Foreman, lets everyone identify who is who on a multi-employer site. Certification stripes on the back settle "who here is forklift certified" without a phone call. The <a href="/blog/custom-hard-hats-las-vegas-buyer-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">custom hard hats buyer's guide</a> covers how crews organize the set.
+ </p>
+ <p>
+ Reflective decals help night visibility but they are not hi-vis apparel. Roadway and utility crews still need <a href="/safety-compliance/ansi-107-hi-vis-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">ANSI 107 garments</a>, and <a href="/custom-safety-vests-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">custom safety vests</a> are decorated only within the manufacturer's guidance for the same reason a hard hat decal is.
+ </p>
+ <p>
+ Decals are the cheapest piece of a crew brand and the one most often skipped. Order them with the <a href="/custom-hard-hats-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">hard hats</a>, alongside the <a href="/custom-work-shirts-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">work shirts</a>, and as part of the <a href="/blog/new-hire-workwear-checklist-las-vegas-contractors/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">new-hire kit</a> so a worker's first day on site already looks like the rest of the crew. For the full program, see <a href="/branded-apparel-construction-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">construction and trade apparel in Las Vegas</a>.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <!-- FAQ -->
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">FAQ</p>
+ <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Hard hat decal questions, answered.</h2>
+
+ <div class="divide-y divide-hairline border-y border-hairline">
+ {faqs.map((f) => (
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
+ <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+ </summary>
+ <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
+ </details>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- Related -->
+ <section class="bg-concrete py-16">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-6">Pair It With</p>
+ <div class="grid gap-5 md:grid-cols-3">
+ <a href="/custom-hard-hats-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Custom Hard Hats</h3>
+ <p class="mt-2 text-sm text-ash">Branded hard hats from MSA, 3M, Pyramex, and Lift with the decal set included.</p>
+ </a>
+ <a href="/custom-safety-vests-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Custom Safety Vests</h3>
+ <p class="mt-2 text-sm text-ash">ANSI Class 2 and 3 vests with your logo, decorated within the rating.</p>
+ </a>
+ <a href="/branded-apparel-construction-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Construction Apparel</h3>
+ <p class="mt-2 text-sm text-ash">The whole crew program from shirts to hard hats.</p>
+ </a>
+ </div>
+ </div>
+ </section>
+
+ <!-- CTA -->
+ <section class="relative isolate overflow-hidden bg-navy-950 py-20">
+ <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1920" height="1080" loading="lazy" decoding="async" />
+ <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Ready to brand the crew's hard hats?</h2>
+ <p class="mb-8 text-lg text-navy-200">Send your logo, the hard hat model, and the crew list.</p>
+ <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ </div>
+ </div>
+ </section>
+</BaseLayout>
