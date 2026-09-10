@@ -2,9 +2,9 @@
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const page = {
- title: 'DTF Printing Las Vegas | Direct to Film Apparel',
+ title: 'DTF, DTG & Sublimation Printing Las Vegas | Bighorn Threads',
  description:
- 'Direct to film (DTF) printing in Las Vegas for custom apparel programs. Full-color transfers on tees, hoodies, and workwear, with terms confirmed in your quote.',
+ 'Direct-to-film (DTF), direct-to-garment (DTG), and dye sublimation printing in Las Vegas for small runs, full-color logos, and mixed-product orders. Quoted in writing, produced through vetted partners.',
  hero: '/images/generated/service-screen-printing.jpg',
  url: 'https://bighornthreads.com/dtf-printing-las-vegas/',
 }
@@ -42,6 +42,8 @@ const faqs = [
  { q: 'Can DTF print on FR garments?', a: 'Do not assume a standard DTF transfer is acceptable on a safety-rated garment. The employer and safety professional should verify the garment, decoration method, placement, and current manufacturer guidance in writing.' },
  { q: 'What\'s the minimum DTF order?', a: 'Minimums and setup charges depend on the product, artwork, quantity, decoration specification, and production partner. Bighorn confirms current terms in the quote.' },
  { q: 'Where can I get DTF printing in Las Vegas?', a: 'Bighorn Threads provides Las Vegas account management and coordinates DTF decoration through production partners. Send your artwork, product list, quantity, and needed date for review.' },
+ { q: 'Do you offer DTG printing in Las Vegas?', a: 'Yes. Direct-to-garment (DTG) prints ink straight into cotton-rich tees and hoodies and suits photo-style or full-color artwork in small quantities. Bighorn quotes DTG alongside DTF so you can compare cost, feel, and durability on the exact garment.' },
+ { q: 'Do you do dye sublimation printing in Las Vegas?', a: 'Yes. Dye sublimation bonds ink into white or light polyester, so it is the right method for all-over jerseys, performance polos, and event apparel that needs edge-to-edge color. Bighorn coordinates sublimation through Las Vegas production partners and confirms garment, artwork, and timing in your quote.' },
 ]
 
 const breadcrumb = {
@@ -57,7 +59,7 @@ const serviceSchema = {
  '@context': 'https://schema.org',
  '@type': 'Service',
  name: 'DTF Printing in Las Vegas',
- serviceType: 'Direct-to-film custom apparel printing',
+ serviceType: 'Direct-to-film, direct-to-garment, and dye sublimation apparel printing',
  provider: { '@id': 'https://bighornthreads.com/#organization' },
  description: page.description,
  url: page.url,
@@ -94,10 +96,10 @@ const faqSchema = {
  Decoration Method
  </p>
  <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
- DTF Printing in Las Vegas <span class="text-gold-400">for qualifying products and artwork.</span>
+ DTF printing in Las Vegas <span class="text-gold-400">for small runs, full-color logos, and mixed orders.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- Direct-to-film transfers can support smaller runs, detailed logos, and mixed-product programs. Each product and placement still requires review.
+ Direct-to-film transfers handle short runs, detailed artwork, and orders that mix tees, hoodies, and workwear. We also quote DTG and dye sublimation when they fit the job better.
  </p>
  <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
  <a href="/contact/" class="btn-primary text-base">
@@ -199,6 +201,35 @@ const faqSchema = {
  <p>
  Safety-rated garments need a separate written review. Do not add DTF, embroidery, or any other decoration based on a general rule. Verify the exact garment, method, placement, materials, and current manufacturer guidance with the employer's safety professional. For deeper reads, see our <a href="/blog/dtf-printing-vs-screen-printing-custom-apparel/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">DTF vs screen printing comparison</a>, the <a href="/services/screen-printing-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">screen-printing service page</a>, and our <a href="/welder-uniforms-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">welder uniforms guide</a>.
  </p>
+ </div>
+ </div>
+ </section>
+
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-10 max-w-2xl">
+ <p class="kicker mb-3">DTF vs DTG vs Sublimation</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Three digital methods, <span class="text-gold-600">one Las Vegas quote.</span></h2>
+ <p class="mt-4 text-lg leading-relaxed text-ash">
+ Direct-to-film, direct-to-garment, and dye sublimation solve different problems. Tell us the garment and the artwork and we quote the method that fits, not the one we happen to run.
+ </p>
+ </div>
+ <div class="grid gap-6 md:grid-cols-3">
+ <div class="border border-hairline bg-panel p-6">
+ <p class="font-mono text-xs font-bold uppercase tracking-wider text-gold-600">DTF · Direct to film</p>
+ <h3 class="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-charcoal">Any fabric, small runs</h3>
+ <p class="mt-3 text-base leading-relaxed text-ash">Full-color transfers on cotton, poly, blends, canvas, and dark garments. Best for short runs, mixed products, and detailed logos.</p>
+ </div>
+ <div class="border border-hairline bg-panel p-6">
+ <p class="font-mono text-xs font-bold uppercase tracking-wider text-gold-600">DTG · Direct to garment</p>
+ <h3 class="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-charcoal">Photo-quality on cotton</h3>
+ <p class="mt-3 text-base leading-relaxed text-ash">Ink printed straight into cotton-rich tees and hoodies with a soft hand. Best for one-offs, samples, and full-color art in low quantities.</p>
+ </div>
+ <div class="border border-hairline bg-panel p-6">
+ <p class="font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Sublimation · Dye sub</p>
+ <h3 class="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-charcoal">Edge-to-edge on polyester</h3>
+ <p class="mt-3 text-base leading-relaxed text-ash">Ink bonded into light polyester for all-over jerseys, performance polos, and event apparel. Nothing to crack or peel. Best on white or light poly.</p>
+ </div>
  </div>
  </div>
  </section>
