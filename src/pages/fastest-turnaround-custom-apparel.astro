@@ -10,10 +10,10 @@ const page = {
 }
 
 const timeline = [
- { method: 'Embroidery', industry: 'Varies by shop and specification', bighorn: 'Confirmed after artwork and capacity review' },
- { method: 'Screen printing', industry: 'Varies by shop and specification', bighorn: 'Confirmed after garment and capacity review' },
- { method: 'DTF printing', industry: 'Varies by shop and specification', bighorn: 'Confirmed after method and capacity review' },
- { method: 'Rush or pickup request', industry: 'Depends on current availability', bighorn: 'Quoted only when a partner supports it' },
+ { method: 'Embroidery', industry: 'Logo digitized into a stitch file, then proof approval', bighorn: 'Confirmed after artwork and capacity review' },
+ { method: 'Screen printing', industry: 'One screen per ink color, burned and registered before the run', bighorn: 'Confirmed after garment and capacity review' },
+ { method: 'DTF printing', industry: 'Design printed to film and cured; no screens to burn', bighorn: 'Confirmed after method and capacity review' },
+ { method: 'Rush or pickup request', industry: 'Garment stock and open partner capacity', bighorn: 'Quoted only when a partner supports it' },
 ]
 
 const blockers = [
@@ -29,7 +29,9 @@ const faqs = [
  { q: 'Why does embroidery take longer than screen printing?', a: 'Embroidery requires digitizing the logo into a stitch file before any production starts, and you need to approve a physical or digital proof before the run begins. Screen printing has a similar setup step (burning screens) but typically runs slightly faster once approved, especially on simple 1-2 color designs.' },
  { q: 'What is the single biggest thing I can do to speed up my order?', a: 'Provide complete artwork, garment, color, size, quantity, decoration, destination, and deadline details at the start. Respond promptly to any required proof, substitution, or specification question.' },
  { q: 'Does a larger order take longer to produce?', a: 'It can. Quantity affects sourcing, setup, production capacity, packaging, and shipping. Bighorn confirms the available schedule after the complete order is reviewed.' },
- { q: 'Can FR-rated or ANSI hi-vis orders be rushed?', a: 'Do not compress the employer and manufacturer review required for protective garments. Bighorn will confirm whether the selected product, decoration, and partner capacity support the requested date.' },
+ { q: 'Can FR-rated or ANSI hi-vis orders be rushed?', a: 'Do not compress the employer and manufacturer review required for protective garments. Bighorn will confirm whether the selected product, decoration, and partner capacity support the requested date. See the safety and compliance guides before ordering.', html: 'Do not compress the employer and manufacturer review required for protective garments. Bighorn will confirm whether the selected product, decoration, and partner capacity support the requested date. See the <a href="/safety-compliance/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">safety and compliance guides</a> before ordering.' },
+ { q: 'Can promotional products or bulk gift orders be rushed too?', a: 'It depends on the item. Promotional products have their own supplier stock and decoration methods, so share the item, quantity, and date, and Bighorn confirms in writing whether the order can meet it.' },
+ { q: 'Can rush orders be ready in time for a trade show?', a: 'Trade show dates do not move, so share the event date and shipping destination when you request a quote. Bighorn confirms in writing whether a rush production, pickup, or shipping path can meet that date before you approve the order.' },
 ]
 
 const leadAnswer = 'Custom apparel turnaround depends on the garment, quantity, artwork, proofing, decoration method, current partner capacity, shipping, and required date. Bighorn Threads confirms the supported schedule in writing before order approval.'
@@ -92,7 +94,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  <thead>
  <tr class="bg-paper">
  <th class="px-4 py-3 font-heading text-sm font-bold uppercase tracking-wider text-gold-700">Method</th>
- <th class="px-4 py-3 font-heading text-sm font-bold uppercase tracking-wider text-gold-700">Industry Standard</th>
+ <th class="px-4 py-3 font-heading text-sm font-bold uppercase tracking-wider text-gold-700">Setup Before Production</th>
  <th class="px-4 py-3 font-heading text-sm font-bold uppercase tracking-wider text-gold-700">Bighorn Threads</th>
  </tr>
  </thead>
@@ -162,7 +164,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
  <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
  </summary>
- <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
+ {f.html ? <p class="pb-5 text-base leading-relaxed text-ash" set:html={f.html} /> : <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>}
  </details>
  ))}
  </div>
@@ -172,7 +174,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  <section class="bg-concrete py-16">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <p class="kicker mb-6">Pair It With</p>
- <div class="grid gap-5 md:grid-cols-3">
+ <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
  <a href="/services/rush-orders-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Rush Orders in Las Vegas</h3>
  <p class="mt-2 text-sm text-ash">How to request current rush capacity, destination, and handoff terms.</p>
@@ -184,6 +186,10 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  <a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Minimum Order Quantities</h3>
  <p class="mt-2 text-sm text-ash">How quantity affects what is realistic to rush.</p>
+ </a>
+ <a href="/trade-show-apparel-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
+ <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Trade Show Apparel in Las Vegas</h3>
+ <p class="mt-2 text-sm text-ash">Booth crew apparel planned around a fixed show date.</p>
  </a>
  </div>
  </div>

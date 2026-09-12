@@ -12,9 +12,10 @@ const page = {
 
 const departments = [
  { label: 'Gaming floor', body: 'Dealer shirts, floor-supervisor vests, and pit apparel that holds a crisp look through a full shift under the lights.' },
- { label: 'Food & beverage', body: 'Server polos and dress shirts, bartender vests, kitchen and prep wear, and embroidered aprons for every outlet on property.' },
+ { label: 'Food & beverage', body: 'Server polos and dress shirts, bartender vests, cocktail-server uniforms, kitchen and prep wear, and embroidered aprons for every outlet on property.' },
  { label: 'Guest services', body: 'Front desk, concierge, bell, and valet apparel — sharp, branded, and consistent from the curb to the check-in counter.' },
  { label: 'Housekeeping & facilities', body: 'Durable branded polos and tees that take heavy laundering and keep back-of-house teams looking like one crew.' },
+ { label: 'Security & surveillance', body: 'Branded polos and outerwear that keep security and surveillance staff easy to identify across long shifts on the floor.' },
 ]
 
 const faqs = [
@@ -25,6 +26,8 @@ const faqs = [
  { q: 'Can you add employee names and titles to hospitality uniforms?', a: 'Names and titles may be available on qualifying garments. The quote confirms artwork, placement, lettering, minimums, and production requirements.' },
  { q: 'Do you work with restaurants and bars, not just casinos?', a: 'Bighorn provides Las Vegas account management for casinos, resorts, restaurants, bars, nightlife venues, and event teams. Product and program terms are confirmed by quote.' },
  { q: 'What areas do you serve?', a: 'Bighorn is based in Las Vegas. Confirm product availability, pickup, shipping, delivery, and service-area terms in your written quote.' },
+ { q: 'Is there a minimum order for a casino or hospitality uniform program?', a: 'Minimums depend on the garment, decoration method, and production partner, and embroidery allows small runs, so a single outlet or department can start small. Bighorn confirms the minimum per style and color in your written quote.' },
+ { q: 'Do you provide uniforms for casino security and surveillance staff?', a: 'Yes. Bighorn coordinates branded polos and outerwear for security and surveillance teams, matched to the same logo standard used across other departments. Any role-specific requirement, such as identification or visibility needs, is confirmed with the property before the quote.' },
 ]
 
 const breadcrumb = {
@@ -115,7 +118,7 @@ const faqSchema = {
  <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">From the gaming floor to the front door.</h2>
  </div>
 
- <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+ <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
  {departments.map((s) => (
  <div class="border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="mb-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{s.label}</h3>

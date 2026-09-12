@@ -42,7 +42,9 @@ const faqs = [
  { q: 'Can you coordinate decoration for hi-vis and FR gear?', a: 'Bighorn can coordinate a proposed decoration plan after the employer identifies the required garment through its current hazard assessment and project rules. The employer must approve the exact product and decoration against current manufacturer instructions and documentation. Bighorn does not verify safety compliance.' },
  { q: 'Do you coordinate both embroidery and screen printing?', a: 'Yes. Production partners perform the employer-approved decoration. For protective garments, the employer must select the method from the exact manufacturer\'s current written instructions and documentation before Bighorn coordinates production.' },
  { q: 'Can you set up a company store for our crew?', a: 'Bighorn can scope a company store around an approved product program. Ordering, budget, production, and fulfillment terms are confirmed before setup.' },
- { q: 'What areas do you serve?', a: 'Bighorn Threads is based in Las Vegas. Send the locations, roster, and gear you need so Bighorn can confirm current service and fulfillment options.' },
+ { q: 'What should you look for in the workwear itself before adding branding?', a: 'Start with the safety requirement the employer selected from its hazard assessment, such as hi-vis or FR. Then weigh durability (fabric weight, reinforced seams, stain-release finishes), fit for the role, and Las Vegas heat, where moisture-wicking performance fabrics help from May through September. Branding comes last and must not compromise a rated garment.' },
+ { q: 'Is Bighorn Threads a clothing or apparel manufacturer?', a: 'No. Bighorn Threads does not manufacture clothing or garments in-house. We are a Las Vegas based apparel program manager that coordinates product selection, artwork, proofs, decoration, orders, and reorders through production partners.' },
+ { q: 'What areas do you serve?', a: 'Bighorn Threads is based in Las Vegas. Send the locations, roster, and gear you need so Bighorn can confirm current service and fulfillment options. See the communities we serve near Las Vegas, including Henderson, Summerlin, and North Las Vegas.', html: 'Bighorn Threads is based in Las Vegas. Send the locations, roster, and gear you need so Bighorn can confirm current service and fulfillment options. See the <a href="/service-areas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">communities we serve</a> near Las Vegas, including <a href="/service-areas/henderson-nv/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Henderson</a>, <a href="/service-areas/summerlin/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Summerlin</a>, and <a href="/service-areas/north-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">North Las Vegas</a>.' },
 ]
 
 const breadcrumb = {
@@ -258,7 +260,7 @@ const speakableSchema = {
  <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
  <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
  </summary>
- <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
+ {f.html ? <p class="pb-5 text-base leading-relaxed text-ash" set:html={f.html} /> : <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>}
  </details>
  ))}
  </div>

@@ -11,6 +11,11 @@ const faqs = [
  a: 'A company store is a private online storefront where employees order approved, company-branded apparel from a catalog the employer controls. Catalog, budget, and approval rules depend on the selected platform. Bighorn scopes the platform, users, payment, inventory, fulfillment, and reporting in a written proposal before launch.',
  },
  {
+ q: 'Is a company store the same as a uniform program?',
+ a: 'No. A company store is the ordering platform; a uniform program defines the required garments, sizing, and replacement rules for each role. The two can be combined in one proposal. See uniform program cost per employee for planning guidance.',
+ html: 'No. A company store is the ordering platform; a uniform program defines the required garments, sizing, and replacement rules for each role. The two can be combined in one proposal. See <a href="/uniform-program-cost-per-employee/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">uniform program cost per employee</a> for planning guidance.',
+ },
+ {
  q: 'Who offers branded company stores for teams?',
  a: 'Bighorn Threads sets up a company-store program with Las Vegas account support. Platform features, service areas, production, fulfillment, and administrative responsibilities require written confirmation.',
  },
@@ -213,7 +218,7 @@ const speakableSchema = {
  </p>
  </div>
 
- <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+ <div class="grid gap-5 md:grid-cols-2">
  <!-- Card 1: Multi-crew GCs -->
  <article class="border border-hairline bg-panel p-8 transition-colors hover:border-gold-500">
  <div class="mb-5 flex h-12 w-12 items-center justify-center bg-gold-500/15 text-gold-700">
@@ -254,6 +259,20 @@ const speakableSchema = {
  <p class="spec mb-4 text-gold-600"><a href="/service-areas/henderson-nv/" class="underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Henderson</a>, Vegas, Pahrump</p>
  <p class="text-ash">
  One company store organizes role-based catalogs for multiple yards. Access, products, payment, fulfillment, and administrative responsibilities are defined in the program specification.
+ </p>
+ </article>
+
+ <!-- Card 4: Uniform programs -->
+ <article class="border border-hairline bg-panel p-8 transition-colors hover:border-gold-500">
+ <div class="mb-5 flex h-12 w-12 items-center justify-center bg-gold-500/15 text-gold-700">
+ <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+ <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+ </svg>
+ </div>
+ <h3 class="mb-2 font-heading text-xl font-bold uppercase tracking-tight text-charcoal">Uniform programs</h3>
+ <p class="spec mb-4 text-gold-600">Role-based uniforms for crews and staff</p>
+ <p class="text-ash">
+ A uniform-focused store can hold each role's approved <a href="/custom-uniforms-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">custom uniforms</a>, sizes, and replacement rules. Protective items, reorder cadence, and inventory responsibility must be verified before launch. See <a href="/uniform-program-cost-per-employee/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">uniform program cost per employee</a> for budgeting.
  </p>
  </article>
  </div>
@@ -519,7 +538,7 @@ const speakableSchema = {
  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
  </svg>
  </summary>
- <p class="pb-5 leading-relaxed text-ash">{item.a}</p>
+ {item.html ? <p class="pb-5 leading-relaxed text-ash" set:html={item.html} /> : <p class="pb-5 leading-relaxed text-ash">{item.a}</p>}
  </details>
  ))}
  </div>
