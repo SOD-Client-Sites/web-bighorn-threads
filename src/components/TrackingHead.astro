@@ -5,22 +5,29 @@
 ---
 
 <script is:inline>
-  // Third-party loading is deferred: gtag loads on first interaction or 1.5s after
-  // load (whichever comes first); Turnstile loads only on pages that render a widget.
+  // Third-party loading is deferred: gtag, the Meta Pixel library, and idpixel load on
+  // first interaction or 1.5s after load (whichever comes first); their queued calls
+  // replay once loaded. Turnstile loads only on pages that render a widget.
   ;(function () {
     var done = false
-    function loadGtag () {
-      if (done) return
-      done = true
+    function load (src, ga4Key) {
       var s = document.createElement('script')
       s.async = true
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZGGY24PN1Z'
+      s.src = src
+      if (ga4Key) s.setAttribute('data-ga4-key', ga4Key)
       document.head.appendChild(s)
     }
+    function loadThirdParty () {
+      if (done) return
+      done = true
+      load('https://www.googletagmanager.com/gtag/js?id=G-ZGGY24PN1Z')
+      load('https://connect.facebook.net/en_US/fbevents.js')
+      load('https://cdn.idpixel.app/v1/idp-analytics-6a0ddfa583e9dbc113e83095.min.js', 'G-ZGGY24PN1Z')
+    }
     ;['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (e) {
-      window.addEventListener(e, loadGtag, { once: true, passive: true })
+      window.addEventListener(e, loadThirdParty, { once: true, passive: true })
     })
-    window.addEventListener('load', function () { setTimeout(loadGtag, 1500) })
+    window.addEventListener('load', function () { setTimeout(loadThirdParty, 1500) })
     document.addEventListener('DOMContentLoaded', function () {
       if (!document.querySelector('.cf-turnstile')) return
       var t = document.createElement('script')
@@ -224,18 +231,12 @@
   })()
 </script>
 
-<script src="https://cdn.idpixel.app/v1/idp-analytics-6a0ddfa583e9dbc113e83095.min.js" data-ga4-key="G-ZGGY24PN1Z" defer is:inline></script>
-
-<!-- Meta Pixel Code -->
+<!-- Meta Pixel Code: queue stub only; fbevents.js loads with the deferred third-party scripts above -->
 <script is:inline>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  !function(f){if(f.fbq)return;var n=f.fbq=function(){n.callMethod?
   n.callMethod.apply(n,arguments):n.queue.push(arguments)};
   if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
+  n.queue=[]}(window);
   fbq('init', '401727073718157');
   fbq('track', 'PageView');
 </script>

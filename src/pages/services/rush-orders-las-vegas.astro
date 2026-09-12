@@ -36,6 +36,11 @@ const faqs = [
  a: 'Possibly. New artwork can add production-file and proofing time. We confirm the available schedule with the selected partner before you approve it.',
  },
  {
+ q: 'What makes a rush embroidery order different from screen printing?',
+ a: 'Embroidery needs a digitized stitch file before anything can be sewn. A new logo adds digitizing and proofing time before stitching starts, so an approved digitized logo already on file is usually the fastest path to a rush embroidery slot. We confirm the selected partner\'s embroidery capacity the same way as any other method before quoting a schedule. See custom embroidery in Las Vegas for how embroidery orders run.',
+ html: 'Embroidery needs a digitized stitch file before anything can be sewn. A new logo adds digitizing and proofing time before stitching starts, so an approved digitized logo already on file is usually the fastest path to a rush embroidery slot. We confirm the selected partner\'s embroidery capacity the same way as any other method before quoting a schedule. See <a href="/services/embroidery-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">custom embroidery in Las Vegas</a> for how embroidery orders run.',
+ },
+ {
  q: 'How big can a rush order be?',
  a: 'It depends on the garment, artwork, quantity, decoration method, partner capacity, and delivery path. Send the full specification and we will quote what is currently available.',
  },
@@ -210,7 +215,7 @@ const faqSchema = {
  <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
  <svg class="h-5 w-5 flex-shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
  </summary>
- <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
+ {f.html ? <p class="pb-5 text-base leading-relaxed text-ash" set:html={f.html} /> : <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>}
  </details>
  ))}
  </div>

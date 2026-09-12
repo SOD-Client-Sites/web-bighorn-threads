@@ -22,7 +22,7 @@ const compare = [
 ]
 
 const faqs = [
- { q: 'Is it cheaper to rent uniforms or buy them?', a: 'For a team that can launder its own uniforms, owning is usually cheaper over the life of the program: you pay for garments once instead of a weekly fee per wearer for years, and there are no replacement or change charges. Rental can still win where garments are heavily soiled every day and industrial laundering is mandated, or where the business has no laundry capacity at all. Bighorn quotes the owned program in writing so you can compare it to your current weekly invoice.' },
+ { q: 'Is it cheaper to rent uniforms or buy them?', a: 'For a team that can launder its own uniforms, owning is usually cheaper over the life of the program: you pay for garments once instead of a weekly fee per wearer for years, and there are no replacement or change charges. Rental can still win where garments are heavily soiled every day and industrial laundering is mandated, or where the business has no laundry capacity at all. Bighorn quotes the owned program in writing so you can compare it to your current weekly invoice.', html: 'For a team that can launder its own uniforms, owning is usually cheaper over the life of the program: you pay for garments once instead of a weekly fee per wearer for years, and there are no replacement or change charges. Rental can still win where garments are heavily soiled every day and industrial laundering is mandated, or where the business has no laundry capacity at all. Bighorn quotes the owned program in writing so you can <a href="/uniform-program-cost-per-employee/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">compare it to your current weekly invoice</a>.' },
  { q: 'What are the alternatives to Cintas in Las Vegas?', a: 'National rental alternatives include UniFirst, Aramark (now Vestis), Alsco, and Prudential Overall Supply, all of which run route-based rental programs. The other alternative is to stop renting: buy brand-name uniforms once, have them embroidered locally, and reorder through a company store. Bighorn Threads runs that owned model for Las Vegas crews, casinos, clinics, and service companies.' },
  { q: 'How do I get out of a uniform rental contract?', a: 'Read the term and the cancellation clause. Most rental agreements run several years, renew automatically, and require written notice inside a specific window before the renewal date. Some carry a buyout for early termination. This is not legal advice; check the contract and, if the amount is significant, have counsel read it. Bighorn can size and stage an owned program to start the week the rental ends.' },
  { q: 'Do you launder uniforms?', a: 'No. Bighorn supplies uniforms you own. Most Las Vegas teams wash their own; casinos and hotels typically run in-house laundry; crews with heavy soil can use a local commercial laundry on a per-piece basis without a garment contract.' },
@@ -105,7 +105,7 @@ const speakableSchema = {
  A Las Vegas alternative to Cintas, UniFirst, and Aramark: <span class="text-gold-400">own your uniforms.</span>
  </h1>
  <p class="speakable-answer max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- For Las Vegas businesses that can launder their own uniforms, the alternative to a rental program is an owned program: buy brand-name garments once, have them embroidered locally, and reorder through a company store. Bighorn Threads runs owned uniform programs for crews, casinos, clinics, and service companies with written quotes and no multi-year contract.
+ For Las Vegas businesses that can launder their own uniforms, the alternative to a rental program is an owned program: buy brand-name garments once, have them embroidered locally, and reorder through a company store. Bighorn Threads runs owned uniform programs for <a href="/branded-apparel-construction-las-vegas/" class="text-white underline decoration-gold-500/60 underline-offset-4 hover:text-gold-400">crews</a>, <a href="/casino-hospitality-uniforms-las-vegas/" class="text-white underline decoration-gold-500/60 underline-offset-4 hover:text-gold-400">casinos</a>, <a href="/healthcare-uniforms-scrubs-las-vegas/" class="text-white underline decoration-gold-500/60 underline-offset-4 hover:text-gold-400">clinics</a>, and service companies with written quotes and no multi-year contract.
  </p>
 
  <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -117,6 +117,14 @@ const speakableSchema = {
  702.904.8923
  </a>
  </div>
+ </div>
+ </section>
+
+ <!-- Rent vs buy — answer-first -->
+ <section class="border-t border-hairline bg-concrete py-16">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <h2 class="mb-5 font-heading text-2xl font-extrabold uppercase tracking-tight sm:text-3xl">Is it better to rent uniforms or buy and brand your own?</h2>
+ <p class="text-lg leading-relaxed text-ash">For teams that can launder their own uniforms, buying and branding your own is usually the better long-run choice: you pay for garments once, choose any brand, and skip multi-year terms and weekly per-wearer fees. Renting still wins when garments need daily industrial laundering or the business has no laundry capacity.</p>
  </div>
  </section>
 
@@ -194,7 +202,7 @@ const speakableSchema = {
  <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
  <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
  </summary>
- <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
+ {f.html ? <p class="pb-5 text-base leading-relaxed text-ash" set:html={f.html} /> : <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>}
  </details>
  ))}
  </div>
