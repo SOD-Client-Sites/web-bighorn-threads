@@ -1,0 +1,370 @@
+---
+import LandingLayout from '@/layouts/LandingLayout.astro'
+import LeadCaptureForm from '@/components/LeadCaptureForm.astro'
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Branded Summer Long Sleeves', item: 'https://bighornthreads.com/get-started/summer-long-sleeves/' },
+  ],
+}
+
+const problems = [
+  {
+    title: 'Soaked by Nine.',
+    desc: 'Cotton holds everything it absorbs and stays heavy the rest of the shift. By mid-morning the shirt is doing your crew no favors and the logo is stuck to somebody’s back.',
+  },
+  {
+    title: 'Sleeves on the Ground.',
+    desc: 'When the only option is a heavy shirt, guys take a knife to it. Now the uniform you paid for is a cut-off, and what your crew wears is a decision nobody is actually making.',
+  },
+  {
+    title: 'Everybody Bought Their Own.',
+    desc: 'One guy has a fishing shirt, one has a hoodie, one has a long sleeve off a gas station rack. Your company name is on none of it, and your jobsite looks like a pickup crew.',
+  },
+  {
+    title: 'Nothing to Show at Review.',
+    desc: '“The guys wear what they want” is not an answer when heat and sun questions come up. Apparel is one factor an employer documents in its own hazard analysis.',
+  },
+]
+
+const offerings = [
+  {
+    tag: 'Performance',
+    title: 'Lightweight Long-Sleeve Shirts',
+    desc: 'Long-sleeve performance shirts are one option to compare within your employer heat and sun-protection plan. Review the exact product’s UPF claim, fabric, fit, coverage, care, and compatibility with any visibility requirement before you standardize.',
+  },
+  {
+    tag: 'Hi-Vis',
+    title: 'Hi-Vis Long-Sleeve Options',
+    desc: 'Bighorn can quote high-visibility long sleeves, and your company selects the class and specification its own assessment calls for. Confirm the exact garment’s current certification and labeling with the manufacturer.',
+  },
+  {
+    tag: 'Hooded',
+    title: 'Hooded Sun Shirts & Neck Coverage',
+    desc: 'Hooded long sleeves and neck-coverage styles can be quoted when your crew wants more coverage than a standard shirt. Fit, hood design, and compatibility with hard hats and other required PPE are yours to confirm on the specific product.',
+  },
+  {
+    tag: 'Kits',
+    title: 'Crew Kits Sized by Role',
+    desc: 'Field crews, foremen, and office staff rarely need the same shirt. We can build the quote by role and by size run so you order what each group actually wears.',
+  },
+  {
+    tag: 'Decoration',
+    title: 'Screen Print or Embroidery',
+    desc: 'Bighorn coordinates approved decoration through selected production partners. Print and embroidery suitability is confirmed per product, because performance fabrics do not all take the same method.',
+  },
+]
+
+const steps = [
+  {
+    n: '01',
+    meta: 'Tell',
+    title: 'Send Your Crew Count',
+    desc: 'Give us head count, roles, and a rough size breakdown, plus anything your safety program already requires. If you have a shirt you like, send the product name or a photo.',
+  },
+  {
+    n: '02',
+    meta: 'Quote',
+    title: 'We Quote and Proof',
+    desc: 'We price the products your company selects and send a proof of your logo on them. You see the decoration placement and method before anything is produced.',
+  },
+  {
+    n: '03',
+    meta: 'Produce',
+    title: 'You Approve, We Coordinate',
+    desc: 'Once you sign off on the proof, Bighorn coordinates production through selected partners. Sizes, colors, availability, production, delivery, and timing depend on the selected product and partner.',
+  },
+]
+
+const faqs = [
+  {
+    q: 'Long sleeves in a Vegas summer? Really.',
+    a: 'Covering up is a common approach on outdoor crews, and lightweight long-sleeve performance shirts are one option to compare within your employer heat and sun-protection plan. Review the exact product’s fabric, fit, coverage, care, and any published UPF claim before you commit a whole crew. Your employer approves fabric, coverage, and heat-plan requirements.',
+  },
+  {
+    q: 'What is the minimum order?',
+    a: 'Minimums depend on the product you select, the decoration method, and the production partner. Send your crew count and we’ll tell you what is workable for the options you’re considering. We won’t quote a minimum before we know the product.',
+  },
+  {
+    q: 'How fast can we get them?',
+    a: 'Production and delivery timing depend on the selected product and partner, so we quote timing with the product instead of promising a number up front. Tell us the date you need shirts on the crew and we’ll tell you which options can be quoted against it. Availability and stock also depend on the product and partner.',
+  },
+  {
+    q: 'Does this satisfy Nevada OSHA heat requirements?',
+    a: 'No garment does that. R131-24 uses a hazard-based approach with no single universal temperature trigger, and clothing and PPE are factors in the job hazard analysis, not a stand-alone compliance solution. Your company runs its own assessment and written program; Bighorn quotes and brands the apparel your company selects. This is educational, not legal or safety advice.',
+  },
+  {
+    q: 'Can we do hi-vis long sleeves?',
+    a: 'Hi-vis long-sleeve options can be quoted, and your company selects the class and specification its own assessment requires. Confirm the specific garment’s current certification, labeling, and compatibility with any other visibility requirement on your sites. Decoration placement on hi-vis garments is confirmed per product.',
+  },
+  {
+    q: 'What is this going to cost?',
+    a: 'Pricing depends on the product selected, quantity, sizes, decoration method, and the number of logo locations. Send a crew count and a rough spec and you’ll get real numbers instead of a range that means nothing. Call 702.904.8923 if you’d rather walk through it than fill out the form.',
+  },
+  {
+    q: 'Who actually follows up with me?',
+    a: 'A Las Vegas based Bighorn rep, not a chat widget. You get product options, pricing, and a proof of your logo before anything goes to production. Bighorn coordinates approved decoration through selected production partners.',
+  },
+]
+---
+
+<LandingLayout
+  title="Summer Long Sleeves for Las Vegas Crews"
+  description="Quote branded long-sleeve shirts for Las Vegas outdoor crews. Your company picks the product, Bighorn quotes it and coordinates logo decoration."
+  canonical="https://bighornthreads.com/get-started/summer-long-sleeves/"
+  noindex={true}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+
+  <!-- ════ HERO + FORM — concrete ════ -->
+  <section class="min-h-[100svh] bg-concrete pt-16 pb-20 sm:pt-20 sm:pb-28">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="grid items-start gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
+
+        <!-- Left: pitch -->
+        <div>
+          <p class="kicker mb-3">Summer Crew Apparel</p>
+          <h1 class="mb-6 font-heading text-4xl font-extrabold uppercase leading-[1.05] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
+            Cover Your Crew This Summer in <span class="text-gold-600">Branded Long Sleeves.</span>
+          </h1>
+          <p class="mb-8 text-lg leading-relaxed text-ash sm:text-xl">
+            Lightweight long-sleeve shirts your company selects, quoted and branded with your logo.
+            Built for Las Vegas outdoor crews working through the hot months.
+          </p>
+
+          <ul class="mb-8 space-y-3 text-base text-ash">
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold-500"></span>
+              <span><strong class="text-charcoal">Products with published UPF ratings</strong> — verify the exact current manufacturer rating before you standardize</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold-500"></span>
+              <span><strong class="text-charcoal">Brands you already know</strong> — we can request current quotes for Carhartt Force, Bayside Performance, Port Authority, and Red Kap</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold-500"></span>
+              <span><strong class="text-charcoal">One look across the crew</strong> — same shirt, same logo, sized by role instead of whatever the guys bought themselves</span>
+            </li>
+          </ul>
+
+          <p class="font-mono text-xs uppercase tracking-[0.15em] text-ash">Las Vegas · Employer-selected products · A real person follows up</p>
+        </div>
+
+        <!-- Right: form (sticky on desktop) -->
+        <div class="lg:sticky lg:top-24">
+          <LeadCaptureForm
+            vertical="trades"
+            heading="Get your crew quote"
+            blurb="Tell us crew size, roles, and the look you want. We’ll come back with product options and pricing to review."
+            submitLabel="Request my quote →"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ THE PROBLEM — paper ════ -->
+  <section class="border-y border-hairline bg-paper py-20 sm:py-28">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <p class="kicker mb-3">What Summer Does to Your Shirts</p>
+        <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
+          Cotton tees and a <span class="text-gold-600">gas station sun shirt.</span>
+        </h2>
+        <p class="mt-4 text-lg leading-relaxed text-ash">
+          By July, most crews are running four different shirt setups and none of them are yours.
+        </p>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2">
+        {problems.map((item) => (
+          <div class="border border-hairline bg-panel p-7">
+            <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{item.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ash">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ WHAT YOU GET — concrete ════ -->
+  <section class="bg-concrete py-20 sm:py-28">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <p class="kicker mb-3">The Options on the Table</p>
+        <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
+          Long sleeves your company <span class="text-gold-600">picks and approves.</span>
+        </h2>
+        <p class="mt-4 text-lg leading-relaxed text-ash">
+          You select the products that fit your work and your plan. Bighorn quotes them and coordinates the decoration.
+        </p>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Image cell — fills the first grid slot -->
+        <figure class="flex flex-col border border-hairline bg-panel">
+          <div class="relative min-h-56 w-full flex-1">
+            <img
+              src="/images/generated/kit-roofing.jpg"
+              alt="Branded long-sleeve performance shirt shown with a hi-vis layer, cap, and work gloves"
+              width="1200"
+              height="900"
+              loading="lazy"
+              decoding="async"
+              class="absolute inset-0 h-full w-full object-cover"
+            />
+          </div>
+          <figcaption class="spec border-t border-hairline px-4 py-3 text-ash">
+            Long-sleeve layer shown with employer-selected hi-vis and headwear
+          </figcaption>
+        </figure>
+
+        {offerings.map((item) => (
+          <div class="flex flex-col border border-hairline bg-panel p-6">
+            <span class="spec mb-3 inline-block self-start border border-hairline px-2 py-1 text-ash">{item.tag}</span>
+            <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{item.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ash">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-8">
+        <a href="#lp-form-card" class="btn-secondary text-sm">
+          Get my crew quote
+          <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 11l7-7 7 7M12 4v16" /></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ HOW IT WORKS — paper ════ -->
+  <section class="border-y border-hairline bg-paper py-20 sm:py-28">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-2xl">
+        <p class="kicker mb-3">Three Steps</p>
+        <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
+          Quote, proof, <span class="text-gold-600">then production.</span>
+        </h2>
+        <p class="mt-4 text-lg leading-relaxed text-ash">
+          No showroom visit, no long discovery call.
+        </p>
+      </div>
+
+      <ol class="grid gap-5 md:grid-cols-3">
+        {steps.map((step) => (
+          <li class="border border-hairline bg-panel p-7">
+            <div class="mb-5 flex items-baseline justify-between">
+              <span class="font-heading text-5xl font-extrabold leading-none text-gold-700">{step.n}</span>
+              <span class="spec border border-hairline px-2 py-1 text-ash">{step.meta}</span>
+            </div>
+            <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{step.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ash">{step.desc}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- ════ HEAT PLAN / COMPLIANCE — full-bleed photographic navy band ════ -->
+  <section class="relative isolate overflow-hidden bg-navy-950 py-20 sm:py-28">
+    <img
+      src="/images/generated/foreman-closeup.jpg"
+      alt=""
+      aria-hidden="true"
+      class="absolute inset-0 -z-10 h-full w-full object-cover"
+      loading="lazy"
+      decoding="async"
+    />
+    <div class="absolute inset-0 -z-10 bg-navy-950/70"></div>
+
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <p class="kicker mb-3 text-gold-400">Nevada Heat Rules</p>
+      <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl">
+        Apparel is one factor, <span class="text-gold-400">not a checkbox.</span>
+      </h2>
+
+      <p class="mt-6 text-lg leading-relaxed text-navy-200">
+        Nevada Regulation R131-24 was filed November 15, 2024, and Nevada OSHA guidance announced
+        enforcement beginning April 29, 2025. It uses a hazard-based approach with no single universal
+        temperature trigger, and it generally applies to employers required to maintain a written safety
+        program — generally more than 10 employees. Clothing and PPE are factors in the job hazard
+        analysis, not a stand-alone compliance solution.
+      </p>
+
+      <p class="mt-5 text-lg leading-relaxed text-navy-200">
+        That means no shirt makes you compliant, and anyone who tells you otherwise is selling. Vegas
+        summer requires a documented employer heat plan. Lightweight long-sleeve performance shirts may
+        support some plans, and Bighorn can quote Carhartt Force and Bayside Performance options along
+        with products carrying published UPF ratings. Your employer must approve fabric, coverage, and
+        heat-plan requirements, and you should verify the exact current manufacturer rating on any
+        product you standardize.
+      </p>
+
+      <p class="mt-6 border-l-2 border-gold-500 pl-4 font-mono text-xs leading-relaxed text-navy-200">
+        This information is educational. It is not legal, medical, or safety advice; the approved
+        regulation, current Nevada OSHA guidance, and your own qualified legal and safety professionals control.
+      </p>
+
+      <p class="mt-6">
+        <a href="/safety-compliance/nevada-osha-heat-rules-2026/" class="font-mono text-xs uppercase tracking-[0.15em] text-gold-400 underline hover:text-gold-500">
+          Read the full R131-24 planning guide →
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ════ FAQ — concrete ════ -->
+  <section class="bg-concrete py-20 sm:py-28">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-10 max-w-2xl">
+        <p class="kicker mb-3">Straight Answers</p>
+        <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
+          Your questions, <span class="text-gold-600">answered.</span>
+        </h2>
+      </div>
+
+      <div class="divide-y divide-hairline border-y border-hairline">
+        {faqs.map((item) => (
+          <details class="group">
+            <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+              <span class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{item.q}</span>
+              <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+            </summary>
+            <p class="pb-5 leading-relaxed text-ash">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ CLOSING CTA — charcoal band ════ -->
+  <section class="border-y border-hairline bg-charcoal py-20 sm:py-28">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
+        <div class="max-w-xl">
+          <p class="kicker mb-3">Get Started</p>
+          <h2 class="font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-concrete sm:text-4xl">
+            Put your name on <span class="text-gold-400">every shirt out there.</span>
+          </h2>
+          <p class="mt-4 text-base leading-relaxed text-navy-200">
+            Send your crew count and roles and we’ll quote long-sleeve options your company can review
+            and approve. You see the proof before anything is produced.
+          </p>
+        </div>
+        <div class="flex shrink-0 flex-col gap-3 sm:items-end">
+          <a href="#lp-form-card" class="btn-primary text-base">
+            Get my crew quote
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 11l7-7 7 7M12 4v16" /></svg>
+          </a>
+          <a href="tel:+17029048923" class="inline-flex items-center gap-2 font-mono text-sm font-medium tracking-wide text-concrete transition-colors hover:text-gold-400">
+            <svg class="h-4 w-4 text-gold-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+            702.904.8923
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</LandingLayout>
