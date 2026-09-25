@@ -292,9 +292,7 @@ const description = 'There is no active Bighorn Threads event offer on this page
  form.phone.focus()
  return
  }
- const contextKey = form.id || 'event-optin'
  const tracker = Reflect.get(window, 'bighornTracking')
- const leadContext = tracker?.getLeadContext?.(contextKey)
  const payload = {
  firstName: form.firstName.value.trim(),
  lastName: form.lastName.value.trim(),
@@ -306,9 +304,7 @@ const description = 'There is no active Bighorn Threads event offer on this page
  smsMarketingConsent: smsMarketing && smsMarketing.checked ? 'yes' : '',
  smsTransactionalConsent: smsTransactional && smsTransactional.checked ? 'yes' : '',
  consentUrl: `${window.location.origin}${window.location.pathname}`,
- attribution: leadContext?.attribution || null,
- externalLeadId: leadContext?.externalLeadId || '',
- eventId: leadContext?.eventId || '',
+ ...(tracker?.source?.() || {}),
  bh_hp_field: hp ? hp.value : '',
  'cf-turnstile-response': (form.querySelector('[name="cf-turnstile-response"]') || {}).value || '',
  }
@@ -321,7 +317,7 @@ const description = 'There is no active Bighorn Threads event offer on this page
  })
  const data = await res.json().catch(() => ({}))
  if (res.ok && data.ok && !data.spam) {
- tracker?.trackLead?.({ form: 'event_optin', contextKey, eventId: leadContext?.eventId })
+ tracker?.trackLead?.('event_optin')
  window.location.href = '/win/thanks'
  } else if (res.ok && data.spam) {
  window.location.href = '/win/thanks'

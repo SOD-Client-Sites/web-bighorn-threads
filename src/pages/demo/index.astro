@@ -1,15 +1,16 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
+// Must match the GHL "Trade" dropdown (functions/api/demo-optin.js TRADES).
 const trades = [
  'General Contractor',
- 'Electrical Contractor',
- 'Plumbing / HVAC',
- 'Roofing / Solar',
- 'Landscaping',
- 'Concrete / Masonry',
- 'Steel / Ironworkers',
- 'Oil / Gas / Mechanical',
+ 'Electrical',
+ 'Mechanical & HVAC',
+ 'Plumbing',
+ 'Concrete & Masonry',
+ 'Steel & Ironworkers',
+ 'Roofing & Solar',
+ 'Data Center / Mission-Critical',
  'Other',
 ]
 
@@ -287,9 +288,7 @@ const breadcrumb = {
  if (submitLabel) submitLabel.textContent = 'Generate my branded store →'
  return
  }
- const contextKey = form.id || 'demo-form'
  const tracker = (window as any).bighornTracking
- const leadContext = tracker?.getLeadContext?.(contextKey)
 
  // Sync the lead to GHL before showing the preview. Logo is intentionally
  // omitted from the GHL payload and stays only in this browser session.
@@ -305,9 +304,7 @@ const breadcrumb = {
  trade: lead.trade,
  crewSize: lead.crewSize,
  sourceUrl: `${window.location.origin}${window.location.pathname}`,
- attribution: leadContext?.attribution || null,
- externalLeadId: leadContext?.externalLeadId || '',
- eventId: leadContext?.eventId || '',
+ ...(tracker?.source?.() || {}),
  bh_hp_field: (form.querySelector('[name="bh_hp_field"]') as HTMLInputElement | null)?.value || '',
  'cf-turnstile-response': (form.querySelector('[name="cf-turnstile-response"]') as HTMLInputElement | null)?.value || '',
  }),
@@ -316,7 +313,7 @@ const breadcrumb = {
  const result = await res.json().catch(() => ({}))
  if (!res.ok || !result.ok) throw new Error(result.error || `HTTP ${res.status}`)
  if (!result.spam) {
- tracker?.trackLead?.({ form: 'company_store_demo', contextKey, eventId: leadContext?.eventId })
+ tracker?.trackLead?.('company_store_demo')
  }
  window.location.href = '/preview/'
  } catch (err) {

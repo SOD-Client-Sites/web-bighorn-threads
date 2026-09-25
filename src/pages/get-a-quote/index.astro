@@ -267,9 +267,7 @@ const inputClass =
         setStatus('Sending your request.', 'info')
         const submitBtn = form.querySelector('button[type="submit"]')
         if (submitBtn) submitBtn.disabled = true
-        const contextKey = form.id || 'contact-quote'
         const tracker = Reflect.get(window, 'bighornTracking')
-        const leadContext = tracker?.getLeadContext?.(contextKey)
 
         try {
           const fd = new FormData(form)
@@ -281,8 +279,7 @@ const inputClass =
             body: fd,
           })
           if (res.ok) {
-            if (tracker?.trackLead) tracker.trackLead({ form: 'contact_quote', contextKey, eventId: leadContext?.eventId })
-            else if (typeof gtag === 'function') gtag('event', 'generate_lead', { form: 'contact_quote', page_path: window.location.pathname })
+            tracker?.trackLead?.('contact_quote')
             setStatus('Got it. A real human will reply soon with a full quote.', 'success')
             form.reset()
           } else {

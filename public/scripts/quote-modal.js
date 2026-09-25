@@ -24,10 +24,16 @@ const TURNSTILE_SITEKEY = '0x4AAAAAADW_K97ZyhlAHC4I'
 let activeModal = null
 let lastFocused = null
 
-// Explicitly render a Turnstile widget into a container. The api.js script is
-// loaded site-wide in BaseLayout; it may not be ready when the modal opens, so
-// retry briefly. Returns the widget id (unused) or null.
+// Explicitly render a Turnstile widget into a container. TrackingHead only loads
+// api.js on pages with a static widget, so the modal loads it on demand and
+// retries until it is ready.
 function renderTurnstile(container) {
+  if (!window.turnstile && !document.querySelector('script[src*="challenges.cloudflare.com/turnstile"]')) {
+    const s = document.createElement('script')
+    s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js'
+    s.async = true
+    document.head.appendChild(s)
+  }
   const tryRender = (attempt) => {
     if (window.turnstile && typeof window.turnstile.render === 'function') {
       try {
@@ -35,7 +41,7 @@ function renderTurnstile(container) {
       } catch (_) { /* already rendered or unavailable */ }
       return
     }
-    if (attempt < 20) setTimeout(() => tryRender(attempt + 1), 150)
+    if (attempt < 60) setTimeout(() => tryRender(attempt + 1), 150)
   }
   tryRender(0)
 }
@@ -541,9 +547,7 @@ async function submitForm(form, product, statusEl, submitBtn, bodyEl) {
     return
   }
 
-  const contextKey = form.id || 'quote-modal-form'
   const tracker = window.bighornTracking
-  const leadContext = tracker?.getLeadContext?.(contextKey)
   const payload = {
     productSpc: product.spc || '',
     productEId: product.prodEId ? String(product.prodEId) : '',
@@ -565,9 +569,7 @@ async function submitForm(form, product, statusEl, submitBtn, bodyEl) {
     smsTransactionalConsent: isChecked(form, 'smsTransactionalConsent') ? 'yes' : '',
     website: '', // honeypot value (empty by client check above)
     sourceUrl: `${window.location.origin}${window.location.pathname}`,
-    attribution: leadContext?.attribution || null,
-    externalLeadId: leadContext?.externalLeadId || '',
-    eventId: leadContext?.eventId || '',
+    ...(tracker?.source?.() || {}),
     'cf-turnstile-response': getVal(form, 'cf-turnstile-response'),
   }
 
@@ -585,21 +587,7 @@ async function submitForm(form, product, statusEl, submitBtn, bodyEl) {
     if (!res.ok || !data.ok) {
       throw new Error(data.error || `Request failed (${res.status})`)
     }
-    if (tracker?.trackLead) {
-      tracker.trackLead({
-        form: 'quote_modal',
-        contextKey,
-        eventId: leadContext?.eventId,
-        product: (product && (product.prName || product.spc)) || 'unknown',
-      })
-    } else if (typeof window.gtag === 'function') {
-      window.gtag('event', 'generate_lead', {
-        form: 'quote_modal',
-        product: (product && (product.prName || product.spc)) || 'unknown',
-        page_path: window.location.pathname,
-        lp_source: sessionStorage.getItem('lp_source') || window.location.pathname,
-      })
-    }
+    tracker?.trackLead?.('quote_modal')
     showSuccessState(bodyEl, product)
   } catch (err) {
     console.error('[quote-modal]', err)

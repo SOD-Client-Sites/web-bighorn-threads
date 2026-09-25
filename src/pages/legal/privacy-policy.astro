@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
-const lastUpdated = 'August 21, 2026'
+const lastUpdated = 'September 25, 2026'
 const legalName = 'VP Promos LLC'
 const dba = 'Bighorn Threads'
 ---
@@ -43,8 +43,8 @@ const dba = 'Bighorn Threads'
       <h3>Information collected automatically</h3>
       <ul>
         <li><strong>Usage and device data</strong> — IP address, browser type, device type, pages viewed, referring/exit pages, and timestamps.</li>
-        <li><strong>Cookies and analytics:</strong> we use Google Analytics 4 and Meta Pixel to measure visits and marketing performance. IDPixel helps recognize a returning browser and records visit activity. See &ldquo;Cookies &amp; Analytics&rdquo; below.</li>
-        <li><strong>Marketing attribution:</strong> campaign parameters, ad click identifiers, the referring site&rsquo;s origin, and the landing or conversion page. Campaign parameters may include UTM values, gclid, gbraid, wbraid, fbclid, and msclkid.</li>
+        <li><strong>Cookies and analytics:</strong> we use Google Analytics 4 and Meta Pixel to measure visits and marketing performance. See &ldquo;Cookies &amp; Analytics&rdquo; below.</li>
+        <li><strong>Marketing attribution:</strong> campaign parameters, ad click identifiers, the referring site&rsquo;s origin, and the first page visited. Campaign parameters may include UTM source, medium, and campaign values and whether a gclid or fbclid was present.</li>
       </ul>
       <p>We do not knowingly collect Social Security numbers, government ID numbers, financial account numbers, or credit information through the Site.</p>
 
@@ -104,7 +104,7 @@ const dba = 'Bighorn Threads'
         advertising disclosures as &ldquo;sharing.&rdquo;
       </p>
       <ul>
-        <li><strong>Service providers / subcontractors:</strong> companies that help us operate, such as our CRM and messaging provider (HighLevel / LeadConnector), website hosting and security (Cloudflare), analytics and advertising providers (Google Analytics 4 and Meta Pixel), visitor identification (IDPixel), product-data and supplier partners (e.g., SAGE and apparel suppliers/decorators), payment processors, and shipping carriers.</li>
+        <li><strong>Service providers / subcontractors:</strong> companies that help us operate, such as our CRM and messaging provider (HighLevel / LeadConnector), website hosting and security (Cloudflare), analytics and advertising providers (Google Analytics 4 and Meta Pixel), product-data and supplier partners (e.g., SAGE and apparel suppliers/decorators), payment processors, and shipping carriers.</li>
         <li><strong>Legal and safety</strong> — when required by law, subpoena, or legal process, or to protect the rights, property, or safety of Bighorn Threads, our customers, or others.</li>
         <li><strong>Business transfers</strong> — in connection with a merger, acquisition, financing, or sale of all or part of our business; any successor will be bound by this Policy.</li>
       </ul>
@@ -112,17 +112,15 @@ const dba = 'Bighorn Threads'
 
       <h2>6. Cookies &amp; Analytics</h2>
       <p>
-        The Site uses cookies, browser storage, pixels, and similar technologies. Google Analytics 4,
-        Meta Pixel, and IDPixel help us measure traffic, form activity, and marketing performance. IDPixel
-        also assigns a browser identifier so returning visits can be recognized. These providers may receive
-        device, browser, page, identifier, and network information under their own privacy terms.
+        The Site uses cookies, browser storage, pixels, and similar technologies. Google Analytics 4 and
+        Meta Pixel help us measure traffic, form activity, and marketing performance. These providers may
+        receive device, browser, page, identifier, and network information under their own privacy terms.
       </p>
       <p>
-        We treat first-touch and last-touch attribution in your browser as expired after 90 days. We remove
-        expired records when you next use the Site. Session landing information remains until your browser
-        session ends. We record only the origin of an external referring site, not its full page path. When
-        you submit a form, we may send the stored attribution, click identifiers, conversion page, and a
-        unique lead identifier to HighLevel. This connects inquiries with the marketing that led to them.
+        For each browser session we keep a small record of how you arrived: campaign parameters, whether
+        an ad click identifier was present, the referring site's domain (not its full page path), and the
+        first page you visited. It is cleared when your browser session ends. When you submit a form, we
+        send that record to HighLevel so inquiries can be connected with the marketing that led to them.
       </p>
       <p>
         You can block or delete cookies and browser storage through your browser settings. Doing so may
@@ -138,9 +136,8 @@ const dba = 'Bighorn Threads'
         as you are opted in and for a reasonable period afterward to document compliance.
       </p>
       <p>
-        We treat browser-based first-touch and last-touch attribution as expired after 90 days. We remove
-        expired records when you next use the Site. Submitted attribution may remain with the related CRM
-        record under the business and legal retention purposes above.
+        Source information submitted with a form may remain with the related CRM record under the business
+        and legal retention purposes above.
       </p>
 
       <h2>8. Data Security</h2>

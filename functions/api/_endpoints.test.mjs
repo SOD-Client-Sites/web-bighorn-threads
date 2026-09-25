@@ -10,7 +10,7 @@ import { onRequestPost as quoteRequest } from './quote-request.js'
 import { normalizeSiteUrl } from './_validation.js'
 
 const ENV = {
-  GHL_LOCATION_ID: 'location-test',
+  GHL_LOCATION_ID: 'lNyfWNCloQHAP34OSwIZ',
   GHL_PIT_TOKEN: 'token-test',
   TURNSTILE_SECRET: 'turnstile-test',
 }
@@ -54,7 +54,6 @@ async function invoke(handler, payload) {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify({
-      attribution: { sessionLandingPage: 'https://www.bighornthreads.com/test' },
       ...payload,
       'cf-turnstile-response': 'verified-token',
     }),
@@ -80,31 +79,31 @@ test('all lead endpoints preserve existing tags by separating upsert and tag-add
       name: 'demo-optin',
       handler: demoOptin,
       body: { company: 'Acme', contact: 'Ava Lee', email: 'lead@example.com', trade: 'Electrical' },
-      tags: ['company-store-demo', 'company-store-lead'],
+      tags: ['company-store-lead'],
     },
     {
       name: 'event-optin',
       handler: eventOptin,
       body: { firstName: 'Ava', lastName: 'Lee', email: 'lead@example.com', business: 'Acme', eventTag: 'event-golf-tournament' },
-      tags: ['event-golf-tournament', 'event-optin'],
+      tags: ['event-golf-tournament'],
     },
     {
       name: 'lp-optin',
       handler: lpOptin,
       body: { vertical: 'trades', email: 'lead@example.com' },
-      tags: ['company-store-lead', 'segment-trades', 'industry-trades'],
+      tags: ['company-store-lead', 'industry-trades'],
     },
     {
       name: 'quote-request',
       handler: quoteRequest,
       body: { name: 'Ava Lee', company: 'Acme', email: 'lead@example.com', qty: 24, productName: 'Work Shirt', productSpc: 'SPC-1' },
-      tags: ['bighorn-quote-request'],
+      tags: ['contact-quote-request'],
     },
     {
       name: 'convert-request',
       handler: convertRequest,
       body: { company: 'Acme', contact: 'Ava Lee', email: 'lead@example.com' },
-      tags: ['company-store-convert-request', 'company-store-lead'],
+      tags: ['company-store-lead'],
     },
   ]
 
@@ -213,7 +212,7 @@ test('consent-bearing endpoints persist the audit note before applying routing t
       const noteIndex = mock.calls.findIndex((call) => call.url.endsWith('/contacts/contact-test/notes'))
       const tagIndex = mock.calls.findIndex((call) => call.url.endsWith('/contacts/contact-test/tags'))
       assert.ok(noteIndex >= 0 && tagIndex > noteIndex)
-      assert.match(mock.calls[noteIndex].body.body, /Consented phone: 7025550100/)
+      assert.match(mock.calls[noteIndex].body.body, /^SMS consent \((transactional|marketing)\) for 7025550100 on https:\/\/bighornthreads\.com/)
     } finally {
       mock.restore()
     }
@@ -222,11 +221,11 @@ test('consent-bearing endpoints persist the audit note before applying routing t
 
 test('consent-bearing endpoints do not apply routing tags when the audit note fails', { concurrency: false }, async () => {
   const cases = [
-    [contact, { email: 'lead@example.com' }],
-    [demoOptin, { company: 'Acme', contact: 'Ava Lee', email: 'lead@example.com', trade: 'Electrical' }],
-    [eventOptin, { firstName: 'Ava', lastName: 'Lee', email: 'lead@example.com', business: 'Acme', eventTag: 'event-golf-tournament' }],
-    [lpOptin, { vertical: 'trades', email: 'lead@example.com' }],
-    [quoteRequest, { name: 'Ava Lee', company: 'Acme', email: 'lead@example.com', qty: 24, productName: 'Work Shirt', productSpc: 'SPC-1' }],
+    [contact, { email: 'lead@example.com', phone: '7025550100', smsTransactionalConsent: 'yes' }],
+    [demoOptin, { company: 'Acme', contact: 'Ava Lee', email: 'lead@example.com', phone: '7025550100', smsTransactionalConsent: 'yes', trade: 'Electrical' }],
+    [eventOptin, { firstName: 'Ava', lastName: 'Lee', email: 'lead@example.com', phone: '7025550100', smsTransactionalConsent: 'yes', business: 'Acme', eventTag: 'event-golf-tournament' }],
+    [lpOptin, { vertical: 'trades', email: 'lead@example.com', phone: '7025550100', smsTransactionalConsent: 'yes' }],
+    [quoteRequest, { name: 'Ava Lee', company: 'Acme', email: 'lead@example.com', phone: '7025550100', smsTransactionalConsent: 'yes', qty: 24, productName: 'Work Shirt', productSpc: 'SPC-1' }],
   ]
 
   const originalConsoleError = console.error
@@ -327,5 +326,38 @@ test('honeypots retain silent-success behavior without external calls', { concur
     } finally {
       mock.restore()
     }
+  }
+})
+
+test('form answers land in GHL fields, source is derived, and no note is written without SMS consent', { concurrency: false }, async () => {
+  const mock = installFetchMock()
+  try {
+    const result = await invoke(contact, {
+      email: 'lead@example.com', name: 'Ava Lee', quantity: '50', product: 'Hoodies', message: 'Need by May',
+      referrer: 'www.google.com', landing: '/custom-hoodies/',
+    })
+    assert.equal(result.status, 200)
+    const upsert = mock.calls.find((call) => call.url.endsWith('/contacts/upsert')).body
+    const field = (id) => upsert.customFields.find((f) => f.id === id)?.field_value
+    assert.equal(upsert.source, 'Website')
+    assert.equal(field('AuP8x0F7NvKOzWX0xxRh'), '50')
+    assert.equal(field('sjfsg4TTMK4zutyPULCE'), 'Hoodies')
+    assert.equal(field('BPFPC44V1QiiHdrTKpUN'), 'Need by May')
+    assert.equal(field('1x3FBbe1ETiX3b3aQ9OL'), 'google / organic')
+    assert.equal(field('hGMW3LfcGIAXOZL2bRim'), '/custom-hoodies/')
+    assert.equal(mock.calls.some((call) => call.url.endsWith('/notes')), false)
+  } finally {
+    mock.restore()
+  }
+})
+
+test('demo trade values outside the GHL dropdown fall back to Other', { concurrency: false }, async () => {
+  const mock = installFetchMock()
+  try {
+    await invoke(demoOptin, { company: 'Acme', contact: 'Ava Lee', email: 'lead@example.com', trade: 'Landscaping' })
+    const upsert = mock.calls.find((call) => call.url.endsWith('/contacts/upsert')).body
+    assert.equal(upsert.customFields.find((f) => f.id === 'J4iXDY0OMNiGcdWDjPXg').field_value, 'Other')
+  } finally {
+    mock.restore()
   }
 })

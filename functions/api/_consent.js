@@ -25,36 +25,16 @@ function truthy(v) {
 
 /**
  * Parse the two A2P consent checkboxes from a request body.
- * @param {object} data       parsed request body (JSON object or FormData entries object)
- * @param {string} [sourceUrl] page URL the form was submitted from
- * @returns {{marketing:boolean, transactional:boolean, any:boolean, consentPhone:string, tags:string[], noteBlock:string}}
+ * @returns {{marketing:boolean, transactional:boolean, any:boolean, tags:string[], note:string}}
  */
 export function parseSmsConsent(data, sourceUrl) {
   const marketing = truthy(data && data.smsMarketingConsent)
   const transactional = truthy(data && data.smsTransactionalConsent)
   const any = marketing || transactional
-  const consentPhone = any && data?.phone ? String(data.phone).trim() : ''
-
-  const tags = []
-  if (any) tags.push('sms-opt-in')
-  if (marketing) tags.push('sms-consent-marketing')
-  if (transactional) tags.push('sms-consent-transactional')
-
-  const rawUrl =
-    (sourceUrl && String(sourceUrl).trim()) ||
-    (data && data.consentUrl && String(data.consentUrl).trim()) ||
-    (data && data.sourceUrl && String(data.sourceUrl).trim()) ||
-    ''
-  const url = normalizeSiteUrl(rawUrl)
-
-  const lines = ['', '--- SMS / EMAIL CONSENT (A2P 10DLC) ---', `Captured: ${new Date().toISOString()}`]
-  if (url) lines.push(`Source page: ${url}`)
-  if (consentPhone) lines.push(`Consented phone: ${consentPhone}`)
-  lines.push(`Marketing texts: ${marketing ? 'YES — opted in' : 'no'}`)
-  lines.push(`Non-marketing texts: ${transactional ? 'YES — opted in' : 'no'}`)
-  if (transactional) lines.push('', 'Non-marketing consent language shown:', SMS_CONSENT_COPY.transactional)
-  if (marketing) lines.push('', 'Marketing consent language shown:', SMS_CONSENT_COPY.marketing)
-  if (!any) lines.push('(User did not check either SMS consent box.)')
-
-  return { marketing, transactional, any, consentPhone, tags, noteBlock: lines.join('\n') }
+  const types = [transactional && 'transactional', marketing && 'marketing'].filter(Boolean).join(' + ')
+  const url = normalizeSiteUrl(sourceUrl || data?.consentUrl || data?.sourceUrl, 'https://bighornthreads.com/')
+  const phone = any && data?.phone ? String(data.phone).trim() : ''
+  // One line: which boxes, which phone, which page, when. The exact wording shown is SMS_CONSENT_COPY.
+  const note = any ? `SMS consent (${types}) for ${phone} on ${url} at ${new Date().toISOString()}` : ''
+  return { marketing, transactional, any, tags: any ? ['sms-opt-in'] : [], note }
 }

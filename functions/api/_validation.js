@@ -15,10 +15,6 @@ export function validatePayload(data, limits = {}) {
   for (const [field, max] of Object.entries(limits)) {
     const value = data?.[field]
     if (value === undefined || value === null || value === '') continue
-    if (field === 'attribution' && typeof value === 'object' && !Array.isArray(value)) {
-      if (JSON.stringify(value).length > max) return `Field is too long: ${field}`
-      continue
-    }
     if (typeof value === 'object') return `Invalid field: ${field}`
     if (String(value).length > max) return `Field is too long: ${field}`
   }
@@ -37,9 +33,6 @@ export const COMMON_FIELD_LIMITS = Object.freeze({
   sourceUrl: 2_048,
   consentUrl: 2_048,
   previewUrl: 2_048,
-  externalLeadId: 120,
-  eventId: 120,
-  attribution: 12_000,
   'cf-turnstile-response': 2_048,
   bh_hp_field: 500,
   website: 500,

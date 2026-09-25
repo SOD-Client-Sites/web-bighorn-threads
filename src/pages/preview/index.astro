@@ -330,18 +330,14 @@ import { demoProducts } from '@/data/demoCatalog'
  btn.disabled = true; setText('convert-submit-label', 'Sending…')
  const fd = new FormData(form)
  const submittedContact = String(fd.get('contact') || '').trim()
- const contextKey = form.id || 'convert-request'
  const tracker = (window as any).bighornTracking
- const leadContext = tracker?.getLeadContext?.(contextKey)
  const payload = {
  company: String(fd.get('company') || ''), contact: String(fd.get('contact') || ''),
  email: String(fd.get('email') || ''), phone: String(fd.get('phone') || ''),
  trade: lead.trade || '', crewSize: lead.crewSize || null,
  notes: String(fd.get('notes') || ''), bh_hp_field: String(fd.get('bh_hp_field') || ''),
  previewUrl: `${location.origin}${location.pathname}`,
- attribution: leadContext?.attribution || null,
- externalLeadId: leadContext?.externalLeadId || '',
- eventId: leadContext?.eventId || '',
+ ...(tracker?.source?.() || {}),
  'cf-turnstile-response': (form.querySelector('[name="cf-turnstile-response"]') as HTMLInputElement | null)?.value || '',
  }
  try {
@@ -349,7 +345,7 @@ import { demoProducts } from '@/data/demoCatalog'
  const data = await res.json().catch(() => ({}))
  if (!res.ok || !data.ok) throw new Error(data.error || `HTTP ${res.status}`)
  if (!data.spam) {
- tracker?.trackLead?.({ form: 'company_store_convert', contextKey, eventId: leadContext?.eventId })
+ tracker?.trackLead?.('company_store_convert')
  }
  setText('convert-success-msg', `Thanks, ${submittedContact.split(' ')[0] || 'we got it'}. The Bighorn team will review the requested plan for ${lead.company}.`)
  form.classList.add('hidden')

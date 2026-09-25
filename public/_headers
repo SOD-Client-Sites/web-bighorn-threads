@@ -9,3 +9,9 @@
 
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
+
+/offers/safety-hoodie/
+  Cache-Control: no-store, max-age=0
+
+/offers/safety-hoodie
+  Cache-Control: no-store, max-age=0

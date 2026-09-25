@@ -36,7 +36,7 @@ export function resolveAuth(env, kind = 'public') {
 const EXPECTED_KEYS = {
   101: ['ok', 'categories'],
   103: ['ok', 'products'],
-  104: ['ok', 'product'],
+  104: ['product'],
 }
 
 function checkSchema(serviceId, data) {
@@ -65,9 +65,9 @@ export async function sagePost(serviceId, payload, auth, ref) {
   })
   if (!res.ok) throw new Error(`SAGE ${serviceId} HTTP ${res.status}`)
   const data = await res.json()
-  if (!data.ok) {
-    // Fail loud on any unsuccessful SAGE response — an ok:false without errNum
-    // was previously swallowed and surfaced to users as "no results".
+  if (data.ok === false || data.errNum) {
+    // Fail loud on any unsuccessful SAGE response. Service 104 (product detail)
+    // omits `ok` on success, so only an explicit false or an errNum is a failure.
     throw new Error(`SAGE ${serviceId} err ${data.errNum ?? 'unknown'}: ${data.errMsg ?? 'unsuccessful response'}`)
   }
   checkSchema(serviceId, data)
