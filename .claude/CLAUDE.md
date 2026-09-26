@@ -12,7 +12,7 @@
 - **Styling:** Tailwind CSS 4.x via `@tailwindcss/vite`
 - **Sitemap:** `@astrojs/sitemap`
 - **Hosting:** Cloudflare Pages (via Wrangler)
-- **Domain:** bighornthreads.com (TBD)
+- **Domain:** bighornthreads.com
 
 ## Folder Structure
 
@@ -33,23 +33,9 @@ docs/               # Architecture, decisions, setup docs
 spec/               # Implementation plans
 ```
 
-## Color Palette
+## Design
 
-- **Navy Dark:** #0b1a2f (primary backgrounds)
-- **Navy Surface:** #111f36 (cards, elevated surfaces)
-- **Navy Light:** #1a2d4a (borders, hover states)
-- **Gold Accent:** #c8960e (CTAs, highlights, brand accent — matches ram horn color)
-- **Gold Light:** #daa520 (hover state, secondary accent)
-- **Gold Pale:** #e8b84a (highlights, badges)
-- **White:** #ffffff (text on dark)
-- **Off-white:** #f1f5f9 (light section backgrounds)
-- **Muted:** #94a3b8 (secondary text)
-
-## Typography
-
-- **Headings:** Space Grotesk (bold, industrial feel)
-- **Body:** Inter (clean readability)
-- **Accents:** JetBrains Mono (stats, badges, phone numbers)
+Colors, typography, components, and spacing are defined in `DESIGN.md` (source of truth). Don't restate them here.
 
 ## Key Commands
 
@@ -61,9 +47,7 @@ npm run preview  # Preview production build
 
 ## Deploy
 
-```bash
-npx wrangler pages deploy dist
-```
+Push to `master` → GitHub Actions builds and deploys to Cloudflare Pages. Pushes need Charles's approval.
 
 ## Coding Conventions
 
