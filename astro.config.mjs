@@ -18,6 +18,7 @@ export default defineConfig({
         '/product/',
         '/win/',
         '/404/',
+        '/offers/safety-hoodie/',
         '/blog/rush-order-shirts-las-vegas-2-day-3-day-options/',
         '/blog/screen-printing-vs-embroidery-construction/',
         '/industries/construction-trades/las-vegas/',

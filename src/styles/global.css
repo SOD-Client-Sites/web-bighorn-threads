@@ -38,28 +38,47 @@
   --color-gray-400: #9ca3af;
   --color-gray-300: #c5cad3;
 
-  --font-heading: 'Big Shoulders Display', 'Big Shoulders Fallback', system-ui, sans-serif;
-  --font-subheading: 'Barlow Condensed', 'Barlow', system-ui, sans-serif;
+  --font-heading: 'Big Shoulders Display', 'Big Shoulders Fallback', 'Big Shoulders Fallback Sans', system-ui, sans-serif;
+  --font-subheading: 'Barlow Condensed', 'Barlow Condensed Fallback', system-ui, sans-serif;
   --font-body: 'Barlow', 'Barlow Fallback', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 }
 
-/* Metric-adjusted fallbacks to reduce CLS on font-display: swap */
+/* Metric-adjusted fallbacks to reduce CLS on font-display: swap (values from @capsizecss/metrics) */
+/* Heading fallbacks are tuned so headings wrap to the same line count as Big Shoulders */
 @font-face {
   font-family: 'Big Shoulders Fallback';
-  src: local('Arial Black');
-  size-adjust: 88%;
-  ascent-override: 110%;
-  descent-override: 28%;
+  src: local('Impact');
+  size-adjust: 90%;
+  ascent-override: 130.56%;
+  descent-override: 28.42%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Big Shoulders Fallback Sans';
+  src: local('Arial'), local('ArialMT'), local('Liberation Sans');
+  size-adjust: 62%;
+  ascent-override: 130.56%;
+  descent-override: 28.42%;
   line-gap-override: 0%;
 }
 
 @font-face {
   font-family: 'Barlow Fallback';
-  src: local('Arial');
-  size-adjust: 105%;
-  ascent-override: 92%;
-  descent-override: 23%;
+  src: local('Arial'), local('ArialMT');
+  size-adjust: 96.68%;
+  ascent-override: 103.43%;
+  descent-override: 20.69%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Barlow Condensed Fallback';
+  src: local('Arial'), local('ArialMT');
+  size-adjust: 76.49%;
+  ascent-override: 130.73%;
+  descent-override: 26.15%;
   line-gap-override: 0%;
 }
 

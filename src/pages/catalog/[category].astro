@@ -69,6 +69,8 @@ const sortVal = category.sort || 'BESTMATCH'
  </h2>
  <p class="mt-4 text-base leading-relaxed text-ash sm:text-[17px]">
  {category.seoIntro}
+ {category.slug === 'promotional-products' && <> See our <a href="/promo-products-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">promotional products in Las Vegas</a> page for trade show and event programs.</>}
+ {category.slug === 'drinkware' && <> See <a href="/promo-products-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">promotional drinkware in Las Vegas</a> for event and trade show orders.</>}
  </p>
  </div>
  <aside class="border border-hairline bg-panel p-6">
