@@ -21,7 +21,6 @@ Four parallel read-only audits. **CRM data integrity is sound** — GHL dedups b
 8. **Quote modal** — `quote-modal.js:511` doesn't client-validate `productName`/`productSpc||productEId`; a valid submit can hit a generic 400 error. Add to client validation.
 9. **No `contactUniqueIdentifiers: ["email"]`** on the 5 upserts → a shared company phone can cross-merge two different contacts. Add on email-required forms.
 10. **`form_submit` fires on failure** (`BaseLayout.astro:79-81`, submit-time). Not success-gated.
-11. **No consent gate** for AudienceLab IDPixel (identity-resolution pixel loads unconditionally) — compliance decision (CMP/banner).
 12. **Turnstile + adblock** can silently 400 legitimate quotes (jobsite audience uses blockers). Monitor / fallback.
 
 ## 🟢 LOW / cosmetic
