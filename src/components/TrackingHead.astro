@@ -1,11 +1,11 @@
 ---
-// Analytics for both site layouts: GA4 + Meta Pixel (page view, lead, phone click),
+// Analytics for both site layouts: GA4 + Meta Pixel (page view, lead, phone click), IDPixel,
 // plus one per-session note of where the visitor came from, sent with lead forms
 // so GHL records a source. No PII is stored in the browser.
 ---
 
 <script is:inline>
-  // Third-party loading is deferred: gtag and the Meta Pixel library load on first
+  // Third-party loading is deferred: gtag, the Meta Pixel library, and IDPixel load on first
   // interaction or 1.5s after load; their queued calls replay once loaded.
   // Turnstile loads only on pages that render a widget (the quote modal loads its own).
   ;(function () {
@@ -21,6 +21,7 @@
       done = true
       load('https://www.googletagmanager.com/gtag/js?id=G-ZGGY24PN1Z')
       load('https://connect.facebook.net/en_US/fbevents.js')
+      load('https://cdn.idpixel.app/v1/idp-analytics-6acd88c94525f8fe67d776df.min.js')
     }
     ;['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (e) {
       window.addEventListener(e, loadThirdParty, { once: true, passive: true })
