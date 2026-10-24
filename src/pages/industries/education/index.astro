@@ -47,7 +47,7 @@ const storeSteps = [
 
 const storeItems = [
  {
- title: 'Staff & Faculty Polos',
+ title: 'School Staff Shirts & Faculty Polos',
  desc: 'Request embroidered polos and button-ups built around an approved campus specification. File retention, placement, and reorder terms are confirmed in writing.',
  },
  {
@@ -55,7 +55,7 @@ const storeItems = [
  desc: 'Request branded gear for departments, programs, and teams through a supported catalog and ordering setup.',
  },
  {
- title: 'Spirit Wear & Fan Gear',
+ title: 'School Spirit Wear & Fan Gear',
  desc: 'Plan school-color and mascot gear for students, families, and staff, with supported store capabilities documented in the proposal.',
  },
  {
@@ -69,6 +69,14 @@ const storeItems = [
 ]
 
 const faqs = [
+  {
+    q: 'Do you ship school staff apparel and spirit wear nationwide?',
+    a: 'Yes. Bighorn Threads is based in Las Vegas and ships school staff apparel and spirit wear anywhere in the United States, to one site, several locations, or individual staff.',
+  },
+  {
+    q: 'What is the minimum order?',
+    a: 'Minimums depend on the order: the garment, the decoration method, and the quantity. Send your logo, the items you want, and rough quantities, and the quote lists the minimum for that order.',
+  },
  {
  q: 'What is a school or district company store?',
  a: 'It is an online store branded for your school or district. Approved apparel lives in one place. Staff, departments, athletics, and boosters can submit their own sizes and orders. Setup terms are confirmed in your plan.',
@@ -111,13 +119,23 @@ const breadcrumbSchema = {
  ],
 }
 
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'School staff apparel and spirit wear',
+  provider: { '@id': 'https://bighornthreads.com/#organization' },
+  areaServed: { '@type': 'Country', name: 'United States' },
+  url: 'https://bighornthreads.com/industries/education/',
+}
+
 const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
 const phone = '+17029048923'
 ---
 
 <BaseLayout
- title="School Staff Apparel Las Vegas | Districts & Campuses | Bighorn Threads"
- description="Branded apparel and company stores for schools, districts, universities, athletics, and booster clubs. Coordinate approved products, staff sizes, delivery options, and budgets."
+ title="School Staff Apparel & School Spirit Wear | Shipped Nationwide | Bighorn Threads"
+ description="Staff and faculty polos, school spirit wear, department apparel, and athletics gear for schools, districts, and universities. Shipped to any campus in the US."
  canonical="https://bighornthreads.com/industries/education/"
 >
  <!-- ════ HERO — concrete ════ -->
@@ -138,12 +156,11 @@ const phone = '+17029048923'
  </p>
  <h1 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
  Branded apparel &amp; company stores for
- <span class="text-gold-600"> Las Vegas schools and districts.</span>
+ <span class="text-gold-600"> schools and districts nationwide.</span>
  </h1>
  <p class="mt-7 max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
- Plan apparel for staff, faculty, athletics, and boosters through a managed store option.
- Supported size collection, product approvals, artwork retention, and delivery options are confirmed during setup.
- </p>
+          Staff and faculty polos, department apparel, school spirit wear, and athletics gear for schools, districts, and universities. One Las Vegas account team, production through vetted partners, shipped to any campus in the US.
+        </p>
  <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
  <a href="/get-started/education/" class="btn-primary text-base">
  Build my company store plan
@@ -286,5 +303,7 @@ const phone = '+17029048923'
  </section>
 
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+ <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 </BaseLayout>

@@ -47,7 +47,7 @@ const storeSteps = [
 
 const storeItems = [
   {
-    title: 'Department uniforms & polos',
+    title: 'Government & municipal uniforms',
     desc: 'Embroidered polos, button-ups, and service shirts that keep parks, water, transit, and admin staff on one consistent standard.',
   },
   {
@@ -63,12 +63,20 @@ const storeItems = [
     desc: 'Caps, beanies, and accessories that carry the agency mark across every department and every shift.',
   },
   {
-    title: 'Public-works field gear',
+    title: 'Public works uniforms & field gear',
     desc: 'Field-workwear options are reviewed for the exact use, employer requirements, manufacturer instructions, and care process. Sizing, decoration, retention, and reorder terms are quote-specific.',
   },
 ]
 
 const faqs = [
+  {
+    q: 'Do you ship government and municipal uniforms nationwide?',
+    a: 'Yes. Bighorn Threads is based in Las Vegas and ships government and municipal uniforms anywhere in the United States, to one site, several locations, or individual staff.',
+  },
+  {
+    q: 'What is the minimum order?',
+    a: 'Minimums depend on the order: the garment, the decoration method, and the quantity. Send your logo, the items you want, and rough quantities, and the quote lists the minimum for that order.',
+  },
   {
     q: 'What is an agency company store?',
     a: 'An agency company store is a managed online storefront built around approved products and artwork. Access, ordering, budget, inventory, and fulfillment capabilities depend on the selected setup.',
@@ -111,12 +119,22 @@ const breadcrumb = {
   ],
 }
 
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Government and municipal uniforms',
+  provider: { '@id': 'https://bighornthreads.com/#organization' },
+  areaServed: { '@type': 'Country', name: 'United States' },
+  url: 'https://bighornthreads.com/industries/government/',
+}
+
 const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
 ---
 
 <BaseLayout
-  title="Government & Public Agency Uniforms Las Vegas | Bighorn Threads"
-  description="Plan branded uniforms, employer-approved hi-vis apparel, and managed store options for public agencies. Capabilities and controls are confirmed in writing."
+  title="Government & Municipal Uniforms | Public Works Apparel | Bighorn Threads"
+  description="Government and municipal uniforms, public works apparel, hi-vis, and embroidered outerwear for city, county, and state agencies. Shipped anywhere in the US."
   canonical="https://bighornthreads.com/industries/government/"
 >
   <!-- ════ HERO — concrete ════ -->
@@ -137,12 +155,10 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
         </p>
         <h1 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
  Uniforms, branded gear &amp; company stores
- <span class="text-gold-600"> for Nevada public-sector teams.</span>
+ <span class="text-gold-600"> for public-sector teams nationwide.</span>
  </h1>
         <p class="mt-7 max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
-          Plan department uniforms, employer-approved hi-vis apparel, and a managed ordering store for
-          public-sector teams. Supported catalogs, access, budgets, size collection, and delivery options
-          are confirmed in the written proposal.
+          Government and municipal uniforms, public works apparel, employer-approved hi-vis, and embroidered outerwear for city, county, and state agencies. One Las Vegas account team, production through vetted partners, delivered to any department in the US.
         </p>
         <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
           <a href="/get-started/government/" class="btn-primary text-base">
@@ -283,5 +299,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
   </section>
 
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
 </BaseLayout>

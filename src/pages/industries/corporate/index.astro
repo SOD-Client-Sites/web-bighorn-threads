@@ -43,33 +43,50 @@ const storeSteps = [
 
 const offerings = [
   {
-    title: 'Embroidered Polos & Softshells',
-    desc: 'Polos, button-ups, quarter-zips, and softshell jackets can be considered for partner embroidery. Artwork preparation, file retention, and reorder matching are confirmed with each production partner.',
-    tag: 'Apparel',
+    title: 'Company Uniforms & Custom Company Shirts',
+    desc: 'Embroidered polos, button-ups, and custom company shirts for front desk, sales, service, and office staff. One logo standard across every location.',
+    tag: 'Uniforms',
   },
   {
-    title: 'Premium Brands',
-    desc: 'Recognized brands your team actually wants to wear — Port Authority, premium outerwear, YETI drinkware, and more. Branded, not bargain-bin.',
-    tag: 'Premium',
+    title: 'Custom Embroidered Jackets & Quarter-Zips',
+    desc: 'Softshells, fleece jackets, vests, and custom quarter-zips with your logo embroidered. The layer your team actually wears to client meetings.',
+    tag: 'Outerwear',
+  },
+  {
+    title: 'Branded Merchandise & Custom Swag',
+    desc: 'Drinkware, bags, hats, tech, and desk gear with your logo. Branded, not bargain-bin, from brands like Port Authority and YETI.',
+    tag: 'Swag',
+  },
+  {
+    title: 'Corporate Gifts With Your Logo',
+    desc: 'Client gifts and employee appreciation gifts that get used, not tossed. Kits can ship to one office or to each recipient.',
+    tag: 'Gifts',
   },
   {
     title: 'New-Hire Onboarding Kits',
-    desc: 'A proposed welcome kit can combine approved apparel and merchandise. Products, sizes, production, and delivery timing require written confirmation.',
+    desc: 'A welcome kit of approved apparel and merchandise, sized by the new hire and shipped to their home or office.',
     tag: 'Onboarding',
   },
   {
-    title: 'Event & Trade-Show Apparel',
-    desc: 'Matching gear can be planned for conferences, booths, and company events. Product availability and delivery destinations require written confirmation.',
+    title: 'Conference & Trade-Show Swag',
+    desc: 'Matching booth-staff apparel and trade-show promotional items, shipped to your office or straight to the venue.',
     tag: 'Events',
-  },
-  {
-    title: 'Client Gifts',
-    desc: 'Branded gifts that get used, not tossed. Drinkware, bags, and premium pieces that keep your brand in front of the people who matter.',
-    tag: 'Gifts',
   },
 ]
 
 const faqs = [
+  {
+    q: 'Do you ship corporate apparel nationwide?',
+    a: 'Yes. Bighorn Threads is based in Las Vegas and ships custom corporate apparel, company uniforms, and branded merchandise anywhere in the United States, to one office, several locations, or individual employees.',
+  },
+  {
+    q: 'What is the minimum order for custom corporate apparel?',
+    a: 'Minimums depend on the order: the garment, the decoration method, and the quantity. Send your logo, the items you want, and rough quantities, and the quote lists the minimum for that order.',
+  },
+  {
+    q: 'Embroidery or screen printing for company shirts?',
+    a: 'Embroidery is the standard for polos, jackets, quarter-zips, and hats because it looks professional and holds up to washing. Screen printing fits larger runs of t-shirts and event apparel. The quote recommends a method for each item.',
+  },
   {
     q: 'What is a company store?',
     a: 'A company store can present approved products and artwork. User access, size submission, payment, production, fulfillment, and delivery capabilities are confirmed in the written setup plan.',
@@ -112,12 +129,22 @@ const breadcrumbSchema = {
   ],
 }
 
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Custom corporate apparel and company uniforms',
+  serviceType: 'Custom corporate apparel, company uniforms, branded merchandise, and corporate gifts',
+  provider: { '@id': 'https://bighornthreads.com/#organization' },
+  areaServed: { '@type': 'Country', name: 'United States' },
+  url: 'https://bighornthreads.com/industries/corporate/',
+}
+
 const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
 ---
 
 <BaseLayout
-  title="Corporate Branded Apparel Las Vegas | Company Stores | Bighorn Threads"
-  description="Branded gear and company stores for corporate, office, and professional teams. Coordinate approved products, staff sizes, delivery options, and budget controls."
+  title="Custom Corporate Apparel & Company Uniforms | Shipped Nationwide | Bighorn Threads"
+  description="Custom corporate apparel, company uniforms, branded merchandise, and corporate gifts with your logo. Embroidered polos, jackets, and quarter-zips, shipped anywhere in the US."
   canonical="https://bighornthreads.com/industries/corporate/"
 >
   <!-- ════ HERO — concrete (no photographic band) ════ -->
@@ -137,13 +164,13 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
           For Corporate &amp; Office Teams
         </p>
         <h1 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
- Branded gear &amp; company stores for
- <span class="text-gold-600"> Las Vegas company teams.</span>
+ Custom corporate apparel &amp; company uniforms,
+ <span class="text-gold-600"> shipped anywhere in the US.</span>
  </h1>
         <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
-          Bighorn can plan a branded company-store workflow around your approved products and artwork.
-          User ordering, payment, production, fulfillment, reporting, and delivery options are confirmed
-          in writing for tech, finance, energy, and professional services teams.
+          Embroidered polos, jackets, quarter-zips, company shirts, branded merchandise, and corporate gifts
+          with your logo. One account team in Las Vegas, production through vetted partners, and delivery to
+          any office or employee in the country. Add a company store when your team reorders often.
         </p>
         <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
           <a href="/get-started/corporate/" class="btn-primary text-base">
@@ -226,7 +253,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
       <div class="mb-12 max-w-2xl">
         <p class="kicker mb-3">What You Can Consider</p>
         <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
-          What you can put in <span class="text-gold-600">your store.</span>
+          Corporate apparel, swag &amp; gifts <span class="text-gold-600">we brand.</span>
         </h2>
         <p class="mt-4 text-lg leading-relaxed text-ash">
           Pick the gear that fits your team and your brand. Product availability, quantities,
@@ -294,4 +321,5 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
 
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 </BaseLayout>

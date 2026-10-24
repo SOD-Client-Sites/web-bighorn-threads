@@ -1,6 +1,16 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Embroidered scrubs and healthcare uniforms',
+  provider: { '@id': 'https://bighornthreads.com/#organization' },
+  areaServed: { '@type': 'Country', name: 'United States' },
+  url: 'https://bighornthreads.com/industries/healthcare/',
+}
+
 const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
 
 const problems = [
@@ -53,7 +63,7 @@ const storeSteps = [
 
 const storeItems = [
   {
-    title: 'Embroidered Scrubs',
+    title: 'Embroidered Scrubs & Custom Scrubs With Your Logo',
     desc: 'Scrub tops and pants with your logo and staff names stitched in. Set role and department colors so the floor reads at a glance.',
     tag: 'Scrubs',
   },
@@ -63,7 +73,7 @@ const storeItems = [
     tag: 'Outerwear',
   },
   {
-    title: 'Admin & Front-Desk Polos',
+    title: 'Medical & Dental Office Uniforms',
     desc: 'Embroidered polos and button-ups for reception, scheduling, and admin staff — a clean, professional front-of-house look.',
     tag: 'Apparel',
   },
@@ -80,6 +90,14 @@ const storeItems = [
 ]
 
 const faqs = [
+  {
+    q: 'Do you ship healthcare uniforms and embroidered scrubs nationwide?',
+    a: 'Yes. Bighorn Threads is based in Las Vegas and ships healthcare uniforms and embroidered scrubs anywhere in the United States, to one site, several locations, or individual staff.',
+  },
+  {
+    q: 'What is the minimum order?',
+    a: 'Minimums depend on the order: the garment, the decoration method, and the quantity. Send your logo, the items you want, and rough quantities, and the quote lists the minimum for that order.',
+  },
   {
     q: 'What is a healthcare company store?',
     a: 'It’s a proposed private store for approved products and brand standards. The plan confirms size submission, decoration, delivery options, and service terms.',
@@ -124,11 +142,12 @@ const breadcrumb = {
 ---
 
 <BaseLayout
-  title="Healthcare Apparel Programs Las Vegas | Scrubs & Lab Coats | Bighorn Threads"
-  description="Branded scrubs, embroidered lab coats, and company stores for hospitals, clinics, and multi-site healthcare groups. Role-based colors, names, and delivery options are coordinated for each program."
+  title="Embroidered Scrubs & Healthcare Uniforms | Shipped Nationwide | Bighorn Threads"
+  description="Embroidered scrubs, custom scrubs with your logo, lab coats, and office polos for hospitals, clinics, and medical and dental offices. Shipped anywhere in the US."
   canonical="https://bighornthreads.com/industries/healthcare/"
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
 
   <!-- ════ HERO — concrete ════ -->
@@ -149,11 +168,10 @@ const breadcrumb = {
         </p>
         <h1 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
  Embroidered scrubs, lab coats &amp; company stores
- <span class="text-gold-600"> for Las Vegas healthcare teams.</span>
+ <span class="text-gold-600"> for healthcare teams nationwide.</span>
  </h1>
         <p class="mt-7 max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
-          Plan one approved catalog for clinical and administrative teams. Request staff size submission.
-          Bighorn confirms decoration, store capabilities, shipping options, and service terms in writing.
+          Embroidered scrubs, custom scrubs with your logo, lab coats, and front-desk polos for hospitals, clinics, and medical and dental offices. One Las Vegas account team, production through vetted partners, and delivery to any location in the US.
         </p>
         <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
           <a href="/get-started/healthcare/" class="btn-primary text-base">

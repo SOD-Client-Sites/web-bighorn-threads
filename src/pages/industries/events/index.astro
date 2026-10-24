@@ -43,7 +43,7 @@ const storeSteps = [
 
 const offerings = [
   {
-    title: 'Event & Booth Staff Apparel',
+    title: 'Event Staff Shirts & Booth Apparel',
     desc: 'Plan matching apparel for booth or event staff. File retention, reuse, proofing, product availability, pricing, and timing require confirmation.',
     tag: 'Staff',
   },
@@ -53,12 +53,12 @@ const offerings = [
     tag: 'Trade Show',
   },
   {
-    title: 'Attendee Giveaways & Merch',
+    title: 'Conference Swag & Trade Show Giveaways',
     desc: 'Request tees, hats, and attendee merchandise. Bighorn confirms eligible products, decoration, quantities, and pricing in the quote.',
     tag: 'Merch',
   },
   {
-    title: 'Team & League Uniforms',
+    title: 'Custom Team Shirts & League Uniforms',
     desc: 'Request matching team or league uniforms. Size submission, personalization, artwork handling, and reorder terms are confirmed in writing.',
     tag: 'Teams',
   },
@@ -70,6 +70,14 @@ const offerings = [
 ]
 
 const faqs = [
+  {
+    q: 'Do you ship event and trade show apparel nationwide?',
+    a: 'Yes. Bighorn Threads is based in Las Vegas and ships event and trade show apparel anywhere in the United States, to one site, several locations, or individual staff.',
+  },
+  {
+    q: 'What is the minimum order?',
+    a: 'Minimums depend on the order: the garment, the decoration method, and the quantity. Send your logo, the items you want, and rough quantities, and the quote lists the minimum for that order.',
+  },
   {
     q: 'What is an event company store?',
     a: 'An event company store can present approved products and artwork for one event or a recurring series. Size submission, delivery options, and fulfillment terms are confirmed during setup.',
@@ -112,12 +120,22 @@ const breadcrumbSchema = {
   ],
 }
 
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Event staff shirts, trade show apparel, and conference swag',
+  provider: { '@id': 'https://bighornthreads.com/#organization' },
+  areaServed: { '@type': 'Country', name: 'United States' },
+  url: 'https://bighornthreads.com/industries/events/',
+}
+
 const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
 ---
 
 <BaseLayout
-  title="Event & Trade Show Apparel Las Vegas | Merch Stores | Bighorn Threads"
-  description="Custom apparel, merch, and company stores for events, trade shows, conferences, and sports teams. Coordinate products, sizes, artwork, production, and available delivery options."
+  title="Trade Show Apparel, Conference Swag & Event Staff Shirts | Bighorn Threads"
+  description="Event staff shirts, trade show apparel, conference swag, and custom team shirts. Shipped to your office or straight to the venue anywhere in the US."
   canonical="https://bighornthreads.com/industries/events/"
 >
   <!-- ════ HERO — concrete (no photographic band) ════ -->
@@ -138,12 +156,10 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
         </p>
         <h1 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
  Custom apparel, merch &amp; on-demand stores
- <span class="text-gold-600"> for Las Vegas events and teams.</span>
+ <span class="text-gold-600"> for events and teams nationwide.</span>
  </h1>
         <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
-          Hard date, lots of people, no time to chase sizes. Bighorn proposes an event store or order plan.
-          Staff and attendee size submission depends on the approved setup. Production and delivery dates require written confirmation. Single
-          events, recurring series, trade shows, and teams.
+          Event staff shirts, trade show apparel, conference swag, and custom team shirts, with a hard date and lots of sizes. One Las Vegas account team, production through vetted partners, shipped to your office or straight to the venue anywhere in the US.
         </p>
         <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
           <a href="/get-started/events/" class="btn-primary text-base">
@@ -296,5 +312,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
   </section>
 
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 </BaseLayout>

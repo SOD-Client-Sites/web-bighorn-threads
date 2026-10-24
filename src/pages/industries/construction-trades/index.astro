@@ -80,12 +80,22 @@ const breadcrumb = {
  ],
 }
 
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Branded workwear and construction company apparel',
+  provider: { '@id': 'https://bighornthreads.com/#organization' },
+  areaServed: { '@type': 'Country', name: 'United States' },
+  url: 'https://bighornthreads.com/industries/construction-trades/',
+}
+
 const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
 ---
 
 <BaseLayout
- title="Construction & Trade Uniforms Las Vegas | Company Stores | Bighorn Threads"
- description="Plan branded uniforms, protective workwear, and company-store options for construction and trade crews through a Las Vegas account team."
+ title="Branded Workwear & Construction Company Shirts | Nationwide | Bighorn Threads"
+ description="Branded workwear, construction company shirts, custom work shirts with your logo, branded hard hats, and safety vests for every trade. Shipped anywhere in the US."
 >
  <!-- ════ HERO — concrete ════ -->
  <section class="bg-concrete">
@@ -97,13 +107,11 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  </p>
  <h1 class="font-heading text-5xl font-extrabold uppercase leading-[0.92] tracking-tight text-charcoal sm:text-6xl lg:text-[5rem]">
  Uniforms &amp; company stores for
- <span class="text-gold-600"> Las Vegas trade crews.</span>
+ <span class="text-gold-600"> trade crews nationwide.</span>
  </h1>
  <p class="mt-7 max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
- Plan hi-vis and FR workwear, embroidered uniforms, and company-store options for
- construction crews. Bighorn coordinates product, decoration, and ordering details
- through selected production partners, with all program terms confirmed in writing.
- </p>
+          Branded workwear, construction company shirts, custom work shirts with your logo, branded hard hats, and custom safety vests for crews in every trade. One Las Vegas account team, production through vetted partners, shipped to any jobsite or office in the US. Hi-vis and FR garments are selected by the employer.
+        </p>
  <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
  <a href="/contact/" class="btn-primary text-base">
  Get a Quote
@@ -245,4 +253,6 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  </section>
 
  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+
+ <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 </BaseLayout>

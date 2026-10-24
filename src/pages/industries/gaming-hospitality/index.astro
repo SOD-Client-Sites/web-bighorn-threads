@@ -51,12 +51,12 @@ const storeSteps = [
 
 const offerings = [
   {
-    title: 'Guest-Services & Front-Desk Polos',
+    title: 'Hotel Uniforms & Front-Desk Polos',
     desc: 'Polos and button-ups can be considered for partner embroidery. Artwork preparation, file retention, and reorder matching are confirmed with each production partner.',
     tag: 'Front of House',
   },
   {
-    title: 'F&B Shirts & Aprons',
+    title: 'Restaurant Uniforms, Server Shirts & Aprons',
     desc: 'Branded shirts, aprons, and service wear for restaurants, bars, and banquets. Durable, on-brand, and built for the floor.',
     tag: 'Food & Beverage',
   },
@@ -78,6 +78,14 @@ const offerings = [
 ]
 
 const faqs = [
+  {
+    q: 'Do you ship hotel, restaurant, and hospitality uniforms nationwide?',
+    a: 'Yes. Bighorn Threads is based in Las Vegas and ships hotel, restaurant, and hospitality uniforms anywhere in the United States, to one site, several locations, or individual staff.',
+  },
+  {
+    q: 'What is the minimum order?',
+    a: 'Minimums depend on the order: the garment, the decoration method, and the quantity. Send your logo, the items you want, and rough quantities, and the quote lists the minimum for that order.',
+  },
   {
     q: 'What is a hospitality company store?',
     a: 'A hospitality company store presents approved uniforms and gear by department. Staff can submit their sizes. Bighorn coordinates the delivery option and fulfillment terms confirmed during setup.',
@@ -120,12 +128,22 @@ const breadcrumbSchema = {
   ],
 }
 
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Hotel, restaurant, and hospitality uniforms',
+  provider: { '@id': 'https://bighornthreads.com/#organization' },
+  areaServed: { '@type': 'Country', name: 'United States' },
+  url: 'https://bighornthreads.com/industries/gaming-hospitality/',
+}
+
 const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
 ---
 
 <BaseLayout
-  title="Gaming & Hospitality Apparel Programs Las Vegas | Bighorn Threads"
-  description="Uniforms, branded gear, and company stores for casinos, resorts, hotels, and hospitality teams. Coordinate approved products, department budgets, and delivery options."
+  title="Hotel, Restaurant & Hospitality Uniforms | Shipped Nationwide | Bighorn Threads"
+  description="Hotel uniforms, restaurant uniforms, server shirts and aprons, and casino and spa staff apparel. Embroidered and shipped to any property in the US."
   canonical="https://bighornthreads.com/industries/gaming-hospitality/"
 >
   <!-- ════ HERO — concrete (no photographic band) ════ -->
@@ -146,11 +164,10 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
         </p>
         <h1 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
  Uniforms, branded gear &amp; company stores
- <span class="text-gold-600"> for Las Vegas property teams.</span>
+ <span class="text-gold-600"> for hotels, restaurants &amp; casinos nationwide.</span>
  </h1>
         <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
-          Bighorn can plan a branded company-store workflow for casinos, resorts, hotels, F&amp;B, and guest services.
-          User ordering, payment, production, fulfillment, reporting, and delivery options are confirmed in writing during setup.
+          Hotel uniforms, restaurant uniforms, server shirts and aprons, and casino and spa staff apparel for properties of every size. One Las Vegas account team, production through vetted partners, shipped to any property in the US.
         </p>
         <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
           <a href="/get-started/gaming-hospitality/" class="btn-primary text-base">
@@ -300,5 +317,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
   </section>
 
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 </BaseLayout>
