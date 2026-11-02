@@ -18,10 +18,10 @@ const faqs = [
  { q: 'What is screen printing?', a: 'Screen printing is a decoration method that pushes ink through a fine mesh stencil onto fabric, layer by layer for each color. The ink cures into the fibers so the design is durable, vivid, and washable. It\'s the standard for t-shirts, hoodies, and high-volume apparel runs.' },
  { q: 'How does screen printing work step by step?', a: 'A digital design is separated by color and prepared as screens. Ink is applied through the screens, then cured under the selected ink manufacturer\'s documented time, temperature, equipment, garment, and process requirements.' },
  { q: 'Is screen printing better than embroidery?', a: 'For tees, hoodies, and large/colorful designs at volume, yes. Screen printing prints flat onto fabric so big designs and gradients work, and per-piece cost falls fast at quantity because most cost is in setup. Embroidery wins on polos, button-downs, hats, and any garment where a premium textured look matters more than design size or color.' },
- { q: 'What fabrics work with screen printing?', a: 'Compatibility depends on the exact garment, fabric, coating, ink system, preparation, cure, artwork, and production partner. Request product-specific approval and written minimums.' },
- { q: 'How many colors can you screen print?', a: 'Color capacity, separations, setup, appearance, and cost depend on the artwork, press, ink system, garment, and production partner. Confirm the approved specification and quote.' },
- { q: 'How long does screen printed ink last?', a: 'Durability depends on the ink system, garment, preparation, cure, use, laundering, care, and manufacturer instructions. Confirm the approved care instructions for the order.' },
- { q: 'How much does screen printing cost?', a: 'Pricing depends on the product, artwork, colors, placements, quantity, setup, ink system, and production partner. Confirm every fee and quantity option in the written quote.' },
+ { q: 'What fabrics work with screen printing?', a: 'The fabric, coating, ink, and artwork decide whether it can be printed. Request product-specific approval and written minimums.' },
+ { q: 'How many colors can you screen print?', a: 'The artwork, garment, and ink set the color count, setup, and cost. Your proof and quote confirm it.' },
+ { q: 'How long does screen printed ink last?', a: 'Ink, garment, cure, and laundering set how long a print lasts. Confirm the approved care instructions for the order.' },
+ { q: 'How much does screen printing cost?', a: 'Product, artwork, colors, placements, and quantity set the price. Confirm every fee and quantity option in the written quote.' },
 ]
 
 const schema = {
@@ -62,7 +62,7 @@ const speakableSchema = {
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Screen printing pushes ink through a mesh stencil onto a compatible product, then cures the ink. It can suit tees, hoodies, and larger designs. Pricing and durability depend on the exact order, production process, use, and care.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Screen printing pushes ink through a mesh stencil onto a compatible product, then cures the ink. It can suit tees, hoodies, and larger designs. The order, the use, and the care set the price and how long it lasts.</p>
  </aside>
 
  <h2 id="how-it-works" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">How Screen Printing Actually Works</h2>
@@ -107,22 +107,22 @@ const speakableSchema = {
  <p class="mb-6 text-lg leading-relaxed text-charcoal">For a tighter look at pricing, see <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">how embroidery pricing works</a>. The same five factors apply with different weightings.</p>
 
  <h2 id="fabric" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Fabric Compatibility</h2>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Screen-print compatibility depends on the exact garment, fabric, coating, ink system, preparation, cure, artwork, and production partner. Product categories to review include:</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">The fabric, coating, ink, and artwork decide whether it can be printed. Product categories to review include:</p>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>100% cotton tees.</strong> The classic substrate. Crisp prints, full color saturation, fast cure.</li>
  <li><strong>50/50 cotton-poly.</strong> Slightly different ink pickup but identical results in practice.</li>
- <li><strong>100% polyester.</strong> The production partner must confirm the compatible ink system, preparation, cure, and dye-migration controls.</li>
+ <li><strong>100% polyester.</strong> We check the ink, preparation, cure, and dye-migration controls.</li>
  <li><strong>Tri-blends.</strong> Cotton/poly/rayon, softer hand, prints fine but fabric texture means slight ink absorption variation.</li>
  <li><strong>Hi-vis poly mesh.</strong> Print placement is constrained by the <a href="https://safetyequipment.org/standards/ansi-isea-107/" rel="noopener" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">ANSI 107 retroreflective area limits</a>, but the fabric prints cleanly.</li>
  </ul>
 
  <h2 id="durability" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">How Long Does It Last</h2>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Print service life depends on the ink, garment, preparation, cure, use, laundering, and care. Follow the written instructions for the approved product and decoration.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Ink, garment, cure, and laundering set print life. Follow the written instructions for the approved product and decoration.</p>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">Ask the production partner how it verifies the approved ink manufacturer's cure requirements for the exact system.</p>
 
  <div class="mt-12 border border-hairline bg-panel p-7 sm:p-9">
  <h2 class="mb-3 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal">Need screen printed shirts in Las Vegas?</h2>
-<p class="mb-5 text-lg leading-relaxed text-ash">Bighorn Threads coordinates commercial screen printing through selected production partners. Send your design, product, quantity, and deadline for a current quote.</p>
+<p class="mb-5 text-lg leading-relaxed text-ash">Bighorn Threads supplies commercial screen printing. Send your design, product, quantity, and deadline for a current quote.</p>
  <a href="/services/screen-printing-las-vegas/" class="btn-primary text-base">See Our Screen Printing Service →</a>
  </div>
  </div>

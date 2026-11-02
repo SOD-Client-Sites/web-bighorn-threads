@@ -40,6 +40,11 @@ type PhotoKey = keyof typeof productPhotos
 const noTiles = /-vs-|-vs\/|alternatives|best-places|cost-|-cost|worth-it|fastest|how-to|locations|service-areas|safety-compliance|setup-guide|company-stores|^\/industries\/$|^\/services\/$|^\/es\/|catalog/
 
 const sets: [RegExp, PhotoKey[]][] = [
+ [/plumb/, ['workShirt', 'workShirtBlack', 'polo', 'pants']],
+ [/restaurant/, ['apron', 'polo', 'tee', 'cap']],
+ [/hotel/, ['dressShirt', 'polo', 'quarterZip', 'apron']],
+ [/employee-appreciation/, ['tumbler', 'quarterZip', 'backpack', 'hoodie']],
+ [/hoodies/, ['hoodie', 'carharttJacket', 'jacket', 'tee']],
  [/company-uniforms/, ['polo', 'workShirt', 'scrubs', 'softshell']],
  [/company-shirts/, ['tee', 'polo', 'workShirt', 'dressShirt']],
  [/embroidered-hats/, ['cap', 'beanie', 'boonie', 'capOlive']],

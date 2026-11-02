@@ -34,9 +34,9 @@ const url = `https://bighornthreads.com${path}`
 
 const steps = [
   { n: '01', title: 'Send the basics', desc: 'Your logo, the items you want, rough quantities, your date, and where the order ships.' },
-  { n: '02', title: 'Read the quote', desc: 'The written quote lists the garments, decoration, price, minimums, and timing for your order.' },
-  { n: '03', title: 'Approve the artwork', desc: 'Review the proof or sample step named in your quote before production starts.' },
-  { n: '04', title: 'Partners produce, Bighorn coordinates', desc: 'A selected production partner decorates the order and Bighorn keeps the approved specification for reorders.' },
+  { n: '02', title: 'Get the quote', desc: 'You get the garments, decoration, price, minimum, and timing in writing.' },
+  { n: '03', title: 'Approve the proof', desc: 'Check the colors, size, and logo placement. Nothing gets made until you approve.' },
+  { n: '04', title: 'It ships to you', desc: 'The order goes to one address or several. We keep your logo file and garment details so a reorder matches.' },
 ]
 
 const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }
@@ -185,7 +185,7 @@ const prose = '[&_a]:text-gold-700 [&_a]:underline [&_a]:decoration-gold-500/40 
   <section class="bg-charcoal py-16">
     <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
       <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-concrete sm:text-4xl">Send your logo and quantities</h2>
-      <p class="mb-8 text-lg text-navy-200">Bighorn Threads ships anywhere in the United States. Your quote lists the price, minimums, and timing for your order.</p>
+      <p class="mb-8 text-lg text-navy-200">We ship anywhere in the US. Tell us the garment, how many, and your date, and we will send a price and a proof.</p>
       <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
         <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
         <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>

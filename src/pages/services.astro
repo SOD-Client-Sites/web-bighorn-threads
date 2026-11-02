@@ -8,54 +8,54 @@ const services = [
  {
  name: 'Screen Printing',
  serviceType: 'Screen printing for construction branded apparel',
- description: 'Multi-color screen printing on tees, hoodies, and qualifying workwear. Ink, color, minimum, and timing requirements are confirmed for each order.',
+ description: 'Multi-color screen printing on tees, hoodies, and workwear, with bold logos and large back prints.',
  },
  {
  name: 'Embroidery',
  serviceType: 'Embroidery for construction uniforms, polos, headwear',
- description: 'Commercial embroidery on qualifying polos, softshells, hats, beanies, and bags. Thread, artwork, minimum, and timing requirements are confirmed for each order.',
+ description: 'Stitched logos on polos, softshells, hats, beanies, and bags.',
  },
  {
  name: 'Branded Apparel',
- serviceType: 'Branded workwear & uniforms for Las Vegas trades',
- description: 'Branded apparel planning for construction and trade teams. Product ratings, brand availability, decoration, minimums, and timing are confirmed by quote.',
+ serviceType: 'Branded workwear and uniforms for trades',
+ description: 'Tees, polos, jackets, work pants, and safety-rated garments for construction and trade teams, sorted by role.',
  },
  {
  name: 'Company Stores',
  serviceType: 'Private branded apparel store for contractors',
- description: 'Planning for private branded apparel portals. Platform features, costs, inventory, ordering, and fulfillment terms are confirmed before setup.',
+ description: 'A private online store with your approved gear, where employees order their own sizes.',
  },
  {
  name: 'Promotional Products',
  serviceType: 'Branded promotional products & corporate gifts',
- description: 'Promotional product sourcing for drinkware, bags, tech accessories, awards, and event items. Availability, samples, decoration, minimums, and timing vary by product.',
+ description: 'Drinkware, bags, tech accessories, awards, and event items with your logo.',
  },
 ]
 
 const faqs = [
  {
  q: 'What services does Bighorn Threads offer?',
- a: 'Bighorn coordinates screen printing, embroidery, branded workwear, and promotional-product quotes through production partners. Company stores are available for ongoing programs. Implementation requires a separately approved configuration.',
+ a: 'Screen printing, embroidery, branded workwear, promotional products, and private company stores for teams that reorder.',
  },
  {
  q: 'What’s the minimum order?',
- a: 'Minimums vary by garment, decoration method, supplier, and order specification. We confirm the current minimum and any setup charges in the quote.',
+ a: 'Each garment and decoration method has its own minimum. Send the item and a rough count, and we will tell you the minimum and any setup charge.',
  },
  {
  q: 'How fast can you turn around a rush job?',
- a: 'Rush capacity depends on the product, artwork, quantity, approvals, production partner, and delivery requirements. Share your needed date so we can confirm the current schedule before you commit.',
+ a: 'Give us your date before you order. We check that the garment is in stock and a shop has room, then tell you if the date works.',
  },
  {
  q: 'Do you handle FR-rated and ANSI hi-vis decoration?',
- a: 'Bighorn coordinates decoration through production partners. Safety-rated garments require written review of the product, decoration method, placement, thread, and current supporting documents before approval.',
+ a: 'Yes. You tell us the protection level, and we find garments rated for it. Some of this gear limits how and where a logo can go, so we check the maker’s instructions before anything is made.',
  },
  {
  q: 'Should I pick screen printing, embroidery, or DTF?',
- a: 'Embroidery is common for polos, jackets, and headwear. Screen printing can fit larger runs, while DTF can fit detailed artwork and smaller quantities. The product, artwork, quantity, care needs, and quote determine the final method.',
+ a: 'Embroidery suits polos, jackets, and hats. Screen printing suits larger runs of tees and hoodies. DTF suits detailed artwork in smaller quantities. Send your logo and count and we will recommend one.',
  },
  {
  q: 'How does a company store work?',
- a: 'A company store organizes your approved products and ordering rules in one place, so staff order the right gear without routing every request through you.',
+ a: 'Your approved gear sits in one private store, and your staff order their own sizes without going through you.',
  },
 ]
 
@@ -92,8 +92,8 @@ const speakableSchema = {
  '@type': 'WebPage',
  url: 'https://bighornthreads.com/services/',
  datePublished: '2026-07-08',
- dateModified: '2026-08-21',
- name: 'Screen Printing, Embroidery & Branded Gear in Las Vegas',
+ dateModified: '2026-11-01',
+ name: 'Screen Printing, Embroidery & Branded Gear',
  speakable: {
  '@type': 'SpeakableSpecification',
  cssSelector: ['h1','.speakable-answer'],
@@ -102,8 +102,8 @@ const speakableSchema = {
 ---
 
 <BaseLayout
- title="Branded Apparel Services in Las Vegas | Bighorn Threads"
- description="Explore screen printing, embroidery, branded workwear, company stores, and promotional products managed by a Las Vegas team through production partners."
+ title="Screen Printing, Embroidery & Branded Apparel Services | Bighorn Threads"
+ description="Screen printing, embroidery, branded workwear, company stores, and promotional products for teams across the US, with one contact on every order."
 >
  <!-- ════ HERO — full-bleed photographic dark band ════ -->
  <section class="border-b border-hairline bg-concrete">
@@ -114,10 +114,10 @@ const speakableSchema = {
  Our Services
  </p>
  <h1 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
- Screen Printing, Embroidery &amp; <span class="text-gold-700">Branded Gear</span> in Las Vegas
+ Screen Printing, Embroidery &amp; <span class="text-gold-700">Branded Gear</span> for Your Team
  </h1>
  <p class="speakable-answer mt-7 max-w-xl text-lg leading-relaxed text-ash sm:text-xl">
- Screen printing, embroidery, workwear, promotional products, and company stores, run by one Las Vegas account team. Production partners do the decoration, and your price comes in a written quote.
+ Printed tees, stitched polos, workwear, promo items, or a private store your people order from. One contact runs the order, and it ships anywhere in the US.
  </p>
  </div>
   <HeroProducts />
@@ -128,7 +128,7 @@ const speakableSchema = {
  <section class="border-y border-hairline bg-paper py-14 sm:py-16">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <p class="mb-7 max-w-3xl text-base leading-relaxed text-ash sm:text-lg">
- Need shirts for a new crew, polos for the front desk, or a store so people can order their own sizes? Start here. Bighorn runs the order and production partners make it.
+ Need shirts for a new crew, polos for the front desk, or a store so people can order their own sizes? Start here. We run the order and production partners do the decoration.
  </p>
  <ul class="grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-5">
  {[
@@ -152,7 +152,7 @@ const speakableSchema = {
  ))}
  </ul>
  <p class="mt-6 max-w-3xl text-sm leading-relaxed text-ash">
- Need help deciding? See how <a href="/services/screen-printing-las-vegas/" class="text-gold-600 hover:underline">screen printing</a>, <a href="/services/embroidery-las-vegas/" class="text-gold-600 hover:underline">embroidery</a>, and <a href="/services/rush-orders-las-vegas/" class="text-gold-600 hover:underline">rush orders</a> stack up, or read the <a href="/screen-printing-vs-embroidery-construction-las-vegas/" class="text-gold-600 hover:underline">screen print vs. embroidery</a> and <a href="/blog/dtf-printing-vs-screen-printing-custom-apparel/" class="text-gold-600 hover:underline">DTF vs. screen print</a> breakdowns. Weighing the spend first? Read <a href="/is-branded-apparel-worth-it/" class="text-gold-600 hover:underline">is branded apparel worth it for a service business</a>.
+ Need help deciding? Read about <a href="/services/screen-printing-las-vegas/" class="text-gold-600 hover:underline">screen printing</a>, <a href="/services/embroidery-las-vegas/" class="text-gold-600 hover:underline">embroidery</a>, and <a href="/services/rush-orders-las-vegas/" class="text-gold-600 hover:underline">rush orders</a>, or compare <a href="/screen-printing-vs-embroidery-construction-las-vegas/" class="text-gold-600 hover:underline">screen print vs. embroidery</a> and <a href="/blog/dtf-printing-vs-screen-printing-custom-apparel/" class="text-gold-600 hover:underline">DTF vs. screen print</a>. Weighing the spend first? Read <a href="/is-branded-apparel-worth-it/" class="text-gold-600 hover:underline">is branded apparel worth it for a service business</a>.
  </p>
  </div>
  </section>
@@ -168,10 +168,10 @@ const speakableSchema = {
  Company Stores: <span class="text-gold-600">Private Online Storefronts for Your Crew</span>
  </h2>
  <p class="mb-5 text-lg leading-relaxed text-ash">
- A company store is a private online store with the gear you approved, so a new hire can pick a size and order without going through you. Budgets, payment, and reporting depend on the setup we agree on.
+ A company store is a private online store with the gear you approved, so a new hire can pick a size and order without going through you. Tell us if you also need budgets, payment options, or reports, and we will show you what the store can do.
  </p>
  <p class="mb-8 text-base leading-relaxed text-ash">
- We run the account from Las Vegas and production partners make the gear. Your written proposal lists every cost, who handles what, and how orders ship.
+ Our team in Las Vegas runs the account. Your written proposal lists every cost, who handles what, and how orders ship.
  </p>
  <div class="mb-8 flex flex-wrap gap-2">
  {['Your logo', 'Approved catalog', 'Employee sizes', 'Shipping options', 'Written proposal'].map((tag) => (
@@ -217,7 +217,7 @@ const speakableSchema = {
  <span>Pick the products and get pricing</span>
  </li>
  <li class="flex gap-3">
- <span class="w-20 flex-shrink-0 font-mono text-xs font-bold text-gold-600">QA</span>
+ <span class="w-20 flex-shrink-0 font-mono text-xs font-bold text-gold-600">Test</span>
  <span>You test the store and sign off</span>
  </li>
  <li class="flex gap-3">
@@ -239,7 +239,7 @@ const speakableSchema = {
  <div>
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Screen Printing</h2>
  <p class="mb-4 text-lg leading-relaxed text-ash">
- Screen printing is the go-to for tees, hoodies, and workwear in bigger runs, especially with a bold logo or a big back print. How it feels and wears comes down to the fabric, the ink, and how it gets washed.
+ Use screen printing for tees, hoodies, and workwear in bigger runs, especially with a bold logo or a big back print.
  </p>
  <p class="mb-6 text-base leading-relaxed text-ash">
  Send your logo and we will tell you how many ink colors it takes and where it can go. You see it on a proof before it goes to press.
@@ -253,7 +253,7 @@ const speakableSchema = {
  <img src="/images/photos/screen-printing-closeup.webp" alt={photo('screen-printing-closeup').alt} width="1376" height="768" loading="lazy" decoding="async" class="mb-6 aspect-[3/2] w-full object-cover" />
  <h3 class="kicker mb-5">What's Included</h3>
  <ul class="space-y-3">
- {['Multi-color print options', 'Plastisol & water-based ink options', 'Specialty ink options', 'Large format back prints', 'Left chest & pocket prints', 'Minimum listed on your quote'].map((item) => (
+ {['Multi-color print options', 'Plastisol & water-based ink options', 'Specialty ink options', 'Large format back prints', 'Left chest & pocket prints'].map((item) => (
  <li class="flex items-center gap-3 text-ash">
  <svg class="h-5 w-5 flex-shrink-0 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
  {item}
@@ -273,7 +273,7 @@ const speakableSchema = {
  <img src="/images/photos/embroidered-caps.webp" alt={photo('embroidered-caps').alt} width="1376" height="768" loading="lazy" decoding="async" class="mb-6 aspect-[3/2] w-full object-cover" />
  <h3 class="kicker mb-5">What's Included</h3>
  <ul class="space-y-3">
- {['Logo digitizing options', 'Multi-color thread options', 'Left chest, sleeves, back placement', 'Hats, beanies & headwear', 'Bags & backpacks', 'Minimum listed on your quote'].map((item) => (
+ {['Logo digitizing options', 'Multi-color thread options', 'Left chest, sleeves, back placement', 'Hats, beanies & headwear', 'Bags & backpacks'].map((item) => (
  <li class="flex items-center gap-3 text-ash">
  <svg class="h-5 w-5 flex-shrink-0 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
  {item}
@@ -284,10 +284,10 @@ const speakableSchema = {
  <div class="order-1 lg:order-2">
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Embroidery</h2>
  <p class="mb-4 text-lg leading-relaxed text-ash">
- Embroidery is what you want on polos, softshells, caps, beanies, jackets, and bags when the logo has to look finished up close. Small type can be a problem in thread, so send the real logo file and we will tell you.
+ Use embroidery on polos, softshells, caps, jackets, and bags when the logo has to look sharp up close. Small type can blur in thread, so send the real logo file and we will tell you if it holds up.
  </p>
  <p class="mb-6 text-base leading-relaxed text-ash">
- Your logo gets digitized for stitching and the thread colors get matched as close as the partner can get them. Any digitizing or setup charge shows on your quote, and you approve the proof first.
+ Your logo gets digitized for stitching and the thread colors get matched as closely as thread allows. Any digitizing or setup charge shows on your quote, and you approve the proof first.
  </p>
  <a href="/get-a-quote/" class="btn-primary text-sm">
  Get a Quote
@@ -308,7 +308,7 @@ const speakableSchema = {
  Tees, polos, jackets, headwear, work pants, coveralls, and safety-rated garments. Tell us who wears what and we look up which brands and sizes are available.
  </p>
  <p class="mb-6 text-base leading-relaxed text-ash">
- We help you sort gear by role, weather, fit, and how it gets washed. Your safety lead decides what protection the job requires, and we check the logo work against the garment maker’s instructions.
+ We help you sort gear by role, weather, fit, and how it gets washed. Tell us the protection level the job calls for and we will find garments rated for it.
  </p>
  <a href="/get-a-quote/" class="btn-primary text-sm">
  Get a Quote
@@ -316,7 +316,7 @@ const speakableSchema = {
  </a>
  </div>
  <div class="">
- <img src="/images/photos/apparel-flat-lay.webp" alt={photo('apparel-flat-lay').alt} width="1376" height="768" loading="lazy" decoding="async" class="mb-6 aspect-[3/2] w-full object-cover" />
+ <img src="/images/photos/crew-hoodies.webp" alt="Four crew members in matching charcoal hoodies talking over coffee in a pipe yard" width="1376" height="610" loading="lazy" decoding="async" class="mb-6 aspect-[3/2] w-full object-cover" />
  <h3 class="kicker mb-5">What's Included</h3>
  <ul class="space-y-3">
  {['T-shirts & tank tops', 'Polos & dress shirts', 'Hoodies & jackets', 'Hi-vis safety wear', 'Hard hats & beanies', 'Work pants & coveralls'].map((item) => (
@@ -367,33 +367,51 @@ const speakableSchema = {
  <!-- ════ RECENTLY PUBLISHED — paper ════ -->
  <section class="border-y border-hairline bg-paper py-16 sm:py-20">
  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
- <p class="kicker mb-3">Recently Published</p>
- <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Method comparisons and shop guides.</h2>
+ <p class="kicker mb-3">Guides</p>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Compare methods before you order.</h2>
  <ul class="grid gap-3 sm:grid-cols-2">
  <li><a href="/screen-printing-vs-embroidery-construction-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Screen printing vs embroidery for construction crews</a></li>
  <li><a href="/blog/dtf-printing-vs-screen-printing-custom-apparel/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">DTF printing vs screen printing</a></li>
  <li><a href="/blog/plastisol-vs-water-based-ink-workwear/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Plastisol vs water-based ink for workwear</a></li>
  <li><a href="/blog/sublimation-printing-custom-apparel-guide/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Sublimation printing custom apparel guide</a></li>
- <li><a href="/blog/embroidery-shop-las-vegas-guide/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Embroidery shop Las Vegas guide</a></li>
- <li><a href="/blog/screen-printing-shop-las-vegas-guide/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Screen printing shop Las Vegas guide</a></li>
+ <li><a href="/embroidery-vs-patches-uniforms/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Embroidery vs patches on uniforms</a></li>
+ <li><a href="/screen-printing-vs-dtg-vs-embroidery/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Screen printing vs DTG vs embroidery</a></li>
  </ul>
  <p class="mt-6 text-base leading-relaxed text-ash">On pricing and order size: <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">how much to embroider a shirt</a> and our <a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">MOQ guide</a>.</p>
+ </div>
+ </section>
+
+ <!-- FAQ: visible, so the FAQPage schema matches the page -->
+ <section class="bg-concrete py-16 sm:py-20">
+ <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Questions we get</h2>
+ <div class="divide-y divide-hairline border-y border-hairline">
+ {faqs.map((item) => (
+ <details class="group">
+ <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
+ <span class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{item.q}</span>
+ <svg class="h-5 w-5 shrink-0 text-gold-700 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+ </summary>
+ <p class="pb-5 leading-relaxed text-ash">{item.a}</p>
+ </details>
+ ))}
+ </div>
  </div>
  </section>
 
  <!-- ════ CTA — full-bleed photographic dark band ════ -->
  <section class="bg-charcoal">
  <div class="mx-auto max-w-3xl px-4 py-24 text-center sm:px-6 sm:py-32 lg:px-8">
- <p class="kicker mb-3 justify-center">Not Sure What You Need?</p>
+ <p class="kicker mb-3 justify-center">Not sure what you need?</p>
  <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl">
- Tell us about your crew. <span class="text-gold-400">We'll build the plan.</span>
+ Tell us who's wearing it. <span class="text-gold-400">We'll suggest the gear.</span>
  </h2>
  <p class="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-white/80">
- We'll recommend the gear and send you the minimum, price, and timing for your order.
+ You get a price, the minimum, and timing for your order in writing.
  </p>
  <div class="mt-9 flex justify-center">
  <a href="/get-a-quote/" class="btn-primary text-base">
- Talk to Us
+ Get a Quote
  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
  </a>
  </div>

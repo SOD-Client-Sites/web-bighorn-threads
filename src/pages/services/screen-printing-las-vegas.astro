@@ -12,7 +12,7 @@ const page = {
 const process = [
  { step: '01', title: 'Quote + artwork', body: 'Send your logo, garment needs, quantities, and deadline. We put the order together for you to review.' },
  { step: '02', title: 'Proof + approval', body: 'Check the product, artwork, print method, timing, and price, then approve the order.' },
- { step: '03', title: 'Partner production', body: 'A production partner prints what you approved. We stay your contact.' },
+ { step: '03', title: 'Partner production', body: 'Our partner prints what you approved. We stay your contact.' },
  { step: '04', title: 'Order completion', body: 'We finish the steps listed in your quote and help when it\'s time to reorder.' },
 ]
 
@@ -26,7 +26,7 @@ const inkTypes = [
 const garments = ['T-shirts (cotton + blends)', 'Long-sleeve tees', 'Hoodies + crewnecks', 'Compatible polyester garments', 'Tote bags + canvas', 'Compatible workwear', 'Polos with suitable print areas']
 
 const minimums = [
- { count: 'Quantity', best: 'Your minimum depends on the garment, artwork, and partner.' },
+ { count: 'Quantity', best: 'Your quote lists the minimum.' },
  { count: 'Artwork', best: 'Each color and print location adds to the job.' },
  { count: 'Garment', best: 'Fabric, color, and construction decide which print approach fits.' },
  { count: 'Timing', best: 'We give you a date once we\'ve reviewed the whole order.' },
@@ -35,11 +35,11 @@ const minimums = [
 const faqs = [
  {
  q: 'What\'s the minimum order for screen printing?',
- a: 'Minimums depend on the garment, artwork, print locations, quantity, and production partner. Bighorn confirms the current minimum in your quote.',
+ a: 'Your quote lists the minimum for the garment, artwork, and print locations. Bighorn confirms the current minimum in your quote.',
  },
  {
  q: 'How much does screen printing cost?',
- a: 'Cost depends on the garment, order quantity, number of colors, and print locations. Send your garment choice, quantity, and artwork, and Bighorn will return a written quote.',
+ a: 'The garment, quantity, number of colors, and print locations set the cost. Send your garment choice, quantity, and artwork, and Bighorn will return a written quote.',
  },
  {
  q: 'How fast can you turn around a rush order?',
@@ -47,7 +47,7 @@ const faqs = [
  },
  {
  q: 'Can you Pantone-match exact brand colors?',
- a: 'Include the required Pantone reference with your artwork. Bighorn will confirm the available color-matching approach with the production partner before approval.',
+ a: 'Include the required Pantone reference with your artwork. Bighorn will confirm how close the color match can get before you approve.',
  },
  {
  q: 'Do you screen print on FR (flame-resistant) shirts?',
@@ -55,11 +55,11 @@ const faqs = [
  },
  {
  q: 'How many colors can you print in one job?',
- a: 'Color capacity depends on the artwork, garment, print locations, and production partner. Bighorn will recommend an available method before you approve the order.',
+ a: 'The artwork, garment, and print locations set the color count. Bighorn will recommend an available method before you approve the order.',
  },
  {
  q: 'Will the print last?',
- a: 'Print life depends on the garment, ink system, use, and care. Share how the apparel will be worn and washed so Bighorn can recommend an appropriate option.',
+ a: 'The garment, ink, use, and care set print life. Share how the apparel will be worn and washed so Bighorn can recommend an appropriate option.',
  },
 ]
 
@@ -113,7 +113,7 @@ const faqSchema = {
  Custom screen printing in Las Vegas <span class="text-gold-700">for crews, teams &amp; contractors.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
- Bulk tees, hi-vis, and work shirts printed through our production partners. Send your artwork, garment needs, quantity, and deadline for a written quote.
+ Bulk tees, hi-vis, and work shirts with your logo. Send your artwork, garment needs, quantity, and deadline for a written quote.
  </p>
 
  <div class="mt-10 flex flex-wrap items-center gap-3">
@@ -147,7 +147,7 @@ const faqSchema = {
  <ul class="space-y-3 text-base leading-relaxed text-ash">
  <li><strong class="text-charcoal">Written terms.</strong> Your quote lists price, minimums, and timing before you approve.</li>
  <li><strong class="text-charcoal">Proof first.</strong> You check the product, artwork, and method before production.</li>
- <li><strong class="text-charcoal">Clear production.</strong> A production partner does the printing. We stay your contact.</li>
+ <li><strong class="text-charcoal">Clear production.</strong> We stay your contact.</li>
  <li><strong class="text-charcoal">Right ink for the garment.</strong> Plastisol, water-based, discharge, and synthetic-compatible inks each suit different fabrics.</li>
  </ul>
  <p class="mt-6 text-base leading-relaxed text-ash">For a longer checklist, read the <a href="/blog/screen-printing-shop-las-vegas-guide/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">screen printing shop Las Vegas guide</a> and <a href="/how-to-choose-custom-apparel-company/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">how to choose a custom apparel company</a>.</p>
@@ -249,7 +249,7 @@ const faqSchema = {
  Plastisol sits on top of the fabric and can print opaque. Water-based ink soaks into the fabric for a softer feel. Discharge only works on certain dyed cottons.
  </p>
  <p>
- Setup depends on the artwork, colors, and print locations. We check every reorder again, since garment stock and production needs can change.
+ Artwork, colors, and print locations set the setup. We check every reorder again, since garment stock and production needs can change.
  </p>
  <p>
  Construction crews often pick heavier work tees for daily wear. Hi-vis and FR take more checking. Your company picks the garment, and any print needs approval from your company and the manufacturer. Send us the garment spec and jobsite rules before you order.

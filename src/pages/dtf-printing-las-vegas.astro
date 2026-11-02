@@ -12,7 +12,7 @@ const page = {
 const stack = [
  { label: 'The method', body: 'A design is printed onto PET film, combined with adhesive, cured, and heat-pressed onto a qualifying garment.' },
  { label: 'Where it can fit', body: 'DTF is worth comparing for smaller runs, detailed artwork, mixed products, and some dark fabrics.' },
- { label: 'Product compatibility', body: 'Compatibility depends on the exact fabric, finish, color, construction, transfer system, application, and manufacturer guidance.' },
+ { label: 'Product compatibility', body: 'The fabric, finish, and transfer decide whether DTF will work.' },
  { label: 'Decoration program', body: 'One artwork file may support several qualifying products. Each fabric, garment, placement, and reorder still requires production review.' },
 ]
 
@@ -37,15 +37,15 @@ const useCases = [
 const faqs = [
  { q: 'What is DTF printing?', a: 'Direct-to-film printing places artwork on a PET film with adhesive, then applies the transfer to a qualifying garment with heat and pressure. It can support detailed, full-color artwork on many products.' },
  { q: 'DTF vs screen printing: which one should I use?', a: 'DTF can fit smaller or detailed orders. Screen printing can fit larger single-design runs. Compare both methods using the exact product, artwork, quantity, care needs, setup, and quoted price.' },
- { q: 'How durable is a DTF print?', a: 'Durability depends on the transfer system, application, garment, wash process, and care. Follow the written care instructions for the approved product and decoration.' },
- { q: 'What fabrics can you DTF on?', a: 'DTF can work on many cotton, polyester, blend, denim, canvas, and synthetic products. Coatings, heat sensitivity, seams, and construction can affect suitability. Confirm the exact garment before production.' },
+ { q: 'How durable is a DTF print?', a: 'The transfer, the garment, and the washing set how long it lasts. Follow the written care instructions for the approved product and decoration.' },
+ { q: 'What fabrics can you DTF on?', a: 'DTF can work on many cotton, polyester, blend, denim, canvas, and synthetic products. Coatings, heat sensitivity, seams, and construction can affect suitability. Check the garment before production.' },
  { q: 'Can DTF print on FR garments?', a: 'Do not assume a standard DTF transfer is acceptable on a safety-rated garment. The employer and safety professional should verify the garment, decoration method, placement, and current manufacturer guidance in writing.' },
- { q: 'What\'s the minimum DTF order?', a: 'Minimums and setup charges depend on the product, artwork, quantity, decoration specification, and production partner. Bighorn confirms current terms in the quote.' },
- { q: 'Where can I get DTF printing in Las Vegas?', a: 'Bighorn Threads provides Las Vegas account management and coordinates DTF decoration through production partners. Send your artwork, product list, quantity, and needed date for review.' },
+ { q: 'What\'s the minimum DTF order?', a: 'Your quote lists any minimum and setup charge. Bighorn confirms current terms in the quote.' },
+ { q: 'Where can I get DTF printing in Las Vegas?', a: 'Bighorn Threads runs the account from Las Vegas and arranges DTF decoration. Send your artwork, product list, quantity, and needed date for review.' },
  { q: 'Do you offer DTG printing in Las Vegas?', a: 'Yes. Direct-to-garment (DTG) prints ink straight into cotton-rich tees and hoodies and suits photo-style or full-color artwork in small quantities. Bighorn quotes DTG alongside DTF so you can compare cost, feel, and durability on the exact garment.' },
- { q: 'Do you do dye sublimation printing in Las Vegas?', a: 'Yes. Dye sublimation bonds ink into white or light polyester, so it is the right method for all-over jerseys, performance polos, and event apparel that needs edge-to-edge color. Bighorn coordinates sublimation through production partners and confirms garment, artwork, and timing in your quote.' },
+ { q: 'Do you do dye sublimation printing in Las Vegas?', a: 'Yes. Dye sublimation bonds ink into white or light polyester, so it is the right method for all-over jerseys, performance polos, and event apparel that needs edge-to-edge color. Bighorn arranges sublimation and confirms garment, artwork, and timing in your quote.' },
  { q: 'What is the difference between DTF and heat-transfer vinyl?', a: 'Both are heat-applied. DTF prints a full-color design onto film that is pressed onto the garment, so it handles detailed logos and gradients. Heat-transfer vinyl is cut from solid-color sheets, so it suits names, numbers, and simple shapes rather than full-color artwork.' },
- { q: 'Do you offer heat-press transfer services in Las Vegas?', a: 'Bighorn coordinates heat-applied decoration, including DTF transfers and heat-transfer vinyl for names and numbers, through production partners. Send the artwork, garment, and quantity, and the quote confirms the method, minimum, and timing.' },
+ { q: 'Do you offer heat-press transfer services in Las Vegas?', a: 'Bighorn arranges heat-applied decoration, including DTF transfers and heat-transfer vinyl for names and numbers. Send the artwork, garment, and quantity, and the quote confirms the method, minimum, and timing.' },
 ]
 
 const breadcrumb = {
@@ -136,7 +136,7 @@ const faqSchema = {
  <p class="kicker mb-3">Method Comparison</p>
  <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">DTF vs every other <span class="text-gold-600">decoration method.</span></h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- No single method fits every order. Bighorn coordinates a recommendation based on the product, artwork, quantity, care needs, and quote.
+ No single method fits every order. Bighorn recommends a method based on the product, artwork, quantity, and care needs.
  </p>
  </div>
  <div class="overflow-hidden border border-hairline bg-panel">
@@ -187,13 +187,13 @@ const faqSchema = {
  </h2>
  <div class="space-y-5 text-lg leading-relaxed text-ash">
  <p>
- Direct-to-film printing creates a transfer that a production partner applies to a compatible product. The process can support full-color artwork on some light and dark garments. Compatibility, feel, appearance, and durability depend on the exact transfer system, fabric, finish, application, use, care, and manufacturer guidance.
+ Direct-to-film printing creates a transfer that gets heat-applied to a compatible product. The process can support full-color artwork on some light and dark garments. The transfer, fabric, application, and care set how it feels, looks, and lasts.
  </p>
  <p>
- Screen printing and DTF use different production steps and pricing models. DTF may reduce color-related setup on some smaller or complex-art orders. Screen printing may price better at higher quantities. The actual breakpoint depends on the artwork, product, quantity, partner, and quote.
+ Screen printing and DTF use different production steps and pricing models. DTF may reduce color-related setup on some smaller or complex-art orders. Screen printing may price better at higher quantities. The artwork, product, and quantity set the actual breakpoint.
  </p>
  <p>
- DTF can reproduce gradients, photographic elements, and complex artwork. Fine detail still depends on resolution, color, transfer, garment texture, and application. Review a proof before approving production.
+ DTF can reproduce gradients, photographic elements, and complex artwork. Resolution, garment texture, and application still limit fine detail. Review a proof before approving production.
  </p>
  <p>
  DTF can support many common apparel fabrics, including some cotton, polyester, and blended products. Coatings, heat sensitivity, seams, texture, and garment construction can change the result. Mixed-product orders require review by product and placement.

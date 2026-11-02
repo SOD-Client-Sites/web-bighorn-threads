@@ -13,7 +13,7 @@ const stack = [
  { label: 'The drinkware', body: 'Ask about current Yeti Rambler tumblers, mugs, bottles, jugs, sizes, and finishes. Availability is confirmed for each quote.' },
  { label: 'The decoration', body: 'Engraving may create a two-tone mark on eligible products. Results and care requirements depend on the product and finish.' },
  { label: 'Use cases', body: 'Corporate gifts, employee onboarding, milestone awards, trade show high-tier giveaways, customer thank-you, holiday gifting, executive recognition.' },
- { label: 'Volume tiers', body: 'Minimums and volume pricing depend on the product and production partner. Share your quantity for current terms.' },
+ { label: 'Volume tiers', body: 'Your quote lists the minimum and volume pricing. Share your quantity for current terms.' },
 ]
 
 const skus = [
@@ -37,12 +37,12 @@ const giftPrograms = [
 ]
 
 const faqs = [
-  { q: 'Can you laser-engrave Yeti drinkware?', a: 'Engraving may be available for eligible Yeti products. Bighorn confirms the product and coordinates approved production through a selected partner.' },
+  { q: 'Can you laser-engrave Yeti drinkware?', a: 'Engraving may be available for eligible Yeti products. Bighorn confirms the product and gets the approved order made.' },
   { q: 'Is laser engraving permanent on Yeti?', a: 'Engraving creates a durable mark, but results depend on the product and finish. Follow the product\'s current care instructions.' },
-  { q: 'What\'s the minimum order for custom Yeti?', a: 'Minimums depend on the product and production partner. Share your quantity so we can confirm current options and pricing.' },
- { q: 'Can I order Yeti tumblers with names on each one?', a: 'Personalization may be available on eligible products. Pricing, placements, and timelines depend on the product and production partner.' },
- { q: 'Can you engrave through the colored Yeti finish?', a: 'Some colored products may support laser engraving. We confirm the product, finish, and expected result with the production partner before approval.' },
-  { q: 'How does this compare to Yeti\'s official custom shop?', a: 'Bighorn provides one point of contact and coordinates your approved order through selected production partners. Product options and timelines can differ by program.' },
+  { q: 'What\'s the minimum order for custom Yeti?', a: 'Your quote lists the minimum. Share your quantity so we can confirm current options and pricing.' },
+ { q: 'Can I order Yeti tumblers with names on each one?', a: 'Personalization may be available on eligible products. Your quote lists pricing, placements, and timeline.' },
+ { q: 'Can you engrave through the colored Yeti finish?', a: 'Some colored products may support laser engraving. We confirm the product, finish, and expected result before you approve.' },
+  { q: 'How does this compare to Yeti\'s official custom shop?', a: 'Bighorn gives you one contact for the whole order. Product options and timelines can differ by program.' },
   { q: 'What other drinkware brands do you customize besides Yeti?', a: 'Ask about current options from Hydro Flask, Corkcicle, Stanley, RTIC, MiiR, and Klean Kanteen. Brand and decoration availability vary.' },
 ]
 
@@ -123,7 +123,7 @@ const faqSchema = {
  <p class="kicker mb-3">Yeti SKU Range</p>
  <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">The Yeti lineup, at a glance.</h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- Product, size, finish, and engraving eligibility can change. Bighorn confirms current options with the production partner before approval.
+ Product, size, finish, and engraving eligibility can change. Bighorn confirms current options before you approve.
  </p>
  </div>
  <div class="overflow-hidden border border-hairline bg-panel">
@@ -174,16 +174,16 @@ const faqSchema = {
  </h2>
  <div class="space-y-5 text-lg leading-relaxed text-ash">
  <p>
- Brand recognition can make Yeti a candidate for corporate gifts, but fit depends on the recipient, budget, product, decoration, and delivery date. Compare the quoted option with other eligible drinkware rather than assuming a universal performance or impression advantage.
+ Brand recognition makes Yeti a good candidate for corporate gifts, and the recipient, budget, and date decide the fit. Compare the quoted option with other eligible drinkware rather than assuming a universal performance or impression advantage.
  </p>
  <p>
-          Laser engraving can create a durable two-tone mark on eligible drinkware. Results depend on the product and finish. Bighorn coordinates the approved order through a selected production partner.
+          Laser engraving can create a durable two-tone mark on eligible drinkware. Results depend on the product and finish. Bighorn gets the approved order made.
  </p>
  <p>
  Choose the product around the intended use. A tumbler may suit desk or vehicle use, a handled mug may suit an office, and a bottle may suit field use. Confirm dimensions, lid, cup-holder fit, care, availability, and eligible decoration on the current product before approving it.
  </p>
  <p>
-          Personalization can add a name, year, employee number, or milestone date. Available placements, pricing, and timelines depend on the approved product and production partner.
+          Personalization can add a name, year, employee number, or milestone date. Your quote lists placements, pricing, and timeline.
  </p>
  <p>
  For the broader promo product context, see our <a href="/promo-products-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">promo products hub</a>. For trade show audiences, see the <a href="/trade-show-apparel-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">trade show apparel guide</a>. For the company-store program that streamlines recurring gift orders, see <a href="/company-stores/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">how the company store works</a>.
