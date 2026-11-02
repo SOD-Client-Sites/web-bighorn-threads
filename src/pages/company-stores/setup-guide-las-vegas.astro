@@ -5,46 +5,46 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 const page = {
  title: 'Company Store Setup Guide for Trades | Bighorn Threads',
  description:
- 'Company store planning for contractors and trades. Bighorn is based in Las Vegas, ships nationwide, and coordinates approved products and decoration through production partners. Get a quote.',
+ 'How a company store gets set up for contractors and trades: the steps, the decisions, and what to get in writing. Based in Las Vegas, shipping nationwide.',
  url: 'https://bighornthreads.com/company-stores/setup-guide-las-vegas/',
 }
 
 const steps = [
- { n: '01', label: 'Discovery call', body: 'We review your trades, roles, apparel standards, and ordering process. Safety-rated items require a separate written product and decoration review.' },
- { n: '02', label: 'Program scope', body: 'We outline the proposed catalog, artwork requirements, ordering flow, and available storefront options.' },
- { n: '03', label: 'Terms and controls', body: 'Your written proposal confirms available spending controls, user roles, minimums, fees, timing, and fulfillment terms.' },
- { n: '04', label: 'Approval and launch', body: 'You approve the products, artwork treatment, program terms, and launch plan before production or ordering begins.' },
+ { n: '01', label: 'Discovery call', body: 'We go over your trades, roles, and how you order today. Any safety-rated gear gets its own review of the garment and the logo work.' },
+ { n: '02', label: 'Program scope', body: 'We suggest the gear, what we need for your logo, and how ordering would work.' },
+ { n: '03', label: 'Terms and controls', body: 'Your written proposal lists spending controls, user roles, minimums, fees, timing, and shipping.' },
+ { n: '04', label: 'Approval and launch', body: 'You approve the products, the logo work, the terms, and the launch date before anything is made or ordered.' },
 ]
 
 const included = [
- { label: 'Storefront options', body: 'Your store gets a branded ordering page built around your approved products, roles, and artwork.' },
- { label: 'Approved catalog', body: 'You review the proposed products and decoration specifications before they become part of the program.' },
- { label: 'Ordering controls', body: 'Available budgets, permissions, and approval rules are documented before setup.' },
- { label: 'Fulfillment plan', body: 'Shipping destinations, inventory handling, minimums, and delivery terms are confirmed in the written quote.' },
+ { label: 'Storefront options', body: 'A branded ordering page with your approved products and logo.' },
+ { label: 'Approved catalog', body: 'You see each product and how the logo goes on before it goes in the store.' },
+ { label: 'Ordering controls', body: 'We tell you in writing which budgets, permissions, and approvals you get before setup.' },
+ { label: 'Fulfillment plan', body: 'Your written quote covers where gear ships, who holds inventory, and any minimums.' },
 ]
 
 const timeline = [
- { row: 'Planning', meaning: 'Discovery and program scope', use: 'Roles, products, artwork, ordering needs, and safety requirements' },
- { row: 'Configuration', meaning: 'Catalog and program proposal', use: 'Available storefront features, controls, pricing, minimums, and fulfillment terms' },
- { row: 'Approval', meaning: 'Written sign-off and launch plan', use: 'Product approvals, artwork treatment, schedule, testing, and launch responsibilities' },
+ { row: 'Planning', meaning: 'We learn how you order', use: 'Roles, products, logo files, ordering, and safety requirements' },
+ { row: 'Configuration', meaning: 'Catalog and written proposal', use: 'Store features, controls, pricing, minimums, and shipping' },
+ { row: 'Approval', meaning: 'You sign off and pick a launch date', use: 'Product and logo approvals, schedule, testing, and who does what at launch' },
 ]
 
 const whoFor = [
  { name: 'General contractors', detail: 'Role-based ordering so field, shop, and office crews each see the gear approved for them.' },
- { name: 'MEP subcontractors', detail: 'Mechanical, electrical, and plumbing teams can compare role-based apparel and ordering options.' },
- { name: 'Data center contractors', detail: 'Large rosters can benefit from one approved product and branding specification. PPE decisions still require qualified safety review.' },
- { name: 'Multi-location trades', detail: 'A shared program can help teams evaluate consistent products and branding across locations.' },
- { name: 'Fleet and field service', detail: 'HVAC, low-voltage, solar, and utility teams can plan apparel by role and replacement need.' },
- { name: 'Growing crews', detail: 'Businesses hiring year-round can document a repeatable new-hire apparel process.' },
+ { name: 'MEP subcontractors', detail: 'Mechanical, electrical, and plumbing teams each see the gear approved for their role.' },
+ { name: 'Data center contractors', detail: 'One approved list keeps a large roster looking the same. Your safety lead still makes the PPE calls.' },
+ { name: 'Multi-location trades', detail: 'The same products and the same logo at every location.' },
+ { name: 'Fleet and field service', detail: 'HVAC, low-voltage, solar, and utility teams set gear by role and how fast it wears out.' },
+ { name: 'Growing crews', detail: 'If you hire year-round, new hires order from the same approved list every time.' },
 ]
 
 const faqs = [
- { q: 'How long does it take to set up a company store?', a: 'Timing depends on the approved products, artwork, selected platform, configuration, testing, and production-partner capacity. Bighorn confirms the proposed schedule in writing before launch.' },
- { q: 'Is there a minimum order to set up a company store?', a: 'Minimums and inventory requirements depend on the products, decoration methods, suppliers, platform, and fulfillment model. Your quote confirms the current terms.' },
- { q: 'What does it cost to run a company store?', a: 'Setup, platform, transaction, product, decoration, and shipping costs vary by program. Bighorn provides the available terms in a written proposal before you approve setup.' },
- { q: 'Who manages sizes, reorders, and new hires?', a: 'That depends on the selected ordering platform and program design. Bighorn documents the available user, reorder, import, and allowance features before configuration.' },
- { q: 'Can we control what employees order and how much they spend?', a: 'Catalog, role, budget, and approval controls depend on the selected platform. The proposal identifies which controls are available for your program.' },
- { q: 'Do we have to do any IT work to set up the store?', a: 'Technical requirements depend on the selected platform and any integrations. Bighorn coordinates the approved program and explains each party\'s setup responsibilities in writing.' },
+ { q: 'How long does it take to set up a company store?', a: 'The number of products and how fast your logo files and approvals come back move the date most. Give us a target and we’ll put a schedule in writing.' },
+ { q: 'Is there a minimum order to set up a company store?', a: 'The products and decoration methods set the minimums, and how the store ships determines whether anything sits in inventory. Your quote lists both.' },
+ { q: 'What does it cost to run a company store?', a: 'You pay for the products, decoration, and shipping, plus any setup, platform, or transaction fees. They vary by program, so you get them in writing before you approve setup.' },
+ { q: 'Who manages sizes, reorders, and new hires?', a: 'Tell us who you want managing it. We’ll put in writing what your store can do for new users, reorders, and allowances before setup.' },
+ { q: 'Can we control what employees order and how much they spend?', a: 'They only see what you approve. For role, budget, and approval limits, your proposal says which ones your store supports.' },
+ { q: 'Do we have to do any IT work to set up the store?', a: 'Tell us if you want it connected to another system. We’ll tell you in writing what we need from your side.' },
 ]
 
 const breadcrumb = {
@@ -117,7 +117,7 @@ const speakableSchema = {
  Company Store Planning for Trades in Las Vegas. <span class="text-gold-700">Scoped around your crew.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
- Bighorn provides Las Vegas account management and coordinates approved products and decoration through production partners. Platform, fulfillment, timing, minimums, and fees are confirmed in writing.
+ You get one contact in Las Vegas, and production partners make the gear. Timing, minimums, and fees all come to you in writing.
  </p>
 
  <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -138,7 +138,7 @@ const speakableSchema = {
  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
  <p class="kicker mb-4">The Short Answer</p>
  <p class="speakable-answer text-lg leading-relaxed text-ash">
- Bighorn Threads helps Las Vegas trades plan branded apparel ordering programs. We provide local account management and coordinate approved products and decoration through production partners. Your proposal confirms platform capabilities, fulfillment, timing, minimums, fees, and responsibilities.
+ Setting up a company store takes four steps: a call about your crew, a proposed list of gear, a written proposal with fees and timing, and your sign-off. Bighorn Threads runs all of it for trades in Las Vegas and across the US.
  </p>
  </div>
  </section>
@@ -170,7 +170,7 @@ const speakableSchema = {
  <p class="kicker mb-3">Timeline</p>
  <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">From kickoff to <span class="text-gold-600">crew ordering.</span></h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- Each program follows a planning, configuration, and approval process. The written proposal confirms the schedule.
+ Every store goes through these three stages. Your proposal has the dates.
  </p>
  </div>
 
@@ -202,7 +202,7 @@ const speakableSchema = {
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
  <p class="kicker mb-3">What's Included</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Options to review for your program.</h2>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">What goes into your store.</h2>
  </div>
 
  <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
@@ -245,16 +245,16 @@ const speakableSchema = {
 
  <div class="space-y-5 text-lg leading-relaxed text-ash">
  <p>
- A company store is a branded ordering portal that can present approved products to a defined team. Available ordering, payment, approval, inventory, and fulfillment features depend on the selected platform and program.
+ A company store is a private branded site where your team orders the products you approved. Payment, approvals, and inventory come down to the setup we agree on.
  </p>
  <p>
- The discovery call defines your roles, apparel standards, ordering needs, and artwork. Bighorn then coordinates a proposed product and decoration specification through production partners. Safety-rated garments require separate written review before approval.
+ The first call covers your roles, what each one wears, how you order, and your logo. Then we propose the products and how the logo goes on each one. Safety-rated garments get a separate written review.
  </p>
  <p>
- Budget controls can help owners manage employee apparel spending. The selected platform determines whether credits, role-based catalogs, approval rules, and reporting are available. Those capabilities should be confirmed before the program is configured.
+ If you want to cap what each person spends, ask about credits, role-based catalogs, approval rules, and reports early. We’ll confirm which ones you get before the store is built.
  </p>
  <p>
- Inventory, shipping, hosting, support, and technical responsibilities vary by program. Bighorn documents the approved model before setup begins. For a broader comparison, see our <a href="/company-stores/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">company stores overview</a> and our guide on <a href="/blog/company-store-vs-bulk-ordering/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">company stores versus bulk ordering</a>.
+ Who holds inventory, ships orders, and answers employee questions varies by store, so we write it down before setup begins. For a broader comparison, see our <a href="/company-stores/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">company stores overview</a> and our guide on <a href="/blog/company-store-vs-bulk-ordering/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">company stores versus bulk ordering</a>.
  </p>
  </div>
  </div>
@@ -287,7 +287,7 @@ const speakableSchema = {
  <div class="grid gap-5 md:grid-cols-3">
  <a href="/company-stores/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Company Stores Overview</h3>
- <p class="mt-2 text-sm text-ash">How the model works, who it may fit, and what to confirm.</p>
+ <p class="mt-2 text-sm text-ash">How a store works, who needs one, and what to ask.</p>
  </a>
  <a href="/industries/data-center-contractors-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Data Center Contractors</h3>
@@ -305,7 +305,7 @@ const speakableSchema = {
  <section class="bg-charcoal py-20">
  <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Ready to set up your company store?</h2>
- <p class="mb-8 text-lg text-white/80">Tell us your crew size, trades, and ordering needs. We'll prepare a program recommendation.</p>
+ <p class="mb-8 text-lg text-white/80">Tell us your crew size, trades, and ordering needs. We’ll tell you what we’d set up.</p>
  <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
  <a href="/get-a-quote/" class="btn-primary text-base">Request a Quote</a>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>

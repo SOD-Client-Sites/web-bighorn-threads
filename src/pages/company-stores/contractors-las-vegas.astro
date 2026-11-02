@@ -5,32 +5,32 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 const page = {
  title: 'Company Store for Contractors in Las Vegas | Bighorn Threads',
  description:
- 'Scope a company store for your Las Vegas construction or trades company. Confirm platform, catalog, ordering, inventory, fulfillment, and administration before launch.',
+ 'A private online store for your Las Vegas construction or trades crews. Your people pick their own sizes, and you know the cost and who does what before launch.',
  url: 'https://bighornthreads.com/company-stores/contractors-las-vegas/',
 }
 
 const stack = [
- { label: 'Proposed catalog', body: 'List the garments and logo options you want. We tell you in writing what\'s available and any substitutions.' },
- { label: 'Ordering requirements', body: 'Tell us who orders, how sizes get picked, who approves, and who pays. The proposal says what the platform can do.' },
- { label: 'Budget requirements', body: 'Ask for the allowances, roles, limits, and reports you want. We check the platform can do them before promising anything.' },
+ { label: 'Proposed catalog', body: 'List the garments and logo options you want. We tell you in writing what’s available and suggest swaps for anything that isn’t.' },
+ { label: 'Ordering requirements', body: 'Tell us who orders, who approves, and who pays. Your proposal says what the store can do.' },
+ { label: 'Budget requirements', body: 'Ask for the allowances, role limits, and reports you want. We check the store can do them before we promise anything.' },
  { label: 'Operating responsibilities', body: 'The written terms say who handles inventory, production, shipping, support, and admin.' },
 ]
 
 const steps = [
- { num: '01', title: 'Define the request', body: 'Send your logo, proposed products, users, locations, and ordering requirements.' },
- { num: '02', title: 'Verify the platform', body: 'We check access, budgets, payment, reports, and admin tools before you approve anything.' },
- { num: '03', title: 'Assign operations', body: 'We write down who handles inventory, production, shipping, user support, and changes.' },
+ { num: '01', title: 'Tell us about your crew', body: 'Send your logo, the gear you want, who will order, and your locations.' },
+ { num: '02', title: 'Check the store', body: 'We check access, budgets, payment, and reports before you approve anything.' },
+ { num: '03', title: 'Decide who does what', body: 'We write down who handles inventory, production, shipping, user support, and changes.' },
  { num: '04', title: 'Approve the proposal', body: 'You review pricing, responsibilities, testing, and launch conditions before any store is built.' },
 ]
 
 const faqs = [
- { q: 'What is a company store for a construction company?', a: 'A company store is a possible online ordering model for an approved apparel program. Verify the platform, catalog, users, payment, inventory, production, shipping, reporting, and administration before launch.' },
- { q: 'How do I plan a company store for my Las Vegas crew?', a: 'Send Bighorn Threads your logo, proposed gear, users, locations, and ordering requirements. We can scope a proposal after the platform and operating responsibilities are verified.' },
- { q: 'Is a company store better than bulk ordering?', a: 'Bulk ordering can fit a known one-time quantity. A store may fit recurring or role-based orders. Compare setup, inventory, payment, fulfillment, fees, and administration before choosing.' },
- { q: 'Can the store carry ANSI hi-vis and FR-rated gear?', a: 'A proposed catalog can include protective garments after the employer identifies its requirements through a current hazard assessment and project rules. The employer must review each exact product and decoration against the manufacturer’s current written instructions and documentation before approval.' },
- { q: 'How is this different from a uniform rental program?', a: 'A managed company store and a rental program can use different ownership, replacement, service, and billing models. Compare the written terms and total program cost for your specific crew.' },
- { q: 'Can you scope a store concept for other trades?', a: 'Bighorn can discuss proposed catalogs for electrical, plumbing, HVAC, and other field teams. The platform, service area, products, and operating terms must be verified in the proposal.' },
- { q: 'Where does Bighorn offer company stores?', a: 'Bighorn Threads is based in Las Vegas. Service area, pickup, production, shipping, and fulfillment terms are confirmed in each proposal.' },
+ { q: 'What is a company store for a construction company?', a: 'A private online store with your approved gear, where crew members order their own sizes. You stop collecting sizes from every foreman.' },
+ { q: 'How do I plan a company store for my Las Vegas crew?', a: 'Send us your logo, the gear you want, who will order, and your locations. We’ll write a proposal that says what it costs and who does what.' },
+ { q: 'Is a company store better than bulk ordering?', a: 'If you know the quantity and it’s a one-time order, buy in bulk. If you hire often or reorder by role, a store usually saves more work. Compare fees and who holds inventory before you choose.' },
+ { q: 'Can the store carry ANSI hi-vis and FR-rated gear?', a: 'Yes, once your safety lead sets the requirements. You approve each exact garment, and the logo goes on only the way the manufacturer’s instructions allow.' },
+ { q: 'How is this different from a uniform rental program?', a: 'With a store, you generally own what you buy. A rental program usually bundles laundry and replacement into a recurring bill. Compare the written terms and the total cost for your crew.' },
+ { q: 'Can you scope a store concept for other trades?', a: 'Yes. Electrical, plumbing, HVAC, and other field teams can all use one. Tell us your roles and we’ll suggest the gear.' },
+ { q: 'Where does Bighorn offer company stores?', a: 'We’re based in Las Vegas and ship anywhere in the US. Your proposal covers pickup and shipping.' },
 ]
 
 const breadcrumb = {
@@ -49,7 +49,7 @@ const serviceSchema = {
  datePublished: '2026-07-08',
  dateModified: '2026-08-21',
  name: 'Company Stores for Las Vegas Contractors',
- serviceType: 'Planning for a proposed online company store for contractor apparel',
+ serviceType: 'Online company stores for contractor apparel',
  provider: { '@id': 'https://bighornthreads.com/#organization' },
  description: page.description,
  url: page.url,
@@ -112,7 +112,7 @@ const speakableSchema = {
  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
  </a>
  <a href="/demo/" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-charcoal transition-colors hover:text-gold-700">
- Request a demo concept
+ See a demo store
  </a>
  </div>
   <HeroProducts />
@@ -123,7 +123,7 @@ const speakableSchema = {
  <section class="border-b border-hairline bg-paper py-14">
  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
  <p class="speakable-answer text-xl leading-relaxed text-charcoal sm:text-2xl">
- A company store is one way to handle contractor apparel orders. We write a proposal after checking the platform, catalog, fees, and who does what.
+ A company store lets crew members order their own approved gear. Our proposal lists the catalog, the fees, and who does what.
  </p>
  </div>
  </section>
@@ -133,7 +133,7 @@ const speakableSchema = {
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
  <p class="kicker mb-3">What to Scope</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Define the program before any store launch.</h2>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Settle these before the store opens.</h2>
  </div>
 
  <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
@@ -152,7 +152,7 @@ const speakableSchema = {
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
  <p class="kicker mb-3">How It Works</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">From requirements to a written proposal.</h2>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">From your crew list to a written proposal.</h2>
  </div>
 
  <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
@@ -177,16 +177,16 @@ const speakableSchema = {
 
  <div class="space-y-5 text-lg leading-relaxed text-ash">
  <p>
- Ordering by hand creates extra work on sizes, approvals, storage, and reorders. Write those problems down before you choose bulk or a store.
+ Ordering by hand means extra work on sizes, approvals, storage, and reorders. If those are eating your office’s time, a store is worth pricing.
  </p>
  <p>
- With a store, crews order approved gear directly. A garment being in the store doesn't make it right for a worker or task, so your company still selects and approves protective apparel.
+ With a store, crews order approved gear directly. Your safety lead still decides which protective garments go in and who wears them.
  </p>
  <p>
- A store and a uniform rental program can handle ownership, replacement, service, and billing differently, so compare the full written terms.
+ A store and a uniform rental handle ownership, replacement, and billing differently, so compare the written terms side by side.
  </p>
  <p>
- You get a Las Vegas account contact, and production partners do the decoration. The proposal names who manages the platform, catalog, users, inventory, shipping, and support.
+ You get a Las Vegas contact, and production partners do the decoration. Your proposal names who handles the store, inventory, shipping, and support.
  </p>
  <p>
  For the strategic side of bulk versus store, read our <a href="/blog/company-store-vs-bulk-ordering/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">company store vs bulk ordering</a> breakdown. To plan what each role needs, see <a href="/blog/how-to-outfit-a-construction-crew-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">how to outfit a construction crew in Las Vegas</a> and <a href="/blog/how-many-shirts-per-crew-member-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">how many shirts per crew member</a>.
@@ -222,7 +222,7 @@ const speakableSchema = {
  <div class="grid gap-5 md:grid-cols-3">
  <a href="/company-stores/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">How Company Stores Work</h3>
- <p class="mt-2 text-sm text-ash">What to settle on the platform, ordering, shipping, and admin.</p>
+ <p class="mt-2 text-sm text-ash">What it is, what it costs, and when you need one.</p>
  </a>
  <a href="/industries/construction-trades/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Construction & Trades</h3>
@@ -230,7 +230,7 @@ const speakableSchema = {
  </a>
  <a href="/custom-safety-vests-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Custom Safety Vests</h3>
- <p class="mt-2 text-sm text-ash">Plan hi-vis around your hazard assessment and the manufacturer's documents.</p>
+ <p class="mt-2 text-sm text-ash">Hi-vis vests with your logo, in the class your job calls for.</p>
  </a>
  </div>
  </div>
@@ -239,8 +239,8 @@ const speakableSchema = {
  <!-- CTA -->
  <section class="bg-charcoal py-20">
  <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
- <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Ready to scope a company-store concept?</h2>
- <p class="mb-8 text-lg text-white/80">Send your logo, proposed products, users, locations, and ordering requirements.</p>
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Want a store plan for your crew?</h2>
+ <p class="mb-8 text-lg text-white/80">Send your logo, the gear you want, who will order, and your locations.</p>
  <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
  <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>

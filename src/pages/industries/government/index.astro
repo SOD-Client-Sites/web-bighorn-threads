@@ -9,7 +9,7 @@ const problems = [
   },
   {
     title: 'Hi-vis and safety compliance',
-    desc: 'Field crews need ANSI hi-vis and safety apparel that meets spec. Guessing on classes and sizes slows the whole crew down.',
+    desc: 'Field crews need the right ANSI class in the right sizes. A wrong guess means a reorder while the crew waits.',
   },
   {
     title: 'Everyone orders separately',
@@ -30,19 +30,19 @@ const storeSteps = [
     n: '01',
     meta: 'Setup',
     title: 'We plan your branded store',
-    desc: 'Organize your approved garments, colors, departments, and artwork. Store setup and digitizing terms are confirmed in your written plan.',
+    desc: 'Send your approved garments, colors, departments, and logo files. Your written plan lists setup and digitizing costs.',
   },
   {
     n: '02',
     meta: 'Ongoing',
     title: 'Staff order their own sizes',
-    desc: 'Self-service size submission can be requested. Access, ordering, and administration are confirmed in the proposal.',
+    desc: 'Staff pick a size from the approved list instead of filling out a spreadsheet. Your proposal says who gets access and who runs it.',
   },
   {
     n: '03',
     meta: 'Ongoing',
     title: 'Delivery options and budget controls',
-    desc: 'Requested delivery destinations, approved-item controls, department budgets, and reporting are confirmed in the platform proposal. Your agency defines all hi-vis and safety requirements.',
+    desc: 'Tell us where gear ships, which items each department can order, and the budgets and reports you need. We’ll put what your store can do in writing. Your agency sets the hi-vis and safety requirements.',
   },
 ]
 
@@ -53,11 +53,11 @@ const storeItems = [
   },
   {
     title: 'ANSI hi-vis safety apparel',
-    desc: 'Employer-approved hi-vis tees, vests, and long sleeves can be included when the selected store supports the required catalog.',
+    desc: 'Hi-vis tees, vests, and long sleeves in the class your agency specifies.',
   },
   {
     title: 'Embroidered outerwear',
-    desc: 'Branded softshells, jackets, and beanies can be quoted. Artwork retention, placement, product performance, and care requirements are confirmed for the approved program and exact product.',
+    desc: 'Softshells, jackets, and beanies with your seal or department mark stitched on, for crews who work outside in cold weather.',
   },
   {
     title: 'Branded hats & accessories',
@@ -65,38 +65,38 @@ const storeItems = [
   },
   {
     title: 'Public works uniforms & field gear',
-    desc: 'Field-workwear options are reviewed for the exact use, employer requirements, manufacturer instructions, and care process. Sizing, decoration, retention, and reorder terms are quote-specific.',
+    desc: 'Work shirts, pants, and layers for streets, water, and parks crews. Tell us the work and how the gear gets washed, and we’ll narrow it down.',
   },
 ]
 
 const faqs = [
   {
     q: 'Do you ship government and municipal uniforms nationwide?',
-    a: 'Yes. Bighorn Threads is based in Las Vegas and ships government and municipal uniforms anywhere in the United States, to one site, several locations, or individual staff.',
+    a: 'Yes. We ship government and municipal uniforms anywhere in the United States, to one site, several locations, or individual staff.',
   },
   {
     q: 'What is the minimum order?',
-    a: 'Minimums depend on the order: the garment, the decoration method, and the quantity. Send your logo, the items you want, and rough quantities, and the quote lists the minimum for that order.',
+    a: 'There’s no single number, because the garment and the decoration method set it. Send your logo, the items you want, and a rough count, and we’ll give you the minimum for that exact order.',
   },
   {
     q: 'What is an agency company store?',
-    a: 'An agency company store is a managed online storefront built around approved products and artwork. Access, ordering, budget, inventory, and fulfillment capabilities depend on the selected setup.',
+    a: 'A private online store with your agency’s approved products and logo, where staff order their own sizes. Tell us about access and budgets, and we’ll say what your setup can do.',
   },
   {
     q: 'Can multiple departments order from one store?',
-    a: 'One store for multiple departments can be requested. The proposal confirms supported access, catalogs, ordering, and administration.',
+    a: 'Tell us how your departments are set up. We’ll say in writing whether one store can show each one its own items.',
   },
   {
     q: 'Can it handle hi-vis and ANSI safety apparel?',
-    a: 'An employer-approved protective-apparel catalog can be requested. Your agency selects the required products, and Bighorn confirms current availability and store capabilities.',
+    a: 'Yes. Your agency picks the class and the products, and we check stock and whether they can go in your store.',
   },
   {
     q: 'Can we control approved items and budget by department?',
-    a: 'Department catalogs and spend controls can be requested. Bighorn confirms supported controls and reporting in the proposal.',
+    a: 'Ask for them. Tell us the limits and reports you need, and your proposal will say which ones your store supports.',
   },
   {
     q: 'How do reorders work?',
-    a: 'Approved artwork and placement may support repeat orders when the program includes file retention. Size submission, user access, delivery options, and current product availability are confirmed for the selected platform and each order.',
+    a: 'A reorder starts from the garment and logo placement you already approved. We check stock and price each time.',
   },
 ]
 
@@ -159,7 +159,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  <span class="text-gold-600"> for public-sector teams nationwide.</span>
  </h1>
         <p class="mt-7 max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
-          Government and municipal uniforms, public works apparel, employer-approved hi-vis, and embroidered outerwear for city, county, and state agencies. One Las Vegas account team, production through vetted partners, delivered to any department in the US.
+          Government and municipal uniforms, public works apparel, hi-vis, and embroidered outerwear for city, county, and state agencies. One person runs your order from our Las Vegas office, production partners make it, and it ships to any department in the US.
         </p>
         <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
           <a href="/get-started/government/" class="btn-primary text-base">
@@ -210,8 +210,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
           How a company store works <span class="text-gold-600">for an agency.</span>
         </h2>
         <p class="mt-4 text-lg leading-relaxed text-ash">
-          An ordering store is built around department catalogs, user access, budget controls,
-          and employer-approved hi-vis products. Every capability remains prospective until documented in the approved platform proposal.
+          You pick what each department can order and who gets access. We put what your store can do in writing before you sign off.
         </p>
       </div>
 
@@ -239,8 +238,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
           Everything your departments <span class="text-gold-600">actually order.</span>
         </h2>
         <p class="mt-4 text-lg leading-relaxed text-ash">
-          Request a catalog for the gear each department needs, including uniforms, safety apparel,
-          outerwear, and accessories. Product, decoration, and reorder terms are confirmed in writing.
+          Uniforms, safety apparel, outerwear, and accessories for each department. Tell us who wears what and we’ll build the list.
         </p>
       </div>
 
@@ -288,8 +286,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
             Get a company store plan for your agency.
           </h2>
           <p class="mt-2 text-sm leading-relaxed text-navy-200">
-            Request a managed store plan covering approved products, artwork, staff size collection,
-            protective-apparel needs, and department budget controls.
+            Tell us about your departments and what they wear. We’ll write up the products, the ordering, and the budgets.
           </p>
         </div>
         <a href="/get-started/government/" class="btn-primary shrink-0 text-base">

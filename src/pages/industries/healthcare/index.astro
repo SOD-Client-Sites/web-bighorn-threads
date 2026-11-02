@@ -47,19 +47,19 @@ const storeSteps = [
     n: '01',
     meta: 'Setup',
     title: 'We Plan Your Branded Store',
-    desc: 'Bring your logo, role colors, sites, and approved products. Bighorn proposes a managed store with written setup and artwork terms.',
+    desc: 'Send your logo, role colors, sites, and the products you want. We write up how the store works and what it costs.',
   },
   {
     n: '02',
     meta: 'Ongoing',
-    title: 'Plan Staff Size Submission',
-    desc: 'Staff size submission can be requested against approved role apparel. Supported users and ordering steps are confirmed in the proposal.',
+    title: 'Staff Pick Their Own Sizes',
+    desc: 'Staff choose a size from the items approved for their role, so HR stops collecting them.',
   },
   {
     n: '03',
     meta: 'Ongoing',
     title: 'Coordinated Delivery and Decoration',
-    desc: 'Choose an available delivery option during setup. Bighorn coordinates approved logo and name details with the selected production partner for each order.',
+    desc: 'Tell us where gear ships during setup. We keep the approved logo and name details straight on each order.',
   },
 ]
 
@@ -71,7 +71,7 @@ const storeItems = [
   },
   {
     title: 'Lab Coats & Jackets',
-    desc: 'Consider embroidered lab coats, warm-up jackets, and fleece. File handling, proofing, product availability, and reorder terms require confirmation.',
+    desc: 'Embroidered lab coats and warm-up jackets with your logo, and staff names if you want them.',
     tag: 'Outerwear',
   },
   {
@@ -86,7 +86,7 @@ const storeItems = [
   },
   {
     title: 'Name & Credential Embroidery',
-    desc: 'Request approved names, roles, and credentials on compatible garments. Bighorn confirms roster handling, proofing, and file terms in writing.',
+    desc: 'Names, roles, and credentials stitched from a roster you send. You check the spelling and placement on a proof.',
     tag: 'Decoration',
   },
 ]
@@ -94,31 +94,31 @@ const storeItems = [
 const faqs = [
   {
     q: 'Do you ship healthcare uniforms and embroidered scrubs nationwide?',
-    a: 'Yes. Bighorn Threads is based in Las Vegas and ships healthcare uniforms and embroidered scrubs anywhere in the United States, to one site, several locations, or individual staff.',
+    a: 'Yes. We ship healthcare uniforms and embroidered scrubs anywhere in the United States, to one site, several locations, or individual staff.',
   },
   {
     q: 'What is the minimum order?',
-    a: 'Minimums depend on the order: the garment, the decoration method, and the quantity. Send your logo, the items you want, and rough quantities, and the quote lists the minimum for that order.',
+    a: 'There’s no single number, because the garment and the decoration method set it. Send your logo, the items you want, and a rough count, and we’ll give you the minimum for that exact order.',
   },
   {
     q: 'What is a healthcare company store?',
-    a: 'It’s a proposed private store for approved products and brand standards. The plan confirms size submission, decoration, delivery options, and service terms.',
+    a: 'A private online store with your approved scrubs, coats, and polos, where staff order their own sizes. Your plan covers decoration and delivery.',
   },
   {
     q: 'Can we add names and credentials to scrubs and lab coats?',
-    a: 'Yes. Production partners can embroider approved names, roles, and credentials on compatible garments. Bighorn coordinates the roster and placement. Each reorder requires a current proof and product check.',
+    a: 'Yes. Send a roster and we’ll set up names, roles, and credentials. You approve a proof, and we check the garment and proof again on each reorder.',
   },
   {
     q: 'Can different roles or departments have different colors?',
-    a: 'Role, department, or site color rules can be requested. The proposal confirms supported catalogs, user access, and ordering controls.',
+    a: 'Yes on the gear. Tell us your color rules, and your proposal will say whether the store can show each role only its own colors.',
   },
   {
     q: 'Can multi-site staff order to their own location or home?',
-    a: 'Site and home delivery options may be available. The proposal confirms supported locations, eligible orders, shipping costs, and program terms.',
+    a: 'We ship anywhere in the US, including clinics and homes. Your proposal lists the shipping cost and which orders can go where.',
   },
   {
     q: 'How do reorders work as staff change?',
-    a: 'Approved product and artwork details can support repeat orders. New hires submit their sizes. Bighorn confirms current product availability, proof, pricing, and timing before each order.',
+    a: 'A reorder starts from the product and logo you already approved, and new hires give their sizes. We confirm stock, price, and timing before each order.',
   },
 ]
 
@@ -173,7 +173,7 @@ const breadcrumb = {
  <span class="text-gold-600"> for healthcare teams nationwide.</span>
  </h1>
         <p class="mt-7 max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
-          Embroidered scrubs, custom scrubs with your logo, lab coats, and front-desk polos for hospitals, clinics, and medical and dental offices. One Las Vegas account team, production through vetted partners, and delivery to any location in the US.
+          Embroidered scrubs, custom scrubs with your logo, lab coats, and front-desk polos for hospitals, clinics, and medical and dental offices. One person runs your order from our Las Vegas office, production partners make it, and it ships to any location in the US.
         </p>
         <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
           <a href="/get-started/healthcare/" class="btn-primary text-base">
@@ -199,9 +199,7 @@ const breadcrumb = {
           Staff apparel shouldn’t be <span class="text-gold-600">an ops headache.</span>
         </h2>
         <p class="mt-4 text-lg leading-relaxed text-ash">
-          Hospitals and clinics run on consistency. Uniforms are where it slips.
-          mismatched scrubs, drifting colors, multi-site reorders, and onboarding that
-          lands on HR. Here’s what we hear most.
+          Hospitals and clinics run on consistency, and uniforms are where it slips: mismatched scrubs, drifting colors, multi-site reorders, and onboarding that lands on HR.
         </p>
       </div>
 
@@ -225,8 +223,7 @@ const breadcrumb = {
           How a company store works for a <span class="text-gold-600">clinic or hospital.</span>
         </h2>
         <p class="mt-4 text-lg leading-relaxed text-ash">
-          A branded store can organize approved products and staff size submissions. Artwork storage,
-          proofing, product availability, and reorder terms are confirmed in your plan.
+          Staff order approved products in their own sizes from one private store. Your plan covers how logos and reorders are handled.
         </p>
       </div>
 
@@ -258,11 +255,10 @@ const breadcrumb = {
       <div class="mb-12 max-w-2xl">
         <p class="kicker mb-3">What Goes In the Store</p>
         <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
-          Approved team apparel, <span class="text-gold-600">organized in one plan.</span>
+          Scrubs, coats, and polos, <span class="text-gold-600">organized in one plan.</span>
         </h2>
         <p class="mt-4 text-lg leading-relaxed text-ash">
-          Compare eligible clinical, administrative, and outerwear products. Decoration,
-          personalization, colors, and availability are confirmed in your quote.
+          Clinical, front-desk, and outerwear options for each role. Tell us who wears what and we’ll check stock and colors.
         </p>
       </div>
 
@@ -310,8 +306,7 @@ const breadcrumb = {
         Ready to standardize <span class="text-gold-600">your team’s look?</span>
       </h2>
       <p class="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-ash">
-        We’ll build your company store plan for scrubs, lab coats, and admin
-        apparel. The proposal confirms staff size submission, approved decoration, and delivery options.
+        We’ll write up a company store plan for your scrubs, lab coats, and admin apparel, including how staff order and where it ships.
       </p>
       <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
         <a href="/get-started/healthcare/" class="btn-primary text-base">

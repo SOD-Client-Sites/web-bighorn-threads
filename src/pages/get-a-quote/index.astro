@@ -4,7 +4,7 @@ import SmsConsentFields from '@/components/SmsConsentFields.astro'
 
 const title = 'Get a Branded Apparel Quote | Bighorn Threads'
 const description =
-  'Request a written quote for screen printing, embroidery, company stores, or promotional products managed by the Bighorn Threads team in Las Vegas for your team.'
+  'Request a written quote for screen printing, embroidery, company stores, or promotional products, with the garment, decoration, price, and timing spelled out.'
 
 const whatWeDo = [
   {
@@ -29,7 +29,7 @@ const steps = [
   { n: '01', title: 'We review your needs', time: 'Review', body: 'We read your request and ask about anything missing: quantity, logo file, sizes, deadline, where it ships, or any protection your job requires.' },
   { n: '02', title: 'You get a quote', time: 'Quote', body: 'You see the products, decoration, setup, timing, shipping, and payment terms before you say yes.' },
   { n: '03', title: 'You review the proof', time: 'Approval', body: 'Check the garment, colors, and logo placement on the proof and sign off in writing. Nothing gets made before that.' },
-  { n: '04', title: 'Partners produce the order', time: 'Production', body: 'Our production partners make the order to the proof you approved. We stay on it and get it shipped to you, at one address or several.' },
+  { n: '04', title: 'Partners produce the order', time: 'Production', body: 'Our production partners make the order to the proof you approved. We stay on it until it ships, to one address or several.' },
 ]
 
 const breadcrumb = {
@@ -107,7 +107,7 @@ const inputClass =
             <div class="cf-turnstile mt-8" data-sitekey="0x4AAAAAADW_K97ZyhlAHC4I" data-theme="light"></div>
 
             <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <p class="text-sm text-ash">The Bighorn team reviews each request before confirming product, pricing, and timing.</p>
+              <p class="text-sm text-ash">We review each request, then confirm product, price, and timing in your quote.</p>
               <button type="submit" class="btn-primary justify-center text-base disabled:opacity-60">Send My Request</button>
             </div>
 
@@ -125,7 +125,7 @@ const inputClass =
               <div class="min-w-0">
                 <div class="kicker">Prefer to Call?</div>
                 <div class="mt-1 font-mono text-xl font-bold text-charcoal sm:text-2xl">702.904.8923</div>
-                <p class="mt-1 text-sm text-ash">Talk to the Bighorn team in Las Vegas.</p>
+                <p class="mt-1 text-sm text-ash">Talk to the team that will run your order.</p>
               </div>
             </div>
           </a>
@@ -133,7 +133,7 @@ const inputClass =
           <div class="border border-hairline bg-panel p-7">
             <h2 class="kicker">What We Do</h2>
             <p class="mt-2 text-sm leading-relaxed text-ash">
-              You get one contact. Production partners make the gear, and we run the order from quote to delivery.
+              You get one contact, and we run the order from quote to delivery.
             </p>
             <ul class="mt-5 space-y-4">
               {whatWeDo.map((item) => (

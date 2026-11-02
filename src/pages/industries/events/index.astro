@@ -26,42 +26,42 @@ const storeSteps = [
   {
     n: '01',
     meta: 'Setup',
-    title: 'We Propose the Store or Order Plan',
-    desc: 'Tell us the event, gear, and date. Bighorn proposes a store or order plan. Artwork handling and repeat-order terms are confirmed in writing.',
+    title: 'We Recommend a Store or an Order',
+    desc: 'Tell us the event, gear, and date. We’ll recommend a one-time order or a store, in writing.',
   },
   {
     n: '02',
     meta: 'Ongoing',
-    title: 'Plan Individual Size Submission',
-    desc: 'Individual size submission can be requested for staff or attendees. Supported users and ordering steps are confirmed in the proposal.',
+    title: 'Collect Sizes Up Front',
+    desc: 'Staff or attendees can give their own sizes, so you aren’t guessing at the box. Your proposal says how it works.',
   },
   {
     n: '03',
     meta: 'Ongoing',
-    title: 'Production and Delivery Planning',
-    desc: 'Share the event date, destination, products, and artwork early. Bighorn confirms available production and delivery terms before you order.',
+    title: 'Work Back From Your Date',
+    desc: 'Send the event date, venue, products, and logo early. We’ll tell you whether the date works before you order.',
   },
 ]
 
 const offerings = [
   {
     title: 'Event Staff Shirts & Booth Apparel',
-    desc: 'Plan matching apparel for booth or event staff. File retention, reuse, proofing, product availability, pricing, and timing require confirmation.',
+    desc: 'Matching polos and tees for booth or event staff, so your team is easy to spot on the floor.',
     tag: 'Staff',
   },
   {
     title: 'Trade-Show Polos & Outerwear',
-    desc: 'Compare embroidered polos, quarter-zips, and softshell jackets. Current brand, color, and size availability is confirmed per quote.',
+    desc: 'Embroidered polos, quarter-zips, and softshell jackets. We’ll check brands, colors, and sizes against your date.',
     tag: 'Trade Show',
   },
   {
     title: 'Conference Swag & Trade Show Giveaways',
-    desc: 'Request tees, hats, and attendee merchandise. Bighorn confirms eligible products, decoration, quantities, and pricing in the quote.',
+    desc: 'Tees, hats, and attendee merch that people keep after the show.',
     tag: 'Merch',
   },
   {
     title: 'Custom Team Shirts & League Uniforms',
-    desc: 'Request matching team or league uniforms. Size submission, personalization, artwork handling, and reorder terms are confirmed in writing.',
+    desc: 'Matching team or league uniforms, with names and numbers if you need them. Send your roster and we’ll quote it.',
     tag: 'Teams',
   },
   {
@@ -74,31 +74,31 @@ const offerings = [
 const faqs = [
   {
     q: 'Do you ship event and trade show apparel nationwide?',
-    a: 'Yes. Bighorn Threads is based in Las Vegas and ships event and trade show apparel anywhere in the United States, to one site, several locations, or individual staff.',
+    a: 'Yes. We ship event and trade show apparel anywhere in the United States, to your office, the venue, or individual staff.',
   },
   {
     q: 'What is the minimum order?',
-    a: 'Minimums depend on the order: the garment, the decoration method, and the quantity. Send your logo, the items you want, and rough quantities, and the quote lists the minimum for that order.',
+    a: 'There’s no single number, because the garment and the decoration method set it. Send your logo, the items you want, and a rough count, and we’ll give you the minimum for that exact order.',
   },
   {
     q: 'What is an event company store?',
-    a: 'An event company store can present approved products and artwork for one event or a recurring series. Size submission, delivery options, and fulfillment terms are confirmed during setup.',
+    a: 'A private store with approved products for one event or a recurring series, where people order their own sizes. We settle delivery during setup.',
   },
   {
     q: 'Can you hit a hard event deadline?',
-    a: 'Share the date, destination, products, quantity, and artwork. Bighorn confirms whether a production partner can support the schedule before you approve the order.',
+    a: 'Send the date, venue, products, quantity, and logo. We’ll check stock and production capacity and tell you whether it works before you approve the order.',
   },
   {
     q: 'Can attendees order their own sizes?',
-    a: 'Individual size submission can be requested. The proposal confirms supported users, ordering steps, and fulfillment terms.',
+    a: 'Often, yes. Tell us who’s ordering and where it ships, and your proposal will lay out how it works.',
   },
   {
     q: 'Can we reuse artwork for recurring events?',
-    a: 'Approved artwork may support repeat orders. File retention, reuse, product availability, proofing, pricing, and timing are confirmed for each reorder.',
+    a: 'That’s the goal. The next event starts from the logo and placement you approved. We check stock and price each time.',
   },
   {
     q: 'Can you do team and league uniforms?',
-    a: 'Bighorn can review team and league uniform requests. Product, roster, personalization, store, file-retention, and reorder capabilities are confirmed in writing.',
+    a: 'Send your roster, colors, and logo. We’ll tell you what we can do on names and numbers and quote it.',
   },
 ]
 
@@ -161,7 +161,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  <span class="text-gold-600"> for events and teams nationwide.</span>
  </h1>
         <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
-          Event staff shirts, trade show apparel, conference swag, and custom team shirts, with a hard date and lots of sizes. One Las Vegas account team, production through vetted partners, shipped to your office or straight to the venue anywhere in the US.
+          Event staff shirts, trade show apparel, conference swag, and custom team shirts, with a hard date and lots of sizes. One person runs your order from our Las Vegas office, production partners make it, and it ships to your office or straight to the venue anywhere in the US.
         </p>
         <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
           <a href="/get-started/events/" class="btn-primary text-base">
@@ -187,8 +187,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
           Event gear shouldn’t be <span class="text-gold-600">a last-minute scramble.</span>
         </h2>
         <p class="mt-4 text-lg leading-relaxed text-ash">
-          If you run events, you know the drill. The date is fixed, the headcount keeps shifting, and
-          the gear order always lands on your plate too late. It costs you time and the event pays for it.
+          The date is fixed, the headcount keeps shifting, and the gear order lands on your plate too late.
         </p>
       </div>
 
@@ -212,8 +211,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
           How it works <span class="text-gold-600">for your event.</span>
         </h2>
         <p class="mt-4 text-lg leading-relaxed text-ash">
-          Plan approved artwork, size collection, products, production, and delivery around your date.
-          The written proposal confirms responsibilities and available options.
+          We plan the logo, sizes, products, and delivery around your date, and put it in writing.
         </p>
       </div>
 
@@ -245,7 +243,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
       <div class="mb-12 max-w-2xl">
         <p class="kicker mb-3">Product Options</p>
         <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
-          Options to consider <span class="text-gold-600">for events.</span>
+          What to order <span class="text-gold-600">for events.</span>
         </h2>
         <p class="mt-4 text-lg leading-relaxed text-ash">
           Pick the gear that fits the event and your brand. Staff apparel, attendee merch, team
@@ -303,8 +301,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
             Got an event coming up? <span class="text-gold-400">Let’s get the gear right.</span>
           </h2>
           <p class="mt-4 text-base leading-relaxed text-navy-200">
-            Store setup terms are confirmed in your plan. Individual size submission depends on the approved
-            workflow. Tell us your event and date so Bighorn can prepare the plan.
+            Tell us your event and date, and we’ll write up the gear, the cost, and how sizes get collected.
           </p>
         </div>
         <a href="/get-started/events/" class="btn-primary shrink-0 text-base">

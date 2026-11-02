@@ -9,7 +9,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
 const faqs = [
  {
  q: 'What is a company store for team apparel?',
- a: 'A company store is a private online store where your employees order approved, company-branded apparel. You choose what goes in it, and they choose their sizes. What else it can do, such as budgets or approvals, depends on the setup we agree on.',
+ a: 'A company store is a private online store where your employees order approved, company-branded apparel. You choose what goes in it, and they choose their sizes. If you also want budgets or approvals, ask. We’ll tell you what your store can do before you commit.',
  },
  {
  q: 'Is a company store the same as a uniform program?',
@@ -18,19 +18,19 @@ const faqs = [
  },
  {
  q: 'Who offers branded company stores for teams?',
- a: 'Bighorn Threads sets up company stores for teams, with a contact in Las Vegas and shipping nationwide. We put what your store includes in a written proposal.',
+ a: 'Bighorn Threads sets up company stores for teams across the US from our office in Las Vegas. Production partners make the gear, and your written proposal spells out what your store includes.',
  },
  {
  q: 'How long does it take to launch a store?',
- a: 'It depends on how many products you want and how quickly your artwork and approvals come together. Tell us your target date and we will tell you if it is realistic.',
+ a: 'The two things that move the date are how many products you want and how fast your logo files and approvals come back. Give us your target date and we’ll tell you if it’s realistic.',
  },
  {
  q: "What's the minimum crew size?",
- a: 'We do not set one fixed number. Order minimums depend on the products and decoration, so tell us your headcount and we will tell you whether a store makes sense or a regular order is better.',
+ a: 'There’s no fixed number. Tell us your headcount and how often you reorder, and we’ll tell you whether a store makes sense or a regular order is the better call.',
  },
  {
  q: 'Do you charge a monthly fee?',
- a: 'Your proposal lists every charge, including any setup or monthly fee, before you agree to anything. Ask us for it up front.',
+ a: 'If there’s a setup or monthly fee, you’ll see it in the proposal before you agree to anything.',
  },
  {
  q: 'Can we limit what employees order?',
@@ -38,11 +38,11 @@ const faqs = [
  },
  {
  q: 'Can you ship to job sites?',
- a: 'We ship anywhere in the US. Tell us where gear needs to go, such as job sites, a main office, or homes, and the proposal will cover the options and cost.',
+ a: 'We ship anywhere in the US. Job sites, a main office, or people’s homes all work. Tell us where gear needs to go and we’ll price the shipping.',
  },
  {
  q: 'How do we add new employees?',
- a: 'That depends on the store setup. Tell us how often you hire and who should manage access, and we will show you how it would work before you commit.',
+ a: 'Tell us how often you hire and who should manage access. We’ll show you how adding someone would work before you commit.',
  },
  {
  q: 'What if we want to change our approved products?',
@@ -72,7 +72,7 @@ const serviceSchema = {
  name: 'Company Stores for Teams',
  serviceType: 'Online team-apparel store',
  provider: { '@id': 'https://bighornthreads.com/#organization' },
- description: 'Private online stores where teams order approved, company-branded apparel, with a contact in Las Vegas. What each store includes is set out in a written proposal.',
+ description: 'Private online stores where teams order approved, company-branded apparel, shipped anywhere in the US.',
  audience: {
  '@type': 'BusinessAudience',
  name: 'Corporate, education, healthcare, government, hospitality, and field teams, including general contractors, HVAC, plumbing, electrical, and multi-location companies',
@@ -102,7 +102,7 @@ const steps = [
 const fits = [
  { title: 'Contractors with several crews', body: 'Stop collecting sizes from every foreman and fill new-hire gear from one place.', html: `Stop collecting sizes from every foreman and fill new-hire gear from one place. See <a href="/company-stores/contractors-las-vegas/" class="${link}">company stores for contractors</a>.` },
  { title: 'Service trades', body: 'HVAC, plumbing, and electrical techs can get the same starter kit by role.' },
- { title: 'Companies with several locations', body: 'Keep the same logo and the same polo everywhere, from one catalog.', html: `Keep the same logo and the same polo everywhere, from <a href="/service-areas/henderson-nv/" class="${link}">Henderson</a> to your furthest office, from one catalog.` },
+ { title: 'Companies with several locations', body: 'Keep the same logo and the same polo at every location, from one catalog.', html: `Keep the same logo and the same polo at every location, from one catalog.` },
  { title: 'Uniform programs', body: 'Give each role its approved uniforms and sizes in one place.', html: `Give each role its approved <a href="/custom-uniforms-las-vegas/" class="${link}">custom uniforms</a> and sizes in one place.` },
 ]
 
@@ -174,7 +174,7 @@ const questions = [
  <div>
  <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">What it costs</h2>
  <p class="mt-5 text-lg leading-relaxed text-charcoal">
- You pay for the gear and decoration, and your proposal lists any setup, monthly, payment, or shipping charges. The total depends on your products and how the store is set up, so we price each one rather than publishing a rate card.
+ You pay for the gear and the decoration. Any setup, monthly, payment, or shipping charge is listed in your proposal. Your products and your store setup drive the total, so we price each store instead of publishing a rate card.
  </p>
  <a href="/contact/?interest=pricing" class="btn-secondary mt-6 text-sm">Ask for pricing</a>
  </div>

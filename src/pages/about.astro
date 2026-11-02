@@ -11,7 +11,7 @@ const jsonLd = {
  '@id': 'https://bighornthreads.com/about#aboutpage',
  url: 'https://bighornthreads.com/about',
  name: 'About Bighorn Threads | Las Vegas Branded Apparel',
- description: 'Bighorn Threads is a DBA of VP Promos. The Las Vegas based business coordinates branded apparel and promotional-product orders through production partners.',
+ description: 'Bighorn Threads is a DBA of VP Promos, a Las Vegas company that runs branded apparel and promotional-product orders for teams across the US.',
  isPartOf: { '@id': 'https://bighornthreads.com/#website' },
  about: { '@id': 'https://bighornthreads.com/#organization' },
  },
@@ -23,7 +23,7 @@ const jsonLd = {
  founder: { '@id': 'https://bighornthreads.com/#founder' },
  url: 'https://bighornthreads.com',
  logo: 'https://bighornthreads.com/images/logo.png',
- description: 'Las Vegas based branded apparel and promotional products. Production is coordinated through partners.',
+ description: 'Branded apparel and promotional products for teams across the US, run from Las Vegas.',
  address: {
  '@type': 'PostalAddress',
  streetAddress: '9205 W. Russell Rd Ste 305',
@@ -39,7 +39,7 @@ const jsonLd = {
  name: 'Steven Dodson',
  jobTitle: 'Founder',
  worksFor: { '@id': 'https://bighornthreads.com/#organization' },
- description: 'Founder of Bighorn Threads and its parent VP Promos. Steve coordinates branded apparel and promotional-product programs through production partners.',
+ description: 'Founder of Bighorn Threads and its parent VP Promos.',
  telephone: '+17029048923',
  },
  ],
@@ -59,7 +59,7 @@ const speakableSchema = {
 
 <BaseLayout
  title="About Bighorn Threads | Las Vegas Based, Ships Nationwide"
- description="Bighorn Threads is a Las Vegas branded apparel company founded by Steve Dodson. We manage your order and work with production partners, with one contact from quote to delivery."
+ description="Bighorn Threads is a branded apparel company founded by Steve Dodson. You get one contact from quote to delivery, and we ship anywhere in the US."
 >
  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
  <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
@@ -107,7 +107,7 @@ const speakableSchema = {
  <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
  <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">What you can expect</h2>
  <ul class="mt-8 grid gap-8 md:grid-cols-3">
- <li class="border-t-2 border-charcoal pt-4"><h3 class="font-heading text-xl font-bold uppercase tracking-tight">A real answer on your date</h3><p class="mt-2 leading-relaxed text-ash">We check stock and partner capacity before telling you a date works.</p></li>
+ <li class="border-t-2 border-charcoal pt-4"><h3 class="font-heading text-xl font-bold uppercase tracking-tight">A real answer on your date</h3><p class="mt-2 leading-relaxed text-ash">We check stock and production capacity before we tell you a date works.</p></li>
  <li class="border-t-2 border-charcoal pt-4"><h3 class="font-heading text-xl font-bold uppercase tracking-tight">A proof first</h3><p class="mt-2 leading-relaxed text-ash">You see the garment, colors, and logo placement before you approve anything.</p></li>
  <li class="border-t-2 border-charcoal pt-4"><h3 class="font-heading text-xl font-bold uppercase tracking-tight">The price up front</h3><p class="mt-2 leading-relaxed text-ash">Your quote lists what you are getting and what it costs before the order goes ahead.</p></li>
  </ul>
