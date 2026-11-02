@@ -207,7 +207,7 @@ function buildBody(product) {
 
   // Quantity tier buttons (if product.qty array exists)
   const qtyTiers = parseQtyTiers(product)
-  if (qtyTiers.length) {
+  if (qtyTiers.length > 1) {
     const tierWrap = el('div')
     tierWrap.appendChild(label('Common quantities', 'qm-qty', { hint: 'Tap a tier or type your own.' }))
     const tierRow = el('div', { class: 'mt-2 flex flex-wrap gap-2' })

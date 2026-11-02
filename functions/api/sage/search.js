@@ -54,6 +54,7 @@ export async function onRequestGet({ request, env }) {
   cacheUrl.pathname = '/cache/sage/search'
   cacheUrl.search = new URLSearchParams({
     q: searchParams.quickSearch || '',
+    kw: keywords || '',
     cat: categories,
     sort,
     pp: perPage,
