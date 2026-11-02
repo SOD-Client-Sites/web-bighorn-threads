@@ -10,20 +10,20 @@ const page = {
 }
 
 const compare = [
- { row: 'T-shirts and long sleeves', options: 'Print or embroidery', review: 'Fabric, stretch, artwork size, hand feel, backing, quantity, and care' },
- { row: 'Polos and button-downs', options: 'Print or embroidery', review: 'Fabric structure, logo detail, placement, client-facing use, and care' },
- { row: 'Hats and caps', options: 'Embroidery, patch, or transfer', review: 'Panel construction, seams, shape, artwork, and manufacturer limits' },
- { row: 'Jackets and softshells', options: 'Embroidery, print, or transfer', review: 'Fabric coating, waterproof layers, seams, heat limits, and backing' },
- { row: 'Hi-vis and protective apparel', options: 'Product-specific review', review: 'Employer selection, garment label, manufacturer instructions, and written approval' },
+ { row: 'T-shirts and long sleeves', options: 'Print or embroidery', review: 'Print is the usual pick, especially for large logos and big runs' },
+ { row: 'Polos and button-downs', options: 'Print or embroidery', review: 'Embroidery is the usual pick for client-facing roles' },
+ { row: 'Hats and caps', options: 'Embroidery, patch, or transfer', review: 'Embroidery is the usual pick, and a patch can carry finer detail' },
+ { row: 'Jackets and softshells', options: 'Embroidery, print, or transfer', review: 'Check the shell, since needles and heat can harm waterproof fabric' },
+ { row: 'Hi-vis and protective apparel', options: 'Product-specific review', review: 'Follow the garment maker’s instructions for method and placement' },
 ]
 
 const faqs = [
- { q: 'Should I use screen printing or embroidery for construction gear?', a: 'Compare the exact garment, artwork, quantity, intended use, care, and budget. Ask for a proof and written quote before choosing.' },
- { q: 'Which method lasts longer?', a: 'There is no universal winner. How long it lasts comes down to the garment, the decoration, and how it gets washed.' },
- { q: 'Which method costs less?', a: 'Garment cost, artwork, stitch count or ink colors, setup, quantity, and placements set the price. Compare the complete written quote.' },
+ { q: 'Should I use screen printing or embroidery for construction gear?', a: 'Use screen printing for crew tees and big back prints, and embroidery for polos, jackets, and hats. If you’re unsure, send your logo and we’ll price both.' },
+ { q: 'Which method lasts longer?', a: 'Embroidery often outlasts a print on heavy garments, but thread can snag. A well-cured print on a good tee holds up well too. The washing routine matters for both.' },
+ { q: 'Which method costs less?', a: 'Screen printing usually costs less on larger runs of simple art. Embroidery can compare better on small orders. Send your logo and count and we’ll price both.' },
  { q: 'Can you decorate FR or arc-rated shirts?', a: 'Only after the employer and garment manufacturer approve the exact product, materials, method, size, and placement.' },
  { q: 'Can decoration affect ANSI/ISEA 107 apparel?', a: 'Yes. Decoration can affect required background or reflective material. Review the exact garment and scaled proof with the employer and manufacturer.' },
- { q: 'Can one order include both methods?', a: 'A proposal can include both methods when the selected products and partner support them. Confirm every product, placement, price, and timing in writing.' },
+ { q: 'Can one order include both methods?', a: 'Yes. Printed tees and embroidered polos can go on the same quote.' },
 ]
 
 const breadcrumb = {
@@ -66,7 +66,7 @@ const articleSchema = {
    </nav>
    <p class="kicker mb-4">Decoration Methods</p>
    <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">Screen printing vs embroidery for construction gear</h1>
-   <p class="max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">Choose from the garment, artwork, use, care, quantity, and written terms. Protective apparel needs employer and manufacturer review.</p>
+   <p class="max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">Print the crew tees and big back logos. Stitch the polos, jackets, and hats. For hi-vis and FR, start with what the garment maker allows.</p>
    <div class="mt-10"><a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a></div>
    <HeroProducts />
  </div>
@@ -74,7 +74,7 @@ const articleSchema = {
 
  <section class="border-b border-hairline bg-paper py-14">
   <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-   <p class="speakable-answer text-xl leading-relaxed text-charcoal sm:text-2xl">Neither method is automatically better. Screen printing applies ink to a garment. Embroidery builds the logo with thread and backing. The right choice depends on the complete order.</p>
+   <p class="speakable-answer text-xl leading-relaxed text-charcoal sm:text-2xl">Screen printing lays ink on the fabric, so it suits big logos and larger runs. Embroidery builds the logo with thread, so it looks finished up close on heavier garments.</p>
   </div>
  </section>
 
@@ -82,7 +82,7 @@ const articleSchema = {
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
    <div class="mb-10 max-w-2xl">
     <p class="kicker mb-3">Method by Garment</p>
-    <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">What to review before you choose</h2>
+    <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">The usual pick by garment</h2>
    </div>
    <div class="overflow-x-auto border border-hairline bg-panel">
     <table class="w-full min-w-[720px]">
@@ -110,11 +110,11 @@ const articleSchema = {
    <p class="kicker mb-3">The Buyer's Review</p>
    <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Compare the complete order</h2>
    <div class="space-y-8 text-lg leading-relaxed text-charcoal">
-    <div><h3 class="mb-2 font-heading text-xl font-bold">Garment and artwork</h3><p>Confirm fabric, stretch, seams, pockets, coatings, logo detail, colors, and finished size. Request a proof tied to the exact product.</p></div>
-    <div><h3 class="mb-2 font-heading text-xl font-bold">Quantity and price</h3><p>Setup, ink colors, stitch count, placements, garment cost, and quantity can change pricing. Compare total written quotes.</p></div>
-    <div><h3 class="mb-2 font-heading text-xl font-bold">Use and care</h3><p>Consider abrasion, laundering, drying, chemicals, weather, and expected wear. Follow the garment and decoration care instructions.</p></div>
-    <div><h3 class="mb-2 font-heading text-xl font-bold">Protective apparel</h3><p>For high-visibility, FR, or arc-rated products, the employer selects the garment. The manufacturer should approve decoration materials, method, size, and placement.</p></div>
-    <div><h3 class="mb-2 font-heading text-xl font-bold">Written terms</h3><p>Confirm products, substitutions, proofs, quantities, sizes, pricing, production timing, freight, and delivery before approval.</p></div>
+    <div><h3 class="mb-2 font-heading text-xl font-bold">Garment and artwork</h3><p>Small type and thin lines lose out in thread, and stretchy fabric puckers under it. Ask for a proof on the actual garment.</p></div>
+    <div><h3 class="mb-2 font-heading text-xl font-bold">Quantity and price</h3><p>Printing gets cheaper per piece as the run grows, and ink colors add setup. Embroidery is priced more by stitch count, so it tends to compare better on small runs.</p></div>
+    <div><h3 class="mb-2 font-heading text-xl font-bold">Use and care</h3><p>On a job site, abrasion and hard washing wear out both. Choose a heavy garment first, and follow the care instructions.</p></div>
+    <div><h3 class="mb-2 font-heading text-xl font-bold">Protective apparel</h3><p>On hi-vis, FR, or arc-rated gear, the garment maker sets which methods, materials, and placements are allowed.</p></div>
+    <div><h3 class="mb-2 font-heading text-xl font-bold">Written terms</h3><p>Your quote lists the products, sizes, price, and timing before you approve.</p></div>
    </div>
   </div>
  </section>
@@ -136,7 +136,7 @@ const articleSchema = {
  <section class="border-t border-hairline bg-navy-950 py-16 text-white">
   <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
    <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Compare methods for your actual order</h2>
-   <p class="mb-8 text-lg text-navy-200">Send your garment list, artwork, quantities, placements, care needs, and required product documents.</p>
+   <p class="mb-8 text-lg text-navy-200">Send your garment list, logo, and how many of each.</p>
    <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
   </div>
  </section>

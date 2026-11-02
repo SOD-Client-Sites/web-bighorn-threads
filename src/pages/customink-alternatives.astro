@@ -12,24 +12,24 @@ const page = {
 
 const comparison = [
  { criterion: 'Minimum order', bighorn: 'Varies by garment and decoration; confirmed in quote', custominkVal: 'Varies by product and decoration' },
- { criterion: 'Decoration method', bighorn: 'Partner-coordinated decoration, confirmed for each garment', custominkVal: 'Confirm available methods for the selected product' },
- { criterion: 'Jobsite requirements', bighorn: 'Reviewed against the order specification before approval', custominkVal: 'Confirm the review process for the selected product' },
- { criterion: 'Turnaround', bighorn: 'Confirmed after order review', custominkVal: 'Confirmed by the provider for the selected product' },
- { criterion: 'Account support', bighorn: 'A Las Vegas based account contact', custominkVal: 'Confirm the available support level before ordering' },
- { criterion: 'Company store / reorders', bighorn: 'Program requirements reviewed before setup', custominkVal: 'Confirm available tools and program terms' },
+ { criterion: 'Decoration method', bighorn: 'Embroidery, screen printing, and DTF, picked for each garment', custominkVal: 'Check the methods offered for your product' },
+ { criterion: 'Jobsite requirements', bighorn: 'We check FR and hi-vis logo rules before anything is made', custominkVal: 'Ask how they check rated gear' },
+ { criterion: 'Turnaround', bighorn: 'Confirmed after order review', custominkVal: 'Shown for your product at checkout or in your quote' },
+ { criterion: 'Account support', bighorn: 'A Las Vegas based account contact', custominkVal: 'Ask who handles your account' },
+ { criterion: 'Company store / reorders', bighorn: 'Private stores your people order from', custominkVal: 'Check which tools your account gets' },
 ]
 
 const faqs = [
- { q: 'How should a construction company compare CustomInk and Bighorn Threads?', a: 'Compare the exact garment, decoration method, quantity, artwork process, turnaround, service model, and any jobsite requirements. Bighorn Threads can review a crew apparel specification and provide a written quote for comparison.' },
- { q: 'How should I compare providers for FR shirts or hi-vis vests?', a: 'Send each provider the same approved garment specification, jobsite requirements, artwork, and quantity. Ask each provider to document its review and decoration process before you order.' },
- { q: 'Does Bighorn Threads coordinate embroidery and screen printing?', a: 'Yes. Bighorn recommends a decoration method and gets the approved order made. Available methods are confirmed for the selected garment and artwork.' },
+ { q: 'How should a construction company compare CustomInk and Bighorn Threads?', a: 'Send both the same garment, logo, and count, then compare totals, dates, and who handles your reorder.' },
+ { q: 'How should I compare providers for FR shirts or hi-vis vests?', a: 'Send each one the same garment and logo, then ask how they check the maker’s logo rules. A vague answer tells you something.' },
+ { q: 'Does Bighorn Threads coordinate embroidery and screen printing?', a: 'Yes. We’ll recommend one for each garment and get it made after you approve the proof.' },
  { q: 'Is CustomInk or a local provider cheaper?', a: 'It depends on the order. For a one-off online order, an online platform can be the simplest option. For repeat crew orders, price is driven by the garment, decoration method, artwork setup, quantity, shipping, and reorder terms, so request itemized quotes built from the same specification before comparing total cost.' },
  { q: 'Who else competes with CustomInk, and where does Bighorn Threads fit?', a: 'CustomInk competes with print-on-demand and online design platforms for one-off orders, and with local and regional providers for repeat business apparel. Bighorn Threads fits the second group: one Las Vegas contact for crew and company apparel, embroidery, and reorders.' },
- { q: 'Can I request an ongoing company store?', a: 'Bighorn can scope a company store around an approved product program. Ordering, budget, production, and fulfillment terms are confirmed before setup.' },
- { q: 'Can Bighorn Threads support teams outside Las Vegas?', a: 'Send the order locations with your inquiry. Bighorn will confirm current production, pickup, shipping, and timing options in the quote.' },
+ { q: 'Can I request an ongoing company store?', a: 'Yes. Tell us your crew size and what you reorder, and we’ll say whether a store makes sense and put the terms in writing.' },
+ { q: 'Can Bighorn Threads support teams outside Las Vegas?', a: 'Yes. We ship anywhere in the US, to one address or several.' },
 ]
 
-const leadAnswer = 'Bighorn Threads is one option for construction, trade, and corporate apparel programs. Compare providers using the same garment, decoration, quantity, artwork, turnaround, service, and jobsite requirements. Bighorn Threads can quote the complete specification for an informed comparison.'
+const leadAnswer = 'If you’re comparing CustomInk with Bighorn Threads, send both the same shirt, logo, and count so the quotes line up. Bighorn suits repeat crew and company orders, where you want one person who already has your logo and sizes.'
 
 const breadcrumb = {
  '@context': 'https://schema.org',
@@ -77,7 +77,7 @@ const faqSchema = {
  The CustomInk alternative built for <span class="text-gold-700">crews, not fundraisers.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
- Construction and trade companies often need specialized garments, decoration, and repeat ordering. Bighorn Threads reviews those requirements and provides a written quote with current minimums and timing.
+ CustomInk is built for tees and group orders. If you need work shirts, embroidery, hi-vis, and reorders that match, you may want a contact who knows your crew.
  </p>
 
  <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -95,7 +95,7 @@ const faqSchema = {
  <section class="border-b border-hairline bg-paper py-14">
  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
  <p class="speakable-answer text-xl leading-relaxed text-charcoal sm:text-2xl">
- {leadAnswer} If your order includes jobsite requirements, ask each provider to document how it reviews the garment and decoration plan.
+ {leadAnswer} 
  </p>
  </div>
  </section>
@@ -140,19 +140,19 @@ const faqSchema = {
  </h2>
  <div class="space-y-5 text-lg leading-relaxed text-ash">
  <p>
- Different apparel providers serve different order types. A construction company should compare providers using its actual garments, artwork, quantities, jobsite requirements, and reorder needs.
+ An online designer works well the first time you need 30 tees. Crews tend to outgrow it when they need canvas work shirts, stitched logos, and new hires who match the people hired last year.
  </p>
  <p>
- Focus on three details. First, confirm the decoration available for each garment. Second, document any jobsite or product requirements. Third, identify who owns the order and the reorder process.
+ When you compare, ask three things: can they decorate this exact garment, can they meet your jobsite rules, and who do you call when you need ten more?
  </p>
  <p>
- Bighorn Threads coordinates <a href="/services/embroidery-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">embroidery</a> and screen printing through production partners. Garment suitability, available decoration, minimums, and timing are reviewed for each order.
+ Bighorn Threads gets <a href="/services/embroidery-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">embroidery</a> and screen printing done through production partners, and your quote lists the minimum and timing.
  </p>
  <p>
- If your order mixes decoration methods, Bighorn can review both within one order specification. See the <a href="/blog/dtf-printing-vs-screen-printing-custom-apparel/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">DTF vs. screen printing</a> breakdown. For repeat programs, compare a <a href="/blog/company-store-vs-bulk-ordering/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">company store and bulk ordering</a> against your approval and reorder needs.
+ If your order mixes printed tees and embroidered polos, it can all go on one quote. See the <a href="/blog/dtf-printing-vs-screen-printing-custom-apparel/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">DTF vs. screen printing</a> breakdown. For repeat programs, compare a <a href="/blog/company-store-vs-bulk-ordering/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">company store and bulk ordering</a> against your approval and reorder needs.
  </p>
  <p>
- The honest takeaway: use the same order specification when comparing providers. Bighorn gives Las Vegas teams a local contact for every order and reorder.
+ The honest takeaway: for a one-off tee order, CustomInk is hard to beat for convenience. For gear you’ll reorder for years, a contact who has your files is worth comparing.
  </p>
  </div>
  </div>
@@ -214,7 +214,7 @@ const faqSchema = {
  <section class="bg-charcoal py-20">
  <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Ready for an apparel program built around your crew?</h2>
- <p class="mb-8 text-lg text-white/80">Send your logo and garment list for a specification-based quote.</p>
+ <p class="mb-8 text-lg text-white/80">Send your logo and garment list for a quote.</p>
  <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
  <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>

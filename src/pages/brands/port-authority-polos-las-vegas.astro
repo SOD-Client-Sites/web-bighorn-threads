@@ -9,12 +9,12 @@ const page = {
 }
 
 const products = [
-  { sku: 'K500', name: 'Port Authority Silk Touch Polo', detail: 'A corporate polo option with a pique knit. Sizes, colors, and availability are confirmed per order.', method: 'Decoration confirmed for the approved product' },
- { sku: 'K420', name: 'Port Authority Pique Knit Polo', detail: 'A heavier pique option. Confirm current weight, fit, colors, sizes, and availability.', method: 'Decoration confirmed for the approved product' },
- { sku: 'K540', name: 'Port Authority Silk Touch Performance Polo', detail: 'A performance polo option for field and event teams. Confirm current fabric features and care.', method: 'Decoration confirmed for the approved product' },
- { sku: 'L500', name: 'Port Authority Ladies Silk Touch Polo', detail: 'A tailored polo option. Compare the current fabric, fit, sizes, and colors with the selected companion style.', method: 'Decoration confirmed for the approved product' },
- { sku: 'K100', name: 'Port Authority Core Classic Pique Polo', detail: 'A pique option to compare for event, volunteer, and larger team programs.', method: 'Decoration confirmed for the approved product' },
- { sku: 'K8000', name: 'Port Authority EZCotton Polo', detail: 'A cotton-poly option for executive and client-facing roles. Confirm current specifications.', method: 'Decoration confirmed for the approved product' },
+  { sku: 'K500', name: 'Port Authority Silk Touch Polo', detail: 'A corporate polo option with a pique knit. Sizes, colors, and availability are confirmed per order.' },
+ { sku: 'K420', name: 'Port Authority Pique Knit Polo', detail: 'A heavier pique option. Confirm current weight, fit, colors, sizes, and availability.' },
+ { sku: 'K540', name: 'Port Authority Silk Touch Performance Polo', detail: 'A performance polo option for field and event teams. Confirm current fabric features and care.' },
+ { sku: 'L500', name: 'Port Authority Ladies Silk Touch Polo', detail: 'A tailored polo option. Compare the current fabric, fit, sizes, and colors with the selected companion style.' },
+ { sku: 'K100', name: 'Port Authority Core Classic Pique Polo', detail: 'A pique option to compare for event, volunteer, and larger team programs.' },
+ { sku: 'K8000', name: 'Port Authority EZCotton Polo', detail: 'A cotton-poly option for executive and client-facing roles. Confirm current specifications.' },
 ]
 
 const why = [
@@ -27,19 +27,19 @@ const why = [
 const faqs = [
  {
  q: 'What\'s the minimum order for custom Port Authority polos?',
-    a: 'Your quote lists the minimum for the polo and decoration. Share your quantity so we can confirm current options.',
+    a: 'Each polo and decoration method has its own minimum. Send your count and we\'ll tell you the number.',
  },
  {
  q: 'How does Port Authority compare to Cutter & Buck or Nike Golf?',
- a: 'Compare current Cutter &amp; Buck, Nike Golf, and Port Authority products for fabric, fit, brand rules, price, and availability. Your quote confirms the options for the final quantity.',
+ a: 'Port Authority is usually the value choice for outfitting a whole team, and Cutter &amp; Buck and Nike Golf carry a premium brand name. Ask for both prices.',
  },
  {
  q: 'What\'s the difference between K500, K420, and K540?',
- a: 'The K500, K420, and K540 use different fabrics and fits. Compare the current specifications, colors, sizes, care instructions, availability, and quote for your team.',
+ a: 'The K500 is the everyday pique polo, the K420 a heavier pique, and the K540 a performance fabric for hotter work.',
  },
  {
  q: 'Can you match women\'s and men\'s polo colors for a mixed team?',
- a: 'Related men\'s and women\'s styles may be available. Compare current colorways, sizes, and product specifications before approval.',
+ a: 'Often, yes, since many styles have a women\'s match, such as the K500 and L500. Colors can differ a little between them, so check samples if it matters.',
  },
  {
  q: 'Do you keep Port Authority in stock or order each time?',
@@ -47,7 +47,7 @@ const faqs = [
  },
  {
  q: 'Can you set up a Port Authority company store for a sales team?',
- a: 'A managed-store option may be available. Your written program terms cover catalog, access, budget, pricing, inventory, and fulfillment.',
+ a: 'Yes. We can set up a private store with your approved polos, and your proposal will say what it can do.',
  },
 ]
 
@@ -177,10 +177,6 @@ const faqSchema = {
  </div>
  <h3 class="mb-2 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{p.name}</h3>
  <p class="mb-4 text-sm leading-relaxed text-ash">{p.detail}</p>
- <div class="mt-4 border-t border-hairline pt-3">
- <span class="spec text-gold-600">Decoration</span>
- <p class="mt-1 text-sm text-charcoal">{p.method}</p>
- </div>
  </div>
  ))}
  </div>
@@ -191,7 +187,7 @@ const faqSchema = {
  <section class="border-y border-hairline bg-paper py-20 sm:py-24">
  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
  <p class="kicker mb-3">vs Cutter &amp; Buck / Nike Golf</p>
- <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Where Port Authority wins for team rollouts.</h2>
+ <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">What to compare, and what we handle.</h2>
 
  <div class="overflow-hidden border border-hairline bg-panel">
  <table class="w-full">
@@ -259,7 +255,7 @@ const faqSchema = {
  <!-- CTA — full-bleed photographic dark band -->
  <section class="bg-charcoal">
  <div class="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 lg:px-8">
- <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Quote on custom Port Authority <span class="text-gold-400">fast.</span></h2>
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Get a Port Authority quote <span class="text-gold-400">fast.</span></h2>
       <p class="mb-8 text-lg text-white/80">Get current availability and a timeline for your order.</p>
  <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
       <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>

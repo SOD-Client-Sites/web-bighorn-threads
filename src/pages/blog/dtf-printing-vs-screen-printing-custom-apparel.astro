@@ -21,7 +21,7 @@ const faqs = [
  { q: 'Does DTF work on dark fabrics?', a: 'Yes. This is one of DTF\'s biggest advantages over sublimation. DTF prints with white-ink underlayers that allow color saturation on black, navy, and dark gray fabrics. Sublimation can\'t do this; screen printing requires extra "underbase" steps that add cost. DTF handles dark fabrics natively.' },
  { q: 'Can DTF print on cotton?', a: 'It may be compatible with selected cotton and other garments. We confirm the fabric, transfer, finish, and care instructions before you approve.' },
  { q: 'What\'s the minimum order for DTF?', a: 'Your quote lists the minimum for your product and artwork. Send the quantity you need and request a written quote.' },
- { q: 'How much does DTF cost compared to screen printing?', a: 'The crossover changes with garment cost, artwork, colors, placements, setup, quantity, and partner pricing. Compare both methods on the same written specification.' },
+ { q: 'How much does DTF cost compared to screen printing?', a: 'DTF usually wins on small runs and many-color art, and screen printing wins as the count rises. Where they cross depends on your garment and colors, so ask for both prices.' },
  { q: 'Does DTF have a feel on the fabric?', a: 'Yes, DTF prints have a slight raised surface feel because the adhesive layer sits on top of the fabric. It\'s less pronounced than heat-transfer vinyl but more noticeable than properly cured screen-printed plastisol or sublimation. For most apparel users this is unnoticeable; for premium soft-feel programs, screen printing with discharge or water-based inks delivers a softer hand.' },
 ]
 
@@ -64,7 +64,7 @@ const speakableSchema = {
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
  <h2 class="mb-3 font-heading text-xl font-bold tracking-tight text-charcoal">What's the real difference between DTF and screen printing?</h2>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Screen printing pushes ink through a mesh screen onto the garment, with separate setup for each color. DTF prints the full design onto a film that is then heat-pressed onto the garment. Screen printing often suits larger runs of bold, simple artwork; DTF often suits small batches, full-color designs, and dark fabrics. Compare both on the same written specification.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Screen printing pushes ink through a mesh screen onto the garment, with separate setup for each color. DTF prints the full design onto a film that is then heat-pressed onto the garment. Screen printing often suits larger runs of bold, simple artwork; DTF often suits small batches, full-color designs, and dark fabrics. Ask for both prices on the same shirt.</p>
  </aside>
 
  <YouTubeEmbed
@@ -85,16 +85,16 @@ const speakableSchema = {
 
  <h2 id="when-dtf-wins" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">When DTF Wins Over Screen Printing</h2>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
- <li><strong>Small-batch orders.</strong> DTF may offer suitable setup economics. Compare current written quotes.</li>
+ <li><strong>Small-batch orders.</strong> There are no screens to set up, so a small run costs less to start.</li>
  <li><strong>Full-color photographic designs.</strong> DTF handles gradients and photographic detail natively. Screen printing requires elaborate halftone separation.</li>
  <li><strong>Dark fabric colors.</strong> DTF prints with white-ink underlayers that saturate on black/navy/dark gray. Screen printing requires extra underbase steps that add cost and time.</li>
  <li><strong>Mixed-fabric orders.</strong> DTF may support several materials, but the partner must confirm every garment and transfer system.</li>
- <li><strong>Replacement runs.</strong> DTF may fit a smaller reorder. Compare the available method, minimum, setup, and price.</li>
+ <li><strong>Replacement runs.</strong> DTF can make sense for a handful of replacement shirts.</li>
  </ul>
 
  <h2 id="when-screen-wins" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">When <a href="/services/screen-printing-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Screen Printing</a> Wins Over DTF</h2>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
- <li><strong>Larger runs.</strong> Screen printing may offer better unit economics. Compare both quotes on the same specification.</li>
+ <li><strong>Larger runs.</strong> Setup gets split across more shirts, so the price per shirt drops.</li>
  <li><strong>Bold simple designs on cotton tees.</strong> Block letters, bold logos, simple shapes: screen printing handles these at scale better than DTF.</li>
  <li><strong>Durability-sensitive programs.</strong> Request product-specific testing, care instructions, and partner documentation for either method.</li>
 <li><strong>Surface feel.</strong> The product and the process set how the print feels. Confirm the approved sample before ordering.</li>
@@ -102,19 +102,7 @@ const speakableSchema = {
  </ul>
 
  <h2 id="cost-comparison" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Cost Comparison Across Quantities</h2>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">The crossover depends on garment cost, artwork, colors, placements, setup, quantity, and current partner pricing:</p>
- <div class="my-6 overflow-x-auto border border-hairline bg-panel">
- <table class="w-full text-base text-charcoal">
- <thead class="bg-panel text-left text-xs font-mono uppercase tracking-wider text-gold-600">
- <tr><th class="px-5 py-3">Quantity</th><th class="px-5 py-3">DTF</th><th class="px-5 py-3">Screen Printing</th><th class="px-5 py-3">Winner</th></tr>
- </thead>
- <tbody class="divide-y divide-hairline">
- <tr><td class="px-5 py-3">Small batch</td><td class="px-5 py-3">Quote required</td><td class="px-5 py-3">Quote required</td><td class="px-5 py-3 font-bold">Compare both</td></tr>
- <tr><td class="px-5 py-3">Medium batch</td><td class="px-5 py-3">Quote required</td><td class="px-5 py-3">Quote required</td><td class="px-5 py-3 font-bold">Compare both</td></tr>
- <tr><td class="px-5 py-3">Large batch</td><td class="px-5 py-3">Quote required</td><td class="px-5 py-3">Quote required</td><td class="px-5 py-3 font-bold">Compare both</td></tr>
- </tbody>
- </table>
- </div>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Screen printing pays for setup once per color, so its price per shirt falls as the count rises. DTF has little setup, so its price per shirt stays flatter. The crossover moves with the garment and the number of colors, so ask for both prices on your order.</p>
 
  <h2 id="bighorn-trade-context" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">For Vegas Trade Crews</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">For a trade crew program, screen printing and DTF may support different parts of the specification. Compare options for:</p>

@@ -9,19 +9,19 @@ const page = {
 }
 
 const products = [
- { sku: '1571', name: 'ML Kishigo Solid Vest (Lime)', detail: 'A lime vest option. Check the class, sizes, and workplace fit before ordering.', method: 'Decoration subject to current manufacturer guidance' },
-  { sku: '1572', name: 'ML Kishigo Solid Vest (Orange)', detail: 'An orange hi-vis vest option. Check the class and workplace fit before ordering.', method: 'Decoration subject to current manufacturer guidance' },
-  { sku: '1085', name: 'ML Kishigo Hi-Vis T-Shirt (Lime)', detail: 'A birdseye mesh hi-vis shirt option. Check the class and workplace fit before ordering.', method: 'Decoration subject to current manufacturer guidance' },
- { sku: '1086', name: 'ML Kishigo Hi-Vis T-Shirt (Orange)', detail: 'An orange hi-vis shirt option. Check the class on the current product documentation before ordering.', method: 'Decoration subject to current manufacturer guidance' },
- { sku: '9114', name: 'ML Kishigo Lined Bomber Jacket', detail: 'A lined hi-vis jacket option. Check the class and intended use before ordering.', method: 'Decoration subject to current manufacturer guidance' },
- { sku: 'B200', name: 'ML Kishigo Brilliant Series Vest', detail: 'A contrast-trim vest option. Check the class on the current product documentation.', method: 'Decoration subject to current manufacturer guidance' },
+ { sku: '1571', name: 'ML Kishigo Solid Vest (Lime)', detail: 'A lime vest option. Check the label for its class.', method: 'Per Kishigo’s instructions' },
+  { sku: '1572', name: 'ML Kishigo Solid Vest (Orange)', detail: 'An orange hi-vis vest option. Check the label for its class.', method: 'Per Kishigo’s instructions' },
+  { sku: '1085', name: 'ML Kishigo Hi-Vis T-Shirt (Lime)', detail: 'A birdseye mesh hi-vis shirt option. Check the label for its class.', method: 'Per Kishigo’s instructions' },
+ { sku: '1086', name: 'ML Kishigo Hi-Vis T-Shirt (Orange)', detail: 'An orange hi-vis shirt option. Check the label for its class.', method: 'Per Kishigo’s instructions' },
+ { sku: '9114', name: 'ML Kishigo Lined Bomber Jacket', detail: 'A lined hi-vis jacket option. Check the label for its class.', method: 'Per Kishigo’s instructions' },
+ { sku: 'B200', name: 'ML Kishigo Brilliant Series Vest', detail: 'A contrast-trim vest option. Check the label for its class.', method: 'Per Kishigo’s instructions' },
 ]
 
 const why = [
- { title: 'Options across product types', body: 'Compare current Kishigo vests, shirts, jackets, and rainwear by class, fit, and product documentation.' },
- { title: 'Products for exposed work', body: 'Kishigo offers garments intended for roadway, utility, traffic-control, and other work. Employer requirements control selection.' },
- { title: 'Hot-weather options', body: 'Compare mesh and other lightweight options by fabric, fit, current rating, and employer-approved use.' },
- { title: 'Decoration reviewed by garment', body: 'We arrange the approved logo work. Your safety lead reviews the plan against current manufacturer guidance.' },
+ { title: 'Options across product types', body: 'Kishigo makes vests, shirts, jackets, and rainwear, so one brand can cover the whole crew.' },
+ { title: 'Products for exposed work', body: 'Built for road, utility, and traffic-control crews. Your safety lead picks the class.' },
+ { title: 'Hot-weather options', body: 'Mesh and lightweight styles for summer. Check the label for the class on each one.' },
+ { title: 'Decoration reviewed by garment', body: 'We check each garment’s logo rules before anything is made.' },
 ]
 
 const faqs = [
@@ -35,7 +35,7 @@ const faqs = [
  },
  {
  q: 'Can you screen-print or heat-press over the reflective tape?',
- a: 'Decoration can affect the garment. Review Kishigo\'s current written instructions and have your safety lead approve the proposed method and placement.',
+ a: 'Don’t cover the reflective tape. Any logo goes on the background material, using a method Kishigo’s instructions allow.',
  },
  {
  q: 'What\'s your minimum order for Kishigo hi-vis?',
@@ -47,7 +47,7 @@ const faqs = [
  },
  {
  q: 'Can you set up a hi-vis program with per-employee allowances?',
-    a: 'A private portal can support approved products, decoration choices, and allowances.',
+    a: 'A company store can hold your approved list. Tell us the allowances you want and your proposal will say what the store supports.',
  },
 ]
 
@@ -92,7 +92,7 @@ const faqSchema = {
  Custom ML Kishigo Hi-Vis <span class="text-gold-700">for Vegas Road and Utility Crews.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
-          Compare ML Kishigo options by class, fit, and current documentation. We arrange the approved logo work.
+          Vests, shirts, and jackets from ML Kishigo, with your logo where the garment maker allows it.
  </p>
 
  <div class="mt-10 flex flex-wrap items-center gap-3">
@@ -207,7 +207,7 @@ const faqSchema = {
               <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-ash">Lead time</td><td class="px-5 py-4 text-sm text-ash">Varies</td><td class="px-5 py-4 text-sm text-charcoal">Confirmed before approval</td></tr>
               <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-ash">Delivery</td><td class="px-5 py-4 text-sm text-ash">Varies</td><td class="px-5 py-4 text-sm text-charcoal">Options confirmed per order</td></tr>
  <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-ash">Product documentation</td><td class="px-5 py-4 text-sm text-ash">Check by SKU</td><td class="px-5 py-4 text-sm text-charcoal">Confirmed by SKU before approval</td></tr>
- <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-ash">Repeat orders</td><td class="px-5 py-4 text-sm text-ash">Account terms vary</td><td class="px-5 py-4 text-sm text-charcoal">Use the current approved specification</td></tr>
+ <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-ash">Repeat orders</td><td class="px-5 py-4 text-sm text-ash">Account terms vary</td><td class="px-5 py-4 text-sm text-charcoal">We keep your logo and garment details</td></tr>
  <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-ash">Support</td><td class="px-5 py-4 text-sm text-ash">Varies by seller</td><td class="px-5 py-4 text-sm text-charcoal">Contact Bighorn by phone or form</td></tr>
  </tbody>
  </table>

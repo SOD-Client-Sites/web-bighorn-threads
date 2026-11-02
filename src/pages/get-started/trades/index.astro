@@ -18,7 +18,7 @@ const problems = [
   },
   {
     title: 'Hi-Vis Nobody Keeps.',
-    desc: 'A poor size plan can leave approved garments unused. Start with employer-selected products and current size information.',
+    desc: 'Guess the sizes and the vests sit in a box while the crew wears last year’s. Get real sizes before you order.',
   },
   {
     title: 'Brand Drift Across Suppliers.',
@@ -26,7 +26,7 @@ const problems = [
   },
   {
     title: 'New-Hire Gear Done by Hand.',
-    desc: 'Every new hire can create another manual size and apparel request. Document the process before selecting an ordering model.',
+    desc: 'Every new hire means another size to chase and another small order to place.',
   },
 ]
 
@@ -34,32 +34,32 @@ const storeSteps = [
   {
     n: '01',
     meta: 'Setup',
-    title: 'We Scope a Store Concept',
-    desc: 'Bring your logo, proposed products, users, locations, and ordering rules. We’ll document the requirements for review.',
+    title: 'We Plan Your Store',
+    desc: 'Bring your logo, the gear you want, and your locations. We write up the plan for you to review.',
   },
   {
     n: '02',
     meta: 'Verify',
-    title: 'Confirm the Ordering Flow',
-    desc: 'Test user access, size selection, approvals, payment, notifications, and administration on the selected platform.',
+    title: 'You Test It',
+    desc: 'Place a test order yourself and check sizes, approvals, and payment before your crew sees it.',
   },
   {
     n: '03',
     meta: 'Terms',
-    title: 'Assign Operating Responsibilities',
-    desc: 'Confirm inventory, production, shipping, returns, support, reporting, costs, and administrators before launch.',
+    title: 'Open It to the Crew',
+    desc: 'Before launch, we agree who handles inventory, shipping, and returns, and what each costs. Then you send the crew the link.',
   },
 ]
 
 const offerings = [
   {
-    title: 'Employer-Selected Workwear',
-    desc: 'Request quotes for products selected by the employer. Protective-apparel approval stays with the employer and manufacturer.',
+    title: 'Hi-Vis and FR',
+    desc: 'Tell us the class or rating your safety lead requires, and we quote garments that meet it.',
     tag: 'Workwear',
   },
   {
     title: 'Workwear That Holds Up',
-    desc: 'Compare current tees, hoodies, work shirts, and jackets by role, product specifications, availability, and quoted terms.',
+    desc: 'Tees, hoodies, work shirts, and jackets, picked by role.',
     tag: 'Workwear',
   },
   {
@@ -69,12 +69,12 @@ const offerings = [
   },
   {
     title: 'New-Hire Crew Kits',
-    desc: 'Scope a proposed kit around each new hire’s size and start date. Confirm availability, production, and delivery per order.',
+    desc: 'Set a starter kit by role, so a new hire can order it before day one.',
     tag: 'Onboarding',
   },
   {
     title: 'Headwear & Accessories',
-    desc: 'Compare caps, beanies, drinkware, and manufacturer-reviewed hard-hat decal proposals under current quoted terms.',
+    desc: 'Caps, beanies, drinkware, and hard hat decals your helmet maker allows.',
     tag: 'Extras',
   },
 ]
@@ -82,19 +82,19 @@ const offerings = [
 const objections = [
   {
     q: 'What does store setup cover?',
-    a: 'The proposal must define the platform, artwork, products, users, inventory, fulfillment, administration, fees, and acceptance tests before any build.',
+    a: 'Your proposal lists the store, the products, who runs it, how orders ship, and every fee before we build anything.',
   },
   {
     q: 'Is there a minimum to start?',
-    a: 'Store eligibility and product minimums depend on the approved program. Tell us your crew size so we can confirm the right setup.',
+    a: 'Tell us your crew size. We will say if a store makes sense or a regular order is simpler.',
   },
   {
     q: 'What about multiple crews or jobsites?',
-    a: 'A proposal can evaluate multiple users and locations. Access, ordering, service area, shipping, and related costs require verification.',
+    a: 'Tell us your crews and sites. Your proposal covers who gets access, where gear ships, and what shipping costs.',
   },
   {
     q: 'Can we cap how much each person spends?',
-    a: 'Per-person budgets or spend limits can be requested. Bighorn confirms supported controls and reporting in the proposal.',
+    a: 'Ask for it. Tell us the limit you want, and your proposal says whether your store supports it.',
   },
   {
     q: 'Who actually follows up?',
@@ -105,7 +105,7 @@ const objections = [
 
 <LandingLayout
   title="Branded Crew Gear and Workwear | Bighorn Threads"
-  description="Scope a proposed crew-store program. Confirm the platform, products, users, ordering, inventory, fulfillment, and administration before launch."
+  description="A private online store for your crew, with your logo and the gear you approve. Crew members order their own sizes, and every cost comes in writing."
   canonical="https://bighornthreads.com/get-started/trades/"
   noindex={true}
 >
@@ -120,25 +120,24 @@ const objections = [
         <div>
           <p class="kicker mb-3">Construction & Trades</p>
           <h1 class="mb-6 font-heading text-4xl font-extrabold uppercase leading-[1.05] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
-            Plan Crew Apparel <span class="text-gold-600">With the Ordering Rules Defined First.</span>
+            Stop Collecting Sizes <span class="text-gold-600">From Every Foreman.</span>
           </h1>
           <p class="mb-8 text-lg leading-relaxed text-ash sm:text-xl">
-            Scope a proposed crew store around your approved apparel. Verify the platform, ordering,
-            fulfillment, fees, and administrators before launch.
+            A private online store with your logo and the gear you approve. Your crew picks their own sizes, and you see every cost in writing first.
           </p>
 
           <ul class="mb-8 space-y-3 text-base text-ash">
             <li class="flex items-start gap-3">
               <span class="mt-1.5 flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold-500"></span>
-              <span><strong class="text-charcoal">Define how users submit sizes</strong> and verify the workflow on the selected platform</span>
+              <span><strong class="text-charcoal">Crew members enter their own sizes</strong> instead of a foreman keeping a list</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="mt-1.5 flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold-500"></span>
-              <span><strong class="text-charcoal">Document approved artwork</strong> with current products and production terms for each order</span>
+              <span><strong class="text-charcoal">Your logo and approved gear</strong> stay in one place for reorders</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="mt-1.5 flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold-500"></span>
-              <span><strong class="text-charcoal">Request budget controls and reports</strong> with support confirmed before launch</span>
+              <span><strong class="text-charcoal">Ask about budgets and reports,</strong> and we put what your store can do in writing</span>
             </li>
           </ul>
 
@@ -166,8 +165,7 @@ const objections = [
           Crew gear shouldn’t run <span class="text-gold-600">off a notepad.</span>
         </h2>
         <p class="mt-4 text-lg leading-relaxed text-ash">
-          Manual apparel requests can create extra work around sizes, approvals, orders, and storage.
-          Document the problem before choosing a bulk or store model.
+          Sizes, approvals, reorders, and a closet of shirts nobody fits all land on someone with a job to run.
         </p>
       </div>
 
@@ -191,8 +189,7 @@ const objections = [
           How a crew store works <span class="text-gold-600">for your outfit.</span>
         </h2>
         <p class="mt-4 text-lg leading-relaxed text-ash">
-          Start with requirements, then verify the platform and operating model. The final proposal
-          should define every feature, responsibility, and fee.
+          Tell us how your crew orders today. We build a plan and put every feature and fee in writing.
         </p>
       </div>
 
@@ -224,10 +221,10 @@ const objections = [
       <div class="mb-12 max-w-2xl">
         <p class="kicker mb-3">Proposed Products</p>
         <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
-          What to review for <span class="text-gold-600">a proposed catalog.</span>
+          What crews usually <span class="text-gold-600">put in the store.</span>
         </h2>
         <p class="mt-4 text-lg leading-relaxed text-ash">
-          Your employer approves the products. The proposal confirms availability, decoration, substitutions, and change responsibilities.
+          You pick what goes in. We check stock and how your logo works on each item.
         </p>
       </div>
 
@@ -274,11 +271,10 @@ const objections = [
         <div class="max-w-xl">
           <p class="kicker mb-3">Get Started</p>
           <h2 class="font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-concrete sm:text-4xl">
-            Ready to scope a <span class="text-gold-400">crew-store concept?</span>
+            Ready to <span class="text-gold-400">stop chasing sizes?</span>
           </h2>
           <p class="mt-4 text-base leading-relaxed text-navy-200">
-            A Las Vegas account contact will review your request. Tell us about your team so we can scope
-            a proposal with the platform, operations, costs, and responsibilities defined.
+            Tell us about your crew, and our team in Las Vegas will send a plan with the costs and who handles what.
           </p>
         </div>
         <div class="flex shrink-0 flex-col gap-3 sm:items-end">

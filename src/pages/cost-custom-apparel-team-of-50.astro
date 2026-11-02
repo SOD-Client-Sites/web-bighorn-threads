@@ -10,11 +10,11 @@ const page = {
 }
 
 const pricing = [
- { garment: 'Embroidered polo', perUnit: 'Quote required', note: 'Garment, stitch count, artwork, and quantity affect cost' },
- { garment: 'Screen-printed tee', perUnit: 'Quote required', note: 'Garment, colors, placements, artwork, and quantity affect cost' },
- { garment: 'Specialty work shirt', perUnit: 'Quote required', note: 'Confirm garment and decoration requirements for the work environment' },
- { garment: 'Hi-vis tee or vest', perUnit: 'Quote required', note: 'Confirm garment classification and decoration placement requirements' },
- { garment: 'Embroidered softshell or jacket', perUnit: 'Quote required', note: 'Garment, stitch count, placement, artwork, and quantity affect cost' },
+ { garment: 'Embroidered polo', note: 'Garment, stitch count, artwork, and quantity affect cost' },
+ { garment: 'Screen-printed tee', note: 'Garment, colors, placements, artwork, and quantity affect cost' },
+ { garment: 'Specialty work shirt', note: 'Confirm garment and decoration requirements for the work environment' },
+ { garment: 'Hi-vis tee or vest', note: 'Confirm garment classification and decoration placement requirements' },
+ { garment: 'Embroidered softshell or jacket', note: 'Garment, stitch count, placement, artwork, and quantity affect cost' },
 ]
 
 const tiers = [
@@ -24,12 +24,12 @@ const tiers = [
 ]
 
 const faqs = [
- { q: 'How much does custom apparel cost for a team of 50?', a: 'There is no reliable total without a garment and decoration specification. Define the roles, pieces per person, garments, artwork, decoration, delivery, and any jobsite requirements, then request an itemized quote.' },
+ { q: 'How much does custom apparel cost for a team of 50?', a: 'The total swings widely with the garment, so any number without one is a guess. Send the roles, pieces per person, garments, and logo, and we will itemize it.' },
  { q: 'What drives the price range so wide for the same garment?', a: 'Garment, artwork, colors, placements, quantity, setup, partner capacity, and delivery can all affect price. Protective apparel also requires employer approval and current manufacturer decoration instructions.' },
  { q: 'Does the price include the embroidery digitizing fee?', a: 'Confirm whether artwork preparation or digitizing is included as a separate line item. Reorder terms should also be documented in the quote.' },
  { q: 'Is it cheaper to mix screen printing and embroidery for a 50-person crew?', a: 'It can be. Split the quote by role, garment, and decoration method. Compare the same garments, artwork, and quantities before choosing.' },
  { q: 'How do protective apparel requirements change the budget for 50 people?', a: 'Price each employer-approved protective garment separately. The exact rating, product, size range, documentation, decoration permission, and quantity affect the quote.' },
- { q: 'How fast can Bighorn Threads quote a 50-person order?', a: 'Send the garment, artwork, quantity, and delivery details and the quote comes faster. Send those details for an itemized quote and a current response estimate.' },
+ { q: 'How fast can Bighorn Threads quote a 50-person order?', a: 'The more complete your request, the faster it comes back. Send the garments, your logo, the sizes, and where it ships.' },
 ]
 
 const leadAnswer = 'The roles, pieces per person, garments, artwork, and delivery set the cost of outfitting a 50-person crew. Build that specification first, then request an itemized quote that separates each garment and service.'
@@ -59,7 +59,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  What 50 people in custom gear <span class="text-gold-700">actually costs.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
- Build a specification by garment and decoration method, then request current per-piece pricing.
+ Split your crew by role, pick the garment for each, and we will price it line by line.
  </p>
  <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
  <a href="/get-a-quote/" class="btn-primary text-base">
@@ -84,14 +84,13 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
  <p class="kicker mb-3">Per-Piece Pricing</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Garment-by-garment cost.</h2>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">What moves the price, garment by garment.</h2>
  </div>
  <div class="overflow-hidden border border-hairline">
  <table class="w-full text-left">
  <thead>
  <tr class="bg-paper">
  <th class="px-4 py-3 font-heading text-sm font-bold uppercase tracking-wider text-gold-700">Garment</th>
- <th class="px-4 py-3 font-heading text-sm font-bold uppercase tracking-wider text-gold-700">Per Unit</th>
  <th class="hidden px-4 py-3 font-heading text-sm font-bold uppercase tracking-wider text-gold-700 sm:table-cell">Note</th>
  </tr>
  </thead>
@@ -99,7 +98,6 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  {pricing.map((row, i) => (
  <tr class={i % 2 === 0 ? 'bg-paper/60' : ''}>
  <td class="px-4 py-3 font-semibold">{row.garment}</td>
- <td class="px-4 py-3 text-gold-700">{row.perUnit}</td>
  <td class="hidden px-4 py-3 text-sm text-ash sm:table-cell">{row.note}</td>
  </tr>
  ))}
@@ -113,7 +111,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
  <p class="kicker mb-3">Total Budget</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">50-person kit cost by quantity tier.</h2>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">How the piece count adds up.</h2>
  </div>
  <div class="grid gap-5 md:grid-cols-3">
  {tiers.map((t) => (
@@ -192,7 +190,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  <section class="bg-charcoal py-20">
  <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Get an itemized quote for your 50.</h2>
-<p class="mb-8 text-lg text-white/80">Send your headcount by role for an itemized, specification-based quote.</p>
+<p class="mb-8 text-lg text-white/80">Send your headcount by role, and we will itemize the quote.</p>
  <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
  <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>

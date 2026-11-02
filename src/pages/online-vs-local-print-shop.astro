@@ -10,23 +10,23 @@ const page = {
 }
 
 const comparison = [
- { criterion: 'Speed for a rush order', online: 'Depends on production and shipping', local: 'Pickup may reduce shipping time; production timing still applies' },
- { criterion: 'Price', online: 'Depends on the product and specification', local: 'Depends on the product, decoration, quantity, and service' },
- { criterion: 'Fit and color checks before full run', online: 'Ask whether samples or proofs are available', local: 'Ask how samples and proofs are handled' },
- { criterion: 'Reorder consistency over time', online: 'Confirm artwork, garment, and substitution terms', local: 'Confirm artwork, garment, and substitution terms' },
- { criterion: 'Protective gear (FR / ANSI)', online: 'Requires review of the exact garment and decoration', local: 'Requires review of the exact garment and decoration' },
+ { criterion: 'Speed for a rush order', online: 'Production time plus shipping', local: 'Pickup can cut shipping time, if your order allows it' },
+ { criterion: 'Price', online: 'Often competitive on simple tees', local: 'Quoted for your garment, logo, and count' },
+ { criterion: 'Fit and color checks before full run', online: 'Often a screen preview, so ask about samples', local: 'A proof before anything is made' },
+ { criterion: 'Reorder consistency over time', online: 'Ask how your art and garment are saved', local: 'Ask how your art and garment are saved' },
+ { criterion: 'Protective gear (FR / ANSI)', online: 'Ask how the maker’s logo rules get checked', local: 'Ask how the maker’s logo rules get checked' },
 ]
 
 const faqs = [
- { q: 'Is it cheaper to use an online print-on-demand service or a local print shop?', a: 'Neither channel is always cheaper. Compare the same garment, decoration, quantity, artwork, shipping, service, and reorder terms. Local access may make sample review or pickup easier, while an online workflow may be convenient for distributed teams.' },
- { q: 'What are the downsides of ordering custom apparel online vs. local?', a: 'Either model can disappoint when garment, artwork, proofing, production, shipping, and substitution terms are unclear. Ask each provider which sample and proof options are available before authorizing the full run.' },
- { q: 'Why might a national chain and a local print shop quote differently?', a: 'The providers may use different garments, decoration processes, production networks, shipping models, and service levels. An itemized quote based on one specification makes those differences visible.' },
+ { q: 'Is it cheaper to use an online print-on-demand service or a local print shop?', a: 'Neither is always cheaper. Price the same shirt, logo, and count both ways, with shipping. Print-on-demand tends to win at very low counts, and bulk methods tend to win as the count climbs.' },
+ { q: 'What are the downsides of ordering custom apparel online vs. local?', a: 'Online, you may not see the shirt or talk to a person until it arrives. Local, selection and price can vary more from shop to shop. Either way, see a proof before the full run.' },
+ { q: 'Why might a national chain and a local print shop quote differently?', a: 'They may be quoting different shirts, methods, and service. Ask for an itemized quote on one spec and the differences show up.' },
  { q: 'Does Bighorn Threads only serve Las Vegas, or can it support online ordering too?', a: 'Bighorn Threads is based in Las Vegas and supports online ordering through a private company store.' },
- { q: 'How do reorders work with a local shop vs. an online platform?', a: 'Ask either provider what artwork and production specifications remain available and whether the original garment is still stocked. Garment availability and production conditions can change, so every reorder should be reviewed before approval.' },
- { q: 'Is online ordering ever the better choice for a construction company?', a: 'Yes. An online platform can work for a simple order with no special garment requirements. A locally managed program may offer clearer account continuity for recurring crew orders. Compare both against one written specification.' },
+ { q: 'How do reorders work with a local shop vs. an online platform?', a: 'Ask whether they keep your art and garment details, and if that shirt is still made. Styles do get discontinued, so have a backup in mind.' },
+ { q: 'Is online ordering ever the better choice for a construction company?', a: 'Yes, for a simple event tee with no special requirements. For daily crew gear, one contact usually makes reorders easier.' },
 ]
 
-const leadAnswer = 'Online and local ordering each have tradeoffs. Compare the same garment, decoration, quantity, artwork, timing, shipping, service, and reorder terms. Bighorn Threads provides local account management and coordinates production through partners.'
+const leadAnswer = 'Online wins on convenience for simple orders. A local contact wins when you need advice, samples in hand, or reorders that match. To compare price, quote the same shirt, logo, and count both ways.'
 
 const breadcrumb = {
  '@context': 'https://schema.org',
@@ -55,10 +55,10 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  </nav>
  <p class="kicker mb-4 flex items-center gap-2.5"><span class="h-px w-8 bg-gold-500"></span>Comparison</p>
  <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
- Online print shop or local? <span class="text-gold-700">Start with the specification.</span>
+ Online print shop or local? <span class="text-gold-700">It depends on the job.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
- Bighorn provides Las Vegas account management and coordinates production through partners. Company store, proofing, pickup, and shipping options depend on the approved program.
+ Online is fine for a simple tee order. For crew gear you’ll reorder, a person who knows your account usually matters more.
  </p>
  <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
  <a href="/get-a-quote/" class="btn-primary text-base">
@@ -114,19 +114,19 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl">Why "online vs. local" is the wrong question.</h2>
  <div class="space-y-5 text-lg leading-relaxed text-ash">
  <p>
- Online print-on-demand platforms can be convenient for simple orders, while specialized orders require a closer review of garments, decoration, artwork, and jobsite requirements. The right choice depends on the actual specification, not the ordering channel alone.
+ Online platforms are convenient when the order is simple. When it isn’t, what matters is whether someone checks the garment, the logo, and your jobsite rules before anything gets made.
  </p>
  <p>
- Bighorn gives you an accountable Las Vegas contact for the order. A <a href="/company-stores/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">company store</a> can add an online ordering path for approved apparel. Bighorn manages the account and coordinates <a href="/blog/embroidery-shop-las-vegas-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">embroidery</a> and printing through production partners.
+ Bighorn gives you one contact for the order. A <a href="/company-stores/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">company store</a> adds online ordering for approved gear, and production partners do the <a href="/blog/embroidery-shop-las-vegas-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">embroidery</a> and printing.
  </p>
  <p>
- For recurring orders, ask each provider how artwork, setup, garment substitutions, and shipping are handled. Compare an itemized first-order quote with the written reorder terms instead of assuming one channel has a permanent price advantage.
+ For recurring orders, ask what a reorder costs. A low first price means less if you pay setup again every time.
  </p>
  <p>
  If you're weighing this decision for a specific crew, start with our <a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">minimum order quantity guide</a> and the <a href="/blog/dtf-printing-vs-screen-printing-custom-apparel/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">DTF vs. screen print breakdown</a>. Both affect which production path fits the garment, quantity, and required date.
  </p>
  <p>
- The bottom line: do not pick a channel alone. Compare the written garment, decoration, proof, timing, shipping, and reorder terms. Bighorn provides local account management and can configure online ordering for approved programs. <a href="/about/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Read more about Bighorn</a>.
+ The bottom line: order simple one-offs wherever is easiest. For gear you’ll reorder, use someone who keeps your files and picks up the phone. <a href="/about/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Read more about Bighorn</a>.
  </p>
  </div>
  </div>
@@ -164,7 +164,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  </a>
  <a href="/about/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">About Bighorn Threads</h3>
- <p class="mt-2 text-sm text-ash">Local account management with partner-coordinated production.</p>
+ <p class="mt-2 text-sm text-ash">One contact, with production partners making your gear.</p>
  </a>
  </div>
  </div>
@@ -172,8 +172,8 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
 
  <section class="bg-charcoal py-20">
  <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
- <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">One specification. Clear written terms.</h2>
- <p class="mb-8 text-lg text-white/80">Send your logo, garment list, quantity, and required date. We will scope the right ordering and production path.</p>
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">One order, one quote, one contact.</h2>
+ <p class="mb-8 text-lg text-white/80">Send your logo, garment list, quantity, and required date. We’ll tell you the best way to get it made.</p>
  <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
  <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>

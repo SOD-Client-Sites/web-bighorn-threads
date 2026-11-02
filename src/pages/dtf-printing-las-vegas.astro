@@ -13,12 +13,12 @@ const stack = [
  { label: 'The method', body: 'A design is printed onto PET film, combined with adhesive, cured, and heat-pressed onto a qualifying garment.' },
  { label: 'Where it can fit', body: 'DTF is worth comparing for smaller runs, detailed artwork, mixed products, and some dark fabrics.' },
  { label: 'Product compatibility', body: 'The fabric, finish, and transfer decide whether DTF will work.' },
- { label: 'Decoration program', body: 'One artwork file may support several qualifying products. Each fabric, garment, placement, and reorder still requires production review.' },
+ { label: 'Decoration program', body: 'One artwork file can often cover several products. We check each fabric and placement before it runs.' },
 ]
 
 const dtfVsOthers = [
- { row: 'DTF', meaning: 'Full-color transfer on compatible products', use: 'Orders where the approved art, product, and transfer system align' },
- { row: 'Screen printing', meaning: 'Spot-color inks, very large runs', use: 'High-volume single-design runs (50+), bold one-to-three color graphics' },
+ { row: 'DTF', meaning: 'Full-color transfer on compatible products', use: 'Small runs, full-color art, and mixed garments' },
+ { row: 'Screen printing', meaning: 'Spot-color inks, very large runs', use: 'Larger single-design runs, bold one-to-three color graphics' },
  { row: 'Embroidery', meaning: 'Stitched thread, dimensional finish', use: 'Polos, jackets, hats, FR garments, premium logo placement' },
  { row: 'DTG (direct-to-garment)', meaning: 'Inkjet directly onto cotton', use: 'Cotton-only runs, photo prints; struggles on poly and dark fabrics' },
  { row: 'Sublimation', meaning: 'Dye into white polyester only', use: 'White or light polyester; cannot decorate cotton or dark fabric' },
@@ -40,7 +40,7 @@ const faqs = [
  { q: 'How durable is a DTF print?', a: 'The transfer, the garment, and the washing set how long it lasts. Follow the written care instructions for the approved product and decoration.' },
  { q: 'What fabrics can you DTF on?', a: 'DTF can work on many cotton, polyester, blend, denim, canvas, and synthetic products. Coatings, heat sensitivity, seams, and construction can affect suitability. Check the garment before production.' },
  { q: 'Can DTF print on FR garments?', a: 'Do not assume a standard DTF transfer is acceptable on a safety-rated garment. The employer and safety professional should verify the garment, decoration method, placement, and current manufacturer guidance in writing.' },
- { q: 'What\'s the minimum DTF order?', a: 'Your quote lists any minimum and setup charge. Bighorn confirms current terms in the quote.' },
+ { q: 'What\'s the minimum DTF order?', a: 'DTF has no screens, so it handles small counts well. Your quote lists any minimum and setup charge.' },
  { q: 'Where can I get DTF printing in Las Vegas?', a: 'Bighorn Threads runs the account from Las Vegas and arranges DTF decoration. Send your artwork, product list, quantity, and needed date for review.' },
  { q: 'Do you offer DTG printing in Las Vegas?', a: 'Yes. Direct-to-garment (DTG) prints ink straight into cotton-rich tees and hoodies and suits photo-style or full-color artwork in small quantities. Bighorn quotes DTG alongside DTF so you can compare cost, feel, and durability on the exact garment.' },
  { q: 'Do you do dye sublimation printing in Las Vegas?', a: 'Yes. Dye sublimation bonds ink into white or light polyester, so it is the right method for all-over jerseys, performance polos, and event apparel that needs edge-to-edge color. Bighorn arranges sublimation and confirms garment, artwork, and timing in your quote.' },
@@ -117,7 +117,7 @@ const faqSchema = {
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
  <p class="kicker mb-3">What You Get</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">A decoration method built for variety, not volume.</h2>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Built for variety and short runs.</h2>
  </div>
  <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
  {stack.map((s) => (
@@ -217,7 +217,7 @@ const faqSchema = {
  <div class="grid gap-6 md:grid-cols-3">
  <div class="border border-hairline bg-panel p-6">
  <p class="font-mono text-xs font-bold uppercase tracking-wider text-gold-600">DTF · Direct to film</p>
- <h3 class="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-charcoal">Any fabric, small runs</h3>
+ <h3 class="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-charcoal">Many fabrics, small runs</h3>
  <p class="mt-3 text-base leading-relaxed text-ash">Full-color transfers on cotton, poly, blends, canvas, and dark garments. Best for short runs, mixed products, and detailed logos.</p>
  </div>
  <div class="border border-hairline bg-panel p-6">

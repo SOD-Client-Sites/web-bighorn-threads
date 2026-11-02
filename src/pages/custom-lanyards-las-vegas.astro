@@ -10,36 +10,36 @@ const page = {
 }
 
 const stack = [
- { label: 'The decoration', body: 'Compare silk-screen, dye-sublimation, woven, and other eligible methods. We check your art, material, quantity, and budget against the options.' },
- { label: 'The hardware', body: 'Bulldog clips, swivel hooks, lobster claws, breakaway releases, badge reels, and double-end clips may be options. Confirm current availability, compatibility, and applicable policies.' },
- { label: 'Width range', body: 'Compare widths against the exact badge, artwork, attachment, comfort goal, and venue policy. Available sizes depend on the selected product and current quote.' },
- { label: 'Materials', body: 'Polyester, recycled rPET, bamboo, cotton, and other materials may be available. Confirm current product data, claims, care, and availability.' },
+ { label: 'The decoration', body: 'Silk-screen for simple logos, dye-sublimation for full color, woven for a textile look.' },
+ { label: 'The hardware', body: 'Bulldog clips, swivel hooks, lobster claws, breakaway releases, and badge reels. Tell us what the badge weighs and we’ll suggest one.' },
+ { label: 'Width range', body: 'A long logo needs a wider strap, and a heavy badge sits better on one too.' },
+ { label: 'Materials', body: 'Polyester is the usual choice. Ask about recycled rPET, bamboo, or cotton if that matters to your event.' },
 ]
 
 const decorations = [
- { row: 'Silk-screen print', use: 'Spot-color artwork on eligible lanyards', notes: 'Confirm color limits, setup, material compatibility, use, care, and current pricing.' },
- { row: 'Dye-sublimation (full color)', use: 'Photographic, gradient, or multicolor artwork', notes: 'Confirm printable area, color handling, material, use, care, and current pricing.' },
- { row: 'Woven', use: 'Textile-style logos on eligible products', notes: 'Confirm art limits, material, feel, use, care, availability, and current pricing.' },
- { row: 'Heat transfer', use: 'Full-color art on eligible products', notes: 'Confirm setup, material compatibility, durability expectations, use, care, and current pricing.' },
+ { row: 'Silk-screen print', use: 'Spot-color artwork on eligible lanyards', notes: 'Usually the value pick for one or two colors.' },
+ { row: 'Dye-sublimation (full color)', use: 'Photographic, gradient, or multicolor artwork', notes: 'The ink goes into the fabric, so gradients and photos work.' },
+ { row: 'Woven', use: 'Textile-style logos on eligible products', notes: 'The design is woven in, so keep the art simple.' },
+ { row: 'Heat transfer', use: 'Full-color art on eligible products', notes: 'Another way to get full color. Ask us to price it against dye-sublimation.' },
 ]
 
 const useCases = [
- { name: 'Trade show attendee badges', detail: 'A lanyard may carry show, host, or sponsor branding. Confirm badge weight, artwork, hardware, venue rules, quantity, and schedule.' },
- { name: 'Corporate office ID', detail: 'Staff ID may use a clip or badge reel with approved company branding. Confirm the badge, hardware, employer policy, and current product.' },
- { name: 'Hospital and clinical staff', detail: 'Medical and clinical ID with optional breakaway hardware. Confirm the employer\'s current safety policy first.' },
+ { name: 'Trade show attendee badges', detail: 'Sponsor or show branding on every attendee’s neck. Check the sponsor’s logo rules and your badge weight.' },
+ { name: 'Corporate office ID', detail: 'A company-branded lanyard with a clip or badge reel for daily ID.' },
+ { name: 'Hospital and clinical staff', detail: 'Staff ID, often with breakaway hardware. Check your facility’s policy first.' },
  { name: 'School and university', detail: 'Student, faculty, and visitor ID with eligible logo, color, and hardware options.' },
- { name: 'Conference and event staff', detail: 'Approved "STAFF" or "CREW" labels and colorways may help distinguish event roles. Confirm venue and organizer requirements.' },
- { name: 'VIP and sponsor tiers', detail: 'Different approved materials, colors, or artwork may distinguish VIP, speaker, sponsor, or executive attendee tiers.' },
+ { name: 'Conference and event staff', detail: 'A “STAFF” or “CREW” print and a different color make roles easy to spot.' },
+ { name: 'VIP and sponsor tiers', detail: 'A different color or material for VIPs, speakers, and sponsors.' },
 ]
 
 const faqs = [
- { q: 'Which lanyard width should I choose?', a: 'Choose width after reviewing the exact badge, artwork, attachment, comfort goal, and venue or employer policy. We confirm sizes, product data, and current pricing.' },
- { q: 'Should I use silk-screen, dye-sublimation, or woven?', a: 'Match the method to the exact artwork, lanyard material, printable area, quantity, use, care, deadline, and current quote. We confirm the options before you approve.' },
- { q: 'What lanyard hardware do I need for a heavy badge?', a: 'Select hardware from the exact badge weight, attachment, movement, use, and applicable policy. Review the product manufacturer\'s current load and safety information. We check compatibility.' },
+ { q: 'Which lanyard width should I choose?', a: 'Go wider for long logos and heavy badges, and narrower for small ID cards. Send the badge size and logo and we’ll suggest one.' },
+ { q: 'Should I use silk-screen, dye-sublimation, or woven?', a: 'Silk-screen for simple logos, dye-sublimation for full color, woven for a textured look.' },
+ { q: 'What lanyard hardware do I need for a heavy badge?', a: 'A metal clip or swivel hook usually holds better than plastic. Tell us what the badge weighs and we’ll check the options.' },
   { q: 'Are breakaway safety lanyards required?', a: 'Requirements vary by employer, venue, and work setting. Check the applicable policy before choosing hardware for your program.' },
- { q: 'Can I order eco-friendly or sustainable lanyards?', a: 'Products marketed with recycled or other environmental attributes may be available. Verify the exact material, certification, claim, country of origin, decoration compatibility, availability, and current quote before using sustainability language.' },
+ { q: 'Can I order eco-friendly or sustainable lanyards?', a: 'Yes, ask about recycled rPET, bamboo, or cotton. If you plan to make an environmental claim at your event, get the product’s documentation first.' },
   { q: 'What\'s the minimum lanyard order?', a: 'Your quote lists the minimum for the product and method. Share your quantity so we can confirm suitable options.' },
-  { q: 'How long does a lanyard order take?', a: 'Stock, production capacity, and shipping drive the timeline. Share your event date so we can confirm a current estimate.' },
+  { q: 'How long does a lanyard order take?', a: 'Stock, production capacity, and shipping drive the timeline. Send your event date and we’ll tell you if it works.' },
 ]
 
 const breadcrumb = {
@@ -92,7 +92,7 @@ const faqSchema = {
 	 Custom Lanyards in Las Vegas <span class="text-gold-700">for trade shows, conferences, and staff ID.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
-	 Compare eligible decoration, widths, materials, and hardware for your exact badge program. Your quote confirms current products, terms, and timing.
+	 Printed or woven lanyards with the clip your badge needs, planned back from your event date.
  </p>
  <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
  <a href="/contact/" class="btn-primary text-base">
@@ -130,7 +130,7 @@ const faqSchema = {
  <p class="kicker mb-3">Decoration Methods</p>
  <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Pick the method that <span class="text-gold-600">matches the art.</span></h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
-          Three core decoration methods can support different art and event needs. We get it made with the method you approve.
+          Your art usually decides it.
  </p>
  </div>
  <div class="overflow-hidden border border-hairline bg-panel">
@@ -181,16 +181,16 @@ const faqSchema = {
  </h2>
  <div class="space-y-5 text-lg leading-relaxed text-ash">
  <p>
-	 Las Vegas hosts trade shows across construction, building products, HVAC, equipment, hospitality, and consumer categories. A lanyard can carry attendee credentials and approved event branding. Build the order from the event roster, badge, sponsor requirements, venue policy, and schedule.
+	 Las Vegas hosts trade shows across construction, building products, HVAC, equipment, hospitality, and consumer categories. Start with the attendee count, the badge you’ll hang from it, and the date the lanyards need to reach the show.
  </p>
  <p>
-	 Match width and hardware to the exact badge, attachment, weight, movement, comfort goal, and venue policy. Review current manufacturer documentation for any load or safety claim. Your quote confirms the products in writing.
+	 A heavy badge needs a wider strap and a sturdier clip, while a thin one works with almost anything.
  </p>
  <p>
-	 Match decoration to the exact art, lanyard material, printable area, use, care, quantity, deadline, and budget. Silk-screen, dye-sublimation, woven, and heat-transfer methods may each fit different orders. The current quote should document compatible options, setup, pricing, and timing.
+	 For a one- or two-color logo, silk-screen is the usual pick. Photos and gradients point to dye-sublimation, and a woven lanyard gives a more textile look.
  </p>
  <p>
-          Breakaway behavior depends on the exact product and current manufacturer documentation. Requirements vary by employer, venue, and role. Check the applicable policy and product data before approving hardware.
+          Breakaway clips release under pull, so they’re common for staff who work around people or equipment. Check whether your employer or venue requires them.
  </p>
  <p>
  For event-paired apparel, see our <a href="/trade-show-apparel-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">trade show apparel guide</a>. For broader event SWAG including drinkware, bags, and tech, see the <a href="/promo-products-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">promo products hub</a>.

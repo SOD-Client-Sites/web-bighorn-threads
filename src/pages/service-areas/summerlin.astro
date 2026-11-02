@@ -13,7 +13,7 @@ const localContext = [
  {
  code: 'Project Context',
  title: 'Residential and commercial planning',
- body: 'For projects in Summerlin, the apparel request can be organized by role, work setting, employer requirements, product, artwork, quantity, and deadline.',
+ body: 'Sort the order by role first: who meets homeowners, who is on site, and who is in the shop. Then send your logo, counts, and date.',
  },
  {
  code: 'Active Trades',
@@ -23,7 +23,7 @@ const localContext = [
  {
  code: 'What Crews Need Locally',
  title: 'Products selected for each role',
- body: 'Customer-facing teams may prefer embroidered polos over printed tees. Bighorn can quote selected Port Authority, Carhartt, and OGIO options. Product availability and repeat-order details require a current review.',
+ body: 'People who walk into a customer\'s home usually look better in an embroidered polo than a printed tee. We can quote Port Authority, Carhartt, and OGIO options.',
  },
 ]
 
@@ -70,23 +70,23 @@ const faqs = [
  },
  {
  q: 'Do you have polo colors that work on light stucco and natural-stone properties?',
- a: 'Port Authority K500 polos are available in multiple supplier colors. Current availability, logo treatment, thread colors, and placement are confirmed in the quote and proof.',
+ a: 'Port Authority K500 polos come in many colors, and you see the logo and thread colors on a proof before anything is made.',
  },
  {
  q: 'How fast can you turn around a new uniform program for a Summerlin commercial fit-out crew?',
-  a: 'Give us your date and the quantity, and we will tell you whether it can be done. File retention and reorder timing are confirmed in the approved program and current quote.',
+  a: 'Give us your date and the quantity, and we will tell you whether it can be done.',
  },
  {
  q: 'Can you do company-store setup so each crew can order their own approved kit?',
- a: 'A managed company store can be useful for a growing service team. Access, allowances, payment, inventory responsibility, production, shipping, and fees depend on the approved configuration.',
+ a: 'Yes. Crews pick their own sizes from the gear you approved. Tell us about allowances and who approves what, and your proposal will say what the store can do.',
  },
  {
  q: 'Do you deliver to Summerlin commercial addresses?',
-  a: 'Service-area eligibility, delivery, pickup, and cost are not assumed. Your quote names the destination and how the order gets handed off.',
+  a: 'Yes. We ship to commercial addresses in Summerlin, and your quote shows the cost and timing.',
  },
  {
  q: 'What\'s the minimum for an embroidered polo run?',
- a: 'Your quote lists the minimum for the product and decoration you pick. Share your quantity and deadline. Bighorn will confirm current terms in the quote.',
+ a: 'Each polo and decoration method has its own minimum. Send the style and a rough count, and we will tell you the number.',
  },
 ]
 
@@ -240,7 +240,7 @@ const faqSchema = {
 
  <div class="space-y-5 text-lg leading-relaxed text-ash">
  <p>
- Summerlin customer-facing teams can request an apparel-program quote. Your written quote confirms delivery, products, pricing, and timing.
+ Summerlin work puts your crew in front of homeowners and HOA boards, so how they look gets noticed.
  </p>
  <p>
  Summerlin landscape, irrigation, pool service, and pest control teams may consider moisture-wicking polos, work shirts, pants, or shorts. Bighorn can pull current product options and arrange the approved decoration. Employers remain responsible for heat planning and final garment approval.
@@ -252,7 +252,7 @@ const faqSchema = {
  Summerlin HOA grounds-maintenance and community services contracts may include specific branding requirements. Bighorn can pull together your logo, license number, colors, and placement so the details are ready to review. Current artwork, product, and decoration terms are confirmed for each order.
  </p>
  <p>
- Delivery availability, destination, shipping, and fees require confirmation in the written quote.
+ Orders ship to your office or job site, and the quote shows the cost.
  </p>
  <p>
  Related planning resources for Summerlin: <a href="/blog/ansi-107-class-2-vs-class-3-hi-vis-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Class 2 hi-vis</a>, <a href="/blog/rush-order-shirts-las-vegas-whats-possible/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">rush orders</a>, <a href="/blog/new-hire-workwear-checklist-las-vegas-contractors/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">new hire checklist</a>, and <a href="/industries/plumbing-hvac-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">plumbing &amp; HVAC service uniforms</a>.
@@ -265,7 +265,7 @@ const faqSchema = {
  <section class="bg-concrete py-20 sm:py-24">
  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
  <p class="kicker mb-3">FAQ</p>
- <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Questions to ask before ordering.</h2>
+ <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Questions from Summerlin teams.</h2>
 
  <div class="divide-y divide-hairline border-y border-hairline">
  {faqs.map((f) => (

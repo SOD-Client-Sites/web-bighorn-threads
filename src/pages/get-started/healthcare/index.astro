@@ -33,14 +33,14 @@ const storeSteps = [
   {
     n: '02',
     meta: 'Ongoing',
-    title: 'Plan Staff Size Submission',
-    desc: 'A configured store may let each person submit a size against approved role apparel. Supported access and catalog rules are confirmed in the plan.',
+    title: 'Staff Pick Their Own Sizes',
+    desc: 'Each person sees the gear approved for their role and picks a size. Your plan spells out who gets access.',
   },
   {
     n: '03',
     meta: 'Ongoing',
     title: 'Managed Decoration and Shipping',
-    desc: 'We arrange the approved decoration. Shipping options and repeat-order details are confirmed per order.',
+    desc: 'We get the logo work done the way you approved it and ship to the address you choose.',
   },
 ]
 
@@ -51,15 +51,15 @@ const faqs = [
   },
   {
     q: 'Can we add names and credentials to scrubs and lab coats?',
-    a: 'Names, roles, and credentials may be available on eligible products. We arrange the approved embroidery.',
+    a: 'Yes, on most scrubs and lab coats. You check the spelling and placement on a proof first.',
   },
   {
     q: 'Can different roles or departments have different colors?',
-    a: 'Role, department, or site color rules can be requested. Bighorn confirms the supported catalog and access controls during setup.',
+    a: 'Yes. Tell us the colors for each role or site, and we will tell you how the store can keep them straight.',
   },
   {
     q: 'Can multi-site staff order to their own location or home?',
-    a: 'Eligible orders may ship to a site or home address. Available options and costs depend on the approved product and fulfillment terms.',
+    a: 'Yes, to a clinic or a home address anywhere in the US. The proposal shows the shipping cost.',
   },
 ]
 
@@ -76,7 +76,7 @@ const breadcrumb = {
 
 <LandingLayout
   title="Healthcare Company Store | Bighorn Threads"
-  description="Request a store plan for approved scrubs, lab coats, role colors, and names. Size submission, shipping, and program terms are confirmed in your plan."
+  description="A private store for your approved scrubs and lab coats, with role colors and names. Staff pick their own sizes, and your plan lists every cost."
   canonical="https://bighornthreads.com/get-started/healthcare/"
 >
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
@@ -90,25 +90,24 @@ const breadcrumb = {
         <div>
           <p class="kicker mb-3">Healthcare Company Stores</p>
           <h1 class="mb-6 font-heading text-4xl font-extrabold uppercase leading-[1.05] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
-            Organize Staff Uniforms <span class="text-gold-600">With a Clear Plan.</span>
+            One store for every <span class="text-gold-600">scrub and lab coat.</span>
           </h1>
           <p class="mb-8 text-lg leading-relaxed text-ash sm:text-xl">
-            Request one branded store plan for approved scrubs and lab coats. Role colors,
-            decoration, staff size submission, and shipping options depend on the supported setup.
+            Your approved scrubs and lab coats in one private store, so staff pick their own sizes and you stop re-explaining the logo with every hire.
           </p>
 
           <ul class="mb-8 space-y-3 text-base text-ash">
             <li class="flex items-start gap-3">
               <span class="mt-1.5 flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold-500"></span>
-              <span><strong class="text-charcoal">Approved names and logo plan</strong> coordinated through selected production partners</span>
+              <span><strong class="text-charcoal">Names and logos</strong> stitched the same way every time</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="mt-1.5 flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold-500"></span>
-              <span><strong class="text-charcoal">Role and department color rules</strong> with supported catalog controls confirmed in the plan</span>
+              <span><strong class="text-charcoal">Colors by role or department</strong>, and we tell you what the store can enforce</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="mt-1.5 flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold-500"></span>
-              <span><strong class="text-charcoal">Request staff size submission</strong> with eligible shipping options confirmed for the program</span>
+              <span><strong class="text-charcoal">Staff pick their own sizes</strong>, and you choose where it ships</span>
             </li>
           </ul>
 
@@ -158,10 +157,10 @@ const breadcrumb = {
       <div class="mb-12 max-w-3xl">
         <p class="kicker mb-3">How It Works</p>
         <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
-          Three steps to a <span class="text-gold-600">managed store plan.</span>
+          Three steps to <span class="text-gold-600">your store.</span>
         </h2>
         <p class="mt-4 text-lg leading-relaxed text-ash">
-          A proposed branded store can organize approved products, decoration choices, and ordering rules.
+          Everything staff can order, in one place, with your logo.
         </p>
       </div>
 
@@ -191,7 +190,7 @@ const breadcrumb = {
   <section class="border-y border-hairline bg-paper py-20 sm:py-28">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 max-w-2xl">
-        <p class="kicker mb-3">Built By a Real Shop</p>
+        <p class="kicker mb-3">Who You Work With</p>
         <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
           Work with a <span class="text-gold-600">Las Vegas account team.</span>
         </h2>
@@ -223,9 +222,7 @@ const breadcrumb = {
         Start with a <span class="text-gold-500">clear store plan.</span>
       </h2>
       <p class="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-concrete">
-        We’ll build a company store plan with eligible scrubs and lab coats. Bighorn coordinates
-        approved decoration through selected partners. Staff size submission and shipping options
-        depend on the approved setup. Review the full program terms before approval.
+        Tell us your roles, colors, and locations, and we'll write up a store plan with your scrubs and lab coats and every cost in it.
       </p>
       <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
         <a href="#lp-form-card" class="btn-primary text-base">

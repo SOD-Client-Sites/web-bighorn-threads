@@ -18,18 +18,18 @@ const timeline = [
 
 const blockers = [
  { label: 'Missing or low-res art files', body: 'A blurry logo or wrong file format stalls the project before digitizing or screen burning can even start. Send vector files (AI, EPS, SVG) when you have them.' },
- { label: 'Unapproved artwork or proofs', body: 'Production authorization depends on the proofing requirements in the quote. Delayed approval can move the confirmed schedule.' },
+ { label: 'Unapproved artwork or proofs', body: 'Production waits on your proof approval, so a late approval can move your date.' },
  { label: 'Late quantity or size changes', body: 'Changing quantities or sizes can affect garment availability, pricing, setup, and timing. Confirm the final specification before approval.' },
  { label: 'Protective-garment review', body: 'The employer and garment manufacturer control protective requirements. Allow time to review the exact garment and proposed decoration before production approval.' },
 ]
 
 const faqs = [
- { q: 'What is the fastest turnaround for custom apparel?', a: 'There is no universal fastest turnaround. The garment, quantity, artwork, and method all matter, so give us your date and we will check it. Bighorn confirms the supported schedule in writing before you approve the order.' },
- { q: 'How fast can a rush order be turned around?', a: 'Rush availability depends on the complete specification and current partner capacity. Share the required date before ordering and rely only on the schedule confirmed in the written quote.' },
+ { q: 'What is the fastest turnaround for custom apparel?', a: 'It varies by order. An in-stock garment, ready artwork, and a fast proof approval are the quickest path, so give us your date and we will check it.' },
+ { q: 'How fast can a rush order be turned around?', a: 'It depends on stock, artwork, and what production has open that week. Give us the date before you order and we will tell you if it works.' },
  { q: 'Why does embroidery take longer than screen printing?', a: 'Embroidery requires digitizing the logo into a stitch file before any production starts, and you need to approve a physical or digital proof before the run begins. Screen printing has a similar setup step (burning screens) but typically runs slightly faster once approved, especially on simple 1-2 color designs.' },
  { q: 'What is the single biggest thing I can do to speed up my order?', a: 'Provide complete artwork, garment, color, size, quantity, decoration, destination, and deadline details at the start. Respond promptly to any required proof, substitution, or specification question.' },
  { q: 'Does a larger order take longer to produce?', a: 'It can. Quantity affects sourcing, setup, production capacity, packaging, and shipping. Bighorn confirms the available schedule after the complete order is reviewed.' },
- { q: 'Can FR-rated or ANSI hi-vis orders be rushed?', a: 'Do not compress the employer and manufacturer review required for protective garments. Bighorn will confirm whether the selected product, decoration, and partner capacity support the requested date. See the safety and compliance guides before ordering.', html: 'Do not compress the employer and manufacturer review required for protective garments. Bighorn will confirm whether the selected product, decoration, and partner capacity support the requested date. See the <a href="/safety-compliance/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">safety and compliance guides</a> before ordering.' },
+ { q: 'Can FR-rated or ANSI hi-vis orders be rushed?', a: 'Sometimes, but the safety and manufacturer review still has to happen first, so tell us the date early. We will tell you whether the garment and logo work can make it. See the safety and compliance guides before ordering.', html: 'Sometimes, but the safety and manufacturer review still has to happen first, so tell us the date early. We will tell you whether the garment and logo work can make it. See the <a href="/safety-compliance/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">safety and compliance guides</a> before ordering.' },
  { q: 'Can promotional products or bulk gift orders be rushed too?', a: 'It depends on the item. Promotional products have their own supplier stock and decoration methods, so share the item, quantity, and date, and Bighorn confirms in writing whether the order can meet it.' },
  { q: 'Can rush orders be ready in time for a trade show?', a: 'Trade show dates do not move, so share the event date and shipping destination when you request a quote. Bighorn confirms in writing whether a rush production, pickup, or shipping path can meet that date before you approve the order.' },
 ]
@@ -58,7 +58,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  </nav>
  <p class="kicker mb-4 flex items-center gap-2.5"><span class="h-px w-8 bg-gold-500"></span>Turnaround</p>
  <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
- Custom apparel turnaround in Las Vegas <span class="text-gold-700">confirmed before approval.</span>
+ Find out if your date works <span class="text-gold-700">before you order.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
  Send the garment, artwork, quantity, and deadline. We check stock and partner capacity and put the timeline in your written quote.
@@ -146,7 +146,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
  Protective garments require the employer to identify the required protection and the exact product and decoration to be reviewed against current manufacturer instructions. Include those requirements at the start.
  </p>
  <p>
- The practical path is a complete specification, prompt approvals, and a schedule confirmed before production authorization. <a href="/about/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Get in touch</a> to request a written timeline for your order.
+ Send everything up front, approve the proof quickly, and get the schedule in writing. <a href="/about/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Get in touch</a> to request a written timeline for your order.
  </p>
  </div>
  </div>

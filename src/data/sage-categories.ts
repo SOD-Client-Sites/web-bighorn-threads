@@ -19,7 +19,7 @@ export const bighornCategories: BighornCategory[] = [
     shortTitle: 'T-Shirts',
     blurb: 'Screen-printed and embroidered tees for crews. Cotton, poly-blend, pocket tees, and long-sleeve. Built to take a jobsite beating.',
     seoIntro:
-      "Custom t-shirts are the workhorse of a Las Vegas construction crew's wardrobe. Bighorn Threads helps you select tees for your crew and coordinates decoration through selected production partners. Options can include heavyweight cotton, poly-cotton blends, pocket tees, long sleeves, and ringspun cotton. Available brands, decoration methods, minimums, and timelines depend on the product and partner. You review the proposed product and proof before production begins.",
+      "Tees are what a crew actually wears every day, so pick for the job: heavyweight cotton for durability, poly-cotton blends to reduce shrink, pocket tees and long sleeves for sun. Send your logo and count, and you get a price and a proof before anything is printed.",
     seoBullets: [
       'Heavyweight cotton, poly-blend, ringspun: sized so a 3XL fits a 3XL',
       'Screen printing and transfer options, based on the order',
@@ -36,7 +36,7 @@ export const bighornCategories: BighornCategory[] = [
     shortTitle: 'Polos',
     blurb: 'Branded polos for office staff, project managers, and client-facing teams. Performance and traditional cotton options.',
     seoIntro:
-      "Embroidered polos help project managers, estimators, and client-facing crews look consistent. Bighorn Threads helps you compare polo options and coordinates approved decoration through selected production partners. Choices can include traditional cotton piqué, snag-resistant performance fabric, and moisture-wicking styles. Placement, thread colors, minimums, pricing, and timelines depend on the approved product and partner. Ask about a managed company store if your team needs repeat ordering.",
+      "Embroidered polos give project managers, estimators, and anyone meeting customers a consistent look. Cotton piqué feels traditional, and performance fabric resists snags and handles heat better. Send your logo and thread colors, and you see the placement on a proof first. If you reorder often, ask about a company store.",
     seoBullets: [
       'Port Authority, Nike, Cutter & Buck, OGIO, Carhartt',
       'Order minimum confirmed for your selected product and partner',
@@ -53,7 +53,7 @@ export const bighornCategories: BighornCategory[] = [
     shortTitle: 'Hi-Vis',
     blurb: 'ANSI Class 2 and Class 3 hi-vis shirts, vests, and jackets. Custom-branded for road, utility, and night-shift crews.',
     seoIntro:
-      "Hi-vis apparel can support road, utility, traffic-control, paving, and night-shift crews. The correct class depends on the work and governing requirements. Bighorn Threads helps you compare eligible garments and coordinates approved decoration through selected production partners. Decoration must follow the garment manufacturer's instructions and the program's safety requirements. Product availability, documentation, decoration limits, and timelines are confirmed for each order. Your safety lead should approve the final garment and decoration plan before use.",
+      "Hi-vis gear is for road, utility, traffic-control, paving, and night-shift crews. Your safety lead picks the ANSI class. We find garments rated for it and check the maker's instructions before a logo goes on, because decoration can't be allowed to cut into the visibility material.",
     seoBullets: [
       'Class 2 and Class 3 garment options, subject to program review',
       'ML Kishigo, Bulwark, Radians, OccuNomix, Tingley',
@@ -70,7 +70,7 @@ export const bighornCategories: BighornCategory[] = [
     shortTitle: 'FR',
     blurb: 'FR shirts, pants, and coveralls for eligible workplace programs. Confirm current ratings and product documentation before ordering.',
     seoIntro:
-      "FR workwear may be required where crews face arc-flash or flash-fire hazards. The employer's hazard assessment determines the garment and protection level. Bighorn Threads helps you compare FR options and coordinates approved decoration through selected production partners. Product certifications, ratings, decoration requirements, and care instructions vary by garment. Your safety lead should review the product documentation and decoration plan before ordering.",
+      "FR workwear is for crews facing arc-flash or flash-fire hazards. Your safety lead sets the protection level from your hazard assessment. We find garments that meet it and check the maker's instructions first, because the wrong thread or heat transfer can compromise an FR garment.",
     seoBullets: [
       'NFPA 70E and NFPA 2112 garment options',
       'Bulwark FR, Carhartt FR, Wrangler FR',
@@ -87,7 +87,7 @@ export const bighornCategories: BighornCategory[] = [
     shortTitle: 'Hoodies',
     blurb: 'Pullover and zip-up hoodies, crewnecks, and quarter-zips. Heavyweight options for early-morning jobsites.',
     seoIntro:
-      "Branded hoodies and sweatshirts give crews a practical layer for cool mornings. Bighorn Threads helps you compare pullovers, full zips, crewnecks, and quarter zips. We then coordinate the approved decoration through selected production partners. Screen print, embroidery, and transfer availability depend on the design, fabric, quantity, and partner. Product availability and timelines are confirmed for each order.",
+      "Hoodies and sweatshirts give crews a layer for cold mornings and give everyone else something they'll wear on weekends. Choose pullover, full zip, crewneck, or quarter zip. Big back prints suit screen printing, and small chest logos suit embroidery. Send your design and count, and we'll tell you which fits.",
     seoBullets: [
       'Carhartt, Champion, Gildan, Independent Trading, Port & Company',
       'Pullover, full-zip, crewneck, quarter-zip styles',
@@ -104,7 +104,7 @@ export const bighornCategories: BighornCategory[] = [
     shortTitle: 'Jackets',
     blurb: 'Softshells, insulated jackets, vests, and rain gear. Branded outerwear that holds up season over season.',
     seoIntro:
-      "Branded jackets can anchor an apparel program for field, office, and event teams. Bighorn Threads helps you compare softshells, insulated jackets, fleece, vests, and rain shells. We coordinate approved decoration through selected production partners. Placement and decoration options depend on the garment's construction. Ask whether a pre-production sample is available for your selected product and partner.",
+      "A good jacket gets worn for years, on the job and off it. Compare softshells, insulated jackets, fleece, vests, and rain shells. Seams, zippers, and waterproof shells limit where a logo can go, so send your logo and we'll show the placement on a proof.",
     seoBullets: [
       'Carhartt, Port Authority, Helly Hansen, Eddie Bauer, The North Face',
       'Softshell, insulated, fleece, vest, and rain shell styles',
@@ -121,7 +121,7 @@ export const bighornCategories: BighornCategory[] = [
     shortTitle: 'Work Shirts',
     blurb: 'Button-up work shirts for mechanics, HVAC, plumbing, and industrial trades. Short and long sleeve.',
     seoIntro:
-      "Industrial work shirts give mechanical, HVAC, plumbing, fleet, and maintenance crews a consistent uniform. Bighorn Threads helps you compare short-sleeve, long-sleeve, snap-front, and button-front options. We coordinate approved logos and name patches through selected production partners. Available placements, sizing tools, laundry-program compatibility, and replacement timelines depend on the selected product and program.",
+      "Work shirts give mechanical, HVAC, plumbing, fleet, and maintenance crews a uniform that holds up. Choose short or long sleeves, snap or button front, then add your logo and name patches. If your shirts go through industrial laundry, tell us so we can pick a garment and decoration that survive it.",
     seoBullets: [
       'Red Kap, Cornerstone, Bulwark, Dickies',
       'Short sleeve, long sleeve, snap front, button front',
@@ -138,7 +138,7 @@ export const bighornCategories: BighornCategory[] = [
     shortTitle: 'Work Pants',
     blurb: 'Durable work pants, cargos, and dungarees. Reinforced knees and tool pockets for trade professionals.',
     seoIntro:
-      "The right work-pant spec depends on the job. Bighorn Threads helps you compare cargos, dungarees, double-knee styles, and rated garments. We coordinate approved alterations and decoration through selected production partners when available. Product ratings, sizing, decoration, and alteration options must be confirmed for the selected garment. Managed company stores can support employee-specific product lists and sizes.",
+      "Pick work pants by the job: cargos for tools, double-knee for kneeling, and rated garments where your safety lead requires them. Send sizes and how the pants will be used, and we'll tell you which styles fit and whether they can take a logo.",
     seoBullets: [
       'Carhartt, Dickies, Bulwark FR, Wrangler Workwear, Red Kap',
       'Cargo, dungaree, double-knee, and FR-rated styles',
@@ -155,7 +155,7 @@ export const bighornCategories: BighornCategory[] = [
     shortTitle: 'Caps',
     blurb: 'Branded caps, trucker hats, beanies, and hard hat stickers. The fastest piece of branded gear to get right.',
     seoIntro:
-      "Branded caps can keep your logo visible on jobsites and away from work. Bighorn Threads helps you compare structured caps, trucker hats, snapbacks, beanies, and patch options. We coordinate approved decoration through selected production partners. Flat embroidery, puff embroidery, and patch availability depend on the design, cap, quantity, and partner. Ask for current minimums and product availability before planning your order.",
+      "Caps put your logo at eye level, on the job and away from it. Compare structured caps, trucker hats, snapbacks, beanies, and patches. Flat embroidery suits most logos, puff suits bold letters, and patches hold more detail. Send your logo and count for a price and a proof.",
     seoBullets: [
       'Richardson, Flexfit, Yupoong, Imperial, New Era',
       '3D puff embroidery, flat embroidery, leather patch, PVC patch',
@@ -172,7 +172,7 @@ export const bighornCategories: BighornCategory[] = [
     shortTitle: 'Bags',
     blurb: 'Tool bags, duffels, backpacks, and coolers. Branded gear that crews actually use off the clock.',
     seoIntro:
-      "Branded bags can support crews, travelers, client gifts, and event programs. Bighorn Threads helps you compare tool bags, duffels, backpacks, coolers, and rolling luggage. We coordinate approved decoration through selected production partners. Placement, method, minimums, and timelines depend on the bag and partner. You review the proposed placement before production begins.",
+      "Bags work for crews, travelers, client gifts, and events. Compare tool bags, duffels, backpacks, coolers, and rolling luggage. Pockets and seams limit where a logo fits, so you see the placement on a proof before anything is made.",
     seoBullets: [
       'Carhartt, OGIO, Veto Pro Pac, Klein Tools, Yeti',
       'Tool bags, backpacks, duffels, coolers, rolling luggage',
@@ -209,7 +209,7 @@ export const bighornCategories: BighornCategory[] = [
       "When you don't know what you want, start here. Bighorn Threads can help you search the SAGE supplier network for promotional products. Options can include pens, notebooks, drinkware, decals, tools, gifts, kits, awards, and event giveaways. Tell us your event, audience, budget, and timeline. We'll narrow the catalog and confirm current products, minimums, pricing, decoration, and production terms.",
     seoBullets: [
       '1.7M+ promotional products via SAGE supplier network',
-      'Curated picks based on Las Vegas trade audience',
+      'Picks narrowed to your audience and budget',
       'Challenge coins, hard hat stickers, branded tools, tape measures',
       'Custom event and trade show giveaway programs',
       'Curated quotes with decoration mockups',

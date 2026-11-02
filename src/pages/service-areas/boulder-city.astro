@@ -13,7 +13,7 @@ const localContext = [
  {
  code: 'Major Projects',
  title: 'Plan around the project and crew',
- body: 'A Boulder City apparel request can be organized by role, work setting, employer requirements, product, artwork, quantity, and deadline.',
+ body: 'Sort the order by role first: who is in the field, who is on the walk-through, and who is in the office. Then send your logo, counts, and date.',
  },
  {
  code: 'Active Trades',
@@ -23,7 +23,7 @@ const localContext = [
  {
  code: 'What Crews Need Locally',
  title: 'Plan apparel requirements ahead',
-  body: 'Boulder City orders require a clear production and handoff plan. Standing reorders can help. For protective apparel, your safety program and the garment manufacturer must set the required specification.',
+  body: 'Long projects run out of shirts at bad times, so plan reorders ahead. For protective apparel, your safety program sets the requirement.',
  },
 ]
 
@@ -66,7 +66,7 @@ const useCases = [
 const faqs = [
  {
  q: 'Do you actually deliver to Boulder City, or do we have to drive into Las Vegas?',
-  a: 'Service-area eligibility, delivery, pickup, availability, and cost are not assumed. Your quote names the destination and how the order gets handed off.',
+  a: 'We ship to Boulder City. Your quote shows the shipping cost and timing, and you do not need to drive anywhere.',
  },
  {
  q: 'How fast can you turn around an order for an Eldorado Valley solar crew?',
@@ -82,11 +82,11 @@ const faqs = [
  },
  {
  q: 'Can we plan recurring reorders for a long-running project?',
- a: 'A recurring order plan may be included in your program. Your written quote covers the schedule, recipients, price, and delivery before work begins.',
+ a: 'Yes. Tell us the project length and rough headcount, and we can plan reorders around it. Your quote covers the schedule and price.',
  },
  {
  q: 'What\'s the minimum for branded crew gear?',
- a: 'Your quote lists the minimum for the product and decoration you pick. Share your quantities and project schedule so the written proposal can define the order terms.',
+ a: 'Each garment and decoration method has its own minimum. Send the item and a rough count, and we will tell you the number.',
  },
 ]
 
@@ -182,7 +182,7 @@ const faqSchema = {
  <p class="kicker mb-3">The Trades</p>
  <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Planning by trade for <span class="text-gold-600">Boulder City teams.</span></h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- Utility electrical, solar PV, civil, grading, and federal-subcontractor teams can compare educational planning considerations and product categories. Service-area eligibility requires a current written quote.
+ Gear ideas for utility electrical, solar, civil, grading, and federal-subcontractor crews. 
  </p>
  </div>
 
@@ -240,13 +240,13 @@ const faqSchema = {
 
  <div class="space-y-5 text-lg leading-relaxed text-ash">
  <p>
-Teams in Boulder City can request Las Vegas based account management. Service area, products, production, destination, handoff, timing, and cost require a current written quote.
+Our office is about a half hour away in Las Vegas, and orders ship to your yard or job site. Your quote covers the products, cost, and timing.
  </p>
  <p>
  Boulder City contractors can support dam-area infrastructure, federal facilities, and solar projects in Eldorado Valley. Those settings may involve electrical, traffic, heat, and other hazards, but the project type does not determine a garment rating or visibility class. Each employer must select protective apparel through a task-specific hazard assessment and the exact current manufacturer documentation.
  </p>
  <p>
- For Boulder City solar EPCs and operations crews, manufacturers such as Bulwark and Carhartt publish information for specific flame-resistant garments. The employer must select the required protection through a task-specific hazard assessment. Bighorn checks the garment documentation, decoration method, and placement before anything is made. Service area, shipping destinations, and delivery terms are confirmed in the quote.
+ For Boulder City solar EPCs and operations crews, manufacturers such as Bulwark and Carhartt publish information for specific flame-resistant garments. The employer must select the required protection through a task-specific hazard assessment. Bighorn checks the garment documentation, decoration method, and placement before anything is made. 
  </p>
  <p>
  The marine and recreation contractor sector in Boulder City has different apparel needs. Options may include performance polos for marina staff, workwear for boat-service techs, and lightweight long-sleeve UPF shirts. We source the products and arrange the decoration. Garment performance comes from current manufacturer information.
@@ -265,7 +265,7 @@ Teams in Boulder City can request Las Vegas based account management. Service ar
  <section class="bg-concrete py-20 sm:py-24">
  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
  <p class="kicker mb-3">FAQ</p>
- <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Questions to ask before ordering.</h2>
+ <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Questions from Boulder City crews.</h2>
 
  <div class="divide-y divide-hairline border-y border-hairline">
  {faqs.map((f) => (
@@ -305,7 +305,7 @@ Teams in Boulder City can request Las Vegas based account management. Service ar
  <!-- CTA — full-bleed photographic dark band -->
  <section class="bg-charcoal">
  <div class="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 lg:px-8">
- <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Written requirements. <span class="text-gold-400">Confirmed order terms.</span></h2>
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Tell us about <span class="text-gold-400">the job.</span></h2>
  <p class="mb-8 text-lg text-white/80">Talk to us about your project, employer-approved safety requirements, and order plan.</p>
  <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
  <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>

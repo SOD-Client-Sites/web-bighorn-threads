@@ -35,19 +35,19 @@ const storeSteps = [
     n: '01',
     meta: 'Setup',
     title: 'We Build Your Store Plan',
-    desc: 'Bring your logo, approved products, and budget rules. We’ll propose a managed company store with clear setup and service terms.',
+    desc: 'Bring your logo, approved products, and budget rules. We’ll send a written plan with what it does and what it costs.',
   },
   {
     n: '02',
     meta: 'Ongoing',
-    title: 'Plan Individual Size Submission',
-    desc: 'A configured store may let each person submit a size against approved products. Supported users and ordering steps are confirmed in the proposal.',
+    title: 'People Pick Their Own Sizes',
+    desc: 'Each person sees the approved gear and picks a size, so nobody in ops keeps a spreadsheet.',
   },
   {
     n: '03',
     meta: 'Ongoing',
     title: 'Flexible Shipping Options',
-    desc: 'Eligible orders can ship to the office or each person’s home. Available options and costs are confirmed per order.',
+    desc: 'Ship to the office or to each person’s home. Your plan lists the options and cost.',
   },
 ]
 
@@ -59,22 +59,22 @@ const offerings = [
   },
   {
     title: 'Recognizable Brands',
-    desc: 'Compare eligible polos, outerwear, drinkware, and other branded products. Current product and brand availability is confirmed per quote.',
+    desc: 'Name-brand polos, outerwear, and drinkware. Tell us the brands you want and we’ll check them.',
     tag: 'Premium',
   },
   {
     title: 'New-Hire Onboarding Kits',
-    desc: 'Plan a branded welcome kit around each new hire’s size and start date. Product availability and delivery timing are confirmed per order.',
+    desc: 'A branded welcome kit built around each new hire’s size and start date.',
     tag: 'Onboarding',
   },
   {
     title: 'Event & Trade-Show Apparel',
-    desc: 'Plan matching gear for conferences, booths, and company events. Shipping options depend on the approved order and fulfillment terms.',
+    desc: 'Matching gear for conferences, booths, and company events, shipped where you need it.',
     tag: 'Events',
   },
   {
     title: 'Client Gifts',
-    desc: 'Request drinkware, bags, and premium gift options. Bighorn confirms eligible products, decoration, quantity, and pricing in the quote.',
+    desc: 'Drinkware, bags, and premium gifts with a small, clean logo.',
     tag: 'Gifts',
   },
 ]
@@ -86,7 +86,7 @@ const objections = [
   },
   {
     q: 'Is there a minimum to start?',
-    a: 'Store eligibility and product minimums depend on the approved program. Tell us your team size so we can confirm the right setup.',
+    a: 'It varies with the products you choose. Tell us your team size and we’ll tell you if a store or a regular order fits better.',
   },
   {
     q: 'What about remote or multi-site teams?',
@@ -94,7 +94,7 @@ const objections = [
   },
   {
     q: 'Can we cap how much each person spends?',
-    a: 'Per-person budgets or spend limits can be requested. Bighorn confirms supported controls and reporting in the proposal.',
+    a: 'Tell us the limits you want. Your proposal will say which your store supports.',
   },
   {
     q: 'Who actually follows up?',
@@ -132,15 +132,15 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
           <ul class="mb-8 space-y-3 text-base text-ash">
             <li class="flex items-start gap-3">
               <span class="mt-1.5 flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold-500"></span>
-              <span><strong class="text-charcoal">Request individual size submission</strong> with eligible shipping options confirmed for the approved program</span>
+              <span>Each person picks their own size, and you choose how it ships</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="mt-1.5 flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold-500"></span>
-              <span><strong class="text-charcoal">Use one approved decoration spec</strong> so repeat orders follow the same current standard</span>
+              <span>One approved logo and garment list, so every reorder matches</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="mt-1.5 flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold-500"></span>
-              <span><strong class="text-charcoal">Request budget controls</strong> with supported limits and reporting confirmed in the proposal</span>
+              <span>Ask for budget limits, and your proposal will say what your store supports</span>
             </li>
           </ul>
 
@@ -192,8 +192,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
           How a company store works <span class="text-gold-600">for your team.</span>
         </h2>
         <p class="mt-4 text-lg leading-relaxed text-ash">
-          A managed store can organize approved products and repeat-order requests. Bighorn confirms
-          user access, budget controls, reporting, and service terms in the proposal.
+          You choose the gear, your people order their sizes, and we get it made. Your proposal spells out access, budgets, and reports.
         </p>
       </div>
 
@@ -228,7 +227,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
           What you can put in <span class="text-gold-600">your store.</span>
         </h2>
         <p class="mt-4 text-lg leading-relaxed text-ash">
-          Pick products that fit your team and brand. Catalog changes depend on current availability and the approved program terms.
+          Pick products that fit your team and brand, and tell us when you want to change them.
         </p>
       </div>
 
@@ -278,8 +277,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
             Ready to give your team <span class="text-gold-400">a real company store?</span>
           </h2>
           <p class="mt-4 text-base leading-relaxed text-navy-200">
-            Request approved products and individual size submission. The Las Vegas account team follows up.
-            Tell us about your team so Bighorn can prepare a plan with clear terms.
+            Tell us about your team, and we’ll follow up with a plan and clear terms.
           </p>
         </div>
         <div class="flex shrink-0 flex-col gap-3 sm:items-end">

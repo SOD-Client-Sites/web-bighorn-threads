@@ -13,7 +13,7 @@ const localContext = [
  {
  code: 'Major Activity',
  title: 'Plan around the project and crew',
- body: 'A Spring Valley apparel request can be organized by role, work setting, employer requirements, product, artwork, quantity, and deadline.',
+ body: 'Send your roles, the gear you want, and your date, and we’ll sort it from there.',
  },
  {
  code: 'Active Trades',
@@ -23,7 +23,7 @@ const localContext = [
  {
  code: 'What Crews Need Locally',
   title: 'Plan repeat-order details',
- body: 'Service shops here often want a repeatable apparel specification without managing a closet of uncertain sizes. Bighorn lays out the product and decoration options, and each quote confirms quantities and timing.',
+ body: 'Service shops here often want the same shirt every time, without a closet full of mystery sizes.',
  },
 ]
 
@@ -56,7 +56,7 @@ const trades = [
 
 const useCases = [
  'Residential HVAC techs in embroidered polos with name + title for Spring Valley service routes',
- 'Plumbing service trucks getting wrapped + crew uniformed at the same time, license-visible chest layout',
+ 'Plumbing service crews in shirts with a license-visible chest layout that matches the trucks',
  'Residential electricians in branded polos with truck-matching colorway for service calls',
  'New-hire onboarding kits requested for upcoming start dates',
  'Smaller remodel GCs in branded polos that look professional on apartment-complex walk-throughs',
@@ -70,15 +70,15 @@ const faqs = [
  },
  {
  q: 'A new tech starts next week. How fast can you get me 4 polos with his name on them?',
- a: 'Available artwork and production specifications can support a reorder. Garment availability, name changes, setup, timing, and any rush option are confirmed before approval.',
+ a: 'Call us with the start date. If your logo is on file and the polo is in stock, it’s the easiest kind of rush. We’ll tell you straight whether next week works.',
  },
  {
  q: 'Do you carry moisture-wicking polos that hold up to Vegas summer route work?',
- a: 'Port Authority K500 and Sport-Tek ST650 are options to compare. Sizes, colors, fabric, availability, pricing, and timing depend on the current quote. Your employer controls any heat-plan requirements.',
+ a: 'Yes. Port Authority K540 and Sport-Tek ST650 are two to compare for hot route work.',
  },
  {
  q: 'Can you put our license number and service line on every shirt?',
- a: 'A proposed layout can include the license number and service phone when your business requirements call for them. The exact garment, placement, artwork, and production method are reviewed in the proof and partner quote.',
+ a: 'Yes. You’ll see the layout on a proof first. Check your license board’s rules on how the number has to appear.',
  },
  {
  q: 'Where do we pick up if we don\'t want to wait on delivery?',
@@ -86,7 +86,7 @@ const faqs = [
  },
  {
  q: 'Do you set up company stores for service shops with 15+ techs?',
- a: 'A managed company store is built around your approved kit. Catalog access, allowances, payment, inventory responsibility, production, shipping, and fees are confirmed in the program proposal.',
+ a: 'Yes. A store built around your approved kit often fits a shop that size. Your proposal covers allowances, shipping, and fees.',
  },
 ]
 
@@ -210,7 +210,7 @@ const faqSchema = {
  <p class="kicker mb-3">Planning Scenarios</p>
  <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Program options for <span class="text-gold-600">Spring Valley shops.</span></h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- Smaller orders and new-hire kits can support growing service teams. Your program sets the minimums, reorders, inventory, and timing, and we put them in writing.
+ Small orders and new-hire kits suit growing service teams, and we put the minimums and timing in writing.
  </p>
  <div class="mt-8 flex flex-wrap gap-3">
  <a href="/services/" class="btn-secondary text-sm">All Services →</a>
@@ -243,16 +243,16 @@ const faqSchema = {
  Spring Valley service businesses can request apparel planning for plumbing, HVAC, electrical, pool, pest-control, and landscaping roles. Your written quote covers delivery, regulated garments, and production terms.
  </p>
  <p>
- Residential service fleets may use industrial work shirts, pants, embroidered logos, and name patches. If a laundry program is involved, its current product and tagging requirements must be supplied before quoting. Bighorn can get the approved brief made.
+ Residential service fleets often run work shirts and pants with stitched logos and name patches. If you use a laundry service, send its tagging rules with your request.
  </p>
  <p>
- Spring Valley plumbing, HVAC, and electrical service shops may use branded uniforms to help customers identify technicians. Bighorn can review a proposed program, but service area, company-store access, onboarding, replacement, seasonal, inventory, production, and fulfillment terms depend on the written configuration.
+ A branded uniform tells a homeowner who’s at the door. Tell us your techs’ roles and how fast you hire, and we’ll say whether regular orders or a company store fit better.
  </p>
  <p>
- Landscaping and grounds-maintenance employers select apparel through their own work and safety requirements. Bighorn can quote polos, long-sleeve shirts, and selected hi-vis garments. Reorder cadence and production terms depend on the approved program.
+ Landscaping and grounds crews usually want long-sleeve shirts for the field, polos for account managers, and hi-vis for roadside work. We can quote all three.
  </p>
  <p>
-We coordinate delivery options for Spring Valley business addresses when the selected program supports them. Your quote confirms the destination, schedule, and any delivery cost before the order moves forward.
+We can ship to your shop or yard, and your quote lists the delivery date and cost.
  </p>
  <p>
  Related planning resources for Spring Valley: <a href="/blog/ansi-107-class-2-vs-class-3-hi-vis-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Class 2 hi-vis</a>, <a href="/blog/rush-order-shirts-las-vegas-whats-possible/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">rush orders</a>, <a href="/blog/new-hire-workwear-checklist-las-vegas-contractors/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">new hire checklist</a>, and <a href="/industries/plumbing-hvac-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">plumbing &amp; HVAC service uniforms</a>.
@@ -309,7 +309,7 @@ We coordinate delivery options for Spring Valley business addresses when the sel
  <!-- CTA — full-bleed photographic dark band -->
  <section class="bg-charcoal">
  <div class="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 lg:px-8">
- <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Plan the program. <span class="text-gold-400">Confirm every reorder.</span></h2>
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Tell us about your crew.</h2>
  <p class="mb-8 text-lg text-white/80">Talk to us about what service-tech polos need to do all day in Vegas.</p>
  <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
  <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
