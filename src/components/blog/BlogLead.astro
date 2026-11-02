@@ -1,0 +1,9 @@
+---
+import { leadFor, slugFromPath } from '@/data/blogMeta'
+const leads = leadFor(slugFromPath(Astro.url.pathname))
+---
+<figure class:list={['post-lead', leads.length > 1 && 'post-lead-pair']}>
+  {leads.map((l, i) => (
+    <img src={l.src} alt={l.alt} width={l.product ? 300 : 1376} height={l.product ? 300 : 768} fetchpriority={i === 0 ? 'high' : undefined} decoding="async" class:list={[l.product ? 'post-lead-product' : 'post-lead-scene']} />
+  ))}
+</figure>

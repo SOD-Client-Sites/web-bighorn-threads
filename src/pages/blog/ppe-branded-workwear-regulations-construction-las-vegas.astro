@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import BlogLead from '@/components/blog/BlogLead.astro'
+import BlogBody from '@/components/blog/BlogBody.astro'
+import BlogRelated from '@/components/blog/BlogRelated.astro'
 
 const post = {
  title: 'PPE and Branded Workwear Rules for Construction Workers: A Field Guide',
@@ -96,8 +99,9 @@ const schema = {
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
  <article class="bg-concrete">
-  <header class="border-b border-hairline bg-paper">
-   <div class="mx-auto max-w-3xl px-4 pt-16 pb-12 sm:px-6 sm:pt-20 lg:px-8">
+  <header class="post-head">
+ <div class="post-head-inner">
+ <div>
     <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
      <a href="/" class="hover:text-gold-600">Home</a>
      <span class="px-2">/</span>
@@ -118,9 +122,11 @@ const schema = {
      <time datetime={post.isoDate}>{post.date}</time>
     </div>
    </div>
-  </header>
+ <BlogLead />
+ </div>
+ </header>
 
-  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+  <BlogBody>
 
    <div class="mb-10 border border-hairline bg-panel p-6">
     <h2 class="mb-3 font-heading text-lg font-bold uppercase tracking-[0.15em] text-gold-700">TL;DR</h2>
@@ -273,6 +279,7 @@ const schema = {
     </p>
     <a href="/get-a-quote/" class="btn-primary text-base">Request a PPE Program Quote</a>
    </div>
-  </div>
+  </BlogBody>
  </article>
+<BlogRelated />
 </BaseLayout>

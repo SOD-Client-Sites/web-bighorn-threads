@@ -19,6 +19,8 @@ export default defineConfig({
         '/win/',
         '/404/',
         '/offers/safety-hoodie/',
+        '/offers/embroidered-polos/',
+        '/offers/custom-hoodies/',
         '/blog/rush-order-shirts-las-vegas-2-day-3-day-options/',
         '/blog/screen-printing-vs-embroidery-construction/',
         '/industries/construction-trades/las-vegas/',

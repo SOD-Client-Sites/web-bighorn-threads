@@ -17,8 +17,9 @@ test('hoodie landing page has a dedicated offer and matching lead form', () => {
 
 test('offer form requires quantity and reports a request, not a payment', () => {
   const form = readFileSync(new URL('../src/components/LeadCaptureForm.astro', import.meta.url), 'utf8')
-  assert.match(form, /min=\{isHoodieOffer \? 100/)
-  assert.match(form, /required=\{isHoodieOffer\}/)
+  assert.match(form, /min=\{offerDetails\?\.minimum\}/)
+  assert.match(form, /required=\{!!offerDetails\}/)
+  assert.match(form, /value=\{offerDetails\?\.minimum\}/)
   assert.match(form, /offer: form.dataset.offer/)
   assert.match(form, /No payment has been taken/)
 })

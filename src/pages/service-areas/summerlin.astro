@@ -1,320 +1,70 @@
 ---
-import HeroProducts from '@/components/HeroProducts.astro'
-import BaseLayout from '@/layouts/BaseLayout.astro'
+import ServiceAreaPage from '@/components/ServiceAreaPage.astro'
 
-const page = {
- title: 'Branded Apparel Planning for Summerlin Teams',
- description:
- 'Branded-apparel planning for Summerlin contractors and service teams. Products, decoration, quantities, production, and delivery are confirmed in each quote.',
- h1Pre: 'Summerlin',
-}
-
-const localContext = [
- {
- code: 'Project Context',
- title: 'Residential and commercial planning',
- body: 'Sort the order by role first: who meets homeowners, who is on site, and who is in the shop. Then send your logo, counts, and date.',
- },
- {
- code: 'Active Trades',
- title: 'Options for local trade teams',
- body: 'General contractors, service trades, pool and landscape teams, and finish trades can request role-based apparel. Current service area, products, decoration, and delivery terms are confirmed per quote.',
- },
- {
- code: 'What Crews Need Locally',
- title: 'Products selected for each role',
- body: 'People who walk into a customer\'s home usually look better in an embroidered polo than a printed tee. We can quote Port Authority, Carhartt, and OGIO options.',
- },
-]
-
-const trades = [
- {
- name: 'General Contractors',
- detail: 'Foreman and field-crew differentiation for general-contractor and commercial fit-out roles.',
- href: '/industries/general-contractors-las-vegas/',
- img: 'https://www.promoplace.com/ws/ws.dll/QPic?SN=52969&P=968353380&RS=300',
- },
- {
- name: 'Plumbing & HVAC',
- detail: 'Embroidered service polos for techs walking into Summerlin Cliffs and Mesa Ridge custom homes.',
- href: '/industries/plumbing-hvac-las-vegas/',
- img: 'https://www.promoplace.com/ws/ws.dll/QPic?SN=68414&P=945769040&RS=300',
- },
- {
- name: 'Electrical Contractors',
- detail: 'Service polos and FR layers for residential and commercial electrical across the Summerlin master plan.',
- href: '/industries/electrical-contractors-las-vegas/',
- img: 'https://www.promoplace.com/ws/ws.dll/QPic?SN=52278&P=549020207&RS=300',
- },
- {
- name: 'Roofing & Solar',
- detail: 'Branded crew tees and hi-vis for tile, solar, and high-end residential roof work in Summerlin estates.',
- href: '/industries/roofing-solar-las-vegas/',
- img: 'https://www.promoplace.com/ws/ws.dll/QPic?SN=50042&P=722090562&RS=300',
- },
-]
-
-const useCases = [
- 'Embroidered button-downs requested for customer-facing general-contractor roles',
- 'Branded polos with company identification and client-approved license artwork',
- 'Foreman polos requested for commercial fit-out teams',
- 'Embroidered polos requested for HVAC, plumbing, or electrical service roles',
- 'Branded long-sleeves reviewed for the exact work, use, care, and manufacturer instructions',
- 'Promotional products requested for local association or community events',
-]
-
-const faqs = [
- {
- q: 'How should we plan apparel for customer-facing Summerlin residential work?',
- a: 'Some teams choose polos for customer-facing technicians and branded tees for shop or ride-along roles. Your brand, work conditions, budget, product availability, decoration, and written order terms should guide the final program.',
- },
- {
- q: 'Do you have polo colors that work on light stucco and natural-stone properties?',
- a: 'Port Authority K500 polos come in many colors, and you see the logo and thread colors on a proof before anything is made.',
- },
- {
- q: 'How fast can you turn around a new uniform program for a Summerlin commercial fit-out crew?',
-  a: 'Give us your date and the quantity, and we will tell you whether it can be done.',
- },
- {
- q: 'Can you do company-store setup so each crew can order their own approved kit?',
- a: 'Yes. Crews pick their own sizes from the gear you approved. Tell us about allowances and who approves what, and your proposal will say what the store can do.',
- },
- {
- q: 'Do you deliver to Summerlin commercial addresses?',
-  a: 'Yes. We ship to commercial addresses in Summerlin, and your quote shows the cost and timing.',
- },
- {
- q: 'What\'s the minimum for an embroidered polo run?',
- a: 'Each polo and decoration method has its own minimum. Send the style and a rough count, and we will tell you the number.',
- },
-]
-
-const breadcrumb = {
- '@context': 'https://schema.org',
- '@type': 'BreadcrumbList',
- itemListElement: [
- { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
- { '@type': 'ListItem', position: 2, name: 'Service Areas', item: 'https://bighornthreads.com/service-areas/' },
- { '@type': 'ListItem', position: 3, name: 'Summerlin', item: 'https://bighornthreads.com/service-areas/summerlin/' },
- ],
-}
-
-const faqSchema = {
- '@context': 'https://schema.org',
- '@type': 'FAQPage',
- mainEntity: faqs.map((f) => ({
- '@type': 'Question',
- name: f.q,
- acceptedAnswer: { '@type': 'Answer', text: f.a },
- })),
+const props = {
+  "title": "Custom Shirts and Uniforms in Summerlin | Bighorn Threads",
+  "description": "Branded-apparel planning for Summerlin contractors and service teams. Products, decoration, quantities, production, and delivery are confirmed in each quote.",
+  "slug": "summerlin",
+  "area": "Summerlin",
+  "h1": "Custom shirts and uniforms in Summerlin",
+  "intro": "Get work shirts, embroidered polos, and crew apparel delivered to Summerlin. Send your logo and quantity, or ask us to help you choose a garment.",
+  "howHere": "We ship to Summerlin by carrier, to one address or several. Your quote shows the cost and the date.",
+  "orders": [
+    {
+      "who": "People in the home",
+      "what": "Embroidered polos for service techs, estimators, and anyone meeting the homeowner.",
+      "img": "50042-774086150",
+      "alt": "Port Authority performance polo",
+      "href": "/industries/plumbing-hvac-las-vegas/"
+    },
+    {
+      "who": "Field and fit-out crews",
+      "what": "Work shirts and tees for residential and commercial crews, by role.",
+      "img": "50042-194556045",
+      "alt": "Red Kap ripstop crew shirt",
+      "href": "/industries/general-contractors-las-vegas/"
+    },
+    {
+      "who": "Roof, pool, and landscape",
+      "what": "Sun hats and crew tees for long days outside.",
+      "img": "65212-727679712",
+      "alt": "Boonie hat",
+      "href": "/industries/landscaping-las-vegas/"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Should our installers and our sales team match?",
+      "a": "Same logo, different garment works well: polos for sales and estimators, work shirts for install crews."
+    },
+    {
+      "q": "Can you do small add-on orders?",
+      "a": "Send the item and count. We will tell you the minimum, and whether matching your last order is possible."
+    },
+    {
+      "q": "What's the minimum order?",
+      "a": "Each garment and decoration method has its own minimum. Send the item and a rough count, and we will tell you the number."
+    },
+    {
+      "q": "Can we pick up instead of shipping to Summerlin?",
+      "a": "Ask when you order, and we will tell you whether pickup can be arranged for your job."
+    }
+  ],
+  "links": [
+    {
+      "href": "/get-a-quote/",
+      "label": "get a quote"
+    },
+    {
+      "href": "/locations/nationwide/",
+      "label": "nationwide shipping"
+    },
+    {
+      "href": "/company-stores/",
+      "label": "company stores"
+    }
+  ]
 }
 ---
 
-<BaseLayout
- title={page.title}
- description={page.description}
- canonical="https://bighornthreads.com/service-areas/summerlin/"
->
- <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
- <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-
- <!-- Hero — full-bleed photographic dark band -->
- <section class="border-b border-hairline bg-concrete">
- <div class="page-hero-grid mx-auto max-w-7xl px-4 pb-20 pt-16 sm:px-6 sm:pb-28 sm:pt-16 lg:px-8">
- <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
- <a href="/" class="hover:text-gold-700">Home</a>
- <span class="px-2 text-ash">/</span>
- <a href="/service-areas/" class="hover:text-gold-700">Service Areas</a>
- <span class="px-2 text-ash">/</span>
- <span class="text-gold-700">Summerlin</span>
- </nav>
-
- <p class="kicker mb-3">{page.h1Pre}</p>
- <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
- Planning Branded Apparel for <span class="text-gold-700">Summerlin Teams.</span>
- </h1>
- <p class="max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
- Branded apparel quotes for Summerlin crews, offices, and teams. Tell us the job and we confirm products, timing, and delivery in writing.
- </p>
-
- <div class="mt-10 flex flex-wrap items-center gap-3">
- <a href="/contact/" class="btn-primary text-base">
- Get a Quote
- <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
- </a>
- <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-charcoal transition-colors hover:text-gold-700">
- <svg class="h-4 w-4 text-gold-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
- 702.904.8923
- </a>
- </div>
-  <HeroProducts />
- </div>
- </section>
-
- <!-- Local context — concrete -->
- <section class="bg-concrete py-20 sm:py-24">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <div class="mb-12 max-w-2xl">
- <p class="kicker mb-3">Local Context</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Plan apparel around <span class="text-gold-600">the exact project.</span></h2>
- <p class="mt-4 text-lg leading-relaxed text-ash">
- Residential, service, and commercial teams may need different products by role. Bighorn handles your artwork and proofs, then puts the order terms in writing.
- </p>
- </div>
-
- <div class="grid gap-5 md:grid-cols-3">
- {localContext.map((c) => (
- <div class="border border-hairline bg-panel p-7 transition-colors hover:border-gold-500">
- <span class="spec mb-4 inline-block border border-hairline px-2.5 py-1 text-gold-600">{c.code}</span>
- <h3 class="mb-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-charcoal">{c.title}</h3>
- <p class="text-sm leading-relaxed text-ash">{c.body}</p>
- </div>
- ))}
- </div>
- </div>
- </section>
-
- <!-- Trades we serve here — paper -->
- <section class="border-y border-hairline bg-paper py-20 sm:py-24">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <div class="mb-12 max-w-2xl">
- <p class="kicker mb-3">The Trades</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Planning by trade for <span class="text-gold-600">Summerlin teams.</span></h2>
- <p class="mt-4 text-lg leading-relaxed text-ash">
- Service teams can compare polos, tees, work shirts, and outerwear for customer-facing, field, shop, and warehouse roles. The exact product, use, care, employer requirements, and manufacturer instructions guide the selection.
- </p>
- </div>
-
- <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
- {trades.map((t) => (
- <a href={t.href} class="group flex flex-col border border-hairline bg-panel transition-colors hover:border-gold-500">
- <div class="aspect-[4/3] overflow-hidden">
- <img src={t.img} alt={t.name} class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="600" height="450" />
- </div>
- <div class="p-5">
- <h3 class="mb-2 font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">{t.name}</h3>
- <p class="text-sm leading-relaxed text-ash">{t.detail}</p>
- </div>
- </a>
- ))}
- </div>
- </div>
- </section>
-
- <!-- Typical orders — concrete -->
- <section class="bg-concrete py-20 sm:py-24">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
- <div>
- <p class="kicker mb-3">Planning Scenarios</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Program options for <span class="text-gold-600">Summerlin shops.</span></h2>
- <p class="mt-4 text-lg leading-relaxed text-ash">
- Customer-facing teams may compare polos, tees, and outerwear. Minimums, product availability, reorder cadence, and timing depend on the approved program.
- </p>
- <div class="mt-8 flex flex-wrap gap-3">
- <a href="/services/" class="btn-secondary text-sm">All Services →</a>
- <a href="/company-stores/" class="btn-secondary text-sm">Company Stores →</a>
- </div>
- </div>
-
- <ul class="space-y-3">
- {useCases.map((u, i) => (
- <li class="flex items-start gap-4 border border-hairline bg-panel p-4 transition-colors hover:border-gold-500">
- <span class="shrink-0 font-mono text-xs font-bold text-gold-600">{String(i + 1).padStart(2, '0')}</span>
- <span class="text-base leading-relaxed text-charcoal">{u}</span>
- </li>
- ))}
- </ul>
- </div>
- </div>
- </section>
-
- <!-- Local context — paper -->
- <section class="border-y border-hairline bg-paper py-20 sm:py-24">
- <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
- <p class="kicker mb-3">Local Context</p>
- <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl">
- Custom branded apparel for Summerlin contractors, service trades, and HOA operations.
- </h2>
-
- <div class="space-y-5 text-lg leading-relaxed text-ash">
- <p>
- Summerlin work puts your crew in front of homeowners and HOA boards, so how they look gets noticed.
- </p>
- <p>
- Summerlin landscape, irrigation, pool service, and pest control teams may consider moisture-wicking polos, work shirts, pants, or shorts. Bighorn can pull current product options and arrange the approved decoration. Employers remain responsible for heat planning and final garment approval.
- </p>
- <p>
- Summerlin residential general contractors and luxury home builders may prefer premium apparel for customer-facing roles. Bighorn can manage quotes for selected polos, softshells, and field workwear, with production coordinated through approved partners. Product availability, decoration, quantities, and timing are confirmed in writing.
- </p>
- <p>
- Summerlin HOA grounds-maintenance and community services contracts may include specific branding requirements. Bighorn can pull together your logo, license number, colors, and placement so the details are ready to review. Current artwork, product, and decoration terms are confirmed for each order.
- </p>
- <p>
- Orders ship to your office or job site, and the quote shows the cost.
- </p>
- <p>
- Related planning resources for Summerlin: <a href="/blog/ansi-107-class-2-vs-class-3-hi-vis-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Class 2 hi-vis</a>, <a href="/blog/rush-order-shirts-las-vegas-whats-possible/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">rush orders</a>, <a href="/blog/new-hire-workwear-checklist-las-vegas-contractors/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">new hire checklist</a>, and <a href="/industries/plumbing-hvac-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">plumbing &amp; HVAC service uniforms</a>.
- </p>
- </div>
- </div>
- </section>
-
- <!-- FAQs — concrete -->
- <section class="bg-concrete py-20 sm:py-24">
- <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
- <p class="kicker mb-3">FAQ</p>
- <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Questions from Summerlin teams.</h2>
-
- <div class="divide-y divide-hairline border-y border-hairline">
- {faqs.map((f) => (
- <details class="group">
- <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
- <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
- <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
- </summary>
- <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
- </details>
- ))}
- </div>
- </div>
- </section>
-
- <!-- Related — paper -->
- <section class="border-y border-hairline bg-paper py-16">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <p class="kicker mb-6">Nearby &amp; Related</p>
- <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
- <a href="/service-areas/spring-valley/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
- <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Spring Valley</h3>
- <p class="mt-2 text-sm text-ash">Service-trade programs with terms confirmed in each quote.</p>
- </a>
- <a href="/service-areas/henderson-nv/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
- <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Henderson, NV</h3>
- <p class="mt-2 text-sm text-ash">Master-planned community build-out, the other end of the valley.</p>
- </a>
- <a href="/service-areas/boulder-city/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
- <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Boulder City</h3>
- <p class="mt-2 text-sm text-ash">Solar-farm and utility crews along the US-93 corridor.</p>
- </a>
- <a href="/industries/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
- <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">All Industries</h3>
- <p class="mt-2 text-sm text-ash">Trade-specific gear, brands, and compliance. Pick your industry.</p>
- </a>
- </div>
- </div>
- </section>
-
- <!-- CTA — full-bleed photographic dark band -->
- <section class="bg-charcoal">
- <div class="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 lg:px-8">
- <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Plan apparel for <span class="text-gold-400">your Summerlin team.</span></h2>
- <p class="mb-8 text-lg text-white/80">Send the roles, requested products, artwork, quantities, and deadline for a current quote.</p>
- <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
- <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
- <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium tracking-wide text-white transition-colors hover:text-gold-400">702.904.8923</a>
- </div>
- </div>
- </section>
-</BaseLayout>
+<ServiceAreaPage {...props} />

@@ -1,0 +1,108 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+interface Props {
+  title: string
+  description: string
+  slug: string
+  h1: string
+  intro: string
+  area: string
+  howHere: string
+  orders: { who: string; what: string; img: string; alt: string; href: string }[]
+  faqs: { q: string; a: string }[]
+  links: { href: string; label: string }[]
+}
+
+const { title, description, slug, area, h1, intro, howHere, orders, faqs, links } = Astro.props
+const url = `https://bighornthreads.com/service-areas/${slug}/`
+const pic = (id: string) => `https://www.promoplace.com/ws/ws.dll/QPic?SN=${id.split('-')[0]}&P=${id.split('-')[1]}&RS=300`
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Locations', item: 'https://bighornthreads.com/locations/' },
+    { '@type': 'ListItem', position: 3, name: area, item: url },
+  ],
+}
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+}
+---
+
+<BaseLayout title={title} description={description} canonical={url}>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <section class="border-b border-hairline bg-concrete">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[1.25fr_1fr] lg:px-8">
+      <div>
+        <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-gold-700">Home</a><span class="px-2">/</span>
+          <a href="/locations/" class="hover:text-gold-700">Locations</a><span class="px-2">/</span>
+          <span class="text-gold-700">{area}</span>
+        </nav>
+        <h1 class="mb-5 max-w-3xl font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-5xl">{h1}</h1>
+        <p class="max-w-2xl text-lg leading-relaxed text-ash">{intro}</p>
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
+          <a href="tel:+17029048923" class="px-2 py-3 font-mono text-sm font-medium text-charcoal hover:text-gold-700">702.904.8923</a>
+        </div>
+      </div>
+      <aside class="self-start border border-hairline bg-panel p-6" aria-label={`Ordering in ${area}`}>
+        <h2 class="mb-4 font-heading text-xl font-bold uppercase tracking-tight text-charcoal">Ordering and delivery</h2>
+        <dl class="space-y-4 text-sm leading-relaxed">
+          <div><dt class="font-bold text-charcoal">Delivery</dt><dd class="text-ash">{howHere}</dd></div>
+          <div><dt class="font-bold text-charcoal">Contact</dt><dd class="text-ash">Call <a class="text-gold-700 underline" href="tel:+17029048923">702.904.8923</a>, Mon-Fri 8am-5pm, or email <a class="text-gold-700 underline" href="mailto:info@bighornthreads.com">info@bighornthreads.com</a>. You do not need to come in.</dd></div>
+          <div><dt class="font-bold text-charcoal">Office</dt><dd class="text-ash">9205 W. Russell Rd, Ste 305, Las Vegas</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <section class="bg-paper py-14 sm:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Apparel for your team</h2>
+      <div class="grid gap-5 md:grid-cols-3">
+        {orders.map((o) => (
+          <a href={o.href} class="group flex gap-4 border border-hairline bg-panel p-4 hover:border-gold-500 md:flex-col">
+            <img src={pic(o.img)} alt={o.alt} width="300" height="300" loading="lazy" decoding="async" class="h-24 w-24 shrink-0 object-contain md:h-52 md:w-full" />
+            <div>
+              <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-700">{o.who}</h3>
+              <p class="mt-1 text-sm leading-relaxed text-ash">{o.what}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-concrete py-14 sm:py-20">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <h2 class="mb-6 font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Ordering questions</h2>
+      <div class="divide-y divide-hairline border-y border-hairline">
+        {faqs.map((f) => (
+          <details class="group">
+            <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-4 text-left">
+              <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
+              <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+            </summary>
+            <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
+          </details>
+        ))}
+      </div>
+      <p class="mt-8 text-sm text-ash">See also: {links.map((l, i) => (<>{i > 0 && ', '}<a class="text-gold-700 underline" href={l.href}>{l.label}</a></>))}.</p>
+    </div>
+  </section>
+
+  <section class="bg-charcoal">
+    <div class="mx-auto flex max-w-5xl flex-col items-start gap-5 px-4 py-12 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+      <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight text-white">Get a quote for your team.</h2>
+      <a href="/get-a-quote/" class="btn-primary shrink-0 text-base">Get a Quote</a>
+    </div>
+  </section>
+</BaseLayout>

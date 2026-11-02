@@ -16,10 +16,11 @@
  *  - submitLabel?: button text
  */
 import SmsConsentFields from '@/components/SmsConsentFields.astro'
+import { apparelOffers } from '@/data/apparelOffers.js'
 
 interface Props {
   vertical: string
-  offer?: 'safety-hoodie-19'
+  offer?: keyof typeof apparelOffers
   heading?: string
   blurb?: string
   submitLabel?: string
@@ -31,7 +32,7 @@ const {
   blurb = 'Tell us about your team and we’ll build a private demo store, no commitment.',
   submitLabel = 'Build my company store plan →',
 } = Astro.props
-const isHoodieOffer = offer === 'safety-hoodie-19'
+const offerDetails = offer ? apparelOffers[offer] : undefined
 
 const inputCls =
   'w-full rounded border border-hairline bg-panel px-4 py-2.5 text-base text-charcoal placeholder:text-ash focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/25'
@@ -69,14 +70,14 @@ const labelCls = 'mb-1 block font-mono text-[11px] font-bold uppercase tracking-
         <input id="lp-company" name="company" type="text" autocomplete="organization" maxlength="100" class={inputCls} placeholder="Acme Inc." />
       </div>
       <div>
-        <label for="lp-quantity" class={labelCls}>{isHoodieOffer ? "Quantity * (100 minimum)" : "Quantity"}</label>
-        <input id="lp-quantity" name="quantity" type={isHoodieOffer ? "number" : "text"} min={isHoodieOffer ? 100 : undefined} step={isHoodieOffer ? 1 : undefined} required={isHoodieOffer} value={isHoodieOffer ? 100 : undefined} inputmode="numeric" maxlength="60" class={inputCls} placeholder="Approx. how many pieces" />
+        <label for="lp-quantity" class={labelCls}>{offerDetails ? `Quantity * (${offerDetails.minimum} minimum)` : "Quantity"}</label>
+        <input id="lp-quantity" name="quantity" type={offerDetails ? "number" : "text"} min={offerDetails?.minimum} step={offerDetails ? 1 : undefined} required={!!offerDetails} value={offerDetails?.minimum} inputmode="numeric" maxlength="60" class={inputCls} placeholder="Approx. how many pieces" />
       </div>
     </div>
 
     <div>
       <label for="lp-product" class={labelCls}>Product you’re after</label>
-      <input id="lp-product" name="product" type="text" value={isHoodieOffer ? "Safety yellow cooling hoodie, $19 each" : undefined} readonly={isHoodieOffer} maxlength="120" class={inputCls} placeholder="e.g. cooling hoodies, polos, safety tees" />
+      <input id="lp-product" name="product" type="text" value={offerDetails?.product} readonly={!!offerDetails} maxlength="120" class={inputCls} placeholder="e.g. cooling hoodies, polos, safety tees" />
     </div>
 
     <div>
@@ -92,16 +93,16 @@ const labelCls = 'mb-1 block font-mono text-[11px] font-bold uppercase tracking-
       <span id="lp-submit-label">{submitLabel}</span>
     </button>
 
-    <p class="text-center font-mono text-[10px] uppercase tracking-[0.15em] text-ash">{isHoodieOffer ? "Mockup request only · No payment taken" : "No commitment · Written setup terms · Bighorn follows up"}</p>
+    <p class="text-center font-mono text-[10px] uppercase tracking-[0.15em] text-ash">{offerDetails ? "Mockup request only · No payment taken" : "No commitment · Written setup terms · Bighorn follows up"}</p>
   </form>
 
   <!-- success state (hidden until submit) -->
   <div id="lp-success" class="hidden" role="status" aria-live="polite" aria-atomic="true" tabindex="-1">
     <div class="border border-gold-500 bg-panel p-6 text-center">
       <svg class="mx-auto mb-3 h-10 w-10 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-      <h3 class="font-heading text-xl font-extrabold uppercase tracking-tight text-charcoal">{isHoodieOffer ? "Your hoodie request is in." : "You’re in."}</h3>
-      <p class="mt-2 text-sm text-ash">{isHoodieOffer ? "The Bighorn Threads team will follow up about your logo mockup, sizes and order details. No payment has been taken." : "We’ll reach out about building your company store. Want a head start? See how it works."}</p>
-      {!isHoodieOffer && <a href="/company-stores/" class="btn-secondary mt-5 inline-flex text-sm">See how it works →</a>}
+      <h3 class="font-heading text-xl font-extrabold uppercase tracking-tight text-charcoal">{offerDetails ? "Your request is in." : "You’re in."}</h3>
+      <p class="mt-2 text-sm text-ash">{offerDetails ? "The Bighorn Threads team will follow up about your logo, sizes and order details. No payment has been taken." : "We’ll reach out about building your company store. Want a head start? See how it works."}</p>
+      {!offerDetails && <a href="/company-stores/" class="btn-secondary mt-5 inline-flex text-sm">See how it works →</a>}
     </div>
   </div>
 </div>
@@ -151,7 +152,7 @@ const labelCls = 'mb-1 block font-mono text-[11px] font-bold uppercase tracking-
       if (!res.ok || !data.ok) throw new Error(data.error || `HTTP ${res.status}`)
       // Honeypot submissions keep the same silent-success UI but never fire lead analytics.
       if (!data.spam) {
-        tracker?.trackLead?.(`lp_${vertical}`)
+        tracker?.trackLead?.(form.dataset.offer || `lp_${vertical}`)
       }
       form.classList.add('hidden')
       success?.classList.remove('hidden')

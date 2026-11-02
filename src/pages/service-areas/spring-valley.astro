@@ -1,320 +1,74 @@
 ---
-import HeroProducts from '@/components/HeroProducts.astro'
-import BaseLayout from '@/layouts/BaseLayout.astro'
+import ServiceAreaPage from '@/components/ServiceAreaPage.astro'
 
-const page = {
- title: 'Branded Apparel Planning for Spring Valley Teams',
- description:
- 'Spring Valley teams can request branded-apparel planning. Service-area eligibility, products, production, timing, and handoff terms require a current written quote.',
- h1Pre: 'Spring Valley',
-}
-
-const localContext = [
- {
- code: 'Major Activity',
- title: 'Plan around the project and crew',
- body: 'Send your roles, the gear you want, and your date, and we’ll sort it from there.',
- },
- {
- code: 'Active Trades',
- title: 'Service-truck country',
- body: 'Higher concentration of service-trade vans per square mile than almost anywhere in the valley. Residential HVAC, plumbing service, electrical service, pest, pool. A lot of small-to-mid shops headquartered here because rent is cheaper than Summerlin and the customer base is right next door.',
- },
- {
- code: 'What Crews Need Locally',
-  title: 'Plan repeat-order details',
- body: 'Service shops here often want the same shirt every time, without a closet full of mystery sizes.',
- },
-]
-
-const trades = [
- {
- name: 'Plumbing & HVAC',
- detail: 'Embroidered service polos with name + title for residential service techs running daily routes through Spring Valley.',
- href: '/industries/plumbing-hvac-las-vegas/',
- img: 'https://www.promoplace.com/ws/ws.dll/QPic?SN=68414&P=945769040&RS=300',
- },
- {
- name: 'Electrical Contractors',
- detail: 'Service polos and branded tees for residential electrical service shops covering the central valley.',
- href: '/industries/electrical-contractors-las-vegas/',
- img: 'https://www.promoplace.com/ws/ws.dll/QPic?SN=52278&P=549020207&RS=300',
- },
- {
- name: 'General Contractors',
- detail: 'Smaller residential-remodel GCs and TI contractors working Spring Valley apartments and mixed-use.',
- href: '/industries/general-contractors-las-vegas/',
- img: 'https://www.promoplace.com/ws/ws.dll/QPic?SN=52969&P=968353380&RS=300',
- },
- {
- name: 'Roofing & Solar',
- detail: 'Re-roof and residential solar crews working established Spring Valley neighborhoods.',
- href: '/industries/roofing-solar-las-vegas/',
- img: 'https://www.promoplace.com/ws/ws.dll/QPic?SN=50042&P=722090562&RS=300',
- },
-]
-
-const useCases = [
- 'Residential HVAC techs in embroidered polos with name + title for Spring Valley service routes',
- 'Plumbing service crews in shirts with a license-visible chest layout that matches the trucks',
- 'Residential electricians in branded polos with truck-matching colorway for service calls',
- 'New-hire onboarding kits requested for upcoming start dates',
- 'Smaller remodel GCs in branded polos that look professional on apartment-complex walk-throughs',
- 'Pool and pest service crews in lightweight moisture-wicking polos for summer route work',
-]
-
-const faqs = [
- {
- q: 'We\'re a small Spring Valley HVAC shop, only 6 techs. Is that too small for you to bother with?',
- a: 'Not at all. Minimums vary by garment and decoration method, so send the crew size and garment list for a current quote.',
- },
- {
- q: 'A new tech starts next week. How fast can you get me 4 polos with his name on them?',
- a: 'Call us with the start date. If your logo is on file and the polo is in stock, it’s the easiest kind of rush. We’ll tell you straight whether next week works.',
- },
- {
- q: 'Do you carry moisture-wicking polos that hold up to Vegas summer route work?',
- a: 'Yes. Port Authority K540 and Sport-Tek ST650 are two to compare for hot route work.',
- },
- {
- q: 'Can you put our license number and service line on every shirt?',
- a: 'Yes. You’ll see the layout on a proof first. Check your license board’s rules on how the number has to appear.',
- },
- {
- q: 'Where do we pick up if we don\'t want to wait on delivery?',
-  a: 'Bighorn is based in Las Vegas. Your written quote spells out pickup or delivery, availability, and timing.',
- },
- {
- q: 'Do you set up company stores for service shops with 15+ techs?',
- a: 'Yes. A store built around your approved kit often fits a shop that size. Your proposal covers allowances, shipping, and fees.',
- },
-]
-
-const breadcrumb = {
- '@context': 'https://schema.org',
- '@type': 'BreadcrumbList',
- itemListElement: [
- { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
- { '@type': 'ListItem', position: 2, name: 'Service Areas', item: 'https://bighornthreads.com/service-areas/' },
- { '@type': 'ListItem', position: 3, name: 'Spring Valley', item: 'https://bighornthreads.com/service-areas/spring-valley/' },
- ],
-}
-
-const faqSchema = {
- '@context': 'https://schema.org',
- '@type': 'FAQPage',
- mainEntity: faqs.map((f) => ({
- '@type': 'Question',
- name: f.q,
- acceptedAnswer: { '@type': 'Answer', text: f.a },
- })),
+const props = {
+  "title": "Custom Shirts and Uniforms in Spring Valley | Bighorn Threads",
+  "description": "Branded apparel for Spring Valley crews and teams. We ship to Spring Valley, and you can order by phone or email.",
+  "slug": "spring-valley",
+  "area": "Spring Valley",
+  "h1": "Custom shirts and uniforms in Spring Valley",
+  "intro": "Get work shirts, embroidered polos, and crew apparel delivered to Spring Valley. Send your logo and quantity, or ask us to help you choose a garment.",
+  "howHere": "We ship to Spring Valley by carrier, to one address or several. Your quote shows the cost and the date.",
+  "orders": [
+    {
+      "who": "Route techs",
+      "what": "Moisture-wicking polos for hot van work, with the tech name on the chest.",
+      "img": "50042-595513173",
+      "alt": "Port Authority Dry Zone polo",
+      "href": "/industries/plumbing-hvac-las-vegas/"
+    },
+    {
+      "who": "Messier jobs",
+      "what": "Work shirts that take name patches and hold up better than a polo on installs.",
+      "img": "68414-545707060",
+      "alt": "Red Kap long sleeve work shirt",
+      "href": "/industries/electrical-contractors-las-vegas/"
+    },
+    {
+      "who": "Shops with steady hiring",
+      "what": "A company store, so a new tech can pick the approved kit and size without going through you.",
+      "img": "50042-786780311",
+      "alt": "Hooded sweatshirt",
+      "href": "/company-stores/"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "We only have 6 techs. Is that too small?",
+      "a": "No. Send the crew size and the garments you want, and we will tell you the minimum for that order."
+    },
+    {
+      "q": "A new tech starts next week. Can you get polos in time?",
+      "a": "Call us with the start date. We check whether the polo is in stock and whether a shop has room, then tell you straight."
+    },
+    {
+      "q": "Can you put our license number on the shirts?",
+      "a": "Yes. You will see the layout on a proof first. Check your license board for any rules on how the number appears."
+    },
+    {
+      "q": "What's the minimum order?",
+      "a": "Each garment and decoration method has its own minimum. Send the item and a rough count, and we will tell you the number."
+    },
+    {
+      "q": "Can we pick up instead of shipping to Spring Valley?",
+      "a": "Ask when you order, and we will tell you whether pickup can be arranged for your job."
+    }
+  ],
+  "links": [
+    {
+      "href": "/get-a-quote/",
+      "label": "get a quote"
+    },
+    {
+      "href": "/locations/nationwide/",
+      "label": "nationwide shipping"
+    },
+    {
+      "href": "/company-stores/",
+      "label": "company stores"
+    }
+  ]
 }
 ---
 
-<BaseLayout
- title={page.title}
- description={page.description}
- canonical="https://bighornthreads.com/service-areas/spring-valley/"
->
- <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
- <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-
- <!-- Hero — full-bleed photographic dark band -->
- <section class="border-b border-hairline bg-concrete">
- <div class="page-hero-grid mx-auto max-w-7xl px-4 pb-20 pt-16 sm:px-6 sm:pb-28 sm:pt-16 lg:px-8">
- <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
- <a href="/" class="hover:text-gold-700">Home</a>
- <span class="px-2 text-ash">/</span>
- <a href="/service-areas/" class="hover:text-gold-700">Service Areas</a>
- <span class="px-2 text-ash">/</span>
- <span class="text-gold-700">Spring Valley</span>
- </nav>
-
- <p class="kicker mb-3">{page.h1Pre}</p>
- <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
- Planning Branded Apparel for <span class="text-gold-700">Spring Valley Teams.</span>
- </h1>
- <p class="max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
- Branded apparel quotes for Spring Valley crews, offices, and teams. Tell us the job and we confirm products, timing, and delivery in writing.
- </p>
-
- <div class="mt-10 flex flex-wrap items-center gap-3">
- <a href="/contact/" class="btn-primary text-base">
- Get a Quote
- <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
- </a>
- <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-charcoal transition-colors hover:text-gold-700">
- <svg class="h-4 w-4 text-gold-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
- 702.904.8923
- </a>
- </div>
-  <HeroProducts />
- </div>
- </section>
-
- <!-- Local context — concrete -->
- <section class="bg-concrete py-20 sm:py-24">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <div class="mb-12 max-w-2xl">
- <p class="kicker mb-3">Local Context</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Spring Valley is <span class="text-gold-600">service-trade central.</span></h2>
- <p class="mt-4 text-lg leading-relaxed text-ash">
- Less new-construction work than Henderson, less industrial than NLV, less premium than Summerlin. What Spring Valley has is density: service-trade vans on every block, residential service work that never stops, and a lot of mid-size shops headquartered along Rainbow, Tropicana, and Decatur.
- </p>
- </div>
-
- <div class="grid gap-5 md:grid-cols-3">
- {localContext.map((c) => (
- <div class="border border-hairline bg-panel p-7 transition-colors hover:border-gold-500">
- <span class="spec mb-4 inline-block border border-hairline px-2.5 py-1 text-gold-600">{c.code}</span>
- <h3 class="mb-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-charcoal">{c.title}</h3>
- <p class="text-sm leading-relaxed text-ash">{c.body}</p>
- </div>
- ))}
- </div>
- </div>
- </section>
-
- <!-- Trades we serve here — paper -->
- <section class="border-y border-hairline bg-paper py-20 sm:py-24">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <div class="mb-12 max-w-2xl">
- <p class="kicker mb-3">The Trades</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Planning by trade for <span class="text-gold-600">Spring Valley teams.</span></h2>
- <p class="mt-4 text-lg leading-relaxed text-ash">
- Service shops dominate the mix. Embroidered polos for the customer-facing techs, branded tees for shop and ride-along. Click through for trade-specific gear and brands.
- </p>
- </div>
-
- <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
- {trades.map((t) => (
- <a href={t.href} class="group flex flex-col border border-hairline bg-panel transition-colors hover:border-gold-500">
- <div class="aspect-[4/3] overflow-hidden">
- <img src={t.img} alt={t.name} class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async" width="600" height="450" />
- </div>
- <div class="p-5">
- <h3 class="mb-2 font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">{t.name}</h3>
- <p class="text-sm leading-relaxed text-ash">{t.detail}</p>
- </div>
- </a>
- ))}
- </div>
- </div>
- </section>
-
- <!-- Typical orders — concrete -->
- <section class="bg-concrete py-20 sm:py-24">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
- <div>
- <p class="kicker mb-3">Planning Scenarios</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Program options for <span class="text-gold-600">Spring Valley shops.</span></h2>
- <p class="mt-4 text-lg leading-relaxed text-ash">
- Small orders and new-hire kits suit growing service teams, and we put the minimums and timing in writing.
- </p>
- <div class="mt-8 flex flex-wrap gap-3">
- <a href="/services/" class="btn-secondary text-sm">All Services →</a>
- <a href="/company-stores/" class="btn-secondary text-sm">Company Stores →</a>
- </div>
- </div>
-
- <ul class="space-y-3">
- {useCases.map((u, i) => (
- <li class="flex items-start gap-4 border border-hairline bg-panel p-4 transition-colors hover:border-gold-500">
- <span class="shrink-0 font-mono text-xs font-bold text-gold-600">{String(i + 1).padStart(2, '0')}</span>
- <span class="text-base leading-relaxed text-charcoal">{u}</span>
- </li>
- ))}
- </ul>
- </div>
- </div>
- </section>
-
- <!-- Local context — paper -->
- <section class="border-y border-hairline bg-paper py-20 sm:py-24">
- <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
- <p class="kicker mb-3">Local Context</p>
- <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl">
- Custom branded apparel for Spring Valley contractors and service trades.
- </h2>
-
- <div class="space-y-5 text-lg leading-relaxed text-ash">
- <p>
- Spring Valley service businesses can request apparel planning for plumbing, HVAC, electrical, pool, pest-control, and landscaping roles. Your written quote covers delivery, regulated garments, and production terms.
- </p>
- <p>
- Residential service fleets often run work shirts and pants with stitched logos and name patches. If you use a laundry service, send its tagging rules with your request.
- </p>
- <p>
- A branded uniform tells a homeowner who’s at the door. Tell us your techs’ roles and how fast you hire, and we’ll say whether regular orders or a company store fit better.
- </p>
- <p>
- Landscaping and grounds crews usually want long-sleeve shirts for the field, polos for account managers, and hi-vis for roadside work. We can quote all three.
- </p>
- <p>
-We can ship to your shop or yard, and your quote lists the delivery date and cost.
- </p>
- <p>
- Related planning resources for Spring Valley: <a href="/blog/ansi-107-class-2-vs-class-3-hi-vis-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Class 2 hi-vis</a>, <a href="/blog/rush-order-shirts-las-vegas-whats-possible/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">rush orders</a>, <a href="/blog/new-hire-workwear-checklist-las-vegas-contractors/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">new hire checklist</a>, and <a href="/industries/plumbing-hvac-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">plumbing &amp; HVAC service uniforms</a>.
- </p>
- </div>
- </div>
- </section>
-
- <!-- FAQs — concrete -->
- <section class="bg-concrete py-20 sm:py-24">
- <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
- <p class="kicker mb-3">FAQ</p>
- <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Questions to ask before ordering.</h2>
-
- <div class="divide-y divide-hairline border-y border-hairline">
- {faqs.map((f) => (
- <details class="group">
- <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
- <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
- <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
- </summary>
- <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
- </details>
- ))}
- </div>
- </div>
- </section>
-
- <!-- Related — paper -->
- <section class="border-y border-hairline bg-paper py-16">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <p class="kicker mb-6">Nearby &amp; Related</p>
- <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
- <a href="/service-areas/summerlin/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
- <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Summerlin</h3>
- <p class="mt-2 text-sm text-ash">High-end residential and commercial, the sharp end of the same valley.</p>
- </a>
- <a href="/service-areas/north-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
- <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">North Las Vegas</h3>
- <p class="mt-2 text-sm text-ash">Industrial and data center fit-out. Different rhythm, same call.</p>
- </a>
- <a href="/service-areas/boulder-city/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
- <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Boulder City</h3>
- <p class="mt-2 text-sm text-ash">Solar-farm and utility crews along the US-93 corridor.</p>
- </a>
- <a href="/industries/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
- <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">All Industries</h3>
- <p class="mt-2 text-sm text-ash">Trade-specific gear, brands, and compliance. Pick your industry.</p>
- </a>
- </div>
- </div>
- </section>
-
- <!-- CTA — full-bleed photographic dark band -->
- <section class="bg-charcoal">
- <div class="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 lg:px-8">
- <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Tell us about your crew.</h2>
- <p class="mb-8 text-lg text-white/80">Talk to us about what service-tech polos need to do all day in Vegas.</p>
- <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
- <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
- <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium tracking-wide text-white transition-colors hover:text-gold-400">702.904.8923</a>
- </div>
- </div>
- </section>
-</BaseLayout>
+<ServiceAreaPage {...props} />

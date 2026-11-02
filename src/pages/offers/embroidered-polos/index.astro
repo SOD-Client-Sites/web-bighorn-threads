@@ -1,0 +1,24 @@
+---
+import ApparelOfferPage from '@/components/ApparelOfferPage.astro'
+import polo from '@/assets/offers/steve-offer-1.png'
+
+const faqs = [
+  { q: 'What is included in the $40 price?', a: 'The polo and your embroidered logo up to 8,000 stitches. The minimum order is 12 polos. We review your artwork and confirm the final order details before you approve it.' },
+  { q: 'What if my logo needs more than 8,000 stitches?', a: 'Send your logo with your request. We check the stitch count and quote any work outside the included allowance before you order.' },
+  { q: 'Can our team order different sizes?', a: 'Include your size breakdown and preferred colors. Your quote confirms the available options and any size-specific pricing.' },
+  { q: 'Are shipping, taxes, and delivery included?', a: 'Your quote confirms shipping, taxes, and the delivery schedule. Add your delivery address and deadline to the request so we can price and schedule the order.' },
+]
+---
+
+<ApparelOfferPage
+  offer="embroidered-polo-40"
+  slug="embroidered-polos"
+  title="$40 Embroidered Polos | 12-Piece Minimum | Bighorn Threads"
+  description="Polos for $40 each with your embroidered logo up to 8,000 stitches included. Minimum 12. Request your team’s quote from Bighorn Threads."
+  headline="Embroidered polos."
+  inclusion="Your embroidered logo up to 8,000 stitches included."
+  detail="Order the polo shown here with your company logo. Start with 12 for your team."
+  image={polo}
+  imageAlt="Black short-sleeve polo supplied for the Bighorn Threads $40 embroidered polo offer"
+  faqs={faqs}
+/>

@@ -1,5 +1,7 @@
 ---
-import { photo } from '@/data/pagePhotos'
+import { Image } from 'astro:assets'
+import apparelHero from '@/assets/bighorn-apparel-hero.png'
+import stevePhoto from '@/assets/steve-dodson-ref.jpg'
 import { productPhotos } from '@/data/productPhotos'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import ProofStrip from '@/components/ProofStrip.astro'
@@ -64,14 +66,11 @@ const faqSchema = {
  })),
 }
 
-// Supplier catalog photos, the same SAGE images the catalog pages show.
-const pic = (sn: number, p: number) => `https://www.promoplace.com/ws/ws.dll/QPic?SN=${sn}&P=${p}&RS=300`
-
 const services = [
- { title: 'Screen Printing', desc: 'Best for tees and hoodies in larger runs. Bold logos and event shirts.', img: '/images/photos/screen-printing-closeup.webp', alt: 'Stack of folded shirts with a gold print on a steel table', href: '/services/screen-printing-las-vegas/' },
- { title: 'Embroidery', desc: 'Stitched logos on polos, jackets, and caps for gear that gets worn in front of customers.', img: '/images/photos/embroidered-caps.webp', alt: 'Row of caps with gold embroidered marks', href: '/services/embroidery-las-vegas/' },
- { title: 'Workwear & Uniforms', desc: 'Crew shirts, hi-vis vests, softshells, and staff uniforms by role.', img: '/images/photos/public-works-crew.webp', alt: 'Crew in hi-vis shirts and hard hats at a street repair', href: '/services/#branded-apparel' },
- { title: 'Promotional Products', desc: 'Drinkware, bags, and giveaways for trade shows, golf tournaments, and client gifts.', img: '/images/photos/new-hire-kit.webp', alt: 'Folded polo, cap and steel tumbler on a desk', href: '/promo-products-las-vegas/' },
+ { title: 'Printed Shirts & Hoodies', desc: 'Company shirts, event tees, and sweatshirts with your design.', ...productPhotos.tee, href: '/services/screen-printing-las-vegas/' },
+ { title: 'Embroidered Apparel', desc: 'Your logo stitched onto polos, jackets, and caps.', ...productPhotos.polo, href: '/services/embroidery-las-vegas/' },
+ { title: 'Workwear & Uniforms', desc: 'Work shirts, crew uniforms, and safety apparel for the job.', ...productPhotos.workShirt, href: '/services/#branded-apparel' },
+ { title: 'Promotional Products', desc: 'Branded drinkware, bags, and gifts for customers and events.', ...productPhotos.tumbler, href: '/promo-products-las-vegas/' },
 ]
 
 const industries = [
@@ -121,29 +120,30 @@ const speakableSchema = {
 >
  <!-- Hero: real product photography on the light canvas -->
  <section class="bg-concrete">
- <div class="page-hero-home mx-auto grid max-w-7xl items-center gap-10 px-4 pb-14 pt-10 sm:px-6 lg:grid-cols-[1fr_1.2fr] lg:gap-14 lg:px-8 lg:pb-20 lg:pt-14">
+ <div class="page-hero-home mx-auto grid max-w-7xl items-center gap-6 px-4 pb-10 pt-6 sm:px-6 lg:grid-cols-[1fr_1.2fr] lg:gap-14 lg:px-8 lg:pb-20 lg:pt-14">
  <div>
- <p class="kicker mb-4">For companies, crews, and schools</p>
+ <p class="kicker mb-4">Las Vegas · Shipping nationwide</p>
  <h1 class="font-heading text-5xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-6xl">
- Team gear with your logo, shipped anywhere in the US
+ Custom apparel<br />for your team.
  </h1>
- <p class="mt-4 font-subheading text-xl font-semibold uppercase tracking-wide text-ash sm:text-2xl">Screen printing, embroidery, and company stores</p>
- <p class="speakable-answer mt-6 max-w-xl text-lg leading-relaxed text-charcoal">
- Send your logo, how many you need, and your date. One contact helps you pick the gear, shows you a proof before anything is made, and stays on the order until it ships.
+ <p class="mt-4 font-subheading text-lg font-semibold text-ash sm:text-2xl">Screen printing, embroidery, and company stores</p>
+ <p class="speakable-answer mt-4 max-w-xl text-base leading-relaxed text-charcoal sm:text-lg">
+ Choose your gear. Send your logo. We handle the printing or embroidery and ship your order nationwide.
  </p>
- <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+ <div class="mt-5 flex flex-wrap items-center gap-3">
  <a href="/get-a-quote/" class="btn-primary text-base">
  Get a Quote
  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
  </a>
- <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-charcoal transition-colors hover:text-gold-700">
+ <a href="tel:+17029048923" class="hidden items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-charcoal sm:inline-flex transition-colors hover:text-gold-700">
  <svg class="h-4 w-4 text-gold-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d={phoneIcon} /></svg>
  702.904.8923
  </a>
  </div>
  </div>
- <figure class="hero-photo">
- <img src="/images/photos/home-hero-jobsite-crew.webp" alt={photo('home-hero-jobsite-crew').alt} width="1376" height="768" fetchpriority="high" decoding="async" />
+ <figure>
+ <Image src={apparelHero} alt="Bighorn ram logo shown as screen print on a T-shirt and embroidery on a navy cap and charcoal polo" widths={[640, 960, 1536]} sizes="(min-width: 1024px) 55vw, 100vw" format="webp" quality={85} loading="eager" fetchpriority="high" class="aspect-[3/2] w-full object-cover" />
+ <figcaption class="mt-2 text-xs text-ash">Bighorn apparel mockup · Screen printing &amp; embroidery</figcaption>
  </figure>
  </div>
  </section>
@@ -154,16 +154,16 @@ const speakableSchema = {
  <section class="bg-concrete py-16 sm:py-24">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-10 max-w-2xl">
- <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">What we can put your logo on</h2>
+ <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">Start with the gear</h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- The catalog has more than a million products. Tell us how the gear will be used and we will narrow it down, or <a href="/catalog/" class={link}>browse it yourself</a>.
+ Shop shirts, uniforms, hats, and gifts in our <a href="/catalog/" class={link}>product catalog</a>. Need help choosing? Tell us who you’re ordering for and your budget.
  </p>
  </div>
  <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
  {services.map((service) => (
  <a href={service.href} class="group flex flex-col border border-hairline bg-panel transition-colors duration-200 hover:border-gold-500">
  <div class="border-b border-hairline">
- <img src={service.img} alt={service.alt} width="300" height="300" loading="lazy" decoding="async" class="aspect-[5/4] w-full object-cover" />
+ <img src={service.src} alt={service.alt} width="300" height="300" loading="lazy" decoding="async" class="aspect-[5/4] w-full bg-white object-contain p-6" />
  </div>
  <div class="flex flex-1 flex-col p-6">
  <h3 class="font-heading text-xl font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-700">{service.title}</h3>
@@ -208,10 +208,10 @@ const speakableSchema = {
  </ul>
  </div>
  <aside class="self-start border border-hairline bg-panel p-7 sm:p-8">
- <img src="/images/photos/company-store-phone.webp" alt={photo('company-store-phone').alt} width="1376" height="768" loading="lazy" decoding="async" class="mb-6 aspect-[3/2] w-full object-cover" />
- <h2 class="font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal">Tired of collecting sizes?</h2>
+ <p class="kicker mb-4">Company stores</p>
+ <h2 class="font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal">Let your team order their own sizes.</h2>
  <p class="mt-4 leading-relaxed text-ash">
- A company store is a private online store with only the gear you have approved. Your people pick their own sizes, so you stop chasing them by email and guessing at the box of extras.
+ Give employees one place to order your approved apparel. We help you choose the products and work out pricing, ordering, and delivery before the store is set up.
  </p>
  <a href="/company-stores/" class="btn-secondary mt-6 text-sm">
  How company stores work
@@ -222,14 +222,22 @@ const speakableSchema = {
  </section>
 
  <!-- The person behind it -->
- <section class="border-y border-hairline bg-paper py-16 sm:py-20">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <div class="max-w-3xl">
- <h2 class="font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-4xl">Founded by Steve Dodson</h2>
- <p class="mt-3 text-lg leading-relaxed text-ash">
- Steve started Bighorn Threads and its parent company, VP Promos, and the team works out of Las Vegas. Call or email with a question about a garment, a logo file, or a tight date.
- </p>
- <a href="/about/" class={`mt-3 inline-block ${link}`}>More about us</a>
+ <section id="meet-steve" aria-labelledby="founder-heading" class="border-y border-hairline bg-paper py-12 sm:py-20">
+ <div class="mx-auto grid max-w-6xl items-center gap-8 px-4 sm:px-6 md:grid-cols-[minmax(0,418px)_1fr] md:gap-14 lg:px-8 lg:gap-20">
+ <figure class="w-full max-w-[418px]">
+ <Image src={stevePhoto} alt="Steve Dodson in his Las Vegas office" width={418} height={418} format="webp" quality={90} loading="lazy" class="aspect-square h-auto w-full object-cover" />
+ <figcaption class="mt-3 font-subheading text-base text-ash">Steve Dodson · Founder, Bighorn Threads &amp; VP Promos</figcaption>
+ </figure>
+ <div>
+ <p class="kicker mb-4">Meet the founder</p>
+ <h2 id="founder-heading" class="font-heading text-5xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-6xl">Steve Dodson</h2>
+ <p class="mt-6 text-xl leading-relaxed text-charcoal">Steve founded Bighorn Threads and its parent company, VP Promos, in Las Vegas.</p>
+ <p class="mt-4 text-lg leading-relaxed text-ash">His team helps you choose the apparel, coordinates the logo work with production partners, and follows your order through delivery.</p>
+ <blockquote class="mt-7 border-t border-hairline pt-6">
+ <p class="text-lg leading-relaxed text-charcoal">“I've worked with them for over 14 years for all my event promotional needs.”</p>
+ <footer class="mt-2 text-sm text-ash">Nadia G. · Client review</footer>
+ </blockquote>
+ <a href="/about/" class="btn-secondary mt-7">More about Steve &amp; Bighorn</a>
  </div>
  </div>
  </section>

@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import BlogLead from '@/components/blog/BlogLead.astro'
+import BlogBody from '@/components/blog/BlogBody.astro'
+import BlogRelated from '@/components/blog/BlogRelated.astro'
 
 const post = {
  title: 'Screen Printing vs Embroidery for Construction Workwear',
@@ -49,8 +52,9 @@ const schema = {
 <BaseLayout title={post.title} description={post.description} canonical={primaryUrl} ogImage={post.image} type="article" publishedDate={post.isoDate}>
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
  <article class="bg-concrete">
-  <header class="border-b border-hairline bg-paper">
-   <div class="mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
+  <header class="post-head">
+ <div class="post-head-inner">
+ <div>
     <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-700">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-700">Blog</a></nav>
     <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-600">{post.category}</span>
     <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
@@ -59,9 +63,11 @@ const schema = {
      <span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time>
     </div>
    </div>
-  </header>
+ <BlogLead />
+ </div>
+ </header>
 
-  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+  <BlogBody>
    <aside class="mb-10 border border-hairline bg-panel p-7">
     <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
     <p class="text-lg leading-relaxed text-charcoal sm:text-xl">Screen print crew tees and hoodies, especially with a big back logo. Embroider polos, jackets, and caps for people who meet clients. Many contractors do both.</p>
@@ -100,6 +106,7 @@ const schema = {
      ))}
     </div>
    </section>
-  </div>
+  </BlogBody>
  </article>
+<BlogRelated />
 </BaseLayout>

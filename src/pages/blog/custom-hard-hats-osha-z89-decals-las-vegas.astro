@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import BlogLead from '@/components/blog/BlogLead.astro'
+import BlogBody from '@/components/blog/BlogBody.astro'
+import BlogRelated from '@/components/blog/BlogRelated.astro'
 
 const post = {
  title: 'Custom Hard Hats: What to Check Before Adding ANSI Z89.1 Decals',
@@ -67,8 +70,9 @@ const speakableSchema = {
  <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
 
  <article class="bg-concrete">
- <header class="border-b border-hairline bg-paper">
- <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
+ <header class="post-head">
+ <div class="post-head-inner">
+ <div>
  <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
  <a href="/" class="hover:text-gold-700">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-700">Blog</a>
  </nav>
@@ -79,9 +83,11 @@ const speakableSchema = {
  <span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time>
  </div>
  </div>
+ <BlogLead />
+ </div>
  </header>
 
- <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+ <BlogBody>
 
  <!-- Answer-first TL;DR -->
  <aside class="mb-10 border border-hairline bg-panel p-7">
@@ -129,6 +135,7 @@ const speakableSchema = {
 <p class="mb-5 text-lg leading-relaxed text-charcoal">Bighorn Threads supplies custom hard hat decals. Your employer and hard hat manufacturer must approve the decal material and placement. Pricing and file retention depend on the quote.</p>
  <a href="/get-a-quote/" class="inline-flex min-h-[48px] items-center gap-2 bg-gold-500 px-7 py-3 text-base font-bold text-charcoal transition-all hover:bg-gold-600">Get a Quote →</a>
  </div>
- </div>
+ </BlogBody>
  </article>
+<BlogRelated />
 </BaseLayout>

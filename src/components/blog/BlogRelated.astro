@@ -1,0 +1,21 @@
+---
+import { leadFor, relatedTo, slugFromPath } from '@/data/blogMeta'
+const related = relatedTo(slugFromPath(Astro.url.pathname))
+---
+<section class="border-t border-hairline bg-concrete py-14">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal">Keep reading</h2>
+    <div class="grid gap-6 sm:grid-cols-3">
+      {related.map((r) => {
+        const l = leadFor(r.slug)[0]
+        return (
+          <a href={`/blog/${r.slug}/`} class="group block">
+            <img src={l.src} alt="" width="600" height="400" loading="lazy" decoding="async" class:list={['aspect-[3/2] w-full', l.product ? 'bg-white object-contain p-4' : 'object-cover']} />
+            <p class="spec mt-3 text-gold-700">{r.category}</p>
+            <h3 class="mt-1 font-subheading text-lg font-semibold leading-snug text-charcoal group-hover:text-gold-700">{r.title}</h3>
+          </a>
+        )
+      })}
+    </div>
+  </div>
+</section>

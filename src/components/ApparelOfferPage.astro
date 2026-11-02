@@ -1,0 +1,172 @@
+---
+import { Image } from 'astro:assets'
+import type { ImageMetadata } from 'astro'
+import LandingLayout from '@/layouts/LandingLayout.astro'
+import LeadCaptureForm from '@/components/LeadCaptureForm.astro'
+import { apparelOffers } from '@/data/apparelOffers.js'
+
+interface Props {
+  offer: 'embroidered-polo-40' | 'custom-hoodie-25'
+  slug: string
+  title: string
+  description: string
+  headline: string
+  inclusion: string
+  detail: string
+  image: ImageMetadata
+  imageAlt: string
+  faqs: { q: string; a: string }[]
+}
+const { offer, slug, title, description, headline, inclusion, detail, image, imageAlt, faqs } = Astro.props
+const product = apparelOffers[offer]
+const plural = product.noun === 'polo' ? 'polos' : 'hoodies'
+---
+
+<LandingLayout title={title} description={description} canonical={`https://bighornthreads.com/offers/${slug}/`} noindex={true} standalone={true}>
+  <div class="apparel-offer">
+    <section class="offer-hero" aria-labelledby="offer-heading">
+      <div class="offer-wrap hero-grid">
+        <div class="hero-copy">
+          <p class="offer-kicker">Bighorn Threads / Team apparel offer</p>
+          <h1 id="offer-heading">{headline}</h1>
+          <div class="offer-price"><strong>${product.price}</strong><span>per {product.noun}<small>{product.minimum}-piece minimum</small></span></div>
+          <p class="offer-inclusion">{inclusion}</p>
+          <p class="offer-detail">{detail}</p>
+          <a class="offer-button" href="#request">Get my {product.noun} quote <span aria-hidden="true">→</span></a>
+          <p class="offer-note">Request a quote. Review your order before payment.</p>
+        </div>
+        <figure class="product-photo">
+          <Image src={image} alt={imageAlt} widths={[360, 483, 720]} sizes="(min-width: 900px) 483px, (min-width: 600px) 55vw, 100vw" format="webp" quality={90} loading="eager" fetchpriority="high" />
+          <figcaption>{product.noun === 'polo' ? 'Polo' : 'Hoodie'} shown before your logo is added.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="offer-facts" aria-label="Offer details">
+      <div class="offer-wrap facts-grid">
+        <div><span>Price</span><strong>${product.price} each</strong></div>
+        <div><span>Minimum order</span><strong>{product.minimum} {plural}</strong></div>
+        <div><span>Logo included</span><strong>{product.noun === 'polo' ? 'Up to 8,000 stitches' : 'Two colors'}</strong></div>
+      </div>
+    </section>
+
+    <section class="request-section" aria-labelledby="request-heading">
+      <div class="offer-wrap request-grid">
+        <div class="request-copy">
+          <p class="offer-kicker">Your order</p>
+          <h2 id="request-heading">Get a quote for<br />your team.</h2>
+          <p>Tell us your quantity and when you need the order. We’ll follow up for your logo and size breakdown.</p>
+          <ol class="order-steps">
+            <li><span>01</span><div><h3>Send your request</h3><p>Start with {product.minimum} {plural} or more.</p></div></li>
+            <li><span>02</span><div><h3>Review your logo</h3><p>{product.noun === 'polo' ? 'We check your artwork against the 8,000-stitch allowance and confirm placement.' : 'We review your two-color logo and confirm placement.'}</p></div></li>
+            <li><span>03</span><div><h3>Approve the details</h3><p>Confirm sizes, colors, delivery timing, shipping, taxes, and your final total before ordering.</p></div></li>
+          </ol>
+          <div class="contact-line"><span>Prefer to talk?</span><a href="tel:+17029048923">702.904.8923</a></div>
+        </div>
+        <div id="request" class="offer-form">
+          <LeadCaptureForm vertical={product.vertical} offer={offer} heading={`Get my ${product.noun} quote`} blurb={`$${product.price} each. Minimum ${product.minimum}. ${inclusion}`} submitLabel={`Send my ${product.noun} request →`} />
+        </div>
+      </div>
+    </section>
+
+    <section class="offer-faq" aria-labelledby="faq-heading">
+      <div class="offer-wrap faq-wrap">
+        <h2 id="faq-heading">Before you order</h2>
+        <div class="faq-list">
+          {faqs.map(({ q, a }) => <details><summary>{q}<span aria-hidden="true">+</span></summary><p>{a}</p></details>)}
+        </div>
+        <a class="offer-button" href="#request">Get my {product.noun} quote <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+    <aside class="mobile-offer" aria-label="Offer and quote request"><div><strong>${product.price}</strong> each <small>{product.minimum}-piece minimum</small></div><a href="#request">Get my quote <span aria-hidden="true">→</span></a></aside>
+  </div>
+</LandingLayout>
+
+<style>
+  .apparel-offer { background: #fff; }
+  .offer-wrap { width: min(1152px, calc(100% - 48px)); margin-inline: auto; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; }
+  .offer-hero { overflow: hidden; border-bottom: 1px solid var(--color-hairline); }
+  .hero-copy { padding-block: 48px; }
+  .offer-kicker { margin-bottom: 20px; font-family: var(--font-mono); font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--color-gold-700); }
+  h1, h2, h3 { font-family: var(--font-heading); font-weight: 800; color: var(--color-charcoal); }
+  h1 { max-width: 550px; font-size: clamp(50px, 5.5vw, 76px); line-height: .98; text-transform: uppercase; letter-spacing: -.025em; text-wrap: balance; }
+  .offer-price { display: flex; align-items: center; gap: 22px; margin-block: 26px 20px; }
+  .offer-price > strong { font-family: var(--font-heading); font-size: 104px; font-weight: 800; line-height: 1; letter-spacing: -.05em; }
+  .offer-price > span { font-size: 19px; }
+  .offer-price small { display: block; margin-top: 5px; font-size: 16px; font-weight: 600; color: var(--color-gold-700); }
+  .offer-inclusion { max-width: 450px; font-size: 22px; line-height: 1.35; font-weight: 600; }
+  .offer-detail { max-width: 440px; margin-block: 16px 26px; font-size: 16px; line-height: 1.65; color: var(--color-ash); }
+  .offer-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 32px; min-height: 54px; padding: 14px 24px; background: var(--color-gold-500); color: var(--color-charcoal); font-family: var(--font-subheading); font-size: 19px; font-weight: 600; text-decoration: none; }
+  .offer-button:hover, .mobile-offer a:hover { background: var(--color-gold-400); }
+  .offer-note { margin-top: 12px; font-size: 12px; color: var(--color-ash); }
+  .product-photo { align-self: stretch; margin: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; }
+  .product-photo img { width: 100%; max-width: 483px; height: 615px; object-fit: contain; object-position: center bottom; }
+  .product-photo figcaption { padding: 10px 0 18px; font-size: 11px; color: var(--color-ash); }
+  .offer-facts { background: var(--color-concrete); border-bottom: 1px solid var(--color-hairline); }
+  .facts-grid { display: grid; grid-template-columns: repeat(3, 1fr); padding-block: 24px; gap: 28px; }
+  .facts-grid span { display: block; margin-bottom: 5px; font-size: 12px; color: var(--color-ash); }
+  .facts-grid strong { font-family: var(--font-subheading); font-size: 23px; font-weight: 600; }
+  .request-section { padding-block: 72px; scroll-margin-top: 24px; }
+  .request-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 72px; align-items: start; }
+  h2 { font-size: clamp(36px, 4vw, 50px); line-height: 1.03; letter-spacing: -.02em; text-transform: uppercase; text-wrap: balance; }
+  .request-copy > p:not(.offer-kicker) { margin-top: 22px; font-size: 18px; line-height: 1.65; color: var(--color-ash); max-width: 430px; }
+  .order-steps { margin-top: 32px; list-style: none; padding: 0; }
+  .order-steps li { display: flex; gap: 20px; padding: 22px 0; border-top: 1px solid var(--color-hairline); }
+  .order-steps li > span { padding-top: 3px; font-family: var(--font-mono); font-size: 14px; color: var(--color-gold-700); }
+  .order-steps h3 { font-size: 23px; line-height: 1.2; }
+  .order-steps p { margin-top: 6px; font-size: 15px; line-height: 1.65; color: var(--color-ash); }
+  .contact-line { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 26px; padding-top: 26px; border-top: 1px solid var(--color-hairline); font-size: 16px; }
+  .contact-line a { font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+  .offer-form { min-width: 0; scroll-margin-top: 24px; }
+  .offer-form :global(#lp-form-card) { background: var(--color-concrete); border-color: var(--color-hairline); }
+  .offer-faq { padding-block: 64px 72px; border-top: 1px solid var(--color-hairline); background: var(--color-concrete); }
+  .faq-wrap { max-width: 820px; }
+  .faq-list { margin-block: 28px; }
+  details { border-bottom: 1px solid var(--color-hairline); }
+  summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 64px; padding-block: 18px; font-size: 18px; font-weight: 500; cursor: pointer; list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary span { font-size: 25px; color: var(--color-gold-700); }
+  details[open] summary span { transform: rotate(45deg); }
+  details > p { max-width: 720px; padding-bottom: 22px; font-size: 16px; line-height: 1.7; color: var(--color-ash); }
+  a:focus-visible, summary:focus-visible { outline: 3px solid var(--color-gold-700); outline-offset: 5px; }
+  .mobile-offer { display: none; }
+  @media (max-width: 900px) {
+    .hero-grid { gap: 24px; grid-template-columns: 1fr 1fr; }
+    .offer-price > strong { font-size: 88px; }
+    .offer-inclusion { font-size: 20px; }
+    .product-photo img { height: 580px; }
+    .request-grid { gap: 36px; }
+  }
+  @media (max-width: 650px) {
+    .offer-wrap { width: calc(100% - 36px); }
+    .hero-grid { grid-template-columns: 1fr; gap: 0; }
+    .hero-copy { padding-block: 30px 0; }
+    .offer-kicker { font-size: 12px; margin-bottom: 16px; }
+    h1 { font-size: clamp(46px, 12vw, 64px); max-width: 440px; }
+    .offer-price { margin-block: 20px 16px; gap: 18px; }
+    .offer-price > strong { font-size: 88px; }
+    .offer-inclusion { font-size: 20px; max-width: 350px; }
+    .offer-detail { margin-block: 12px 20px; font-size: 15px; }
+    .offer-button { min-height: 50px; font-size: 18px; padding: 12px 20px; }
+    .product-photo { margin-top: 24px; }
+    .product-photo img { max-width: 390px; height: 420px; }
+    .product-photo figcaption { padding-block: 10px 20px; }
+    .facts-grid { gap: 12px; padding-block: 20px; }
+    .facts-grid span { font-size: 11px; }
+    .facts-grid strong { font-size: 18px; line-height: 1.2; display: block; }
+    .request-section { padding-block: 42px; }
+    .request-grid { grid-template-columns: 1fr; gap: 32px; }
+    .request-copy > p:not(.offer-kicker) { font-size: 17px; }
+    .order-steps { margin-top: 24px; }
+    .order-steps li { padding-block: 18px; }
+    .offer-faq { padding-block: 42px 110px; }
+    .offer-form :global(#lp-form-card) { padding: 24px 18px; }
+    .mobile-offer { display: flex; position: fixed; z-index: 40; bottom: 0; inset-inline: 0; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 18px calc(12px + env(safe-area-inset-bottom)); background: #fff; border-top: 1px solid var(--color-hairline); }
+    .mobile-offer > div { font-size: 13px; }
+    .mobile-offer strong { font-size: 25px; line-height: 1; font-family: var(--font-heading); font-weight: 800; }
+    .mobile-offer small { display: block; font-size: 11px; color: var(--color-ash); margin-top: 3px; }
+    .mobile-offer a { min-height: 46px; display: inline-flex; gap: 24px; align-items: center; padding: 12px 18px; background: var(--color-gold-500); font-family: var(--font-subheading); font-size: 17px; font-weight: 600; }
+    :global(body:has(.apparel-offer) > footer) { padding-bottom: 110px; }
+  }
+</style>

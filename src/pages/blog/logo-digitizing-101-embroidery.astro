@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import BlogLead from '@/components/blog/BlogLead.astro'
+import BlogBody from '@/components/blog/BlogBody.astro'
+import BlogRelated from '@/components/blog/BlogRelated.astro'
 
 const post = {
  title: 'Logo Digitizing 101: Why Your First File Matters More Than Your Tenth Order',
@@ -57,9 +60,9 @@ const howToSchema = {
  <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
 
  <article class="bg-concrete">
- <header class="border-b border-hairline bg-paper">
-
- <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
+ <header class="post-head">
+ <div class="post-head-inner">
+ <div>
  <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
  <a href="/" class="hover:text-gold-700">Home</a>
  <span class="px-2">/</span>
@@ -80,9 +83,11 @@ const howToSchema = {
  <time datetime={post.isoDate}>{post.date}</time>
  </div>
  </div>
+ <BlogLead />
+ </div>
  </header>
 
- <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+ <BlogBody>
  <aside class="mb-12 border border-hairline bg-panel p-6 lg:sticky lg:top-24">
  <h2 class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-600">In this article</h2>
  <ol class="space-y-2 font-mono text-sm text-charcoal">
@@ -236,7 +241,7 @@ const howToSchema = {
  </div>
  </div>
  </div>
- </div>
+ </BlogBody>
  </article>
 
  <section class="border-t border-hairline bg-panel py-16">
@@ -246,4 +251,5 @@ const howToSchema = {
  <a href="/get-a-quote/" class="inline-flex min-h-[44px] items-center justify-center bg-gold-500 px-8 py-4 text-lg font-bold text-charcoal transition-all hover:bg-gold-600">Get a Quote</a>
  </div>
  </section>
+<BlogRelated />
 </BaseLayout>

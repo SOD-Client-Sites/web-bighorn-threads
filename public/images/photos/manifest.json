@@ -1,13 +1,143 @@
 [
-  { "slug": "home-hero-jobsite-crew", "file": "/images/photos/home-hero-jobsite-crew.webp", "width": 1376, "height": 768, "alt": "Five workers in navy work shirts and hi-vis vests reviewing plans on a plywood table at a commercial jobsite in morning light", "suggestedPages": ["home hero", "construction pages"] },
-  { "slug": "screen-printing-closeup", "file": "/images/photos/screen-printing-closeup.webp", "width": 1376, "height": 768, "alt": "Stack of folded charcoal t-shirts with a gold print on a steel table in a screen print shop", "suggestedPages": ["screen printing service", "screen printing blog posts"] },
-  { "slug": "apparel-flat-lay", "file": "/images/photos/apparel-flat-lay.webp", "width": 1376, "height": 768, "alt": "Folded navy polos, charcoal hoodies and caps with small gold marks arranged on a concrete surface", "suggestedPages": ["products or catalog", "about", "section band; right side is empty for text"] },
-  { "slug": "hotel-front-desk", "file": "/images/photos/hotel-front-desk.webp", "width": 1376, "height": 768, "alt": "Two hotel front desk staff in navy polos and charcoal vests handing a key card across a stone counter", "suggestedPages": ["hospitality and casino industry"] },
-  { "slug": "school-staff-polos", "file": "/images/photos/school-staff-polos.webp", "width": 1376, "height": 768, "alt": "Three school staff in maroon polos talking as they walk along a campus path on a sunny day", "suggestedPages": ["schools industry"] },
-  { "slug": "public-works-crew", "file": "/images/photos/public-works-crew.webp", "width": 1376, "height": 768, "alt": "Public works crew in hi-vis shirts and hard hats repairing a street curb beside a white utility truck", "suggestedPages": ["public works and government industry", "hi-vis blog posts"] },
-  { "slug": "trade-show-booth", "file": "/images/photos/trade-show-booth.webp", "width": 1376, "height": 768, "alt": "Booth staff in matching charcoal polos talking with an attendee at a trade show", "suggestedPages": ["trade show and events", "/blog/trade-show-apparel-booth-crew"] },
-  { "slug": "new-hire-kit", "file": "/images/photos/new-hire-kit.webp", "width": 1376, "height": 768, "alt": "New-hire kit on an oak desk: folded navy polo, charcoal cap and steel tumbler with small gold marks", "suggestedPages": ["/branded-onboarding-kits-las-vegas", "/blog/new-hire-workwear-checklist-las-vegas-contractors"] },
-  { "slug": "shipping-box", "file": "/images/photos/shipping-box.webp", "width": 1376, "height": 768, "alt": "Open cardboard box of folded shirts in poly bags with a blank packing slip on top", "suggestedPages": ["fulfillment", "how it works", "company stores"] },
-  { "slug": "company-store-phone", "file": "/images/photos/company-store-phone.webp", "width": 1376, "height": 768, "alt": "Hand holding a phone showing a grid of shirts, a hoodie and caps in an online apparel store", "suggestedPages": ["company stores", "/blog/company-store-vs-bulk-ordering"] },
-  { "slug": "embroidered-caps", "file": "/images/photos/embroidered-caps.webp", "width": 1376, "height": 768, "alt": "Row of navy, charcoal and khaki caps with gold embroidered mountain marks on a concrete table", "suggestedPages": ["embroidery service", "/blog/custom-hats-embroidered-screen-printed"] }
+  {
+    "slug": "home-hero-jobsite-crew",
+    "file": "/images/photos/home-hero-jobsite-crew.webp",
+    "width": 1376,
+    "height": 768,
+    "alt": "Five workers in navy work shirts and hi-vis vests reviewing plans on a plywood table at a commercial jobsite in morning light",
+    "suggestedPages": [
+      "home hero",
+      "construction pages"
+    ]
+  },
+  {
+    "slug": "screen-printing-closeup",
+    "file": "/images/photos/screen-printing-closeup.webp",
+    "width": 1376,
+    "height": 768,
+    "alt": "Stack of folded charcoal t-shirts with a gold print on a steel table in a screen print shop",
+    "suggestedPages": [
+      "screen printing service",
+      "screen printing blog posts"
+    ]
+  },
+  {
+    "slug": "apparel-flat-lay",
+    "file": "/images/photos/apparel-flat-lay.webp",
+    "width": 1376,
+    "height": 768,
+    "alt": "Folded navy polos, charcoal hoodies and caps with small gold marks arranged on a concrete surface",
+    "suggestedPages": [
+      "products or catalog",
+      "about",
+      "section band; right side is empty for text"
+    ]
+  },
+  {
+    "slug": "hotel-front-desk",
+    "file": "/images/photos/hotel-front-desk.webp",
+    "width": 1376,
+    "height": 768,
+    "alt": "Two hotel front desk staff in navy polos and charcoal vests handing a key card across a stone counter",
+    "suggestedPages": [
+      "hospitality and casino industry"
+    ]
+  },
+  {
+    "slug": "school-staff-polos",
+    "file": "/images/photos/school-staff-polos.webp",
+    "width": 1376,
+    "height": 768,
+    "alt": "Three school staff in maroon polos talking as they walk along a campus path on a sunny day",
+    "suggestedPages": [
+      "schools industry"
+    ]
+  },
+  {
+    "slug": "public-works-crew",
+    "file": "/images/photos/public-works-crew.webp",
+    "width": 1376,
+    "height": 768,
+    "alt": "Public works crew in hi-vis shirts and hard hats repairing a street curb beside a white utility truck",
+    "suggestedPages": [
+      "public works and government industry",
+      "hi-vis blog posts"
+    ]
+  },
+  {
+    "slug": "trade-show-booth",
+    "file": "/images/photos/trade-show-booth.webp",
+    "width": 1376,
+    "height": 768,
+    "alt": "Booth staff in matching charcoal polos talking with an attendee at a trade show",
+    "suggestedPages": [
+      "trade show and events",
+      "/blog/trade-show-apparel-booth-crew"
+    ]
+  },
+  {
+    "slug": "new-hire-kit",
+    "file": "/images/photos/new-hire-kit.webp",
+    "width": 1376,
+    "height": 768,
+    "alt": "New-hire kit on an oak desk: folded navy polo, charcoal cap and steel tumbler with small gold marks",
+    "suggestedPages": [
+      "/branded-onboarding-kits-las-vegas",
+      "/blog/new-hire-workwear-checklist-las-vegas-contractors"
+    ]
+  },
+  {
+    "slug": "shipping-box",
+    "file": "/images/photos/shipping-box.webp",
+    "width": 1376,
+    "height": 768,
+    "alt": "Open cardboard box of folded shirts in poly bags with a blank packing slip on top",
+    "suggestedPages": [
+      "fulfillment",
+      "how it works",
+      "company stores"
+    ]
+  },
+  {
+    "slug": "company-store-phone",
+    "file": "/images/photos/company-store-phone.webp",
+    "width": 1376,
+    "height": 768,
+    "alt": "Hand holding a phone showing a grid of shirts, a hoodie and caps in an online apparel store",
+    "suggestedPages": [
+      "company stores",
+      "/blog/company-store-vs-bulk-ordering"
+    ]
+  },
+  {
+    "slug": "embroidered-caps",
+    "file": "/images/photos/embroidered-caps.webp",
+    "width": 1376,
+    "height": 768,
+    "alt": "Row of navy, charcoal and khaki caps with gold embroidered mountain marks on a concrete table",
+    "suggestedPages": [
+      "embroidery service",
+      "/blog/custom-hats-embroidered-screen-printed"
+    ]
+  },
+  {
+    "slug": "crew-hoodies",
+    "file": "/images/photos/crew-hoodies.webp",
+    "alt": "Four crew members in charcoal hooded sweatshirts holding coffee mugs in a pipe yard"
+  },
+  {
+    "slug": "embroidery-closeup",
+    "file": "/images/photos/embroidery-closeup.webp",
+    "alt": "Close-up of a gold embroidered mountain mark on a navy polo"
+  },
+  {
+    "slug": "healthcare-front-desk",
+    "file": "/images/photos/healthcare-front-desk.webp",
+    "alt": "Healthcare front desk staff in matching uniforms"
+  },
+  {
+    "slug": "office-team-quarter-zips",
+    "file": "/images/photos/office-team-quarter-zips.webp",
+    "alt": "Three office staff in charcoal quarter-zips reviewing plans at a table"
+  }
 ]

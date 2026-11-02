@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import BlogLead from '@/components/blog/BlogLead.astro'
+import BlogBody from '@/components/blog/BlogBody.astro'
+import BlogRelated from '@/components/blog/BlogRelated.astro'
 
 const post = {
  title: 'Custom Hard Hats: A Buyer\'s Guide for Contractors',
@@ -49,16 +52,19 @@ const speakableSchema = {
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
  <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
  <article class="bg-concrete">
- <header class="border-b border-hairline bg-paper">
- <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
+ <header class="post-head">
+ <div class="post-head-inner">
+ <div>
  <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-700">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-700">Blog</a></nav>
  <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-600">{post.category}</span>
  <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
  <p class="mb-8 text-xl leading-relaxed text-ash">A planning guide to product selection, documentation, and manufacturer approval for a branded hard hat program.</p>
  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
+ <BlogLead />
+ </div>
  </header>
- <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+ <BlogBody>
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
@@ -129,6 +135,7 @@ const speakableSchema = {
 <p class="mb-5 text-lg leading-relaxed text-charcoal">Bighorn Threads supplies hard hats and approved decals. Your employer selects the required product. The manufacturer must approve the decal material and placement.</p>
  <a href="/get-a-quote/" class="inline-flex min-h-[48px] items-center gap-2 bg-gold-500 px-7 py-3 text-base font-bold text-charcoal transition-all hover:bg-gold-600">Get a Quote →</a>
  </div>
- </div>
+ </BlogBody>
  </article>
+<BlogRelated />
 </BaseLayout>

@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import BlogLead from '@/components/blog/BlogLead.astro'
+import BlogBody from '@/components/blog/BlogBody.astro'
+import BlogRelated from '@/components/blog/BlogRelated.astro'
 
 const post = {
  title: 'ANSI 107 Class 2 vs Class 3: A Hi-Vis Planning Guide for Crews',
@@ -44,8 +47,9 @@ const schema = {
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
  <article class="bg-concrete">
- <header class="border-b border-hairline bg-paper">
- <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
+ <header class="post-head">
+ <div class="post-head-inner">
+ <div>
  <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
  <a href="/" class="hover:text-gold-700">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-700">Blog</a>
  </nav>
@@ -58,9 +62,11 @@ const schema = {
  <span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time>
  </div>
  </div>
+ <BlogLead />
+ </div>
  </header>
 
- <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+ <BlogBody>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
  ANSI/ISEA 107 defines performance classes for high-visibility safety apparel. Project rules may reference the standard. The employer's hazard assessment and current requirements control the selection.
  </p>
@@ -124,6 +130,7 @@ const schema = {
  </p>
  <a href="/get-a-quote/" class="inline-flex min-h-[48px] items-center justify-center bg-gold-500 px-7 py-4 text-base font-bold uppercase tracking-[0.1em] text-charcoal transition-all hover:bg-gold-600">Request a Hi-Vis Quote</a>
  </div>
- </div>
+ </BlogBody>
  </article>
+<BlogRelated />
 </BaseLayout>

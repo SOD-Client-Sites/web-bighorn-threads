@@ -1,0 +1,72 @@
+---
+// Builds the contents list and mid-article CTA from the post's rendered HTML, so 47 posts stay unedited.
+const html = await Astro.slots.render('default')
+const slugify = (s: string) => s.toLowerCase().replace(/&[a-z]+;/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+const toc: { id: string; label: string }[] = []
+const cleaned = html.replace(/<aside[^>]*>\s*<h2[^>]*>\s*In this article[\s\S]*?<\/aside>/i, '')
+const withIds = cleaned.replace(/<h2\b([^>]*)>([\s\S]*?)<\/h2>/g, (_m, attrs: string, inner: string) => {
+  const label = inner.replace(/<[^>]+>/g, '').trim()
+  const id = attrs.match(/id="([^"]+)"/)?.[1] ?? slugify(label)
+  toc.push({ id, label })
+  return `<h2${attrs.includes('id=') ? attrs : `${attrs} id="${id}"`}>${inner}</h2>`
+})
+const cta = `<aside class="post-cta"><p class="post-cta-title">Pricing this for your crew?</p><p>Send your logo, the garment, and a rough count. You get a price and a proof before anything is made.</p><a href="/get-a-quote/" class="btn-primary">Get a Quote</a></aside>`
+const mid = Math.floor(toc.length / 2)
+let seen = -1
+const body = toc.length >= 3
+  ? withIds.replace(/<h2\b/g, (m) => (++seen === mid ? cta + m : m))
+  : withIds
+---
+<div class="post-grid">
+  {toc.length >= 3 && (
+    <details class="post-toc" open>
+      <summary>In this guide</summary>
+      <ol>{toc.map((t) => <li><a href={`#${t.id}`} set:html={t.label} /></li>)}</ol>
+    </details>
+  )}
+  <div class="post-body" set:html={body} />
+</div>
+
+<style is:global>
+  .post-head { background: var(--color-navy-950); border: 0; }
+  .post-head-inner { display: grid; gap: 2rem; max-width: 80rem; margin: 0 auto; padding: 2.5rem 1rem; }
+  @media (min-width: 900px) { .post-head-inner { grid-template-columns: 7fr 5fr; gap: 3.5rem; align-items: center; padding: 3.5rem 2rem; } }
+  .post-head h1 { color: #fff; font-size: clamp(1.9rem, 4.2vw, 3.25rem); line-height: 1.02; }
+  .post-head p, .post-head nav, .post-head nav a, .post-head time, .post-head span { color: var(--color-navy-200); }
+  .post-head .kicker, .post-head .text-gold-600 { color: var(--color-gold-400); }
+  .post-head p { font-size: 1.15rem; }
+  .post-head .border-t { border-color: rgb(255 255 255 / 0.18); }
+  .post-lead img { width: 100%; }
+  .post-lead-scene { aspect-ratio: 3 / 2; object-fit: cover; }
+  .post-lead-product { aspect-ratio: 1; object-fit: contain; background: #fff; padding: 1rem; max-height: 340px; }
+  .post-lead-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+
+  .post-grid { display: grid; gap: 1.5rem; max-width: 72rem; margin: 0 auto; padding: 2.5rem 1rem 4rem; }
+  @media (min-width: 1024px) { .post-grid { grid-template-columns: 15rem minmax(0, 44rem); gap: 4rem; padding: 3.5rem 2rem 5rem; justify-content: center; } }
+  .post-toc { border: 1px solid var(--color-hairline); background: var(--color-panel); padding: 1rem 1.25rem; align-self: start; }
+  @media (min-width: 1024px) { .post-toc { position: sticky; top: 6rem; border: 0; border-top: 2px solid var(--color-charcoal); background: none; padding: 0.75rem 0 0; max-height: calc(100vh - 7rem); overflow: auto; } }
+  .post-toc summary { font-family: var(--font-mono, monospace); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-gold-700); cursor: pointer; }
+  .post-toc ol { margin-top: 0.75rem; display: grid; gap: 0.6rem; }
+  .post-toc a { font-size: 0.875rem; line-height: 1.35; color: var(--color-ash); display: block; }
+  .post-toc a:hover { color: var(--color-gold-700); }
+
+  .post-body > p, .post-body li { line-height: 1.7; }
+  .post-body > p:first-of-type { font-size: 1.3rem; line-height: 1.55; color: var(--color-charcoal); }
+  .post-body h2 { border-top: 2px solid var(--color-charcoal); padding-top: 1rem; margin-top: 3.25rem; scroll-margin-top: 6rem; line-height: 1.1; }
+  .post-body aside:has(.speakable-answer) { background: var(--color-navy-950); border: 0; border-left: 4px solid var(--color-gold-500); }
+  .post-body aside:has(.speakable-answer) p { color: #fff; }
+  .post-body aside:has(.speakable-answer) p:first-child { color: var(--color-gold-400); }
+  .post-body .border-l-4 { background: #fff; border-left-width: 6px; padding: 1.5rem 1.75rem; }
+  .post-body .border-l-4 p:last-child { font-family: var(--font-subheading, inherit); font-size: 1.25rem; line-height: 1.4; font-weight: 600; }
+
+  .post-body table { width: 100%; border-collapse: collapse; background: #fff; font-size: 0.95rem; }
+  .post-body thead th, .post-body thead td { background: var(--color-navy-950); color: #fff; text-align: left; font-family: var(--font-mono, monospace); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .post-body th, .post-body td { padding: 0.8rem 1rem; border-bottom: 1px solid var(--color-hairline); vertical-align: top; }
+  .post-body tbody tr:nth-child(even) { background: var(--color-concrete); }
+  .post-body tbody td:first-child { font-weight: 600; color: var(--color-charcoal); }
+
+  .post-cta { margin: 3rem 0; padding: 1.75rem; background: var(--color-gold-300); }
+  .post-cta p { color: var(--color-charcoal); margin-bottom: 1rem; }
+  .post-cta-title { font-family: var(--font-heading, inherit); font-size: 1.6rem; font-weight: 800; text-transform: uppercase; line-height: 1.1; margin-bottom: 0.5rem !important; }
+  .post-cta .btn-primary { background: var(--color-charcoal); color: #fff; }
+</style>

@@ -1,0 +1,24 @@
+---
+import ApparelOfferPage from '@/components/ApparelOfferPage.astro'
+import hoodie from '@/assets/offers/steve-offer-2.png'
+
+const faqs = [
+  { q: 'What is included in the $25 price?', a: 'The hoodie and your two-color logo. The minimum order is 24 hoodies. We review your artwork and confirm placement and final order details before you approve it.' },
+  { q: 'What if my logo has more than two colors?', a: 'Send your logo with your request. We can review a two-color version or quote the additional colors before you order.' },
+  { q: 'Can we order a mix of sizes?', a: 'Include your size breakdown and preferred colors. Your quote confirms the available options and any size-specific pricing.' },
+  { q: 'Are shipping, taxes, and delivery included?', a: 'Your quote confirms shipping, taxes, and the delivery schedule. Add your delivery address and deadline to the request so we can price and schedule the order.' },
+]
+---
+
+<ApparelOfferPage
+  offer="custom-hoodie-25"
+  slug="custom-hoodies"
+  title="$25 Custom Hoodies | Two-Color Logo | Bighorn Threads"
+  description="Hoodies for $25 each with your two-color logo included. Minimum 24. Request an order quote from Bighorn Threads."
+  headline="Hoodies with your logo."
+  inclusion="Your two-color logo included."
+  detail="Order the pullover hoodie shown here for your crew, staff, or event. Start with 24."
+  image={hoodie}
+  imageAlt="Gray pullover hoodie supplied for the Bighorn Threads $25 custom hoodie offer"
+  faqs={faqs}
+/>

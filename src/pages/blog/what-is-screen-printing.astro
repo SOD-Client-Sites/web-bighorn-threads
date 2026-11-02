@@ -1,9 +1,12 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import BlogLead from '@/components/blog/BlogLead.astro'
+import BlogBody from '@/components/blog/BlogBody.astro'
+import BlogRelated from '@/components/blog/BlogRelated.astro'
 import NationalLinks from '@/components/NationalLinks.astro'
 
 const post = {
- title: 'What Is Screen Printing? How It Works, Where It Wins, Where It Doesn\'t',
+ title: 'What Is Screen Printing? A Guide to Custom Shirts',
  description:
  'Screen printing pushes ink through a mesh stencil onto fabric — durable, vivid, cost-effective at volume. Here\'s how the process actually works step-by-step, when to choose it over embroidery, and what fabrics and use cases it suits best.',
  category: 'Decoration Methods',
@@ -27,7 +30,7 @@ const faqs = [
 const schema = {
  '@context': 'https://schema.org',
  '@graph': [
- { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: '2026-08-21', author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
+ { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: '2026-11-01', author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
  { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' }, { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` }] },
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
@@ -49,16 +52,19 @@ const speakableSchema = {
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
  <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
  <article class="bg-concrete">
- <header class="border-b border-hairline bg-paper">
- <div class="mx-auto max-w-3xl px-4 pt-16 pb-12 sm:px-6 sm:pt-20 lg:px-8">
+ <header class="post-head">
+ <div class="post-head-inner">
+ <div>
  <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-600">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-600">Blog</a></nav>
  <span class="kicker mb-3">{post.category}</span>
  <h1 class="mb-6 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl lg:text-5xl">{post.title}</h1>
- <p class="mb-8 text-xl leading-relaxed text-ash">A working buyer's guide to the most common decoration method for t-shirts and crew apparel: what it is, when it wins, and what it costs to run.</p>
+ <p class="mb-8 text-xl leading-relaxed text-ash">How screen printing puts your design on a shirt, which orders suit it, and what affects the price.</p>
  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
+ <BlogLead />
+ </div>
  </header>
- <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+ <BlogBody>
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Quick Answer</p>
@@ -125,7 +131,8 @@ const speakableSchema = {
 <p class="mb-5 text-lg leading-relaxed text-ash">Bighorn Threads supplies commercial screen printing. Send your design, product, quantity, and deadline for a current quote.</p>
  <a href="/services/screen-printing-las-vegas/" class="btn-primary text-base">See Our Screen Printing Service →</a>
  </div>
- </div>
+ </BlogBody>
  </article>
  <NationalLinks heading='Related product guides' links={[{ href: '/custom-screen-printed-shirts/', label: 'Custom screen printed shirts' }]} />
+<BlogRelated />
 </BaseLayout>

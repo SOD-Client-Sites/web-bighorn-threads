@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import BlogLead from '@/components/blog/BlogLead.astro'
+import BlogBody from '@/components/blog/BlogBody.astro'
+import BlogRelated from '@/components/blog/BlogRelated.astro'
 
 const post = {
  title: 'Welder Uniforms: FR Shirts, Leather Layers, and What Actually Holds Up',
@@ -48,16 +51,19 @@ const speakableSchema = {
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
  <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
  <article class="bg-concrete">
- <header class="border-b border-hairline bg-paper">
- <div class="mx-auto max-w-3xl px-4 pt-16 pb-12 sm:px-6 sm:pt-20 lg:px-8">
+ <header class="post-head">
+ <div class="post-head-inner">
+ <div>
  <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-600">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-600">Blog</a></nav>
  <span class="kicker mb-3">{post.category}</span>
  <h1 class="mb-6 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl lg:text-5xl">{post.title}</h1>
  <p class="mb-8 text-xl leading-relaxed text-ash">A planning overview for discussing welder apparel layers and decoration with the employer safety lead and product manufacturers.</p>
  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
+ <BlogLead />
+ </div>
  </header>
- <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+ <BlogBody>
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Quick Answer</p>
@@ -115,6 +121,7 @@ const speakableSchema = {
 <p class="mb-5 text-lg leading-relaxed text-ash">Bighorn Threads supplies selected FR apparel. Your employer and the garment manufacturer must approve the product, decoration method, and placement.</p>
  <a href="/industries/steel-iron-workers-las-vegas/" class="btn-primary text-base">See Steel & Iron Worker Apparel →</a>
  </div>
- </div>
+ </BlogBody>
  </article>
+<BlogRelated />
 </BaseLayout>

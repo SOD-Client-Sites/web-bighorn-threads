@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import { photo } from '@/data/pagePhotos'
+import { leadFor } from '@/data/blogMeta'
 
 const posts = [
  { slug: 'custom-hard-hats-las-vegas-buyer-guide', category: 'Compliance', title: 'Custom Hard Hats: A Planning Guide for Contractors', excerpt: 'Questions for the employer and helmet manufacturer to review before any branding is applied.', readTime: '9 min read', date: 'May 9, 2026', image: 'https://www.promoplace.com/ws/ws.dll/QPic?SN=52278&P=549020207&RS=300', imageAlt: 'Hard hats and proposed company logo decals for manufacturer review' },
@@ -324,7 +325,7 @@ const itemListSchema = {
  Insights for Construction &amp; Trades
  </h1>
  <p class="text-lg leading-relaxed text-ash">
- Educational guides on branded apparel, decoration methods, and company-store planning for people running crews in Las Vegas.
+ Educational guides on branded apparel, decoration methods, and company-store planning for people running crews and teams.
  </p>
  </div>
  <div class="grid gap-6 lg:grid-cols-[2fr_1fr_1fr]">
@@ -360,9 +361,12 @@ const itemListSchema = {
  <ul class="divide-y divide-hairline">
  {t.posts.map((post) => (
  <li>
- <a href={postPath(post.slug)} class="group block py-3">
+ <a href={postPath(post.slug)} class="group flex items-start gap-4 py-3">
+ {(() => { const l = leadFor(post.slug)[0]; return <img src={l.src} alt="" width="120" height="90" loading="lazy" decoding="async" class:list={['aspect-[4/3] w-24 shrink-0 sm:w-32', l.product ? 'bg-white object-contain p-1.5' : 'object-cover']} /> })()}
+ <span>
  <span class="block font-subheading text-xl font-semibold leading-snug text-charcoal group-hover:text-gold-700">{post.title}</span>
  <span class="mt-0.5 hidden text-base leading-relaxed text-ash sm:block">{post.excerpt}</span>
+ </span>
  </a>
  </li>
  ))}

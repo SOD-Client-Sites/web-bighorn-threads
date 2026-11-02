@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import BlogLead from '@/components/blog/BlogLead.astro'
+import BlogBody from '@/components/blog/BlogBody.astro'
+import BlogRelated from '@/components/blog/BlogRelated.astro'
 
 const post = {
  title: 'Vector Logo File Setup for Embroidery — How to Prep Your Logo',
@@ -49,16 +52,19 @@ const speakableSchema = {
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
  <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
  <article class="bg-concrete">
- <header class="border-b border-hairline bg-paper">
- <div class="mx-auto max-w-3xl px-4 pt-16 pb-12 sm:px-6 sm:pt-20 lg:px-8">
+ <header class="post-head">
+ <div class="post-head-inner">
+ <div>
  <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-600">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-600">Blog</a></nav>
  <span class="kicker mb-3">{post.category}</span>
  <h1 class="mb-6 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl lg:text-5xl">{post.title.replaceAll(' — ', ': ')}</h1>
  <p class="mb-8 text-xl leading-relaxed text-ash">A practical guide to prepping your logo for embroidery: what file formats work, what design elements break in stitch, and how to send the cleanest input to your digitizer.</p>
  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
+ <BlogLead />
+ </div>
  </header>
- <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+ <BlogBody>
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Quick Answer</p>
@@ -137,6 +143,7 @@ const speakableSchema = {
 <p class="mb-5 text-lg leading-relaxed text-ash">Send Bighorn Threads your vector logo, product, quantity, and deadline. We arrange the digitizing and the decoration. Confirm file ownership and retention in your quote.</p>
  <a href="/services/embroidery-las-vegas/" class="btn-primary text-base">See Our Embroidery Service →</a>
  </div>
- </div>
+ </BlogBody>
  </article>
+<BlogRelated />
 </BaseLayout>

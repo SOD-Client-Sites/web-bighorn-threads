@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import BlogLead from '@/components/blog/BlogLead.astro'
+import BlogBody from '@/components/blog/BlogBody.astro'
+import BlogRelated from '@/components/blog/BlogRelated.astro'
 
 const post = {
  title: 'Nevada OSHA Heat Rules 2026: Workwear Planning for Las Vegas Contractors',
@@ -82,8 +85,9 @@ const schema = {
  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
  <article class="bg-concrete">
-  <header class="border-b border-hairline bg-paper">
-   <div class="mx-auto max-w-3xl px-4 pt-16 pb-12 sm:px-6 sm:pt-20 lg:px-8">
+  <header class="post-head">
+ <div class="post-head-inner">
+ <div>
     <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
      <a href="/" class="hover:text-gold-600">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-600">Blog</a>
     </nav>
@@ -94,9 +98,11 @@ const schema = {
      <span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time>
     </div>
    </div>
-  </header>
+ <BlogLead />
+ </div>
+ </header>
 
-  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+  <BlogBody>
    <aside class="mb-10 border border-hairline bg-panel p-7">
     <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-600">Quick Answer</p>
     <p class="text-lg leading-relaxed text-charcoal sm:text-xl">Workwear is one input in heat-risk planning. The employer must evaluate the task, weather, workload, duration, radiant heat, air movement, protective clothing, and other PPE. No shirt can certify compliance by itself.</p>
@@ -155,6 +161,7 @@ const schema = {
      ))}
     </div>
    </section>
-  </div>
+  </BlogBody>
  </article>
+<BlogRelated />
 </BaseLayout>

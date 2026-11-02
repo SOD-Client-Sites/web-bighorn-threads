@@ -1,270 +1,98 @@
 ---
-import HeroProducts from '@/components/HeroProducts.astro'
-import BaseLayout from '@/layouts/BaseLayout.astro'
+import BrandPage from '@/components/BrandPage.astro'
 
-const page = {
- title: 'Custom ML Kishigo Hi-Vis Vests and Apparel in Las Vegas',
- description:
-  'Managed ML Kishigo hi-vis programs for Las Vegas crews. Compare current garment classes, product documents, and partner-coordinated decoration.',
-}
-
-const products = [
- { sku: '1571', name: 'ML Kishigo Solid Vest (Lime)', detail: 'A lime vest option. Check the label for its class.', method: 'Per Kishigo’s instructions' },
-  { sku: '1572', name: 'ML Kishigo Solid Vest (Orange)', detail: 'An orange hi-vis vest option. Check the label for its class.', method: 'Per Kishigo’s instructions' },
-  { sku: '1085', name: 'ML Kishigo Hi-Vis T-Shirt (Lime)', detail: 'A birdseye mesh hi-vis shirt option. Check the label for its class.', method: 'Per Kishigo’s instructions' },
- { sku: '1086', name: 'ML Kishigo Hi-Vis T-Shirt (Orange)', detail: 'An orange hi-vis shirt option. Check the label for its class.', method: 'Per Kishigo’s instructions' },
- { sku: '9114', name: 'ML Kishigo Lined Bomber Jacket', detail: 'A lined hi-vis jacket option. Check the label for its class.', method: 'Per Kishigo’s instructions' },
- { sku: 'B200', name: 'ML Kishigo Brilliant Series Vest', detail: 'A contrast-trim vest option. Check the label for its class.', method: 'Per Kishigo’s instructions' },
-]
-
-const why = [
- { title: 'Options across product types', body: 'Kishigo makes vests, shirts, jackets, and rainwear, so one brand can cover the whole crew.' },
- { title: 'Products for exposed work', body: 'Built for road, utility, and traffic-control crews. Your safety lead picks the class.' },
- { title: 'Hot-weather options', body: 'Mesh and lightweight styles for summer. Check the label for the class on each one.' },
- { title: 'Decoration reviewed by garment', body: 'We check each garment’s logo rules before anything is made.' },
-]
-
-const faqs = [
- {
- q: 'What\'s the difference between Class 2 and Class 3 hi-vis?',
- a: 'Class 3 has greater visibility requirements than Class 2. The employer selects the class from the hazard assessment, work-zone rules, and current product documents. Speed or shift alone is not a universal selection rule.',
- },
- {
- q: 'How does ML Kishigo compare to Pyramex or Radians?',
-    a: 'Compare the current product documentation, fit, availability, and project requirements for each brand. Your safety lead should approve the final selection.',
- },
- {
- q: 'Can you screen-print or heat-press over the reflective tape?',
- a: 'Don’t cover the reflective tape. Any logo goes on the background material, using a method Kishigo’s instructions allow.',
- },
- {
- q: 'What\'s your minimum order for Kishigo hi-vis?',
-    a: 'Your quote lists the minimum for the garment and decoration. Share your quantity so we can confirm current options.',
- },
- {
- q: 'Do you stock Kishigo or order it in for each job?',
-    a: 'Availability changes by SKU, size, and color. We confirm current options before you approve an order or program.',
- },
- {
- q: 'Can you set up a hi-vis program with per-employee allowances?',
-    a: 'A company store can hold your approved list. Tell us the allowances you want and your proposal will say what the store supports.',
- },
-]
-
-const breadcrumb = {
- '@context': 'https://schema.org',
- '@type': 'BreadcrumbList',
- itemListElement: [
- { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
- { '@type': 'ListItem', position: 2, name: 'Brands', item: 'https://bighornthreads.com/brands/' },
- { '@type': 'ListItem', position: 3, name: 'ML Kishigo', item: 'https://bighornthreads.com/brands/ml-kishigo-hi-vis-las-vegas/' },
- ],
-}
-
-const faqSchema = {
- '@context': 'https://schema.org',
- '@type': 'FAQPage',
- mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+const props = {
+  "title": "Custom ML Kishigo Hi-Vis Vests and Apparel in Las Vegas",
+  "description": "Managed ML Kishigo hi-vis programs for Las Vegas crews. Compare current garment classes, product documents, and partner-coordinated decoration.",
+  "slug": "ml-kishigo-hi-vis-las-vegas",
+  "brand": "ML Kishigo",
+  "h1": "Custom Kishigo safety vests",
+  "intro": "Add your company logo to Kishigo safety vests. Tell us the garment class your site requires, your quantity, and where you want the logo.",
+  "garments": [
+    {
+      "name": "Kishigo Premium Black Series Surveyors Vest",
+      "best": "Supervisors and surveyors who carry gear",
+      "watch": "Confirm the class on the current listing",
+      "img": "62662-147419670"
+    },
+    {
+      "name": "Kishigo Single Pocket Zipper Mesh Class 2 Vest",
+      "best": "General crew vests on a budget",
+      "watch": "One pocket only",
+      "img": "62662-996493185"
+    },
+    {
+      "name": "Kishigo Ultimate Construction Class 2 Vest",
+      "best": "Crews that want more storage",
+      "watch": "Warmer than plain mesh",
+      "img": "52278-509019436"
+    },
+    {
+      "name": "Kishigo Ultra-Cool Multi-Pocket Vest",
+      "best": "Hot-weather work",
+      "watch": "Confirm the class before you assign it to a site",
+      "img": "52278-519019401"
+    },
+    {
+      "name": "Kishigo Ultra-Cool Solid Front Vest With Mesh Back",
+      "best": "A solid surface for a printed logo",
+      "watch": "Confirm the class and allowed print area",
+      "img": "62662-336493062"
+    },
+    {
+      "name": "Kishigo EV Series Multi-Pocket Mesh Vest",
+      "best": "Warehouse and visitor use where no class is required",
+      "watch": "Listed as non-ANSI, so not for sites that require a class",
+      "img": "52649-969158354"
+    }
+  ],
+  "choose": [
+    {
+      "if": "Road or site work with a class rule:",
+      "then": "your safety lead picks the class, then choose pockets and fabric."
+    },
+    {
+      "if": "Hot months:",
+      "then": "mesh or Ultra-Cool styles."
+    },
+    {
+      "if": "Bold logo on the back:",
+      "then": "a solid panel usually prints cleaner than open mesh."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can you print on a Class 2 vest?",
+      "a": "Yes, within what the maker allows. Logos cannot cover so much reflective or background material that the vest falls out of its class, so we check before printing."
+    },
+    {
+      "q": "Which class do we need?",
+      "a": "Your safety lead or the site sets that. Tell us the class, and we quote vests that meet it."
+    },
+    {
+      "q": "What's the minimum order?",
+      "a": "Each garment and decoration method has its own minimum. Send the item and a rough count, and we will tell you the number."
+    },
+    {
+      "q": "How fast can you turn it around?",
+      "a": "Send the style, quantity, and delivery deadline. We check availability and production timing before you place the order."
+    }
+  ],
+  "links": [
+    {
+      "href": "/custom-safety-vests/",
+      "label": "custom safety vests"
+    },
+    {
+      "href": "/catalog/hi-vis/",
+      "label": "hi-vis catalog"
+    },
+    {
+      "href": "/safety-compliance/",
+      "label": "safety and compliance"
+    }
+  ]
 }
 ---
 
-<BaseLayout
- title={page.title}
- description={page.description}
- canonical="https://bighornthreads.com/brands/ml-kishigo-hi-vis-las-vegas/"
->
- <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
- <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-
- <!-- Hero — full-bleed photographic dark band -->
- <section class="border-b border-hairline bg-concrete">
- <div class="page-hero-grid mx-auto max-w-7xl px-4 pb-20 pt-16 sm:px-6 sm:pb-28 sm:pt-16 lg:px-8">
- <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
- <a href="/" class="hover:text-gold-700">Home</a>
- <span class="px-2 text-ash">/</span>
- <span class="text-ash">Brands</span>
- <span class="px-2 text-ash">/</span>
- <span class="text-gold-700">ML Kishigo</span>
- </nav>
-
- <p class="kicker mb-3">Brand</p>
- <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
- Custom ML Kishigo Hi-Vis <span class="text-gold-700">for Vegas Road and Utility Crews.</span>
- </h1>
- <p class="max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
-          Vests, shirts, and jackets from ML Kishigo, with your logo where the garment maker allows it.
- </p>
-
- <div class="mt-10 flex flex-wrap items-center gap-3">
- <a href="/contact/" class="btn-primary text-base">
- Get a Quote
- <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
- </a>
- <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-charcoal transition-colors hover:text-gold-700">
- 702.904.8923
- </a>
- </div>
-  <HeroProducts />
- </div>
- </section>
-
- <!-- Why ML Kishigo — concrete -->
- <section class="bg-concrete py-20 sm:py-24">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <div class="mb-12 max-w-2xl">
- <p class="kicker mb-3">Why ML Kishigo</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Four reasons to compare <span class="text-gold-600">ML Kishigo options.</span></h2>
- </div>
-
- <div class="grid gap-5 md:grid-cols-2">
- {why.map((w) => (
- <div class="border border-hairline bg-panel p-7 transition-colors hover:border-gold-500">
- <h3 class="mb-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-charcoal">{w.title}</h3>
- <p class="text-base leading-relaxed text-ash">{w.body}</p>
- </div>
- ))}
- </div>
- </div>
- </section>
-
- <!-- Deep dive — paper -->
- <section class="border-y border-hairline bg-paper py-20 sm:py-24">
- <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
- <p class="kicker mb-3">The Buyer's Guide</p>
- <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl">
- How to compare ML Kishigo options for road, utility, and other exposed work.
- </h2>
-
- <div class="space-y-5 text-lg leading-relaxed text-ash">
- <p>
-          ML Kishigo offers hi-vis apparel for road, utility, traffic-control, and other exposed work. Ratings vary by garment. Review the current label and manufacturer documentation for each selected SKU. Your safety lead should approve the final product for its intended use.
- </p>
- <p>
- For Las Vegas heat, compare current mesh and lightweight product options. Review fabric, fit, care, labels, and workplace requirements. Garment comfort does not replace the employer's heat safety program.
- </p>
- <p>
- For night or low-visibility work, the employer may select a higher-visibility class. Compare current Kishigo products by label and intended use. Decoration requires separate approval for the exact product and placement.
- </p>
- <p>
-          Decoration can affect hi-vis apparel. Start with Kishigo's current written instructions for the selected garment. We arrange the logo work to the plan you approve. Your safety lead should verify the final product before use.
- </p>
- <p>
-          A company store can support an employer-approved product list by role.
- </p>
- <p>
- Class 2 vs Class 3: see our <a href="/blog/ansi-107-class-2-vs-class-3-hi-vis-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">planning guide for Las Vegas crews</a>. The employer's hazard assessment controls selection.
- </p>
- </div>
- </div>
- </section>
-
- <!-- Products — concrete -->
- <section class="bg-concrete py-20 sm:py-24">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <div class="mb-12 max-w-2xl">
- <p class="kicker mb-3">Product Options</p>
-        <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Compare Kishigo options <span class="text-gold-600">for your crew.</span></h2>
- <p class="mt-4 text-lg leading-relaxed text-ash">
-          Product availability changes by SKU, size, and color. We confirm current options against your approved workplace requirements.
- </p>
- </div>
-
- <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
- {products.map((p) => (
- <div class="border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
- <div class="mb-3 flex items-center justify-between">
- <span class="spec text-gold-600">{p.sku}</span>
- </div>
- <h3 class="mb-2 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{p.name}</h3>
- <p class="mb-4 text-sm leading-relaxed text-ash">{p.detail}</p>
- <div class="mt-4 border-t border-hairline pt-3">
- <span class="spec text-gold-600">Decoration</span>
- <p class="mt-1 text-sm text-charcoal">{p.method}</p>
- </div>
- </div>
- ))}
- </div>
- </div>
- </section>
-
- <!-- vs Other Hi-Vis Brands — paper -->
- <section class="border-y border-hairline bg-paper py-20 sm:py-24">
- <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
- <p class="kicker mb-3">vs Pyramex / Generic Hi-Vis</p>
- <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Compare Kishigo with other hi-vis options.</h2>
-
- <div class="overflow-hidden border border-hairline bg-panel">
- <table class="w-full">
- <thead class="bg-concrete">
- <tr class="border-b border-hairline">
- <th class="px-5 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-ash">&nbsp;</th>
- <th class="px-5 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-ash">Other Hi-Vis Options</th>
- <th class="px-5 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Bighorn + Kishigo</th>
- </tr>
- </thead>
- <tbody class="divide-y divide-hairline">
-              <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-ash">Minimum order</td><td class="px-5 py-4 text-sm text-ash">Varies</td><td class="px-5 py-4 text-sm text-charcoal">Confirmed by product and partner</td></tr>
-              <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-ash">Lead time</td><td class="px-5 py-4 text-sm text-ash">Varies</td><td class="px-5 py-4 text-sm text-charcoal">Confirmed before approval</td></tr>
-              <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-ash">Delivery</td><td class="px-5 py-4 text-sm text-ash">Varies</td><td class="px-5 py-4 text-sm text-charcoal">Options confirmed per order</td></tr>
- <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-ash">Product documentation</td><td class="px-5 py-4 text-sm text-ash">Check by SKU</td><td class="px-5 py-4 text-sm text-charcoal">Confirmed by SKU before approval</td></tr>
- <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-ash">Repeat orders</td><td class="px-5 py-4 text-sm text-ash">Account terms vary</td><td class="px-5 py-4 text-sm text-charcoal">We keep your logo and garment details</td></tr>
- <tr><td class="px-5 py-4 font-mono text-xs uppercase tracking-wider text-ash">Support</td><td class="px-5 py-4 text-sm text-ash">Varies by seller</td><td class="px-5 py-4 text-sm text-charcoal">Contact Bighorn by phone or form</td></tr>
- </tbody>
- </table>
- </div>
- </div>
- </section>
-
- <!-- FAQs — concrete -->
- <section class="bg-concrete py-20 sm:py-24">
- <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
- <p class="kicker mb-3">FAQ</p>
- <h2 class="mb-12 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">ML Kishigo customization questions.</h2>
-
- <div class="divide-y divide-hairline border-y border-hairline">
- {faqs.map((f) => (
- <details class="group">
- <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
- <h3 class="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-charcoal">{f.q}</h3>
- <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
- </summary>
- <p class="pb-5 text-base leading-relaxed text-ash">{f.a}</p>
- </details>
- ))}
- </div>
- </div>
- </section>
-
- <!-- Related — paper -->
- <section class="border-y border-hairline bg-paper py-16">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <p class="kicker mb-6">Related</p>
- <div class="grid gap-5 md:grid-cols-3">
- <a href="/industries/concrete-masonry-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
- <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Concrete and Masonry Crews</h3>
- <p class="mt-2 text-sm text-ash">Compare current Kishigo vest and shirt options for exposed work.</p>
- </a>
- <a href="/industries/general-contractors-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
- <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">General Contractors</h3>
- <p class="mt-2 text-sm text-ash">Hi-vis program options for supervisors, project managers, and field staff.</p>
- </a>
- <a href="/services/embroidery-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
- <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Embroidery</h3>
- <p class="mt-2 text-sm text-ash">Employer-approved logo placement on eligible Kishigo garments.</p>
- </a>
- </div>
- </div>
- </section>
-
- <!-- CTA — full-bleed photographic dark band -->
- <section class="bg-charcoal">
- <div class="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 lg:px-8">
- <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Request a custom Kishigo hi-vis <span class="text-gold-400">quote.</span></h2>
-      <p class="mb-8 text-lg text-white/80">Get current availability and a timeline for your order.</p>
- <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
-      <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
- <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium tracking-wide text-white transition-colors hover:text-gold-400">702.904.8923</a>
- </div>
- </div>
- </section>
-</BaseLayout>
+<BrandPage {...props} />
