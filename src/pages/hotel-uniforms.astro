@@ -1,0 +1,67 @@
+---
+import NationalProductPage from '@/components/NationalProductPage.astro'
+---
+
+<NationalProductPage
+  title="Hotel Uniforms by Department | Bighorn Threads"
+  description="Plan hotel uniforms by department: front desk, housekeeping, bell and valet, food service, and maintenance, under one brand standard. Ships across the US."
+  path="/hotel-uniforms/"
+  photo="hotel-front-desk"
+  photoAt="hero"
+  crumb="Hotel Uniforms"
+  kicker="Shipped Across the US"
+  h1="Hotel uniforms"
+  h1Accent="by department."
+  sub="How to plan a uniform program across a property, from the front desk to the maintenance shop."
+  lead="Hotel uniforms are the branded garments staff wear in each department, such as front desk, housekeeping, bell and valet, food service, and maintenance. Each department has different physical demands, but guests should see one brand. Plan garments by role, set a logo standard, and decide how replacements get ordered. Bighorn Threads coordinates orders through production partners and ships across the US."
+  serviceName="Hotel uniforms"
+  serviceType="Branded hotel and housekeeping uniforms"
+  table={{
+    heading: 'Plan the uniform by department',
+    intro: 'These are common starting points. Product availability and decoration are confirmed in your quote.',
+    head: ['Department', 'Items to consider', 'What to check'],
+    rows: [
+      ['Front desk and concierge', 'Button-ups, polos, blazers, or quarter-zips', 'A polished look that fits the guest experience of your property'],
+      ['Housekeeping', 'Durable tops or polos with stretch', 'Room to bend and reach, plus pockets, breathability, and frequent washing'],
+      ['Bell and valet', 'Polos, jackets, and caps', 'Weather at the door and how visible the staff are to arriving guests'],
+      ['Restaurant and banquet', 'Button-ups, polos, and aprons', 'A distinct look for each outlet, and fabrics that handle spills and frequent washing'],
+      ['Engineering and maintenance', 'Work shirts, work pants, and layers', 'Any protective gear is set by your hazard assessment, and garments should be chosen for the work'],
+      ['Spa and recreation', 'Polos or light tops', 'Fabric comfort and a calmer look than the front of house'],
+    ],
+  }}
+  decide={{
+    heading: 'What to settle before ordering',
+    items: [
+      { title: 'A single logo standard', desc: 'Set the logo version, thread or ink colors, and placements once, so every department and vendor works from the same reference.' },
+      { title: 'Department budgets', desc: 'Budget by role. A front desk blazer and a housekeeping top have very different costs and replacement cycles.' },
+      { title: 'Outlet branding', desc: 'Decide if your restaurant or bar uses its own logo, the hotel logo, or both.' },
+      { title: 'Laundry', desc: 'Find out whether uniforms go through on-property laundry, an outside service, or home washing. Commercial washing affects fabric and decoration.' },
+      { title: 'Name tags and role details', desc: 'Decide whether names go on badges or garments. Badges usually make turnover easier.' },
+      { title: 'A full size roster', desc:'Housekeeping and banquet teams can span many sizes and shifts. Ask managers for a full roster before quoting so the size run is realistic.' },
+    ],
+  }}
+  body={{
+    heading: 'Keeping multiple properties and departments in sync',
+    paragraphs: [
+      'Uniform programs tend to drift about a year in. Departments reorder on their own, shirts get swapped for whatever is in stock, and the logos stop matching. Keeping one approved specification on file for each role is the simplest way to prevent that.',
+      'For groups with several properties, a <a href="/company-stores/">company store</a> can let managers order approved items for their own teams. Tell us what each role should be able to order, and your plan will state what the store can and cannot do.',
+      'Pilot new uniforms with a small group where possible, especially in housekeeping, where fit and fabric are tested hardest. Your quote will state which sample or proof step applies.',
+      'For a wider view, see <a href="/industries/gaming-hospitality/">gaming and hospitality uniforms</a>. Las Vegas properties can also see <a href="/casino-hospitality-uniforms-las-vegas/">casino and hospitality uniforms in Las Vegas</a>. To compare owning with renting, read our <a href="/cintas-unifirst-aramark-alternatives-las-vegas/">rental alternatives guide</a>.',
+    ],
+  }}
+  quote={{ text: "We've been working with them for years for our company uniforms and branded swag, and they've consistently delivered. The products are top quality and competitively priced.", who: 'K. Stephens', what: 'Client review' }}
+  faqs={[
+    { q: 'What do hotel staff wear?', a: 'It varies by department. Front desk teams often wear button-ups, polos, or blazers, housekeeping teams wear durable, flexible tops, and maintenance teams wear work shirts and pants. The property brand sets the overall look.' },
+    { q: 'What makes a good housekeeping uniform?', a: 'Look for fabric that stretches and breathes, useful pockets, and construction that handles frequent washing. Try a sample with your team if your quote includes one.' },
+    { q: 'Should every department have the same uniform?', a: 'Usually not. Most hotels keep the logo and colors consistent and vary the garment by role, since a front desk agent and a maintenance tech have different needs.' },
+    { q: 'Can a hotel group use one uniform program across properties?', a: 'Yes, with a shared logo standard and approved garments for each role. A company store is one way to manage ordering, and your plan confirms what it supports.' },
+    { q: 'Can you embroider hotel logos on blazers and jackets?', a: 'Often, but heavier and tailored fabrics need the right placement and backing. Check the proof on the actual garment before production.' },
+    { q: 'What is the minimum order for hotel uniforms?', a: 'Minimums depend on the garment, decoration method, and quantity. Your quote lists the minimum for your order.' },
+    { q: 'Do you ship hotel uniforms nationwide?', a: 'Yes. Bighorn Threads is based in Las Vegas and ships anywhere in the United States.' },
+  ]}
+  related={[
+    { href: '/restaurant-uniforms/', title: 'Restaurant Uniforms', desc: 'Server shirts, aprons, and kitchen wear.' },
+    { href: '/industries/gaming-hospitality/', title: 'Gaming & Hospitality', desc: 'Uniform programs across departments and properties.' },
+    { href: '/company-uniforms/', title: 'Company Uniforms', desc: 'How to plan a uniform program from the start.' },
+  ]}
+/>

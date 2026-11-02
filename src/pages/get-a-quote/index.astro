@@ -9,46 +9,27 @@ const description =
 const whatWeDo = [
   {
     title: 'Screen Printing',
-    desc: 'Screen printing coordinated through production partners. Garment, ink, quantity, setup, and timing are confirmed in the quote.',
+    desc: 'Tees and hoodies in bigger runs. Tell us the garment, quantity, and logo colors.',
   },
   {
     title: 'Embroidery',
-    desc: 'Embroidery coordinated for polos, caps, jackets, and softshells. Digitizing, thread, placement, minimums, and timing are quoted per order.',
+    desc: 'Stitched logos on polos, caps, jackets, and softshells.',
   },
   {
     title: 'Company Stores',
-    desc: 'A managed online storefront scoped around an approved product catalog and documented ordering rules.',
+    desc: 'A private online store with your approved gear, where your people order their own sizes.',
   },
   {
     title: 'Promo Products',
-    desc: 'Drinkware, bags, select hard hats, and giveaways sourced to the written product and decoration specification.',
-  },
-]
-
-const whyUs = [
-  {
-    title: 'A Real Human Replies',
-    desc: 'Your request goes to the Bighorn account team for review. A representative can confirm the scope and missing information.',
-  },
-  {
-    title: 'Built for Every Team',
-    desc: 'Las Vegas account management for corporate, education, government, healthcare, hospitality, event, and trade teams.',
-  },
-  {
-    title: 'Written Proof Approval',
-    desc: 'Proofing steps, artwork, colors, and placement requirements are confirmed before production authorization.',
-  },
-  {
-    title: 'No Mystery Line Items',
-    desc: 'Ask for garments, decoration, artwork, setup, production, fulfillment, and shipping to be listed in the quote.',
+    desc: 'Drinkware, bags, hard hats, and giveaways with your logo.',
   },
 ]
 
 const steps = [
-  { n: '01', title: 'We review your needs', time: 'Discovery', body: 'The account team reviews your request and identifies any missing garment, decoration, quantity, artwork, deadline, delivery, or protective requirements.' },
-  { n: '02', title: 'You get a quote', time: 'Written scope', body: 'Review the proposed products, decoration, setup, artwork, timing, production, fulfillment, shipping, and payment terms.' },
-  { n: '03', title: 'You review the proof', time: 'Approval', body: 'Proofing and artwork services are confirmed in the quote. Approve the garment, colors, decoration, and placement in writing before production.' },
-  { n: '04', title: 'Partners produce the order', time: 'Confirmed schedule', body: 'Bighorn coordinates production through partners against the approved specification. Updates, shipping, delivery, and tracking depend on the written order terms.' },
+  { n: '01', title: 'We review your needs', time: 'Review', body: 'We read your request and ask about anything missing: quantity, logo file, sizes, deadline, where it ships, or any protection your job requires.' },
+  { n: '02', title: 'You get a quote', time: 'Quote', body: 'You see the products, decoration, setup, timing, shipping, and payment terms before you say yes.' },
+  { n: '03', title: 'You review the proof', time: 'Approval', body: 'Check the garment, colors, and logo placement on the proof and sign off in writing. Nothing gets made before that.' },
+  { n: '04', title: 'Partners produce the order', time: 'Production', body: 'Our production partners make the order to the proof you approved. We stay on it and get it shipped to you, at one address or several.' },
 ]
 
 const breadcrumb = {
@@ -68,16 +49,16 @@ const inputClass =
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
 
   <!-- ════ QUOTE FORM — concrete ════ -->
-  <section id="quote-form" class="scroll-mt-20 bg-concrete pt-16 pb-20 sm:pt-20 sm:pb-28">
+  <section id="quote-form" class="scroll-mt-20 bg-concrete pt-10 pb-16 sm:pt-14 sm:pb-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mb-14 max-w-3xl">
+      <div class="mb-8 max-w-3xl">
         <p class="kicker mb-3">Get a Quote</p>
         <h1 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl lg:text-6xl">
           Tell us what you need. <span class="text-gold-600">Get it in writing.</span>
         </h1>
-        <p class="mt-5 text-lg leading-relaxed text-ash">
-          Request custom apparel, embroidery, company stores, and promotional products through a Las Vegas account team.
-          We will confirm the garment, decoration, quantity, timing, production, and fulfillment terms in your quote.
+        <p class="mt-4 text-lg leading-relaxed text-ash">
+          Our Las Vegas team comes back with a written quote showing the garment, the decoration, the price, and the timing.
+          Or call <a href="tel:+17029048923" class="whitespace-nowrap font-semibold text-gold-700 underline underline-offset-2">702.904.8923</a>.
         </p>
       </div>
 
@@ -117,7 +98,7 @@ const inputClass =
               </div>
               <div class="sm:col-span-2">
                 <label for="message" class="block text-sm font-semibold text-charcoal">Any other details</label>
-                <textarea name="message" id="message" rows="4" class={inputClass} placeholder="Timeline, sizes, logo placement, anything else we should know."></textarea>
+                <textarea name="message" id="message" rows="3" class={inputClass} placeholder="Timeline, sizes, logo placement, anything else we should know."></textarea>
               </div>
             </div>
 
@@ -136,10 +117,23 @@ const inputClass =
 
         <!-- WHAT WE DO -->
         <aside class="space-y-5 lg:col-span-2">
+          <a href="tel:+17029048923" class="group block border border-hairline bg-panel p-7 transition-colors hover:border-gold-500">
+            <div class="flex items-start gap-4">
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center bg-gold-500/15 text-gold-700" aria-hidden="true">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.28a1 1 0 01.95.68l1.5 4.5a1 1 0 01-.5 1.21l-1.58.79a11 11 0 005.6 5.6l.79-1.58a1 1 0 011.21-.5l4.5 1.5a1 1 0 01.68.95V19a2 2 0 01-2 2h-1C9.82 21 3 14.18 3 6V5z" /></svg>
+              </div>
+              <div class="min-w-0">
+                <div class="kicker">Prefer to Call?</div>
+                <div class="mt-1 font-mono text-xl font-bold text-charcoal sm:text-2xl">702.904.8923</div>
+                <p class="mt-1 text-sm text-ash">Talk to the Bighorn team in Las Vegas.</p>
+              </div>
+            </div>
+          </a>
+
           <div class="border border-hairline bg-panel p-7">
             <h2 class="kicker">What We Do</h2>
             <p class="mt-2 text-sm leading-relaxed text-ash">
-              One accountable contact coordinates the approved products and decoration through selected production partners.
+              You get one contact. Production partners make the gear, and we run the order from quote to delivery.
             </p>
             <ul class="mt-5 space-y-4">
               {whatWeDo.map((item) => (
@@ -150,59 +144,19 @@ const inputClass =
               ))}
             </ul>
           </div>
-
-          <a href="tel:+17029048923" class="group block border border-hairline bg-panel p-7 transition-colors hover:border-gold-500">
-            <div class="flex items-start gap-4">
-              <div class="flex h-12 w-12 shrink-0 items-center justify-center bg-gold-500/15 text-gold-700" aria-hidden="true">
-                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.28a1 1 0 01.95.68l1.5 4.5a1 1 0 01-.5 1.21l-1.58.79a11 11 0 005.6 5.6l.79-1.58a1 1 0 011.21-.5l4.5 1.5a1 1 0 01.68.95V19a2 2 0 01-2 2h-1C9.82 21 3 14.18 3 6V5z" /></svg>
-              </div>
-              <div class="min-w-0">
-                <div class="kicker">Prefer to Call?</div>
-                <div class="mt-1 font-mono text-xl font-bold text-charcoal sm:text-2xl">702.904.8923</div>
-                <p class="mt-1 text-sm text-ash">Call the Las Vegas based Bighorn team.</p>
-              </div>
-            </div>
-          </a>
         </aside>
       </div>
     </div>
   </section>
 
-  <!-- ════ WHY US — paper ════ -->
-  <section id="why-us" class="scroll-mt-20 border-y border-hairline bg-paper py-20 sm:py-28">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="max-w-2xl">
-        <p class="kicker mb-3">Why Bighorn</p>
-        <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
-          Why crews send us <span class="text-gold-600">the order.</span>
-        </h2>
-        <p class="mt-4 text-lg leading-relaxed text-ash">
-          We keep it simple: real answers, work built to last, and a quote you can actually read.
-        </p>
-      </div>
-
-      <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {whyUs.map((item) => (
-          <div class="border border-hairline bg-panel p-7">
-            <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{item.title}</h3>
-            <p class="mt-2 text-sm leading-relaxed text-ash">{item.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <!-- ════ GET PRICING / PROCESS — concrete ════ -->
-  <section id="get-pricing" class="scroll-mt-20 bg-concrete py-20 sm:py-28">
+  <section id="get-pricing" class="scroll-mt-20 border-t border-hairline bg-paper py-16 sm:py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="max-w-2xl">
         <p class="kicker mb-3">Get Pricing</p>
         <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
           From request to <span class="text-gold-600">finished gear.</span>
         </h2>
-        <p class="mt-4 text-lg leading-relaxed text-ash">
-          From the second you hit send, here is exactly what we do. No mystery. No weeks of radio silence.
-        </p>
       </div>
 
       <ol class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
@@ -242,7 +196,7 @@ const inputClass =
 
         const hp = form.querySelector('input[name="bh_hp_field"]')
         if (hp && hp.value) {
-          setStatus('Thanks — we got it.', 'success')
+          setStatus('Thanks. We got it.', 'success')
           form.reset()
           return
         }
@@ -259,7 +213,7 @@ const inputClass =
 
         const email = form.elements.namedItem('email')
         if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
-          setStatus('That email does not look right — mind double-checking?', 'error')
+          setStatus('That email does not look right, mind double-checking?', 'error')
           email.focus()
           return
         }
@@ -280,7 +234,7 @@ const inputClass =
           })
           if (res.ok) {
             tracker?.trackLead?.('contact_quote')
-            setStatus('Got it. A real human will reply soon with a full quote.', 'success')
+            setStatus('Got it. We will reply soon with a full quote.', 'success')
             form.reset()
           } else {
             throw new Error('Request failed')

@@ -1,16 +1,17 @@
 ---
+import HeroProducts from '@/components/HeroProducts.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const trades = [
  {
  name: 'General Contractors',
  href: '/industries/general-contractors-las-vegas/',
- desc: 'Embroidered polos, hi-vis tees, branded hard hats, and crew uniforms — from the foreman to the newest hire.',
+ desc: 'Embroidered polos, hi-vis tees, branded hard hats, and crew uniforms, from the foreman to the newest hire.',
  },
  {
  name: 'Electrical Contractors',
  href: '/industries/electrical-contractors-las-vegas/',
- desc: 'Employer-selected electrical PPE and nonprotective service-apparel options, with decoration approved before production.',
+ desc: 'Service shirts and polos for your crew, plus the electrical PPE your company specifies. You approve the logo work before anything gets made.',
  },
  {
  name: 'Plumbing & HVAC',
@@ -20,17 +21,17 @@ const trades = [
  {
  name: 'Concrete & Masonry',
  href: '/industries/concrete-masonry-las-vegas/',
- desc: 'Employer-selected visibility and workwear options reviewed against current product and decoration requirements.',
+ desc: 'Hi-vis and workwear your company picks, with the logo work checked against the garment maker’s instructions.',
  },
  {
  name: 'Steel & Ironworkers',
  href: '/industries/steel-iron-workers-las-vegas/',
- desc: 'Task-specific protective apparel and equipment selected by the employer; decoration requires written approval.',
+ desc: 'Protective gear your company picks for the task, plus everyday crew shirts. You sign off on the logo work first.',
  },
  {
  name: 'Data Center & Mission-Critical',
  href: '/industries/data-center-contractors-las-vegas/',
- desc: 'Employer-selected electrical PPE and nonprotective apparel options for mission-critical project roles.',
+ desc: 'Electrical PPE your company specifies, plus everyday shirts for the roles on site.',
  },
  {
  name: 'Roofing & Solar',
@@ -40,12 +41,12 @@ const trades = [
  {
  name: 'Landscaping',
  href: '/industries/landscaping-las-vegas/',
- desc: 'Sun-protection hats, branded tees and tanks, and crew uniforms built for long days outdoors.',
+ desc: 'Sun-protection hats, branded tees and tanks, and crew uniforms for long days outdoors.',
  },
  {
  name: 'Oil, Gas & Mechanical',
  href: '/industries/oil-gas-mechanical-las-vegas/',
- desc: 'Employer-selected protective apparel and nonprotective branded-apparel options for mechanical and energy roles.',
+ desc: 'Protective gear your company specifies, plus branded everyday apparel for mechanical and energy roles.',
  },
 ]
 
@@ -54,19 +55,19 @@ const storeSteps = [
  n: '01',
  meta: 'Setup',
  title: 'We Build Your Branded Store',
- desc: 'Plan an online store around your logo, colors, and approved garments. Protective-apparel options, file retention, and store capabilities are confirmed in the proposal.',
+ desc: 'We set up an online store with your logo, your colors, and the garments you approve. Need FR or hi-vis in there? Tell us and we go over it in your proposal.',
  },
  {
  n: '02',
  meta: 'Ongoing',
  title: 'Your Crew Orders Their Own Sizes',
- desc: 'Crew members can submit their sizes against approved products when the selected store supports that flow. Inventory responsibility, ordering, and fulfillment terms are confirmed during setup.',
+ desc: 'New hire on the crew? They pick a size from the approved list and you stay out of it. Your proposal spells out who holds any inventory.',
  },
  {
  n: '03',
  meta: 'Ongoing',
- title: 'Choose an Available Delivery Option',
- desc: 'Delivery destinations depend on the selected products and production partner. Bighorn confirms the available options during setup and for each reorder.',
+ title: 'Choose Where It Ships',
+ desc: 'Send it to the yard, the office, or a job site. We go over the options and cost during setup and again on reorders.',
  },
 ]
 
@@ -99,7 +100,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
 >
  <!-- ════ HERO — concrete ════ -->
  <section class="bg-concrete">
- <div class="mx-auto max-w-7xl px-4 pb-16 pt-20 sm:px-6 sm:pt-24 lg:px-8 lg:pb-24 lg:pt-14">
+ <div class="page-hero-grid mx-auto max-w-7xl px-4 pb-16 pt-20 sm:px-6 sm:pt-24 lg:px-8 lg:pb-24 lg:pt-14">
  <div class="max-w-3xl">
  <p class="kicker mb-5 flex items-center gap-2.5">
  <span class="h-px w-8 bg-gold-500"></span>
@@ -110,8 +111,8 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  <span class="text-gold-600"> trade crews nationwide.</span>
  </h1>
  <p class="mt-7 max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
-          Branded workwear, construction company shirts, custom work shirts with your logo, branded hard hats, and custom safety vests for crews in every trade. One Las Vegas account team, production through vetted partners, shipped to any jobsite or office in the US. Hi-vis and FR garments are selected by the employer.
-        </p>
+ Branded workwear, construction company shirts, custom work shirts with your logo, branded hard hats, and custom safety vests for crews in every trade. One account team in Las Vegas runs the order, production partners make it, and it ships to any job site or office in the US.
+ </p>
  <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
  <a href="/contact/" class="btn-primary text-base">
  Get a Quote
@@ -123,6 +124,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  </a>
  </div>
  </div>
+  <HeroProducts />
  </div>
  </section>
 
@@ -135,9 +137,8 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  One partner for <span class="text-gold-600">every trade on the job.</span>
  </h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- We specialize in construction and the trades — we know the garments, the compliance,
- and the reorder patterns of each crew. Pick your trade for the gear, specs, and
- details that fit the work. For logo tees and crew shirts, see <a href="/services/screen-printing-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">screen printing for crews and contractors</a>.
+ A roofer and an electrician need different gear. Pick your trade to see what crews
+ in that line of work wear. For logo tees and crew shirts, see <a href="/services/screen-printing-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">screen printing for crews and contractors</a>.
  </p>
  </div>
 
@@ -165,8 +166,8 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  How a company store <span class="text-gold-600">works for a crew.</span>
  </h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- A branded store presents approved gear and collects crew sizes. Bighorn coordinates
- product, decoration, and available delivery options through selected production partners.
+ Your crew sees only the gear you approved and picks their own sizes. We take it from there
+ and work with production partners to get it made and shipped.
  </p>
  </div>
 
@@ -175,7 +176,6 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  <li class="border border-hairline bg-panel p-7">
  <div class="mb-5 flex items-baseline justify-between">
  <span class="font-heading text-5xl font-extrabold leading-none text-gold-600">{step.n}</span>
- <span class="spec border border-hairline px-2 py-1 text-ash">{step.meta}</span>
  </div>
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{step.title}</h3>
  <p class="mt-2 text-sm leading-relaxed text-ash">{step.desc}</p>
@@ -190,14 +190,14 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
  <div>
- <p class="kicker mb-3">Compliance Held to Spec</p>
+ <p class="kicker mb-3">Safety Gear</p>
  <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
  Hi-vis and FR, <span class="text-gold-600">decorated right.</span>
  </h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- Your employer and safety lead define the required protection. Bighorn can source
- garment options and coordinate approved decoration through selected production partners.
- The manufacturer must confirm compatible methods and placement for the exact garment.
+ Your company and safety lead decide what protection the job requires. We find garments
+ that fit and arrange the logo work through production partners. The garment maker’s
+ instructions say which methods and placements are allowed.
  </p>
  <a href="/safety-compliance/" class="btn-secondary mt-8 text-sm">
  See safety &amp; compliance
@@ -209,15 +209,15 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  <div class="flex gap-4 py-5">
  <span class="spec mt-0.5 shrink-0 border border-hairline px-2 py-1 text-ash">ANSI 107</span>
  <div>
- <h3 class="font-heading text-base font-bold uppercase tracking-tight text-charcoal">Hi-Vis Built Around Your Spec</h3>
- <p class="mt-1 text-sm leading-relaxed text-ash">Your employer selects the required ANSI/ISEA 107 class. Bighorn coordinates manufacturer-approved decoration options for the chosen garment.</p>
+ <h3 class="font-heading text-base font-bold uppercase tracking-tight text-charcoal">Hi-Vis in the Class You Pick</h3>
+ <p class="mt-1 text-sm leading-relaxed text-ash">Your company picks the ANSI/ISEA 107 class. We arrange logo work the manufacturer allows on that garment.</p>
  </div>
  </div>
  <div class="flex gap-4 py-5">
  <span class="spec mt-0.5 shrink-0 border border-hairline px-2 py-1 text-ash">NFPA 70E</span>
  <div>
- <h3 class="font-heading text-base font-bold uppercase tracking-tight text-charcoal">FR Decoration Requires Approval</h3>
- <p class="mt-1 text-sm leading-relaxed text-ash">Your employer and the garment manufacturer must approve FR decoration methods and placement before production.</p>
+ <h3 class="font-heading text-base font-bold uppercase tracking-tight text-charcoal">FR Logos Need Sign-Off</h3>
+ <p class="mt-1 text-sm leading-relaxed text-ash">Your company and the garment maker both need to OK the decoration method and placement before anything gets made.</p>
  </div>
  </div>
  </div>
@@ -234,8 +234,8 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  Ready to outfit <span class="text-gold-400">your crew?</span>
  </h2>
  <p class="mt-3 text-base leading-relaxed text-navy-200">
- Get a quote, see real mockups, and talk to a human who knows the trades. Or walk
- through a live company store before you commit.
+ Send your logo and crew count for a quote and a proof. Or click through a demo
+ store first.
  </p>
  </div>
  <div class="flex shrink-0 flex-col gap-3 sm:flex-row sm:items-center">

@@ -229,7 +229,7 @@ import { demoProducts } from '@/data/demoCatalog'
  $('preview-notfound')?.classList.add('flex')
  } else {
  const { lead } = data
- document.title = `${lead.company} — Branded Apparel Store · Bighorn Threads`
+ document.title = `${lead.company}, Branded Apparel Store · Bighorn Threads`
  setText('store-title', `${lead.company} Store`)
  setText('store-band-name', `${lead.company} Company Store`)
  setText('cta-company', lead.company)
@@ -244,7 +244,7 @@ import { demoProducts } from '@/data/demoCatalog'
  let cart = 0
  const bumpCart = (n: number) => { cart += n; setText('cart-count', String(cart)) }
  $('cart-btn')?.addEventListener('click', () => {
- flash($('convert-done'), cart ? `${cart} item${cart === 1 ? '' : 's'} in cart — checkout goes live when your real store is set up.` : 'Your cart is empty — this is a sample store.')
+ flash($('convert-done'), cart ? `${cart} item${cart === 1 ? '' : 's'} in cart, checkout goes live when your real store is set up.` : 'Your cart is empty. This is a sample store.')
  $('convert-done')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
  })
 

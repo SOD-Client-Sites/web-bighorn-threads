@@ -1,0 +1,67 @@
+---
+import NationalProductPage from '@/components/NationalProductPage.astro'
+---
+
+<NationalProductPage
+  title="Custom Safety Vests with Logo | Bighorn Threads"
+  description="Plan custom high vis safety vests with your logo: garment labels, decoration limits, and employer approval. Bighorn Threads ships across the US."
+  path="/custom-safety-vests/"
+  photo="home-hero-jobsite-crew"
+  photoAt="hero"
+  crumb="Custom Safety Vests"
+  kicker="Shipped Across the US"
+  h1="Custom safety vests"
+  h1Accent="with your logo."
+  sub="How to choose a vest and add branding without losing track of what the garment was made to do."
+  lead="Custom safety vests are high-visibility vests decorated with a company logo or crew name. Your employer picks the vest from its hazard assessment and project rules. A logo can cover background or reflective material, so review the exact garment with the manufacturer's decoration instructions before production. Bighorn Threads coordinates orders through production partners and does not certify garments. Orders ship across the US."
+  serviceName="Custom safety vests"
+  serviceType="Custom high visibility vests with logo"
+  table={{
+    heading: 'What to check on any vest',
+    intro: 'Bighorn can quote selected products and coordinate a decoration proposal. Your employer approves the final garment.',
+    head: ['Check', 'Why it matters', 'Who decides'],
+    rows: [
+      ['Type and class on the label', 'ANSI/ISEA 107 labels show how the garment is classified', 'The employer, from its hazard assessment and project rules'],
+      ['Logo location', 'A logo can cover background or reflective material', 'The manufacturer instructions and employer approval'],
+      ['Decoration method', 'Printing adds ink and curing. Embroidery adds thread, backing, and needle holes.', 'The manufacturer instructions for that vest'],
+      ['Closure and breakaway', 'Zippers, hook-and-loop, and breakaway features suit different tasks', 'The employer, based on the work'],
+      ['Mesh or solid fabric', 'Mesh can feel cooler, while solid fabric gives a smoother logo surface', 'The employer, along with the vest specification'],
+      ['Other hazards', 'Some work calls for flame-resistant garments, and a standard vest may not fit', 'The employer. Follow the manufacturer documentation.'],
+    ],
+  }}
+  decide={{
+    heading: 'What to settle before ordering',
+    items: [
+      { title: 'Start with the requirement', desc: 'Get the required class from your hazard assessment or project documents. Do not start from the logo. <a href="/blog/ansi-107-class-2-vs-class-3-hi-vis-las-vegas/">Class 2 vs Class 3</a> has more background.' },
+      { title: 'Send the exact product', desc: 'Decoration limits vary by product. Have the exact vest in mind, and ask for the manufacturer decoration guidance in writing.' },
+      { title: 'Check the proof to scale', desc: 'A scaled proof shows how much background and reflective material the logo covers. Review it with whoever approves your safety gear.' },
+      { title: 'Consider where the logo goes', desc: 'Ask about options that leave the vest face alone, such as a pocket area named in the manufacturer guidance, or an ID holder.' },
+      { title: 'Sizes across a crew', desc: 'A vest must fit over the layers people actually wear. A vest that hangs open or rides up does not do its job.' },
+      { title: 'Replacement plan', desc: 'Fading and dirt reduce visibility. Follow the manufacturer care and retirement guidance, and keep an approved specification for reorders.' },
+    ],
+  }}
+  body={{
+    heading: 'What a logo can change on a hi-vis vest',
+    paragraphs: [
+      '<a href="https://safetyequipment.org/standards/ansi-isea-107/" rel="noopener" target="_blank">ANSI/ISEA 107</a> addresses high-visibility safety apparel. Its classifications apply to the finished garment, so decoration is part of the question. There is no universal logo size limit. Available area varies with the garment, class, size, and configuration.',
+      'That is why a vest logo order has an extra step that a polo order does not. Identify the exact vest, get the manufacturer guidance, review a scaled proof, and get employer approval before production. Our <a href="/safety-compliance/ansi-107-hi-vis-guide/">ANSI 107 guide</a> walks through this step by step.',
+      'Bighorn does not certify garments and cannot tell you which class your job requires. We can quote selected products, coordinate a decoration proposal with a production partner, and keep the approved specification for reorders.',
+      'To browse, open the <a href="/catalog/hi-vis/">hi-vis catalog</a>. Crew shirts and layers are covered in <a href="/custom-company-shirts/">custom company shirts</a> and <a href="/custom-hoodies/">custom hoodies</a>. Las Vegas crews can see <a href="/custom-safety-vests-las-vegas/">custom safety vests in Las Vegas</a>.',
+    ],
+  }}
+  quote={{ text: "One of the most reliable and honest vendors we've worked with. Incredibly responsive, communicates clearly, and always makes sure every detail is double-checked before moving forward. We've thrown him some last-minute requests and he's always handled them with patience, transparency, and realistic timelines.", who: 'Desha B.', what: 'Client review' }}
+  faqs={[
+    { q: 'Can you put a logo on a safety vest?', a: 'Often, within limits. A logo can cover background or reflective material, so review the exact vest and a scaled proof with the employer and manufacturer before production.' },
+    { q: 'Does a logo make a vest non-compliant?', a: 'It can affect the finished garment, depending on the vest, the logo, and how it is applied. The manufacturer guidance and your employer decide. Bighorn does not certify garments.' },
+    { q: 'Is there a maximum logo size on a hi-vis vest?', a: 'There is no universal limit. Available area varies by garment, class, size, and configuration. Use the manufacturer decoration guide or written approval for the exact product.' },
+    { q: 'What class of vest do we need?', a: 'Your employer decides from its hazard assessment and project rules. Bighorn cannot determine the required class for your job.' },
+    { q: 'Should a vest logo be printed or embroidered?', a: 'It depends on the vest and what its manufacturer allows. Printing adds ink and curing, while embroidery adds thread, backing, and needle holes.' },
+    { q: 'What is the minimum order for custom safety vests?', a: 'Minimums depend on the vest, decoration method, and quantity. Your quote lists the minimum for your order.' },
+    { q: 'Do you ship custom safety vests nationwide?', a: 'Yes. Bighorn Threads is based in Las Vegas and ships anywhere in the United States.' },
+  ]}
+  related={[
+    { href: '/safety-compliance/ansi-107-hi-vis-guide/', title: 'ANSI 107 Guide', desc: 'How to select and decorate high-visibility apparel.' },
+    { href: '/industries/construction-trades/', title: 'Construction & Trades', desc: 'Apparel programs across trades.' },
+    { href: '/company-uniforms/', title: 'Company Uniforms', desc: 'How to plan a uniform program from the start.' },
+  ]}
+/>

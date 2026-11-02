@@ -1,48 +1,48 @@
 ---
+import HeroProducts from '@/components/HeroProducts.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const page = {
  title: 'Custom Team Shirts in Las Vegas | Sports, Corporate, Event Apparel — Bighorn Threads',
  description:
  'Custom team shirts in Las Vegas — youth and adult sports, corporate teams, charity walks, school groups, family reunions. Screen-printed, embroidered, or DTF. Names and numbers on request. Get a quote.',
- hero: '/images/generated/crew-vegas.jpg',
  url: 'https://bighornthreads.com/custom-team-shirts-las-vegas/',
 }
 
 const stack = [
- { label: 'The garment', body: 'Cotton tees, performance polyester (moisture-wicking), tri-blends, mesh jerseys, raglans, hoodies, long-sleeves. Picked to match the use case — court, field, office, or event.' },
+ { label: 'The garment', body: 'Cotton tees, performance polyester (moisture-wicking), tri-blends, mesh jerseys, raglans, hoodies, long-sleeves. Picked for where it gets worn: court, field, office, or event.' },
  { label: 'The decoration', body: 'Screen printing for high-volume color blocks, DTF for full-color or photographic art, embroidery for premium polos, sublimation for full-coverage jerseys.' },
- { label: 'Names and numbers', body: 'Eligible products can support player names and numbers. Pricing and timing depend on the approved method and partner.' },
+ { label: 'Names and numbers', body: 'Send the roster with sizes, names, and numbers. Your quote shows what they add to the price and the schedule.' },
  { label: 'Use cases', body: 'Youth and adult sports leagues, corporate softball / kickball / dodgeball, charity walks and 5Ks, family reunions, school spirit groups, bachelor / bachelorette events.' },
 ]
 
 const garments = [
- { row: 'Cotton tee', use: 'Casual events, family reunions, charity walks, school spirit', notes: 'Compare exact fabric, fit, care, decoration compatibility, comfort, availability, and quoted cost.' },
+ { row: 'Cotton tee', use: 'Casual events, family reunions, charity walks, school spirit', notes: 'Usually the budget pick, and comfortable when nobody is running.' },
  { row: 'Performance polyester', use: 'Active sports, summer outdoor events, jobsite team shirts', notes: 'Moisture-wicking, dries fast. Sport-Tek ST350 is the workhorse blank. Sublimation-friendly.' },
  { row: 'Tri-blend tee', use: 'Premium soft-feel for corporate or event tier', notes: 'Cotton-poly-rayon blend. Drapes well, feels expensive. Common for company tee programs.' },
  { row: 'Mesh jersey', use: 'Basketball, soccer, hockey, lacrosse', notes: 'Breathable mesh, sublimation-friendly. Augusta and Sport-Tek are the standard team-jersey brands.' },
  { row: 'Raglan / baseball tee', use: 'Softball, baseball, retro-style team apparel', notes: 'Two-tone color block on sleeves. Strong visual identity at distance.' },
  { row: 'Hoodie', use: 'Cold-weather sideline, post-game team layer', notes: 'Cotton-poly fleece. Common for team store apparel and parent gear.' },
- { row: 'Long-sleeve performance', use: 'Outdoor sports in cooler months, sun-protective base layers', notes: 'UPF 50+ options for outdoor Vegas teams playing year-round.' },
+ { row: 'Long-sleeve performance', use: 'Outdoor sports in cooler months, sun-protective base layers', notes: 'Ask for a UPF-rated style if your team plays outdoors year-round.' },
 ]
 
 const teamTypes = [
- { name: 'Youth sports leagues', detail: 'Youth-team apparel options to compare by current size range, product availability, artwork, quantity, and quoted terms.' },
+ { name: 'Youth sports leagues', detail: 'Give us the age range and the roster, and we find shirts in the youth sizes you need.' },
  { name: 'Adult rec leagues', detail: 'Corporate softball, kickball, dodgeball, volleyball. Often ordered as one-off season runs with team name + sponsor logo.' },
  { name: 'Corporate event teams', detail: 'Company softball, charity 5K teams, all-hands team-building events. Branded with company logo and a team or event identifier.' },
- { name: 'Charity walks and 5Ks', detail: 'Branded with the cause name, sponsor logos on the back. High-volume orders coordinated against the event date.' },
- { name: 'School spirit groups', detail: 'Class shirts, club shirts, booster club, parent groups. Bulk pricing on grade-level or full-school orders.' },
+ { name: 'Charity walks and 5Ks', detail: 'Cause name on the front, sponsor logos on the back. We plan the order back from the event date.' },
+ { name: 'School spirit groups', detail: 'Class shirts, club shirts, booster club, parent groups. A bigger count usually brings the per-shirt price down.' },
  { name: 'Family reunions and events', detail: 'Reunion shirts with family name + year, bachelor/bachelorette parties, milestone birthdays. Smaller runs, higher per-piece personalization.' },
 ]
 
 const faqs = [
- { q: 'Can I get team shirts with names and numbers on each one?', a: 'Personalization may be available on eligible products. Placement, pricing, and timing depend on the garment, method, and production partner.' },
- { q: 'What fabric should we compare for team shirts in Las Vegas heat?', a: 'Compare current cotton, polyester, and blended products for the actual activity, fit, coverage, care, comfort, decoration, and employer or league requirements. Product labels and current manufacturer information control.' },
- { q: 'How many shirts should I order per team member?', a: 'For a single-season league, one shirt per player is standard. For event teams (charity 5Ks, reunions, single-day events), one shirt per participant. For ongoing recreational teams or company programs, two to three per player covers wash rotation and replacement. Order spares — kids and adults both lose shirts.' },
-  { q: 'What\'s the minimum team shirt order?', a: 'Minimums depend on the shirt, decoration method, and production partner. Share your roster so we can confirm suitable options.' },
- { q: 'Can you sublimate full-coverage jerseys?', a: 'Full-coverage sublimation may be available on eligible polyester jerseys. Bighorn confirms current products and coordinates approved production through a selected partner.' },
- { q: 'Should I screen print or use DTF for team shirts?', a: 'The best method depends on quantity, art, fabric, and partner pricing. We compare eligible options before you approve production.' },
- { q: 'Where can I get custom team shirts in Las Vegas?', a: 'Bighorn Threads manages custom team-shirt programs for Vegas groups. Send your roster, garment preference, and event date for a quote.' },
+ { q: 'Can I get team shirts with names and numbers on each one?', a: 'Yes, where the shirt and method allow it. Your quote shows the placement, price, and timing.' },
+ { q: 'What fabric should we compare for team shirts in Las Vegas heat?', a: 'For active play, look at performance polyester. For standing around at an event, cotton or a blend is fine. If your league or employer has rules about the shirt, send them along.' },
+ { q: 'How many shirts should I order per team member?', a: 'For a single-season league, one shirt per player is standard. For event teams (charity 5Ks, reunions, single-day events), one shirt per participant. For ongoing recreational teams or company programs, two to three per player covers wash rotation and replacement. Order a few spares, because kids and adults both lose shirts.' },
+  { q: 'What\'s the minimum team shirt order?', a: 'It depends on the shirt and how it is decorated. Send your roster and we will tell you what works.' },
+ { q: 'Can you sublimate full-coverage jerseys?', a: 'Yes, on polyester jerseys that can take it. We check which ones are in stock and a production partner handles the printing.' },
+ { q: 'Should I screen print or use DTF for team shirts?', a: 'Screen printing usually wins on big runs with simple art. DTF makes more sense for small batches or full-color art. We compare both on your order before you approve.' },
+ { q: 'Where can I get custom team shirts in Las Vegas?', a: 'Bighorn Threads handles team shirt orders for Vegas groups. Send your roster, the shirt you want, and your event date for a quote.' },
 ]
 
 const breadcrumb = {
@@ -75,40 +75,38 @@ const faqSchema = {
  title={page.title}
  description={page.description}
  canonical={page.url}
- heroImage={page.hero}
 >
  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
- <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-28">
- <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
- <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/55"></div>
- <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <nav class="mb-6 font-mono text-xs text-navy-200" aria-label="Breadcrumb">
- <a href="/" class="hover:text-gold-400">Home</a>
- <span class="px-2 text-navy-200/60">/</span>
- <span class="text-gold-400">Custom Team Shirts</span>
+ <section class="border-b border-hairline bg-concrete pt-16 pb-20 sm:pt-16 sm:pb-28">
+ <div class="page-hero-grid relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-700">Home</a>
+ <span class="px-2 text-ash">/</span>
+ <span class="text-gold-700">Custom Team Shirts</span>
  </nav>
  <p class="kicker mb-4 flex items-center gap-2.5">
   <span class="h-px w-8 bg-gold-500"></span>
   Team Apparel
  </p>
- <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
- Custom Team Shirts in Las Vegas <span class="text-gold-400">— sports, corporate, charity, event.</span>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
+ Custom Team Shirts in Las Vegas: <span class="text-gold-700">sports, corporate, charity, event.</span>
  </h1>
- <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- Cotton, performance polyester, mesh jerseys, raglans, hoodies. Screen-printed, sublimated, embroidered, or DTF. Names and numbers without slowing the order.
+ <p class="max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
+ Cotton, performance polyester, mesh jerseys, raglans, hoodies. Screen-printed, sublimated, embroidered, or DTF. Add names and numbers from your roster.
  </p>
  <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
  <a href="/contact/" class="btn-primary text-base">
  Get a Quote
  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
  </a>
- <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-charcoal transition-colors hover:text-gold-700">
  702.904.8923
  </a>
  </div>
+  <HeroProducts />
  </div>
  </section>
 
@@ -116,7 +114,7 @@ const faqSchema = {
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
  <p class="kicker mb-3">What You Get</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">A team apparel program, not a one-off shirt order.</h2>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">What goes into a team shirt order.</h2>
  </div>
  <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
  {stack.map((s) => (
@@ -135,7 +133,7 @@ const faqSchema = {
  <p class="kicker mb-3">Garments</p>
  <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Pick the garment that matches the use case.</h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- Court, field, office, or event. The right blank changes the cost, the comfort, and the visual read.
+ The blank you pick changes the price and how the shirt feels on a hot field.
  </p>
  </div>
  <div class="overflow-hidden border border-hairline bg-panel">
@@ -165,7 +163,7 @@ const faqSchema = {
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
  <p class="kicker mb-3">Team Types</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Six places team shirts do the work of identity.</h2>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Six groups that order team shirts.</h2>
  </div>
  <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
  {teamTypes.map((u) => (
@@ -186,19 +184,19 @@ const faqSchema = {
  </h2>
  <div class="space-y-5 text-lg leading-relaxed text-ash">
  <p>
- The team shirt category covers a wide spread — youth Little League, adult corporate softball, charity 5K, family reunion, school spirit, bachelor party. The order patterns differ but the underlying logic is the same: a group needs visual identity, the design is locked once and produced at scale, and the per-shirt economics matter because the headcount is large and the budget is split across participants.
+ Little League, corporate softball, a charity 5K, a family reunion, a bachelor party. The order looks different each time, but the job is the same: get everyone in the same shirt by the same date, at a per-shirt price the group can live with.
  </p>
  <p>
- The garment decision tracks the use case. For active sports — basketball, soccer, baseball, lacrosse — the right call is performance polyester or mesh jersey. The fabric breathes and dries fast enough to wear through play in Vegas heat without becoming a wet rag. Cotton tees lose this comparison decisively. For casual, post-game, or non-athletic events — family reunions, charity walks at moderate pace, school spirit, office team-building — cotton tees or tri-blend soft-feel shirts win on cost and comfort.
+ Start with what the shirt has to do. For basketball, soccer, baseball, or lacrosse, go with performance polyester or a mesh jersey, because it dries fast enough to play in Vegas heat without turning into a wet rag. Cotton gets heavy and stays wet. For reunions, charity walks, school spirit, or office events, a cotton tee is the budget pick and a tri-blend feels softer.
  </p>
  <p>
-          Decoration method depends on the order quantity, artwork, fabric, and production partner. Screen printing, DTF, and sublimation each fit different combinations. Compare current pricing and product eligibility before approval.
+          The decoration comes down to your quantity, your art, and the fabric. Screen printing, DTF, and sublimation each suit different orders, and we price the ones that fit yours.
  </p>
  <p>
-          Names and numbers separate team shirts from generic group apparel. Heat-applied vinyl can suit spot-color names and numbers. Sublimation can handle personalization on eligible jerseys. Pricing and production time depend on the approved product and partner.
+          Names and numbers are what make it look like a real team. Heat-applied vinyl works for one-color names and numbers, and sublimation can build them into a polyester jersey. Send the roster early, since personalization adds to the price and the schedule.
  </p>
  <p>
- For broader apparel context, see our <a href="/services/screen-printing-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">screen printing service page</a>, our <a href="/dtf-printing-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">DTF printing guide</a>, and our <a href="/blog/how-many-shirts-per-crew-member-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">shirts-per-crew math piece</a> for ordering quantity guidance.
+ See our <a href="/services/screen-printing-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">screen printing service page</a>, our <a href="/dtf-printing-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">DTF printing guide</a>, and our <a href="/blog/how-many-shirts-per-crew-member-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">shirts-per-crew math</a> to work out how many to order.
  </p>
  </div>
  </div>
@@ -228,7 +226,7 @@ const faqSchema = {
  <div class="grid gap-5 md:grid-cols-3">
  <a href="/services/screen-printing-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Screen Printing</h3>
- <p class="mt-2 text-sm text-ash">High-volume team shirt runs at the lowest per-piece cost.</p>
+ <p class="mt-2 text-sm text-ash">Big team runs, usually the lowest cost per shirt.</p>
  </a>
  <a href="/dtf-printing-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">DTF Printing</h3>
@@ -236,18 +234,16 @@ const faqSchema = {
  </a>
  <a href="/catalog/t-shirts/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Browse T-Shirt Catalog</h3>
-          <p class="mt-2 text-sm text-ash">Compare current cotton, performance, blend, and jersey options.</p>
+          <p class="mt-2 text-sm text-ash">Cotton, performance, blend, and jersey options.</p>
  </a>
  </div>
  </div>
  </section>
 
- <section class="relative isolate overflow-hidden bg-navy-950 py-20">
- <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" loading="lazy" decoding="async" />
- <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <section class="bg-charcoal py-20">
  <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Ready to outfit your team?</h2>
- <p class="mb-8 text-lg text-navy-200">Send your team name, roster, and event date.</p>
+ <p class="mb-8 text-lg text-white/80">Send your team name, roster, and event date.</p>
  <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
       <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>

@@ -1,12 +1,13 @@
 ---
+import HeroProducts from '@/components/HeroProducts.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import NationalLinks from '@/components/NationalLinks.astro'
 import ProofStrip from '@/components/ProofStrip.astro'
 
 const page = {
  title: 'How Much a Uniform Program Costs per Employee | Bighorn Threads',
  description:
  'What a branded uniform program costs per employee per year, what drives the number (garment tier, pieces per person, decoration, turnover, rental vs owned), and how to estimate yours before requesting a quote.',
- hero: '/images/generated/kit-office-sales.jpg',
  url: 'https://bighornthreads.com/uniform-program-cost-per-employee/',
 }
 
@@ -23,7 +24,7 @@ const faqs = [
  { q: 'How much does a uniform program cost per employee per year?', a: 'It depends almost entirely on garment tier and pieces per person. A basic embroidered polo program for office or service staff sits at the low end; a field program with several work shirts, hi-vis, and a jacket per person sits in the middle; an FR or multi-placement program sits at the top. Bighorn quotes the exact garments and decoration for your headcount in writing so you can see the per-employee number before approving.' },
  { q: 'Is rental or owned cheaper per employee?', a: 'Rental charges a weekly fee per wearer for the life of a multi-year contract and includes laundering. Owned charges once per garment and you launder. For teams that can wash their own uniforms, owned is usually cheaper per employee over the program\'s life; for teams that need daily industrial laundering, rental can still make sense. Compare your last twelve weekly invoices to a written owned quote for the same headcount.' },
  { q: 'How many uniforms should each employee get?', a: 'Five to seven shirts for a daily-wear field worker so laundry never leaves them short; three to four for a customer-facing role that wears a polo with a jacket; two sets of scrubs per shift pattern for clinical staff. Bighorn plans the count per role before pricing.' },
- { q: 'What does embroidery add to the cost per piece?', a: 'A left-chest logo is the baseline and depends on stitch count. A name on the right chest, a sleeve mark, or a back print each add a per-piece charge, and 3D puff on caps costs more than flat embroidery. There is a one-time digitizing fee the first time a logo is set up.' },
+ { q: 'What does embroidery add to the cost per piece?', a: 'A left-chest logo is the baseline and depends on stitch count. A name on the right chest, a sleeve mark, or a back print each add a per-piece charge, and 3D puff on caps costs more than flat embroidery. Your quote lists any digitizing charge for a new logo.' },
  { q: 'Can I lower the per-employee cost without cheaper shirts?', a: 'Yes. Reduce placements to one, standardize on fewer garment styles so quantities hit better price breaks, order in size curves rather than one-offs, and run reorders through a company store so nobody buys off-spec garments at retail.' },
  { q: 'Does Bighorn charge for the company store?', a: 'Store terms are confirmed in the program quote. What a store changes most is administrative cost: sizes on file, approved garments only, and per-employee allowances that stop overspending.' },
  { q: 'How do I get an exact per-employee number?', a: 'Send Bighorn your headcount by role, the garments each role needs, and the number of pieces per person. You get a written quote with the per-garment and per-employee cost, no rental contract attached.' },
@@ -67,35 +68,34 @@ const speakableSchema = {
 }
 ---
 
-<BaseLayout title={page.title} description={page.description} canonical={page.url} heroImage={page.hero} type="article" publishedDate="2026-09-10">
+<BaseLayout title={page.title} description={page.description} canonical={page.url} type="article" publishedDate="2026-09-10">
  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
 
  <!-- Hero -->
- <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-24">
- <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
- <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/55"></div>
- <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <nav class="mb-6 font-mono text-xs text-navy-200" aria-label="Breadcrumb">
- <a href="/" class="hover:text-gold-400">Home</a>
- <span class="px-2 text-navy-200/60">/</span>
- <a href="/custom-uniforms-las-vegas/" class="hover:text-gold-400">Custom Uniforms</a>
- <span class="px-2 text-navy-200/60">/</span>
- <span class="text-gold-400">Cost per Employee</span>
+ <section class="border-b border-hairline bg-concrete pt-16 pb-20 sm:pt-16 sm:pb-24">
+ <div class="page-hero-grid relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-700">Home</a>
+ <span class="px-2 text-ash">/</span>
+ <a href="/custom-uniforms-las-vegas/" class="hover:text-gold-700">Custom Uniforms</a>
+ <span class="px-2 text-ash">/</span>
+ <span class="text-gold-700">Cost per Employee</span>
  </nav>
  <p class="kicker mb-4 flex items-center gap-2.5"><span class="h-px w-8 bg-gold-500"></span> Pricing Guide</p>
- <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
- How much a uniform program costs <span class="text-gold-400">per employee, and what moves the number.</span>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
+ How much a uniform program costs <span class="text-gold-700">per employee, and what moves the number.</span>
  </h1>
- <p class="speakable-answer max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ <p class="speakable-answer max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
  A branded uniform program's cost per employee per year is set by six things: the garment tier, the number of pieces per person, the decoration on each piece, annual turnover, whether you rent or own, and how reorders are handled. Garment tier and pieces per person account for most of it. Bighorn Threads quotes the exact garments for your headcount in writing, so the per-employee number is known before you approve.
  </p>
  <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
  <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
- <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-charcoal transition-colors hover:text-gold-700">702.904.8923</a>
  </div>
+  <HeroProducts />
  </div>
  </section>
 
@@ -186,16 +186,15 @@ const speakableSchema = {
  </section>
 
  <!-- CTA -->
- <section class="relative isolate overflow-hidden bg-navy-950 py-20">
- <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1920" height="1080" loading="lazy" decoding="async" />
- <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <section class="bg-charcoal py-20">
  <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Want the exact per-employee number?</h2>
- <p class="mb-8 text-lg text-navy-200">Send headcount by role, garments per role, and pieces per person.</p>
+ <p class="mb-8 text-lg text-white/80">Send headcount by role, garments per role, and pieces per person.</p>
  <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
  <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>
  </div>
  </div>
  </section>
+ <NationalLinks heading='Related product guides' links={[{ href: '/industries/government/', label: 'Government uniforms' }, { href: '/industries/gaming-hospitality/', label: 'Gaming and hospitality uniforms' }, { href: '/plumber-uniforms/', label: 'Plumber uniforms' }, { href: '/hvac-uniforms/', label: 'HVAC uniforms' }]} />
 </BaseLayout>

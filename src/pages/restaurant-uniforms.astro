@@ -1,0 +1,65 @@
+---
+import NationalProductPage from '@/components/NationalProductPage.astro'
+---
+
+<NationalProductPage
+  title="Restaurant Uniforms with Your Logo | Bighorn Threads"
+  description="Plan restaurant uniforms by role: server shirts, aprons, hats, kitchen wear, and manager polos, with notes on laundry and turnover. Ships across the US."
+  path="/restaurant-uniforms/"
+  crumb="Restaurant Uniforms"
+  kicker="Shipped Across the US"
+  h1="Restaurant uniforms"
+  h1Accent="for every station."
+  sub="How to outfit servers, bartenders, hosts, and kitchen staff, and keep the look consistent through turnover."
+  lead="Restaurant uniforms are branded shirts, aprons, and hats that identify staff and carry your brand across front and back of house. Plan by role, then choose fabrics that handle heat, spills, and frequent washing. A simple reorder plan matters as much as the first order, because restaurant rosters change often. Bighorn Threads coordinates orders through production partners and ships across the US."
+  serviceName="Restaurant uniforms"
+  serviceType="Branded restaurant and server uniforms"
+  table={{
+    heading: 'Plan the uniform by role',
+    intro: 'These are common starting points. Product availability and decoration are confirmed in your quote.',
+    head: ['Role', 'Items to consider', 'What to check'],
+    rows: [
+      ['Servers', 'Polos, button-ups, or tees with an apron', 'Pockets, stain resistance, and how the shirt looks after repeated washing'],
+      ['Bartenders', 'Button-ups or dark polos, a bib or waist apron', 'Sleeve movement and how visible the logo is behind the bar'],
+      ['Hosts and managers', 'Polos, button-ups, or quarter-zips', 'A cleaner look than the floor uniform that still matches the brand'],
+      ['Line and prep cooks', 'Work shirts, aprons, and caps', 'Heat, grease, and your kitchen rules. Ask about chef coats if you want them.'],
+      ['Delivery and catering', 'Tees, hats, and light jackets', 'Being recognized at a customer door or an offsite event'],
+      ['Dish and support staff', 'Durable tees and aprons', 'Fabrics that stand up to moisture and frequent laundering'],
+    ],
+  }}
+  decide={{
+    heading: 'What to settle before ordering',
+    items: [
+      { title: 'Who pays and who keeps it', desc: 'Decide whether the company supplies uniforms and what happens when someone leaves. State and local wage rules can apply, so check them for each location.' },
+      { title: 'Dress code and health rules', desc: 'Your local health department and your own policies set what kitchen staff must wear, including hair restraints. Build the uniform around them.' },
+      { title: 'Laundry reality', desc: 'Find out whether staff wash at home or you use a service. Hot, frequent washing affects both fabric and decoration choices.' },
+      { title: 'Apron decoration', desc: 'Aprons get the most wear and the most visibility. See <a href="/blog/custom-embroidered-aprons-trade-businesses/">custom embroidered aprons</a> for placement and fabric notes.' },
+      { title: 'Colors that hide the day', desc: 'Dark shirts hide stains and lighter logos read clearly on them. Check how your brand colors look on the garment color on the proof.' },
+      { title: 'Multiple locations', desc: 'A shared logo standard keeps locations looking the same. A <a href="/company-stores/">company store</a> can let managers reorder without a new spreadsheet each time.' },
+    ],
+  }}
+  body={{
+    heading: 'Planning for turnover from the start',
+    paragraphs: [
+      'Restaurants hire often, so a one-time bulk order tends to leave you short in some sizes and overstocked in others. Keep the approved garment and logo on file, and decide how you will handle new hires before they start.',
+      'Choose garments you expect to stay available, because a discontinued shirt can break the look across a location. Ask about availability in your quote, and keep a second option in mind.',
+      'Embroidery suits polos, button-ups, and caps. Printing can suit tees and casual concepts. For help choosing, see <a href="/screen-printing-vs-dtg-vs-embroidery/">screen printing vs DTG vs embroidery</a>. To browse, start with <a href="/catalog/polos/">polos</a> and <a href="/catalog/caps-hats/">caps and hats</a>.',
+      'Part of a hotel, resort, or casino? <a href="/industries/gaming-hospitality/">Gaming and hospitality uniforms</a> covers programs across departments, and <a href="/hotel-uniforms/">hotel uniforms</a> covers the rest of a property. Considering a rental service? <a href="/cintas-unifirst-aramark-alternatives-las-vegas/">Compare renting and owning</a>.',
+    ],
+  }}
+  quote={{ text: "One of the most reliable and honest vendors we've worked with. Incredibly responsive, communicates clearly, and always makes sure every detail is double-checked before moving forward. We've thrown him some last-minute requests and he's always handled them with patience, transparency, and realistic timelines.", who: 'Desha B.', what: 'Client review' }}
+  faqs={[
+    { q: 'What should restaurant staff wear?', a: 'Most restaurants plan by role: shirts and aprons for servers, a sharper look for hosts and managers, and durable shirts, aprons, and caps for the kitchen. Your concept, dress code, and local health rules decide the details.' },
+    { q: 'What are the best shirts for servers?', a: 'Look for a fabric that moves well, resists stains, and holds up to frequent washing. Polos and button-ups are common, and tees suit casual concepts.' },
+    { q: 'Can you embroider aprons?', a: 'Aprons are commonly embroidered or printed. The right choice depends on the fabric and logo, and your proof will show the placement.' },
+    { q: 'Do you offer chef coats?', a: 'Ask for them when you request a quote. Current product options and decoration are confirmed in writing.' },
+    { q: 'How do we handle new hires and reorders?', a: 'Keep an approved garment and logo specification, and set a reorder routine. Multi-location teams may want a company store. Your plan confirms what it supports.' },
+    { q: 'What is the minimum order for restaurant uniforms?', a: 'Minimums depend on the garment, decoration method, and quantity. Your quote lists the minimum for your order.' },
+    { q: 'Do you ship restaurant uniforms nationwide?', a: 'Yes. Bighorn Threads is based in Las Vegas and ships anywhere in the United States.' },
+  ]}
+  related={[
+    { href: '/hotel-uniforms/', title: 'Hotel Uniforms', desc: 'Front desk, housekeeping, and more.' },
+    { href: '/industries/gaming-hospitality/', title: 'Gaming & Hospitality', desc: 'Uniform programs across departments and properties.' },
+    { href: '/custom-polo-shirts/', title: 'Custom Polo Shirts', desc: 'A common choice for hosts and servers.' },
+  ]}
+/>

@@ -1,54 +1,55 @@
 ---
+import { photo } from '@/data/pagePhotos'
+import { productPhotos } from '@/data/productPhotos'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import ProofStrip from '@/components/ProofStrip.astro'
-import { Image, Picture } from 'astro:assets'
-import heroPhoto from '@/assets/generated/hero-ram.jpg'
-import foremanPhoto from '@/assets/generated/founder-steve-desk.jpg'
+
+const link = 'text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500'
 
 const faqs = [
  {
  q: "What's the minimum order?",
- a: 'Minimums vary by garment, decoration method, supplier, and order specifications. We confirm the current minimum in your quote.',
+ a: 'It depends on the garment and how it is decorated, so there is no single number. Tell us what you want and your quote will list the minimum.',
  },
  {
  q: 'How much does custom apparel cost for a team?',
- a: 'Cost depends on the garment, decoration method, order quantity, and current supplier pricing. See our cost breakdown for a team of 50 or our guide to uniform program cost per employee for typical cost drivers, then share your specs for a written quote.',
- html: 'Cost depends on the garment, decoration method, order quantity, and current supplier pricing. See our <a href="/cost-custom-apparel-team-of-50/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">cost breakdown for a team of 50</a> or our guide to <a href="/uniform-program-cost-per-employee/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">uniform program cost per employee</a> for typical cost drivers, then share your specs for a written quote.',
+ a: 'The garment, the decoration, and the quantity set the price. See our cost breakdown for a team of 50 or our guide to uniform cost per employee for the numbers that move it, then send your details for a quote.',
+ html: `The garment, the decoration, and the quantity set the price. See our <a href="/cost-custom-apparel-team-of-50/" class="${link}">cost breakdown for a team of 50</a> or our guide to <a href="/uniform-program-cost-per-employee/" class="${link}">uniform cost per employee</a> for the numbers that move it, then send your details for a quote.`,
  },
  {
  q: 'How fast can you turn around a rush job?',
- a: "Share the required date before ordering. We will check current garment availability and partner production capacity, then confirm any available rush option in writing. See current rush order options.",
- html: 'Share the required date before ordering. We will check current garment availability and partner production capacity, then confirm any available rush option in writing. See current <a href="/services/rush-orders-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">rush order options</a>.',
+ a: 'Call us with your date before you order. We check whether the garment is in stock and whether a production partner has room, then tell you if the date works. See rush order options.',
+ html: `Call us with your date before you order. We check whether the garment is in stock and whether a production partner has room, then tell you if the date works. See <a href="/services/rush-orders-las-vegas/" class="${link}">rush order options</a>.`,
  },
  {
- q: 'Do you handle hi-vis and FR compliance?',
- a: 'We can source hi-vis and flame-resistant garments and coordinate decoration. The employer must select the required protection. Each proposed product and decoration must be reviewed against the exact garment manufacturer’s current written instructions before approval. See our safety and compliance guides for ANSI/ISEA 107 and NFPA 70E specifics.',
- html: 'We can source hi-vis and flame-resistant garments and coordinate decoration. The employer must select the required protection. Each proposed product and decoration must be reviewed against the exact garment manufacturer’s current written instructions before approval. See our <a href="/safety-compliance/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">safety and compliance guides</a> for ANSI/ISEA 107 and NFPA 70E specifics.',
+ q: 'Do you handle hi-vis and FR gear?',
+ a: 'Yes, we can source it and arrange the decoration. Your company decides what protection the job requires, and we check the logo work against the garment maker’s instructions before anything is made. Our safety and compliance guides cover ANSI/ISEA 107 and NFPA 70E.',
+ html: `Yes, we can source it and arrange the decoration. Your company decides what protection the job requires, and we check the logo work against the garment maker’s instructions before anything is made. Our <a href="/safety-compliance/" class="${link}">safety and compliance guides</a> cover ANSI/ISEA 107 and NFPA 70E.`,
  },
  {
- q: 'Can you match our existing logo colors?',
- a: 'Share your brand standards and current artwork. Available ink and thread colors, proofing steps, and tolerances are confirmed for the quoted decoration method.',
+ q: 'Can you match our logo colors?',
+ a: 'Send your logo and any brand colors you have. You will see the colors and placement on a proof before you approve the order.',
  },
  {
  q: 'What’s a company store and do we need one?',
- a: 'A company store can help teams manage approved products and recurring orders. Whether it fits depends on your ordering volume, roles, budgets, and fulfillment needs.',
+ a: 'It is a private online store with your approved gear, where your people order their own sizes. It tends to make sense when you reorder often or have staff in several places. For a one-time order, a regular quote is simpler.',
  },
  {
  q: 'Do we have to commit to a subscription?',
- a: 'Program, portal, and pricing terms are confirmed in your proposal. Ask for a written comparison between a one-time order and an ongoing company store.',
+ a: 'A one-time order has no commitment. If you want a company store, your proposal lists any setup or monthly charges before you agree to anything.',
  },
  {
  q: "Can you ship to job sites or employees' homes?",
- a: 'Available delivery destinations and any split-shipment terms are confirmed for each order before production.',
+ a: 'We ship anywhere in the US. Tell us where it needs to go, including more than one address, and the quote will show the options and cost.',
  },
  {
  q: 'How do you handle reorders?',
- a: 'Available artwork and production specifications can support a reorder. Garment availability, colors, placement, pricing, and current production conditions are reviewed before approval.',
+ a: 'Call or email us and tell us what you want again. We check that the garment and color are still available and send you the current price.',
  },
  {
  q: 'Do you work with teams outside Las Vegas?',
- a: 'Yes. Bighorn is based in Las Vegas and coordinates apparel programs for multi-location and distributed teams, with production timing, shipping, and program terms confirmed in the quote.',
- html: 'Yes. Bighorn is based in Las Vegas and coordinates <a href="/locations/nationwide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">apparel programs for distributed teams</a>, with production timing, shipping, and program terms confirmed in the quote.',
+ a: 'Yes. We are based in Las Vegas and ship nationwide, including to teams spread across several locations.',
+ html: `Yes. We are based in Las Vegas and <a href="/locations/nationwide/" class="${link}">ship nationwide</a>, including to teams spread across several locations.`,
  },
 ]
 
@@ -62,120 +63,50 @@ const faqSchema = {
  })),
 }
 
-const services = [
- {
- title: 'Screen Printing',
- desc: 'Screen printing coordinated for crew apparel and branded programs. Garment, ink, quantity, setup, and current minimums are confirmed in the quote.',
- img: '/images/generated/service-screen-printing.jpg',
- href: '/services/screen-printing-las-vegas/',
- tag: 'Decoration',
- },
- {
- title: 'Embroidery',
- desc: 'Embroidery coordinated for polos, jackets, beanies, and approved workwear. Digitizing, thread colors, placement, minimums, and protective-garment requirements are confirmed per order.',
- img: '/images/generated/service-embroidery.jpg',
- href: '/services/embroidery-las-vegas/',
- tag: 'Decoration',
- },
- {
- title: 'Branded Apparel',
- desc: 'Role-based kits for crew, supervisor, and office staff. Hi-vis tees and vests (ANSI/ISEA 107), FR shirts (NFPA 70E), embroidered polos, softshells, and branded hard hats.',
- img: '/images/generated/service-branded-apparel.jpg',
- href: '/services/#branded-apparel',
- tag: 'Apparel',
- },
- {
- title: 'Promotional Products',
- desc: 'Branded swag for trade shows, golf tournaments, and client gifts. Drinkware, bags, safety gear, tech.',
- img: '/images/generated/product-stack.jpg',
- href: '/promo-products-las-vegas/',
- tag: 'Promo',
- },
-]
+// Supplier catalog photos, the same SAGE images the catalog pages show.
+const pic = (sn: number, p: number) => `https://www.promoplace.com/ws/ws.dll/QPic?SN=${sn}&P=${p}&RS=300`
 
-const trades = [
- {
- name: 'Construction & Trades',
- href: '/industries/construction-trades/',
- items: ['Hi-vis tees & vests (ANSI 107)', 'FR-rated shirts (NFPA 70E)', 'Embroidered work polos & jackets', 'Branded hard hats & beanies'],
- },
- {
- name: 'Corporate & Office',
- href: '/industries/corporate/',
- items: ['Embroidered polos & softshells', 'Performance quarter-zips', 'New-hire onboarding kits', 'Branded drinkware & client gifts'],
- },
- {
- name: 'Education',
- href: '/industries/education/',
- items: ['Staff & faculty polos', 'Spirit wear & fan gear', 'Athletics & team apparel', 'Embroidered outerwear'],
- },
- {
- name: 'Healthcare',
- href: '/industries/healthcare/',
- items: ['Embroidered scrubs', 'Lab coats & jackets', 'Front-desk & admin polos', 'Name + credential embroidery'],
- },
- {
- name: 'Government & Public',
- href: '/industries/government/',
- items: ['Department uniforms & polos', 'ANSI hi-vis safety apparel', 'Public-works field gear', 'Branded outerwear & caps'],
- },
- {
- name: 'Gaming & Hospitality',
- href: '/industries/gaming-hospitality/',
- items: ['Guest-services & front-desk polos', 'F&B shirts & aprons', 'Housekeeping & back-of-house', 'Embroidered vests & outerwear'],
- },
- {
- name: 'Events & Teams',
- href: '/industries/events/',
- items: ['Event & booth staff apparel', 'Trade-show polos & outerwear', 'Team & league uniforms', 'Attendee giveaways & merch'],
- },
+const services = [
+ { title: 'Screen Printing', desc: 'Best for tees and hoodies in larger runs. Bold logos and event shirts.', img: '/images/photos/screen-printing-closeup.webp', alt: 'Stack of folded shirts with a gold print on a steel table', href: '/services/screen-printing-las-vegas/' },
+ { title: 'Embroidery', desc: 'Stitched logos on polos, jackets, and caps for gear that gets worn in front of customers.', img: '/images/photos/embroidered-caps.webp', alt: 'Row of caps with gold embroidered marks', href: '/services/embroidery-las-vegas/' },
+ { title: 'Workwear & Uniforms', desc: 'Crew shirts, hi-vis vests, softshells, and staff uniforms by role.', img: '/images/photos/public-works-crew.webp', alt: 'Crew in hi-vis shirts and hard hats at a street repair', href: '/services/#branded-apparel' },
+ { title: 'Promotional Products', desc: 'Drinkware, bags, and giveaways for trade shows, golf tournaments, and client gifts.', img: '/images/photos/new-hire-kit.webp', alt: 'Folded polo, cap and steel tumbler on a desk', href: '/promo-products-las-vegas/' },
 ]
 
 const industries = [
- { name: 'Corporate & Office', href: '/industries/corporate/', desc: 'Embroidered polos, onboarding kits, client gifts, event apparel' },
- { name: 'Education', href: '/industries/education/', desc: 'Staff apparel, campus spirit wear, athletics, district uniforms' },
- { name: 'Government & Public', href: '/industries/government/', desc: 'Agency uniforms, public-works field gear, ANSI hi-vis safety wear' },
- { name: 'Healthcare', href: '/industries/healthcare/', desc: 'Embroidered scrubs, lab coats, admin gear across multiple sites' },
- { name: 'Gaming & Hospitality', href: '/industries/gaming-hospitality/', desc: 'Casino, resort, and F&B uniforms from front of house to back' },
- { name: 'Events & Teams', href: '/industries/events/', desc: 'Trade-show gear, activations, and team uniforms scoped to the event' },
-]
-
-const whyPoints = [
- { title: 'Branded Programs, Not One-Offs.', desc: 'We plan branded apparel programs for corporate, education, government, healthcare, gaming, event, and trade teams. Each quote confirms the garment, decoration, proof, timing, and reorder terms.' },
- { title: 'A Deadline You Can Plan Around.', desc: 'Tell us the required date. We will check garment availability and partner production capacity before confirming the schedule in writing.' },
- { title: 'A Defined Reorder Path.', desc: 'A company store can organize approved products and artwork when the selected platform supports those features. Ordering, budgets, retention, and fulfillment are confirmed in the approved program.' },
- { title: 'Las Vegas Account Management.', desc: 'Work with a Las Vegas contact who coordinates quotes, proofs, production partners, and the written terms for each order.' },
+ { name: 'Construction & Trades', href: '/industries/construction-trades/', desc: 'Crew shirts, hi-vis, FR options, and branded hard hats' },
+ { name: 'Corporate & Office', href: '/industries/corporate/', desc: 'Polos, new-hire kits, client gifts, and event gear' },
+ { name: 'Education', href: '/industries/education/', desc: 'Staff polos, spirit wear, and athletics' },
+ { name: 'Healthcare', href: '/industries/healthcare/', desc: 'Embroidered scrubs, lab coats, and front-desk polos' },
+ { name: 'Government & Public', href: '/industries/government/', desc: 'Department polos and public-works field gear' },
+ { name: 'Gaming & Hospitality', href: '/industries/gaming-hospitality/', desc: 'Casino, resort, and food-service uniforms' },
+ { name: 'Events & Teams', href: '/industries/events/', desc: 'Booth staff apparel, team uniforms, and giveaways' },
 ]
 
 const process = [
- { n: '01', meta: 'Quote', title: 'Scope the Job', desc: 'Tell us crew size, gear types, deadline, and any compliance requirements such as ANSI, FR, or color matching. Quote timing depends on the complete request and partner response.' },
- { n: '02', meta: 'Proofs', title: 'Review the Proof', desc: 'Review the proposed logo placement, colors, garment, and decoration details before authorizing production.' },
- { n: '03', meta: 'Production', title: 'Partner Production', desc: 'Bighorn coordinates printing and embroidery through production partners against the approved order specification.' },
- { n: '04', meta: 'Delivery', title: 'Confirm Fulfillment', desc: 'Shipping destination, delivery method, timing, and any split-shipment terms are confirmed in the quote.' },
-]
-
-const storeSteps = [
- { n: '01', meta: 'Plan', title: 'Define The Proposed Store', desc: 'The company store proposal documents requested logos, colors, garments, users, and ordering rules. Features remain prospective until the platform is approved.' },
- { n: '02', meta: 'Configure', title: 'Confirm User Capabilities', desc: 'Catalog access, budgets, payment, reporting, and user ordering depend on the approved platform and program configuration.' },
- { n: '03', meta: 'Operate', title: 'Confirm Recurring Terms', desc: 'Artwork retention, inventory, production, fulfillment, and reorder capabilities are confirmed for the approved program.' },
+ { n: '1', title: 'Tell us the job', desc: 'Send your logo, what you want, how many, and the date you need it.' },
+ { n: '2', title: 'See it first', desc: 'You get a price and a proof showing the garment, colors, and logo placement.' },
+ { n: '3', title: 'We get it made', desc: 'Once you approve, we run the order through a production partner suited to the job.' },
+ { n: '4', title: 'It ships to you', desc: 'One address or several. Need more later? Call us and we pull up your order.' },
 ]
 
 const blogLinks = [
- { href: '/blog/what-is-embroidery-buyers-guide/', label: 'What is embroidery — buyer’s guide' },
- { href: '/blog/what-is-screen-printing/', label: 'What is screen printing — primer' },
+ { href: '/blog/what-is-embroidery-buyers-guide/', label: 'What to know before you order embroidery' },
+ { href: '/blog/what-is-screen-printing/', label: 'How screen printing works' },
  { href: '/blog/nfpa-70e-fr-shirts-vegas-electricians/', label: 'NFPA 70E FR shirts for Vegas electricians' },
- { href: '/blog/nevada-osha-heat-rules-2026-workwear/', label: 'Nevada OSHA heat rules — 2026 workwear' },
- { href: '/blog/hvac-uniforms-service-tech-apparel/', label: 'HVAC uniforms — service tech apparel' },
+ { href: '/blog/nevada-osha-heat-rules-2026-workwear/', label: 'Nevada OSHA heat rules and workwear' },
+ { href: '/blog/hvac-uniforms-service-tech-apparel/', label: 'Uniforms for HVAC service techs' },
  { href: '/blog/how-to-outfit-a-construction-crew-vegas/', label: 'How to outfit a construction crew in Vegas' },
 ]
 
 const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
+const phoneIcon = 'M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z'
 
 const speakableSchema = {
  '@context': 'https://schema.org',
  '@type': 'WebPage',
  url: 'https://bighornthreads.com/',
- name: 'Las Vegas screen printing, embroidery & company stores for every team that wears your logo',
+ name: 'Screen printing, embroidery, and company stores from Las Vegas',
  speakable: {
  '@type': 'SpeakableSpecification',
  cssSelector: ['h1','.speakable-answer'],
@@ -185,136 +116,57 @@ const speakableSchema = {
 
 <BaseLayout
  title="Custom Screen Printing, Embroidery & Company Stores in Las Vegas | Bighorn Threads"
- description="Las Vegas custom screen printing, embroidery, uniforms, and private company stores for crews and teams. Written quotes, a local account team, and production through vetted partners."
+ description="Las Vegas custom screen printing, embroidery, uniforms, and private company stores for crews and teams. Get a quote and a proof from a local contact, with nationwide shipping."
 >
- <!-- ════ HERO — full-bleed photographic dark band ════ -->
- <section class="relative isolate overflow-hidden bg-navy-950">
- <Picture
- src={heroPhoto}
- alt="The Bighorn Threads ram logo embroidered in gold thread on a navy company polo"
- widths={[768, 1280, 1920]}
- sizes="100vw"
- formats={['avif', 'webp']}
- fallbackFormat="jpg"
- loading="eager"
- fetchpriority="high"
- decoding="async"
- class="absolute inset-0 -z-10 h-full w-full object-cover object-center"
- />
- <!-- Tint: dark enough for white copy, weighted to the left where text sits -->
- <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/85 to-navy-950/40"></div>
-
- <div class="mx-auto max-w-7xl px-4 pb-16 pt-8 sm:px-6 sm:pt-10 lg:px-8 lg:pb-20 lg:pt-14">
- <div class="max-w-2xl">
- <p class="kicker mb-3 flex items-center gap-2.5">
- <span class="h-px w-8 bg-gold-500"></span>
- Company Stores &amp; Branded Gear · Las Vegas Account Management
- </p>
- <h1 class="font-heading text-5xl font-extrabold uppercase leading-[0.92] tracking-tight text-white sm:text-6xl lg:text-[5.25rem]">
- Las Vegas screen printing, embroidery &amp; company stores
- <span class="text-gold-400">for every team that wears your logo.</span>
+ <!-- Hero: real product photography on the light canvas -->
+ <section class="bg-concrete">
+ <div class="page-hero-home mx-auto grid max-w-7xl items-center gap-10 px-4 pb-14 pt-10 sm:px-6 lg:grid-cols-[1fr_1.2fr] lg:gap-14 lg:px-8 lg:pb-20 lg:pt-14">
+ <div>
+ <p class="kicker mb-4">Based in Las Vegas. Shipping nationwide.</p>
+ <h1 class="font-heading text-5xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-6xl lg:text-7xl">
+ Your logo on your team's gear
  </h1>
- <p class="speakable-answer mt-7 max-w-xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- Bighorn Threads is a Las Vegas custom apparel company that builds private company stores,
- embroidery, uniforms, and branded workwear for teams across construction, corporate, education,
- healthcare, and government. We manage the account and coordinate production through qualified partners.
+ <p class="mt-4 font-subheading text-xl font-semibold uppercase tracking-wide text-ash sm:text-2xl">Screen printing, embroidery, and company stores</p>
+ <p class="speakable-answer mt-6 max-w-xl text-lg leading-relaxed text-charcoal">
+ Send us your logo, how many you need, and your date. We help you pick the gear and show you a proof before anything is made. Production runs through our partners, and you keep one contact from quote to delivery.
  </p>
- <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+ <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
  <a href="/get-a-quote/" class="btn-primary text-base">
  Get a Quote
- <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
  </a>
- <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">
- <svg class="h-4 w-4 text-gold-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-charcoal transition-colors hover:text-gold-700">
+ <svg class="h-4 w-4 text-gold-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d={phoneIcon} /></svg>
  702.904.8923
  </a>
  </div>
  </div>
+ <figure class="hero-photo">
+ <img src="/images/photos/home-hero-jobsite-crew.webp" alt={photo('home-hero-jobsite-crew').alt} width="1376" height="768" fetchpriority="high" decoding="async" />
+ </figure>
  </div>
  </section>
 
- <!-- ════ PROOF — client reviews ════ -->
- <ProofStrip tone="concrete" />
+ <ProofStrip tone="paper" />
 
- <!-- ════ TRUSTED-BY STRIP — paper ════ -->
- <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <!-- What we make -->
+ <section class="bg-concrete py-16 sm:py-24">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-10 max-w-2xl">
- <p class="kicker mb-3">Who We Outfit</p>
- <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
- One partner for <span class="text-gold-600">every team.</span>
- </h2>
+ <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">What we can put your logo on</h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- Construction crews, corporate offices, schools, hospitals, and public agencies all need a clear
- path for branded gear, sizing, and reorders. Bighorn can scope a company store around an approved platform and written program terms.
+ The catalog has more than a million products. Tell us how the gear will be used and we will narrow it down, or <a href="/catalog/" class={link}>browse it yourself</a>.
  </p>
  </div>
- <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
- <a href="/industries/construction-trades/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
- <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">Construction &amp; Trades</h3>
- <p class="mt-1.5 text-sm leading-relaxed text-ash">GCs, electrical, plumbing, HVAC, roofing, concrete, steel — hi-vis &amp; FR to spec.</p>
- </a>
- <a href="/industries/corporate/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
- <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">Corporate &amp; Office</h3>
- <p class="mt-1.5 text-sm leading-relaxed text-ash">Employee gear, onboarding kits, client gifts, and event apparel.</p>
- </a>
- <a href="/industries/education/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
- <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">Education</h3>
- <p class="mt-1.5 text-sm leading-relaxed text-ash">Districts, campuses, and athletics — staff apparel and spirit wear.</p>
- </a>
- <a href="/industries/healthcare/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
- <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">Healthcare</h3>
- <p class="mt-1.5 text-sm leading-relaxed text-ash">Embroidered scrubs, lab coats, and admin gear across multiple sites.</p>
- </a>
- <a href="/industries/government/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
- <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">Government &amp; Public</h3>
- <p class="mt-1.5 text-sm leading-relaxed text-ash">Agency uniforms, public-works field gear, and ANSI hi-vis safety apparel.</p>
- </a>
- <a href="/industries/gaming-hospitality/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
- <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">Gaming &amp; Hospitality</h3>
- <p class="mt-1.5 text-sm leading-relaxed text-ash">Casinos, resorts, and F&amp;B — front-of-house to back-of-house uniforms.</p>
- </a>
- <a href="/industries/events/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
- <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">Events &amp; Teams</h3>
- <p class="mt-1.5 text-sm leading-relaxed text-ash">Trade shows, activations, and team uniforms — on deadline, sized right.</p>
- </a>
- <a href="/industries/" class="group flex items-center justify-between border border-hairline bg-charcoal p-6 transition-colors hover:bg-navy-900">
- <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-concrete">See all industries</h3>
- <svg class="h-5 w-5 text-gold-400 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
- </a>
- </div>
- </div>
- </section>
-
- <!-- ════ SERVICES — concrete ════ -->
- <section class="bg-concrete py-20 sm:py-28">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <div class="mb-12 max-w-2xl">
- <p class="kicker mb-3">What We Do</p>
- <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
- One account team. <span class="text-ash">A documented ordering path.</span>
- </h2>
- <p class="mt-4 text-lg leading-relaxed text-ash">
- From an initial team order to a managed company store, Bighorn coordinates screen printing,
- embroidery, hi-vis, protective garments, and branded apparel through production partners.
- Every quote documents the garment, decoration, proof, timing, and reorder terms.
- </p>
- </div>
-
  <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
  {services.map((service) => (
  <a href={service.href} class="group flex flex-col border border-hairline bg-panel transition-colors duration-200 hover:border-gold-500">
- <div class="relative aspect-[5/4] overflow-hidden">
- <img src={service.img} alt={service.title} width="600" height="480" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
- <span class="spec absolute left-3 top-3 bg-concrete/95 px-2 py-1 text-charcoal">{service.tag}</span>
+ <div class="border-b border-hairline">
+ <img src={service.img} alt={service.alt} width="300" height="300" loading="lazy" decoding="async" class="aspect-[5/4] w-full object-cover" />
  </div>
  <div class="flex flex-1 flex-col p-6">
- <h3 class="font-heading text-xl font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">{service.title}</h3>
+ <h3 class="font-heading text-xl font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-700">{service.title}</h3>
  <p class="mt-2 flex-1 text-sm leading-relaxed text-ash">{service.desc}</p>
- <span class="mt-4 inline-flex items-center gap-1.5 font-mono text-xs font-medium uppercase tracking-wider text-gold-600 transition-all group-hover:gap-2.5">
- Learn more
- <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
- </span>
  </div>
  </a>
  ))}
@@ -322,228 +174,75 @@ const speakableSchema = {
  </div>
  </section>
 
- <!-- ════ COMPANY STORES — paper ════ -->
- <section class="border-y border-hairline bg-paper py-20 sm:py-28">
+ <!-- How an order works: a real sequence, so the numbers stay -->
+ <section class="border-y border-hairline bg-paper py-16 sm:py-24">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <div class="mb-12 max-w-3xl">
- <p class="kicker mb-3">Company Stores</p>
- <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
- How a company store <span class="text-gold-600">can work.</span>
- </h2>
- <p class="mt-4 text-lg leading-relaxed text-ash">
- Requested catalogs, user access, ordering controls, budgets, payment, reporting, and fulfillment are confirmed in the approved platform proposal.
- </p>
- </div>
-
- <ol class="grid gap-5 md:grid-cols-3">
- {storeSteps.map((step) => (
- <li class="border border-hairline bg-panel p-7">
- <div class="mb-5 flex items-baseline justify-between">
- <span class="font-heading text-5xl font-extrabold leading-none text-gold-600">{step.n}</span>
- <span class="spec border border-hairline px-2 py-1 text-ash">{step.meta}</span>
- </div>
- <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{step.title}</h3>
- <p class="mt-2 text-sm leading-relaxed text-ash">{step.desc}</p>
+ <h2 class="mb-10 max-w-2xl font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">How an order works</h2>
+ <ol class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+ {process.map((step) => (
+ <li class="border-t-2 border-charcoal pt-4">
+ <span class="font-mono text-sm text-gold-700">Step {step.n}</span>
+ <h3 class="mt-1 font-heading text-xl font-bold uppercase tracking-tight text-charcoal">{step.title}</h3>
+ <p class="mt-2 leading-relaxed text-ash">{step.desc}</p>
  </li>
  ))}
  </ol>
-
- <div class="mt-8">
- <a href="/company-stores/" class="btn-secondary text-sm">
- Review company store options
- <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
- </a>
- </div>
  </div>
  </section>
 
- <!-- ════ INDUSTRIES — concrete ════ -->
- <section class="bg-concrete py-20 sm:py-28">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <div class="mb-12 max-w-2xl">
- <p class="kicker mb-3">Industries We Serve</p>
- <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
- Built for the teams that run <span class="text-gold-600">Las Vegas and beyond.</span>
- </h2>
- <p class="mt-4 text-lg leading-relaxed text-ash">
- Corporate, education, government, healthcare, gaming, events, and the trades. Whatever your team does, we coordinate a branded apparel program around the written specification you approve.
- </p>
- </div>
-
- <!-- Featured: Construction & Trades (one vertical of several) -->
- <div class="mb-5 border-l-4 border-gold-500 bg-panel">
- <div class="flex flex-col gap-6 border border-l-0 border-hairline p-7 sm:p-9 lg:flex-row lg:items-center">
- <div class="flex-1">
- <span class="spec mb-3 inline-block bg-gold-500 px-2 py-1 text-charcoal">Featured Vertical</span>
- <h3 class="font-heading text-2xl font-bold uppercase tracking-tight text-charcoal sm:text-3xl">Construction &amp; Trades</h3>
- <p class="mt-3 text-ash">
- Bighorn can plan requested apparel for GCs, electrical, plumbing, HVAC, roofing, concrete, and steel teams.
- Employers select any protective product for the exact hazard and must approve decoration against current manufacturer instructions.
- Products, company-store features, production, and fulfillment are confirmed in writing.
- </p>
- <div class="mt-4 flex flex-wrap gap-2">
- {['Hi-vis safety wear', 'Branded hard hats', 'Company stores', 'Crew uniforms', 'Client gifts'].map((tag) => (
- <span class="spec border border-hairline px-2.5 py-1 text-ash">{tag}</span>
- ))}
- </div>
- </div>
- <a href="/get-a-quote/" class="btn-primary shrink-0 text-base">
- Get a Quote
- <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
- </a>
- </div>
- </div>
-
- <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+ <!-- Who we outfit + company stores -->
+ <section class="bg-concrete py-16 sm:py-24">
+ <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[1.4fr_1fr] lg:gap-16 lg:px-8">
+ <div>
+ <h2 class="mb-8 font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">Who we outfit</h2>
+ <ul class="divide-y divide-hairline border-y border-hairline">
  {industries.map((industry) => (
- <a href={industry.href} class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
- <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">{industry.name}</h3>
- <p class="mt-1.5 text-sm leading-relaxed text-ash">{industry.desc}</p>
+ <li>
+ <a href={industry.href} class="group flex flex-col gap-1 py-4 sm:flex-row sm:items-baseline sm:gap-6">
+ <span class="shrink-0 font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-700 sm:w-64">{industry.name}</span>
+ <span class="text-sm leading-relaxed text-ash">{industry.desc}</span>
  </a>
- ))}
- </div>
- </div>
- </section>
-
- <!-- ════ WHY BIGHORN — paper, with photo ════ -->
- <section class="border-y border-hairline bg-paper py-20 sm:py-28">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <div class="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
- <div>
- <p class="kicker mb-3">Why Bighorn Threads</p>
- <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
- Las Vegas account support. <span class="text-gold-600">Written order terms.</span>
- </h2>
- <p class="mt-4 text-lg leading-relaxed text-ash">
- Contact the Las Vegas account team for product planning, artwork coordination, proofs, and current order terms. Response timing and any on-site service are confirmed for the request.
- </p>
- <div class="mt-8 divide-y divide-hairline border-y border-hairline">
- {whyPoints.map((item) => (
- <div class="flex gap-4 py-5">
- <svg class="mt-0.5 h-5 w-5 shrink-0 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
- <div>
- <h3 class="font-heading text-base font-bold uppercase tracking-tight text-charcoal">{item.title}</h3>
- <p class="mt-1 text-sm leading-relaxed text-ash">{item.desc}</p>
- </div>
- </div>
- ))}
- </div>
- </div>
-
- <div class="border border-hairline bg-panel p-2">
- <Picture
- src={foremanPhoto}
- alt="Representative branded-apparel account team member in a navy polo"
- widths={[480, 768, 1024]}
- sizes="(min-width: 1024px) 50vw, 100vw"
- formats={['avif', 'webp']}
- fallbackFormat="jpg"
- loading="lazy"
- decoding="async"
- class="h-full w-full object-cover"
- />
- </div>
- </div>
- </div>
- </section>
-
- <!-- ════ GEAR BY INDUSTRY — concrete ════ -->
- <section class="bg-concrete py-20 sm:py-28">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <div class="mb-12 max-w-3xl">
- <p class="kicker mb-3">Gear by Industry</p>
- <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
- Product options <span class="text-gold-600">by team.</span>
- </h2>
- <p class="mt-4 text-lg leading-relaxed text-ash">
- Product needs vary by role, use, employer requirements, care process, and budget.
- Bighorn can request current options from brands such as Carhartt, Bulwark, Port Authority, ML Kishigo, and Red Kap.
- Availability, performance, decoration, and manufacturer instructions are reviewed for the exact quoted product.
- </p>
- </div>
-
- <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
- {trades.map((trade) => (
- <a href={trade.href} class="group flex flex-col border border-hairline bg-panel transition-colors duration-200 hover:border-gold-500">
- <div class="flex flex-1 flex-col p-6">
- <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">{trade.name}</h3>
- <ul class="mt-3 space-y-2">
- {trade.items.map((item) => (
- <li class="flex items-start gap-2 text-sm leading-relaxed text-ash">
- <span class="mt-1.5 h-1.5 w-1.5 shrink-0 bg-gold-500"></span>
- <span>{item}</span>
  </li>
  ))}
  </ul>
  </div>
- </a>
- ))}
- </div>
-
- <div class="mt-8">
- <a href="/get-a-quote/" class="btn-primary text-base">
- Spec your team's gear
- <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
- </a>
- </div>
- </div>
- </section>
-
- <!-- ════ PROCESS — paper ════ -->
- <section class="border-y border-hairline bg-paper py-20 sm:py-28">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <div class="mb-12 max-w-2xl">
- <p class="kicker mb-3">How It Works</p>
- <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
- From first call to <span class="text-gold-600">crew-ready.</span>
- </h2>
- <p class="mt-4 text-lg leading-relaxed text-ash">
- Start with one clear scope. The quote defines proofing, production, fulfillment, and delivery requirements before you authorize the order.
+ <aside class="self-start border border-hairline bg-panel p-7 sm:p-8">
+ <img src="/images/photos/company-store-phone.webp" alt={photo('company-store-phone').alt} width="1376" height="768" loading="lazy" decoding="async" class="mb-6 aspect-[3/2] w-full object-cover" />
+ <h2 class="font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal">Tired of collecting sizes?</h2>
+ <p class="mt-4 leading-relaxed text-ash">
+ A company store is a private online store with only the gear you have approved. Your people pick their own sizes, so you stop chasing them by email and guessing at the box of extras.
  </p>
- </div>
-
- <ol class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
- {process.map((step) => (
- <li class="border border-hairline bg-panel p-7">
- <div class="mb-5 flex items-baseline justify-between">
- <span class="font-heading text-5xl font-extrabold leading-none text-gold-600">{step.n}</span>
- <span class="spec border border-hairline px-2 py-1 text-ash">{step.meta}</span>
- </div>
- <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{step.title}</h3>
- <p class="mt-2 text-sm leading-relaxed text-ash">{step.desc}</p>
- </li>
- ))}
- </ol>
-
- <div class="mt-8 flex flex-col items-start gap-5 border border-hairline bg-charcoal p-7 sm:flex-row sm:items-center sm:justify-between sm:p-9">
- <div>
- <h3 class="font-heading text-xl font-bold uppercase tracking-tight text-concrete sm:text-2xl">Rush order? OSHA deadline looming?</h3>
- <p class="mt-1 text-sm text-navy-200">Call us with the required date. We will check current garment availability and partner capacity before confirming a schedule.</p>
- </div>
- <a href="tel:+17029048923" class="inline-flex shrink-0 items-center gap-2 border border-gold-500 px-6 py-3.5 font-mono text-sm font-medium tracking-wide text-gold-400 transition-colors hover:bg-gold-500 hover:text-charcoal">
- <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
- 702.904.8923
+ <a href="/company-stores/" class="btn-secondary mt-6 text-sm">
+ How company stores work
+ <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
  </a>
+ </aside>
+ </div>
+ </section>
+
+ <!-- The person behind it -->
+ <section class="border-y border-hairline bg-paper py-16 sm:py-20">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="max-w-3xl">
+ <h2 class="font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-4xl">Based in Las Vegas, founded by Steve Dodson</h2>
+ <p class="mt-3 text-lg leading-relaxed text-ash">
+ Steve started Bighorn Threads and its parent company, VP Promos. Call or email with your question about a garment, a logo file, or a tight date, and we will get you an answer.
+ </p>
+ <a href="/about/" class={`mt-3 inline-block ${link}`}>More about us</a>
  </div>
  </div>
  </section>
 
- <!-- ════ FAQ — concrete ════ -->
- <section class="bg-concrete py-20 sm:py-28">
+ <!-- FAQ -->
+ <section class="bg-concrete py-16 sm:py-24">
  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
- <div class="mb-10 max-w-2xl">
- <p class="kicker mb-3">FAQ</p>
- <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
- Questions we hear from <span class="text-gold-600">teams.</span>
- </h2>
- </div>
-
+ <h2 class="mb-8 font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">Questions we get</h2>
  <div class="divide-y divide-hairline border-y border-hairline">
  {faqs.map((item) => (
  <details class="group">
  <summary class="flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 py-5 text-left">
  <span class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal">{item.q}</span>
- <svg class="h-5 w-5 shrink-0 text-gold-600 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+ <svg class="h-5 w-5 shrink-0 text-gold-700 transition-transform group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
  </summary>
  {item.html ? <p class="pb-5 leading-relaxed text-ash" set:html={item.html} /> : <p class="pb-5 leading-relaxed text-ash">{item.a}</p>}
  </details>
@@ -552,44 +251,30 @@ const speakableSchema = {
  </div>
  </section>
 
- <!-- ════ FROM THE BLOG — paper ════ -->
- <section class="border-y border-hairline bg-paper py-16 sm:py-20">
- <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
- <p class="kicker mb-3">From the Blog</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Reads for shop owners and safety officers.</h2>
- <div class="mt-7 grid gap-3 sm:grid-cols-2">
- {blogLinks.map((link) => (
- <a href={link.href} class="group flex items-center justify-between gap-3 border border-hairline bg-panel px-5 py-4 transition-colors hover:border-gold-500">
- <span class="text-sm font-medium text-charcoal">{link.label}</span>
- <svg class="h-4 w-4 shrink-0 text-gold-600 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
- </a>
+ <section class="bg-paper py-12">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <h2 class="mb-5 font-heading text-2xl font-extrabold uppercase tracking-tight">Guides worth reading</h2>
+ <ul class="grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
+ {blogLinks.map((item) => (
+ <li><a href={item.href} class={`text-sm font-medium ${link}`}>{item.label}</a></li>
  ))}
- </div>
+ </ul>
  </div>
  </section>
 
- <!-- ════ CTA — full-bleed photographic dark band ════ -->
- <section class="relative isolate overflow-hidden bg-navy-950">
- <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" width="1920" height="1080" class="absolute inset-0 -z-10 h-full w-full object-cover" loading="lazy" decoding="async" />
- <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
- <div class="mx-auto max-w-3xl px-4 py-24 text-center sm:px-6 sm:py-32 lg:px-8">
- <p class="kicker mb-3 justify-center">Get Started</p>
- <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-6xl">
- Ready to standardize <span class="text-gold-400">your team?</span>
- </h2>
- <p class="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-navy-200">
- Get a quick quote. Real mockups, real pricing, a human on the phone. If you're ready to stop chasing
- down uniform orders, we're ready to start building your program.
- </p>
- <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+ <!-- Closing call to action -->
+ <section class="border-t border-hairline bg-paper">
+ <div class="mx-auto flex max-w-7xl flex-col items-start gap-6 px-4 py-14 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
+ <div>
+ <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">Have a logo and a date?</h2>
+ <p class="mt-3 text-lg text-ash">That is enough to get started.</p>
+ </div>
+ <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
  <a href="/get-a-quote/" class="btn-primary text-base">
- Get Your Quote
- <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
+ Get a Quote
+ <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
  </a>
- <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">
- <svg class="h-4 w-4 text-gold-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
- 702.904.8923
- </a>
+ <a href="tel:+17029048923" class="px-2 py-3 font-mono text-sm font-medium tracking-wide text-charcoal hover:text-gold-700">702.904.8923</a>
  </div>
  </div>
  </section>

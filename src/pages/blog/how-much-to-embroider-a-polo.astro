@@ -1,4 +1,5 @@
 ---
+import NationalLinks from '@/components/NationalLinks.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const post = {
@@ -9,12 +10,12 @@ const post = {
   readTime: '6 min read',
   date: 'May 12, 2026',
   isoDate: '2026-05-12',
-  image: '/images/generated/service-embroidery.jpg',
+  image: '/images/og-default.jpg',
   slug: 'how-much-to-embroider-a-polo',
 }
 
 const faqs = [
-  { q: 'How much does it cost to embroider a polo shirt?', a: 'Embroidered polo cost is the price of the polo plus the embroidery, and the embroidery is driven mainly by stitch count (how complex your logo is), the number of placements, and how many you order. A new logo also needs one-time digitizing. A basic pique polo costs less than a Carhartt or performance polo, and per-piece cost drops as quantity rises. Send your logo and polo choice and we\'ll quote it.' },
+  { q: 'How much does it cost to embroider a polo shirt?', a: 'Embroidered polo cost is the price of the polo plus the embroidery, and the embroidery is driven mainly by stitch count (how complex your logo is), the number of placements, and how many you order. A new logo also needs digitizing. A basic pique polo costs less than a Carhartt or performance polo, and per-piece cost drops as quantity rises. Send your logo and polo choice and we\'ll quote it.' },
   { q: 'What is a digitizing fee for polo embroidery?', a: 'Digitizing converts your logo artwork into a stitch file the embroidery machine reads. Fees depend on logo complexity and the selected production partner. File ownership, retention, reuse, and repeat-order fees must be confirmed in your quote.' },
   { q: 'How many stitches is a typical polo logo?', a: 'Stitch count varies with size, detail, lettering, fills, and digitizing choices. The production partner confirms stitch count after reviewing the artwork. Send your logo and intended placement for a quote.' },
   { q: 'What polo brands work well for embroidery?', a: 'Port Authority, Carhartt, Red Kap, and other suppliers offer polos that may support embroidery. Fabric weight, construction, logo detail, availability, and intended use all matter. The quote confirms the proposed polo and decoration method.' },
@@ -74,16 +75,12 @@ const speakableSchema = {
         </nav>
         <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-600">{post.category}</span>
         <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
-        <p class="mb-8 text-xl leading-relaxed text-ash">What actually drives the cost when you outfit a crew in Las Vegas — stitch count, the polo you pick, digitizing, and quantity. Send your logo for a quote.</p>
+        <p class="mb-8 text-xl leading-relaxed text-ash">What actually drives the cost when you outfit a crew in Las Vegas: stitch count, the polo you pick, digitizing, and quantity. Send your logo for a quote.</p>
         <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash">
           <span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time>
         </div>
       </div>
     </header>
-
-    <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8">
-      <img src={post.image} alt="Commercial embroidery machine stitching a company logo onto a navy polo shirt" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" />
-    </div>
 
     <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
 
@@ -112,12 +109,12 @@ const speakableSchema = {
       <p class="mb-6 text-lg leading-relaxed text-charcoal">Stitch count and cost depend on the exact artwork, approved size, garment, digitizing, and production partner. Ask the partner to compare the original artwork with any proposed simplified version in the proof and written quote. See <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">logo digitizing 101</a> for planning context.</p>
 
       <h2 id="polo-cost" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The Polo Itself</h2>
-      <p class="mb-6 text-lg leading-relaxed text-charcoal">The blank polo is the other half of the equation. Cost varies by brand and fabric — here's how the common tiers stack up:</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">The blank polo is the other half of the equation. Cost varies by brand and fabric. Here's how the common tiers stack up:</p>
       <ul class="mb-6 list-none space-y-3 text-lg leading-relaxed text-charcoal">
         <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Basic pique polo</strong> (Port Authority K500, Gildan): an economical option. Color and size availability varies by supplier.</span></li>
         <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Performance polo</strong> (Port Authority K540, Nike Dri-FIT): a step up. Moisture-wicking, better for outdoor crews in Las Vegas heat.</span></li>
         <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Carhartt Force polo</strong>: the premium pick. Built for trades, holds up to abuse, still looks sharp.</span></li>
-        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Red Kap industrial polo</strong>: the service-tech standard — HVAC, plumbing, electrical.</span></li>
+        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Red Kap industrial polo</strong>: the service-tech standard (HVAC, plumbing, electrical).</span></li>
       </ul>
       <p class="mb-6 text-lg leading-relaxed text-charcoal">For trade-specific polo recommendations by industry, see our pages for <a href="/industries/plumbing-hvac-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">plumbing & HVAC</a>, <a href="/industries/electrical-contractors-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">electrical contractors</a>, and <a href="/industries/general-contractors-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">general contractors</a>.</p>
 
@@ -131,7 +128,7 @@ const speakableSchema = {
       <p class="mb-6 text-lg leading-relaxed text-charcoal">Want a current number for your team? Send your quantity, polo choice, logo, placements, destination, and deadline for a quote.</p>
 
       <h2 id="multi-placement" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Adding a Name or Back Logo</h2>
-      <p class="mb-6 text-lg leading-relaxed text-charcoal">Many contractor crews want a name on the right chest or a company name on the back. Each additional placement requires re-hooping the polo and a separate machine pass — so it adds meaningfully to the per-piece cost.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Many contractor crews want a name on the right chest or a company name on the back. Each additional placement requires re-hooping the polo and a separate machine pass, so it adds meaningfully to the per-piece cost.</p>
       <ul class="mb-6 list-none space-y-3 text-lg leading-relaxed text-charcoal">
         <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Right-chest name:</strong> adds a small per-piece cost depending on stitch count.</span></li>
         <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Back yoke logo:</strong> cost depends on the approved design, size, stitch file, garment, and production partner.</span></li>
@@ -142,7 +139,7 @@ const speakableSchema = {
       <h2 id="get-quote" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Getting a Quote from Bighorn Threads</h2>
       <p class="mb-6 text-lg leading-relaxed text-charcoal">Three things to send for an accurate quote:</p>
       <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
-        <li>Your logo file (PDF, AI, PNG, or JPG — any format works for a quote)</li>
+        <li>Your logo file (PDF, AI, PNG, or JPG; any format works for a quote)</li>
         <li>Quantity and polo preference (or tell us the use case and we'll recommend)</li>
         <li>Placements needed (left chest only, or additional positions)</li>
       </ol>
@@ -159,14 +156,15 @@ const speakableSchema = {
         ))}
       </div>
 
-      <!-- Related -->
+      <NationalLinks heading='Related product guides' links={[{ href: '/custom-polo-shirts/', label: 'Custom polo shirts' }, { href: '/company-uniforms/', label: 'Company uniforms' }]} />
+ <!-- Related -->
       <div class="mt-16 border-t border-hairline pt-12">
         <p class="mb-6 text-xs font-bold uppercase tracking-widest text-gold-600">Related Reading</p>
         <ul class="space-y-3 text-lg">
           <li><a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">How Much Does It Cost to Embroider a Shirt? The 5 Factors</a></li>
           <li><a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Logo Digitizing 101: What It Is and Why It Matters</a></li>
           <li><a href="/screen-printing-vs-embroidery-construction-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Screen Printing vs Embroidery for Construction Crews</a></li>
-          <li><a href="/blog/custom-polo-shirts-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Custom Polo Shirts in Las Vegas — Buyer's Guide</a></li>
+          <li><a href="/blog/custom-polo-shirts-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Custom Polo Shirts in Las Vegas: Buyer's Guide</a></li>
         </ul>
       </div>
 

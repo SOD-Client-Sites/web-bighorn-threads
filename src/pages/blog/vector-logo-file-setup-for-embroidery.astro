@@ -9,13 +9,13 @@ const post = {
  readTime: '7 min read',
  date: 'May 9, 2026',
  isoDate: '2026-05-09',
- image: '/images/generated/service-embroidery.jpg',
+ image: '/images/og-default.jpg',
  slug: 'vector-logo-file-setup-for-embroidery',
 }
 
 const faqs = [
- { q: 'What file format does an embroidery shop need?', a: 'Vector formats are best — .ai (Adobe Illustrator), .eps, .pdf with vector elements, or .svg. JPG and PNG work but may require redrawing if the image is low-resolution. The key isn\'t the file extension, it\'s whether the artwork is built from mathematical paths (vector) rather than fixed pixels (raster).' },
- { q: 'Why does vector matter for embroidery?', a: 'Vector artwork scales without quality loss. The digitizer can resize your logo to fit chest, sleeve, or back placements without losing crispness. Raster images (JPG, PNG) become pixelated when scaled up, which forces the digitizer to redraw — adding time, cost, and the risk of subtle differences from your original brand mark.' },
+ { q: 'What file format does an embroidery shop need?', a: 'Vector formats are best: .ai (Adobe Illustrator), .eps, .pdf with vector elements, or .svg. JPG and PNG work but may require redrawing if the image is low-resolution. The key isn\'t the file extension, it\'s whether the artwork is built from mathematical paths (vector) rather than fixed pixels (raster).' },
+ { q: 'Why does vector matter for embroidery?', a: 'Vector artwork scales without quality loss. The digitizer can resize your logo to fit chest, sleeve, or back placements without losing crispness. Raster images (JPG, PNG) become pixelated when scaled up, which forces the digitizer to redraw, adding time, cost, and the risk of subtle differences from your original brand mark.' },
  { q: 'What\'s the difference between AI, EPS, and SVG?', a: 'All three can contain vector artwork. .ai is Adobe Illustrator\'s native format. .eps supports broad design-software compatibility. .svg is web-native vector. The production partner confirms which file formats and elements its workflow supports.' },
  { q: 'Can you embroider from a JPG or PNG?', a: 'A production partner may accept a JPG or PNG. Low-resolution artwork may require redrawing or added setup. Send the highest-resolution file available, then confirm artwork and fee terms in the quote.' },
  { q: 'What logo elements need review for embroidery?', a: 'Fine lines, small text, gradients, effects, color changes, and dense details may require adjustment. The exact artwork, size, garment, backing, machine, digitizing, and production partner determine viability.' },
@@ -53,12 +53,11 @@ const speakableSchema = {
  <div class="mx-auto max-w-3xl px-4 pt-16 pb-12 sm:px-6 sm:pt-20 lg:px-8">
  <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-600">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-600">Blog</a></nav>
  <span class="kicker mb-3">{post.category}</span>
- <h1 class="mb-6 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl lg:text-5xl">{post.title}</h1>
- <p class="mb-8 text-xl leading-relaxed text-ash">A practical guide to prepping your logo for embroidery — what file formats work, what design elements break in stitch, and how to send the cleanest input to your digitizer.</p>
+ <h1 class="mb-6 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl lg:text-5xl">{post.title.replaceAll(' — ', ': ')}</h1>
+ <p class="mb-8 text-xl leading-relaxed text-ash">A practical guide to prepping your logo for embroidery: what file formats work, what design elements break in stitch, and how to send the cleanest input to your digitizer.</p>
  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
  </header>
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Vector logo file being prepared for embroidery digitizing on a designer's screen" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
@@ -67,16 +66,16 @@ const speakableSchema = {
  </aside>
 
  <h2 id="why-vector" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Why Vector Matters</h2>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Embroidery starts with digitizing — converting your logo into a stitch file the embroidery machine can read. The digitizer needs the cleanest possible input. Vector files (built from mathematical paths) scale infinitely without losing crispness. Raster files (built from fixed pixels) lose quality when enlarged.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Embroidery starts with digitizing, converting your logo into a stitch file the embroidery machine can read. The digitizer needs the cleanest possible input. Vector files (built from mathematical paths) scale infinitely without losing crispness. Raster files (built from fixed pixels) lose quality when enlarged.</p>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">A low-resolution JPG may lack enough detail for clean digitizing. The production partner may request better artwork or quote redraw work. A usable vector file can reduce that preparation.</p>
 
  <h2 id="file-formats" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Acceptable File Formats</h2>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
- <li><strong>.ai (Adobe Illustrator)</strong> — best input. Preserves layers, fonts, effects, swatches. Most digitizers prefer this.</li>
- <li><strong>.eps</strong> — universal vector format. Cleanest cross-software compatibility.</li>
- <li><strong>.pdf</strong> — works if the PDF was exported with vector elements (not flattened to raster).</li>
- <li><strong>.svg</strong> — web-native vector. Works for most digitizers.</li>
- <li><strong>.cdr (CorelDRAW)</strong> — accepted by some shops, but less universal.</li>
+ <li><strong>.ai (Adobe Illustrator)</strong>: best input. Preserves layers, fonts, effects, swatches. Most digitizers prefer this.</li>
+ <li><strong>.eps</strong>: universal vector format. Cleanest cross-software compatibility.</li>
+ <li><strong>.pdf</strong>: works if the PDF was exported with vector elements (not flattened to raster).</li>
+ <li><strong>.svg</strong>: web-native vector. Works for most digitizers.</li>
+ <li><strong>.cdr (CorelDRAW)</strong>: accepted by some shops, but less universal.</li>
  <li><strong>.jpg / .png / .tiff</strong>: raster formats. Acceptance and redraw needs depend on resolution, intended size, and the production workflow.</li>
  </ul>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">For deeper background see our piece on <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">logo digitizing 101</a>.</p>
@@ -112,7 +111,7 @@ const speakableSchema = {
  <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li>Imports your vector into digitizing software (Wilcom, Pulse, Embird, etc.)</li>
  <li>Manually traces each element, deciding stitch direction, density, type (satin, fill, run)</li>
- <li>Sets stitch order — what gets stitched first, what stops/starts, color sequence</li>
+ <li>Sets stitch order: what gets stitched first, what stops/starts, color sequence</li>
  <li>Adjusts compensation for fabric pull (knit fabrics distort differently than wovens)</li>
  <li>Outputs a stitch file (.dst, .emb, .pes, .jef depending on machine)</li>
  <li>Provides the proof or sew-out step stated in the approved production workflow</li>

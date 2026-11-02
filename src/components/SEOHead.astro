@@ -10,14 +10,14 @@ interface Props {
  noindex?: boolean
 }
 
-const DEFAULT_DESCRIPTION = 'Branded apparel and promotional products coordinated by a Las Vegas account team through selected production partners.'
+const DEFAULT_DESCRIPTION = 'Branded apparel and promotional products, coordinated through selected production partners. Based in Las Vegas, shipping nationwide.'
 
 const {
  title,
  description,
  canonical,
  ogImage = '/images/og-default.jpg',
- ogImageAlt = 'Bighorn Threads — Las Vegas branded apparel and promotional products',
+ ogImageAlt = 'Bighorn Threads branded apparel and promotional products, shipped nationwide from Las Vegas',
  type = 'website',
  publishedDate,
  noindex = false,
@@ -76,8 +76,8 @@ const ogImageHref = new URL(ogImage, Astro.site).href
 <!-- Fonts: Big Shoulders Display (industrial headings) + Barlow (technical body) -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Barlow+Condensed:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Barlow+Condensed:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" /></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Barlow+Condensed:wght@500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Barlow+Condensed:wght@500;600;700&display=swap" /></noscript>
 
 <!-- LocalBusiness Schema -->
 <script type="application/ld+json" set:html={JSON.stringify({
@@ -85,8 +85,9 @@ const ogImageHref = new URL(ogImage, Astro.site).href
  '@type': 'LocalBusiness',
  '@id': 'https://bighornthreads.com/#organization',
  name: 'Bighorn Threads',
- description: 'Branded apparel and promotional products coordinated by a Las Vegas account team through selected production partners.',
+ description: 'Branded apparel and promotional products, coordinated through selected production partners. Based in Las Vegas, shipping nationwide.',
  url: 'https://bighornthreads.com',
+ areaServed: { '@type': 'Country', name: 'United States' },
  logo: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png',
  image: 'https://bighornthreads.com/images/og-default.jpg',
  telephone: '+17029048923',

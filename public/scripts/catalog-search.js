@@ -31,7 +31,7 @@ async function runSearch() {
   // Update the H1 without innerHTML
   clearChildren(title)
   title.appendChild(document.createTextNode('Results for '))
-  const qSpan = el('span', { class: 'text-gold-500', text: `"${q}"` })
+  const qSpan = el('span', { class: 'text-gold-700', text: `"${q}"` })
   title.appendChild(qSpan)
 
   meta.textContent = 'Searching…'
@@ -72,8 +72,8 @@ async function runSearch() {
 
 function renderPagination(page, totalPages, q) {
   if (totalPages <= 1) return
-  const linkClass = 'rounded-md border border-navy-700 bg-navy-900 px-4 py-2 font-mono text-xs text-gray-200 hover:border-gold-500/40 hover:text-gold-400'
-  const currentClass = 'rounded-md border border-gold-500/40 bg-navy-900 px-4 py-2 font-mono text-xs text-gold-400'
+  const linkClass = 'rounded border border-hairline bg-panel px-4 py-2 font-mono text-xs text-charcoal hover:border-gold-500/40 hover:text-gold-700'
+  const currentClass = 'rounded border border-gold-500/40 bg-panel px-4 py-2 font-mono text-xs text-gold-700'
   const makeHref = (p) => '?' + new URLSearchParams({ q, page: String(p) })
 
   if (page > 1) {

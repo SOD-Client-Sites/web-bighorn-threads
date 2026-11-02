@@ -1,0 +1,67 @@
+---
+import NationalProductPage from '@/components/NationalProductPage.astro'
+---
+
+<NationalProductPage
+  title="Custom Embroidered Hats With Your Logo | Bighorn Threads"
+  description="Compare hat styles and embroidery options for company logo hats: structured caps, truckers, beanies, 3D puff, and patches. Bighorn Threads ships across the US."
+  path="/custom-embroidered-hats/"
+  photo="embroidered-caps"
+  photoAt="hero"
+  crumb="Custom Embroidered Hats"
+  kicker="Shipped Across the US"
+  h1="Custom embroidered hats"
+  h1Accent="for your company."
+  sub="Cap styles, embroidery types, and logo tips for business orders, from crew hats to client giveaways."
+  lead="Custom embroidered hats are caps or beanies stitched with a logo, usually on the front panel. Structured caps hold a logo best, trucker caps add mesh for airflow, and beanies suit cold-weather teams. The front of a cap has less room than a shirt, so simple logos work best. Bighorn Threads coordinates business hat orders through production partners and ships across the US."
+  serviceName="Custom embroidered hats"
+  serviceType="Custom logo hats and caps with embroidery"
+  table={{
+    heading: 'Compare hat styles',
+    intro: 'Confirm the exact style in your quote. Options vary by manufacturer.',
+    head: ['Style', 'Often chosen for', 'Logo notes'],
+    rows: [
+      ['Structured cap', 'A clean, consistent company look', 'A firm front panel gives the logo a stable surface'],
+      ['Unstructured cap', 'Casual brands and office teams', 'A softer panel, so very dense logos may not sit as flat'],
+      ['Trucker cap', 'Field crews and warm climates', 'The logo sits on the solid front panel, with mesh behind'],
+      ['Flat-bill snapback', 'Younger brands and event merch', 'A tall front panel, with room for bolder marks'],
+      ['Knit beanie', 'Cold-weather crews and winter gifts', 'Knit stretches, so keep lettering simple and check the placement'],
+      ['Visor', 'Outdoor events and golf', 'A small front area, so short marks work better'],
+    ],
+  }}
+  decide={{
+    heading: 'Embroidery choices for hats',
+    items: [
+      { title: 'Flat embroidery', desc: 'The default for most logos. Thread lies flat on the panel. Read more in <a href="/blog/what-is-embroidery-buyers-guide/">what is embroidery</a>.' },
+      { title: '3D puff', desc: 'Foam under the stitches raises the design. It suits bold letters and shapes, and it struggles with thin lines and small text.' },
+      { title: 'Patches', desc: 'A stitched or woven patch can hold more detail or a distinct shape. Compare in <a href="/embroidery-vs-patches-uniforms/">embroidery vs patches</a>.' },
+      { title: 'Printing', desc: 'Some designs suit printing better. Read <a href="/blog/custom-hats-embroidered-screen-printed/">embroidered vs printed hats</a> before you decide.' },
+      { title: 'Center seam', desc: 'Many six-panel caps have a seam down the middle of the front. Ask how your logo will sit across it.' },
+      { title: 'Side and back marks', desc: 'A web address or small icon on the side or back is a second decoration. Include it when you compare prices.' },
+    ],
+  }}
+  body={{
+    heading: 'Getting a logo to work on a hat',
+    paragraphs: [
+      'A logo that looks fine on a business card often needs changes for a cap. The front panel is short and curved, so wide logos get small quickly. If yours is long and thin, try a stacked version or just the icon. It costs far less to figure this out at the proof stage than after the order runs.',
+      'Thread colors also need attention on hats. A dark logo on a dark cap can disappear in daylight. Check the proof against the actual cap color, and ask about a white or light outline if contrast is low.',
+      'Choose closures with the wearer in mind. Snapback and adjustable straps cover a wider range of heads, and that matters when you are ordering for a team or giving hats away. Fitted hats need a size list. Browse options in the <a href="/catalog/caps-hats/">caps and hats catalog</a>.',
+      'Hats also work well as a second item in a larger order. Combine them with <a href="/custom-company-shirts/">company shirts</a> or a <a href="/corporate-swag/">swag kit</a> and ask for one quote.',
+    ],
+  }}
+  quote={{ text: "I've worked with them for over 14 years for all my event promotional needs. From branded apparel to unique giveaways, their products are always high-quality and delivered on time. The embroidery work is especially impressive: clean, detailed, and consistent every time.", who: 'Nadia G.', what: 'Client for 14 years' }}
+  faqs={[
+    { q: 'What kind of logo works best on an embroidered hat?', a: 'Simple shapes and short text work best because a cap front has limited room. Wide logos may need a stacked or icon-only version.' },
+    { q: 'What is 3D puff embroidery?', a: 'It is embroidery stitched over foam so the design stands up from the cap. It suits bold letters and large shapes, and small detail generally does not hold up.' },
+    { q: 'Are patches better than direct embroidery on hats?', a: 'Patches can carry more detail or a distinct shape, while direct embroidery has a cleaner look. Which is better depends on your logo.' },
+    { q: 'Is there a minimum order for custom embroidered hats?', a: 'Minimums depend on the hat, the decoration, and the quantity. Your quote lists the minimum for your order.' },
+    { q: 'How much do custom embroidered hats cost?', a: 'Price depends on the hat style, stitch count, number of placements, and quantity. Your quote lists the price for your order.' },
+    { q: 'Do you make hats for individuals?', a: 'Bighorn Threads focuses on business, school, and organization orders. Send your quantity and logo and the quote will state what is available.' },
+    { q: 'Can you ship hats to different locations?', a: 'Yes. Bighorn Threads ships anywhere in the United States, and your quote confirms the delivery plan and shipping cost.' },
+  ]}
+  related={[
+    { href: '/catalog/caps-hats/', title: 'Caps & Hats Catalog', desc: 'Browse hat styles available to decorate.' },
+    { href: '/blog/custom-hats-embroidered-screen-printed/', title: 'Embroidered vs Printed', desc: 'Which method suits your hat and logo.' },
+    { href: '/custom-hats-las-vegas/', title: 'Hats in Las Vegas', desc: 'Hat planning for teams in the Las Vegas area.' },
+  ]}
+/>

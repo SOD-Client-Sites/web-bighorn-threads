@@ -1,4 +1,5 @@
 ---
+import HeroProducts from '@/components/HeroProducts.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const page = {
@@ -6,7 +7,6 @@ const page = {
  description:
  'North Las Vegas teams can request branded-apparel planning. Service-area eligibility, products, production, timing, and handoff terms require a current written quote.',
  h1Pre: 'North Las Vegas',
- hero: '/images/generated/cta-bluehour.jpg',
 }
 
 const localContext = [
@@ -32,25 +32,25 @@ const trades = [
  name: 'Electrical Contractors',
  detail: 'Employer-selected arc-rated and hi-vis apparel options for electrical and data center fit-out crews.',
  href: '/industries/electrical-contractors-las-vegas/',
- img: '/images/generated/kit-electrical.jpg',
+ img: 'https://www.promoplace.com/ws/ws.dll/QPic?SN=52278&P=549020207&RS=300',
  },
  {
  name: 'General Contractors',
  detail: 'Sub identification, foreman differentiation, and onboarding kits for industrial and warehouse builds.',
  href: '/industries/general-contractors-las-vegas/',
- img: '/images/generated/kit-office-sales.jpg',
+ img: 'https://www.promoplace.com/ws/ws.dll/QPic?SN=52969&P=968353380&RS=300',
  },
  {
  name: 'Plumbing & HVAC',
  detail: 'Mechanical and process piping crews on Apex and VVSEP warehouse and data center mechanical packages.',
  href: '/industries/plumbing-hvac-las-vegas/',
- img: '/images/generated/kit-plumbing-hvac.jpg',
+ img: 'https://www.promoplace.com/ws/ws.dll/QPic?SN=68414&P=945769040&RS=300',
  },
  {
  name: 'Roofing & Solar',
  detail: 'TPO and rooftop solar crews on industrial and warehouse roof systems across NLV.',
  href: '/industries/roofing-solar-las-vegas/',
- img: '/images/generated/service-screen-printing.jpg',
+ img: 'https://www.promoplace.com/ws/ws.dll/QPic?SN=50042&P=722090562&RS=300',
  },
 ]
 
@@ -77,7 +77,7 @@ const faqs = [
  a: 'Bighorn can request current availability and pricing from selected suppliers and production partners. Your employer must approve the exact product and classification before the order is placed.',
  },
  {
- q: 'Can you do gate-visible sub identification — different shirts for each subcontractor on the same data center build?',
+ q: 'Can you do gate-visible sub identification, different shirts for each subcontractor on the same data center build?',
  a: 'A program can include approved colorways and decoration plans for different subcontractors. The GC controls site identification rules, and each new order is subject to product availability, partner capacity, artwork approval, and quoted timing.',
  },
  {
@@ -115,31 +115,27 @@ const faqSchema = {
  title={page.title}
  description={page.description}
  canonical="https://bighornthreads.com/service-areas/north-las-vegas/"
- heroImage={page.hero}
 >
  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
  <!-- Hero — full-bleed photographic dark band -->
- <section class="relative isolate overflow-hidden bg-navy-950">
- <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
- <div class="absolute inset-0 -z-10 bg-navy-950/85"></div>
-
- <div class="mx-auto max-w-7xl px-4 pb-20 pt-16 sm:px-6 sm:pb-28 sm:pt-16 lg:px-8">
- <nav class="mb-6 font-mono text-xs text-navy-300" aria-label="Breadcrumb">
- <a href="/" class="hover:text-gold-400">Home</a>
- <span class="px-2 text-navy-500">/</span>
- <a href="/service-areas/" class="hover:text-gold-400">Service Areas</a>
- <span class="px-2 text-navy-500">/</span>
- <span class="text-gold-400">North Las Vegas</span>
+ <section class="border-b border-hairline bg-concrete">
+ <div class="page-hero-grid mx-auto max-w-7xl px-4 pb-20 pt-16 sm:px-6 sm:pb-28 sm:pt-16 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-700">Home</a>
+ <span class="px-2 text-ash">/</span>
+ <a href="/service-areas/" class="hover:text-gold-700">Service Areas</a>
+ <span class="px-2 text-ash">/</span>
+ <span class="text-gold-700">North Las Vegas</span>
  </nav>
 
  <p class="kicker mb-3">{page.h1Pre}</p>
- <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-6xl">
- Planning Branded Apparel for <span class="text-gold-400">North Las Vegas Teams.</span>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
+ Planning Branded Apparel for <span class="text-gold-700">North Las Vegas Teams.</span>
  </h1>
- <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- North Las Vegas teams can request a branded-apparel quote. Service-area eligibility, products, production partner, timing, and delivery or pickup terms require written confirmation.
+ <p class="max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
+ Branded apparel quotes for North Las Vegas crews, offices, and teams. Tell us the job and we confirm products, timing, and delivery in writing.
  </p>
 
  <div class="mt-10 flex flex-wrap items-center gap-3">
@@ -147,11 +143,12 @@ const faqSchema = {
  Get a Quote
  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
  </a>
- <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">
- <svg class="h-4 w-4 text-gold-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-charcoal transition-colors hover:text-gold-700">
+ <svg class="h-4 w-4 text-gold-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
  702.904.8923
  </a>
  </div>
+  <HeroProducts />
  </div>
  </section>
 
@@ -291,11 +288,11 @@ Teams in North Las Vegas can request Las Vegas based account management. Service
  <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
  <a href="/service-areas/henderson-nv/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Henderson, NV</h3>
- <p class="mt-2 text-sm text-ash">Master-planned community build-out — Cadence, Inspirada, Skye Canyon.</p>
+ <p class="mt-2 text-sm text-ash">Master-planned community build-out: Cadence, Inspirada, Skye Canyon.</p>
  </a>
  <a href="/service-areas/spring-valley/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Spring Valley</h3>
- <p class="mt-2 text-sm text-ash">Service-trade dense — HVAC, plumbing, electrical residential and commercial.</p>
+ <p class="mt-2 text-sm text-ash">Service-trade dense: HVAC, plumbing, electrical residential and commercial.</p>
  </a>
  <a href="/service-areas/boulder-city/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Boulder City</h3>
@@ -303,19 +300,17 @@ Teams in North Las Vegas can request Las Vegas based account management. Service
  </a>
  <a href="/industries/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">All Industries</h3>
- <p class="mt-2 text-sm text-ash">Trade-specific gear, brands, and compliance — pick your industry.</p>
+ <p class="mt-2 text-sm text-ash">Trade-specific gear, brands, and compliance. Pick your industry.</p>
  </a>
  </div>
  </div>
  </section>
 
  <!-- CTA — full-bleed photographic dark band -->
- <section class="relative isolate overflow-hidden bg-navy-950">
- <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" loading="lazy" decoding="async" />
- <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <section class="bg-charcoal">
  <div class="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 lg:px-8">
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">NLV program planning. <span class="text-gold-400">Written order terms.</span></h2>
- <p class="mb-8 text-lg text-navy-200">Bring the employer-approved apparel specification. We will coordinate requested products and decoration through selected production partners.</p>
+ <p class="mb-8 text-lg text-white/80">Bring the employer-approved apparel specification. We will coordinate requested products and decoration through selected production partners.</p>
  <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
  <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium tracking-wide text-white transition-colors hover:text-gold-400">702.904.8923</a>

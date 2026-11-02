@@ -9,12 +9,12 @@ const post = {
  readTime: '8 min read',
  date: 'May 9, 2026',
  isoDate: '2026-05-09',
- image: '/images/generated/service-embroidery.jpg',
+ image: '/images/og-default.jpg',
  slug: 'what-is-embroidery-buyers-guide',
 }
 
 const faqs = [
- { q: 'What is embroidery?', a: 'Embroidery is a decoration method that stitches a design directly into fabric using thread. A digital file (the "stitch file") tells a multi-needle embroidery machine where to place each stitch — building up a design out of thousands of individual stitches in different colors. The result is a textured, durable design that\'s woven into the fabric rather than printed on top.' },
+ { q: 'What is embroidery?', a: 'Embroidery is a decoration method that stitches a design directly into fabric using thread. A digital file (the "stitch file") tells a multi-needle embroidery machine where to place each stitch, building up a design out of thousands of individual stitches in different colors. The result is a textured, durable design that\'s woven into the fabric rather than printed on top.' },
  { q: 'How does an embroidery machine work?', a: 'A commercial multi-needle machine clamps the garment into a hoop, then moves the hoop in X/Y axes under a stationary needle that\'s threaded with one of multiple color spools. The machine reads a stitch file and places each stitch in sequence, switching needles automatically when a color change is needed. A 6-head machine does this on six garments simultaneously.' },
  { q: 'What\'s the embroidery process from logo to finished shirt?', a: 'The production partner digitizes the logo, hoops the garment with suitable backing, loads the stitch file and thread, runs the machine, then trims and inspects the result. Timing depends on the design, stitch count, garment, machine, and order.' },
  { q: 'How is embroidery different from screen printing?', a: 'Embroidery uses thread while screen printing applies an approved ink system. The exact garment, artwork, placement, quantity, feel, care, setup, and partner determine method fit.' },
@@ -57,7 +57,6 @@ const speakableSchema = {
  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
  </header>
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Multi-head commercial embroidery machine stitching a company logo onto polos in production" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
@@ -67,7 +66,7 @@ const speakableSchema = {
 
  <h2 id="how-it-works" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">How Embroidery Works, Step by Step</h2>
  <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
- <li><strong>Digitize the logo.</strong> The original logo file (vector format ideally) is converted into a stitch file by an embroidery digitizer. The digitizer makes decisions about stitch direction, density, color order, and how detail elements translate. This is a one-time process per logo; the file is reused for every reorder.</li>
+ <li><strong>Digitize the logo.</strong> The original logo file (vector format ideally) is converted into a stitch file by an embroidery digitizer. The digitizer makes decisions about stitch direction, density, color order, and how detail elements translate. Confirm file ownership and reuse for reorders in writing.</li>
  <li><strong>Hoop the garment.</strong> The garment is clamped into a hoop with stabilizer backing on the underside. The hoop holds the fabric taut so stitches sit flat without puckering.</li>
  <li><strong>Load the stitch file.</strong> The stitch file is loaded into the embroidery machine via USB or network connection.</li>
  <li><strong>Thread the machine.</strong> The needles are threaded with the thread colors needed for the design. A multi-needle machine has 6-15+ needles, each with its own color.</li>
@@ -101,11 +100,11 @@ const speakableSchema = {
  <h2 id="costs" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">What Drives Embroidery Cost</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">Five factors:</p>
  <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
- <li><strong>Stitch count</strong> — drives most of the per-piece machine time</li>
- <li><strong>Garment cost</strong> — the blank itself is a meaningful part of the total</li>
- <li><strong>Digitizing fee</strong> — a one-time charge per logo</li>
- <li><strong>Decoration complexity</strong> — multiple placements multiply machine operations</li>
- <li><strong>Quantity</strong> — modest volume discount because machine time is fixed per piece</li>
+ <li><strong>Stitch count</strong>: drives most of the per-piece machine time</li>
+ <li><strong>Garment cost</strong>: the blank itself is a meaningful part of the total</li>
+ <li><strong>Digitizing</strong>: any charge depends on the logo and production partner</li>
+ <li><strong>Decoration complexity</strong>: multiple placements multiply machine operations</li>
+ <li><strong>Quantity</strong>: modest volume discount because machine time is fixed per piece</li>
  </ol>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">For full pricing context see <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">how much it costs to embroider a shirt</a>, or the polo-specific numbers in <a href="/blog/how-much-to-embroider-a-polo/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">how much it costs to embroider a polo</a>.</p>
 

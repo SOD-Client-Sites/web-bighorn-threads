@@ -5,8 +5,6 @@
 interface Props {
  tone?: 'paper' | 'concrete'
 }
-const { tone = 'paper' } = Astro.props
-const bg = tone === 'paper' ? 'border-y border-hairline bg-paper' : 'bg-concrete'
 
 const quotes = [
  {
@@ -32,34 +30,33 @@ const quotes = [
 ]
 ---
 
-<section class={`${bg} py-16 sm:py-20`}>
+<section class="proof-band bg-navy-950 py-16 text-white sm:py-20">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
  <div class="max-w-2xl">
- <p class="kicker mb-3">What Clients Say</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">
- Five stars <span class="text-gold-600">from the teams we outfit.</span>
+  <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">
+ Five stars from the teams we outfit
  </h2>
  </div>
- <p class="max-w-md text-sm leading-relaxed text-ash">
+ <p class="max-w-md text-sm leading-relaxed text-white/70">
  Verbatim from client reviews. Crews, schools, and companies that order from us again.
  </p>
  </div>
 
  <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
  {quotes.map((q) => (
- <figure class="flex h-full flex-col border border-hairline bg-panel p-6">
- <div class="mb-4 flex items-center gap-1 text-gold-600" aria-label="5 out of 5 stars">
+ <figure class="flex h-full flex-col">
+ <div class="mb-4 flex items-center gap-1 text-gold-400" role="img" aria-label="5 out of 5 stars">
  {[0, 1, 2, 3, 4].map(() => (
  <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 14.9l-5.3 2.8 1.1-5.9L1.5 7.7l5.9-.8L10 1.5z"/></svg>
  ))}
  </div>
- <blockquote class="flex-1 text-sm leading-relaxed text-charcoal">
+ <blockquote class="flex-1 text-base leading-relaxed text-white">
  “{q.text}”
  </blockquote>
- <figcaption class="mt-5 border-t border-hairline pt-4">
- <span class="block font-heading text-sm font-bold uppercase tracking-tight text-charcoal">{q.who}</span>
- <span class="block font-mono text-xs text-ash">{q.what}</span>
+ <figcaption class="mt-4">
+ <span class="block font-subheading text-base font-semibold text-white">{q.who}</span>
+ {q.what !== 'Client review' && <span class="block text-sm text-white/70">{q.what}</span>}
  </figcaption>
  </figure>
  ))}

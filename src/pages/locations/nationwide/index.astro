@@ -1,4 +1,6 @@
 ---
+import HeroProducts from '@/components/HeroProducts.astro'
+import NationalLinks from '@/components/NationalLinks.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const steps = [
@@ -108,7 +110,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
 >
   <!-- ════ HERO — concrete ════ -->
   <section class="bg-concrete pt-16 pb-20 sm:pt-16 sm:pb-28">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="page-hero-grid mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
         <a href="/" class="hover:text-gold-600">Home</a>
         <span class="px-2 text-ash/60">/</span>
@@ -141,8 +143,9 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
           </a>
         </div>
       </div>
-    </div>
-  </section>
+     <HeroProducts />
+ </div>
+ </section>
 
   <!-- ════ HOW IT WORKS ANYWHERE — paper ════ -->
   <section class="border-y border-hairline bg-paper py-20 sm:py-28">
@@ -207,7 +210,8 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
   </section>
 
   <!-- ════ FAQ — paper ════ -->
-  <section class="border-y border-hairline bg-paper py-20 sm:py-28">
+  <NationalLinks heading='Related product guides' links={[{ href: '/company-uniforms/', label: 'Company uniforms' }, { href: '/custom-company-shirts/', label: 'Custom company shirts' }, { href: '/custom-polo-shirts/', label: 'Custom polo shirts' }, { href: '/custom-embroidered-hats/', label: 'Custom embroidered hats' }, { href: '/custom-quarter-zips-jackets/', label: 'Quarter-zips and jackets' }, { href: '/corporate-swag/', label: 'Corporate swag and branded merchandise' }, { href: '/industries/government/', label: 'Government uniforms' }, { href: '/industries/gaming-hospitality/', label: 'Gaming and hospitality uniforms' }, { href: '/restaurant-uniforms/', label: 'Restaurant uniforms' }, { href: '/hotel-uniforms/', label: 'Hotel uniforms' }, { href: '/plumber-uniforms/', label: 'Plumber uniforms' }, { href: '/hvac-uniforms/', label: 'HVAC uniforms' }, { href: '/custom-hoodies/', label: 'Custom logo hoodies' }, { href: '/custom-screen-printed-shirts/', label: 'Custom screen printed shirts' }, { href: '/custom-safety-vests/', label: 'Custom safety vests' }, { href: '/employee-appreciation-gifts/', label: 'Employee appreciation gifts' }]} />
+ <section class="border-y border-hairline bg-paper py-20 sm:py-28">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <div class="mb-10 max-w-2xl">
         <p class="kicker mb-3">FAQ</p>

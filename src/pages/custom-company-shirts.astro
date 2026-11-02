@@ -1,0 +1,67 @@
+---
+import NationalProductPage from '@/components/NationalProductPage.astro'
+---
+
+<NationalProductPage
+  title="Custom Company Shirts With Your Logo | Bighorn Threads"
+  description="Compare t-shirts, polos, button-ups, and work shirts for your business, and choose embroidery or printing for your logo. Bighorn Threads ships across the US."
+  path="/custom-company-shirts/"
+  photo="shipping-box"
+  photoAt="break"
+  crumb="Custom Company Shirts"
+  kicker="Shipped Across the US"
+  h1="Custom company shirts"
+  h1Accent="with your logo."
+  sub="Choose the shirt first, then the decoration. This page covers both, and when to mix them in one order."
+  lead="Custom company shirts are t-shirts, polos, button-ups, or work shirts decorated with your business logo. Embroidery usually suits polos, button-ups, and work shirts. Screen printing usually suits larger t-shirt runs and big back designs. DTF can suit full-color art on smaller runs. Bighorn Threads coordinates production through selected partners and ships anywhere in the US."
+  serviceName="Custom company shirts"
+  serviceType="Custom logo shirts with embroidery, screen printing, and DTF"
+  table={{
+    heading: 'Compare shirt types',
+    intro: 'Most companies end up with two or three of these, split by who wears them.',
+    head: ['Shirt', 'Where it fits', 'Usual decoration'],
+    rows: [
+      ['T-shirt', 'Events, warehouse teams, hiring and team days, summer field work', 'Screen print, or DTF for full-color art'],
+      ['Long-sleeve tee', 'Outdoor crews and sun exposure', 'Screen print on chest, back, or sleeve'],
+      ['Polo', 'Sales, front desk, account managers, client visits', 'Embroidery on the left chest'],
+      ['Button-up', 'Office staff, managers, hospitality', 'Embroidery on the left chest'],
+      ['Work shirt', 'Service techs and shops that want pockets and heavier fabric', 'Embroidery, or a sewn patch where you prefer one'],
+      ['Performance tee or polo', 'Hot climates, active jobs, company sports', 'Embroidery or a method confirmed for that fabric'],
+    ],
+  }}
+  decide={{
+    heading: 'What changes the result',
+    items: [
+      { title: 'Logo detail', desc: 'Small text and fine lines can fill in when stitched. If your logo is detailed, ask for a simplified version for embroidery. See <a href="/blog/logo-digitizing-101-embroidery/">logo digitizing basics</a>.' },
+      { title: 'Number of colors', desc: 'Each ink color can add setup in screen printing. Full-color art may fit DTF better. Compare in <a href="/screen-printing-vs-dtg-vs-embroidery/">screen printing vs DTG vs embroidery</a>.' },
+      { title: 'Order size', desc: 'Quantity can change which method makes sense and the price per shirt. Read <a href="/blog/minimum-order-quantity-embroidery-screen-printing/">why minimums vary</a>.' },
+      { title: 'Fabric', desc: 'Stretchy and heat-sensitive fabrics limit some decoration methods. Name the exact shirt before you compare prices.' },
+      { title: 'Artwork file', desc: 'A vector file (AI, EPS, or PDF) gives the cleanest start. See <a href="/blog/vector-logo-file-setup-for-embroidery/">how to prepare a logo file</a>.' },
+      { title: 'Wash and wear', desc: 'Shirts worn and washed weekly need a heavier look at fabric and decoration than a one-day event tee.' },
+    ],
+  }}
+  body={{
+    heading: 'Mixing shirts in one order',
+    paragraphs: [
+      'You do not have to choose one shirt for the whole company. A common split is embroidered polos for anyone who meets customers and printed tees for everyone else. Ask for the quote to list each group separately so you can change one without reworking the rest.',
+      'Keep the logo the same across methods. A printed logo and a stitched logo will never look identical, so approve each version and keep them together. That way your next order, or your next location, matches the last one.',
+      'Bring the essentials to your request: the logo file, shirt style if you have one, a rough size breakdown, your date, and the ship-to address. If you do not have a style yet, browse the <a href="/catalog/t-shirts/">t-shirt</a>, <a href="/catalog/polos/">polo</a>, and <a href="/catalog/work-shirts/">work shirt</a> catalogs first.',
+      'New to this? <a href="/blog/what-is-a-company-shirt/">What is a company shirt?</a> covers the basics, and <a href="/is-branded-apparel-worth-it/">is branded apparel worth it?</a> covers whether it makes sense for your business.',
+    ],
+  }}
+  quote={{ text: 'The order was placed and ready earlier than the date we had discussed. The shipment came right away and everyone loves the shirts.', who: 'Elisa K.', what: 'Cram Middle School' }}
+  faqs={[
+    { q: 'What is a company shirt?', a: 'A company shirt is any shirt decorated with a business logo for employees or events, most often a t-shirt, polo, button-up, or work shirt.' },
+    { q: 'Should company shirts be embroidered or printed?', a: 'Embroidery is common on polos, button-ups, and work shirts. Screen printing is common on t-shirts, larger runs, and big back designs. Many companies use both.' },
+    { q: 'How many company shirts should we order?', a: 'Start with headcount and how many days each person wears the shirt between washes, then add spares for new hires. Sizes and spares can be listed in your quote.' },
+    { q: 'Is there a minimum order for custom logo shirts?', a: 'Minimums depend on the shirt, decoration method, and quantity. Your quote lists the minimum for your order.' },
+    { q: 'What logo file do you need?', a: 'A vector file such as AI, EPS, or PDF is best. If you only have an image file, send it and ask whether it can be used or needs to be redrawn.' },
+    { q: 'How long do custom company shirts take?', a: 'Timing depends on the shirt, decoration, and quantity. Tell us your date when you ask for a quote and the quote lists the timing for your order.' },
+    { q: 'Do you ship outside Las Vegas?', a: 'Yes. Bighorn Threads is based in Las Vegas and ships anywhere in the United States.' },
+  ]}
+  related={[
+    { href: '/company-uniforms/', title: 'Company Uniforms', desc: 'Plan garments by role across your team.' },
+    { href: '/custom-polo-shirts/', title: 'Custom Polo Shirts', desc: 'Fabric and logo choices for polos.' },
+    { href: '/custom-work-shirts-las-vegas/', title: 'Work Shirts in Las Vegas', desc: 'Work shirt options for crews in the Las Vegas area.' },
+  ]}
+/>

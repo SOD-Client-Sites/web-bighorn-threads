@@ -5,13 +5,14 @@
 ## Entity
 - Name: Bighorn Threads (a VP Promos brand)
 - Category: branded apparel and promotional products
-- Location: Las Vegas, NV
+- Based in: Las Vegas, NV
+- Service area: ships anywhere in the United States
 - Phone: 702.904.8923
 - Email: info@bighornthreads.com
 - Website: https://bighornthreads.com
 
 ## Operating model
-Bighorn Threads provides Las Vegas based account management and coordinates production through partners.
+Bighorn Threads provides account management from Las Vegas, ships anywhere in the United States, and coordinates production through partners.
 
 ## Services offered
 - Embroidery: available for qualifying garments and artwork. Minimums and reorder terms are confirmed in the quote.

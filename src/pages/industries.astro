@@ -1,53 +1,18 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import { photo } from '@/data/pagePhotos'
 
-const industries = [
- {
- slug: 'general-contractors',
- name: 'General Contractors & Construction',
- href: '#industry-general-contractors',
- },
- {
- slug: 'electrical',
- name: 'Electrical Contractors',
- href: '#industry-electrical',
- },
- {
- slug: 'plumbing-hvac',
- name: 'Plumbing & HVAC',
- href: '#industry-plumbing-hvac',
- },
- {
- slug: 'roofing-solar',
- name: 'Roofing & Solar',
- href: '#industry-roofing-solar',
- },
- {
- slug: 'landscaping',
- name: 'Landscaping & Outdoor Services',
- href: '#industry-landscaping',
- },
- {
- slug: 'concrete-masonry',
- name: 'Concrete & Masonry',
- href: '#industry-concrete-masonry',
- },
- {
- slug: 'steel-iron',
- name: 'Steel & Iron Workers',
- href: '#industry-steel-iron',
- },
- {
- slug: 'oil-gas-mechanical',
- name: 'Oil, Gas & Mechanical',
- href: '#industry-oil-gas-mechanical',
- },
- {
- slug: 'data-center',
- name: 'Data Center & Mission-Critical',
- href: '/industries/data-center-contractors-las-vegas/',
- badge: 'Vegas #1 growth sector',
- },
+// Trade pages. Each id keeps the old on-page anchor working for outside links.
+const trades = [
+ { id: 'industry-general-contractors', name: 'General Contractors', href: '/industries/general-contractors-las-vegas/' },
+ { id: 'industry-electrical', name: 'Electrical', href: '/industries/electrical-contractors-las-vegas/' },
+ { id: 'industry-plumbing-hvac', name: 'Plumbing & HVAC', href: '/industries/plumbing-hvac-las-vegas/' },
+ { id: 'industry-roofing-solar', name: 'Roofing & Solar', href: '/industries/roofing-solar-las-vegas/' },
+ { id: 'industry-landscaping', name: 'Landscaping', href: '/industries/landscaping-las-vegas/' },
+ { id: 'industry-concrete-masonry', name: 'Concrete & Masonry', href: '/industries/concrete-masonry-las-vegas/' },
+ { id: 'industry-steel-iron', name: 'Steel & Iron', href: '/industries/steel-iron-workers-las-vegas/' },
+ { id: 'industry-oil-gas-mechanical', name: 'Oil, Gas & Mechanical', href: '/industries/oil-gas-mechanical-las-vegas/' },
+ { id: 'industry-data-center', name: 'Data Center', href: '/industries/data-center-contractors-las-vegas/' },
 ]
 
 // Vertical hubs for the industries Bighorn serves. Each links to its own hub page.
@@ -61,33 +26,40 @@ const verticals = [
  name: 'Corporate',
  href: '/industries/corporate/',
  blurb: 'Branded apparel and a company store for office, tech, finance, and pro-services teams.',
+ image: 'new-hire-kit',
  },
  {
  name: 'Education',
  href: '/industries/education/',
  blurb: 'Spirit wear and staff apparel for districts, schools, universities, and booster clubs.',
+ image: 'school-staff-polos',
  },
  {
  name: 'Healthcare',
  href: '/industries/healthcare/',
  blurb: 'Branded scrubs, embroidered lab coats, and role-based gear for clinics and hospitals.',
+ image: 'apparel-flat-lay',
  },
  {
  name: 'Government',
  href: '/industries/government/',
  blurb: 'Uniforms and ANSI hi-vis for cities, public works, utilities, and transit agencies.',
+ image: 'public-works-crew',
  },
  {
  name: 'Gaming & Hospitality',
  href: '/industries/gaming-hospitality/',
  blurb: 'Department uniforms and branded gear for casinos, resorts, and hotels.',
+ image: 'hotel-front-desk',
  },
  {
  name: 'Events & Teams',
  href: '/industries/events/',
  blurb: 'Custom merch and on-demand stores for trade shows, conferences, and sports teams.',
+ image: 'trade-show-booth',
  },
 ]
+const [construction, ...others] = verticals
 
 const collectionSchema = {
  '@context': 'https://schema.org',
@@ -118,656 +90,81 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  title="Branded Apparel by Industry | Bighorn Threads"
  description="Explore branded apparel and managed company-store programs for construction, corporate, education, healthcare, government, hospitality, and event teams."
 >
- <!-- ════ HERO — full-bleed photographic dark band ════ -->
- <section class="relative isolate overflow-hidden bg-navy-950">
- <img src="/images/generated/crew-vegas.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover object-center" loading="eager" fetchpriority="high" decoding="async" />
- <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/85 to-navy-950/40"></div>
-
- <div class="mx-auto max-w-7xl px-4 pb-16 pt-16 sm:px-6 sm:pt-20 lg:px-8 lg:pb-24 lg:pt-20">
- <div class="max-w-3xl">
- <p class="kicker mb-5 flex items-center gap-2.5">
- <span class="h-px w-8 bg-gold-500"></span>
- Industries We Serve
- </p>
- <h1 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-6xl">
- Managed company stores and branded gear for <span class="text-gold-400">different teams.</span>
+ <!-- Intro -->
+ <section class="bg-concrete">
+ <div class="mx-auto max-w-7xl px-4 pb-10 pt-14 sm:px-6 sm:pt-16 lg:px-8">
+ <p class="kicker mb-4">Industries We Serve</p>
+ <div class="grid gap-5 lg:grid-cols-[7fr_5fr] lg:items-end lg:gap-12">
+ <h1 class="font-heading text-5xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal lg:text-7xl">
+ Branded gear for the team you run.
  </h1>
- <p class="mt-6 max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- Bighorn manages branded apparel programs for crews, offices, schools, clinics, agencies, and event teams. Selected production partners handle approved decoration. Program and service-area terms are confirmed in writing.
+ <p class="text-lg leading-relaxed text-ash">
+ One Las Vegas account team, production partners for the decoration, and terms in writing. Pick your industry.
  </p>
- <div class="mt-8 flex flex-wrap gap-2.5">
- {verticals.map((vertical) => (
- <a
- href={vertical.href}
- class="inline-flex min-h-[44px] items-center gap-2 border border-navy-700 bg-navy-900/60 px-4 py-2 font-mono text-xs font-medium uppercase tracking-wider text-navy-200 transition-colors hover:border-gold-500 hover:text-gold-300"
- >
- {vertical.name}
+ </div>
+ </div>
+ </section>
+
+ <!-- Construction & Trades: full-bleed photo band -->
+ <section class="relative isolate flex min-h-[28rem] items-end bg-navy-950 lg:min-h-[34rem]">
+ <img src={photo('home-hero-jobsite-crew').file} alt={photo('home-hero-jobsite-crew').alt} width="1376" height="768" fetchpriority="high" decoding="async" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+ <div class="absolute inset-0 -z-10 bg-[rgba(0,24,42,0.55)]"></div>
+ <div class="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+ <h2 class="font-heading text-5xl font-extrabold uppercase leading-[0.95] tracking-tight text-white lg:text-6xl">{construction.name}</h2>
+ <p class="mt-3 max-w-xl text-lg leading-relaxed text-white">{construction.blurb}</p>
+ <a href={construction.href} class="btn-primary mt-6 text-base">See construction and trades</a>
+ </div>
+ </section>
+
+ <!-- Trade links -->
+ <section class="bg-paper py-10 sm:py-12">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal">By trade</h2>
+ <ul class="grid border-t border-hairline sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-3">
+ {trades.map((trade) => (
+ <li id={trade.id} class="scroll-mt-24 border-b border-hairline">
+ <a href={trade.href} class="group flex min-h-[52px] items-center justify-between gap-3 py-2 font-subheading text-xl font-semibold text-charcoal hover:text-gold-700">
+ {trade.name}
+ <svg class="h-4 w-4 shrink-0 text-gold-700 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
+ </a>
+ </li>
+ ))}
+ </ul>
+ </div>
+ </section>
+
+ <!-- Other industries -->
+ <section class="bg-concrete py-14 sm:py-16">
+ <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <h2 class="mb-8 font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal lg:text-5xl">Beyond the job site</h2>
+ <div class="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+ {others.map((vertical) => (
+ <a href={vertical.href} class="group block">
+ <img src={photo(vertical.image!).file} alt={photo(vertical.image!).alt} width="1376" height="768" loading="lazy" decoding="async" class="aspect-video w-full object-cover sm:aspect-[3/2]" />
+ <h3 class="mt-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal group-hover:text-gold-700">{vertical.name}</h3>
+ <p class="mt-1 text-ash">{vertical.blurb}</p>
  </a>
  ))}
  </div>
- </div>
- </div>
- </section>
-
- <!-- ════ Vertical hubs index — paper ════ -->
- <section class="border-b border-hairline bg-paper py-20 sm:py-28">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <div class="mb-12 max-w-3xl">
- <p class="kicker mb-3">Pick Your Vertical</p>
- <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
- Seven industries. One <span class="text-gold-600">company store.</span>
- </h2>
- <p class="mt-4 text-lg leading-relaxed text-ash">
- Every team runs differently. Find your vertical below for the gear, the decoration methods, and the store setup that fit how your people actually work.
- </p>
- </div>
- <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
- {verticals.map((vertical) => (
- <a href={vertical.href} class="group flex flex-col border border-hairline bg-panel p-7 transition-colors hover:border-gold-500">
- <h3 class="font-heading text-xl font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">{vertical.name}</h3>
- <p class="mt-3 flex-1 text-ash">{vertical.blurb}</p>
- <span class="mt-5 inline-flex items-center gap-2 font-mono text-xs font-medium uppercase tracking-wider text-gold-600">
- Explore
- <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
- </span>
- </a>
- ))}
- </div>
+ <p class="mt-10 text-sm text-ash">Sample photos, shown to illustrate each industry. They do not show Bighorn customers or staff. For regulated PPE, the employer and garment manufacturer approve the product and any decoration.</p>
  </div>
  </section>
 
- <!-- ════ Construction & Trades deep-dive — header ════ -->
- <section class="scroll-mt-20 border-b border-hairline bg-concrete py-16 sm:py-20">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <div class="max-w-3xl">
- <p class="kicker mb-3">Construction & Trades</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-4xl">
- Where Bighorn <span class="text-gold-600">started.</span>
- </h2>
- <p class="mt-4 text-lg leading-relaxed text-ash">
- Trade crews are our roots, so we go deep here. Below is the gear, the compliance, and the company-store playbook by trade. Want the full hub? <a href="/industries/construction-trades/" class="font-semibold text-gold-700 underline decoration-gold-500/40 underline-offset-2 hover:decoration-gold-500">See Construction & Trades</a>.
- </p>
- <div class="mt-6 flex flex-wrap gap-2">
- <a href="/industries/general-contractors-las-vegas/" class="spec border border-hairline px-2.5 py-1 text-ash transition-colors hover:border-gold-500 hover:text-gold-700">General Contractors</a>
- <a href="/industries/electrical-contractors-las-vegas/" class="spec border border-hairline px-2.5 py-1 text-ash transition-colors hover:border-gold-500 hover:text-gold-700">Electrical</a>
- <a href="/industries/plumbing-hvac-las-vegas/" class="spec border border-hairline px-2.5 py-1 text-ash transition-colors hover:border-gold-500 hover:text-gold-700">Plumbing & HVAC</a>
- <a href="/industries/roofing-solar-las-vegas/" class="spec border border-hairline px-2.5 py-1 text-ash transition-colors hover:border-gold-500 hover:text-gold-700">Roofing & Solar</a>
- <a href="/industries/landscaping-las-vegas/" class="spec border border-hairline px-2.5 py-1 text-ash transition-colors hover:border-gold-500 hover:text-gold-700">Landscaping</a>
- <a href="/industries/concrete-masonry-las-vegas/" class="spec border border-hairline px-2.5 py-1 text-ash transition-colors hover:border-gold-500 hover:text-gold-700">Concrete & Masonry</a>
- <a href="/industries/steel-iron-workers-las-vegas/" class="spec border border-hairline px-2.5 py-1 text-ash transition-colors hover:border-gold-500 hover:text-gold-700">Steel & Iron</a>
- <a href="/industries/oil-gas-mechanical-las-vegas/" class="spec border border-hairline px-2.5 py-1 text-ash transition-colors hover:border-gold-500 hover:text-gold-700">Oil, Gas & Mechanical</a>
- <a href="/industries/data-center-contractors-las-vegas/" class="spec border border-gold-500 bg-gold-500/10 px-2.5 py-1 text-gold-700 transition-colors hover:bg-gold-500/20">Data Center & Mission-Critical</a>
- </div>
- </div>
- </div>
- </section>
-
- <!-- ════ Trade 1: General Contractors (Featured) — concrete ════ -->
- <section id="industry-general-contractors" class="scroll-mt-20 bg-concrete py-20 sm:py-28">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <div class="border-l-4 border-gold-500 bg-panel">
- <div class="grid items-start gap-10 border border-l-0 border-hairline p-7 sm:p-10 lg:grid-cols-[auto_1fr]">
- <div class="h-24 w-24 flex-shrink-0 overflow-hidden border border-hairline sm:h-32 sm:w-32">
- <img
- src="/images/generated/kit-gc.jpg"
- alt="General contractor crew gear kit — hi-vis tees, embroidered polos, branded hard hat"
- width="400"
- height="400"
- loading="lazy"
- decoding="async"
- class="h-full w-full object-cover"
- />
- </div>
- <div>
- <div class="mb-3 flex flex-wrap items-center gap-3">
- <span class="spec text-gold-600">General Contractors & Construction</span>
- <span class="spec inline-flex items-center gap-1.5 bg-gold-500 px-2.5 py-1 text-charcoal">
- <svg class="h-3 w-3" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
- Our Specialty
- </span>
- </div>
- <h2 class="font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-4xl">
- The crew that builds Vegas deserves gear that holds up.
- </h2>
- <div class="mt-5 space-y-4 text-lg leading-relaxed text-ash">
- <p>
- Construction apparel may face heat, sweat, dust, and abrasion. Bighorn can quote selected heavyweight tees, employer-approved hi-vis products, hard hats, and identification options. Current manufacturer information and the employer's safety requirements control product selection.
- </p>
- <p>
- A company store can support approved products and user requests.
- </p>
- <p>
- Examples to evaluate with the employer include hi-vis products, embroidered polos, employer-selected hard hats, outerwear, repeat-order planning, and site-identification garments. Every product and decoration requires current approval and quoted terms.
- </p>
- </div>
- <div class="mt-6 flex flex-wrap gap-2">
- {['Hi-Vis ANSI Class 2/3', 'Hard Hats', 'Heavyweight Tees', 'Embroidered Polos', 'Branded Jackets', 'Company Stores', 'Safety Vests'].map((tag) => (
- <span class="spec border border-hairline px-2.5 py-1 text-ash">{tag}</span>
- ))}
- </div>
- <div class="mt-8">
- <a href="/contact/?industry=general-contractors" class="btn-primary text-base">
- Get a Quote for General Contractors
- <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
- </a>
- </div>
- </div>
- </div>
- </div>
- </div>
- </section>
-
- <!-- ════ Industry 2: Electrical — paper ════ -->
- <section id="industry-electrical" class="scroll-mt-20 border-y border-hairline bg-paper py-20 sm:py-28">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <div class="grid items-start gap-10 lg:grid-cols-[auto_1fr]">
- <div class="h-20 w-20 flex-shrink-0 overflow-hidden border border-hairline sm:h-28 sm:w-28">
- <img
- src="/images/generated/kit-electrical.jpg"
- alt="Electrical crew gear — FR-rated shirts, embroidered softshell jacket, beanie"
- width="400"
- height="400"
- loading="lazy"
- decoding="async"
- class="h-full w-full object-cover"
- />
- </div>
- <div>
- <span class="spec mb-3 inline-block text-gold-600">Electrical Contractors</span>
- <h2 class="font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-4xl">
- Arc-rated apparel planning around your employer-approved requirements.
- </h2>
- <div class="mt-5 space-y-4 text-lg leading-relaxed text-ash">
- <p>
- Electrical employers must select apparel through a documented hazard assessment. Bighorn can quote selected FR and AR garments after receiving the written requirement. The employer and manufacturer approve the final product and decoration plan.
- </p>
- <p>
- Decoration can affect a protective garment. The employer and manufacturer must approve the method, materials, backing, and placement. Bighorn coordinates the written requirement with a selected production partner. Office apparel and promotional items can be quoted separately.
- </p>
- <p>
- Common orders: FR/AR button-downs and tees, embroidered FR jackets, hi-vis FR hoodies, branded polos for service techs, beanies, and work hats.
- </p>
- </div>
- <div class="mt-6 flex flex-wrap gap-2">
- {['FR/AR Rated (NFPA 70E)', 'CAT 1 & CAT 2', 'Embroidered Polos', 'FR Patches', 'Branded Beanies', 'Service Tech Uniforms', 'Leave-Behind Promo'].map((tag) => (
- <span class="spec border border-hairline px-2.5 py-1 text-ash">{tag}</span>
- ))}
- </div>
- <div class="mt-8">
- <a href="/contact/?industry=electrical" class="btn-primary text-base">
- Get a Quote for Electrical
- <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
- </a>
- </div>
- </div>
- </div>
- </div>
- </section>
-
- <!-- ════ Industry 3: Plumbing & HVAC — concrete ════ -->
- <section id="industry-plumbing-hvac" class="scroll-mt-20 bg-concrete py-20 sm:py-28">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <div class="grid items-start gap-10 lg:grid-cols-[auto_1fr]">
- <div class="h-20 w-20 flex-shrink-0 overflow-hidden border border-hairline sm:h-28 sm:w-28">
- <img
- src="/images/generated/kit-plumbing-hvac.jpg"
- alt="Plumbing and HVAC service gear — embroidered service polo, work jacket, ball cap"
- width="400"
- height="400"
- loading="lazy"
- decoding="async"
- class="h-full w-full object-cover"
- />
- </div>
- <div>
- <span class="spec mb-3 inline-block text-gold-600">Plumbing & HVAC</span>
- <h2 class="font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-4xl">
- Moisture-wicking work shirts and branded trucks that win the driveway.
- </h2>
- <div class="mt-5 space-y-4 text-lg leading-relaxed text-ash">
- <p>
- Plumbing and HVAC technicians can face heat, moisture, and frequent customer visits. Bighorn can quote performance work shirts, polos, and button-downs. Product claims come from the manufacturer, and production partners handle approved decoration.
- </p>
- <p>
- Residential service businesses may use magnets, notepads, pens, drinkware, and jackets as part of a follow-up program. Bighorn can coordinate a quoted product mix through selected suppliers and production partners.
- </p>
- <p>
- Common orders: performance work shirts, embroidered polos, branded service-tech jackets, truck magnets, notepads, pens, water bottles, and seasonal promo giveaways.
- </p>
- </div>
- <div class="mt-6 flex flex-wrap gap-2">
- {['Moisture-Wicking Shirts', 'Embroidered Polos', 'Service Tech Jackets', 'Truck Magnets', 'Branded Notepads', 'Promo Pens', 'Leave-Behind Kits'].map((tag) => (
- <span class="spec border border-hairline px-2.5 py-1 text-ash">{tag}</span>
- ))}
- </div>
- <div class="mt-8">
- <a href="/contact/?industry=plumbing-hvac" class="btn-primary text-base">
- Get a Quote for Plumbing & HVAC
- <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
- </a>
- </div>
- </div>
- </div>
- </div>
- </section>
-
- <!-- ════ Industry 4: Roofing & Solar — paper ════ -->
- <section id="industry-roofing-solar" class="scroll-mt-20 border-y border-hairline bg-paper py-20 sm:py-28">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <div class="grid items-start gap-10 lg:grid-cols-[auto_1fr]">
- <div class="h-20 w-20 flex-shrink-0 overflow-hidden border border-hairline sm:h-28 sm:w-28">
- <img
- src="/images/generated/kit-roofing.jpg"
- alt="Roofing crew gear — ANSI hi-vis tee, embroidered bucket hat, hoodie"
- width="400"
- height="400"
- loading="lazy"
- decoding="async"
- class="h-full w-full object-cover"
- />
- </div>
- <div>
- <span class="spec mb-3 inline-block text-gold-600">Roofing & Solar</span>
- <h2 class="font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-4xl">
- Hi-vis on every rooftop. Sun-proof gear for 115-degree Vegas summers.
- </h2>
- <div class="mt-5 space-y-4 text-lg leading-relaxed text-ash">
- <p>
- Roofing and solar employers must assess each work zone and select required visibility apparel. Bighorn can quote selected tees, long-sleeves, hoodies, and vests. The employer and manufacturer must approve any regulated garment and decoration plan.
- </p>
- <p>
- Las Vegas roof work can create serious heat and sun exposure. The employer's heat plan controls apparel choices. Bighorn can quote products with published UPF ratings, plus compatible hats, jackets, booth apparel, and promotional items.
- </p>
- <p>
- Common orders: hi-vis ANSI tees and hoodies, UPF long-sleeves, custom hard hats, embroidered sales-rep softshells, trade show giveaways, and branded safety vests.
- </p>
- </div>
- <div class="mt-6 flex flex-wrap gap-2">
- {['ANSI Class 2/3 Hi-Vis', 'UPF 30+ Long-Sleeves', 'Custom Hard Hats', 'Sales Rep Softshells', 'Trade Show Swag', 'Branded Trucker Hats', 'Safety Vests'].map((tag) => (
- <span class="spec border border-hairline px-2.5 py-1 text-ash">{tag}</span>
- ))}
- </div>
- <div class="mt-8">
- <a href="/contact/?industry=roofing-solar" class="btn-primary text-base">
- Get a Quote for Roofing & Solar
- <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
- </a>
- </div>
- </div>
- </div>
- </div>
- </section>
-
- <!-- ════ Industry 5: Landscaping — concrete ════ -->
- <section id="industry-landscaping" class="scroll-mt-20 bg-concrete py-20 sm:py-28">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <div class="grid items-start gap-10 lg:grid-cols-[auto_1fr]">
- <div class="h-20 w-20 flex-shrink-0 overflow-hidden border border-hairline sm:h-28 sm:w-28">
- <img
- src="/images/generated/kit-landscaping.jpg"
- alt="Landscaping crew gear — moisture-wicking performance tee, trucker cap, quarter-zip pullover"
- width="400"
- height="400"
- loading="lazy"
- decoding="async"
- class="h-full w-full object-cover"
- />
- </div>
- <div>
- <span class="spec mb-3 inline-block text-gold-600">Landscaping & Outdoor Services</span>
- <h2 class="font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-4xl">
- Sun-proof, dust-proof gear for crews that live outside.
- </h2>
- <div class="mt-5 space-y-4 text-lg leading-relaxed text-ash">
- <p>
- Landscaping and outdoor service crews can face prolonged sun and heat exposure. The employer's heat plan controls apparel choices. Bighorn can quote hats, performance shirts, and polos through selected suppliers and production partners.
- </p>
- <p>
- A coordinated apparel and promotional product program can support a consistent public presentation. Bighorn can quote selected gloves, drinkware, coolers, quarter-zips, and client gifts. Availability and decoration depend on the product and production partner.
- </p>
- <p>
- Common orders: wide-brim sun hats, performance tees and tanks, embroidered sales polos, branded work gloves, logo water bottles and coolers, embroidered quarter-zips, and client gifting sets.
- </p>
- </div>
- <div class="mt-6 flex flex-wrap gap-2">
- {['Wide-Brim Sun Hats', 'Performance Tees & Tanks', 'Embroidered Polos', 'Branded Work Gloves', 'Logo Coolers', 'Crew Water Bottles', 'Quarter-Zips'].map((tag) => (
- <span class="spec border border-hairline px-2.5 py-1 text-ash">{tag}</span>
- ))}
- </div>
- <div class="mt-8">
- <a href="/contact/?industry=landscaping" class="btn-primary text-base">
- Get a Quote for Landscaping
- <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
- </a>
- </div>
- </div>
- </div>
- </div>
- </section>
-
- <!-- ════ Industry 6: Concrete & Masonry — paper ════ -->
- <section id="industry-concrete-masonry" class="scroll-mt-20 border-y border-hairline bg-paper py-20 sm:py-28">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <div class="grid items-start gap-10 lg:grid-cols-[auto_1fr]">
- <div class="h-20 w-20 flex-shrink-0 overflow-hidden border border-hairline sm:h-28 sm:w-28">
- <img
- src="/images/generated/kit-concrete.jpg"
- alt="Concrete and masonry crew gear — heavyweight tee, hi-vis vest, branded white hard hat"
- width="400"
- height="400"
- loading="lazy"
- decoding="async"
- class="h-full w-full object-cover"
- />
- </div>
- <div>
- <span class="spec mb-3 inline-block text-gold-600">Concrete & Masonry</span>
- <h2 class="font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-4xl">
- Heavyweight workwear built to take a beating.
- </h2>
- <div class="mt-5 space-y-4 text-lg leading-relaxed text-ash">
- <p>
- Concrete and masonry work can expose garments to cement, abrasion, and heavy wear. Bighorn can quote heavyweight workwear options based on current manufacturer specifications. Production partners handle approved decoration.
- </p>
- <p>
- Concrete employers must select visibility and protective apparel through their hazard assessment. Bighorn can quote selected vests, polos, work pants, knee pads, and tool-belt accessories. The employer and manufacturer approve any regulated product and decoration.
- </p>
- <p>
- Common orders: heavyweight branded tees, hi-vis concrete-pour vests, embroidered polos for office staff, branded reinforced work pants, company-logo knee pads, and hard hats with company decal.
- </p>
- </div>
- <div class="mt-6 flex flex-wrap gap-2">
- {['Heavyweight 6oz+ Tees', 'Reinforced Work Pants', 'ANSI Class 2 Vests', 'Embroidered Polos', 'Branded Knee Pads', 'Hard Hat Decals', 'Office Button-Downs'].map((tag) => (
- <span class="spec border border-hairline px-2.5 py-1 text-ash">{tag}</span>
- ))}
- </div>
- <div class="mt-8">
- <a href="/contact/?industry=concrete-masonry" class="btn-primary text-base">
- Get a Quote for Concrete & Masonry
- <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
- </a>
- </div>
- </div>
- </div>
- </div>
- </section>
-
- <!-- ════ Industry 7: Steel & Iron Workers — concrete ════ -->
- <section id="industry-steel-iron" class="scroll-mt-20 bg-concrete py-20 sm:py-28">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <div class="grid items-start gap-10 lg:grid-cols-[auto_1fr]">
- <div class="h-20 w-20 flex-shrink-0 overflow-hidden border border-hairline sm:h-28 sm:w-28">
- <img
- src="/images/generated/kit-steel.jpg"
- alt="Ironworker and structural steel gear — FR-rated work shirt, heavy welding gloves, branded hard hat with chin strap"
- width="400"
- height="400"
- loading="lazy"
- decoding="async"
- class="h-full w-full object-cover"
- />
- </div>
- <div>
- <span class="spec mb-3 inline-block text-gold-600">Steel & Iron Workers / Structural Trades</span>
- <h2 class="font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-4xl">
- FR-rated gear for the trades that walk the iron.
- </h2>
- <div class="mt-5 space-y-4 text-lg leading-relaxed text-ash">
- <p>
- Structural steel and ironworking can involve several serious hazards. The employer's assessment determines required PPE and apparel. Bighorn can quote selected garments and coordinate manufacturer-approved decoration through production partners.
- </p>
- <p>
- Steel crews may also use canvas jackets, heavyweight tees, hard hat decals, gloves, polos, and quarter-zips. Product compatibility, decoration, availability, and timing depend on the current quote.
- </p>
- <p>
- Common orders: FR-rated work shirts and jackets, embroidered canvas jackets, hard hat stickers, heavy-duty branded gloves, heavyweight logo tees, and office-side embroidered polos.
- </p>
- </div>
- <div class="mt-6 flex flex-wrap gap-2">
- {['FR-Rated Shirts & Jackets', 'Embroidered Canvas Jackets', 'Hard Hat Stickers', 'Branded Heavy-Duty Gloves', 'Heavyweight Tees', 'Office Polos', 'Quarter-Zips'].map((tag) => (
- <span class="spec border border-hairline px-2.5 py-1 text-ash">{tag}</span>
- ))}
- </div>
- <div class="mt-8">
- <a href="/contact/?industry=steel-iron" class="btn-primary text-base">
- Get a Quote for Steel & Iron
- <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
- </a>
- </div>
- </div>
- </div>
- </div>
- </section>
-
- <!-- ════ Industry 8: Oil, Gas & Mechanical — paper ════ -->
- <section id="industry-oil-gas-mechanical" class="scroll-mt-20 border-y border-hairline bg-paper py-20 sm:py-28">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <div class="grid items-start gap-10 lg:grid-cols-[auto_1fr]">
- <div class="h-20 w-20 flex-shrink-0 overflow-hidden border border-hairline sm:h-28 sm:w-28">
- <img
- src="/images/generated/kit-datacenter.jpg"
- alt="Oil, gas, and mechanical field gear — FR-rated button-up shirt, embroidered softshell jacket, arc-rated gloves"
- width="400"
- height="400"
- loading="lazy"
- decoding="async"
- class="h-full w-full object-cover"
- />
- </div>
- <div>
- <span class="spec mb-3 inline-block text-gold-600">Oil, Gas & Mechanical</span>
- <h2 class="font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-4xl">
- FR/AR workwear and field-ready promo for high-hazard operations.
- </h2>
- <div class="mt-5 space-y-4 text-lg leading-relaxed text-ash">
- <p>
- Oil, gas, and mechanical employers may require FR, AR, and identification standards. The employer defines each requirement. Bighorn can quote selected garments and coordinate manufacturer-approved decoration through production partners.
- </p>
- <p>
- Field service teams may use hi-vis jackets, shoe covers, caps, first aid kits, hard hat accessories, flashlights, and drinkware. Employers select all safety equipment. Bighorn can quote compatible branded items after receiving the written requirements.
- </p>
- <p>
- Common orders: FR/AR rated coveralls and work shirts, branded hi-vis field jackets, steel-toe boot covers, embroidered ball caps, branded first aid kits, and safety-themed promo items for trade shows and safety meetings.
- </p>
- </div>
- <div class="mt-6 flex flex-wrap gap-2">
- {['FR/AR Coveralls', 'FR Work Shirts', 'Hi-Vis Field Jackets', 'Steel-Toe Boot Covers', 'Embroidered Ball Caps', 'Branded First Aid Kits', 'Safety Promo Items'].map((tag) => (
- <span class="spec border border-hairline px-2.5 py-1 text-ash">{tag}</span>
- ))}
- </div>
- <div class="mt-8">
- <a href="/contact/?industry=oil-gas-mechanical" class="btn-primary text-base">
- Get a Quote for Oil, Gas & Mechanical
- <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
- </a>
- </div>
- </div>
- </div>
- </div>
- </section>
-
- <!-- ════ Why contractors stay with us — concrete ════ -->
- <section class="bg-concrete py-20 sm:py-28">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <div class="mb-12 max-w-3xl">
- <p class="kicker mb-3">Why Trades Stay</p>
- <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
- Why trade crews stay with us <span class="text-gold-600">after one order.</span>
- </h2>
- <p class="mt-4 text-lg leading-relaxed text-ash">
- Buying branded apparel shouldn't feel like pulling teeth. Here's what sets Bighorn apart from the big online printers and the cheap promo brokers.
- </p>
- </div>
- <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
- <div class="border border-hairline bg-panel p-8">
- <div class="mb-5 flex h-12 w-12 items-center justify-center bg-gold-500/15 text-gold-700">
- <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
- <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0.375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0.375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0.375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
- </svg>
- </div>
- <h3 class="font-heading text-xl font-bold uppercase tracking-tight text-charcoal">We speak contractor.</h3>
- <p class="mt-3 text-ash">
- We ask about the work environment, garment requirements, and the employer's documented safety program before recommending products. For regulated PPE, the employer, garment manufacturer, and qualified safety professional remain the authority.
- </p>
- </div>
- <div class="border border-hairline bg-panel p-8">
- <div class="mb-5 flex h-12 w-12 items-center justify-center bg-gold-500/15 text-gold-700">
- <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
- <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
- <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
- </svg>
- </div>
- <h3 class="font-heading text-xl font-bold uppercase tracking-tight text-charcoal">Las Vegas account management.</h3>
- <p class="mt-3 text-ash">
- Bighorn provides Las Vegas account management. Pickup, job-site delivery, service area, quantity, and timing depend on the selected program and production partner. Your quote confirms the available options.
- </p>
- </div>
- <div class="border border-hairline bg-panel p-8">
- <div class="mb-5 flex h-12 w-12 items-center justify-center bg-gold-500/15 text-gold-700">
- <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
- <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0.225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
- </svg>
- </div>
- <h3 class="font-heading text-xl font-bold uppercase tracking-tight text-charcoal">Crew-scale ready.</h3>
- <p class="mt-3 text-ash">
- Minimums and price breaks depend on the product, decoration method, and production partner. Tell us the real quantity you need and we will quote the available options without inventing a universal threshold.
- </p>
- </div>
- </div>
- </div>
- </section>
-
- <!-- ════ Cross-industry solutions — paper ════ -->
- <section class="border-y border-hairline bg-paper py-20 sm:py-28">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <div class="mb-12 max-w-3xl">
- <p class="kicker mb-3">Cross-Industry Solutions</p>
- <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
- Whatever your trade, we coordinate <span class="text-gold-600">the approved program.</span>
- </h2>
- <p class="mt-4 text-lg leading-relaxed text-ash">
- Regardless of industry, Bighorn provides Las Vegas account management and coordinates the approved apparel program through selected production partners.
- </p>
- </div>
- <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
- <a href="/services/#screen-printing" class="group border border-hairline bg-panel p-7 transition-colors hover:border-gold-500">
- <div class="mb-4 flex h-12 w-12 items-center justify-center bg-gold-500/15 text-gold-700">
- <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0110.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18" /></svg>
- </div>
- <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">Screen Printing</h3>
- <p class="mt-2 text-sm leading-relaxed text-ash">Multi-color prints that survive job-site conditions.</p>
- </a>
- <a href="/services/#embroidery" class="group border border-hairline bg-panel p-7 transition-colors hover:border-gold-500">
- <div class="mb-4 flex h-12 w-12 items-center justify-center bg-gold-500/15 text-gold-700">
- <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128z" /></svg>
- </div>
- <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">Embroidery</h3>
- <p class="mt-2 text-sm leading-relaxed text-ash">Professional logo embroidery on polos, jackets, hats, and bags.</p>
- </a>
- <a href="/services/#branded-apparel" class="group border border-hairline bg-panel p-7 transition-colors hover:border-gold-500">
- <div class="mb-4 flex h-12 w-12 items-center justify-center bg-gold-500/15 text-gold-700">
- <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5" /></svg>
- </div>
- <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">Branded Apparel</h3>
- <p class="mt-2 text-sm leading-relaxed text-ash">Hi-vis tees, polos, jackets, and full crew uniform packages.</p>
- </a>
- <a href="/services/#promotional-products" class="group border border-hairline bg-panel p-7 transition-colors hover:border-gold-500">
- <div class="mb-4 flex h-12 w-12 items-center justify-center bg-gold-500/15 text-gold-700">
- <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5" /></svg>
- </div>
- <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">Branded Promo Products</h3>
- <p class="mt-2 text-sm leading-relaxed text-ash">Drinkware, truck magnets, notepads, giveaways, and client gifts.</p>
- </a>
- <a href="/services/" class="group border border-hairline bg-panel p-7 transition-colors hover:border-gold-500">
- <div class="mb-4 flex h-12 w-12 items-center justify-center bg-gold-500/15 text-gold-700">
- <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>
- </div>
- <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">Hi-Vis Safety Gear</h3>
- <p class="mt-2 text-sm leading-relaxed text-ash">Selected hi-vis apparel quoted against your employer-approved requirements.</p>
- </a>
- <a href="/services/" class="group border border-hairline bg-panel p-7 transition-colors hover:border-gold-500">
- <div class="mb-4 flex h-12 w-12 items-center justify-center bg-gold-500/15 text-gold-700">
- <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72" /></svg>
- </div>
- <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">Company Stores</h3>
- <p class="mt-2 text-sm leading-relaxed text-ash">Managed store options with capabilities confirmed in the approved proposal.</p>
- </a>
- </div>
- </div>
- </section>
-
- <!-- ════ Compliance callout — concrete ════ -->
- <section class="bg-concrete py-20 sm:py-28">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <div class="border-l-4 border-gold-500 bg-panel">
- <div class="grid items-start gap-10 border border-l-0 border-hairline p-8 sm:p-12 lg:grid-cols-[auto_1fr]">
- <div class="flex h-16 w-16 flex-shrink-0 items-center justify-center bg-gold-500/15 text-gold-700">
- <svg class="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
- <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
- </svg>
- </div>
- <div>
- <p class="kicker mb-3">Compliance Matters</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-4xl">
- We ask for the applicable product and safety requirements before production. The employer and manufacturer must approve any regulated PPE specification.
- </h2>
- <div class="mt-5 space-y-4 text-lg leading-relaxed text-ash">
- <p>
- Your employer and safety lead define the required class, rating, and task conditions. The garment manufacturer must approve the exact decoration method, materials, and placement.
- </p>
- <p>
- Bighorn asks for the written employer requirement before quoting regulated apparel. If the requirement is unclear, consult the qualified safety lead before selecting a garment.
- </p>
- </div>
- <div class="mt-8 grid gap-3 sm:grid-cols-3">
- <div class="border border-hairline bg-concrete p-4">
- <div class="spec text-gold-600">Standard</div>
- <div class="mt-1 font-heading font-bold uppercase tracking-tight text-charcoal">ANSI/ISEA 107</div>
- <div class="text-sm text-ash">Hi-vis apparel</div>
- </div>
- <div class="border border-hairline bg-concrete p-4">
- <div class="spec text-gold-600">Standard</div>
- <div class="mt-1 font-heading font-bold uppercase tracking-tight text-charcoal">NFPA 70E</div>
- <div class="text-sm text-ash">Arc flash / electrical</div>
- </div>
- <div class="border border-hairline bg-concrete p-4">
- <div class="spec text-gold-600">Standard</div>
- <div class="mt-1 font-heading font-bold uppercase tracking-tight text-charcoal">OSHA 1926</div>
- <div class="text-sm text-ash">Construction PPE</div>
- </div>
- </div>
- </div>
- </div>
- </div>
- </div>
- </section>
-
- <!-- ════ Final CTA — full-bleed photographic dark band ════ -->
- <section class="relative isolate overflow-hidden bg-navy-950">
- <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" loading="lazy" decoding="async" />
- <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <!-- Final CTA -->
+ <section class="bg-charcoal">
  <div class="mx-auto max-w-3xl px-4 py-24 text-center sm:px-6 sm:py-32 lg:px-8">
- <p class="kicker mb-3 justify-center">Don't See Your Industry?</p>
- <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-6xl">
- Your industry isn't listed? <span class="text-gold-400">We probably outfit it anyway.</span>
+ <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl">
+ Don't see your industry?
  </h2>
- <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-navy-200">
- Nonprofits. Restaurants. Retail. Real estate. Fitness. Faith groups. Tell us what your team needs. Bighorn can prepare a program recommendation with written production and service terms.
+ <p class="mx-auto mt-3 max-w-2xl text-lg leading-relaxed text-white/80">
+ Nonprofits, restaurants, retail, real estate, fitness, faith groups. Tell us what your team needs.
  </p>
- <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
- <a href="/get-a-quote/" class="btn-primary text-base">
- Get a Quote
- <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d={arrow} /></svg>
- </a>
- <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">
- <svg class="h-4 w-4 text-gold-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
- (702) 904-8923
- </a>
+ <div class="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
+ <a href="tel:+17029048923" class="px-2 py-3 font-mono text-sm font-medium tracking-wide">(702) 904-8923</a>
  </div>
  </div>
  </section>
 
  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
 </BaseLayout>
-</content>
-</invoke>

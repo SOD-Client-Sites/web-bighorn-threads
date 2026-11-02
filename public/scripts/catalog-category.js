@@ -62,12 +62,12 @@ async function loadCategoryPage() {
 }
 
 function buildEmptyState() {
-  const wrap = el('div', { class: 'col-span-full rounded-xl border border-navy-800/60 bg-navy-900/40 p-10 text-center' })
-  wrap.appendChild(el('p', { class: 'font-heading text-lg text-white', text: 'Nothing matched that search.' }))
-  wrap.appendChild(el('p', { class: 'mt-2 text-sm text-gray-400', text: 'Try broader keywords, or browse another category.' }))
+  const wrap = el('div', { class: 'col-span-full rounded border border-hairline bg-panel p-10 text-center' })
+  wrap.appendChild(el('p', { class: 'font-heading text-lg text-charcoal', text: 'Nothing matched that search.' }))
+  wrap.appendChild(el('p', { class: 'mt-2 text-sm text-ash', text: 'Try broader keywords, or browse another category.' }))
   wrap.appendChild(el('a', {
     href: '/catalog/',
-    class: 'mt-5 inline-block font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-500 hover:text-gold-400',
+    class: 'mt-5 inline-block font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-700 hover:text-gold-700',
     text: '← All Categories',
   }))
   return wrap
@@ -75,8 +75,8 @@ function buildEmptyState() {
 
 function renderPagination(pager, page, totalPages, q) {
   if (totalPages <= 1) return
-  const linkClass = 'rounded-md border border-navy-700 bg-navy-900 px-4 py-2 font-mono text-xs text-gray-200 hover:border-gold-500/40 hover:text-gold-400'
-  const currentClass = 'rounded-md border border-gold-500/40 bg-navy-900 px-4 py-2 font-mono text-xs text-gold-400'
+  const linkClass = 'rounded border border-hairline bg-panel px-4 py-2 font-mono text-xs text-charcoal hover:border-gold-500/40 hover:text-gold-700'
+  const currentClass = 'rounded border border-gold-500/40 bg-panel px-4 py-2 font-mono text-xs text-gold-700'
   const makeHref = (p) => '?' + new URLSearchParams({ ...(q && { q }), page: String(p) })
 
   if (page > 1) {

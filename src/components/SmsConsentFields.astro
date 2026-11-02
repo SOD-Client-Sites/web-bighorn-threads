@@ -18,22 +18,22 @@ const { tone = 'light' } = Astro.props
 
 const labelCls =
   tone === 'compact'
-    ? 'text-xs leading-relaxed text-ash'
-    : 'text-sm leading-relaxed text-charcoal'
+    ? 'text-xs leading-snug text-ash'
+    : 'text-xs leading-snug text-charcoal sm:text-sm sm:leading-relaxed'
 const boxCls =
-  'mt-0.5 h-4 w-4 shrink-0 rounded border-hairline bg-panel text-gold-600 focus:ring-2 focus:ring-gold-500/40 focus:ring-offset-0'
+  'mt-0.5 h-5 w-5 shrink-0 sm:h-4 sm:w-4 rounded border-hairline bg-panel text-gold-600 focus:ring-2 focus:ring-gold-500/40 focus:ring-offset-0'
 ---
 
-<fieldset data-sms-consent class="mt-6 space-y-3 border border-hairline bg-panel p-4">
-  <legend class="px-1 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">
+<fieldset data-sms-consent class="sms-consent mt-5 space-y-2.5 border border-hairline bg-panel p-3 sm:space-y-3 sm:p-4">
+  <legend class="float-left mb-1 w-full font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-gold-700">
     Text Message Preferences <span class="font-sans text-ash">(optional)</span>
   </legend>
-  <p class="-mt-1 text-[11px] leading-relaxed text-ash">
+  <p class="clear-both text-[11px] leading-snug text-ash">
     Texts from <span class="text-charcoal">VP Promos LLC, d/b/a Bighorn Threads</span>.
     Both boxes are optional — leave them blank if you don&rsquo;t want texts.
   </p>
 
-  <label class="flex items-start gap-3">
+  <label class="flex items-start gap-2.5">
     <input type="checkbox" name="smsTransactionalConsent" value="yes" class={boxCls} />
     <span class={labelCls}>
       I consent to receive transactional (non-marketing) text messages from
@@ -44,7 +44,7 @@ const boxCls =
     </span>
   </label>
 
-  <label class="flex items-start gap-3">
+  <label class="flex items-start gap-2.5">
     <input type="checkbox" name="smsMarketingConsent" value="yes" class={boxCls} />
     <span class={labelCls}>
       I consent to receive marketing and promotional text messages from
@@ -55,11 +55,11 @@ const boxCls =
     </span>
   </label>
 
-  <p class="border-t border-hairline pt-3 text-xs leading-relaxed text-ash">
+  <p class="border-t border-hairline pt-2.5 text-[11px] leading-snug text-ash sm:text-xs sm:leading-relaxed">
     Consent to texts is <span class="text-charcoal">not required</span> to get a quote or do
-    business with us. By submitting this form you agree to our
-    <a href="/legal/privacy-policy/" class="text-gold-700 underline underline-offset-2 hover:text-gold-600">Privacy&nbsp;Policy</a>
-    and
+    business with us. By submitting this form you agree to our{' '}
+    <a href="/legal/privacy-policy/" class="text-gold-700 underline underline-offset-2 hover:text-gold-600">Privacy&nbsp;Policy</a>{' '}
+    and{' '}
     <a href="/legal/terms/" class="text-gold-700 underline underline-offset-2 hover:text-gold-600">Terms&nbsp;&amp;&nbsp;Conditions</a>.
     No mobile information is shared with third parties or affiliates for marketing purposes.
   </p>

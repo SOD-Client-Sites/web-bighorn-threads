@@ -1,15 +1,16 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import NationalLinks from '@/components/NationalLinks.astro'
 
 const post = {
- title: 'How Many Shirts Should You Order Per Crew Member? A Vegas Planning Guide',
+ title: 'How Many Shirts Should You Order Per Crew Member?',
  description:
- 'Plan branded shirt quantities for a Las Vegas construction crew by role, schedule, laundering, replacement policy, season, and budget.',
+ 'Plan branded shirt quantities for a construction crew by role, schedule, laundering, replacement policy, season, and budget.',
  category: 'Operations',
  readTime: '8 min read',
  date: 'Apr 14, 2026',
  isoDate: '2026-04-14',
- image: '/images/generated/workwear-flatlay.jpg',
+ image: '/images/og-default.jpg',
  slug: 'how-many-shirts-per-crew-member-vegas',
 }
 
@@ -85,10 +86,6 @@ const schema = {
  </div>
  </div>
  </header>
-
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8">
- <img src={post.image} alt="Stack of folded branded construction shirts in various sizes" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" />
- </div>
 
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
  <aside class="mb-12 border border-hairline bg-panel p-6 lg:sticky lg:top-24">
@@ -214,7 +211,7 @@ const schema = {
  </div>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- For a more detailed breakdown by trade — electrical, roofing, plumbing — see our <a href="/industries/" class="text-gold-600 underline hover:text-gold-700">industries pages</a>. Each trade has a standard kit specific to the work and the gear we recommend by role.
+ For a more detailed breakdown by trade (electrical, roofing, plumbing), see our <a href="/industries/" class="text-gold-600 underline hover:text-gold-700">industries pages</a>. Each trade has a standard kit specific to the work and the gear we recommend by role.
  </p>
 
  <div class="my-12 border border-hairline bg-gold-500/5 p-8 text-center">
@@ -252,4 +249,5 @@ const schema = {
  <a href="/get-a-quote/" class="inline-flex min-h-[44px] items-center justify-center bg-gold-500 px-8 py-4 text-lg font-bold text-charcoal transition-all hover:bg-gold-600">Get a Quote</a>
  </div>
  </section>
+ <NationalLinks heading='Related product guides' links={[{ href: '/plumber-uniforms/', label: 'Plumber uniforms' }, { href: '/hvac-uniforms/', label: 'HVAC uniforms' }]} />
 </BaseLayout>

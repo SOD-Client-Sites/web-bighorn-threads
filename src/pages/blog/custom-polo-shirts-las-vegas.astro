@@ -1,4 +1,5 @@
 ---
+import NationalLinks from '@/components/NationalLinks.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const post = {
@@ -9,7 +10,7 @@ const post = {
  readTime: '9 min read',
  date: 'May 9, 2026',
  isoDate: '2026-05-09',
- image: '/images/generated/service-embroidery.jpg',
+ image: '/images/og-default.jpg',
  slug: 'custom-polo-shirts-las-vegas',
 }
 
@@ -53,11 +54,10 @@ const speakableSchema = {
  <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-700">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-700">Blog</a></nav>
  <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-600">{post.category}</span>
  <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
- <p class="mb-8 text-xl leading-relaxed text-ash">A working buyer's guide to custom embroidered polos — what blank to pick, how the embroidery affects the price, and what to ask before you order.</p>
+ <p class="mb-8 text-xl leading-relaxed text-ash">A working buyer's guide to custom embroidered polos: what blank to pick, how the embroidery affects the price, and what to ask before you order.</p>
  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
  </header>
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Representative embroidered polo shown for product and placement planning" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
@@ -75,21 +75,21 @@ const speakableSchema = {
  <li>Office staff and dispatchers in the front-of-house</li>
  <li>Foremen and supervisors when a visual cue separates them from field crew</li>
  </ul>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Field crews working in dirty, abrasive conditions (concrete, masonry, demo) usually skip polos and run on heavyweight tees instead — see <a href="/blog/how-to-outfit-a-construction-crew-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">how to outfit a construction crew</a>.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Field crews working in dirty, abrasive conditions (concrete, masonry, demo) usually skip polos and run on heavyweight tees instead. See <a href="/blog/how-to-outfit-a-construction-crew-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">how to outfit a construction crew</a>.</p>
 
  <h2 id="blanks" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The Polo Blanks That Matter</h2>
 
- <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Port Authority K500 Silk Touch — the workhorse</h3>
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Port Authority K500 Silk Touch: the workhorse</h3>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">The Port Authority K500 is one polo to compare for service businesses and trade teams. Confirm current fabric, fit, sizes, colors, care, decoration, availability, and size-specific pricing.</p>
 
- <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Port Authority K540 Performance — for Vegas heat</h3>
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Port Authority K540 Performance: for Vegas heat</h3>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">The K540 is a performance-fabric option to compare with the K500. Review current specifications, fit, care, heat-plan needs, availability, and quoted price before selecting either fabric.</p>
 
- <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Carhartt Workwear Pocket Polo — trade-friendly</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Heavier-weight polo with a chest pocket. Reads as a trade-friendly piece — fits naturally on a contractor or service tech without looking like office attire. Slightly higher per-piece cost than the K500 but the chest pocket is functional for pens, badges, and small tools.</p>
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Carhartt Workwear Pocket Polo: trade-friendly</h3>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Heavier-weight polo with a chest pocket. Reads as a trade-friendly piece, fits naturally on a contractor or service tech without looking like office attire. Slightly higher per-piece cost than the K500 but the chest pocket is functional for pens, badges, and small tools.</p>
 
- <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Nike Dri-FIT, Travis Mathew, Cutter & Buck — premium</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">For client-facing executive roles, business development, and ownership. These polos cost more than a workhorse Port Authority blank, but the difference is visible at a glance. The right call when the polo is going on a person whose attire signals authority — at industry events, in client meetings, on speaking engagements. Embroidery placement and stitch density work the same way as on the workhorse blanks.</p>
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Nike Dri-FIT, Travis Mathew, Cutter & Buck: premium</h3>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">For client-facing executive roles, business development, and ownership. These polos cost more than a workhorse Port Authority blank, but the difference is visible at a glance. The right call when the polo is going on a person whose attire signals authority: at industry events, in client meetings, on speaking engagements. Embroidery placement and stitch density work the same way as on the workhorse blanks.</p>
 
  <h2 id="embroidery" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Embroidery on Polos</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">Logo dimensions, stitch plan, detail, stability, and cost depend on the exact artwork, polo, size range, backing, digitizing, machine, and production partner. Approve the final treatment in the proof or sample.</p>
@@ -118,6 +118,7 @@ const speakableSchema = {
  <li><strong>Pick placements.</strong> Left chest is standard; add sleeve or right-chest name if it fits the program.</li>
  </ol>
 
+ <NationalLinks heading='Related product guides' links={[{ href: '/custom-polo-shirts/', label: 'Custom polo shirts' }, { href: '/company-uniforms/', label: 'Company uniforms' }]} />
  <div class="mt-12 border border-hairline bg-gold-500/5 p-7 sm:p-9">
  <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-charcoal">Custom embroidered polos in Las Vegas</h2>
 <p class="mb-5 text-lg leading-relaxed text-charcoal">Bighorn Threads coordinates embroidered polo programs through selected production partners. Send your logo, crew sizes, and deadline for a current quote.</p>

@@ -1,10 +1,11 @@
 ---
+import HeroProducts from '@/components/HeroProducts.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const problems = [
   {
     title: 'Department uniforms, no system',
-    desc: 'Public works, parks, water, transit — every department needs its own uniforms, and there is no single place to order them.',
+    desc: 'Public works, parks, water, transit: every department needs its own uniforms, and there is no single place to order them.',
   },
   {
     title: 'Hi-vis and safety compliance',
@@ -139,7 +140,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
 >
   <!-- ════ HERO — concrete ════ -->
   <section class="bg-concrete pt-16 pb-20 sm:pt-20 sm:pb-28">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="page-hero-grid mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
         <a href="/" class="hover:text-gold-600">Home</a>
         <span class="px-2 text-ash/60">/</span>
@@ -171,8 +172,9 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
           </a>
         </div>
       </div>
-    </div>
-  </section>
+     <HeroProducts />
+ </div>
+ </section>
 
   <!-- ════ THE PROBLEM — paper ════ -->
   <section class="border-y border-hairline bg-paper py-20 sm:py-28">

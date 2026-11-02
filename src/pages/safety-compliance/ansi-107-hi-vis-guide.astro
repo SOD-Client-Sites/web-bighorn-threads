@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import NationalLinks from '@/components/NationalLinks.astro'
 
 const post = {
  title: 'ANSI/ISEA 107 Hi-Vis Guide for Branded Workwear',
@@ -9,7 +10,7 @@ const post = {
  readTime: '9 min read',
  date: 'May 9, 2026',
  isoDate: '2026-05-09',
- image: '/images/generated/service-screen-printing.jpg',
+ image: '/images/og-default.jpg',
  slug: 'ansi-107-hi-vis-guide',
 }
 
@@ -61,10 +62,6 @@ const schema = {
     </div>
    </div>
   </header>
-
-  <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8">
-   <img src={post.image} alt="High-visibility garments prepared for employer and manufacturer review" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" />
-  </div>
 
   <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
    <aside class="mb-10 border border-hairline bg-panel p-7">
@@ -124,4 +121,5 @@ const schema = {
    </section>
   </div>
  </article>
+ <NationalLinks heading='Related product guides' links={[{ href: '/custom-safety-vests/', label: 'Custom safety vests' }]} />
 </BaseLayout>

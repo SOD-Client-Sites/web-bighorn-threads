@@ -1,34 +1,35 @@
 ---
+import HeroProducts from '@/components/HeroProducts.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import NationalLinks from '@/components/NationalLinks.astro'
 
 const page = {
  title: 'Custom Screen Printing Las Vegas | T-Shirt Printing for Crews | Bighorn Threads',
  description:
  'Custom screen printing in Las Vegas for crews, teams, and events. Send artwork, garment, quantity, and deadline for a written quote; production runs through vetted local partners.',
- hero: '/images/generated/service-screen-printing.jpg',
 }
 
 const process = [
- { step: '01', title: 'Quote + artwork', body: 'Send your logo, garment needs, quantities, and deadline. Bighorn prepares the order for review.' },
- { step: '02', title: 'Proof + approval', body: 'Review the product, artwork, decoration method, timing, and commercial terms before approving the order.' },
- { step: '03', title: 'Partner production', body: 'A production partner performs the approved screen printing. Bighorn remains your account contact.' },
- { step: '04', title: 'Order completion', body: 'Bighorn coordinates the completion steps documented in your quote and provides reorder support.' },
+ { step: '01', title: 'Quote + artwork', body: 'Send your logo, garment needs, quantities, and deadline. We put the order together for you to review.' },
+ { step: '02', title: 'Proof + approval', body: 'Check the product, artwork, print method, timing, and price, then approve the order.' },
+ { step: '03', title: 'Partner production', body: 'A production partner prints what you approved. We stay your contact.' },
+ { step: '04', title: 'Order completion', body: 'We finish the steps listed in your quote and help when it\'s time to reorder.' },
 ]
 
 const inkTypes = [
  { name: 'Plastisol', best: 'Bold, punchy graphics on cotton or blended tees. Most jobs.', notes: 'Sits on top of the fabric. Bright, opaque, durable through rough use.' },
  { name: 'Water-based', best: 'Soft hand-feel, vintage / faded look, super-soft tees.', notes: 'Sinks into the fabric. Slightly less opaque on dark garments. Premium feel.' },
  { name: 'Discharge', best: 'Dark cotton tees where you want zero ink feel.', notes: 'Removes the dye and replaces it with new color. Cotton only. Soft as untreated.' },
- { name: 'Synthetic-compatible', best: 'Compatible performance polyester and nylon garments.', notes: 'The garment and ink system must be reviewed together before production.' },
+ { name: 'Synthetic-compatible', best: 'Polyester and nylon performance garments that can take this ink.', notes: 'The garment and ink have to be checked together before printing.' },
 ]
 
 const garments = ['T-shirts (cotton + blends)', 'Long-sleeve tees', 'Hoodies + crewnecks', 'Compatible polyester garments', 'Tote bags + canvas', 'Compatible workwear', 'Polos with suitable print areas']
 
 const minimums = [
- { count: 'Quantity', best: 'Minimums depend on the garment, artwork, decoration, and production partner.' },
- { count: 'Artwork', best: 'Each color and print location affects the production specification.' },
- { count: 'Garment', best: 'Fabric, color, and construction determine which print approach fits.' },
- { count: 'Timing', best: 'Current production timing is confirmed after the complete order review.' },
+ { count: 'Quantity', best: 'Your minimum depends on the garment, artwork, and partner.' },
+ { count: 'Artwork', best: 'Each color and print location adds to the job.' },
+ { count: 'Garment', best: 'Fabric, color, and construction decide which print approach fits.' },
+ { count: 'Timing', best: 'We give you a date once we\'ve reviewed the whole order.' },
 ]
 
 const faqs = [
@@ -91,32 +92,28 @@ const faqSchema = {
  title={page.title}
  description={page.description}
  canonical="https://bighornthreads.com/services/screen-printing-las-vegas/"
- heroImage={page.hero}
 >
  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
  <!-- Hero — full-bleed photographic dark band -->
- <section class="relative isolate overflow-hidden bg-navy-950">
- <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
- <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/45"></div>
-
- <div class="mx-auto max-w-7xl px-4 pb-20 pt-16 sm:px-6 sm:pt-20 lg:px-8 lg:pb-28">
- <nav class="mb-6 font-mono text-xs text-navy-300" aria-label="Breadcrumb">
- <a href="/" class="hover:text-gold-400">Home</a>
- <span class="px-2 text-navy-500">/</span>
- <a href="/services/" class="hover:text-gold-400">Services</a>
- <span class="px-2 text-navy-500">/</span>
- <span class="text-gold-400">Screen Printing</span>
+ <section class="border-b border-hairline bg-concrete">
+ <div class="page-hero-grid mx-auto max-w-7xl px-4 pb-20 pt-16 sm:px-6 sm:pt-20 lg:px-8 lg:pb-28">
+ <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-700">Home</a>
+ <span class="px-2 text-ash">/</span>
+ <a href="/services/" class="hover:text-gold-700">Services</a>
+ <span class="px-2 text-ash">/</span>
+ <span class="text-gold-700">Screen Printing</span>
  </nav>
 
  <p class="kicker mb-3">Service</p>
- <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-6xl">
- Custom screen printing in Las Vegas <span class="text-gold-400">for crews, teams &amp; contractors.</span>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
+ Custom screen printing in Las Vegas <span class="text-gold-700">for crews, teams &amp; contractors.</span>
  </h1>
- <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- Bulk tees, hi-vis, and work shirts printed through our Las Vegas production partners. Send your artwork, garment needs, quantity, and deadline for a written quote.
+ <p class="max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
+ Bulk tees, hi-vis, and work shirts printed through our production partners. Send your artwork, garment needs, quantity, and deadline for a written quote.
  </p>
 
  <div class="mt-10 flex flex-wrap items-center gap-3">
@@ -124,10 +121,11 @@ const faqSchema = {
  Get a Quote
  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
  </a>
- <a href="/services/embroidery-las-vegas/" class="inline-flex min-h-[48px] items-center gap-2 border border-gold-500 px-6 py-3 font-subheading text-sm font-semibold uppercase tracking-wide text-gold-400 transition-colors hover:bg-gold-500 hover:text-charcoal">
+ <a href="/services/embroidery-las-vegas/" class="btn-secondary">
  Compare to Embroidery
  </a>
  </div>
+  <HeroProducts />
  </div>
  </section>
 
@@ -136,7 +134,7 @@ const faqSchema = {
  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
  <aside class="border border-hairline bg-gold-500/5 p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl">Bighorn Threads coordinates custom screen printing for Las Vegas crews, contractors, and teams. Production partners perform the approved printing. Bighorn manages the artwork, proof, quote, order, and reorder communication.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl">We run custom screen printing orders for Las Vegas crews, contractors, and teams. Production partners do the printing. We handle the artwork, proof, quote, and reorders.</p>
  </aside>
  </div>
  </section>
@@ -145,12 +143,12 @@ const faqSchema = {
  <section class="border-b border-hairline bg-paper py-16">
  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
  <h2 class="mb-5 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal sm:text-3xl">What should you look for in a screen printing company?</h2>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Look for a written quote that spells out the garment, ink, colors, print locations, setup, and unit price; a proof you approve before anything is printed; a straight answer on who performs the printing; timing confirmed against your date; and a reorder process that keeps your approved artwork and specification on file.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Look for a written quote that spells out the garment, ink, colors, print locations, setup, and unit price. You should approve a proof before anything prints. Ask who does the printing, whether they can make your date, and whether they keep your artwork on file for reorders.</p>
  <ul class="space-y-3 text-base leading-relaxed text-ash">
- <li><strong class="text-charcoal">Written terms.</strong> Bighorn confirms the current minimum, setup, and price in your quote before you approve.</li>
- <li><strong class="text-charcoal">Proof first.</strong> You review the product, artwork, method, timing, and terms before production.</li>
- <li><strong class="text-charcoal">Clear production.</strong> A production partner performs the approved printing; Bighorn stays your account contact.</li>
- <li><strong class="text-charcoal">Right ink for the garment.</strong> Plastisol, water-based, discharge, and synthetic-compatible inks each fit different fabrics and uses.</li>
+ <li><strong class="text-charcoal">Written terms.</strong> Your quote lists price, minimums, and timing before you approve.</li>
+ <li><strong class="text-charcoal">Proof first.</strong> You check the product, artwork, and method before production.</li>
+ <li><strong class="text-charcoal">Clear production.</strong> A production partner does the printing. We stay your contact.</li>
+ <li><strong class="text-charcoal">Right ink for the garment.</strong> Plastisol, water-based, discharge, and synthetic-compatible inks each suit different fabrics.</li>
  </ul>
  <p class="mt-6 text-base leading-relaxed text-ash">For a longer checklist, read the <a href="/blog/screen-printing-shop-las-vegas-guide/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">screen printing shop Las Vegas guide</a> and <a href="/how-to-choose-custom-apparel-company/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">how to choose a custom apparel company</a>.</p>
  </div>
@@ -183,7 +181,7 @@ const faqSchema = {
  <p class="kicker mb-3">Ink Selection</p>
  <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Four ink families. We pick the one that fits the job.</h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- These are common screen-printing ink families. Available options depend on the garment, artwork, intended use, and production partner.
+ These are the common ink types. What's available depends on the garment, artwork, use, and partner.
  </p>
  </div>
 
@@ -207,7 +205,7 @@ const faqSchema = {
  <p class="kicker mb-3">Garments</p>
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">What can be screen printed.</h2>
  <p class="mb-6 text-lg leading-relaxed text-ash">
- Cotton, blends, and compatible synthetics can suit different screen-printing needs. Bighorn confirms garment suitability during the order review.
+ Cotton, blends, and some synthetics can all be printed. We check your garment when we review the order.
  </p>
  <ul class="grid grid-cols-1 gap-2 sm:grid-cols-2">
  {garments.map((g) => (
@@ -245,22 +243,22 @@ const faqSchema = {
 
  <div class="space-y-5 text-lg leading-relaxed text-charcoal">
  <p>
- Screen printing can fit shirts, hoodies, sweatshirts, and other compatible garments with artwork designed for the method. Cost depends on the garment, quantity, colors, and print locations. Bighorn coordinates the approved order through a production partner and confirms current terms in writing.
+ Screen printing fits shirts, hoodies, and sweatshirts when the artwork suits the method. Cost comes down to the garment, quantity, colors, and print locations.
  </p>
  <p>
- The right ink type depends on the garment, artwork, intended use, and desired feel. Plastisol sits on top of the fabric and can produce an opaque print. Water-based ink penetrates compatible fabric for a softer feel. Discharge is limited to compatible dyed cotton. Available ink systems are confirmed for the specific order.
+ Plastisol sits on top of the fabric and can print opaque. Water-based ink soaks into the fabric for a softer feel. Discharge only works on certain dyed cottons.
  </p>
  <p>
- Screen-printing setup depends on the artwork, number of colors, and print locations. Bighorn includes the applicable production terms in the quote. Reorders receive a current review because garment availability and production requirements can change.
+ Setup depends on the artwork, colors, and print locations. We check every reorder again, since garment stock and production needs can change.
  </p>
  <p>
- Construction crews often choose heavier work tees for daily use. Safety-rated garments require additional review. Send the approved garment specification, jobsite requirements, and decoration request before ordering hi-vis or FR apparel.
+ Construction crews often pick heavier work tees for daily wear. Hi-vis and FR take more checking. Your company picks the garment, and any print needs approval from your company and the manufacturer. Send us the garment spec and jobsite rules before you order.
  </p>
  <p>
- If your order has a fixed event or start date, include it with the first inquiry. Bighorn confirms garment availability, partner capacity, timing, and completion terms after reviewing the complete order.
+ If you have a fixed event or start date, tell us up front. We'll check garment stock and partner capacity against it.
  </p>
  <p>
- New to the method? Read <a href="/blog/what-is-screen-printing/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">what is screen printing — primer</a>. On ink choice: <a href="/blog/plastisol-vs-water-based-ink-workwear/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">plastisol vs water-based ink for workwear</a> and <a href="/blog/dtf-printing-vs-screen-printing-custom-apparel/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">DTF vs screen printing</a>. On other methods: <a href="/blog/sublimation-printing-custom-apparel-guide/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">sublimation printing — when it fits</a>, <a href="/dtf-printing-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">direct-to-film transfers</a> for small full-color runs, and the broader <a href="/blog/screen-printing-shop-las-vegas-guide/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">screen printing shop Las Vegas guide</a>. On order size: <a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">minimum order quantities</a>. On cost: <a href="/cost-custom-apparel-team-of-50/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">cost of custom apparel for a team of 50</a>.
+ New to the method? Read <a href="/blog/what-is-screen-printing/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">what is screen printing, primer</a>. On ink choice: <a href="/blog/plastisol-vs-water-based-ink-workwear/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">plastisol vs water-based ink for workwear</a> and <a href="/blog/dtf-printing-vs-screen-printing-custom-apparel/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">DTF vs screen printing</a>. On other methods: <a href="/blog/sublimation-printing-custom-apparel-guide/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">sublimation printing, when it fits</a>, <a href="/dtf-printing-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">direct-to-film transfers</a> for small full-color runs, and the broader <a href="/blog/screen-printing-shop-las-vegas-guide/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">screen printing shop Las Vegas guide</a>. On order size: <a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">minimum order quantities</a>. On cost: <a href="/cost-custom-apparel-team-of-50/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">cost of custom apparel for a team of 50</a>.
  </p>
  </div>
  </div>
@@ -317,7 +315,7 @@ const faqSchema = {
  </a>
  <a href="/services/rush-orders-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">Rush Orders</h3>
- <p class="mt-2 text-sm text-ash">Have a fixed date? Ask us to review the order and confirm timing.</p>
+ <p class="mt-2 text-sm text-ash">Have a fixed date? Ask us if it can be done.</p>
  </a>
  <a href="/screen-printing-vs-embroidery-construction-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">Screen Print vs Embroidery</h3>
@@ -328,16 +326,15 @@ const faqSchema = {
  </section>
 
  <!-- CTA — full-bleed photographic dark band -->
- <section class="relative isolate overflow-hidden bg-navy-950">
- <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" loading="lazy" decoding="async" />
- <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <section class="bg-charcoal">
  <div class="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 lg:px-8">
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Send your logo, get a quote back.</h2>
- <p class="mb-8 text-lg text-navy-200">Send your artwork, quantities, garment needs, and deadline.</p>
+ <p class="mb-8 text-lg text-white/80">Send your artwork, quantities, garment needs, and deadline.</p>
  <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
  <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium tracking-wide text-white transition-colors hover:text-gold-400">702.904.8923</a>
  </div>
  </div>
  </section>
+ <NationalLinks heading='Related product guides' links={[{ href: '/custom-screen-printed-shirts/', label: 'Custom screen printed shirts' }, { href: '/custom-hoodies/', label: 'Custom logo hoodies' }]} />
 </BaseLayout>

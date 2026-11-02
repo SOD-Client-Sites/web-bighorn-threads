@@ -1,11 +1,11 @@
 ---
+import HeroProducts from '@/components/HeroProducts.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const page = {
- title: 'Screen Printing vs Embroidery for Construction Gear | Las Vegas',
+ title: 'Screen Printing vs Embroidery for Construction Gear',
  description:
  'Compare screen printing and embroidery by garment, artwork, quantity, care, intended use, manufacturer instructions, and written quote.',
- hero: '/images/generated/service-screen-printing.jpg',
  url: 'https://bighornthreads.com/screen-printing-vs-embroidery-construction-las-vegas/',
 }
 
@@ -54,23 +54,22 @@ const articleSchema = {
 }
 ---
 
-<BaseLayout title={page.title} description={page.description} canonical={page.url} heroImage={page.hero}>
+<BaseLayout title={page.title} description={page.description} canonical={page.url}>
  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
- <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pb-28">
-  <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
-  <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/55"></div>
-  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-   <nav class="mb-6 font-mono text-xs text-navy-200" aria-label="Breadcrumb">
-    <a href="/" class="hover:text-gold-400">Home</a><span class="px-2 text-navy-200/60">/</span><span class="text-gold-400">Screen Printing vs Embroidery</span>
+ <section class="border-b border-hairline bg-concrete pt-16 pb-20 sm:pb-28">
+  <div class="page-hero-grid relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+   <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
+    <a href="/" class="hover:text-gold-700">Home</a><span class="px-2 text-ash">/</span><span class="text-gold-700">Screen Printing vs Embroidery</span>
    </nav>
    <p class="kicker mb-4">Decoration Methods</p>
-   <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">Screen printing vs embroidery for construction gear</h1>
-   <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">Choose from the garment, artwork, use, care, quantity, and written terms. Protective apparel needs employer and manufacturer review.</p>
+   <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">Screen printing vs embroidery for construction gear</h1>
+   <p class="max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">Choose from the garment, artwork, use, care, quantity, and written terms. Protective apparel needs employer and manufacturer review.</p>
    <div class="mt-10"><a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a></div>
-  </div>
+   <HeroProducts />
+ </div>
  </section>
 
  <section class="border-b border-hairline bg-paper py-14">

@@ -36,7 +36,7 @@ export function renderProductCard(p) {
 
   const anchor = el('a', {
     href: productHref(p),
-    class: 'group flex flex-col overflow-hidden rounded-xl border border-navy-800/60 bg-navy-900/40 transition-all duration-300 hover:border-gold-500/40 hover:shadow-lg hover:shadow-gold-500/5',
+    class: 'group flex flex-col overflow-hidden rounded border border-hairline bg-panel transition-all duration-300 hover:border-gold-500/40 hover:shadow-lg hover:shadow-gold-500/5',
   })
 
   const imgWrap = el('div', { class: 'aspect-square w-full overflow-hidden bg-white' })
@@ -51,12 +51,12 @@ export function renderProductCard(p) {
 
   const meta = el('div', { class: 'flex flex-1 flex-col gap-2 px-4 py-3' })
   meta.appendChild(el('h3', {
-    class: 'line-clamp-2 font-heading text-sm font-bold leading-snug text-white transition-colors group-hover:text-gold-400',
+    class: 'line-clamp-2 font-heading text-sm font-bold leading-snug text-charcoal transition-colors group-hover:text-gold-700',
     text: name,
   }))
   if (prc) {
     meta.appendChild(el('p', {
-      class: 'mt-auto font-mono text-xs text-gold-400',
+      class: 'mt-auto font-mono text-sm font-bold text-gold-700',
       text: prc,
     }))
   }
@@ -64,7 +64,7 @@ export function renderProductCard(p) {
   const moq = p.minQty ?? null
   if (moq && moq > 1) {
     meta.appendChild(el('p', {
-      class: 'font-mono text-[10px] text-gray-500',
+      class: 'font-mono text-[10px] text-ash',
       text: `Min. ${moq} pcs`,
     }))
   }
@@ -75,7 +75,7 @@ export function renderProductCard(p) {
 
 export function renderStatusMessage(text, variant = 'muted') {
   const cls = variant === 'error'
-    ? 'col-span-full rounded-xl border border-red-500/40 bg-red-500/5 p-8 text-center text-sm text-gray-200'
-    : 'col-span-full py-10 text-center text-sm text-gray-400'
+    ? 'col-span-full rounded border border-red-500/40 bg-red-500/5 p-8 text-center text-sm text-charcoal'
+    : 'col-span-full py-10 text-center text-sm text-ash'
   return el('p', { class: cls, text })
 }

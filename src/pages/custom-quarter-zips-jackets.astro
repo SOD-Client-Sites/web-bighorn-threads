@@ -1,0 +1,65 @@
+---
+import NationalProductPage from '@/components/NationalProductPage.astro'
+---
+
+<NationalProductPage
+  title="Custom Quarter-Zips & Embroidered Jackets | Bighorn Threads"
+  description="Compare custom quarter-zips, softshells, fleece, vests, and work jackets with your logo, including embroidery limits by fabric. Bighorn Threads ships across the US."
+  path="/custom-quarter-zips-jackets/"
+  crumb="Quarter-Zips & Jackets"
+  kicker="Shipped Across the US"
+  h1="Custom quarter-zips"
+  h1Accent="and embroidered jackets."
+  sub="Company layers for office and field teams, with notes on how each fabric takes a logo."
+  lead="Custom quarter-zips and embroidered jackets are company layers decorated with a logo, usually on the left chest. Quarter-zips suit office and client-facing teams, softshells and vests suit mixed work, and heavier work jackets suit field crews. Fabric affects how a logo stitches, so choose the garment first. Bighorn Threads works through production partners and ships across the US."
+  serviceName="Custom quarter-zips and embroidered jackets"
+  serviceType="Custom outerwear with logo embroidery"
+  table={{
+    heading: 'Compare company layers',
+    intro: 'Ask for manufacturer decoration guidance on any technical fabric before you approve an order.',
+    head: ['Layer', 'Often chosen for', 'Logo notes'],
+    rows: [
+      ['Quarter-zip pullover', 'Sales teams, office staff, leadership gifts', 'The left chest stays visible with the collar open. Keep the logo clear of the zipper.'],
+      ['Fleece jacket', 'Everyday warmth and new-hire kits', 'Thick pile can swallow fine detail, so ask about a topping or a simpler logo'],
+      ['Softshell jacket', 'Mixed indoor and outdoor work', 'Stretch and coated faces need the right backing and needle choice'],
+      ['Insulated or quilted vest', 'Field supervisors and cool mornings', 'Quilted channels limit where a logo can sit flat'],
+      ['Canvas work jacket', 'Crews who wear outerwear hard', 'Heavy fabric holds embroidery well. Check pocket and seam positions.'],
+      ['Waterproof shell', 'Wet-weather crews', 'Stitching makes holes, so check the manufacturer guidance. A printed or heat-applied mark may be a better option.'],
+    ],
+  }}
+  decide={{
+    heading: 'What to settle before ordering',
+    items: [
+      { title: 'Climate by location', desc: 'A heavy jacket suits a Minneapolis office and sits unused in Phoenix. If your team spans regions, ask for two options under one logo standard.' },
+      { title: 'Size runs', desc: 'Outerwear fits differently than shirts, and layers go on top of them. Have people try samples where your quote makes them available.' },
+      { title: 'Logo size', desc: 'Left chest logos are small. Save large designs for the back and price that placement separately.' },
+      { title: 'Who gets what', desc: 'Giving jackets to everyone is a different budget than giving them to managers or long-tenured staff. Decide before quoting.' },
+      { title: 'Hoodies or quarter-zips', desc: 'Hoodies read more casual. Compare in <a href="/custom-hoodies/">custom logo hoodies</a> and the <a href="/catalog/hoodies-sweatshirts/">hoodie catalog</a>.' },
+      { title: 'Timing by season', desc: 'Layers for a cold-weather start date need planning ahead. Tell us your date early so your quote can state the timing.' },
+    ],
+  }}
+  body={{
+    heading: 'Why layers are worth planning separately',
+    paragraphs: [
+      'Jackets and quarter-zips usually cost more per piece than shirts, and they stay in use longer. That makes logo quality and fit more important. If the fit is off or the logo pulls, people may stop wearing it.',
+      'Ask for a single sample or proof on the actual fabric if you can. A logo that stitches cleanly on a polo can pull or sink on a fleece, and thread colors can read differently on a textured face. Your quote will state which proof or sample step applies.',
+      'Layers also make good recognition gifts and new-hire items. Many teams keep a smaller set for those moments, separate from the daily uniform. Browse the <a href="/catalog/jackets-outerwear/">jackets and outerwear catalog</a>, or see <a href="/branded-onboarding-kits-las-vegas/">how onboarding kits are put together</a>.',
+      'If your layer needs to meet a hi-vis or FR requirement, your employer should approve the exact product, and decoration should follow its manufacturer instructions. See our <a href="/safety-compliance/">safety apparel guides</a> for background.',
+    ],
+  }}
+  quote={{ text: "We've been working with them for years for our company uniforms and branded swag, and they've consistently delivered. The products are top quality and competitively priced.", who: 'K. Stephens', what: 'Client review' }}
+  faqs={[
+    { q: 'Can you embroider a logo on a quarter-zip?', a: 'Yes, and the left chest is the usual placement. Keep the logo clear of the zipper and check the proof on the actual fabric.' },
+    { q: 'What is the difference between a quarter-zip and a half-zip?', a: 'Mainly the zipper length. Logo placement on the left chest is usually handled the same way on both.' },
+    { q: 'Can you embroider waterproof jackets?', a: 'Stitching makes holes in the fabric, which can affect water resistance. Check the manufacturer guidance for that jacket, and ask whether another decoration method fits better.' },
+    { q: 'Do fleece jackets hold embroidery well?', a: 'They can, but thick pile may hide fine detail. Simpler logos, or a topping that holds stitches on top of the pile, can help.' },
+    { q: 'What is the minimum order for custom jackets?', a: 'Minimums depend on the garment, decoration method, and quantity. Your quote lists the minimum for your order.' },
+    { q: 'How far ahead should we order for winter?', a: 'Start as early as you can and give us your date. Your quote lists the timing for your specific garments and quantities.' },
+    { q: 'Do you ship jackets nationwide?', a: 'Yes. Bighorn Threads is based in Las Vegas and ships anywhere in the United States.' },
+  ]}
+  related={[
+    { href: '/custom-polo-shirts/', title: 'Custom Polo Shirts', desc: 'The shirt that goes under the layer.' },
+    { href: '/company-uniforms/', title: 'Company Uniforms', desc: 'Plan layers as part of a full uniform.' },
+    { href: '/industries/corporate/', title: 'Corporate Apparel', desc: 'Apparel, swag, and gifts for company teams.' },
+  ]}
+/>

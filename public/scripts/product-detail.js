@@ -41,8 +41,8 @@ function render(p) {
 
   // Breadcrumb category
   if (p.category) {
-    const sep = el('span', { class: 'px-2 text-gray-600', text: '/' })
-    const cat = el('span', { class: 'text-gray-300', text: p.category })
+    const sep = el('span', { class: 'px-2 text-ash', text: '/' })
+    const cat = el('span', { class: 'text-charcoal', text: p.category })
     breadcrumb.appendChild(sep)
     breadcrumb.appendChild(cat)
   }
@@ -73,8 +73,8 @@ function render(p) {
   const grid = el('div', { class: 'grid gap-8 lg:grid-cols-[1.05fr_1fr] lg:gap-12' })
 
   // ---- Left column: gallery
-  const galleryCol = el('div')
-  const heroWrap = el('div', { class: 'relative aspect-square w-full overflow-hidden rounded-xl border border-navy-800/60 bg-white' })
+  const galleryCol = el('div', { class: 'min-w-0' })
+  const heroWrap = el('div', { class: 'relative aspect-square w-full overflow-hidden rounded border border-hairline bg-white' })
   const heroImg = el('img', { id: 'pdp-hero-img', src: hero, alt: title, class: 'h-full w-full object-contain p-6' })
   heroWrap.appendChild(heroImg)
   galleryCol.appendChild(heroWrap)
@@ -84,7 +84,7 @@ function render(p) {
     images.slice(0, 12).forEach((url, i) => {
       const btn = el('button', {
         type: 'button',
-        class: `aspect-square overflow-hidden rounded-lg border ${i === 0 ? 'border-gold-500' : 'border-navy-700 hover:border-gold-500/50'} bg-white`,
+        class: `aspect-square overflow-hidden rounded border ${i === 0 ? 'border-gold-500' : 'border-hairline hover:border-gold-500/50'} bg-white`,
         'aria-label': `View image ${i + 1}`,
       })
       btn.dataset.thumb = url
@@ -93,9 +93,9 @@ function render(p) {
         heroImg.src = url
         thumbs.querySelectorAll('button').forEach((b) => {
           b.classList.remove('border-gold-500')
-          if (!b.classList.contains('border-navy-700')) b.classList.add('border-navy-700')
+          if (!b.classList.contains('border-hairline')) b.classList.add('border-hairline')
         })
-        btn.classList.remove('border-navy-700')
+        btn.classList.remove('border-hairline')
         btn.classList.add('border-gold-500')
       })
       thumbs.appendChild(btn)
@@ -105,51 +105,52 @@ function render(p) {
   grid.appendChild(galleryCol)
 
   // ---- Right column: details
-  const detailCol = el('div')
-  if (p.lineName) {
-    detailCol.appendChild(el('p', { class: 'mb-2 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500', text: p.lineName }))
+  const detailCol = el('div', { class: 'min-w-0' })
+  // Some suppliers stuff a keyword list into lineName; it reads as junk and overflows phones.
+  if (p.lineName && p.lineName.length <= 40) {
+    detailCol.appendChild(el('p', { class: 'mb-2 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700', text: p.lineName }))
   }
-  detailCol.appendChild(el('h1', { class: 'mb-3 font-heading text-2xl font-bold leading-tight text-white sm:text-3xl', text: title }))
+  detailCol.appendChild(el('h1', { class: 'mb-3 font-heading text-2xl font-bold leading-tight text-charcoal sm:text-3xl', text: title }))
 
   const badges = el('div', { class: 'mb-5 flex flex-wrap items-center gap-2' })
   if (p.verified == 1) {
-    badges.appendChild(el('span', { class: 'rounded-full border border-gold-500/30 bg-gold-500/10 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-gold-400', text: 'Verified Supplier' }))
+    badges.appendChild(el('span', { class: 'rounded-full border border-gold-500/30 bg-gold-500/10 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-gold-700', text: 'Verified Supplier' }))
   }
   if (p.madeInCountry) {
-    badges.appendChild(el('span', { class: 'rounded-full border border-navy-700 bg-navy-900/60 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.15em] text-gray-300', text: `Made in ${p.madeInCountry}` }))
+    badges.appendChild(el('span', { class: 'rounded-full border border-hairline bg-panel px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.15em] text-charcoal', text: `Made in ${p.madeInCountry}` }))
   }
   if (p.category) {
-    badges.appendChild(el('span', { class: 'rounded-full border border-navy-700 bg-navy-900/60 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.15em] text-gray-300', text: p.category }))
+    badges.appendChild(el('span', { class: 'rounded-full border border-hairline bg-panel px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.15em] text-charcoal', text: p.category }))
   }
   detailCol.appendChild(badges)
 
   if (priceRange) {
-    const priceCard = el('div', { class: 'mb-5 rounded-xl border border-gold-500/30 bg-gold-500/5 p-4' })
-    priceCard.appendChild(el('p', { class: 'font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500', text: 'Starting at' }))
-    priceCard.appendChild(el('p', { class: 'mt-1 font-heading text-2xl font-bold text-white', text: priceRange }))
-    priceCard.appendChild(el('p', { class: 'mt-1 text-xs text-gray-400', text: 'Price depends on qty and decoration. Full breakdown below.' }))
+    const priceCard = el('div', { class: 'mb-5 rounded border border-gold-500/30 bg-gold-500/5 p-4' })
+    priceCard.appendChild(el('p', { class: 'font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700', text: 'Starting at' }))
+    priceCard.appendChild(el('p', { class: 'mt-1 font-heading text-2xl font-bold text-charcoal', text: priceRange }))
+    priceCard.appendChild(el('p', { class: 'mt-1 text-xs text-ash', text: 'Price depends on qty and decoration. Full breakdown below.' }))
     detailCol.appendChild(priceCard)
   }
 
   const ctaRow = el('div', { class: 'mb-6 flex flex-col gap-3 sm:flex-row' })
   const quoteBtn = el('button', {
     type: 'button',
-    class: 'inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-gold-500 px-5 py-3 font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25',
+    class: 'inline-flex flex-1 items-center justify-center gap-2 rounded bg-gold-500 px-5 py-3 font-bold text-charcoal transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25',
     text: 'Request a Quote',
   })
   quoteBtn.addEventListener('click', () => openQuoteModal(p))
   ctaRow.appendChild(quoteBtn)
   ctaRow.appendChild(el('a', {
     href: 'tel:+17029048923',
-    class: 'inline-flex items-center justify-center gap-2 rounded-lg border border-navy-700 bg-navy-900 px-5 py-3 font-bold text-white transition-colors hover:border-gold-500/40 hover:text-gold-400',
+    class: 'inline-flex items-center justify-center gap-2 rounded border border-hairline bg-panel px-5 py-3 font-bold text-charcoal transition-colors hover:border-gold-500/40 hover:text-gold-700',
     text: 'Call 702.904.8923',
   }))
   detailCol.appendChild(ctaRow)
 
   if (p.description) {
-    const descCard = el('div', { class: 'mb-6 rounded-xl border border-navy-800/60 bg-navy-900/40 p-5' })
-    descCard.appendChild(el('h2', { class: 'mb-2 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500', text: 'Product Details' }))
-    descCard.appendChild(el('p', { class: 'text-sm leading-relaxed text-gray-200', text: p.description }))
+    const descCard = el('div', { class: 'mb-6 rounded border border-hairline bg-panel p-5' })
+    descCard.appendChild(el('h2', { class: 'mb-2 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700', text: 'Product Details' }))
+    descCard.appendChild(el('p', { class: 'text-sm leading-relaxed text-charcoal', text: p.description }))
     detailCol.appendChild(descCard)
   }
 
@@ -169,28 +170,28 @@ function render(p) {
   contentEl.appendChild(grid)
 
   if (qtyTiers.length) {
-    const pricingBlock = el('div', { class: 'mt-10 rounded-xl border border-navy-800/60 bg-navy-900/40 p-6' })
-    pricingBlock.appendChild(el('h2', { class: 'mb-1 font-heading text-lg font-bold text-white', text: 'Quantity Pricing' }))
-    pricingBlock.appendChild(el('p', { class: 'mb-4 text-xs text-gray-400', text: 'Final price depends on decoration and options. Request a quote for a firm number.' }))
+    const pricingBlock = el('div', { class: 'mt-10 rounded border border-hairline bg-panel p-6' })
+    pricingBlock.appendChild(el('h2', { class: 'mb-1 font-heading text-lg font-bold text-charcoal', text: 'Quantity Pricing' }))
+    pricingBlock.appendChild(el('p', { class: 'mb-4 text-xs text-ash', text: 'Final price depends on decoration and options. Request a quote for a firm number.' }))
 
     const tableWrap = el('div', { class: 'overflow-x-auto' })
     const table = el('table', { class: 'w-full min-w-[400px] text-sm' })
     const hasCat = qtyTiers.some((t) => t.catPrice != null)
 
     const thead = el('thead')
-    const trh = el('tr', { class: 'border-b border-navy-800 text-left' })
-    trh.appendChild(el('th', { class: 'py-2 pr-4 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-gold-500', text: 'Qty' }))
-    trh.appendChild(el('th', { class: 'py-2 pr-4 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-gold-500', text: 'Price Each' }))
-    if (hasCat) trh.appendChild(el('th', { class: 'py-2 pr-4 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-gray-500', text: 'List Price' }))
+    const trh = el('tr', { class: 'border-b border-hairline text-left' })
+    trh.appendChild(el('th', { class: 'py-2 pr-4 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-gold-700', text: 'Qty' }))
+    trh.appendChild(el('th', { class: 'py-2 pr-4 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-gold-700', text: 'Price Each' }))
+    if (hasCat) trh.appendChild(el('th', { class: 'py-2 pr-4 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-ash', text: 'List Price' }))
     thead.appendChild(trh)
     table.appendChild(thead)
 
     const tbody = el('tbody')
     qtyTiers.forEach((t) => {
-      const tr = el('tr', { class: 'border-b border-navy-800/50' })
-      tr.appendChild(el('td', { class: 'py-2.5 pr-4 text-gray-200', text: `${t.qty.toLocaleString()}+` }))
-      tr.appendChild(el('td', { class: 'py-2.5 pr-4 font-mono text-gold-400', text: `$${t.price.toFixed(2)}` }))
-      if (hasCat) tr.appendChild(el('td', { class: 'py-2.5 pr-4 font-mono text-xs text-gray-500', text: t.catPrice ? `$${t.catPrice.toFixed(2)}` : '—' }))
+      const tr = el('tr', { class: 'border-b border-hairline' })
+      tr.appendChild(el('td', { class: 'py-2.5 pr-4 text-charcoal', text: `${t.qty.toLocaleString()}+` }))
+      tr.appendChild(el('td', { class: 'py-2.5 pr-4 font-mono text-gold-700', text: `$${t.price.toFixed(2)}` }))
+      if (hasCat) tr.appendChild(el('td', { class: 'py-2.5 pr-4 font-mono text-xs text-ash', text: t.catPrice ? `$${t.catPrice.toFixed(2)}` : '—' }))
       tbody.appendChild(tr)
     })
     table.appendChild(tbody)
@@ -206,8 +207,8 @@ function render(p) {
 
 function appendDef(dl, label, value, { colSpan } = {}) {
   if (!value) return
-  const wrap = el('div', { class: `rounded-lg border border-navy-800/60 bg-navy-900/30 p-3${colSpan === 2 ? ' col-span-2' : ''}` })
-  wrap.appendChild(el('dt', { class: 'font-mono text-[10px] uppercase tracking-[0.15em] text-gold-500', text: label }))
-  wrap.appendChild(el('dd', { class: 'mt-1 text-gray-200', text: String(value) }))
+  const wrap = el('div', { class: `rounded border border-hairline bg-panel p-3${colSpan === 2 ? ' col-span-2' : ''}` })
+  wrap.appendChild(el('dt', { class: 'font-mono text-[10px] uppercase tracking-[0.15em] text-gold-700', text: label }))
+  wrap.appendChild(el('dd', { class: 'mt-1 text-charcoal', text: String(value) }))
   dl.appendChild(wrap)
 }

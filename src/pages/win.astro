@@ -275,7 +275,7 @@ const description = 'There is no active Bighorn Threads event offer on this page
 
  const email = form.elements.namedItem('email')
  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
- setStatus("That email doesn't look right — mind double-checking?", 'error')
+ setStatus("That email doesn't look right, mind double-checking?", 'error')
  email.focus()
  return
  }

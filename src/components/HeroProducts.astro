@@ -1,0 +1,24 @@
+---
+import { photosForPath } from '@/data/productPhotos'
+import { heroPhotoForPath } from '@/data/pagePhotos'
+
+const path = Astro.url.pathname
+const hero = heroPhotoForPath(path)
+const photos = hero ? [] : photosForPath(path)
+---
+
+{hero && (
+<figure class="hero-photo">
+ <img src={hero.file} alt={hero.alt} width={hero.width} height={hero.height} fetchpriority="high" decoding="async" />
+</figure>
+)}
+{photos.length > 0 && (
+<ul class:list={['hero-products grid gap-3', photos.length > 1 ? 'grid-cols-2' : 'grid-cols-1']} aria-label="Example products">
+ {photos.map((p, i) => (
+ <li class:list={['border border-hairline bg-panel p-3', i > 1 && 'hidden sm:block']}>
+ <img src={p.src} alt="" width="300" height="300" decoding="async" class="aspect-square w-full object-contain" />
+ <p class="spec mt-2 truncate text-ash">{p.alt}</p>
+ </li>
+ ))}
+</ul>
+)}

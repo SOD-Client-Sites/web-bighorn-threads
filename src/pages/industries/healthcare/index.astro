@@ -1,5 +1,7 @@
 ---
+import HeroProducts from '@/components/HeroProducts.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import NationalLinks from '@/components/NationalLinks.astro'
 
 
 const serviceSchema = {
@@ -24,7 +26,7 @@ const problems = [
   },
   {
     title: 'Multi-Site Ordering Chaos',
-    desc: 'Every clinic and floor orders its own way — different vendors, different garments, different embroidery. Procurement chases invoices instead of running the system.',
+    desc: 'Every clinic and floor orders its own way: different vendors, different garments, different embroidery. Procurement chases invoices instead of running the system.',
   },
   {
     title: 'Onboarding Eats Hours',
@@ -32,11 +34,11 @@ const problems = [
   },
   {
     title: 'Reorders Reset Every Time',
-    desc: 'Staff turn over, and the next order starts from scratch — logo re-digitized, colors re-matched, placement re-explained. Consistency leaks out with every reorder.',
+    desc: 'Staff turn over, and the next order starts from scratch: logo re-digitized, colors re-matched, placement re-explained. Consistency leaks out with every reorder.',
   },
   {
     title: 'A Look That Doesn’t Match the Care',
-    desc: 'You run a sharp, professional operation. The apparel should say so — on the floor, at the front desk, and in every patient interaction.',
+    desc: 'You run a sharp, professional operation. The apparel should say so, on the floor, at the front desk, and in every patient interaction.',
   },
 ]
 
@@ -74,7 +76,7 @@ const storeItems = [
   },
   {
     title: 'Medical & Dental Office Uniforms',
-    desc: 'Embroidered polos and button-ups for reception, scheduling, and admin staff — a clean, professional front-of-house look.',
+    desc: 'Embroidered polos and button-ups for reception, scheduling, and admin staff: a clean, professional front-of-house look.',
     tag: 'Apparel',
   },
   {
@@ -152,7 +154,7 @@ const breadcrumb = {
 
   <!-- ════ HERO — concrete ════ -->
   <section class="bg-concrete pt-16 pb-20 sm:pt-16 sm:pb-28">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="page-hero-grid mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
         <a href="/" class="hover:text-gold-600">Home</a>
         <span class="px-2 text-ash/60">/</span>
@@ -184,8 +186,9 @@ const breadcrumb = {
           </a>
         </div>
       </div>
-    </div>
-  </section>
+     <HeroProducts />
+ </div>
+ </section>
 
   <!-- ════ THE PROBLEM — paper ════ -->
   <section class="border-y border-hairline bg-paper py-20 sm:py-28">
@@ -196,7 +199,7 @@ const breadcrumb = {
           Staff apparel shouldn’t be <span class="text-gold-600">an ops headache.</span>
         </h2>
         <p class="mt-4 text-lg leading-relaxed text-ash">
-          Hospitals and clinics run on consistency. Uniforms are where it slips —
+          Hospitals and clinics run on consistency. Uniforms are where it slips.
           mismatched scrubs, drifting colors, multi-site reorders, and onboarding that
           lands on HR. Here’s what we hear most.
         </p>
@@ -322,4 +325,5 @@ const breadcrumb = {
       </div>
     </div>
   </section>
+ <NationalLinks heading='Related product guides' links={[{ href: '/industries/government/', label: 'Government uniforms' }, { href: '/industries/gaming-hospitality/', label: 'Gaming and hospitality uniforms' }]} />
 </BaseLayout>

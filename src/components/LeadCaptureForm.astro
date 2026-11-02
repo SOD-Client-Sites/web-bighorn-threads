@@ -28,7 +28,7 @@ const {
   vertical,
   offer,
   heading = 'Get your company store plan',
-  blurb = 'Tell us about your team and we’ll build a private demo store — no commitment.',
+  blurb = 'Tell us about your team and we’ll build a private demo store, no commitment.',
   submitLabel = 'Build my company store plan →',
 } = Astro.props
 const isHoodieOffer = offer === 'safety-hoodie-19'
@@ -76,7 +76,7 @@ const labelCls = 'mb-1 block font-mono text-[11px] font-bold uppercase tracking-
 
     <div>
       <label for="lp-product" class={labelCls}>Product you’re after</label>
-      <input id="lp-product" name="product" type="text" value={isHoodieOffer ? "Safety yellow cooling hoodie — $19 each" : undefined} readonly={isHoodieOffer} maxlength="120" class={inputCls} placeholder="e.g. cooling hoodies, polos, safety tees" />
+      <input id="lp-product" name="product" type="text" value={isHoodieOffer ? "Safety yellow cooling hoodie, $19 each" : undefined} readonly={isHoodieOffer} maxlength="120" class={inputCls} placeholder="e.g. cooling hoodies, polos, safety tees" />
     </div>
 
     <div>
@@ -92,7 +92,7 @@ const labelCls = 'mb-1 block font-mono text-[11px] font-bold uppercase tracking-
       <span id="lp-submit-label">{submitLabel}</span>
     </button>
 
-    <p class="text-center font-mono text-[10px] uppercase tracking-[0.15em] text-ash">{isHoodieOffer ? "Mockup request only · No payment taken" : "No commitment · Written setup terms · A real person follows up"}</p>
+    <p class="text-center font-mono text-[10px] uppercase tracking-[0.15em] text-ash">{isHoodieOffer ? "Mockup request only · No payment taken" : "No commitment · Written setup terms · Bighorn follows up"}</p>
   </form>
 
   <!-- success state (hidden until submit) -->

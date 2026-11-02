@@ -1,4 +1,5 @@
 ---
+import NationalLinks from '@/components/NationalLinks.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const post = {
@@ -9,13 +10,13 @@ const post = {
  readTime: '7 min read',
  date: 'May 9, 2026',
  isoDate: '2026-05-09',
- image: '/images/generated/service-embroidery.jpg',
+ image: '/images/og-default.jpg',
  slug: 'what-is-a-company-shirt',
 }
 
 const faqs = [
- { q: 'What is a company shirt?', a: 'A company shirt is any branded shirt that identifies a business — typically a polo, t-shirt, work shirt, or hoodie with the company name and logo applied via embroidery or screen printing. Crews wear them so customers, suppliers, and sub-contractors can identify the business at a glance.' },
- { q: 'What are company shirts called?', a: 'They go by several names: branded apparel, corporate apparel, custom workwear, uniform shirts, logo wear, or company uniforms. In trades and construction, "crew shirts" or "service shirts" are common. The category is broader than just t-shirts — it includes polos, button-downs, hoodies, jackets, hi-vis vests, and hats.' },
+ { q: 'What is a company shirt?', a: 'A company shirt is any branded shirt that identifies a business, typically a polo, t-shirt, work shirt, or hoodie with the company name and logo applied via embroidery or screen printing. Crews wear them so customers, suppliers, and sub-contractors can identify the business at a glance.' },
+ { q: 'What are company shirts called?', a: 'They go by several names: branded apparel, corporate apparel, custom workwear, uniform shirts, logo wear, or company uniforms. In trades and construction, "crew shirts" or "service shirts" are common. The category is broader than just t-shirts. It includes polos, button-downs, hoodies, jackets, hi-vis vests, and hats.' },
  { q: 'What\'s the difference between embroidered and screen-printed company shirts?', a: 'Embroidery uses thread. Screen printing uses ink. Compare the exact garment, artwork, placement, quantity, care, durability needs, setup, and current quote before choosing a method.' },
  { q: 'How many company shirts does a crew member need?', a: 'Choose the issue quantity from the work schedule, laundering, climate, replacement policy, garment service life, budget, and employee needs.' },
  { q: 'Do small businesses need company shirts?', a: 'Branded apparel may help customers identify a small business team. The effect depends on the business, service, presentation, and customer experience. Apparel alone does not guarantee sales.' },
@@ -81,16 +82,12 @@ const speakableSchema = {
  </div>
  </header>
 
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8">
- <img src={post.image} alt="Embroidery machine stitching a company logo onto a navy work polo for a Las Vegas trade business" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" />
- </div>
-
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
 
  <!-- Answer-first TL;DR -->
  <aside class="mb-10 border border-hairline bg-panel p-7">
  <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Quick Answer</p>
- <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">A company shirt is a branded shirt that identifies a business — typically a polo, tee, work shirt, or hoodie with the company logo applied via embroidery or screen printing. They're worn by employees so customers, suppliers, and the public can identify the business at a glance.</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">A company shirt is a branded shirt that identifies a business, typically a polo, tee, work shirt, or hoodie with the company logo applied via embroidery or screen printing. They're worn by employees so customers, suppliers, and the public can identify the business at a glance.</p>
  </aside>
 
  <h2 id="names" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">What Are Company Shirts Called?</h2>
@@ -129,11 +126,12 @@ const speakableSchema = {
  <p class="mb-6 text-lg leading-relaxed text-charcoal">If you're outfitting a crew for the first time, four decisions to make before getting a quote:</p>
  <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Garment type by role.</strong> Polos for client-facing, tees for field, work shirts for industrial laundry programs.</li>
- <li><strong>Decoration method.</strong> Embroidery or screen printing — usually a mix.</li>
+ <li><strong>Decoration method.</strong> Embroidery or screen printing, usually a mix.</li>
  <li><strong>Quantity per employee.</strong> Set it from schedule, laundering, role, replacement policy, and budget.</li>
  <li><strong>Reorder pattern.</strong> Compare bulk orders, planned batches, and a <a href="/company-stores/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">company-store configuration</a>.</li>
  </ol>
 
+ <NationalLinks heading='Related product guides' links={[{ href: '/custom-company-shirts/', label: 'Custom company shirts' }, { href: '/company-uniforms/', label: 'Company uniforms' }, { href: '/custom-polo-shirts/', label: 'Custom polo shirts' }]} />
  <div class="mt-12 border border-hairline bg-panel p-7 sm:p-9">
  <h2 class="mb-3 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal">Need company shirts in Las Vegas?</h2>
 <p class="mb-5 text-lg leading-relaxed text-ash">Bighorn Threads manages apparel programs for Las Vegas businesses. Selected production partners handle approved decoration. Send your logo, product list, crew sizes, and deadline for a quote.</p>

@@ -9,7 +9,7 @@ const post = {
   readTime: '9 min read',
   date: 'May 9, 2026',
   isoDate: '2026-05-09',
-  image: '/images/generated/service-embroidery.jpg',
+  image: '/images/og-default.jpg',
   slug: 'how-much-to-embroider-a-shirt',
 }
 
@@ -97,16 +97,12 @@ const schema = {
         </nav>
         <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-600">{post.category}</span>
         <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
-        <p class="mb-8 text-xl leading-relaxed text-ash">What actually drives the price — stitch count, the garment you pick, quantity, and a one-time digitizing fee — so you can read any embroidery quote you get.</p>
+        <p class="mb-8 text-xl leading-relaxed text-ash">What actually drives the price (stitch count, the garment you pick, quantity, and any digitizing fee), so you can read any embroidery quote you get.</p>
         <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash">
           <span class="text-gold-600">Bighorn Threads</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time>
         </div>
       </div>
     </header>
-
-    <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8">
-      <img src={post.image} alt="Multi-head commercial embroidery machine stitching company logos onto branded work shirts in Las Vegas" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" />
-    </div>
 
     <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
 
@@ -134,7 +130,7 @@ const schema = {
       <h2 id="quantity-cost" class="mt-4 mb-6 font-heading text-3xl font-bold tracking-tight">How Quantity Shapes Your Per-Piece Cost</h2>
       <p class="mb-10 text-lg leading-relaxed text-charcoal">Quantity can affect pricing, but the result depends on the product and partner quote. Compare the same garment, artwork, placements, and delivery terms across options.</p>
 
-      <h2 id="stitch-count" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">1. Stitch Count — the Real Cost Driver</h2>
+      <h2 id="stitch-count" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">1. Stitch Count: the Real Cost Driver</h2>
       <p class="mb-6 text-lg leading-relaxed text-charcoal">Stitch count is one common pricing input. Garment handling, placements, quantity, digitizing, and partner terms can also affect the quote.</p>
       <ul class="mb-6 list-none space-y-3 text-lg text-charcoal">
         <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Simple bold logo:</strong> often easier to reproduce at small sizes</span></li>
@@ -147,23 +143,23 @@ const schema = {
       <h2 id="garment" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">2. The Shirt Itself</h2>
       <p class="mb-6 text-lg leading-relaxed text-charcoal">The blank you pick is the other half of your number. Garments climb in cost from basic tees up to FR-rated workwear:</p>
       <ul class="mb-6 list-none space-y-3 text-lg text-charcoal">
-        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Basic work t-shirt</strong> (Gildan, Hanes): an economical workhorse blank — the value pick</span></li>
+        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Basic work t-shirt</strong> (Gildan, Hanes): an economical workhorse blank, the value pick</span></li>
         <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Work polo</strong> (Port Authority K500, Red Kap): the everyday crew standard, a step up from a tee</span></li>
-        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Performance polo</strong> (Carhartt Force, Nike Dri-FIT): moisture-wicking and tougher — a premium blank</span></li>
+        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Performance polo</strong> (Carhartt Force, Nike Dri-FIT): moisture-wicking and tougher, a premium blank</span></li>
         <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>FR-rated work shirt</strong> (Bulwark, Carhartt FR): flame-resistant and the most expensive blank by a wide margin</span></li>
       </ul>
-      <p class="mb-6 text-lg leading-relaxed text-charcoal">For trade-specific recommendations — which shirt fits which crew — see <a href="/industries/electrical-contractors-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">electrical contractors</a>, <a href="/industries/plumbing-hvac-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">plumbing & HVAC</a>, and <a href="/industries/general-contractors-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">general contractors</a>.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">For trade-specific recommendations (which shirt fits which crew), see <a href="/industries/electrical-contractors-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">electrical contractors</a>, <a href="/industries/plumbing-hvac-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">plumbing & HVAC</a>, and <a href="/industries/general-contractors-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">general contractors</a>.</p>
 
       <h2 id="digitizing" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">3. Confirm Digitizing and File Terms</h2>
       <p class="mb-6 text-lg leading-relaxed text-charcoal"><strong>Digitizing</strong> converts logo artwork into a stitch file. Cost, file ownership, retention, delivery, and repeat-order fees depend on the selected production partner and quote.</p>
       <p class="mb-6 text-lg leading-relaxed text-charcoal">A well-digitized file strongly affects embroidery quality. Poor digitizing can cause pulled stitches, bad registration, and blurry logos. Confirm file ownership, retention, and any repeat-order fees in the written quote.</p>
 
       <h2 id="complexity" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">4. Multiple Placements</h2>
-      <p class="mb-6 text-lg leading-relaxed text-charcoal">A single left-chest logo is the base case. Each extra placement — right chest name, sleeve hit, back yoke — means re-hooping the shirt and a separate machine pass, so each one adds to your per-shirt cost. Common add-ons:</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">A single left-chest logo is the base case. Each extra placement (right chest name, sleeve hit, back yoke) means re-hooping the shirt and a separate machine pass, so each one adds to your per-shirt cost. Common add-ons:</p>
       <ul class="mb-6 list-none space-y-3 text-lg text-charcoal">
         <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Right-chest name:</strong> a small per-shirt add-on (it's usually just text)</span></li>
         <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Sleeve hit:</strong> a small per-shirt add-on for one more pass</span></li>
-        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Back yoke logo:</strong> the biggest add-on — a larger hit means more stitches</span></li>
+        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Back yoke logo:</strong> the biggest add-on, since a larger hit means more stitches</span></li>
       </ul>
 
       <h2 id="quantity" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">5. Quantity Discounts</h2>
@@ -172,7 +168,7 @@ const schema = {
       <h2 id="how-long" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">How Long Does Embroidery Take?</h2>
       <p class="mb-6 text-lg leading-relaxed text-charcoal">Timing depends on product availability, artwork, digitizing, proof approval, quantity, partner capacity, and delivery. Bighorn confirms the proposed schedule in writing.</p>
 
-      <h2 id="vs-screen-printing" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Embroidery vs Screen Printing — Which Is Cheaper?</h2>
+      <h2 id="vs-screen-printing" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Embroidery vs Screen Printing: Which Is Cheaper?</h2>
       <p class="mb-6 text-lg leading-relaxed text-charcoal">Compare both methods against the same garment, artwork, placement, quantity, and deadline. The selected production partner should confirm compatibility and pricing for the exact order.</p>
       <p class="mb-6 text-lg leading-relaxed text-charcoal">Full breakdown: <a href="/screen-printing-vs-embroidery-construction-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Screen printing vs. embroidery for construction crews</a>.</p>
 
@@ -180,7 +176,7 @@ const schema = {
       <p class="mb-6 text-lg leading-relaxed text-charcoal"><strong>Bighorn Threads</strong> manages embroidery programs for Las Vegas contractors and service businesses. Selected production partners handle digitizing and embroidery. Your quote confirms file retention, rush availability, pricing, and timing.</p>
       <p class="mb-6 text-lg leading-relaxed text-charcoal">Three things to send for an accurate quote:</p>
       <ol class="mb-8 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
-        <li>Your logo (PDF, AI, PNG — any format works to start)</li>
+        <li>Your logo (PDF, AI, PNG; any format works to start)</li>
         <li>Quantity and shirt type (or tell us your crew's use case)</li>
         <li>Placements needed (left chest only, or additional positions)</li>
       </ol>
@@ -193,7 +189,7 @@ const schema = {
 
       <!-- Full FAQ section for AEO -->
       <div class="mt-16 space-y-5">
-        <h2 class="font-heading text-2xl font-bold tracking-tight">Embroidery Pricing — Frequently Asked Questions</h2>
+        <h2 class="font-heading text-2xl font-bold tracking-tight">Embroidery Pricing: Frequently Asked Questions</h2>
         {faqs.map((faq) => (
           <div class="border border-hairline bg-panel p-6">
             <h3 class="mb-3 font-semibold text-charcoal">{faq.q}</h3>
@@ -208,9 +204,9 @@ const schema = {
         <ul class="space-y-3 text-lg">
           <li><a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Logo Digitizing 101: What It Is and Why It Matters</a></li>
           <li><a href="/screen-printing-vs-embroidery-construction-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Screen Printing vs Embroidery for Construction Crews</a></li>
-          <li><a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Minimum Order Quantities — What to Expect</a></li>
+          <li><a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Minimum Order Quantities: What to Expect</a></li>
           <li><a href="/blog/custom-embroidered-t-shirts-buyer-guide/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Custom Embroidered T-Shirts Buyer's Guide</a></li>
-          <li><a href="/services/embroidery-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Custom Embroidery Services — Las Vegas</a></li>
+          <li><a href="/services/embroidery-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Custom Embroidery Services, Las Vegas</a></li>
         </ul>
       </div>
 

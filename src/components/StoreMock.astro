@@ -1,0 +1,29 @@
+---
+import { productPhotos as p } from '@/data/productPhotos'
+const items = [
+  { ...p.polo, name: 'Crew polo', sizes: ['S', 'M', 'L', 'XL'] },
+  { ...p.vest, name: 'Safety vest', sizes: ['M', 'L', 'XL', '2XL'] },
+  { ...p.hoodie, name: 'Hooded sweatshirt', sizes: ['M', 'L', 'XL', '2XL'] },
+]
+---
+
+<figure class="hero-products store-mock border border-charcoal bg-panel">
+  <div class="flex items-center justify-between bg-charcoal px-4 py-3 text-white">
+    <span class="font-subheading text-lg font-semibold">Your Company Store</span>
+    <span class="text-sm text-white/70">Cart (1)</span>
+  </div>
+  <ul class="grid grid-cols-3 gap-px bg-hairline" aria-hidden="true">
+    {items.map((it, i) => (
+      <li class="bg-panel p-3">
+        <img src={it.src} alt="" width="240" height="240" decoding="async" class="aspect-square w-full object-contain" />
+        <p class="mt-2 font-subheading text-base font-semibold leading-tight">{it.name}</p>
+        <div class="mt-2 flex flex-wrap gap-1">
+          {it.sizes.map((s, j) => (
+            <span class:list={['border px-1.5 py-0.5 text-xs', i === 0 && j === 2 ? 'border-charcoal bg-charcoal text-white' : 'border-hairline text-ash']}>{s}</span>
+          ))}
+        </div>
+      </li>
+    ))}
+  </ul>
+  <figcaption class="px-4 py-3 text-sm text-ash">Sample layout. Your store shows your logo and the gear you pick.</figcaption>
+</figure>

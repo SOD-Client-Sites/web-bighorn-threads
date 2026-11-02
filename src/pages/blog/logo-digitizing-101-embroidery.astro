@@ -9,7 +9,7 @@ const post = {
  readTime: '7 min read',
  date: 'Apr 28, 2026',
  isoDate: '2026-04-28',
- image: '/images/generated/service-embroidery.jpg',
+ image: '/images/og-default.jpg',
  slug: 'logo-digitizing-101-embroidery',
 }
 
@@ -82,10 +82,6 @@ const howToSchema = {
  </div>
  </header>
 
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8">
- <img src={post.image} alt="Representative embroidery production image for digitizing and placement planning" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" />
- </div>
-
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
  <aside class="mb-12 border border-hairline bg-panel p-6 lg:sticky lg:top-24">
  <h2 class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-600">In this article</h2>
@@ -110,7 +106,7 @@ const howToSchema = {
  <h2 id="what-it-is" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">1. What Digitizing Actually Is</h2>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- An embroidery machine doesn't read a JPG, a PDF, or even a vector AI file. It reads a <em>stitch file</em> — typically a `.dst`, `.emb`, `.exp`, or `.pes` format depending on the machine. The stitch file tells the machine: drop the needle here, then here, then here, this color thread, this stitch type, this density.
+ An embroidery machine doesn't read a JPG, a PDF, or even a vector AI file. It reads a <em>stitch file</em>, typically a `.dst`, `.emb`, `.exp`, or `.pes` format depending on the machine. The stitch file tells the machine: drop the needle here, then here, then here, this color thread, this stitch type, this density.
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
@@ -150,7 +146,7 @@ const howToSchema = {
  <h2 id="what-to-send" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">3. What to Send Your Embroidery Shop</h2>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- The single best thing you can do is send a <strong>vector logo file</strong> — `.ai`, `.eps`, or `.svg`. Vectors scale infinitely without quality loss, which means the digitizer can size your logo to the exact embroidery dimensions without guessing.
+ The single best thing you can do is send a <strong>vector logo file</strong>: `.ai`, `.eps`, or `.svg`. Vectors scale infinitely without quality loss, which means the digitizer can size your logo to the exact embroidery dimensions without guessing.
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
@@ -165,7 +161,7 @@ const howToSchema = {
  <li><strong>Pantone colors</strong> for every part of the logo (PMS coated and uncoated if you have both)</li>
  <li><strong>The intended placement and size</strong>, confirmed against the exact garment, artwork, and approved proof</li>
  <li><strong>The fabric</strong> we'll be embroidering on (canvas vs polyester pique vs FR fabric all behave differently)</li>
- <li><strong>Any "do not touch" rules</strong> — minimum logo widths, brand colors that can't shift, type that must remain readable</li>
+ <li><strong>Any "do not touch" rules</strong>: minimum logo widths, brand colors that can't shift, type that must remain readable</li>
  </ul>
 
  <h2 id="what-good-looks-like" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">4. What a Good Digitizing File Looks Like (When You See It on a Shirt)</h2>
@@ -175,15 +171,15 @@ const howToSchema = {
  </p>
 
  <ul class="mb-6 list-disc space-y-2 pl-6 text-lg leading-relaxed text-charcoal">
- <li><strong>Clean satin stitch edges</strong> — no fraying, no gaps where two colors meet</li>
- <li><strong>Even fill density</strong> — the center of a filled shape doesn't look thin or patchy</li>
+ <li><strong>Clean satin stitch edges</strong>: no fraying, no gaps where two colors meet</li>
+ <li><strong>Even fill density</strong>: the center of a filled shape doesn't look thin or patchy</li>
  <li><strong>Type that reads clearly</strong> at the actual size, with no clumped or broken letters</li>
- <li><strong>No fabric puckering</strong> around the embroidery — the shirt sits flat</li>
- <li><strong>Crisp registration</strong> — colors line up exactly where they should, no overlap or gap</li>
+ <li><strong>No fabric puckering</strong> around the embroidery: the shirt sits flat</li>
+ <li><strong>Crisp registration</strong>: colors line up exactly where they should, no overlap or gap</li>
  </ul>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- Bad digitizing has the opposite — uneven edges, thin fill, illegible small text, fabric that bunches under the embroidery, and colors that don't quite line up. Some of those are a press operator issue. Most of them trace back to the file.
+ Bad digitizing has the opposite: uneven edges, thin fill, illegible small text, fabric that bunches under the embroidery, and colors that don't quite line up. Some of those are a press operator issue. Most of them trace back to the file.
  </p>
 
  <h2 id="sew-out" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">5. Confirm the Sew-Out Process Before Production</h2>
@@ -193,7 +189,7 @@ const howToSchema = {
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
- The sew-out catches issues you'd never see on a digitizer's screen — a logo that looks perfect on the simulation but puckers on actual canvas, type that's legible at 4" but blurs at 3", thread color that shifted slightly on the fabric. We'd rather find that on one shirt than on a hundred.
+ The sew-out catches issues you'd never see on a digitizer's screen: a logo that looks perfect on the simulation but puckers on actual canvas, type that's legible at 4" but blurs at 3", thread color that shifted slightly on the fabric. We'd rather find that on one shirt than on a hundred.
  </p>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">

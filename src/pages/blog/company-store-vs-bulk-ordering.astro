@@ -1,4 +1,5 @@
 ---
+import NationalLinks from '@/components/NationalLinks.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const post = {
@@ -9,7 +10,7 @@ const post = {
  readTime: '8 min read',
  date: 'Apr 1, 2026',
  isoDate: '2026-04-01',
- image: '/images/generated/product-stack.jpg',
+ image: '/images/og-default.jpg',
  slug: 'company-store-vs-bulk-ordering',
 }
 
@@ -113,17 +114,6 @@ const schema = {
  </div>
  </header>
 
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8">
- <img
- src={post.image}
- alt="Stack of folded branded construction apparel including polos, tees, and hats ready for distribution"
- width="1200"
- height="675"
- loading="eager"
- class="w-full border border-hairline object-cover"
- />
- </div>
-
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
  <!-- TOC -->
  <aside class="mb-12 border border-hairline bg-panel p-6 lg:sticky lg:top-24">
@@ -204,7 +194,7 @@ const schema = {
  Inventory ownership, decoration schedule, packaging, delivery, and internal handling depend on the selected program. Confirm each responsibility in writing before launch.
  </p>
 
- <h2 id="thresholds" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">3. Crew Size Thresholds — When Each Makes Sense</h2>
+ <h2 id="thresholds" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">3. Crew Size Thresholds: When Each Makes Sense</h2>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
  There is no universal crew-size threshold. Use these operational questions instead:
@@ -217,7 +207,7 @@ const schema = {
  <li><strong class="text-charcoal">Fulfillment.</strong> Who stores, packs, delivers, and resolves exceptions?</li>
  </ul>
 
- <h2 id="onboarding" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">4. New-Hire Onboarding — The Killer Use Case</h2>
+ <h2 id="onboarding" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">4. New-Hire Onboarding: The Killer Use Case</h2>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
  New-hire ordering is one use case to evaluate during program design.
@@ -304,6 +294,7 @@ const schema = {
  </article>
 
  <!-- End CTA -->
+ <NationalLinks heading='Related product guides' links={[{ href: '/company-uniforms/', label: 'Company uniforms' }, { href: '/corporate-swag/', label: 'Corporate swag and branded merchandise' }, { href: '/industries/gaming-hospitality/', label: 'Gaming and hospitality uniforms' }, { href: '/industries/government/', label: 'Government uniforms' }]} />
  <section class="border-t border-hairline bg-panel py-16">
  <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
  <h2 class="mb-4 font-heading text-3xl font-bold tracking-tight sm:text-4xl">

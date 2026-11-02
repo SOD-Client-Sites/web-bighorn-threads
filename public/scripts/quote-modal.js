@@ -37,7 +37,7 @@ function renderTurnstile(container) {
   const tryRender = (attempt) => {
     if (window.turnstile && typeof window.turnstile.render === 'function') {
       try {
-        window.turnstile.render(container, { sitekey: TURNSTILE_SITEKEY, theme: 'dark' })
+        window.turnstile.render(container, { sitekey: TURNSTILE_SITEKEY, theme: 'light' })
       } catch (_) { /* already rendered or unavailable */ }
       return
     }
@@ -106,7 +106,7 @@ function trapFocus(e) {
 
 function buildOverlay(product) {
   const overlay = el('div', {
-    class: 'fixed inset-0 z-[100] flex items-stretch justify-center overflow-y-auto bg-navy-950/85 px-0 py-0 backdrop-blur-sm sm:items-center sm:px-4 sm:py-8',
+    class: 'fixed inset-0 z-[100] flex items-stretch justify-center overflow-y-auto bg-charcoal/70 px-0 py-0 sm:items-center sm:px-4 sm:py-8',
     role: 'presentation',
   })
 
@@ -116,7 +116,7 @@ function buildOverlay(product) {
   })
 
   const dialog = el('div', {
-    class: 'relative my-auto flex w-full max-w-2xl flex-col overflow-hidden border-y border-gold-500/30 bg-navy-950 shadow-2xl shadow-gold-500/10 sm:rounded-xl sm:border sm:border-gold-500/40',
+    class: 'relative my-auto flex w-full max-w-2xl flex-col overflow-hidden border-y border-gold-500/30 bg-panel sm:rounded sm:border sm:border-gold-500/40',
     role: 'dialog',
     'aria-modal': 'true',
     'aria-labelledby': 'quote-modal-title',
@@ -132,31 +132,31 @@ function buildOverlay(product) {
 
 function buildHeader(product) {
   const wrap = el('div', {
-    class: 'sticky top-0 z-10 flex items-start gap-4 border-b border-navy-800 bg-navy-900/95 px-5 py-4 backdrop-blur-md sm:px-7 sm:py-5',
+    class: 'sticky top-0 z-10 flex items-start gap-4 border-b border-hairline bg-panel px-5 py-4 sm:px-7 sm:py-5',
   })
 
   // Product thumb
   const images = Array.isArray(product.pics) ? product.pics.map((p) => p.url).filter(Boolean) : []
   const thumb = images[0] || product.thumbPic || 'https://placehold.co/120x120/0f172a/c19b3d?text=BH'
-  const thumbWrap = el('div', { class: 'flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-navy-700 bg-white' })
+  const thumbWrap = el('div', { class: 'flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded border border-hairline bg-white' })
   thumbWrap.appendChild(el('img', { src: thumb, alt: '', class: 'h-full w-full object-contain p-1', loading: 'lazy' }))
   wrap.appendChild(thumbWrap)
 
   // Title + meta
   const meta = el('div', { class: 'min-w-0 flex-1' })
   meta.appendChild(el('p', {
-    class: 'font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500',
+    class: 'font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700',
     text: 'Request a Quote',
   }))
   meta.appendChild(el('h2', {
     id: 'quote-modal-title',
-    class: 'mt-0.5 truncate font-heading text-base font-bold leading-tight text-white sm:text-lg',
+    class: 'mt-0.5 truncate font-heading text-base font-bold leading-tight text-charcoal sm:text-lg',
     text: product.prName || 'Product',
   }))
   const ref = product.spc ? `SPC ${product.spc}` : (product.prodEId ? `# ${product.prodEId}` : '')
   if (ref) {
     meta.appendChild(el('p', {
-      class: 'mt-0.5 font-mono text-[11px] text-gray-500',
+      class: 'mt-0.5 font-mono text-[11px] text-ash',
       text: ref,
     }))
   }
@@ -165,7 +165,7 @@ function buildHeader(product) {
   // Close button
   const closeBtn = el('button', {
     type: 'button',
-    class: 'flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-navy-700 text-gray-400 transition-colors hover:border-gold-500/40 hover:bg-navy-900 hover:text-gold-400',
+    class: 'flex h-9 w-9 shrink-0 items-center justify-center rounded border border-hairline text-ash transition-colors hover:border-gold-500/40 hover:bg-panel hover:text-gold-700',
     'aria-label': 'Close quote request',
   })
   // X icon (svg via DOM)
@@ -215,7 +215,7 @@ function buildBody(product) {
       const btn = el('button', {
         type: 'button',
         'data-qty-tier': String(t.qty),
-        class: 'rounded-md border border-navy-700 bg-navy-900/60 px-3 py-1.5 font-mono text-xs font-bold text-gray-200 transition-colors hover:border-gold-500/50 hover:bg-gold-500/10 hover:text-gold-300',
+        class: 'rounded border border-hairline bg-panel px-3 py-1.5 font-mono text-xs font-bold text-charcoal transition-colors hover:border-gold-500/50 hover:bg-gold-500/10 hover:text-gold-700',
         text: t.qty.toLocaleString(),
       })
       btn.addEventListener('click', () => {
@@ -226,11 +226,11 @@ function buildBody(product) {
         }
         // visual select state
         tierRow.querySelectorAll('button').forEach((b) => {
-          b.classList.remove('border-gold-500', 'bg-gold-500/15', 'text-gold-300')
-          if (!b.classList.contains('border-navy-700')) b.classList.add('border-navy-700')
+          b.classList.remove('border-gold-500', 'bg-gold-500/15', 'text-gold-700')
+          if (!b.classList.contains('border-hairline')) b.classList.add('border-hairline')
         })
-        btn.classList.remove('border-navy-700')
-        btn.classList.add('border-gold-500', 'bg-gold-500/15', 'text-gold-300')
+        btn.classList.remove('border-hairline')
+        btn.classList.add('border-gold-500', 'bg-gold-500/15', 'text-gold-700')
       })
       tierRow.appendChild(btn)
     })
@@ -322,8 +322,8 @@ function buildBody(product) {
 
   // ---------- CLOUDFLARE TURNSTILE ----------
   // Explicitly rendered (the auto-render only scans the DOM at page load,
-  // and this modal is injected later). Dark theme to match the navy modal.
-  const tsWrap = el('div', { class: 'cf-turnstile', 'data-theme': 'dark' })
+  // and this modal is injected later). Light theme to match the modal panel.
+  const tsWrap = el('div', { class: 'cf-turnstile', 'data-theme': 'light' })
   form.appendChild(tsWrap)
   renderTurnstile(tsWrap)
 
@@ -337,14 +337,14 @@ function buildBody(product) {
   form.appendChild(statusEl)
 
   // Submit row
-  const submitRow = el('div', { class: 'flex flex-col-reverse gap-3 border-t border-navy-800 pt-5 sm:flex-row sm:items-center sm:justify-between' })
+  const submitRow = el('div', { class: 'flex flex-col-reverse gap-3 border-t border-hairline pt-5 sm:flex-row sm:items-center sm:justify-between' })
   submitRow.appendChild(el('p', {
-    class: 'text-xs text-gray-500',
+    class: 'text-xs text-ash',
     text: 'Send the order details for a current quote. No spam.',
   }))
   const submitBtn = el('button', {
     type: 'submit',
-    class: 'inline-flex min-h-[44px] items-center justify-center rounded-lg bg-gold-500 px-6 py-3 font-bold text-navy-950 transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25 disabled:cursor-not-allowed disabled:opacity-60',
+    class: 'inline-flex min-h-[44px] items-center justify-center rounded bg-gold-500 px-6 py-3 font-bold text-charcoal transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold-500/25 disabled:cursor-not-allowed disabled:opacity-60',
     text: 'Request Quote',
   })
   submitRow.appendChild(submitBtn)
@@ -362,14 +362,14 @@ function buildBody(product) {
 
 // ---------------- A2P SMS consent block ----------------
 function buildConsentSection() {
-  const fs = el('fieldset', { class: 'space-y-3 rounded-lg border border-navy-700/50 bg-navy-950/40 p-4' })
+  const fs = el('fieldset', { class: 'space-y-3 rounded border border-hairline bg-panel p-4' })
   fs.appendChild(el('legend', {
-    class: 'px-1 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500',
+    class: 'px-1 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700',
     text: 'Text message preferences (optional)',
   }))
 
-  const cbCls = 'mt-0.5 h-4 w-4 shrink-0 rounded border-navy-600 bg-navy-950 text-gold-500 focus:ring-2 focus:ring-gold-500/40 focus:ring-offset-0'
-  const txtCls = 'text-xs leading-relaxed text-gray-400'
+  const cbCls = 'mt-0.5 h-4 w-4 shrink-0 rounded border-hairline bg-panel text-gold-700 focus:ring-2 focus:ring-gold-500/40 focus:ring-offset-0'
+  const txtCls = 'text-xs leading-relaxed text-ash'
 
   const mkRow = (name, copy) => {
     const lab = el('label', { class: 'flex items-start gap-3' })
@@ -387,11 +387,11 @@ function buildConsentSection() {
     'I consent to receive marketing and promotional text messages from VP Promos LLC, d/b/a Bighorn Threads at the phone number provided — special offers, discounts, new products, and seasonal promotions. Message frequency may vary. Message & data rates may apply. Reply HELP for help or STOP to opt out.',
   ))
 
-  const note = el('p', { class: 'border-t border-navy-800/60 pt-3 text-xs leading-relaxed text-gray-500' })
+  const note = el('p', { class: 'border-t border-hairline pt-3 text-xs leading-relaxed text-ash' })
   note.appendChild(document.createTextNode('Consent to texts is not required to get a quote. By submitting this form you agree to our '))
-  note.appendChild(el('a', { href: '/legal/privacy-policy/', target: '_blank', rel: 'noopener', class: 'text-gold-400 underline underline-offset-2 hover:text-gold-300', text: 'Privacy Policy' }))
+  note.appendChild(el('a', { href: '/legal/privacy-policy/', target: '_blank', rel: 'noopener', class: 'text-gold-700 underline underline-offset-2 hover:text-gold-700', text: 'Privacy Policy' }))
   note.appendChild(document.createTextNode(' and '))
-  note.appendChild(el('a', { href: '/legal/terms/', target: '_blank', rel: 'noopener', class: 'text-gold-400 underline underline-offset-2 hover:text-gold-300', text: 'Terms & Conditions' }))
+  note.appendChild(el('a', { href: '/legal/terms/', target: '_blank', rel: 'noopener', class: 'text-gold-700 underline underline-offset-2 hover:text-gold-700', text: 'Terms & Conditions' }))
   note.appendChild(document.createTextNode('. No mobile information is shared with third parties or affiliates for marketing purposes.'))
   fs.appendChild(note)
 
@@ -402,7 +402,7 @@ function buildConsentSection() {
 function section(title) {
   const wrap = el('div', { class: 'space-y-4' })
   wrap.appendChild(el('h3', {
-    class: 'font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500',
+    class: 'font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700',
     text: title,
   }))
   return wrap
@@ -412,21 +412,21 @@ function label(text, htmlFor, opts = {}) {
   const wrap = el('div', { class: 'flex items-baseline justify-between gap-3' })
   const labelEl = el('label', {
     for: htmlFor,
-    class: 'block text-sm font-semibold text-white',
+    class: 'block text-sm font-semibold text-charcoal',
     text,
   })
   if (opts.required) {
-    labelEl.appendChild(el('span', { class: 'ml-1 text-gold-500', text: '*' }))
+    labelEl.appendChild(el('span', { class: 'ml-1 text-gold-700', text: '*' }))
   }
   wrap.appendChild(labelEl)
   if (opts.hint) {
-    wrap.appendChild(el('span', { class: 'text-[11px] text-gray-500', text: opts.hint }))
+    wrap.appendChild(el('span', { class: 'text-[11px] text-ash', text: opts.hint }))
   }
   return wrap
 }
 
 const inputBase =
-  'mt-1.5 block w-full min-h-[44px] rounded-lg border border-navy-700/60 bg-navy-950/60 px-3.5 py-2.5 text-sm text-white placeholder-gray-500 transition-colors focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/30'
+  'mt-1.5 block w-full min-h-[44px] rounded border border-hairline bg-panel px-3.5 py-2.5 text-sm text-charcoal placeholder-ash transition-colors focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/30'
 
 function field({ label: text, name, type = 'text', required = false, placeholder = '', autocomplete, inputmode, hint, min }) {
   const wrap = el('div')
@@ -501,7 +501,7 @@ function parseQtyTiers(product) {
 // ---------------- submit ----------------
 function setStatus(statusEl, msg, tone) {
   statusEl.textContent = msg
-  const toneCls = tone === 'error' ? 'text-red-400' : tone === 'success' ? 'text-gold-400' : 'text-gray-400'
+  const toneCls = tone === 'error' ? 'text-red-700' : tone === 'success' ? 'text-gold-700' : 'text-ash'
   statusEl.className = `min-h-[1.25rem] text-sm ${toneCls}`
 }
 
@@ -614,7 +614,7 @@ function showSuccessState(bodyEl, product) {
   const wrap = el('div', { class: 'py-8 text-center' })
 
   // Stamp graphic — gold check inside ring
-  const stamp = el('div', { class: 'mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border-2 border-gold-500/60 bg-gold-500/10 text-gold-400' })
+  const stamp = el('div', { class: 'mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border-2 border-gold-500/60 bg-gold-500/10 text-gold-700' })
   const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
   svg.setAttribute('viewBox', '0 0 24 24')
   svg.setAttribute('fill', 'none')
@@ -630,15 +630,15 @@ function showSuccessState(bodyEl, product) {
   wrap.appendChild(stamp)
 
   wrap.appendChild(el('p', {
-    class: 'font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-gold-500',
+    class: 'font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-gold-700',
     text: 'Request Received',
   }))
   wrap.appendChild(el('h3', {
-    class: 'mt-2 font-heading text-xl font-bold text-white sm:text-2xl',
+    class: 'mt-2 font-heading text-xl font-bold text-charcoal sm:text-2xl',
     text: 'Got it. We are on it.',
   }))
   wrap.appendChild(el('p', {
-    class: 'mx-auto mt-4 max-w-md text-sm leading-relaxed text-gray-300',
+    class: 'mx-auto mt-4 max-w-md text-sm leading-relaxed text-charcoal',
     text: `The Bighorn team received your request for ${product.prName || 'the selected product'}. We will review the product, quantity, artwork, and timing before replying with current quote details.`,
   }))
 
@@ -646,13 +646,13 @@ function showSuccessState(bodyEl, product) {
   const actions = el('div', { class: 'mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row' })
   const closeBtn = el('button', {
     type: 'button',
-    class: 'inline-flex min-h-[44px] items-center justify-center rounded-lg border border-navy-700 bg-navy-900 px-5 py-2.5 text-sm font-bold text-white transition-colors hover:border-gold-500/40 hover:text-gold-400',
+    class: 'inline-flex min-h-[44px] items-center justify-center rounded border border-hairline bg-panel px-5 py-2.5 text-sm font-bold text-charcoal transition-colors hover:border-gold-500/40 hover:text-gold-700',
     text: 'Keep browsing',
   })
   closeBtn.addEventListener('click', closeModal)
   const callLink = el('a', {
     href: 'tel:+17029048923',
-    class: 'inline-flex min-h-[44px] items-center justify-center rounded-lg bg-gold-500 px-5 py-2.5 text-sm font-bold text-navy-950 transition-colors hover:bg-gold-400',
+    class: 'inline-flex min-h-[44px] items-center justify-center rounded bg-gold-500 px-5 py-2.5 text-sm font-bold text-charcoal transition-colors hover:bg-gold-400',
     text: 'Or call 702.904.8923',
   })
   actions.appendChild(closeBtn)

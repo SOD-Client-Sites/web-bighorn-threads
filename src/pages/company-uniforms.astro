@@ -1,0 +1,68 @@
+---
+import NationalProductPage from '@/components/NationalProductPage.astro'
+---
+
+<NationalProductPage
+  title="Company Uniforms With Your Logo | Bighorn Threads"
+  description="Plan company uniforms by role: garments, logo decoration, buying vs renting, and how to order for several locations. Bighorn Threads ships across the US."
+  path="/company-uniforms/"
+  photo="public-works-crew"
+  photoAt="break"
+  crumb="Company Uniforms"
+  kicker="Shipped Across the US"
+  h1="Company uniforms"
+  h1Accent="planned by role."
+  sub="Polos, work shirts, scrubs, and layers with your logo, for one office or a team spread across several states."
+  lead="Company uniforms are matching garments with your logo that employees wear at work. Most businesses plan them by role: polos or button-ups for office and client-facing staff, work shirts for field crews, and a layer for cold weather. Bighorn Threads is based in Las Vegas, works through selected production partners, and ships uniforms anywhere in the United States."
+  serviceName="Custom company uniforms"
+  serviceType="Company uniforms with logo embroidery and printing"
+  table={{
+    heading: 'Which uniform fits which role',
+    intro: 'Use this as a starting point. Your quote can split the order by role so each group gets its own garment and decoration.',
+    head: ['Role', 'Common garment', 'Common decoration'],
+    rows: [
+      ['Office, front desk, sales', 'Polo or button-up', 'Embroidered logo on the left chest'],
+      ['Field service and installers', 'Work shirt, with a name if customers need one', 'Embroidered logo, with a printed back if you want it readable from a distance'],
+      ['Warehouse and shop floor', 'T-shirt or work shirt', 'Screen print for larger runs, embroidery for shirts that get hard wear'],
+      ['Restaurant and guest service', 'Polo, button-up, or apron', 'Embroidered logo'],
+      ['Clinics and care teams', 'Scrubs', 'Embroidered logo, with care instructions checked against your facility process'],
+      ['Crews that need hi-vis or FR', 'The protective garment your employer has approved', 'Only as the garment manufacturer instructs. Your safety lead confirms the requirement.'],
+    ],
+  }}
+  decide={{
+    heading: 'Six decisions to make before you ask for a quote',
+    items: [
+      { title: 'Buy or rent', desc: 'Rental programs usually bundle laundering and a service contract. Buying means your team or a laundry washes the garments. See our <a href="/cintas-unifirst-aramark-alternatives-las-vegas/">rent vs own comparison</a>.' },
+      { title: 'Pieces per person', desc: 'Count the workdays between washes for each role. Our guide on <a href="/blog/how-many-shirts-per-crew-member-vegas/">shirts per crew member</a> walks through it.' },
+      { title: 'Annual budget', desc: 'Budget per employee per year, with replacements and new hires included. See <a href="/uniform-program-cost-per-employee/">what shapes uniform program cost</a>.' },
+      { title: 'One bulk order or a store', desc: 'A bulk order suits a single start date. A <a href="/company-stores/">company store</a> can suit teams with steady hiring. Compare them in <a href="/blog/company-store-vs-bulk-ordering/">bulk vs store</a>.' },
+      { title: 'One logo standard', desc: 'Pick one approved logo file, thread colors, and placement, then use them on every garment so locations match.' },
+      { title: 'Who owns sizing', desc: 'Name one person to collect sizes, or let employees submit their own through a store. Late size changes can delay an order.' },
+    ],
+  }}
+  body={{
+    heading: 'Keeping uniforms consistent across locations',
+    paragraphs: [
+      'Uniforms drift when each location buys on its own. One office orders a slightly different navy, another shrinks the logo, and within a year nothing matches. The fix is a written specification: the garment style and color, the logo file, thread colors, placement, and who may reorder.',
+      'Garment styles get discontinued, so ask for a named alternate on anything you plan to reorder for years. Keep your stitch file and the approved proof with the specification. New locations can then order the same thing without starting over.',
+      'If your team is spread out, tell us where each location is when you ask for a quote. Bighorn ships to any US address, and your quote confirms shipping costs and the delivery plan for one address or several. See how <a href="/locations/nationwide/">programs for distributed teams</a> are scoped.',
+      'Looking by industry? Start with <a href="/industries/corporate/">corporate apparel</a>, <a href="/industries/construction-trades/">construction and trades</a>, <a href="/industries/healthcare/">healthcare</a>, <a href="/industries/government/">government</a>, or <a href="/industries/gaming-hospitality/">hospitality</a>. Role-specific guides cover <a href="/hotel-uniforms/">hotel uniforms</a>, <a href="/restaurant-uniforms/">restaurant uniforms</a>, <a href="/plumber-uniforms/">plumber uniforms</a>, and <a href="/hvac-uniforms/">HVAC uniforms</a>.',
+    ],
+  }}
+  quote={{ text: "We've been working with them for years for our company uniforms and branded swag, and they've consistently delivered. The products are top quality and competitively priced.", who: 'K. Stephens', what: 'Client review' }}
+  faqs={[
+    { q: 'How much do company uniforms cost?', a: 'Cost depends on the garment, decoration, quantity, and delivery. Build your order by role and ask for an itemized quote, which lists the price for your specific order.' },
+    { q: 'What is the minimum order for company uniforms?', a: 'Minimums depend on the garment, decoration method, and quantity. Your quote lists the minimum for your order.' },
+    { q: 'Can you ship uniforms to several locations?', a: 'Yes. Bighorn Threads ships anywhere in the United States. Tell us each destination when you ask for a quote, and the quote confirms the delivery plan and shipping cost.' },
+    { q: 'Should we rent or buy company uniforms?', a: 'Rental usually includes laundering and a service contract. Buying gives you garments you keep, and your team or a laundry washes them. Teams that can wash their own uniforms often compare owning first.' },
+    { q: 'Does Bighorn Threads make the uniforms?', a: 'No. Bighorn Threads coordinates the order and works with selected production partners, who decorate the garments.' },
+    { q: 'Can employees order their own uniforms?', a: 'They can through a company store. Available access, sizing, payment, and delivery options are confirmed in a written setup plan.' },
+    { q: 'Can uniforms include employee names?', a: 'Ask for names when you request your quote. Name personalization depends on the garment and decoration, and the quote states what is available.' },
+    { q: 'Do your uniforms meet safety requirements?', a: 'Requirements depend on your work and employer. Your safety lead should approve any hi-vis or FR garment, and decoration has to follow the manufacturer instructions for that exact product.' },
+  ]}
+  related={[
+    { href: '/custom-polo-shirts/', title: 'Custom Polo Shirts', desc: 'Fabric, placement, and logo choices for company polos.' },
+    { href: '/custom-company-shirts/', title: 'Custom Company Shirts', desc: 'Tees, button-ups, and work shirts compared.' },
+    { href: '/custom-uniforms-las-vegas/', title: 'Uniforms in Las Vegas', desc: 'Planning help for teams in the Las Vegas area.' },
+  ]}
+/>

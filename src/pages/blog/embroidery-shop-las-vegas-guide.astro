@@ -9,7 +9,7 @@ const post = {
  readTime: '8 min read',
  date: 'May 9, 2026',
  isoDate: '2026-05-09',
- image: '/images/generated/service-embroidery.jpg',
+ image: '/images/og-default.jpg',
  slug: 'embroidery-shop-las-vegas-guide',
 }
 
@@ -18,7 +18,7 @@ const faqs = [
  { q: 'What is the difference between a commercial embroidery shop and a home machine?', a: 'Commercial providers may offer multi-head equipment, order tracking, proofs, garment sourcing, and repeat-order file management. Confirm actual capacity, quality controls, and terms with the provider.' },
  { q: 'How fast can a Las Vegas embroidery shop turn around an order?', a: 'Timing depends on garment availability, artwork approval, digitizing, production capacity, quantity, and delivery. Rely on the dates in your written proposal.' },
  { q: 'Can an embroidery shop decorate FR or arc-rated garments?', a: 'Only after the employer and garment manufacturer approve the exact thread, backing, method, and placement. A thread label alone does not preserve a garment rating.' },
- { q: 'What does it cost to embroider a shirt in Las Vegas?', a: 'Per-piece cost depends on stitch count (logo complexity), garment cost, decoration complexity, and quantity. A new logo also needs a one-time digitizing fee. Send your logo, garment, and quantity and we\'ll quote it.' },
+ { q: 'What does it cost to embroider a shirt in Las Vegas?', a: 'Per-piece cost depends on stitch count (logo complexity), garment cost, decoration complexity, and quantity. A new logo also needs digitizing, and your quote lists any fee. Send your logo, garment, and quantity and we\'ll quote it.' },
  { q: 'Can a Las Vegas embroidery shop ship to other states?', a: 'Many commercial shops offer shipping. Bighorn confirms available destinations, delivery costs, and timing with the selected production partner before you order.' },
  { q: 'How do I send a logo to an embroidery shop?', a: 'Send vector format (.ai, .eps, .pdf) when possible. That is usually the cleanest input for digitizing. JPG/PNG works but may require redrawing. Include the dimensions, placements, and garments you want. The provider should quote and confirm the work before production.' },
 ]
@@ -57,7 +57,6 @@ const speakableSchema = {
  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
  </header>
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Multi-head commercial embroidery machine running production for Las Vegas crew apparel" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
 
  <aside class="mb-10 border border-hairline bg-panel p-7">

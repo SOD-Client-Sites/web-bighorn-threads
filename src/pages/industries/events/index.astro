@@ -1,4 +1,6 @@
 ---
+import HeroProducts from '@/components/HeroProducts.astro'
+import NationalLinks from '@/components/NationalLinks.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const problems = [
@@ -8,7 +10,7 @@ const problems = [
   },
   {
     title: 'Sizing Across Everyone.',
-    desc: 'Booth staff, volunteers, players, attendees — every body is different. Guessing sizes leaves half your people in gear that does not fit.',
+    desc: 'Booth staff, volunteers, players, attendees: every body is different. Guessing sizes leaves half your people in gear that does not fit.',
   },
   {
     title: 'One-Off vs. Recurring Orders.',
@@ -140,7 +142,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
 >
   <!-- ════ HERO — concrete (no photographic band) ════ -->
   <section class="bg-concrete pt-16 pb-20 sm:pt-16 sm:pb-28">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="page-hero-grid mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
         <a href="/" class="hover:text-gold-600">Home</a>
         <span class="px-2 text-ash/60">/</span>
@@ -172,8 +174,9 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
           </a>
         </div>
       </div>
-    </div>
-  </section>
+     <HeroProducts />
+ </div>
+ </section>
 
   <!-- ════ THE PROBLEM — paper ════ -->
   <section class="border-y border-hairline bg-paper py-20 sm:py-28">
@@ -266,7 +269,8 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
   </section>
 
   <!-- ════ FAQ — concrete ════ -->
-  <section class="bg-concrete py-20 sm:py-28">
+  <NationalLinks heading='Related product guides' links={[{ href: '/corporate-swag/', label: 'Corporate swag and branded merchandise' }, { href: '/custom-embroidered-hats/', label: 'Custom embroidered hats' }, { href: '/custom-company-shirts/', label: 'Custom company shirts' }]} />
+ <section class="bg-concrete py-20 sm:py-28">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <div class="mb-10 max-w-2xl">
         <p class="kicker mb-3">FAQ</p>

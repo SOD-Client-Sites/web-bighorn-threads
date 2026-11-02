@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import NationalLinks from '@/components/NationalLinks.astro'
 
 const post = {
  title: 'What Is Screen Printing? How It Works, Where It Wins, Where It Doesn\'t',
@@ -9,14 +10,14 @@ const post = {
  readTime: '9 min read',
  date: 'May 9, 2026',
  isoDate: '2026-05-09',
- image: '/images/generated/service-screen-printing.jpg',
+ image: '/images/og-default.jpg',
  slug: 'what-is-screen-printing',
 }
 
 const faqs = [
  { q: 'What is screen printing?', a: 'Screen printing is a decoration method that pushes ink through a fine mesh stencil onto fabric, layer by layer for each color. The ink cures into the fibers so the design is durable, vivid, and washable. It\'s the standard for t-shirts, hoodies, and high-volume apparel runs.' },
  { q: 'How does screen printing work step by step?', a: 'A digital design is separated by color and prepared as screens. Ink is applied through the screens, then cured under the selected ink manufacturer\'s documented time, temperature, equipment, garment, and process requirements.' },
- { q: 'Is screen printing better than embroidery?', a: 'For tees, hoodies, and large/colorful designs at volume — yes. Screen printing prints flat onto fabric so big designs and gradients work, and per-piece cost falls fast at quantity because most cost is in setup. Embroidery wins on polos, button-downs, hats, and any garment where a premium textured look matters more than design size or color.' },
+ { q: 'Is screen printing better than embroidery?', a: 'For tees, hoodies, and large/colorful designs at volume, yes. Screen printing prints flat onto fabric so big designs and gradients work, and per-piece cost falls fast at quantity because most cost is in setup. Embroidery wins on polos, button-downs, hats, and any garment where a premium textured look matters more than design size or color.' },
  { q: 'What fabrics work with screen printing?', a: 'Compatibility depends on the exact garment, fabric, coating, ink system, preparation, cure, artwork, and production partner. Request product-specific approval and written minimums.' },
  { q: 'How many colors can you screen print?', a: 'Color capacity, separations, setup, appearance, and cost depend on the artwork, press, ink system, garment, and production partner. Confirm the approved specification and quote.' },
  { q: 'How long does screen printed ink last?', a: 'Durability depends on the ink system, garment, preparation, cure, use, laundering, care, and manufacturer instructions. Confirm the approved care instructions for the order.' },
@@ -53,11 +54,10 @@ const speakableSchema = {
  <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-600">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-600">Blog</a></nav>
  <span class="kicker mb-3">{post.category}</span>
  <h1 class="mb-6 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl lg:text-5xl">{post.title}</h1>
- <p class="mb-8 text-xl leading-relaxed text-ash">A working buyer's guide to the most common decoration method for t-shirts and crew apparel — what it is, when it wins, and what it costs to run.</p>
+ <p class="mb-8 text-xl leading-relaxed text-ash">A working buyer's guide to the most common decoration method for t-shirts and crew apparel: what it is, when it wins, and what it costs to run.</p>
  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
  </header>
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Automatic screen printing press with squeegee pulling ink across mesh stencil onto a navy crew t-shirt" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
@@ -69,10 +69,10 @@ const speakableSchema = {
  <p class="mb-6 text-lg leading-relaxed text-charcoal">The process has been around for decades but the underlying mechanics haven't changed much. <a href="https://www.britannica.com/topic/silk-screen-printing" rel="noopener" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">Silk screen printing</a>, as it's traditionally called, has six stages:</p>
  <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Color separation.</strong> The design is broken into separate layers, one per ink color.</li>
- <li><strong>Screen burning.</strong> Each color layer is exposed onto a fine mesh screen coated in light-sensitive emulsion. Where the design blocks the light, the emulsion stays soft and washes out — leaving open mesh that ink can pass through.</li>
+ <li><strong>Screen burning.</strong> Each color layer is exposed onto a fine mesh screen coated in light-sensitive emulsion. Where the design blocks the light, the emulsion stays soft and washes out, leaving open mesh that ink can pass through.</li>
  <li><strong>Press setup.</strong> Screens are mounted on a manual or automatic press. The garment is loaded onto a platen aligned under the screens.</li>
  <li><strong>Ink + squeegee pass.</strong> Ink is flooded across the screen, then pulled through the open mesh with a squeegee onto the garment. One pass per color.</li>
- <li><strong>Layer registration.</strong> For multi-color designs, the garment passes under each screen in sequence — registration marks ensure colors line up exactly.</li>
+ <li><strong>Layer registration.</strong> For multi-color designs, the garment passes under each screen in sequence. Registration marks ensure colors line up exactly.</li>
  <li><strong>Cure.</strong> The printed garment passes through a heat tunnel at ~320°F (160°C). The ink chemically bonds to the fabric and becomes washable.</li>
  </ol>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">For deeper background see our piece on <a href="/blog/plastisol-vs-water-based-ink-workwear/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">plastisol vs water-based ink</a>, which covers the two main ink families and which one fits which use case.</p>
@@ -84,7 +84,7 @@ const speakableSchema = {
  <li><strong>Large designs.</strong> Full-back prints, oversized chest logos, anything that wouldn't fit cleanly in embroidery.</li>
  <li><strong>Bold, flat designs.</strong> Block letters, simple shapes, high-contrast logos.</li>
  <li><strong>Cotton and cotton-blend tees and hoodies.</strong> The fabric the process was built for.</li>
- <li><strong>Field crew apparel.</strong> Construction, landscaping, event staff — anywhere the durability matters more than the premium feel.</li>
+ <li><strong>Field crew apparel.</strong> Construction, landscaping, event staff: anywhere the durability matters more than the premium feel.</li>
  </ul>
 
  <h2 id="when-it-loses" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">When Embroidery Wins Instead</h2>
@@ -95,7 +95,7 @@ const speakableSchema = {
  <li><strong>Performance fabrics.</strong> Polyester polos take embroidery cleanly without dye-migration concerns.</li>
  <li><strong>Multi-color logos with fine detail.</strong> Embroidery handles fine lines and small text better than screen printing on knit fabrics.</li>
  </ul>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Most companies run both — embroidered polos for client-facing roles, <a href="/screen-printing-vs-embroidery-construction-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">screen-printed tees for the field crew</a>.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Most companies run both: embroidered polos for client-facing roles, <a href="/screen-printing-vs-embroidery-construction-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">screen-printed tees for the field crew</a>.</p>
 
  <h2 id="costs" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">What Drives Screen Printing Cost</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">Three factors:</p>
@@ -104,7 +104,7 @@ const speakableSchema = {
  <li><strong>Garment cost.</strong> A blank Carhartt K87 wholesale is very different from a Gildan 2000.</li>
  <li><strong>Quantity.</strong> Per-piece printing falls dramatically with volume. 24 pieces vs. 200 pieces vs. 500 pieces gives radically different per-piece pricing because setup is fixed.</li>
  </ol>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">For a tighter look at pricing, see <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">how embroidery pricing works</a> — the same five factors apply with different weightings.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">For a tighter look at pricing, see <a href="/blog/how-much-to-embroider-a-shirt/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">how embroidery pricing works</a>. The same five factors apply with different weightings.</p>
 
  <h2 id="fabric" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Fabric Compatibility</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">Screen-print compatibility depends on the exact garment, fabric, coating, ink system, preparation, cure, artwork, and production partner. Product categories to review include:</p>
@@ -112,7 +112,7 @@ const speakableSchema = {
  <li><strong>100% cotton tees.</strong> The classic substrate. Crisp prints, full color saturation, fast cure.</li>
  <li><strong>50/50 cotton-poly.</strong> Slightly different ink pickup but identical results in practice.</li>
  <li><strong>100% polyester.</strong> The production partner must confirm the compatible ink system, preparation, cure, and dye-migration controls.</li>
- <li><strong>Tri-blends.</strong> Cotton/poly/rayon — softer hand, prints fine but fabric texture means slight ink absorption variation.</li>
+ <li><strong>Tri-blends.</strong> Cotton/poly/rayon, softer hand, prints fine but fabric texture means slight ink absorption variation.</li>
  <li><strong>Hi-vis poly mesh.</strong> Print placement is constrained by the <a href="https://safetyequipment.org/standards/ansi-isea-107/" rel="noopener" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">ANSI 107 retroreflective area limits</a>, but the fabric prints cleanly.</li>
  </ul>
 
@@ -127,4 +127,5 @@ const speakableSchema = {
  </div>
  </div>
  </article>
+ <NationalLinks heading='Related product guides' links={[{ href: '/custom-screen-printed-shirts/', label: 'Custom screen printed shirts' }]} />
 </BaseLayout>

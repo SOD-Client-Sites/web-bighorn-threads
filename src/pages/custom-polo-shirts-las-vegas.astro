@@ -1,4 +1,6 @@
 ---
+import HeroProducts from '@/components/HeroProducts.astro'
+import NationalLinks from '@/components/NationalLinks.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import ProofStrip from '@/components/ProofStrip.astro'
 
@@ -6,46 +8,45 @@ const page = {
  title: 'Custom Polo Shirts Las Vegas | Embroidered & Printed',
  description:
  'Custom logo polos for Las Vegas teams: embroidered or screen printed work polos and staff uniform polos. Compare Port Authority, Carhartt, Nike and more, then send your logo and quantity for a quote.',
- hero: '/images/generated/service-embroidery.jpg',
  url: 'https://bighornthreads.com/custom-polo-shirts-las-vegas/',
 }
 
 const stack = [
- { label: 'The blank', body: 'Compare current Port Authority, Sport-Tek, Carhartt, Nike, Cutter & Buck, and other polo options by role, fit, fabric, care, and budget.' },
-  { label: 'The decoration', body: 'Choose a chest logo and optional name placement. Bighorn coordinates approved embroidery through selected production partners.' },
-  { label: 'Sizing', body: 'Size ranges, tall sizes, and women\'s cuts vary by brand and current product availability.' },
-  { label: 'Program-ready', body: 'Set up a private company store so your team reorders approved polos on demand. New hires get fully decorated polos when they start, without HR chasing approvals.' },
+ { label: 'The blank', body: 'Compare Port Authority, Sport-Tek, Carhartt, Nike, Cutter & Buck, and other polos by role, fit, fabric, care, and budget.' },
+  { label: 'The decoration', body: 'Choose a chest logo and, if you want, a name. Production partners stitch what you approve.' },
+  { label: 'Sizing', body: 'Size ranges, tall sizes, and women\'s cuts vary by brand and stock.' },
+  { label: 'Program-ready', body: 'A private company store lets your team reorder approved polos when they need them. A new hire picks a size and HR stops chasing approvals.' },
 ]
 
 const blanks = [
- { row: 'Port Authority K500', use: 'Pique-knit polo for office and service teams', notes: 'Confirm current colors, sizes, and product specifications' },
- { row: 'Port Authority K540', use: 'Performance fabric option for hot-weather service work', notes: 'Confirm current manufacturer fabric, moisture-management, care, colors, and sizes' },
- { row: 'Sport-Tek ST650', use: 'Performance polo candidate for crew programs', notes: 'Confirm current product specifications, stock, decoration, and quoted price' },
- { row: 'Carhartt polo options', use: 'Brand-name candidates for trade and service roles', notes: 'Confirm current model, fit, fabric, pocket, and layering needs' },
- { row: 'Nike Dri-FIT', use: 'Brand-name performance polo candidate', notes: 'Confirm current model, fit, availability, decoration, and price' },
+ { row: 'Port Authority K500', use: 'Pique-knit polo for office and service teams', notes: 'Ask about colors and sizes' },
+ { row: 'Port Authority K540', use: 'Performance fabric for hot-weather service work', notes: 'Ask about fabric, care, colors, and sizes' },
+ { row: 'Sport-Tek ST650', use: 'Performance polo for crews', notes: 'Ask about stock and decoration' },
+ { row: 'Carhartt polo options', use: 'Brand-name polos for trade and service roles', notes: 'Tell us the fit, fabric, pocket, and layering you need' },
+ { row: 'Nike Dri-FIT', use: 'Brand-name performance polo', notes: 'Ask about models, fit, and stock' },
  { row: 'Cutter & Buck DryTec', use: 'Executive-tier polo, golf-shirt feel', notes: 'For VP, owner, and high-touch sales roles' },
 ]
 
 const placements = [
- { name: 'Left chest logo', detail: 'A common placement. Final size depends on the logo, garment, and approved proof.' },
- { name: 'Right chest name', detail: 'A common identification option. Final text, size, and placement depend on policy, garment, and proof.' },
- { name: 'Sleeve mark', detail: 'Cap sleeve or full sleeve. Cert badges, secondary brand marks, project IDs.' },
+ { name: 'Left chest logo', detail: 'The usual spot. Final size depends on the logo and polo.' },
+ { name: 'Right chest name', detail: 'A common way to identify staff. Your proof shows the final text and size.' },
+ { name: 'Sleeve mark', detail: 'Cap sleeve or full sleeve, for cert badges, a second logo, or project IDs.' },
  { name: 'Back yoke', detail: 'For larger logos on heavier polos. Common on jacket programs that match the polo line.' },
 ]
 
 const faqs = [
- { q: 'Should custom polo shirts be embroidered or screen printed?', a: 'Embroidery is common on polos, but the right method depends on the fabric, artwork, quantity, desired feel, and budget. Review a product-specific recommendation and proof before production.' },
+ { q: 'Should custom polo shirts be embroidered or screen printed?', a: 'Embroidery is the usual choice on polos. Screen printing can work for large art or big runs. We recommend a method for your logo, and you see a proof before anything gets made.' },
  { q: 'How much does it cost to embroider a polo shirt?', a: 'Cost depends on the blank, decoration method, logo size, and order quantity. See our embroidery cost breakdown for the factors that drive price, or send your logo and quantity for a quote.', html: 'Cost depends on the blank, decoration method, logo size, and order quantity. See our <a href="/blog/how-much-to-embroider-a-polo/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">embroidery cost breakdown</a> for the factors that drive price, or send your logo and quantity for a quote.' },
- { q: 'Is there a minimum order quantity for custom polos?', a: 'Minimums vary by decoration method and production partner. See our guide to minimum order quantities for embroidery and screen printing, or contact us to confirm what\'s realistic for your order size.', html: 'Minimums vary by decoration method and production partner. See our <a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">guide to minimum order quantities for embroidery and screen printing</a>, or contact us to confirm what\'s realistic for your order size.' },
- { q: 'How long does a custom polo order take?', a: 'Timing depends on the polo, quantity, artwork readiness, proofing, and production partner capacity. An approved logo already on file is the fastest path. For a fixed date, see our rush order options and fast-turnaround guide.', html: 'Timing depends on the polo, quantity, artwork readiness, proofing, and production partner capacity. An approved logo already on file is the fastest path. For a fixed date, see our <a href="/services/rush-orders-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">rush order options</a> and <a href="/fastest-turnaround-custom-apparel/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">fast-turnaround guide</a>.' },
- { q: 'What\'s the best polo blank for Las Vegas summer?', a: 'Compare current lightweight and moisture-management polo options for the actual work setting. Fabric is only one part of a heat plan. Employers should follow current heat-illness requirements for water, rest, shade, training, and work practices.' },
- { q: 'Can you embroider names on every polo?', a: 'Name embroidery may be available on eligible polos. Pricing and production time depend on the product, personalization, and production partner.' },
-  { q: 'Do you offer women\'s cut polos?', a: 'Women\'s cuts are available in many product lines. We confirm current styles, colors, sizes, and pricing for your order.' },
-  { q: 'Can you match my Pantone brand color in the thread?', a: 'Thread matching depends on the approved color and partner\'s available thread library. You review the proposed match before production.' },
-  { q: 'Can you set up a company store for our polos?', a: 'Yes. We set up a private storefront with your approved polos and decoration spec preloaded, employee size profiles on file, and per-employee allowances that match your apparel budget. Reorder pricing is confirmed in your quote.' },
+ { q: 'Is there a minimum order quantity for custom polos?', a: 'It depends on the polo and how it is decorated. See our guide to minimum order quantities for embroidery and screen printing, or tell us how many you need and we will tell you what works.', html: 'It depends on the polo and how it is decorated. See our <a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">guide to minimum order quantities for embroidery and screen printing</a>, or tell us how many you need and we will tell you what works.' },
+ { q: 'How long does a custom polo order take?', a: 'It depends on your quantity, whether the polo is in stock, how fast the proof gets approved, and how busy the production partner is. A logo we already have approved saves the most time. For a fixed date, see our rush order options and fast-turnaround guide.', html: 'It depends on your quantity, whether the polo is in stock, how fast the proof gets approved, and how busy the production partner is. A logo we already have approved saves the most time. For a fixed date, see our <a href="/services/rush-orders-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">rush order options</a> and <a href="/fastest-turnaround-custom-apparel/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">fast-turnaround guide</a>.' },
+ { q: 'What\'s the best polo blank for Las Vegas summer?', a: 'Look at lightweight performance polos, and tell us whether the crew works indoors or out. A shirt is only one part of a heat plan, and employers still have to follow current rules on water, rest, shade, and training.' },
+ { q: 'Can you embroider names on every polo?', a: 'Yes, where the polo allows it. Your quote shows what names add to the price and schedule.' },
+  { q: 'Do you offer women\'s cut polos?', a: 'Yes, many lines come in women\'s cuts. We check styles, colors, and sizes for your order.' },
+  { q: 'Can you match my Pantone brand color in the thread?', a: 'We get as close as the partner\'s thread colors allow, and you see the proposed match before production.' },
+  { q: 'Can you set up a company store for our polos?', a: 'Yes. We set up a private store with your approved polos and logo, so your people can order their own sizes. Ask about spending limits per employee, and your proposal will say what your store can do.' },
  { q: 'Can you screen print polo shirts instead of embroidering them?', a: 'Yes. Screen printing suits larger or multi-color artwork and higher quantities, while embroidery suits small chest logos and a more finished look on knit polos. We recommend a method based on your artwork, fabric, and quantity, and you approve a proof before production. See our screen printing service in Las Vegas for the full process.', html: 'Yes. Screen printing suits larger or multi-color artwork and higher quantities, while embroidery suits small chest logos and a more finished look on knit polos. We recommend a method based on your artwork, fabric, and quantity, and you approve a proof before production. See our <a href="/services/screen-printing-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">screen printing service in Las Vegas</a> for the full process.' },
- { q: 'What is the difference between work polos and uniform polos?', a: 'Work polos are chosen for durability and comfort on active or outdoor roles, often in performance fabrics. Uniform polos prioritize a consistent look across a team, usually with matching colors, logo placement, and optional employee names. Most Las Vegas crews run both: a work polo for the field and a uniform polo for customer-facing staff.' },
- { q: 'Where can I get custom polo shirts in Las Vegas?', a: 'Bighorn Threads manages custom polo programs for Vegas teams. Send your logo, quantity, and size range so we can confirm current options.' },
+ { q: 'What is the difference between work polos and uniform polos?', a: 'Work polos are chosen for durability and comfort on active or outdoor roles, often in performance fabrics. Uniform polos prioritize a consistent look across a team, usually with matching colors, logo placement, and optional employee names. Some teams run both: a work polo for the field and a uniform polo for customer-facing staff.' },
+ { q: 'Where can I get custom polo shirts in Las Vegas?', a: 'Bighorn Threads handles custom polo orders for Vegas teams. Send your logo, how many you need, and your size range, and we will send options.' },
 ]
 
 const breadcrumb = {
@@ -92,7 +93,6 @@ const speakableSchema = {
  title={page.title}
  description={page.description}
  canonical={page.url}
- heroImage={page.hero}
 >
  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
@@ -100,26 +100,23 @@ const speakableSchema = {
  <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
 
  <!-- Hero -->
- <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-28">
- <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
- <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/55"></div>
-
- <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <nav class="mb-6 font-mono text-xs text-navy-200" aria-label="Breadcrumb">
- <a href="/" class="hover:text-gold-400">Home</a>
- <span class="px-2 text-navy-200/60">/</span>
- <span class="text-gold-400">Custom Polo Shirts</span>
+ <section class="border-b border-hairline bg-concrete pt-16 pb-20 sm:pt-16 sm:pb-28">
+ <div class="page-hero-grid relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-700">Home</a>
+ <span class="px-2 text-ash">/</span>
+ <span class="text-gold-700">Custom Polo Shirts</span>
  </nav>
 
  <p class="kicker mb-4 flex items-center gap-2.5">
   <span class="h-px w-8 bg-gold-500"></span>
   Branded Apparel
  </p>
- <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
- Custom Polo Shirts in Las Vegas <span class="text-gold-400">embroidered or screen printed, ready for the field.</span>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
+ Custom Polo Shirts in Las Vegas, embroidered or screen printed.
  </h1>
- <p class="speakable-answer max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
-          Bighorn Threads runs custom polo programs for Las Vegas teams: embroidered polos, screen printed polos, work polos, and uniform polo shirts. Compare available brands, styles, and sizes, then we handle logo setup and decoration through our production partners.
+ <p class="speakable-answer max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
+ Embroidered polos, screen printed polos, work polos, and uniform polo shirts for Las Vegas teams. Pick the brand, style, and sizes, and we get your logo set up and the polos made through our production partners.
  </p>
 
  <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -127,10 +124,11 @@ const speakableSchema = {
  Get a Quote
  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
  </a>
- <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-charcoal transition-colors hover:text-gold-700">
  702.904.8923
  </a>
  </div>
+  <HeroProducts />
  </div>
  </section>
 
@@ -139,7 +137,7 @@ const speakableSchema = {
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
  <p class="kicker mb-3">What You Get</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">A polo program your team will actually wear.</h2>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">A polo program your team will wear.</h2>
  </div>
 
  <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
@@ -160,7 +158,7 @@ const speakableSchema = {
         <p class="kicker mb-3">Polo Options</p>
  <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Pick the polo that matches the role.</h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- Compare current products by role, fit, fabric, care, stock, decoration compatibility, and quoted price. Different roles can use different approved polos in one program.
+ Different roles can wear different polos in one program. Your quote lists price, minimums, and timing.
  </p>
  </div>
 
@@ -218,16 +216,16 @@ const speakableSchema = {
 
  <div class="space-y-5 text-lg leading-relaxed text-ash">
  <p>
- Custom polo shirts are one option for service technicians, account managers, sales reps, <a href="/casino-hospitality-uniforms-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">casino floor and hospitality staff</a>, and other customer-facing roles across the valley, from <a href="/service-areas/henderson-nv/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Henderson</a> and <a href="/service-areas/summerlin/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Summerlin</a> to <a href="/service-areas/north-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">North Las Vegas</a>. Embroidery can create a structured chest mark, while other decoration methods may fit different fabrics, artwork, quantities, and budgets.
+ Polos work for service technicians, account managers, sales reps, <a href="/casino-hospitality-uniforms-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">casino floor and hospitality staff</a>, and other customer-facing roles across the valley, from <a href="/service-areas/henderson-nv/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Henderson</a> and <a href="/service-areas/summerlin/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Summerlin</a> to <a href="/service-areas/north-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">North Las Vegas</a>. Embroidery gives a clean chest logo. Other methods can fit better depending on the fabric, artwork, quantity, and budget.
  </p>
  <p>
-          Your work setting should guide the polo choice. Compare cotton-poly and performance options for indoor and outdoor roles. Current colors, sizes, product details, and availability are confirmed before approval.
+          Let the work setting guide the choice. Compare cotton-poly and performance polos for indoor and outdoor roles.
  </p>
  <p>
-          Name embroidery can help customers identify your staff. A common layout places the logo on the left chest. The worker name appears on the right. Pricing and production time depend on the approved product and partner.
+          Names help customers know who they're talking to. The usual layout is the logo on the left chest and the name on the right.
  </p>
  <p>
-          For a long-running program, we set up a private company store with your blanks, decoration spec, and employee size profiles preloaded. New hires get fully decorated polos when they start without your HR team chasing approvals, and per-employee allowances can match your existing apparel budget. See <a href="/company-stores/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">how the company store program works</a> for the operational details.
+          For a long-running program, we set up a private company store with your polos and logo loaded, so people order their own sizes. Ask about allowances per employee. See <a href="/company-stores/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">how the company store program works</a> for the details.
  </p>
  <p>
  For deeper reads on polos and embroidery, see our <a href="/blog/custom-polo-shirts-las-vegas/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">custom polo shirts buyer's guide</a>, the <a href="/blog/port-authority-polos-vs-alternatives/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">Port Authority vs alternatives comparison</a>, and the <a href="/blog/how-much-to-embroider-a-polo/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">embroidery cost breakdown</a>.
@@ -257,6 +255,7 @@ const speakableSchema = {
  </div>
  </section>
 
+ <NationalLinks heading='Ordering from outside Nevada?' links={[{ href: '/custom-polo-shirts/', label: 'Custom polo shirts' }, { href: '/company-uniforms/', label: 'Company uniforms' }, { href: '/custom-quarter-zips-jackets/', label: 'Quarter-zips and jackets' }]} />
  <section class="bg-concrete py-20 sm:py-24">
  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
  <p class="kicker mb-3">FAQ</p>
@@ -283,11 +282,11 @@ const speakableSchema = {
  <div class="grid gap-5 md:grid-cols-3">
  <a href="/services/embroidery-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Custom Embroidery</h3>
-          <p class="mt-2 text-sm text-ash">See how Bighorn coordinates approved embroidery for your polo program.</p>
+          <p class="mt-2 text-sm text-ash">How embroidery works for your polo order.</p>
  </a>
  <a href="/brands/port-authority-polos-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Port Authority Polos</h3>
- <p class="mt-2 text-sm text-ash">Brand-page deep-dive on the K500, K540, and L-line cuts.</p>
+ <p class="mt-2 text-sm text-ash">A closer look at the K500, K540, and L-line cuts.</p>
  </a>
  <a href="/catalog/polos/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal group-hover:text-gold-600">Browse Polo Catalog</h3>
@@ -298,12 +297,10 @@ const speakableSchema = {
  </section>
 
  <!-- CTA -->
- <section class="relative isolate overflow-hidden bg-navy-950 py-20">
- <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" loading="lazy" decoding="async" />
- <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <section class="bg-charcoal py-20">
  <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Ready to outfit your team in branded polos?</h2>
- <p class="mb-8 text-lg text-navy-200">Send your logo, count, and blank preference.</p>
+ <p class="mb-8 text-lg text-white/80">Send your logo, count, and blank preference.</p>
  <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
       <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>

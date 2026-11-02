@@ -1,15 +1,16 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import NationalLinks from '@/components/NationalLinks.astro'
 
 const post = {
- title: 'HVAC Service Tech Uniforms: A Las Vegas Buyer\'s Guide',
+ title: 'HVAC Service Tech Uniforms: A Buyer\'s Guide',
  description:
- 'Compare HVAC service tech uniforms for Las Vegas work. Review products, role needs, heat exposure, employer requirements, decoration, care, availability, and current order terms.',
+ 'Compare HVAC service tech uniforms. Review products, role needs, heat exposure, employer requirements, decoration, care, availability, and current order terms.',
  category: 'Trades',
  readTime: '8 min read',
  date: 'May 9, 2026',
  isoDate: '2026-05-09',
- image: '/images/generated/kit-plumbing-hvac.jpg',
+ image: '/images/og-default.jpg',
  slug: 'hvac-uniforms-service-tech-apparel',
 }
 
@@ -57,7 +58,6 @@ const speakableSchema = {
  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
  </header>
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Representative service-uniform apparel shown for role planning" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
@@ -77,7 +77,7 @@ const speakableSchema = {
  <li><strong>Embroidered performance polo:</strong> Compare products such as the Port Authority K540. Confirm current fabric data, care, availability, and decoration compatibility.</li>
  <li><strong>Work pants:</strong> Compare the Carhartt B11 or other exact products against the role, fit, use, care, and employer requirements.</li>
  <li><strong>Branded service cap</strong> (Richardson 112 trucker hat with embroidered logo)</li>
- <li><strong>Closed-toe work boots</strong> — separate from the workwear program</li>
+ <li><strong>Closed-toe work boots</strong>: separate from the workwear program</li>
  </ul>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Commercial / Install Crews</h3>
@@ -129,4 +129,5 @@ const speakableSchema = {
  </div>
  </div>
  </article>
+ <NationalLinks heading='Related product guides' links={[{ href: '/hvac-uniforms/', label: 'HVAC uniforms' }, { href: '/plumber-uniforms/', label: 'Plumber uniforms' }]} />
 </BaseLayout>

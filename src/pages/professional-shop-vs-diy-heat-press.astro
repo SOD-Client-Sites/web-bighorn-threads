@@ -1,4 +1,5 @@
 ---
+import HeroProducts from '@/components/HeroProducts.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import ProofStrip from '@/components/ProofStrip.astro'
 
@@ -6,7 +7,6 @@ const page = {
  title: 'Professional Shop vs DIY Heat Press for Business Shirts | Bighorn Threads',
  description:
  'Should a small business press its own shirts or use a professional shop? Compare real cost per shirt, durability, time, failure rates, and the quantity where a heat press stops making sense, with a clear rule for Las Vegas businesses.',
- hero: '/images/generated/service-screen-printing.jpg',
  url: 'https://bighornthreads.com/professional-shop-vs-diy-heat-press/',
 }
 
@@ -23,7 +23,7 @@ const compare = [
 const faqs = [
  { q: 'Is it cheaper to make my own shirts with a heat press?', a: 'Only for a handful of one-off pieces, and only if your time is free. Once you count the press, the transfers or vinyl, the misprints, and the hours per shirt, a professional run of two dozen or more costs less per finished, durable shirt. The crossover for most small businesses is around 12 to 24 pieces, sooner if the shirts are worn daily.' },
  { q: 'How long do heat-press vinyl shirts last?', a: 'Consumer heat-transfer vinyl and inkjet transfers typically start cracking or peeling within one season of regular washing, faster on shirts that see a commercial washer or the Las Vegas sun. Screen printing, professional DTF, and embroidery are made to survive the life of the garment.' },
- { q: 'What is the minimum order at a professional shop?', a: 'Embroidery can run in small quantities because there is no screen setup. Screen printing has a practical minimum per design, usually a dozen or two. DTF and DTG fill the gap for small full-color runs. Bighorn confirms minimums in the quote.' },
+ { q: 'What is the minimum order at a professional shop?', a: 'Embroidery can run in small quantities because there is no screen setup. Screen printing has a practical minimum per design. DTF and DTG fill the gap for small full-color runs. Bighorn confirms minimums in the quote.' },
  { q: 'Can a heat press do polos, caps, or jackets?', a: 'Poorly. A flat press struggles with seams, plackets, and curved cap fronts, and heavy or waterproof shells can be damaged by the heat. Those garments are embroidered or professionally printed.' },
  { q: 'When should a small business move from DIY to a shop?', a: 'The first time you reorder. A repeat order means the design is settled, the quantity justifies setup, and the shirts have become part of how customers recognize the business. That is the point where a proof, a written quote, and a durable method pay for themselves.' },
  { q: 'Can I keep pressing one-offs and use a shop for the rest?', a: 'Yes, and many businesses do: a shop for the crew uniform and the event run, the press for a prototype or a single replacement. Just do not let the press become the uniform program.' },
@@ -40,32 +40,31 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
 const speakableSchema = { '@context': 'https://schema.org', '@type': 'WebPage', url: page.url, datePublished: '2026-09-10', dateModified: '2026-09-10', speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', '.speakable-answer'] } }
 ---
 
-<BaseLayout title={page.title} description={page.description} canonical={page.url} heroImage={page.hero} type="article" publishedDate="2026-09-10">
+<BaseLayout title={page.title} description={page.description} canonical={page.url} type="article" publishedDate="2026-09-10">
  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
 
- <section class="relative isolate overflow-hidden bg-navy-950 pt-16 pb-20 sm:pt-16 sm:pb-24">
- <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
- <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/55"></div>
- <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
- <nav class="mb-6 font-mono text-xs text-navy-200" aria-label="Breadcrumb">
- <a href="/" class="hover:text-gold-400">Home</a><span class="px-2 text-navy-200/60">/</span>
- <a href="/custom-t-shirts-las-vegas/" class="hover:text-gold-400">Custom T-Shirts</a><span class="px-2 text-navy-200/60">/</span>
- <span class="text-gold-400">Pro Shop vs Heat Press</span>
+ <section class="border-b border-hairline bg-concrete pt-16 pb-20 sm:pt-16 sm:pb-24">
+ <div class="page-hero-grid relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-700">Home</a><span class="px-2 text-ash">/</span>
+ <a href="/custom-t-shirts-las-vegas/" class="hover:text-gold-700">Custom T-Shirts</a><span class="px-2 text-ash">/</span>
+ <span class="text-gold-700">Pro Shop vs Heat Press</span>
  </nav>
  <p class="kicker mb-4 flex items-center gap-2.5"><span class="h-px w-8 bg-gold-500"></span> Decision Guide</p>
- <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-white sm:text-5xl lg:text-6xl">
- Professional shop or DIY heat press? <span class="text-gold-400">Press the prototype, not the uniform.</span>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[1.0] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
+ Professional shop or DIY heat press? <span class="text-gold-700">Press the prototype, not the uniform.</span>
  </h1>
- <p class="speakable-answer max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
+ <p class="speakable-answer max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
  Use a professional shop for anything the crew wears daily, anything a customer sees, and anything you will reorder: the print survives commercial washing, every shirt matches the proof, and the per-shirt cost drops with quantity. A DIY heat press makes sense for a handful of one-offs and prototypes under about a dozen pieces. Once a small business reorders a design, the press has stopped saving money.
  </p>
  <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
  <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
- <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-white transition-colors hover:text-gold-400">702.904.8923</a>
+ <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-sm font-medium tracking-wide text-charcoal transition-colors hover:text-gold-700">702.904.8923</a>
  </div>
+  <HeroProducts />
  </div>
  </section>
 
@@ -148,12 +147,10 @@ const speakableSchema = { '@context': 'https://schema.org', '@type': 'WebPage', 
  </div>
  </section>
 
- <section class="relative isolate overflow-hidden bg-navy-950 py-20">
- <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1920" height="1080" loading="lazy" decoding="async" />
- <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <section class="bg-charcoal py-20">
  <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Ready to retire the heat press for the crew shirts?</h2>
- <p class="mb-8 text-lg text-navy-200">Send the artwork and the quantity. You get a proof and a written quote.</p>
+ <p class="mb-8 text-lg text-white/80">Send the artwork and the quantity. You get a proof and a written quote.</p>
  <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
  <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote</a>
  <a href="tel:+17029048923" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium text-white transition-colors hover:text-gold-400">702.904.8923</a>

@@ -21,9 +21,9 @@ export const bighornCategories: BighornCategory[] = [
     seoIntro:
       "Custom t-shirts are the workhorse of a Las Vegas construction crew's wardrobe. Bighorn Threads helps you select tees for your crew and coordinates decoration through selected production partners. Options can include heavyweight cotton, poly-cotton blends, pocket tees, long sleeves, and ringspun cotton. Available brands, decoration methods, minimums, and timelines depend on the product and partner. You review the proposed product and proof before production begins.",
     seoBullets: [
-      'Heavyweight cotton, poly-blend, ringspun — sized so a 3XL fits a 3XL',
+      'Heavyweight cotton, poly-blend, ringspun: sized so a 3XL fits a 3XL',
       'Screen printing and transfer options, based on the order',
-      'Carhartt, Bayside, Gildan, Port & Company — brands crews recognize',
+      'Carhartt, Bayside, Gildan, Port & Company: brands crews recognize',
       'Proof review before approved production',
       'Availability confirmed for your selected brand and style',
     ],
@@ -204,7 +204,7 @@ export const bighornCategories: BighornCategory[] = [
     slug: 'promotional-products',
     title: 'Promotional Products',
     shortTitle: 'Promo',
-    blurb: 'Giveaways, client gifts, and trade show swag. 1.7M products in the catalog — start here if you don\'t know what you want.',
+    blurb: 'Giveaways, client gifts, and trade show swag. 1.7M+ products in the catalog. Start here if you don\'t know what you want.',
     seoIntro:
       "When you don't know what you want, start here. Bighorn Threads can help you search the SAGE supplier network for promotional products. Options can include pens, notebooks, drinkware, decals, tools, gifts, kits, awards, and event giveaways. Tell us your event, audience, budget, and timeline. We'll narrow the catalog and confirm current products, minimums, pricing, decoration, and production terms.",
     seoBullets: [

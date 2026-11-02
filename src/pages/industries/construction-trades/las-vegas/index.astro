@@ -1,4 +1,5 @@
 ---
+import HeroProducts from '@/components/HeroProducts.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const trades = [
@@ -10,7 +11,7 @@ const trades = [
  {
  name: 'Electrical Contractors',
  href: '/industries/electrical-contractors-las-vegas/',
- desc: 'Employer-selected electrical PPE and nonprotective service-apparel options, with decoration approved before production.',
+ desc: 'Electrical PPE your company selects, plus everyday service apparel. Logos get approved before production.',
  },
  {
  name: 'Plumbing & HVAC',
@@ -20,17 +21,17 @@ const trades = [
  {
  name: 'Concrete & Masonry',
  href: '/industries/concrete-masonry-las-vegas/',
- desc: 'Employer-selected visibility and workwear options reviewed against current product and decoration requirements.',
+ desc: 'Hi-vis your company selects and everyday workwear, checked against product and logo rules.',
  },
  {
  name: 'Steel & Ironworkers',
  href: '/industries/steel-iron-workers-las-vegas/',
- desc: 'Task-specific protective apparel and equipment selected by the employer; decoration requires written approval.',
+ desc: 'Protective apparel and equipment your company selects for the task. Logos need written approval.',
  },
  {
  name: 'Data Center & Mission-Critical',
  href: '/industries/data-center-contractors-las-vegas/',
- desc: 'Employer-selected electrical PPE and nonprotective apparel options for data-center project roles.',
+ desc: 'Electrical PPE your company selects, plus everyday apparel for data-center roles.',
  },
  {
  name: 'Roofing & Solar',
@@ -45,7 +46,7 @@ const trades = [
  {
  name: 'Oil, Gas & Mechanical',
  href: '/industries/oil-gas-mechanical-las-vegas/',
- desc: 'Employer-selected protective apparel and nonprotective branded-apparel options for mechanical roles.',
+ desc: 'Protective apparel your company selects, plus everyday branded apparel for mechanical roles.',
  },
 ]
 
@@ -102,7 +103,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
 >
  <!-- ════ HERO — concrete ════ -->
  <section class="bg-concrete">
- <div class="mx-auto max-w-7xl px-4 pb-16 pt-20 sm:px-6 sm:pt-24 lg:px-8 lg:pb-24 lg:pt-14">
+ <div class="page-hero-grid mx-auto max-w-7xl px-4 pb-16 pt-20 sm:px-6 sm:pt-24 lg:px-8 lg:pb-24 lg:pt-14">
  <div class="max-w-3xl">
  <p class="kicker mb-5 flex items-center gap-2.5">
  <span class="h-px w-8 bg-gold-500"></span>
@@ -113,9 +114,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  <span class="text-gold-600"> build Vegas.</span>
  </h1>
  <p class="mt-7 max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
- Bighorn provides Las Vegas account management for general contractors,
- electricians, roofers, plumbers, HVAC teams, concrete crews, and steel and ironworkers.
- We coordinate employer-approved products and decoration through production partners.
+ One Las Vegas account manager for general contractors, electricians, roofers, plumbers, HVAC teams, concrete crews, and ironworkers. You approve the products and decoration, and production partners make them.
  </p>
  <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
  <a href="/contact/" class="btn-primary text-base">
@@ -128,6 +127,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  </a>
  </div>
  </div>
+  <HeroProducts />
  </div>
  </section>
 
@@ -140,8 +140,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  Built for the companies that <span class="text-gold-600">build Vegas.</span>
  </h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- Plan a consistent branded-apparel program around each role, job requirement,
- and employer-approved product specification. Pick your trade to review relevant options.
+ Plan your branded apparel by role, job, and approved products. Pick your trade to see the options.
  </p>
  </div>
 
@@ -170,9 +169,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  One local contact for <span class="text-gold-600">your crew.</span>
  </h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- Bighorn manages product selection, proofs, and reorders for Las Vegas crews.
- Selected production partners handle decoration. Your employer defines all safety requirements.
- Product availability and timing are confirmed in each quote.
+ We handle product selection, proofs, and reorders for Las Vegas crews. Production partners do the decoration. Your company sets all safety requirements. Your quote lists price, minimums, and timing.
  </p>
  <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
  <a href="/safety-compliance/" class="btn-secondary text-sm">
@@ -191,21 +188,21 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  <svg class="mt-0.5 h-5 w-5 shrink-0 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
  <div>
  <h3 class="font-heading text-base font-bold uppercase tracking-tight text-charcoal">Managed Production and Timing</h3>
- <p class="mt-1 text-sm leading-relaxed text-ash">Selected production partners handle approved decoration. Your quote confirms product availability, minimums, and timing.</p>
+ <p class="mt-1 text-sm leading-relaxed text-ash">Production partners do the decoration you approve. Tell us your date and we'll check it.</p>
  </div>
  </div>
  <div class="flex gap-4 py-5">
  <svg class="mt-0.5 h-5 w-5 shrink-0 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
  <div>
  <h3 class="font-heading text-base font-bold uppercase tracking-tight text-charcoal">Built for the Vegas Heat</h3>
- <p class="mt-1 text-sm leading-relaxed text-ash">Review breathable and high-visibility options for desert work. The employer selects required PPE and approves each product against current manufacturer documentation.</p>
+ <p class="mt-1 text-sm leading-relaxed text-ash">Look at breathable and hi-vis options for desert work. Your company selects required PPE and checks each product against the manufacturer's documents.</p>
  </div>
  </div>
  <div class="flex gap-4 py-5">
  <svg class="mt-0.5 h-5 w-5 shrink-0 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
  <div>
  <h3 class="font-heading text-base font-bold uppercase tracking-tight text-charcoal">Reorders That Match</h3>
- <p class="mt-1 text-sm leading-relaxed text-ash">Bighorn can document approved artwork, colors, and placement for reorder coordination. File retention and matching terms depend on the production partner.</p>
+ <p class="mt-1 text-sm leading-relaxed text-ash">We can keep your approved artwork, colors, and placement on record for reorders. File storage and matching depend on the production partner.</p>
  </div>
  </div>
  </div>
@@ -246,8 +243,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  Ready to standardize <span class="text-gold-400">your Vegas crew?</span>
  </h2>
  <p class="mt-3 text-base leading-relaxed text-navy-200">
- Get a quick quote — real mockups, real pricing, a human on the phone who knows
- the trades. Stop chasing down uniform orders.
+ Get a quote and mockups, and talk to a person who knows the trades.
  </p>
  </div>
  <div class="flex shrink-0 flex-col gap-3 sm:flex-row sm:items-center">

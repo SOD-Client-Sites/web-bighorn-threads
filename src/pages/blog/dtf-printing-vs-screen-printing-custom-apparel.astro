@@ -10,7 +10,7 @@ const post = {
  readTime: '8 min read',
  date: 'May 9, 2026',
  isoDate: '2026-05-09',
- image: '/images/generated/service-screen-printing.jpg',
+ image: '/images/og-default.jpg',
  slug: 'dtf-printing-vs-screen-printing-custom-apparel',
 }
 
@@ -18,11 +18,11 @@ const faqs = [
  { q: 'What is DTF printing?', a: 'DTF printing transfers approved artwork from a prepared film onto a compatible garment. The selected partner must confirm the ink, adhesive, press specification, fabric compatibility, finish, and care instructions.' },
  { q: 'DTF vs screen printing: which is better?', a: 'Choose by garment, fabric, color, artwork, quantity, feel, care, price, and partner capacity. Compare written quotes for the same approved specification.' },
  { q: 'How long does DTF last?', a: 'There is no universal wash count. Durability depends on the garment, transfer system, application, use, and care. Ask for current manufacturer or partner documentation when durability matters.' },
- { q: 'Does DTF work on dark fabrics?', a: 'Yes — this is one of DTF\'s biggest advantages over sublimation. DTF prints with white-ink underlayers that allow color saturation on black, navy, and dark gray fabrics. Sublimation can\'t do this; screen printing requires extra "underbase" steps that add cost. DTF handles dark fabrics natively.' },
+ { q: 'Does DTF work on dark fabrics?', a: 'Yes. This is one of DTF\'s biggest advantages over sublimation. DTF prints with white-ink underlayers that allow color saturation on black, navy, and dark gray fabrics. Sublimation can\'t do this; screen printing requires extra "underbase" steps that add cost. DTF handles dark fabrics natively.' },
  { q: 'Can DTF print on cotton?', a: 'It may be compatible with selected cotton and other garments. The production partner must confirm the exact substrate, coating, transfer system, application settings, finish, and care instructions before approval.' },
  { q: 'What\'s the minimum order for DTF?', a: 'Minimums depend on the product, artwork, and selected production partner. Send the quantity you need and request a written quote.' },
  { q: 'How much does DTF cost compared to screen printing?', a: 'The crossover changes with garment cost, artwork, colors, placements, setup, quantity, and partner pricing. Compare both methods on the same written specification.' },
- { q: 'Does DTF have a feel on the fabric?', a: 'Yes — DTF prints have a slight raised surface feel because the adhesive layer sits on top of the fabric. It\'s less pronounced than heat-transfer vinyl but more noticeable than properly cured screen-printed plastisol or sublimation. For most apparel users this is unnoticeable; for premium soft-feel programs, screen printing with discharge or water-based inks delivers a softer hand.' },
+ { q: 'Does DTF have a feel on the fabric?', a: 'Yes, DTF prints have a slight raised surface feel because the adhesive layer sits on top of the fabric. It\'s less pronounced than heat-transfer vinyl but more noticeable than properly cured screen-printed plastisol or sublimation. For most apparel users this is unnoticeable; for premium soft-feel programs, screen printing with discharge or water-based inks delivers a softer hand.' },
 ]
 
 const schema = {
@@ -55,11 +55,10 @@ const speakableSchema = {
  <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-700">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-700">Blog</a></nav>
  <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-600">{post.category}</span>
  <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
- <p class="mb-8 text-xl leading-relaxed text-ash">A working buyer's guide to DTF (direct-to-film) printing — when it wins on small-batch and dark fabrics, and when to switch back to screen printing for volume runs.</p>
+ <p class="mb-8 text-xl leading-relaxed text-ash">A working buyer's guide to DTF (direct-to-film) printing: when it wins on small-batch and dark fabrics, and when to switch back to screen printing for volume runs.</p>
  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
  </header>
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="DTF transfer being heat-pressed onto a black cotton tee shirt for small-batch custom apparel" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
@@ -96,7 +95,7 @@ const speakableSchema = {
  <h2 id="when-screen-wins" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">When <a href="/services/screen-printing-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Screen Printing</a> Wins Over DTF</h2>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Larger runs.</strong> Screen printing may offer better unit economics. Compare both quotes on the same specification.</li>
- <li><strong>Bold simple designs on cotton tees.</strong> Block letters, bold logos, simple shapes — screen printing handles these at scale better than DTF.</li>
+ <li><strong>Bold simple designs on cotton tees.</strong> Block letters, bold logos, simple shapes: screen printing handles these at scale better than DTF.</li>
  <li><strong>Durability-sensitive programs.</strong> Request product-specific testing, care instructions, and partner documentation for either method.</li>
 <li><strong>Surface feel.</strong> Ink and transfer feel depend on the selected product, process, materials, and production specification. Confirm the approved sample before ordering.</li>
  <li><strong>High-visibility safety apparel.</strong> The employer and manufacturer must approve the exact garment, method, materials, and placement.</li>

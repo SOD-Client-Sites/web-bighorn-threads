@@ -1,0 +1,67 @@
+---
+import NationalProductPage from '@/components/NationalProductPage.astro'
+---
+
+<NationalProductPage
+  title="Corporate Swag & Branded Merchandise | Bighorn Threads"
+  description="Choose corporate swag and branded merchandise by occasion: new hires, trade shows, client gifts, and staff events. Bighorn Threads ships across the US."
+  path="/corporate-swag/"
+  photo="trade-show-booth"
+  photoAt="break"
+  crumb="Corporate Swag"
+  kicker="Shipped Across the US"
+  h1="Corporate swag"
+  h1Accent="people keep using."
+  sub="How to choose branded merchandise by occasion and recipient, and how to plan decoration and delivery."
+  lead="Corporate swag is branded merchandise a company gives to employees, clients, or event guests, such as apparel, drinkware, bags, and desk items. Start with the recipient and the occasion, then choose an item they would use even without the logo. Bighorn Threads, a VP Promos brand based in Las Vegas, coordinates swag orders through selected partners and ships across the United States."
+  serviceName="Corporate swag and branded merchandise"
+  serviceType="Branded merchandise, custom swag, and corporate gifts"
+  table={{
+    heading: 'Choose swag by occasion',
+    intro: 'Treat these as ideas to start from. Product availability and decoration are confirmed in your quote.',
+    head: ['Occasion', 'Items to consider', 'What to plan for'],
+    rows: [
+      ['New-hire welcome', 'Polo or quarter-zip, drinkware, notebook', 'Sizes by person and storage for the next hires'],
+      ['Trade show or conference', 'Staff shirts, lanyards, bags, small giveaways', 'The venue shipping address and your in-hands date'],
+      ['Client gifts', 'Name-brand drinkware, quality outerwear, a gift set', 'A subtle logo and each recipient company gift policy'],
+      ['Employee appreciation', 'Layers, hats, drinkware, or a choice through a store', 'Sizes and home delivery if the team is remote'],
+      ['Company event or team day', 'T-shirts, hats, bags', 'One date, one size run, and a plan for extras'],
+      ['Sales team kit', 'Polo, notebook, tumbler, bag', 'Reorders as the team grows'],
+    ],
+  }}
+  decide={{
+    heading: 'How to get swag that does not end up in a closet',
+    items: [
+      { title: 'Would they use it without the logo?', desc: 'This is the fastest filter. If the answer is no, a bigger logo will not fix it.' },
+      { title: 'Match the decoration to the item', desc: 'Drinkware is often engraved, bags are often printed, and apparel is often embroidered. See <a href="/custom-yeti-drinkware-las-vegas/">engraved drinkware</a> for an example.' },
+      { title: 'Fewer, better items', desc: 'Two things people use beat six they do not. Set the budget per recipient first, then choose items.' },
+      { title: 'Plan for sizes', desc: 'Apparel adds sizing work. For gifts, stick to one-size items or collect sizes before ordering.' },
+      { title: 'Plan the delivery', desc: 'Name your destinations early: one office, a venue, or individual homes. Your quote confirms what is supported.' },
+      { title: 'Think about leftovers', desc: 'Decide what happens to extras before you order. A <a href="/company-stores/">company store</a> may suit ongoing needs better than a one-time bulk order.' },
+    ],
+  }}
+  body={{
+    heading: 'Swag, promo products, and gifts: how they differ',
+    paragraphs: [
+      'These words overlap. Promotional products usually means items given out widely, like pens and lanyards at a trade show. Swag usually means items for a smaller group that you hope they will keep, like a hoodie or tumbler. Corporate gifts tend to be a step up, for clients and leadership. The difference matters because each has its own budget per person.',
+      'Work backward from the date you need items in hand. Leave time for choosing products, preparing artwork, approving a proof, production, and shipping. Holiday gifts and event dates are fixed, so tell us the date first. Your quote lists the timing for your order.',
+      'For events, see <a href="/industries/events/">event and conference apparel</a> and our guide to <a href="/blog/trade-show-apparel-booth-crew/">booth crew apparel</a>. For new hires, see <a href="/branded-onboarding-kits-las-vegas/">onboarding kits</a>. For staff thank-yous, see <a href="/employee-appreciation-gifts/">employee appreciation gifts</a>. For browsing, start with <a href="/catalog/promotional-products/">promotional products</a>, <a href="/catalog/drinkware/">drinkware</a>, and <a href="/catalog/bags/">bags</a>.',
+      'Considering a print-on-demand service instead? <a href="/branded-merchandise-vs-print-on-demand/">Branded merchandise vs print-on-demand</a> compares the two.',
+    ],
+  }}
+  quote={{ text: "I've worked with them for over 14 years for all my event promotional needs. From branded apparel to unique giveaways, their products are always high-quality and delivered on time. The embroidery work is especially impressive: clean, detailed, and consistent every time.", who: 'Nadia G.', what: 'Client for 14 years' }}
+  faqs={[
+    { q: 'What is corporate swag?', a: 'Corporate swag is branded merchandise a company gives to employees, clients, or event guests, such as apparel, drinkware, bags, and desk items.' },
+    { q: 'What swag do people actually keep?', a: 'People tend to keep items they would use without the logo, such as good drinkware, a comfortable layer, or a useful bag. Consider your recipients and how they spend their day.' },
+    { q: 'How much should we budget for corporate swag?', a: 'Set a budget per recipient based on the occasion, since a giveaway and a client gift do different jobs. Your quote lists pricing for the items and quantities you choose.' },
+    { q: 'Can swag ship to employee homes?', a: 'Home and multi-location delivery can be requested. Bighorn confirms supported destinations and shipping costs in writing before the order moves ahead.' },
+    { q: 'Can you put together kits?', a: 'Tell us the items and recipients when you ask for a quote. Kit assembly, packaging, and delivery options are confirmed in your quote.' },
+    { q: 'Is there a minimum order for branded merchandise?', a: 'Minimums depend on the product, decoration, and quantity. Your quote lists the minimum for your order.' },
+    { q: 'How far ahead should we order swag for an event?', a: 'Start from the date you need items in hand and allow time for artwork, proofs, production, and shipping. Your quote lists the timing for your order.' },
+  ]}
+  related={[
+    { href: '/industries/corporate/', title: 'Corporate Apparel', desc: 'Apparel, swag, and gifts for company teams.' },
+    { href: '/custom-embroidered-hats/', title: 'Embroidered Hats', desc: 'A popular wearable add-on for any kit.' },
+    { href: '/promo-products-las-vegas/', title: 'Promo Products in Las Vegas', desc: 'Promotional products for Las Vegas teams and events.' },
+  ]}
+/>

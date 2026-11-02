@@ -5,11 +5,15 @@ if (grid) loadFeatured()
 
 async function loadFeatured() {
   try {
-    const res = await fetch('/api/sage/search?keywords=hi-vis%20polo%20jacket%20tumbler%20hat&sort=POPULARITY&perPage=12&ref=bighorn-home')
-    if (!res.ok) throw new Error(`HTTP ${res.status}`)
-    const data = await res.json()
+    // One search per category: the API treats multiple keywords as all-must-match.
+    const results = await Promise.all(['safety vest', 'work shirt', 'polo', 'trucker cap'].map(async (q) => {
+      const res = await fetch(`/api/sage/search?q=${encodeURIComponent(q)}&perPage=3&ref=bighorn-featured`)
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      return (await res.json()).products || []
+    }))
+    const data = { products: results.flat() }
     clearChildren(grid)
-    if (!data.ok || !Array.isArray(data.products) || data.products.length === 0) {
+    if (data.products.length === 0) {
       grid.appendChild(renderStatusMessage('No featured products available right now.'))
       return
     }

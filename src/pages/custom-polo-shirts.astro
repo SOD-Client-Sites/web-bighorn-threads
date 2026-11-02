@@ -1,0 +1,65 @@
+---
+import NationalProductPage from '@/components/NationalProductPage.astro'
+---
+
+<NationalProductPage
+  title="Custom Polo Shirts With Your Logo | Bighorn Threads"
+  description="Choose fabric, logo placement, and embroidery for custom company polo shirts. Compare cotton, performance, and blends. Bighorn Threads ships across the US."
+  path="/custom-polo-shirts/"
+  photo="school-staff-polos"
+  photoAt="hero"
+  crumb="Custom Polo Shirts"
+  kicker="Shipped Across the US"
+  h1="Custom polo shirts"
+  h1Accent="for your team."
+  sub="How to choose fabric, placement, and thread so your company polos look right and match when you reorder."
+  lead="Custom polo shirts for a business are usually embroidered with a logo on the left chest. Fabric is the first choice: cotton pique feels traditional, polyester performance knits suit heat and movement, and blends sit between them. Bighorn Threads coordinates polo orders through selected production partners and ships anywhere in the United States."
+  serviceName="Custom polo shirts"
+  serviceType="Embroidered custom polo shirts with company logo"
+  table={{
+    heading: 'Choose a polo fabric',
+    intro: 'Exact performance depends on the garment. Check the manufacturer details for the style you pick.',
+    head: ['Fabric', 'Often chosen for', 'Worth checking'],
+    rows: [
+      ['Cotton or cotton pique', 'Office, retail, and client-facing teams who want a traditional feel', 'Shrinkage and how it holds shape after washing'],
+      ['Polyester performance', 'Hot climates, outdoor work, golf and event staff', 'Whether the thread and backing suit a lighter, stretchier knit'],
+      ['Cotton-poly blend', 'Mixed teams and frequent washing', 'Color match if you also buy other garments in the same color'],
+      ['Snag-resistant knit', 'Crews and hospitality staff around rough surfaces', 'How the logo sits on a smooth, tight face'],
+    ],
+  }}
+  decide={{
+    heading: 'Details that make a polo look right',
+    items: [
+      { title: 'Left chest placement', desc: 'The left chest is the standard spot. The approved proof should record the exact width and position so reorders match.' },
+      { title: 'Logo simplicity', desc: 'Fine text may not hold at left chest size. Read <a href="/blog/what-is-embroidery-buyers-guide/">how embroidery works</a> before you approve small lettering.' },
+      { title: 'Thread color', desc: 'Thread is matched as closely as available. Ask how your brand color will be specified and record it on the proof.' },
+      { title: 'Fit across your team', desc: 'Confirm that the style comes in the cuts and sizes your team needs. Size ranges vary a lot by style.' },
+      { title: 'Second placement', desc: 'A sleeve or back-collar logo adds another decoration to price. Decide on it before you compare quotes.' },
+      { title: 'Stitch count', desc: 'Dense logos take more stitches, and that can move the price. See <a href="/blog/how-much-to-embroider-a-polo/">how much embroidering a polo costs</a>.' },
+    ],
+  }}
+  body={{
+    heading: 'Picking one polo to keep reordering',
+    paragraphs: [
+      'The polo you choose today is the one you will be matching next year, so favor a style that is likely to stay available in your color. Ask for an alternate style in case yours is discontinued. Brands such as <a href="/brands/port-authority-polos-las-vegas/">Port Authority</a> are a common place to start, and you can browse more in the <a href="/catalog/polos/">polo catalog</a>.',
+      'Order a small set first if your team is unsure about fit or fabric. One person wearing a polo through a full workday and a few washes will tell you more than any spec sheet. Your quote will state whether samples are available for your order.',
+      'If your company has several locations, give each one the same specification instead of letting each pick its own. Your quote can confirm shipping to one address or several. Teams that hire often can look at a <a href="/company-stores/">company store</a>, where employees submit their own sizes against the approved polo.',
+      'For a side-by-side, read <a href="/blog/port-authority-polos-vs-alternatives/">Port Authority polos vs alternatives</a> or our longer <a href="/blog/custom-polo-shirts-las-vegas/">polo buying guide</a>.',
+    ],
+  }}
+  quote={{ text: "One of the most reliable and honest vendors we've worked with. Incredibly responsive, communicates clearly, and always makes sure every detail is double-checked before moving forward. We've thrown him some last-minute requests and he's always handled them with patience, transparency, and realistic timelines.", who: 'Desha B.', what: 'Client review' }}
+  faqs={[
+    { q: 'What is the best fabric for company polos?', a: 'It depends on the work. Cotton pique has a traditional feel, polyester performance knits suit heat and movement, and blends fall in between. Check the manufacturer details for your exact style.' },
+    { q: 'Where does the logo go on a polo?', a: 'The left chest is the standard placement. Sleeves and the back collar are common second placements.' },
+    { q: 'Should polos be embroidered or printed?', a: 'Embroidery is the usual choice for company polos. Some performance polos and full-color logos may suit another method, and your quote can compare them.' },
+    { q: 'How much do custom polo shirts cost?', a: 'Price depends on the polo, the stitch count, the number of placements, and the quantity. Your quote lists the price for your order.' },
+    { q: 'Is there a minimum order for custom polos?', a: 'Minimums depend on the polo, decoration method, and quantity. Your quote lists the minimum for your order.' },
+    { q: 'Can I reorder the same polo later?', a: 'Keep the approved specification and stitch file so a reorder can match. Styles can be discontinued, so ask for a named alternate.' },
+    { q: 'Do you ship custom polos nationwide?', a: 'Yes. Bighorn Threads is based in Las Vegas and ships anywhere in the United States, to one address or several.' },
+  ]}
+  related={[
+    { href: '/company-uniforms/', title: 'Company Uniforms', desc: 'Plan polos alongside the rest of your uniform.' },
+    { href: '/custom-quarter-zips-jackets/', title: 'Quarter-Zips & Jackets', desc: 'The layer that goes over the polo.' },
+    { href: '/custom-polo-shirts-las-vegas/', title: 'Polos in Las Vegas', desc: 'Polo planning for teams in the Las Vegas area.' },
+  ]}
+/>

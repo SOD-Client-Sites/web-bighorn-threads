@@ -6,7 +6,7 @@
   --color-paper: #e8e5df; /* secondary section band */
   --color-panel: #ffffff; /* product cards, floated panels */
   --color-charcoal: #1a1714; /* primary text / ink */
-  --color-ash: #6b6660; /* muted text */
+  --color-ash: #57534d; /* muted text; darkened from DESIGN.md #6b6660, which read washed out at body size */
   --color-hairline: #d4d0c8; /* 1px borders, dividers */
 
   /* ── Navy — demoted to photographic dark bands + footer only ──────── */
@@ -23,7 +23,7 @@
   --color-navy-50: #eef3f7;
 
   /* ── Gold — the single accent ─────────────────────────────────────── */
-  --color-gold-700: #8f6f22;
+  --color-gold-700: #7a5e14;
   --color-gold-600: #a8842e;
   --color-gold-500: #c19b3d;
   --color-gold-400: #d4af56;
@@ -41,7 +41,7 @@
   --font-heading: 'Big Shoulders Display', 'Big Shoulders Fallback', 'Big Shoulders Fallback Sans', system-ui, sans-serif;
   --font-subheading: 'Barlow Condensed', 'Barlow Condensed Fallback', system-ui, sans-serif;
   --font-body: 'Barlow', 'Barlow Fallback', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-mono: 'Barlow Condensed', 'Barlow Condensed Fallback', system-ui, sans-serif; /* JetBrains Mono retired: read as a dev tool */
 }
 
 /* Metric-adjusted fallbacks to reduce CLS on font-display: swap (values from @capsizecss/metrics) */
@@ -174,3 +174,293 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Unlayered so it beats the Tailwind utility: gold-600 text fails contrast on the light canvas. */
+.text-gold-600 {
+  color: var(--color-gold-700);
+}
+
+/* Two-tone headlines read as a template. Kept as CSS so every page and new page gets it. */
+h1 [class*='text-gold-'], h2 [class*='text-gold-'] {
+  color: inherit;
+}
+
+/* Big Shoulders collapses below ~24px, so small headings and FAQ questions use Barlow Condensed. */
+h3:not(.text-2xl, .text-3xl, .text-4xl, .text-5xl), h4, h5, h6, summary,
+summary .font-heading, :not(header *, footer *).font-heading:is(.text-xs, .text-sm, .text-base, .text-lg) {
+  font-family: var(--font-subheading);
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.15;
+}
+h3.text-xs, h3.text-sm, h3.text-base, h3.text-lg, h4.text-sm, h4.text-base, summary .font-heading, summary.font-heading {
+  font-size: 1.1875rem;
+}
+
+/* A few answer boxes set whole paragraphs in the display face. */
+p.font-heading {
+  font-family: var(--font-body);
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 1.5;
+}
+
+/* Inner-page hero: copy left, supplier product photos right. */
+.page-hero-grid h1 {
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  line-height: 0.98;
+}
+.page-hero-grid .hero-products {
+  margin-top: 2.5rem;
+}
+@media (min-width: 1024px) {
+  .page-hero-grid:has(> .hero-products) {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    column-gap: 4rem;
+    align-items: start;
+  }
+  .page-hero-grid > * {
+    grid-column: 1;
+  }
+  .page-hero-grid > .hero-products {
+    grid-column: 2;
+    grid-row: 1 / span 12;
+    margin-top: 0;
+  }
+}
+
+/* Long hero intros push the CTA off the first phone screen. */
+@media (max-width: 639px) {
+  .page-hero-grid p:not(.kicker):not(.spec) {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
+.bg-charcoal .kicker {
+  color: var(--color-gold-400);
+}
+
+/* Supplier shots are product-on-white: never crop them, whatever the card asked for. */
+img[src*='promoplace.com'] {
+  object-fit: contain;
+  background-color: #fff;
+}
+
+/* ── Second pass: page structure ─────────────────────────────────────
+   Rule of the system: a box means you can click it. Info lists lose the card. */
+
+/* The eyebrow over every H2 is a template tell. Heroes and labelled boxes keep theirs. */
+main > section ~ section p.kicker:has(+ h2) {
+  display: none;
+}
+
+main > section ~ section h2.font-heading.text-3xl {
+  font-size: clamp(1.875rem, 3.4vw, 2.75rem);
+  line-height: 1;
+}
+
+/* Tighter, less uniform rhythm. */
+main > section.py-20 {
+  padding-block: clamp(3rem, 5vw, 4.5rem);
+}
+
+/* Non-link cards become ruled columns. */
+main .grid > :is(div, li).bg-panel.border:has(> h3):not(:has(img, table, ul)) {
+  background: none;
+  border-width: 2px 0 0;
+  border-color: var(--color-charcoal);
+  padding: 0.875rem 0 0;
+}
+main .grid > :is(div, li).bg-panel.border:has(> h3):not(:has(img, table, ul)) > p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+main .grid:has(> :is(div, li).bg-panel.border > h3) {
+  row-gap: 2rem;
+}
+
+/* Every other such list runs as rows, label left, detail right. */
+@media (min-width: 768px) {
+  main > section:nth-of-type(even) :not(ol).grid:has(> :is(div, li).bg-panel.border > h3):not(:has(img, table, ul, a.btn-primary)) {
+    display: block;
+    max-width: 60rem;
+  }
+  main > section:nth-of-type(even) :not(ol).grid:has(> :is(div, li).bg-panel.border > h3):not(:has(img, table, ul, a.btn-primary)) > :is(div, li) {
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    column-gap: 2rem;
+    border-top: 1px solid var(--color-hairline);
+    padding: 1rem 0;
+  }
+  main > section:nth-of-type(even) :not(ol).grid:has(> :is(div, li).bg-panel.border > h3):not(:has(img, table, ul, a.btn-primary)) > :is(div, li) > h3 {
+    grid-column: 1;
+    grid-row: 1 / span 4;
+    margin: 0;
+  }
+  main > section:nth-of-type(even) :not(ol).grid:has(> :is(div, li).bg-panel.border > h3):not(:has(img, table, ul, a.btn-primary)) > :is(div, li) > :not(h3) {
+    grid-column: 2;
+    justify-self: start;
+    margin: 0 0 0.25rem;
+  }
+}
+
+/* Prose and FAQ sat on a narrow centered column, so the left edge jumped section to section.
+   They now share the page edge: heading left, content right. */
+main > section > .mx-auto.max-w-3xl,
+main > section > .mx-auto.max-w-4xl,
+main > section > .mx-auto.max-w-5xl {
+  max-width: 80rem;
+}
+@media (min-width: 1024px) {
+  main > section > .mx-auto:is(.max-w-3xl, .max-w-4xl):has(> h2):has(> .space-y-5, > div details, > details) {
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    column-gap: 3rem;
+    align-items: start;
+  }
+  main > section > .mx-auto:is(.max-w-3xl, .max-w-4xl):has(> h2):has(> .space-y-5, > div details, > details) > * {
+    grid-column: 2;
+    max-width: 46rem;
+  }
+  main > section > .mx-auto:is(.max-w-3xl, .max-w-4xl):has(> h2):has(> .space-y-5, > div details, > details) > h2:first-of-type {
+    grid-column: 1;
+    grid-row: 1 / span 6;
+    margin-bottom: 0;
+  }
+}
+main .space-y-5.text-lg {
+  font-size: 1.0625rem;
+}
+
+/* Closing band: gold, left aligned, action on the right. */
+main > section.bg-charcoal {
+  background-color: var(--color-gold-500);
+  padding-block: 2.5rem;
+}
+main > section.bg-charcoal *:not(.btn-primary, .btn-primary *) {
+  color: var(--color-charcoal);
+}
+main > section.bg-charcoal .btn-primary {
+  background-color: var(--color-charcoal);
+  color: #fff;
+}
+main > section.bg-charcoal .btn-primary:hover {
+  background-color: #000;
+}
+main > section.bg-charcoal > div {
+  max-width: 80rem;
+  padding-block: 0;
+  text-align: left;
+}
+main > section.bg-charcoal > div > :is(h2, p) {
+  margin-inline: 0;
+  max-width: 44rem;
+}
+main > section.bg-charcoal .justify-center {
+  justify-content: flex-start;
+}
+main > section.bg-charcoal .items-center.flex-col {
+  align-items: stretch;
+}
+@media (min-width: 640px) {
+  main > section.bg-charcoal .items-center.flex-col {
+    align-items: center;
+  }
+}
+
+/* Card titles set as H2 (blog index) get the readable face too. */
+main .grid a h2.font-heading, main .grid article h2.font-heading {
+  font-family: var(--font-subheading);
+  font-weight: 700;
+  font-size: 1.1875rem;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.15;
+}
+
+/* ── Third pass ───────────────────────────────────────────────────── */
+h1.font-heading, h2.font-heading {
+  letter-spacing: 0;
+  font-weight: 700;
+}
+/* Tonal shift separates bands; a rule on top of it is noise. */
+main > section {
+  border-block-width: 0;
+}
+.kicker {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+.spec {
+  font-size: 0.8125rem;
+  letter-spacing: 0.03em;
+  text-transform: none;
+}
+.btn-primary, .btn-secondary {
+  white-space: nowrap;
+}
+.proof-band + section.border-y, .proof-band + section {
+  border: 0;
+}
+/* One hero visual, full height of the band, no frame. */
+.hero-photo {
+  margin: 2rem -1rem 0;
+}
+.hero-photo img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  display: block;
+}
+@media (min-width: 1024px) {
+  .page-hero-grid:has(> .hero-photo) {
+    display: grid;
+    grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+    column-gap: 3rem;
+    align-items: center;
+  }
+  .page-hero-grid:has(> .hero-photo) > * {
+    grid-column: 1;
+  }
+  .page-hero-grid > .hero-photo {
+    grid-column: 2;
+    grid-row: 1 / span 12;
+    margin: 0;
+  }
+  .page-hero-grid > .hero-photo img {
+    aspect-ratio: 4 / 3.4;
+  }
+  /* Photo runs off the right edge of the page. */
+  .page-hero-grid > .hero-photo, .page-hero-home > .hero-photo {
+    margin-right: min(-2rem, calc((80rem - 100vw) / 2 - 2rem));
+  }
+}
+/* Barlow Condensed runs small where the old mono sizes were set. */
+.font-mono.text-xs, .font-mono[class*='text-[1'] { font-size: 0.9375rem; letter-spacing: 0.02em; }
+.font-mono.text-sm { font-size: 1.0625rem; letter-spacing: 0.01em; }
+
+/* Trade list on /industries/ */
+.trade-row[open] summary > span:last-child { transform: rotate(45deg); }
+.trade-row summary::-webkit-details-marker { display: none; }
+
+html, body { overflow-x: clip; }
+.page-hero-home .hero-photo { margin-inline: -1rem; }
+@media (min-width: 1024px) {
+  .page-hero-home { padding-block: 0; min-height: 34rem; }
+  .page-hero-home > :first-child { padding-block: 3rem; }
+  .page-hero-home .hero-photo { margin-left: 0; align-self: stretch; }
+  .page-hero-home .hero-photo img { height: 100%; aspect-ratio: auto; }
+  .page-hero-grid:has(> .hero-photo) { padding-bottom: 3rem; }
+}
+@media (min-width: 1024px) {
+  .page-hero-home .hero-photo { margin-top: 0; margin-right: min(-2rem, calc((80rem - 100vw) / 2 - 2rem)); }
+  .page-hero-grid > .hero-photo { align-self: stretch; }
+  .page-hero-grid > .hero-photo img { height: 100%; }
+}
+/* This shot's product sits left; the right side is bare concrete. */
+img[src*='apparel-flat-lay'] { object-position: left center; }

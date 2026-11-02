@@ -1,10 +1,12 @@
 ---
+import HeroProducts from '@/components/HeroProducts.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import NationalLinks from '@/components/NationalLinks.astro'
 
 const problems = [
  {
  title: 'Staff Shirts Across Every Site',
- desc: 'A district runs dozens of campuses. Outfitting staff and faculty across all of them means one order turns into many — different sizes, different sites, different timelines.',
+ desc: 'A district runs dozens of campuses. Outfitting staff and faculty across all of them means one order turns into many: different sizes, different sites, different timelines.',
  },
  {
  title: 'Spirit Wear Lives Everywhere',
@@ -140,7 +142,7 @@ const phone = '+17029048923'
 >
  <!-- ════ HERO — concrete ════ -->
  <section class="bg-concrete pt-16 pb-20 sm:pt-16 sm:pb-28">
- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+ <div class="page-hero-grid mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
  <a href="/" class="hover:text-gold-600">Home</a>
  <span class="px-2 text-ash/60">/</span>
@@ -172,6 +174,7 @@ const phone = '+17029048923'
  </a>
  </div>
  </div>
+  <HeroProducts />
  </div>
  </section>
 
@@ -185,7 +188,7 @@ const phone = '+17029048923'
  </h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
  Schools and districts juggle staff shirts, spirit wear, and gear for every department,
- team, and booster group — usually through email chains and size spreadsheets. It pulls
+ team, and booster group, usually through email chains and size spreadsheets. It pulls
  your team off their actual work.
  </p>
  </div>
@@ -306,4 +309,5 @@ const phone = '+17029048923'
 
  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+ <NationalLinks heading='Related product guides' links={[{ href: '/industries/government/', label: 'Government uniforms' }]} />
 </BaseLayout>

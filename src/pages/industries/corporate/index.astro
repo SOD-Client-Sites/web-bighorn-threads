@@ -1,22 +1,24 @@
 ---
+import HeroProducts from '@/components/HeroProducts.astro'
+import NationalLinks from '@/components/NationalLinks.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const problems = [
   {
     title: 'Chasing Sizes by Email.',
-    desc: 'Someone in ops spends days collecting shirt sizes in a spreadsheet. New hire starts, the cycle repeats. It never ends.',
+    desc: 'Someone in ops spends days collecting shirt sizes in a spreadsheet. A new hire starts and it happens again.',
   },
   {
     title: 'Swag Nobody Wears.',
-    desc: 'Cheap blanks ordered in bulk sit in a closet. Wrong sizes, wrong styles. Your brand on gear people quietly throw out.',
+    desc: 'Cheap blanks ordered in bulk sit in a closet in the wrong sizes. Your logo ends up on gear people throw out.',
   },
   {
     title: 'Brand Drift Across Vendors.',
-    desc: 'Marketing buys polos one place, HR buys onboarding kits another. Logos drift, colors drift. Your brand looks inconsistent.',
+    desc: 'Marketing buys polos one place and HR buys onboarding kits another. Now your logo comes in two different blues.',
   },
   {
     title: 'New-Hire Kits Done by Hand.',
-    desc: 'Every start date means a manual order, a guess at sizes, and a scramble to get gear there in time. It does not scale.',
+    desc: 'Every start date means a manual order, a guess at sizes, and a scramble to get gear there in time.',
   },
 ]
 
@@ -25,19 +27,19 @@ const storeSteps = [
     n: '01',
     meta: 'Setup',
     title: 'We Plan Your Branded Store',
-    desc: 'Scope a managed company store around an approved catalog, user access, budgets, payment, production, fulfillment, and current reorder review.',
+    desc: 'Tell us what your team should be able to order, who gets access, and any budgets. We put it in a written plan, including what the store can and can’t do.',
   },
   {
     n: '02',
     meta: 'Ongoing',
     title: 'Your People Order Their Own Sizes',
-    desc: 'Users submit their own sizes. Access and ordering rules are confirmed in your written setup plan.',
+    desc: 'Your people pick their own sizes from the approved list. Your plan says who can order what.',
   },
   {
     n: '03',
     meta: 'Ongoing',
     title: 'Delivery Options and Budget Controls',
-    desc: 'Requested delivery destinations, spending limits, and reorder steps are reviewed during setup. Bighorn confirms supported options in writing and coordinates approved orders with the selected production partner.',
+    desc: 'Tell us where gear needs to go and any spending limits you want. We tell you in writing what your store supports, and production partners fill the orders.',
   },
 ]
 
@@ -49,17 +51,17 @@ const offerings = [
   },
   {
     title: 'Custom Embroidered Jackets & Quarter-Zips',
-    desc: 'Softshells, fleece jackets, vests, and custom quarter-zips with your logo embroidered. The layer your team actually wears to client meetings.',
+    desc: 'Softshells, fleece jackets, vests, and custom quarter-zips with your logo embroidered. The layer people wear to client meetings.',
     tag: 'Outerwear',
   },
   {
     title: 'Branded Merchandise & Custom Swag',
-    desc: 'Drinkware, bags, hats, tech, and desk gear with your logo. Branded, not bargain-bin, from brands like Port Authority and YETI.',
+    desc: 'Drinkware, bags, hats, tech, and desk gear with your logo. Includes names people recognize, like Port Authority and YETI.',
     tag: 'Swag',
   },
   {
     title: 'Corporate Gifts With Your Logo',
-    desc: 'Client gifts and employee appreciation gifts that get used, not tossed. Kits can ship to one office or to each recipient.',
+    desc: 'Client gifts and employee appreciation gifts picked for who is getting them. Kits can ship to one office or to each recipient.',
     tag: 'Gifts',
   },
   {
@@ -89,23 +91,23 @@ const faqs = [
   },
   {
     q: 'What is a company store?',
-    a: 'A company store can present approved products and artwork. User access, size submission, payment, production, fulfillment, and delivery capabilities are confirmed in the written setup plan.',
+    a: 'A private online store with your approved products and logo, where your people order their own sizes. Your setup plan covers payment and shipping.',
   },
   {
     q: 'Do we need a minimum number of people to start?',
-    a: 'Team-size requirements, product minimums, and store setup terms depend on the selected program and production partners. Bighorn confirms them in writing before setup.',
+    a: 'There is no set number. Tell us your headcount and we will tell you whether a store makes sense or a regular order is the better call.',
   },
   {
     q: 'Can remote employees order gear to their home?',
-    a: 'Home and multi-location delivery can be requested. Bighorn confirms supported destinations, shipping costs, and the ordering workflow in writing before setup.',
+    a: 'You can ask for home delivery or several locations. We ship anywhere in the US, and your setup plan lists the shipping cost and how ordering works.',
   },
   {
     q: 'Can we cap how much each person spends?',
-    a: 'Budget, allowance, approval, payment, and reporting controls can be evaluated for the selected store configuration. The proposal states which controls are supported.',
+    a: 'Ask for it. Budgets, allowances, and approvals depend on the store setup, and your proposal says which ones you get.',
   },
   {
     q: 'How do reorders and onboarding kits work?',
-    a: 'Approved products and artwork can support repeat orders. New hires submit their own sizes. Product availability, decoration, delivery, and timing are confirmed for each order.',
+    a: 'Your approved products and logo are the starting point for every reorder, and new hires pick their own sizes. We check stock and price each time.',
   },
 ]
 
@@ -149,7 +151,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
 >
   <!-- ════ HERO — concrete (no photographic band) ════ -->
   <section class="bg-concrete pt-16 pb-20 sm:pt-16 sm:pb-28">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="page-hero-grid mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
         <a href="/" class="hover:text-gold-600">Home</a>
         <span class="px-2 text-ash/60">/</span>
@@ -169,7 +171,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  </h1>
         <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
           Embroidered polos, jackets, quarter-zips, company shirts, branded merchandise, and corporate gifts
-          with your logo. One account team in Las Vegas, production through vetted partners, and delivery to
+          with your logo. One account team in Las Vegas runs the order, production partners make it, and it ships to
           any office or employee in the country. Add a company store when your team reorders often.
         </p>
         <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -183,8 +185,9 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
           </a>
         </div>
       </div>
-    </div>
-  </section>
+     <HeroProducts />
+ </div>
+ </section>
 
   <!-- ════ THE PROBLEM — paper ════ -->
   <section class="border-y border-hairline bg-paper py-20 sm:py-28">
@@ -220,8 +223,8 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
           How a company store works <span class="text-gold-600">for your team.</span>
         </h2>
         <p class="mt-4 text-lg leading-relaxed text-ash">
-          Start with an approved catalog and written program scope. Bighorn coordinates approved
-          orders through production partners after capabilities, pricing, and delivery terms are confirmed.
+          You pick the products and we write up how the store will work and what it costs. Once you
+          say go, your people order and production partners fill it.
         </p>
       </div>
 
@@ -251,13 +254,13 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
   <section class="border-y border-hairline bg-paper py-20 sm:py-28">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 max-w-2xl">
-        <p class="kicker mb-3">What You Can Consider</p>
+        <p class="kicker mb-3">What We Brand</p>
         <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
           Corporate apparel, swag &amp; gifts <span class="text-gold-600">we brand.</span>
         </h2>
         <p class="mt-4 text-lg leading-relaxed text-ash">
-          Pick the gear that fits your team and your brand. Product availability, quantities,
-          decoration, catalog changes, and delivery terms require written confirmation.
+          Pick the gear that fits your team. Your quote covers what is in stock, how many, and
+          how it ships.
         </p>
       </div>
 
@@ -274,7 +277,8 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
   </section>
 
   <!-- ════ FAQ — concrete ════ -->
-  <section class="bg-concrete py-20 sm:py-28">
+  <NationalLinks heading='Related product guides' links={[{ href: '/company-uniforms/', label: 'Company uniforms' }, { href: '/custom-company-shirts/', label: 'Custom company shirts' }, { href: '/custom-polo-shirts/', label: 'Custom polo shirts' }, { href: '/custom-quarter-zips-jackets/', label: 'Quarter-zips and jackets' }, { href: '/corporate-swag/', label: 'Corporate swag and branded merchandise' }, { href: '/custom-embroidered-hats/', label: 'Custom embroidered hats' }, { href: '/employee-appreciation-gifts/', label: 'Employee appreciation gifts' }, { href: '/custom-hoodies/', label: 'Custom logo hoodies' }, { href: '/custom-screen-printed-shirts/', label: 'Custom screen printed shirts' }, { href: '/industries/government/', label: 'Government uniforms' }, { href: '/industries/gaming-hospitality/', label: 'Gaming and hospitality uniforms' }]} />
+ <section class="bg-concrete py-20 sm:py-28">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <div class="mb-10 max-w-2xl">
         <p class="kicker mb-3">FAQ</p>
@@ -307,7 +311,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
             Ready to give your team <span class="text-gold-400">a real company store?</span>
           </h2>
           <p class="mt-4 text-base leading-relaxed text-navy-200">
-            Store setup terms are confirmed in your plan. Your people submit their own sizes. Tell us about
+            Your people pick their own sizes and you stop keeping the spreadsheet. Tell us about
             your team and we’ll build your plan.
           </p>
         </div>

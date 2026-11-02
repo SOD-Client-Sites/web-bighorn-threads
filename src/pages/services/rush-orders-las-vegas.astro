@@ -1,25 +1,25 @@
 ---
+import HeroProducts from '@/components/HeroProducts.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const page = {
  title: 'Rush Custom Apparel in Las Vegas | Bighorn Threads',
  description:
  'Ask about a rush apparel order in Las Vegas. Bighorn checks product availability, partner capacity, timing, and rush costs before you approve the quote.',
- hero: '/images/generated/cta-bluehour.jpg',
 }
 
 const factors = [
- { title: 'Product availability', desc: 'Availability depends on the garment supplier and selected production partner. Specialty products and uncommon colorways can add time.' },
- { title: 'Decoration method', desc: 'Each method has different setup, quantity, and capacity constraints. The selected partner determines what can fit the requested schedule.' },
- { title: 'Artwork readiness', desc: 'Print-ready vector art on file is the fastest path. New artwork that needs vectorization or digitizing adds prep time before production can even start.' },
- { title: 'Order size and complexity', desc: 'Single-color, single-location work is quicker than multi-color, multi-location decoration. Large quantities and mixed processes take longer per piece.' },
+ { title: 'Product availability', desc: 'Stock depends on the supplier. Specialty products and unusual colors can add time.' },
+ { title: 'Decoration method', desc: 'Each method has its own setup, quantity, and capacity limits. The partner tells us what fits your date.' },
+ { title: 'Artwork readiness', desc: 'Print-ready vector art on file is fastest. New artwork that needs vectorizing or digitizing adds time before production starts.' },
+ { title: 'Order size and complexity', desc: 'One color in one location is quicker than several colors in several locations. Large quantities and mixed methods take longer.' },
 ]
 
 const eligible = [
- { yes: true, item: 'Simple apparel programs when product and partner capacity are confirmed' },
- { yes: true, item: 'Repeat orders with approved artwork and specifications already available' },
- { yes: true, item: 'Common garment styles when supplier stock is confirmed' },
- { yes: true, item: 'Single-location decoration with a production-ready file' },
+ { yes: true, item: 'Simple apparel orders when the product is available and the partner has room' },
+ { yes: true, item: 'Repeat orders with approved artwork already on file' },
+ { yes: true, item: 'Common garment styles the supplier has in stock' },
+ { yes: true, item: 'One decoration location with a ready file' },
  { yes: false, item: 'Protective apparel without employer and manufacturer approval' },
  { yes: false, item: 'Specialty fabrics requiring custom ink' },
  { yes: false, item: 'Multi-process jobs (screen + embroidery + DTF combined)' },
@@ -83,42 +83,39 @@ const faqSchema = {
  title={page.title}
  description={page.description}
  canonical="https://bighornthreads.com/services/rush-orders-las-vegas/"
- heroImage={page.hero}
 >
  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
  <!-- Hero — full-bleed photographic dark band -->
- <section class="relative isolate overflow-hidden bg-navy-950">
- <img src={page.hero} alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" />
- <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/90 to-navy-950/45"></div>
-
- <div class="mx-auto max-w-7xl px-4 pb-20 pt-16 sm:px-6 sm:pt-20 lg:px-8 lg:pb-28">
- <nav class="mb-6 font-mono text-xs text-navy-300" aria-label="Breadcrumb">
- <a href="/" class="hover:text-gold-400">Home</a>
- <span class="px-2 text-navy-500">/</span>
- <a href="/services/" class="hover:text-gold-400">Services</a>
- <span class="px-2 text-navy-500">/</span>
- <span class="text-gold-400">Rush Orders</span>
+ <section class="border-b border-hairline bg-concrete">
+ <div class="page-hero-grid mx-auto max-w-7xl px-4 pb-20 pt-16 sm:px-6 sm:pt-20 lg:px-8 lg:pb-28">
+ <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
+ <a href="/" class="hover:text-gold-700">Home</a>
+ <span class="px-2 text-ash">/</span>
+ <a href="/services/" class="hover:text-gold-700">Services</a>
+ <span class="px-2 text-ash">/</span>
+ <span class="text-gold-700">Rush Orders</span>
  </nav>
 
  <p class="kicker mb-3">Service</p>
- <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-6xl">
- Rush Custom Apparel <span class="text-gold-400">With Terms Confirmed Up Front.</span>
+ <h1 class="mb-6 max-w-4xl font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
+ Rush Custom Apparel <span class="text-gold-700">With Terms Confirmed Up Front.</span>
  </h1>
- <p class="max-w-2xl text-lg leading-relaxed text-navy-200 sm:text-xl">
- Tell us your deadline, your spec, and your quantity. We'll tell you straight whether it works, what it costs, and any rush surcharge before you commit — no surprises at invoice.
+ <p class="max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
+ Tell us your deadline, your spec, and your quantity. We'll tell you straight whether it works, what it costs, and any rush surcharge before you commit.
  </p>
 
  <div class="mt-10 flex flex-wrap items-center gap-3">
  <a href="tel:+17029048923" class="btn-primary text-base">
  Call Now: 702.904.8923
  </a>
- <a href="/contact/" class="inline-flex min-h-[48px] items-center gap-2 border border-gold-500 px-6 py-3 font-subheading text-sm font-semibold uppercase tracking-wide text-gold-400 transition-colors hover:bg-gold-500 hover:text-charcoal">
+ <a href="/contact/" class="btn-secondary">
  Submit Rush Quote
  </a>
  </div>
+  <HeroProducts />
  </div>
  </section>
 
@@ -129,7 +126,7 @@ const faqSchema = {
  <p class="kicker mb-3">What Drives Turnaround</p>
  <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">Four things that decide what's possible.</h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- Every rush quote turns on the same handful of factors. Knowing them up front helps us give you a real answer instead of a guess.
+ Every rush quote comes down to these. Send us the details and we can give you a real answer.
  </p>
  </div>
 
@@ -149,7 +146,7 @@ const faqSchema = {
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
  <div class="mb-12 max-w-2xl">
  <p class="kicker mb-3">What Fits Rush</p>
- <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">What we can — and can't — turn fast.</h2>
+ <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight text-charcoal sm:text-4xl">What we can and can't turn fast.</h2>
  </div>
 
  <div class="overflow-hidden border border-hairline bg-panel">
@@ -176,27 +173,27 @@ const faqSchema = {
  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
  <p class="kicker mb-3">The Buyer's Guide</p>
  <h2 class="mb-8 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl">
- Rush custom apparel orders in Las Vegas — what's actually possible, and what isn't.
+ Rush custom apparel orders in Las Vegas: what's actually possible, and what isn't.
  </h2>
 
  <div class="space-y-5 text-lg leading-relaxed text-charcoal">
  <p>
- Rush orders are a normal part of the Las Vegas trade calendar. Trade shows announce booth assignments weeks before the event. Project ribbon cuttings get scheduled around dignitary calendars and slip both directions. New hires show up Monday for a Friday-quoted job. The honest framing: we'll tell you what's realistic when they start rather than promising a date and missing it. If we can't hit your deadline, you find out when you ask, not the day before delivery.
+ Rush orders are normal in the Las Vegas trades. Trade shows hand out booth assignments weeks before the event. Ribbon cuttings move around. New hires show up Monday for a job quoted Friday. We'll tell you what's realistic when you ask, so you don't find out the day before delivery.
  </p>
  <p>
- The variables that govern a rush order are supplier inventory, production-partner capacity, decoration method, artwork readiness, order quantity, and delivery. Common products may move faster after stock is confirmed. Specialty products and protective apparel often require more review and lead time.
+ What decides it is supplier stock, partner capacity, decoration method, artwork, quantity, and delivery. Common products can move faster once we know they're in stock. Specialty products and protective apparel often take longer.
  </p>
  <p>
- Realistic rush turnarounds depend on the full specification. Call us with the deadline, quantity, artwork, garment, decoration method, and destination. We will confirm current partner capacity and quote the available options and any rush cost before you commit.
+ Call us with the deadline, quantity, artwork, garment, decoration method, and destination. We'll check with the partner and quote your options and any rush cost before you commit.
  </p>
  <p>
- What we can't do: promise a rush before the artwork, garment availability, production capacity, and shipping path are confirmed. Repeat work can move faster when the approved artwork and program specification are already available. Your quote will state the schedule the selected partner can support.
+ We can't promise a rush until we've checked the artwork, stock, partner capacity, and shipping. Repeat orders can move faster when the approved artwork is on file. Your quote gives the date the partner can support.
  </p>
  <p>
- For ongoing deadline pressure, a managed company-store program can reduce repeated setup work. We keep the approved program specification organized and coordinate each order with the selected production partner. Inventory, production, and delivery terms remain specific to the approved program.
+ If deadlines are a constant problem, a company store can cut repeated setup work. We keep your approved specs together and handle each order with the partner.
  </p>
  <p>
- For more, see <a href="/blog/rush-order-shirts-las-vegas-whats-possible/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">rush order shirts in Las Vegas — what's actually possible</a>. And for a common rush use case, our <a href="/blog/trade-show-apparel-booth-crew/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">trade show apparel for booth crews</a> guide covers what to ship and when.
+ For more, see <a href="/blog/rush-order-shirts-las-vegas-whats-possible/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">rush order shirts in Las Vegas, what's actually possible</a>. And for a common rush use case, our <a href="/blog/trade-show-apparel-booth-crew/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">trade show apparel for booth crews</a> guide covers what to ship and when.
  </p>
  </div>
  </div>
@@ -229,11 +226,11 @@ const faqSchema = {
  <div class="grid gap-5 md:grid-cols-3">
  <a href="/services/screen-printing-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">Screen Printing</h3>
-<p class="mt-2 text-sm text-ash">Ink, garment, and timing options confirmed in your quote.</p>
+<p class="mt-2 text-sm text-ash">Ink and garment options, with timing in your quote.</p>
  </a>
  <a href="/services/embroidery-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">Embroidery</h3>
-<p class="mt-2 text-sm text-ash">Embroidery setup and rush timing depend on partner capacity.</p>
+<p class="mt-2 text-sm text-ash">How embroidery setup affects a rush.</p>
  </a>
  <a href="/industries/general-contractors-las-vegas/" class="group border border-hairline bg-panel p-6 transition-colors hover:border-gold-500">
  <h3 class="font-heading text-lg font-bold uppercase tracking-tight text-charcoal transition-colors group-hover:text-gold-600">For GCs</h3>
@@ -244,12 +241,10 @@ const faqSchema = {
  </section>
 
  <!-- CTA — full-bleed photographic dark band -->
- <section class="relative isolate overflow-hidden bg-navy-950">
- <img src="/images/generated/cta-bluehour.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" loading="lazy" decoding="async" />
- <div class="absolute inset-0 -z-10 bg-navy-950/80"></div>
+ <section class="bg-charcoal">
  <div class="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 lg:px-8">
  <h2 class="mb-4 font-heading text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">Got a deadline? Pick up the phone.</h2>
- <p class="mb-8 text-lg text-navy-200">We'll tell you the truth about what fits the window — and quote any rush surcharge up front.</p>
+ <p class="mb-8 text-lg text-white/80">We'll tell you what can make your date and quote any rush charge up front.</p>
  <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
  <a href="tel:+17029048923" class="btn-primary text-base">Call 702.904.8923</a>
  <a href="/get-a-quote/" class="inline-flex items-center gap-2 px-2 py-3 font-mono text-base font-medium tracking-wide text-white transition-colors hover:text-gold-400">Submit Quote Form</a>

@@ -1,10 +1,12 @@
 ---
+import HeroProducts from '@/components/HeroProducts.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import NationalLinks from '@/components/NationalLinks.astro'
 
 const problems = [
   {
     title: 'Uniforms Across Every Department.',
-    desc: 'Front desk, F&B, housekeeping, valet, security — each team needs its own look. Sourcing it all by hand turns into a full-time job nobody signed up for.',
+    desc: 'Front desk, F&B, housekeeping, valet, security: each team needs its own look. Sourcing it all by hand turns into a full-time job nobody signed up for.',
   },
   {
     title: 'Front-of-House vs Back-of-House.',
@@ -12,11 +14,11 @@ const problems = [
   },
   {
     title: 'Brand Drift Guests Can See.',
-    desc: 'Mismatched polos, faded logos, off-color aprons. When apparel comes from five vendors, guests notice. Your property looks pieced together instead of polished.',
+    desc: 'Faded logos and off-color aprons from five different vendors get noticed. Your property starts to look pieced together.',
   },
   {
     title: 'Turnover Means Endless Reorders.',
-    desc: 'Hospitality moves fast and so does the roster. Every new hire is another size to collect and another rush order. The reorder cycle never stops.',
+    desc: 'Hospitality moves fast and so does the roster. Every new hire is another size to collect and another rush order.',
   },
   {
     title: 'Banquet & Event Staffing Apparel.',
@@ -24,7 +26,7 @@ const problems = [
   },
   {
     title: 'Collecting Sizes Across Big Teams.',
-    desc: 'Hundreds of staff across shifts and properties. Chasing every shirt size in a spreadsheet is slow, error-prone, and eats hours your managers don’t have.',
+    desc: 'Hundreds of staff across shifts and properties. Chasing every shirt size in a spreadsheet eats hours your managers don’t have.',
   },
 ]
 
@@ -33,31 +35,31 @@ const storeSteps = [
     n: '01',
     meta: 'Setup',
     title: 'We Plan Your Branded Store',
-    desc: 'Scope a managed company store around an approved catalog, department access, budgets, payment, production, fulfillment, and current reorder review.',
+    desc: 'Tell us what each department should be able to order, who gets access, and any budgets. We put it in a written plan, including what the store can and can’t do.',
   },
   {
     n: '02',
     meta: 'Ongoing',
     title: 'Staff & Departments Order Their Own Sizes',
-    desc: 'Staff submit their own sizes by role or department. User access and ordering rules are confirmed in your written setup plan.',
+    desc: 'Staff pick their own sizes from the list for their role or department. Your plan says who can order what.',
   },
   {
     n: '03',
     meta: 'Ongoing',
     title: 'Delivery Options and Department Budgets',
-    desc: 'Requested delivery destinations, department budgets, and reorder steps are reviewed during setup. Bighorn confirms supported options in writing and coordinates approved orders with the selected production partner.',
+    desc: 'Tell us where gear needs to go and any department budgets. We tell you in writing what your store supports, and production partners fill the orders.',
   },
 ]
 
 const offerings = [
   {
     title: 'Hotel Uniforms & Front-Desk Polos',
-    desc: 'Polos and button-ups can be considered for partner embroidery. Artwork preparation, file retention, and reorder matching are confirmed with each production partner.',
+    desc: 'Polos and button-ups with your logo embroidered by our production partners. You approve the placement on a proof.',
     tag: 'Front of House',
   },
   {
     title: 'Restaurant Uniforms, Server Shirts & Aprons',
-    desc: 'Branded shirts, aprons, and service wear for restaurants, bars, and banquets. Durable, on-brand, and built for the floor.',
+    desc: 'Branded shirts, aprons, and service wear for restaurants, bars, and banquets, picked to hold up on a busy floor.',
     tag: 'Food & Beverage',
   },
   {
@@ -72,7 +74,7 @@ const offerings = [
   },
   {
     title: 'Event & Promo Merch',
-    desc: 'Matching gear and branded merchandise can be planned for banquets, conferences, and property events. Available delivery options are confirmed in the written quote.',
+    desc: 'Matching gear and branded merchandise for banquets, conferences, and property events. We can ship to the property or the venue.',
     tag: 'Events',
   },
 ]
@@ -88,23 +90,23 @@ const faqs = [
   },
   {
     q: 'What is a hospitality company store?',
-    a: 'A hospitality company store presents approved uniforms and gear by department. Staff can submit their sizes. Bighorn coordinates the delivery option and fulfillment terms confirmed during setup.',
+    a: 'A private online store with approved uniforms and gear for each department, where staff pick their own sizes. Your setup plan covers how orders ship.',
   },
   {
     q: 'Can different departments or properties order from one store?',
-    a: 'A multi-department or multi-property workflow can be included in the proposed scope. Catalog visibility, user ordering, and delivery destinations require written capability confirmation during setup.',
+    a: 'Tell us how your departments or properties are set up. We will tell you in writing whether one store can show different items to each group and ship to different addresses.',
   },
   {
     q: 'Can we separate front-of-house and back-of-house looks?',
-    a: 'Bighorn can plan separate approved catalogs for guest-facing and back-of-house roles. Whether those catalogs share one store depends on the capabilities confirmed in the written setup plan.',
+    a: 'Yes, guest-facing and back-of-house roles can have separate approved lists. Whether those lists share one store depends on your setup.',
   },
   {
     q: 'How do we handle constant reorders from turnover?',
-    a: 'Bighorn can document approved artwork and product details for reorder coordination. File retention, one-click ordering, user size submission, timing, and delivery depend on the confirmed production and store workflow.',
+    a: 'We keep track of your approved products and logo so a reorder starts from what you already signed off on. Tell us how often you hire and we will show you how sizes and ordering would work in a store.',
   },
   {
     q: 'Can we control approved items and budget by department?',
-    a: 'Department catalogs, spend rules, and order reporting can be requested. Bighorn confirms which controls are supported in the written setup plan before launch.',
+    a: 'Ask for what you need, such as department lists, spending rules, or order reports. We tell you in writing which ones your store supports before launch.',
   },
 ]
 
@@ -148,7 +150,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
 >
   <!-- ════ HERO — concrete (no photographic band) ════ -->
   <section class="bg-concrete pt-16 pb-20 sm:pt-16 sm:pb-28">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="page-hero-grid mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
         <a href="/" class="hover:text-gold-600">Home</a>
         <span class="px-2 text-ash/60">/</span>
@@ -167,7 +169,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
  <span class="text-gold-600"> for hotels, restaurants &amp; casinos nationwide.</span>
  </h1>
         <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
-          Hotel uniforms, restaurant uniforms, server shirts and aprons, and casino and spa staff apparel for properties of every size. One Las Vegas account team, production through vetted partners, shipped to any property in the US.
+          Hotel uniforms, restaurant uniforms, server shirts and aprons, and casino and spa staff apparel for properties of every size. One account team in Las Vegas runs the order, production partners make it, and it ships to any property in the US.
         </p>
         <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
           <a href="/get-started/gaming-hospitality/" class="btn-primary text-base">
@@ -180,8 +182,9 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
           </a>
         </div>
       </div>
-    </div>
-  </section>
+     <HeroProducts />
+ </div>
+ </section>
 
   <!-- ════ THE PROBLEM — paper ════ -->
   <section class="border-y border-hairline bg-paper py-20 sm:py-28">
@@ -217,8 +220,8 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
           How a company store works <span class="text-gold-600">for your property.</span>
         </h2>
         <p class="mt-4 text-lg leading-relaxed text-ash">
-          Start with approved products, artwork, and department requirements. Bighorn coordinates
-          approved orders through production partners after store capabilities and terms are confirmed.
+          You pick the products for each department and we write up how the store will work and what
+          it costs. Once you say go, staff order and production partners fill it.
         </p>
       </div>
 
@@ -248,13 +251,13 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
   <section class="border-y border-hairline bg-paper py-20 sm:py-28">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 max-w-2xl">
-        <p class="kicker mb-3">What You Can Consider</p>
+        <p class="kicker mb-3">What Each Team Wears</p>
         <h2 class="font-heading text-4xl font-extrabold uppercase leading-[0.95] tracking-tight sm:text-5xl">
           What goes in <span class="text-gold-600">your store.</span>
         </h2>
         <p class="mt-4 text-lg leading-relaxed text-ash">
-          Plan gear by department, from front of house to back of house. Product availability,
-          catalog changes, decoration, and delivery terms require written confirmation.
+          Plan gear by department, from front of house to back of house. Your quote covers what is
+          in stock and how it ships.
         </p>
       </div>
 
@@ -304,7 +307,7 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
             Ready to give your property <span class="text-gold-400">a real company store?</span>
           </h2>
           <p class="mt-4 text-base leading-relaxed text-navy-200">
-            Store setup terms are confirmed in your plan. Your staff submit their own sizes. Tell us about
+            Your staff pick their own sizes and your managers stop keeping the spreadsheet. Tell us about
             your property and we’ll build your plan.
           </p>
         </div>
@@ -320,4 +323,5 @@ const arrow = 'M13 7l5 5m0 0l-5 5m5-5H6'
 
   <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+ <NationalLinks heading='Related product guides' links={[{ href: '/hotel-uniforms/', label: 'Hotel uniforms' }, { href: '/restaurant-uniforms/', label: 'Restaurant uniforms' }]} />
 </BaseLayout>

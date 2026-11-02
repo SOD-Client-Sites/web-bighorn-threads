@@ -1,4 +1,5 @@
 ---
+import NationalLinks from '@/components/NationalLinks.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const post = {
@@ -9,7 +10,7 @@ const post = {
  readTime: '8 min read',
  date: 'May 9, 2026',
  isoDate: '2026-05-09',
- image: '/images/generated/service-embroidery.jpg',
+ image: '/images/og-default.jpg',
  slug: 'custom-hats-embroidered-screen-printed',
 }
 
@@ -17,7 +18,7 @@ const faqs = [
  { q: 'Should custom hats be embroidered or screen printed?', a: 'The best method depends on the exact hat, panel construction, artwork, placement, use, and care. Embroidery, screen printing, and patches can each work on compatible products.' },
  { q: 'What hat brands are best for company branding?', a: 'Compare current Richardson, Yupoong/Flexfit, New Era, Carhartt, Sportsman, and Atlantis options. Review fit, fabric, panel construction, care, decoration compatibility, availability, and price.' },
  { q: 'How is a hat logo sized and priced?', a: 'The exact hat construction, panel, artwork, dimensions, digitizing, hooping, stitch plan, machine, and production partner determine viability and cost. Approve the final treatment in the proof or sample.' },
- { q: 'Can you embroider on a beanie?', a: 'Yes — beanies embroider cleanly using a special beanie hoop. The folded cuff is the standard placement; logo size is constrained to 2-2.5 inches wide by 1-1.5 inches tall to keep the design legible when the cuff stretches. Avoid heavy fills on knit beanies because the stretchy fabric can distort dense stitch areas.' },
+ { q: 'Can you embroider on a beanie?', a: 'Yes, beanies embroider cleanly using a special beanie hoop. The folded cuff is the standard placement; logo size is constrained to 2-2.5 inches wide by 1-1.5 inches tall to keep the design legible when the cuff stretches. Avoid heavy fills on knit beanies because the stretchy fabric can distort dense stitch areas.' },
  { q: 'What\'s the minimum order for custom embroidered hats?', a: 'Minimums, digitizing, setup, quantity pricing, and repeat-order terms vary by hat and production partner. Confirm the current terms in writing.' },
  { q: 'Can you put a leather patch on a Richardson 112?', a: 'A leather or synthetic patch may be available for a compatible Richardson 112. Confirm the patch material, attachment method, placement, care, price, and current manufacturer guidance.' },
  { q: 'How do hard hat decals work?', a: 'The employer and safety lead select the hard hat for the task. Any decal requires the exact helmet manufacturer\'s current written approval for the material, adhesive, size, and placement. Site policy may add stricter rules.' },
@@ -52,12 +53,11 @@ const speakableSchema = {
  <div class="relative mx-auto max-w-3xl px-4 pt-20 pb-12 sm:px-6 sm:pt-24 lg:px-8">
  <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-700">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-700">Blog</a></nav>
  <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-600">{post.category}</span>
- <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
- <p class="mb-8 text-xl leading-relaxed text-ash">When to embroider, when to print, when to patch — and which hat blanks actually survive a Vegas summer on a crew member's head.</p>
+ <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title.replaceAll(' — ', ': ')}</h1>
+ <p class="mb-8 text-xl leading-relaxed text-ash">When to embroider, when to print, when to patch, and which hat blanks actually survive a Vegas summer on a crew member's head.</p>
  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
  </header>
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Representative decorated hats shown for product and artwork planning" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
@@ -68,16 +68,16 @@ const speakableSchema = {
  <h2 id="hat-blanks" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The Hat Blanks That Matter</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">For trade and contractor crews, compare these four product families:</p>
 
- <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Richardson 112 — the workhorse trucker hat</h3>
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Richardson 112: the workhorse trucker hat</h3>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">The Richardson 112 is a mesh-back trucker style with a structured front panel and adjustable closure. Review current color, fit, fabric, care, decoration area, availability, and price. <a href="https://www.richardsonsports.com/" rel="noopener" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Richardson Sports</a> publishes current product details.</p>
 
- <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Yupoong / Flexfit — fitted performance</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Stretch-band fitted caps. Better for crews where everyone wants a fitted look (versus snapback adjustment) and where moisture-wicking matters. Sizing is S/M, L/XL — easier to spec across a crew than 7 1/8-7 5/8 fitted sizing.</p>
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Yupoong / Flexfit: fitted performance</h3>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Stretch-band fitted caps. Better for crews where everyone wants a fitted look (versus snapback adjustment) and where moisture-wicking matters. Sizing is S/M, L/XL, which is easier to spec across a crew than 7 1/8-7 5/8 fitted sizing.</p>
 
- <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Carhartt CT103847 — wide-brim outdoor</h3>
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Carhartt CT103847: wide-brim outdoor</h3>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">A wide-brim option may suit outdoor roles. Confirm the exact product's current sun-protection claim, fit, care, and decoration compatibility in manufacturer documentation.</p>
 
- <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Beanies — Sportsman + Atlantis</h3>
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Beanies: Sportsman + Atlantis</h3>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">Knit beanies may support cuff embroidery when the product and artwork are compatible. Compare current Sportsman and Atlantis options.</p>
 
  <h2 id="decoration" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Decoration Methods Compared</h2>
@@ -87,33 +87,34 @@ const speakableSchema = {
  <p class="mb-6 text-lg leading-relaxed text-charcoal">For deeper background on what makes a logo embroider well versus badly, see <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">logo digitizing 101</a>.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Screen printing (for flat-bill and large designs)</h3>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Screen printing on hats is mostly for flat-bill snapback caps where you want a large, bold, single-piece design that wraps from front to side panel. The flat brim is a popular canvas for screen-printed urban brand styles. Curved-bill structured caps don't take screen printing well — the curve distorts ink alignment.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Screen printing on hats is mostly for flat-bill snapback caps where you want a large, bold, single-piece design that wraps from front to side panel. The flat brim is a popular canvas for screen-printed urban brand styles. Curved-bill structured caps don't take screen printing well: the curve distorts ink alignment.</p>
 
  <h3 class="mt-8 mb-3 font-heading text-xl font-bold">Patches (woven, leather, PVC)</h3>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">A woven, leather, synthetic, or PVC patch can be made separately and attached to a compatible front panel. Confirm detail, attachment, care, durability, and quoted cost for the exact product.</p>
- <p class="mb-6 text-lg leading-relaxed text-charcoal">Leather patches in particular have become the signature look for outdoor and craft brands — well worth the upcharge if it matches the brand identity.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Leather patches in particular have become the signature look for outdoor and craft brands, well worth the upcharge if it matches the brand identity.</p>
 
  <h2 id="placement" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Standard Hat Placements</h2>
  <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
  <li><strong>Front panel.</strong> Primary logo placement. Most visible, most embroidered.</li>
- <li><strong>Side panel.</strong> Secondary mark — initials, wordmark, or trade designation.</li>
+ <li><strong>Side panel.</strong> Secondary mark: initials, wordmark, or trade designation.</li>
  <li><strong>Back panel / closure.</strong> Small accent, often a website URL or hashtag.</li>
- <li><strong>Bill / brim underside.</strong> Hidden until the bill flips up — popular for craft/outdoor brand secret marks.</li>
+ <li><strong>Bill / brim underside.</strong> Hidden until the bill flips up, popular for craft/outdoor brand secret marks.</li>
  <li><strong>Beanie cuff.</strong> Folded cuff is the only viable placement for knit beanies.</li>
  </ul>
 
  <h2 id="ordering" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">How to Order Custom Hats for a Crew</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">Three things to send when ordering:</p>
  <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
- <li><strong>Logo file</strong> — vector preferred (.ai, .eps, .pdf). For embroidery, the file gets digitized into a stitch file once.</li>
- <li><strong>Hat blank</strong> — Richardson 112 in your colorway, or specify the brand and SKU you want.</li>
- <li><strong>Quantity + sizing</strong> — most trucker and snapback styles are one-size-adjustable so you don't need to break out by employee size. Beanies and fitted caps need a size breakdown.</li>
+ <li><strong>Logo file</strong>: vector preferred (.ai, .eps, .pdf). For embroidery, the file gets digitized into a stitch file once.</li>
+ <li><strong>Hat blank</strong>: Richardson 112 in your colorway, or specify the brand and SKU you want.</li>
+ <li><strong>Quantity + sizing</strong>: most trucker and snapback styles are one-size-adjustable so you don't need to break out by employee size. Beanies and fitted caps need a size breakdown.</li>
  </ol>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">Pricing depends on the hat, artwork, method, placement, quantity, digitizing, setup, and current production quote. Confirm each fee and repeat-order term in writing.</p>
 
  <h2 id="hard-hats" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">A Note on Hard Hats</h2>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">Hard hats are protective equipment selected by the employer and safety lead. Site policy and the exact helmet manufacturer's current written instructions govern any decal. Confirm material, adhesive, size, and placement before use. See our <a href="/blog/custom-hard-hats-osha-z89-decals-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">custom hard hat guide</a>.</p>
 
+ <NationalLinks heading='Related product guides' links={[{ href: '/custom-embroidered-hats/', label: 'Custom embroidered hats' }, { href: '/custom-company-shirts/', label: 'Custom company shirts' }]} />
  <div class="mt-12 border border-hairline bg-gold-500/5 p-7 sm:p-9">
  <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-charcoal">Need custom hats for a Vegas crew?</h2>
 <p class="mb-5 text-lg leading-relaxed text-charcoal">Bighorn Threads coordinates embroidered hats through selected production partners for Vegas contractors. Send your logo, preferred product, quantity, and deadline for a quote.</p>

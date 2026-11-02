@@ -1,4 +1,5 @@
 ---
+import NationalLinks from '@/components/NationalLinks.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const post = {
@@ -9,7 +10,7 @@ const post = {
  readTime: '8 min read',
  date: 'May 9, 2026',
  isoDate: '2026-05-09',
- image: '/images/generated/service-embroidery.jpg',
+ image: '/images/og-default.jpg',
  slug: 'custom-embroidered-hoodies-sweatshirts',
 }
 
@@ -57,7 +58,6 @@ const speakableSchema = {
  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
  </div>
  </header>
- <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6 lg:px-8"><img src={post.image} alt="Representative hoodie shown for garment and embroidery planning" width="1200" height="675" loading="eager" class="w-full border border-hairline object-cover" /></div>
  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
 
  <aside class="mb-10 border border-hairline bg-panel p-7">
@@ -71,7 +71,7 @@ const speakableSchema = {
  <li><strong>Cool desert mornings.</strong> A branded layer may fit the employer's schedule and approved warm-up plan.</li>
  <li><strong>Winter desert work.</strong> Compare approved hoodies and outerwear for the crew's schedule and work conditions.</li>
  <li><strong>Crew swag programs.</strong> Hoodies may fit holiday gifts, milestone rewards, and anniversary programs.</li>
- <li><strong>Trade show and event crews.</strong> Industry events, AGC dinners, ribbon cuttings — a sharp branded zip-up hoodie hits a different note than a polo.</li>
+ <li><strong>Trade show and event crews.</strong> Industry events, AGC dinners, ribbon cuttings: a sharp branded zip-up hoodie hits a different note than a polo.</li>
  </ul>
 
  <h2 id="blanks" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">The Hoodie Blanks That Matter</h2>
@@ -109,6 +109,7 @@ const speakableSchema = {
  <p class="mb-6 text-lg leading-relaxed text-charcoal">Set hoodie quantities from your roster, work conditions, replacement policy, and budget. Event colorways and premium blanks can be quoted as separate options.</p>
  <p class="mb-6 text-lg leading-relaxed text-charcoal">A <a href="/company-stores/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">company store</a> may present approved hoodies and employee allowances. Availability, payment, delivery, replacement, and fulfillment features depend on the written program setup.</p>
 
+ <NationalLinks heading='Related product guides' links={[{ href: '/custom-quarter-zips-jackets/', label: 'Quarter-zips and jackets' }, { href: '/custom-company-shirts/', label: 'Custom company shirts' }, { href: '/custom-hoodies/', label: 'Custom logo hoodies' }]} />
  <div class="mt-12 border border-hairline bg-gold-500/5 p-7 sm:p-9">
  <h2 class="mb-3 font-heading text-2xl font-bold tracking-tight text-charcoal">Custom embroidered hoodies in Las Vegas</h2>
 <p class="mb-5 text-lg leading-relaxed text-charcoal">Bighorn Threads coordinates embroidered hoodies through selected production partners. Send your logo, product, quantity, and deadline for a current quote.</p>
