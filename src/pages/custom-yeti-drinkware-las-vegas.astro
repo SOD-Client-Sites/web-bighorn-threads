@@ -11,20 +11,20 @@ const page = {
 
 const stack = [
  { label: 'The drinkware', body: 'Ask about current Yeti Rambler tumblers, mugs, bottles, jugs, sizes, and finishes. Availability is confirmed for each quote.' },
- { label: 'The decoration', body: 'Engraving may create a two-tone mark on eligible products. Results and care requirements depend on the product and finish.' },
+ { label: 'The decoration', body: 'Laser engraving cuts through the color to the steel, leaving a two-tone mark.' },
  { label: 'Use cases', body: 'Corporate gifts, employee onboarding, milestone awards, trade show high-tier giveaways, customer thank-you, holiday gifting, executive recognition.' },
  { label: 'Volume tiers', body: 'Your quote lists the minimum and volume pricing. Share your quantity for current terms.' },
 ]
 
 const skus = [
- { row: 'Rambler 10 oz Lowball', use: 'Small hot or cold servings', notes: 'Confirm current size, finish, lid, and decoration area.' },
- { row: 'Rambler 14 oz Mug', use: 'Handled hot or cold drinkware', notes: 'Confirm current product and eligible decoration area.' },
- { row: 'Rambler 20 oz Tumbler', use: 'Coffee, water, or cold drinks', notes: 'Compare current lid, cup-holder fit, finish, and decoration.' },
- { row: 'Rambler 24 oz Mug', use: 'Larger handled drinkware', notes: 'Confirm current product dimensions and decoration area.' },
- { row: 'Rambler 30 oz Tumbler', use: 'Higher-capacity drinkware', notes: 'Check current dimensions, lid, and cup-holder compatibility.' },
- { row: 'Rambler 36 oz Bottle', use: 'Higher-capacity water bottle', notes: 'Confirm current cap, handle, finish, and decoration area.' },
- { row: 'Wine Tumbler', use: 'Events and recognition gifts', notes: 'Ask about current availability and personalization options.' },
- { row: 'Half Gallon Jug', use: 'Crew, jobsite, or sideline use', notes: 'Confirm current product, handling, and decoration options.' },
+ { row: 'Rambler 10 oz Lowball', use: 'Small hot or cold servings', notes: 'A short tumbler for a desk or a home bar.' },
+ { row: 'Rambler 14 oz Mug', use: 'Handled hot or cold drinkware', notes: 'The classic desk mug.' },
+ { row: 'Rambler 20 oz Tumbler', use: 'Coffee, water, or cold drinks', notes: 'The everyday pick. Fits most cup holders.' },
+ { row: 'Rambler 24 oz Mug', use: 'Larger handled drinkware', notes: 'A big mug for people who refill less often.' },
+ { row: 'Rambler 30 oz Tumbler', use: 'Higher-capacity drinkware', notes: 'Holds a lot, so check the fit if it will ride in a truck.' },
+ { row: 'Rambler 36 oz Bottle', use: 'Higher-capacity water bottle', notes: 'A good truck or field bottle.' },
+ { row: 'Wine Tumbler', use: 'Events and recognition gifts', notes: 'A popular gift, especially with a name added.' },
+ { row: 'Half Gallon Jug', use: 'Crew, jobsite, or sideline use', notes: 'A big jug for a day on site, and hard to lose.' },
 ]
 
 const giftPrograms = [
@@ -37,11 +37,11 @@ const giftPrograms = [
 ]
 
 const faqs = [
-  { q: 'Can you laser-engrave Yeti drinkware?', a: 'Engraving may be available for eligible Yeti products. Bighorn confirms the product and gets the approved order made.' },
+  { q: 'Can you laser-engrave Yeti drinkware?', a: 'Yes on most Rambler styles. Tell us the product and finish and we will confirm it.' },
   { q: 'Is laser engraving permanent on Yeti?', a: 'Engraving creates a durable mark, but results depend on the product and finish. Follow the product\'s current care instructions.' },
   { q: 'What\'s the minimum order for custom Yeti?', a: 'Your quote lists the minimum. Share your quantity so we can confirm current options and pricing.' },
- { q: 'Can I order Yeti tumblers with names on each one?', a: 'Personalization may be available on eligible products. Your quote lists pricing, placements, and timeline.' },
- { q: 'Can you engrave through the colored Yeti finish?', a: 'Some colored products may support laser engraving. We confirm the product, finish, and expected result before you approve.' },
+ { q: 'Can I order Yeti tumblers with names on each one?', a: 'Often, yes. Send the name list with your order and your quote shows the added cost.' },
+ { q: 'Can you engrave through the colored Yeti finish?', a: 'Usually. The laser removes the color and shows the metal underneath, which is the two-tone look. We confirm the finish before you approve.' },
   { q: 'How does this compare to Yeti\'s official custom shop?', a: 'Bighorn gives you one contact for the whole order. Product options and timelines can differ by program.' },
   { q: 'What other drinkware brands do you customize besides Yeti?', a: 'Ask about current options from Hydro Flask, Corkcicle, Stanley, RTIC, MiiR, and Klean Kanteen. Brand and decoration availability vary.' },
 ]
@@ -85,7 +85,7 @@ const faqSchema = {
  Custom Yeti Drinkware in Las Vegas <span class="text-gold-700">with partner-coordinated engraving.</span>
  </h1>
  <p class="max-w-2xl text-lg leading-relaxed text-ash sm:text-xl">
- Ask about current Yeti products, finishes, approved decoration, personalization, minimums, and timing. Product-specific care instructions apply.
+ Yeti tumblers, mugs, and bottles engraved with your logo, for client gifts, milestones, and booth giveaways.
  </p>
  <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
  <a href="/contact/" class="btn-primary text-base">
