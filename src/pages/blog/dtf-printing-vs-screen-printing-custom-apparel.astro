@@ -31,7 +31,7 @@ const faqs = [
 const schema = {
  '@context': 'https://schema.org',
  '@graph': [
- { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: '2026-08-21', author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
+ { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: '2026-11-11', author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
  { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' }, { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` }] },
  { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
  ],
@@ -79,6 +79,26 @@ const speakableSchema = {
    description="Bighorn Threads compares DTF and screen printing by fabric compatibility, artwork, quantity, finish, care, and written pricing."
    uploadDate="2026-05-09"
  />
+
+ <h2 id="dtf-vs-screen-which-to-choose" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">What is the difference between DTF printing and screen printing, and which should you choose?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Screen printing pushes ink through a separate mesh screen for each color, so it pays off on larger runs of bold, simple artwork. DTF prints the whole design on film and heat-presses it on, so it suits small batches, full-color art, dark garments, and mixed products. Bighorn Threads quotes both on the same shirt so you can compare.</p>
+ <div class="my-6 overflow-x-auto border border-hairline bg-panel">
+ <table class="w-full text-base text-charcoal">
+ <thead class="bg-paper text-left text-xs font-mono uppercase tracking-wider text-gold-700">
+ <tr><th class="px-5 py-3">Factor</th><th class="px-5 py-3">DTF</th><th class="px-5 py-3">Screen printing</th></tr>
+ </thead>
+ <tbody class="divide-y divide-hairline">
+ <tr><td class="px-5 py-3 font-bold">Setup</td><td class="px-5 py-3">Little setup and no screens</td><td class="px-5 py-3">One screen per color</td></tr>
+ <tr><td class="px-5 py-3 font-bold">Best quantity</td><td class="px-5 py-3">Small runs, replacements, and one-offs</td><td class="px-5 py-3">Larger runs, where the price per shirt falls as the count rises</td></tr>
+ <tr><td class="px-5 py-3 font-bold">Artwork</td><td class="px-5 py-3">Gradients, photos, and many colors</td><td class="px-5 py-3">Bold one- to three-color logos and text</td></tr>
+ <tr><td class="px-5 py-3 font-bold">Dark garments</td><td class="px-5 py-3">White underlayer printed into the transfer</td><td class="px-5 py-3">Needs an underbase pass, which adds cost</td></tr>
+ <tr><td class="px-5 py-3 font-bold">Feel</td><td class="px-5 py-3">A thin layer on the surface you can feel</td><td class="px-5 py-3">Depends on the ink; water-based and discharge feel softest</td></tr>
+ <tr><td class="px-5 py-3 font-bold">Mixed products</td><td class="px-5 py-3">One file can cover several compatible products</td><td class="px-5 py-3">Best when the same garment and design repeat across the run</td></tr>
+ <tr><td class="px-5 py-3 font-bold">Price</td><td class="px-5 py-3">Flatter price per shirt</td><td class="px-5 py-3">Lower price per shirt at volume; the quote shows where they cross</td></tr>
+ </tbody>
+ </table>
+ </div>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Choose DTF for a short run, a photo-style logo, or an order that mixes tees, hoodies, and hats. Choose screen printing when the same simple design goes on a larger run of one garment. If neither fits, DTG suits cotton-rich tees and sublimation suits light polyester; see <a href="/dtf-printing-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">DTF, DTG and dye sublimation printing in Las Vegas</a>.</p>
 
  <h2 id="how-dtf-works" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">How <a href="/dtf-printing-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">DTF Printing</a> Works</h2>
  <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-charcoal">

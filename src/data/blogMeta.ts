@@ -65,8 +65,11 @@ const field = (src: string, name: string) => {
 }
 
 const raw = import.meta.glob('/src/pages/blog/*.astro', { query: '?raw', import: 'default', eager: true }) as Record<string, string>
+// Posts canonicalized to another URL; keep them out of "Keep reading" so internal links hit the canonical.
+const canonicalizedAway = new Set(['rush-order-shirts-las-vegas-2-day-3-day-options', 'screen-printing-vs-embroidery-construction'])
 export const blogPosts = Object.entries(raw)
   .filter(([f]) => !f.endsWith('/index.astro'))
+  .filter(([f]) => !canonicalizedAway.has(f.split('/').pop()!.replace('.astro', '')))
   .map(([f, src]) => ({ slug: f.split('/').pop()!.replace('.astro', ''), title: field(src, 'title'), category: field(src, 'category') }))
   .sort((a, b) => a.slug.localeCompare(b.slug))
 

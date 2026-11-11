@@ -34,6 +34,24 @@ const useCases = [
  { name: 'Reorder planning', detail: 'Ask whether approved transfers can support future reorders. Product availability and application terms still apply.' },
 ]
 
+const dtfLocal = [
+ { topic: 'What you get', detail: 'Finished, decorated products: tees, hoodies, hats, totes, or workwear. Gang-sheet transfers for events or name additions can be quoted on request.' },
+ { topic: 'Price', detail: 'There is no published price list. The garment, print size, number of placements, and quantity set the price, and you see it in writing before anything runs.' },
+ { topic: 'Minimums', detail: 'DTF needs no screens, so small counts are practical. The quote lists any minimum and setup charge.' },
+ { topic: 'Fabrics', detail: 'Cotton, polyester, blends, canvas, and many dark garments. Each product and placement is checked first. Safety-rated garments need a separate written review.' },
+ { topic: 'Location', detail: 'Your account is run from Las Vegas. Orders ship nationwide, and pickup can be arranged when the job allows it. You approve a proof before production starts.' },
+ { topic: 'Artwork', detail: 'Send a vector or high-resolution file. DTF can carry gradients, shadows, and photo elements, and the proof shows the result first.' },
+]
+
+const dtgVsDtf = [
+ { q: 'Which costs more?', a: 'It depends on the garment, artwork size, and quantity. When both methods fit, the quote prices them side by side.' },
+ { q: 'Does DTG feel like plastic?', a: 'No. DTG ink soaks into the fibers and feels soft. A DTF transfer sits on the surface as a thin, flexible layer you can feel.' },
+ { q: 'Do the prints crack?', a: 'Either one can wear early if it is washed or dried wrong. Follow the written care instructions for the approved garment.' },
+ { q: 'Which handles dark shirts?', a: 'Usually DTF. A white underbase lets full-color art sit on some black, navy, and charcoal garments.' },
+ { q: 'Best fabric for DTG?', a: 'Cotton-rich tees and hoodies. On polyester and many dark garments, DTF is usually the safer choice.' },
+ { q: 'How do you tell them apart?', a: 'Run a hand over the print. DTG follows the fabric texture. DTF has a smooth, slightly raised surface with a crisp edge.' },
+]
+
 const faqs = [
  { q: 'What is DTF printing?', a: 'Direct-to-film printing places artwork on a PET film with adhesive, then applies the transfer to a qualifying garment with heat and pressure. It can support detailed, full-color artwork on many products.' },
  { q: 'DTF vs screen printing: which one should I use?', a: 'DTF can fit smaller or detailed orders. Screen printing can fit larger single-design runs. Compare both methods using the exact product, artwork, quantity, care needs, setup, and quoted price.' },
@@ -110,6 +128,32 @@ const faqSchema = {
  </a>
  </div>
   <HeroProducts />
+ </div>
+ </section>
+
+ <section class="border-b border-hairline bg-paper py-16 sm:py-20">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">DTF Printing Las Vegas</p>
+ <h2 class="mb-5 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal sm:text-3xl">DTF printing and DTF transfers in Las Vegas: what the quote covers</h2>
+ <p class="mb-8 text-lg leading-relaxed text-charcoal">Bighorn Threads arranges DTF printing for Las Vegas businesses, teams, and events. Production partners print your full-color artwork on film and heat-press it onto the tees, hoodies, hats, or workwear you choose. DTF needs no screens, so short runs and mixed-product orders work well. Every job gets a written quote with price, minimum, and timing.</p>
+ <div class="overflow-hidden border border-hairline bg-panel">
+ <table class="w-full">
+ <thead class="bg-concrete">
+ <tr class="border-b border-hairline">
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">What buyers compare</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">How it works with Bighorn</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-hairline">
+ {dtfLocal.map((r) => (
+ <tr>
+ <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-700">{r.topic}</td>
+ <td class="px-6 py-5 align-top text-sm leading-relaxed text-ash">{r.detail}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
  </div>
  </section>
 
@@ -211,7 +255,7 @@ const faqSchema = {
  <p class="kicker mb-3">DTF vs DTG vs Sublimation</p>
  <h2 class="font-heading text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">Three digital methods, <span class="text-gold-600">one Las Vegas quote.</span></h2>
  <p class="mt-4 text-lg leading-relaxed text-ash">
- Direct-to-film, direct-to-garment, and dye sublimation solve different problems. Tell us the garment and the artwork and we quote the method that fits, not the one we happen to run.
+ Direct-to-film, direct-to-garment, and dye sublimation solve different problems. Tell us the garment and the artwork and we quote the method that fits, not a default method.
  </p>
  </div>
  <div class="grid gap-6 md:grid-cols-3">
@@ -231,6 +275,48 @@ const faqSchema = {
  <p class="mt-3 text-base leading-relaxed text-ash">Ink bonded into light polyester for all-over jerseys, performance polos, and event apparel. Nothing to crack or peel. Best on white or light poly.</p>
  </div>
  </div>
+ </div>
+ </section>
+
+ <section class="bg-concrete py-20 sm:py-24">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">DTG vs DTF</p>
+ <h2 class="mb-5 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal sm:text-3xl">DTG vs DTF: which is better for your shirts?</h2>
+ <p class="mb-8 text-lg leading-relaxed text-charcoal">Neither wins on every shirt. DTG prints ink directly into cotton-rich garments for a soft, photo-style print in small quantities. DTF prints the design on film and heat-applies it, so it suits more fabrics, dark garments, and mixed-product orders. Bighorn Threads quotes both and recommends one based on the garment, artwork, and quantity.</p>
+ <div class="overflow-hidden border border-hairline bg-panel">
+ <table class="w-full">
+ <thead class="bg-paper">
+ <tr class="border-b border-hairline">
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Question</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Short answer</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-hairline">
+ {dtgVsDtf.map((r) => (
+ <tr>
+ <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-700">{r.q}</td>
+ <td class="px-6 py-5 align-top text-sm leading-relaxed text-ash">{r.a}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ <p class="mt-6 text-base leading-relaxed text-ash">Comparing against larger runs or stitched logos? Read <a href="/screen-printing-vs-dtg-vs-embroidery/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">screen printing vs DTG vs embroidery</a>.</p>
+ </div>
+ </section>
+
+ <section class="border-y border-hairline bg-paper py-20 sm:py-24">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">Dye Sublimation</p>
+ <h2 class="mb-5 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal sm:text-3xl">Dye sublimation printing in Las Vegas: what it does and when to choose it</h2>
+ <p class="mb-8 text-lg leading-relaxed text-charcoal">Bighorn Threads arranges dye sublimation in Las Vegas for all-over jerseys, performance polos, and event apparel. Heat bonds the dye into white or light polyester, so color can run edge to edge with nothing on the surface to crack or peel. Sublimation cannot decorate cotton or dark fabric.</p>
+ <ul class="space-y-4 text-base leading-relaxed text-ash">
+ <li><strong class="text-charcoal">Best uses.</strong> All-over and edge-to-edge designs, team jerseys, performance polos, and event shirts with full-color backgrounds, where a print sitting on the surface would feel heavy.</li>
+ <li><strong class="text-charcoal">Garment limits.</strong> White or light polyester only. The dye bonds to polyester fibers, not cotton, and it cannot show on a dark shirt, so those go to DTF or screen printing instead.</li>
+ <li><strong class="text-charcoal">Sublimation or DTF?</strong> Choose sublimation when the design covers the whole garment and the fabric is light polyester. Choose DTF for cotton, dark colors, a logo in one spot, or an order that mixes product types.</li>
+ <li><strong class="text-charcoal">What to send for a quote.</strong> Your artwork, the garment or style, the quantity, and the date you need it. The written quote confirms the method, minimum, and timing. Not sure sublimation fits? Send the design anyway and we will tell you which method suits it.</li>
+ </ul>
+ <p class="mt-6 text-base leading-relaxed text-ash">Our <a href="/blog/sublimation-printing-custom-apparel-guide/" class="text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500">sublimation printing guide</a> covers the process in more detail.</p>
  </div>
  </section>
 

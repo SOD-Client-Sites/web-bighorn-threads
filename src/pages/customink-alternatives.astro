@@ -19,6 +19,13 @@ const comparison = [
  { criterion: 'Company store / reorders', bighorn: 'Private stores your people order from', custominkVal: 'Check which tools your account gets' },
 ]
 
+const altTypes = [
+ { type: 'Online design platforms', fit: 'One-off tee orders, group orders, and fundraisers', check: 'Which products and decoration methods are offered, and the ship date at checkout' },
+ { type: 'Print-on-demand stores', fit: 'Merch drops and single-item orders with no inventory', check: 'Per-item cost and which garments can be printed' },
+ { type: 'Local or regional decorators', fit: 'Repeat business apparel with one contact', check: 'Who handles reorders and whether they keep your logo files' },
+ { type: 'Partner-coordinated programs (Bighorn Threads)', fit: 'Crew and company apparel with embroidery, hi-vis or FR logo rules, and company stores', check: 'The written quote: price, minimum, and timing for the same specification' },
+]
+
 const faqs = [
  { q: 'How should a construction company compare CustomInk and Bighorn Threads?', a: 'Send both the same garment, logo, and count, then compare totals, dates, and who handles your reorder.' },
  { q: 'How should I compare providers for FR shirts or hi-vis vests?', a: 'Send each one the same garment and logo, then ask how they check the maker’s logo rules. A vague answer tells you something.' },
@@ -48,7 +55,7 @@ const articleSchema = {
  url: page.url,
  publisher: { '@type': 'Organization', name: 'Bighorn Threads' },
  datePublished: '2026-07-08',
- dateModified: '2026-08-21',
+ dateModified: '2026-11-11',
 }
 
 const faqSchema = {
@@ -97,6 +104,37 @@ const faqSchema = {
  <p class="speakable-answer text-xl leading-relaxed text-charcoal sm:text-2xl">
  {leadAnswer} 
  </p>
+ </div>
+ </section>
+
+ <!-- Custom Ink alternatives: answer-first -->
+ <section class="bg-concrete py-16 sm:py-20">
+ <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+ <div class="mb-10 max-w-3xl">
+ <h2 class="mb-5 font-heading text-2xl font-extrabold uppercase tracking-tight sm:text-3xl">What are the best Custom Ink alternatives?</h2>
+ <p class="text-lg leading-relaxed text-ash">Custom Ink alternatives fall into two groups: online design and print-on-demand platforms for one-off tee orders and fundraisers, and partner-coordinated providers like Bighorn Threads for repeat crew and company apparel. Bighorn Threads arranges embroidery, screen printing, and DTF through production partners, with one Las Vegas contact and reorders that match.</p>
+ </div>
+ <div class="overflow-hidden border border-hairline">
+ <table class="w-full text-left">
+ <thead>
+ <tr class="bg-paper">
+ <th class="px-4 py-3 font-heading text-sm font-bold uppercase tracking-wider text-gold-700">Alternative type</th>
+ <th class="px-4 py-3 font-heading text-sm font-bold uppercase tracking-wider text-gold-700">Best for</th>
+ <th class="px-4 py-3 font-heading text-sm font-bold uppercase tracking-wider text-gold-700">What to check</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-hairline text-charcoal">
+ {altTypes.map((row, i) => (
+ <tr class={i % 2 === 0 ? 'bg-paper/60' : ''}>
+ <td class="px-4 py-3 font-semibold">{row.type}</td>
+ <td class="px-4 py-3 text-sm">{row.fit}</td>
+ <td class="px-4 py-3 text-sm text-ash">{row.check}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ <p class="mt-6 max-w-3xl text-lg leading-relaxed text-ash">To compare any of these fairly, send each provider the same garment, logo, and count, then line up the totals, the dates, and who handles your next reorder. Pricing, minimums, and timing depend on the order, and the quote lists them.</p>
  </div>
  </section>
 

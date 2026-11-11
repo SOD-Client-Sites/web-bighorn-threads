@@ -32,6 +32,14 @@ const minimums = [
  { count: 'Timing', best: 'We give you a date once we\'ve reviewed the whole order.' },
 ]
 
+const costDrivers = [
+ { driver: 'Ink colors', why: 'Each color needs its own screen and its own pass. A one-color logo costs less to set up than a five-color one.' },
+ { driver: 'Quantity', why: 'Setup is a fixed cost for the run, so the price per shirt drops as the count goes up.' },
+ { driver: 'Print locations', why: 'A left chest plus a full back is two setups. Each added location adds cost.' },
+ { driver: 'Garment', why: 'The blank\'s brand, fabric, and color set the base price. Dark garments can need an underbase, which adds a pass.' },
+ { driver: 'Setup and artwork', why: 'Screens and film for every color, plus any rebuilding a logo file needs before it can print cleanly.' },
+]
+
 const faqs = [
  {
  q: 'What\'s the minimum order for screen printing?',
@@ -154,6 +162,34 @@ const faqSchema = {
  </div>
  </section>
 
+ <!-- Cost drivers — answer-first -->
+ <section class="border-b border-hairline bg-concrete py-16">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">Screen Printing Services</p>
+ <h2 class="mb-5 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal sm:text-3xl">Screen printing cost: what drives the price</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Bighorn Threads prices screen printing services on four things: the number of ink colors, the quantity, the garment, and the screen setup each color needs. More colors and print locations add setup. More shirts spread that setup thinner. There is no fixed price list, so every order gets a written quote with the unit price and minimum.</p>
+ <div class="overflow-hidden border border-hairline bg-panel">
+ <table class="w-full">
+ <thead class="bg-paper">
+ <tr class="border-b border-hairline">
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Cost driver</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">Why it moves the price</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-hairline">
+ {costDrivers.map((r) => (
+ <tr>
+ <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-700">{r.driver}</td>
+ <td class="px-6 py-5 align-top text-sm leading-relaxed text-ash">{r.why}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ <p class="mt-6 text-base leading-relaxed text-ash">Your quote lists the minimum. Screens take setup, so screen printing usually needs more pieces than DTF or embroidery. For a handful of shirts or photo-style art, DTF often fits better. For polos, hats, and jackets, embroidery usually reads better. Compare all three in <a href="/screen-printing-vs-dtg-vs-embroidery/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">screen printing vs DTG vs embroidery</a>, see <a href="/custom-screen-printed-shirts/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">custom screen printed shirts</a>, or start with <a href="/blog/what-is-screen-printing/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">what is screen printing</a>. Working to a fixed date? Ask about <a href="/services/rush-orders-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">rush orders</a>.</p>
+ </div>
+ </section>
+
  <!-- Process — concrete -->
  <section class="bg-concrete py-20 sm:py-24">
  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -252,7 +288,7 @@ const faqSchema = {
  Artwork, colors, and print locations set the setup. We check every reorder again, since garment stock and production needs can change.
  </p>
  <p>
- Construction crews often pick heavier work tees for daily wear. Hi-vis and FR take more checking. Your company picks the garment, and any print needs approval from your company and the manufacturer. Send us the garment spec and jobsite rules before you order.
+ Construction crews often pick heavier work tees for daily wear. Hi-vis and FR take more checking, and logo decals for <a href="/custom-hard-hats-las-vegas/" class="text-gold-600 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600">custom hard hats in Las Vegas</a> follow the helmet maker's rules. Your company picks the garment, and any print needs approval from your company and the manufacturer. Send us the garment spec and jobsite rules before you order.
  </p>
  <p>
  If you have a fixed event or start date, tell us up front. We'll check garment stock and partner capacity against it.

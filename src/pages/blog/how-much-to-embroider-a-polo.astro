@@ -34,7 +34,7 @@ const schema = {
       description: post.description,
       image: `https://bighornthreads.com${post.image}`,
       datePublished: post.isoDate,
-      dateModified: '2026-08-21',
+      dateModified: '2026-11-11',
       author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' },
       publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } },
       mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/`,
@@ -91,9 +91,16 @@ const speakableSchema = {
     <BlogBody>
 
       <!-- Answer-first TL;DR -->
+      <h2 id="cost" class="mb-4 font-heading text-3xl font-bold tracking-tight">How much does it cost to embroider a polo shirt?</h2>
       <aside class="mb-12 border border-hairline bg-panel p-6">
         <p class="mb-2 text-xs font-bold uppercase tracking-widest text-gold-600">Quick Answer</p>
-        <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Embroidered polo cost comes down to four things: <strong>stitch count</strong>, <strong>the polo you pick</strong>, <strong>digitizing or setup</strong>, and <strong>quantity</strong>. Send your logo and polo choice for a written quote.</p>
+        <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Bighorn Threads prices an embroidered polo as the polo plus the embroidery. The embroidery cost depends mainly on <strong>stitch count</strong>, the number of placements, <strong>digitizing</strong> for a new logo, and <strong>quantity</strong>. A basic pique polo costs less than a Carhartt or performance polo. Your written quote lists the exact price.</p>
+        <ul class="mt-5 list-none space-y-2 text-base leading-relaxed text-charcoal">
+          <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><a href="#stitch-count" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Stitch count</a>: bigger, denser logos take more machine time.</span></li>
+          <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><a href="#polo-cost" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">The polo</a>: basic pique, performance, or a trade brand like Carhartt or Red Kap.</span></li>
+          <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><a href="#digitizing" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Digitizing</a>: usually a one-time charge per logo, so ask who keeps the file.</span></li>
+          <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><a href="#quantity" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Quantity</a> and <a href="#multi-placement" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">placements</a>: setup spreads across the run, and each extra placement is priced on its own.</span></li>
+        </ul>
       </aside>
 
       <!-- Video embed -->

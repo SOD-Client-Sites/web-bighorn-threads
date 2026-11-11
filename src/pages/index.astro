@@ -1,10 +1,14 @@
 ---
-import { Image } from 'astro:assets'
+import { Image, getImage } from 'astro:assets'
 import apparelHero from '@/assets/bighorn-apparel-hero.png'
 import stevePhoto from '@/assets/steve-dodson-ref.jpg'
 import { productPhotos } from '@/data/productPhotos'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import ProofStrip from '@/components/ProofStrip.astro'
+
+// Same options as the hero <Image> below so the preload matches the srcset it picks.
+const heroSizes = '(min-width: 1024px) 55vw, 100vw'
+const heroPreload = await getImage({ src: apparelHero, widths: [640, 960, 1536], format: 'webp', quality: 85 })
 
 const link = 'text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-500'
 
@@ -117,6 +121,9 @@ const speakableSchema = {
 <BaseLayout
  title="Custom Screen Printing, Embroidery & Company Stores Nationwide | Bighorn Threads"
  description="Custom screen printing, embroidery, uniforms, and private company stores for crews and teams across the US. Send your logo and get a price and a proof."
+ heroImage={heroPreload.src}
+ heroImageSrcset={heroPreload.srcSet.attribute}
+ heroImageSizes={heroSizes}
 >
  <!-- Hero: real product photography on the light canvas -->
  <section class="bg-concrete">
@@ -142,7 +149,7 @@ const speakableSchema = {
  </div>
  </div>
  <figure>
- <Image src={apparelHero} alt="Bighorn ram logo shown as screen print on a T-shirt and embroidery on a navy cap and charcoal polo" widths={[640, 960, 1536]} sizes="(min-width: 1024px) 55vw, 100vw" format="webp" quality={85} loading="eager" fetchpriority="high" class="aspect-[3/2] w-full object-cover" />
+ <Image src={apparelHero} alt="Bighorn ram logo shown as screen print on a T-shirt and embroidery on a navy cap and charcoal polo" widths={[640, 960, 1536]} sizes={heroSizes} format="webp" quality={85} loading="eager" fetchpriority="high" class="aspect-[3/2] w-full object-cover" />
  <figcaption class="mt-2 text-xs text-ash">Bighorn apparel mockup · Screen printing &amp; embroidery</figcaption>
  </figure>
  </div>

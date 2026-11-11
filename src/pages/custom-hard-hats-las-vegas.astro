@@ -30,6 +30,15 @@ const brandingReview = [
  { label: 'Review every reorder', body: 'Stock and instructions can change, so check them before each run.' },
 ]
 
+const hardHatCompare = [
+ { topic: 'Which hard hat', detail: 'Your company picks the maker and model. Bighorn does not recommend protective equipment. We brand the model you send.' },
+ { topic: 'Decals', detail: 'Company logo, worker names, roles, and certification decals, cut to your model. Material, size, and placement follow the helmet maker\'s written instructions.' },
+ { topic: 'Price', detail: 'There is no published price list. Decal size, colors, placements, and quantity set the price, and the written quote shows it.' },
+ { topic: 'Approval', detail: 'The maker\'s written guidance and your safety lead\'s review come before production. A past order does not approve a new model.' },
+ { topic: 'Reorders', detail: 'Record the approved model and artwork so reorders match. Stock and instructions are checked again before each run.' },
+ { topic: 'Location', detail: 'Your account is run from Las Vegas, and orders ship nationwide. Pickup can be arranged when the job allows it.' },
+]
+
 const faqs = [
  { q: 'Who selects the hard hat?', a: 'The employer selects the exact manufacturer and model for the workplace. Bighorn does not prescribe protective equipment.' },
  { q: 'Who approves the logo application?', a: 'The helmet manufacturer must permit the proposed material and placement. The employer reviews that written guidance before production.' },
@@ -103,6 +112,32 @@ const faqSchema = {
  </a>
  </div>
   <HeroProducts />
+ </div>
+ </section>
+
+ <section class="border-b border-hairline bg-paper py-16 sm:py-20">
+ <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+ <p class="kicker mb-3">Hard Hats Las Vegas</p>
+ <h2 class="mb-5 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal sm:text-3xl">Hard hats in Las Vegas: how crew helmet branding works</h2>
+ <p class="mb-8 text-lg leading-relaxed text-charcoal">Bighorn Threads brands hard hats for Las Vegas crews with logo, name, and role decals. Your company picks the exact model, the helmet maker approves the decal material, size, and placement, and our production partners make the decals to that plan. The written quote lists the model, artwork, quantity, and price.</p>
+ <div class="overflow-hidden border border-hairline bg-panel">
+ <table class="w-full">
+ <thead class="bg-concrete">
+ <tr class="border-b border-hairline">
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">What crews compare</th>
+ <th class="px-6 py-4 text-left font-mono text-xs font-bold uppercase tracking-wider text-gold-600">How Bighorn handles it</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-hairline">
+ {hardHatCompare.map((r) => (
+ <tr>
+ <td class="px-6 py-5 align-top font-mono text-sm font-bold text-gold-700">{r.topic}</td>
+ <td class="px-6 py-5 align-top text-sm leading-relaxed text-ash">{r.detail}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
  </div>
  </section>
 

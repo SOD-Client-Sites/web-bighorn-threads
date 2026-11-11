@@ -7,7 +7,7 @@ import BlogRelated from '@/components/blog/BlogRelated.astro'
 const post = {
  title: 'FR Shirts for Electricians: An NFPA 70E Planning Guide',
  description:
- 'A practical overview of arc-rated apparel for electrical crews, including hazard assessment, garment selection, decoration, care, and inspection.',
+ 'Who provides NFPA 70E apparel programs? See how the employer\'s arc-flash assessment sets requirements, what vendors can and can\'t certify, and how FR logo decoration is verified.',
  category: 'Compliance',
  readTime: '11 min read',
  date: 'Apr 7, 2026',
@@ -34,7 +34,7 @@ const schema = {
  description: post.description,
  image: `https://bighornthreads.com${post.image}`,
  datePublished: post.isoDate,
- dateModified: '2026-08-21',
+ dateModified: '2026-11-11',
  author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' },
  publisher: {
  '@type': 'Organization',
@@ -114,8 +114,11 @@ const speakableSchema = {
  <aside class="mb-12 border border-hairline bg-panel p-6 lg:sticky lg:top-24">
  <h2 class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-gold-700">In this article</h2>
  <ol class="space-y-2 font-mono text-sm text-ash">
+ <li><a href="#which-fr-shirts" class="hover:text-gold-600">Which FR shirts meet NFPA 70E</a></li>
  <li><a href="#what-is-nfpa-70e" class="hover:text-gold-600">1. What NFPA 70E actually covers</a></li>
+ <li><a href="#who-provides" class="hover:text-gold-600">Who provides NFPA 70E apparel programs</a></li>
  <li><a href="#cat-ratings" class="hover:text-gold-600">2. CAT 1 vs CAT 2 vs CAT 4</a></li>
+ <li><a href="#clothing-requirements" class="hover:text-gold-600">NFPA 70E clothing requirements</a></li>
  <li><a href="#brands" class="hover:text-gold-600">3. Comparing current garment options</a></li>
  <li><a href="#decoration" class="hover:text-gold-600">4. Reviewing decoration requirements</a></li>
  <li><a href="#mistakes" class="hover:text-gold-600">5. Five risks to review</a></li>
@@ -131,6 +134,18 @@ const speakableSchema = {
 This article is not a substitute for NFPA 70E, OSHA requirements, a qualified safety professional, or the garment manufacturer's instructions. Bighorn Threads arranges the approved logo work. The employer and its safety team remain responsible for hazard assessment and PPE selection.
  </p>
 
+ <h2 id="which-fr-shirts" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">What FR Shirts Meet NFPA 70E Requirements for Electricians, and Who Can Brand Them?</h2>
+
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">
+ An FR shirt meets NFPA 70E for a task when it is arc-rated, labeled with an arc rating in cal/cm² at least equal to the incident energy or PPE category from the employer's risk assessment, and worn as part of the complete required system. Bighorn Threads can arrange your logo on that exact shirt, following the manufacturer's written decoration instructions.
+ </p>
+
+ <ul class="mb-6 list-disc space-y-2 pl-6 text-lg leading-relaxed text-charcoal">
+ <li><strong>Edition:</strong> NFPA 70E is currently in its 2024 edition. Check that your program references the edition your employer has adopted.</li>
+ <li><strong>The shirt:</strong> Look for an arc-rated label referencing ASTM F1506 with an ATPV or EBT value. "FR" alone is not enough.</li>
+ <li><strong>The branding:</strong> Decoration must follow the garment manufacturer's instructions for that SKU. See our <a href="/safety-compliance/nfpa-70e-embroidery-guide/" class="text-gold-700 underline hover:text-gold-600">NFPA 70E embroidery guide</a>.</li>
+ </ul>
+
  <h2 id="what-is-nfpa-70e" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">1. What NFPA 70E Actually Covers</h2>
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
@@ -143,6 +158,40 @@ This article is not a substitute for NFPA 70E, OSHA requirements, a qualified sa
 
  <p class="mb-6 text-lg leading-relaxed text-charcoal">
  Arc-rated and flame-resistant are not interchangeable specifications. Review the exact product label and current technical data. The employer must select the complete system required by its task-specific assessment.
+ </p>
+
+ <h2 id="who-provides" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Who Provides NFPA 70E-Compliant Apparel Programs?</h2>
+
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">
+ NFPA 70E apparel programs come from several kinds of providers: FR garment manufacturers such as Bulwark and Carhartt, rental and uniform services such as Cintas and UniFirst, safety distributors, and branding partners such as Bighorn Threads, which arranges logo decoration on arc-rated garments. No provider makes a program compliant. The employer's risk assessment does.
+ </p>
+
+ <div class="mb-6 overflow-x-auto">
+ <table class="w-full border-collapse text-base leading-relaxed text-charcoal">
+ <thead>
+ <tr>
+ <th class="border border-hairline bg-panel px-3 py-2 text-left font-heading font-bold">Provider type</th>
+ <th class="border border-hairline bg-panel px-3 py-2 text-left font-heading font-bold">What they supply</th>
+ <th class="border border-hairline bg-panel px-3 py-2 text-left font-heading font-bold">Laundering and inspection</th>
+ <th class="border border-hairline bg-panel px-3 py-2 text-left font-heading font-bold">Who owns the garments</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr><td class="border border-hairline px-3 py-2 align-top">FR garment manufacturer</td><td class="border border-hairline px-3 py-2 align-top">Arc-rated garments, labels, care and decoration instructions</td><td class="border border-hairline px-3 py-2 align-top">Publishes care and retirement criteria; does not clean garments</td><td class="border border-hairline px-3 py-2 align-top">The buyer</td></tr>
+ <tr><td class="border border-hairline px-3 py-2 align-top">Uniform rental and laundry service</td><td class="border border-hairline px-3 py-2 align-top">Rented FR garments on a service contract</td><td class="border border-hairline px-3 py-2 align-top">Typically launders, repairs, and replaces under the contract</td><td class="border border-hairline px-3 py-2 align-top">The rental company</td></tr>
+ <tr><td class="border border-hairline px-3 py-2 align-top">Safety distributor</td><td class="border border-hairline px-3 py-2 align-top">Garments and other PPE from several manufacturers</td><td class="border border-hairline px-3 py-2 align-top">Varies by distributor; confirm in writing</td><td class="border border-hairline px-3 py-2 align-top">The buyer</td></tr>
+ <tr><td class="border border-hairline px-3 py-2 align-top">Decoration and company-store partner (Bighorn Threads)</td><td class="border border-hairline px-3 py-2 align-top">Logo decoration on employer-approved garments; optional company store for ordering</td><td class="border border-hairline px-3 py-2 align-top">Does not launder, repair, or inspect garments</td><td class="border border-hairline px-3 py-2 align-top">The buyer</td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">
+ With every provider type, the employer still documents the risk assessment, the required arc rating, the selected garments, decoration approval, and its care and inspection process. With Bighorn, your crew orders employer-approved garments through a private <a href="/company-stores/" class="text-gold-700 underline hover:text-gold-600">company store</a>, and the garments belong to your company.
+ </p>
+
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold text-charcoal">What uniform services help manage NFPA 70E requirements?</h3>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">
+ Rental and laundry services such as Cintas and UniFirst can handle laundering, repair, and replacement of FR garments under contract, and some track garments for retirement. Bighorn Threads does not launder, repair, or inspect garments; if you own your FR program, your team or a qualified laundry follows the manufacturer's care instructions. Compare the two models on our <a href="/cintas-unifirst-aramark-alternatives-las-vegas/" class="text-gold-700 underline hover:text-gold-600">Cintas, UniFirst, and Aramark alternatives</a> page, and see the <a href="/safety-compliance/nfpa-70e-embroidery-guide/" class="text-gold-700 underline hover:text-gold-600">NFPA 70E embroidery guide</a> for decoration.
  </p>
 
  <h2 id="cat-ratings" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">2. CAT 1 vs CAT 2 vs CAT 4: What Your Crew Actually Needs</h2>
@@ -172,6 +221,29 @@ This article is not a substitute for NFPA 70E, OSHA requirements, a qualified sa
  Start with the task-specific assessment, not a default shirt category. Once the required protection is documented, compare complete rated systems for heat burden, fit, mobility, care, availability, and compatibility with the rest of the PPE.
  </p>
  </div>
+
+ <h2 id="clothing-requirements" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">NFPA 70E Clothing Requirements: Arc-Rated vs FR, Labels, and Layers</h2>
+
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">
+ NFPA 70E requires arc-rated clothing where the risk assessment identifies an arc-flash hazard, with an arc rating at least equal to the assessed incident energy or the PPE category. Arc-rated garments are flame-resistant, but FR-only garments are not necessarily arc-rated, so check the label.
+ </p>
+
+ <ul class="mb-6 list-disc space-y-2 pl-6 text-lg leading-relaxed text-charcoal">
+ <li><strong>Reading the label:</strong> An arc-rated garment shows its arc rating in cal/cm², listed as ATPV or EBT, and references ASTM F1506, the performance specification for arc-rated textiles in electrical work.</li>
+ <li><strong>Arc-rated vs FR-only:</strong> All arc-rated fabric is flame-resistant. Not all FR fabric is arc-rated. A garment with no arc rating on the label does not meet an arc-rating requirement.</li>
+ <li><strong>Layers:</strong> Underlayers worn beneath arc-rated clothing must be non-melting. Meltable synthetics such as polyester or nylon do not belong in the system.</li>
+ <li><strong>What to document:</strong> The risk assessment, the required arc rating or PPE category, the garments selected, and the manufacturer's decoration and care instructions.</li>
+ </ul>
+
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold text-charcoal">Does 100% cotton count as FR?</h3>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">
+ No. Untreated 100% cotton is not flame-resistant and can ignite. It is not a substitute for arc-rated clothing, though a non-melting natural-fiber layer may be worn under arc-rated garments where the employer's program allows it.
+ </p>
+
+ <h3 class="mt-8 mb-3 font-heading text-xl font-bold text-charcoal">What does OSHA require for FR clothing?</h3>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">
+ OSHA <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.269" rel="noopener" class="text-gold-700 underline hover:text-gold-600">1910.269(l)(8)</a> sets clothing requirements for employees exposed to flames or electric arcs in electric power work, and <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.132" rel="noopener" class="text-gold-700 underline hover:text-gold-600">1910.132</a> sets the general duty to assess hazards and provide PPE. For garment specifics, see our <a href="/brands/bulwark-fr-custom-las-vegas/" class="text-gold-700 underline hover:text-gold-600">Bulwark FR</a> and <a href="/brands/carhartt-custom-las-vegas/" class="text-gold-700 underline hover:text-gold-600">Carhartt</a> pages and the manufacturer's label for the exact SKU.
+ </p>
 
  <h2 id="brands" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">3. Comparing Current Garment Options</h2>
 
