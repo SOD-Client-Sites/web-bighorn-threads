@@ -1,0 +1,191 @@
+---
+import NationalLinks from '@/components/NationalLinks.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import BlogLead from '@/components/blog/BlogLead.astro'
+import BlogBody from '@/components/blog/BlogBody.astro'
+import BlogRelated from '@/components/blog/BlogRelated.astro'
+
+const post = {
+  title: 'Polo, Work Shirt or T-Shirt: Which Company Shirt Should Employees Wear?',
+  description:
+    'Compare polos, button-down work shirts, and t-shirts for employees by role, durability, heat, and decoration, and see how to mix them in one shirt program.',
+  category: 'Comparison',
+  readTime: '7 min read',
+  date: 'November 11, 2026',
+  isoDate: '2026-11-11',
+  image: '/images/og-default.jpg',
+  slug: 'polo-vs-work-shirt-vs-t-shirt-for-employees',
+}
+
+const faqs = [
+  { q: 'Is a polo or a work shirt better for employees?', a: 'A polo is better for staff who meet customers indoors or on short visits, because it looks polished and stays comfortable. A button-down work shirt is better for field crews who need pockets, heavier fabric, and a shirt that holds up to tools and rough surfaces. Many companies buy both and assign them by role.' },
+  { q: 'Are t-shirts professional enough for a company uniform?', a: 'For warehouse, shop, event, and volunteer teams, yes. A clean tee with a printed or embroidered logo reads as a team shirt. For sales, front desk, and client visits, most companies step up to a polo or button-up because it looks more like a uniform.' },
+  { q: 'What fabric is best for work shirts in hot weather?', a: 'Polyester performance knits and poly-cotton blends dry faster and breathe better than heavy cotton, which helps outdoor crews in the heat. Cotton feels traditional and softer but holds sweat. If your crew needs flame-resistant clothing, the safety lead picks a rated FR garment first.' },
+  { q: 'Should company polos be embroidered or printed?', a: 'Most company polos are embroidered on the left chest. Embroidery holds up to repeated washing and reads as a uniform. Printing on polos is possible but less common, and it suits large or full-color designs better than a small chest logo.' },
+  { q: 'Can we mix polos, work shirts, and tees on one order?', a: 'Yes. Bighorn Threads prices each role on its own line, so you can order polos for the office, work shirts for the field, and tees for the warehouse on one quote, shipped to one address or several.' },
+]
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: post.title,
+      description: post.description,
+      image: `https://bighornthreads.com${post.image}`,
+      datePublished: post.isoDate,
+      dateModified: '2026-11-11',
+      author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' },
+      publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } },
+      mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/`,
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' },
+        { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+    },
+  ],
+}
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ name: post.title,
+ speakable: {
+  '@type': 'SpeakableSpecification',
+  cssSelector: ['h1','.speakable-answer'],
+ },
+}
+---
+
+<BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
+
+  <article class="bg-concrete">
+    <header class="post-head">
+ <div class="post-head-inner">
+ <div>
+        <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-gold-700">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-700">Blog</a>
+        </nav>
+        <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-600">{post.category}</span>
+        <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
+        <p class="mb-8 text-xl leading-relaxed text-ash">Pick the shirt by the job, not by one company-wide rule. Polos suit staff who meet customers, button-down work shirts suit field crews who need pockets and tougher fabric, and t-shirts suit warehouse and event teams. Bighorn Threads prices each role on its own line, so one order can cover all three.</p>
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash">
+          <span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time>
+        </div>
+      </div>
+ <BlogLead />
+ </div>
+ </header>
+
+    <BlogBody>
+
+      <!-- Answer-first TL;DR -->
+      <h2 id="which" class="mb-4 font-heading text-3xl font-bold tracking-tight">Which company shirt should employees wear?</h2>
+      <aside class="mb-12 border border-hairline bg-panel p-6">
+        <p class="mb-2 text-xs font-bold uppercase tracking-widest text-gold-600">Quick Answer</p>
+        <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Bighorn Threads usually recommends an <strong>embroidered polo</strong> for staff who meet customers, an <strong>embroidered button-down work shirt</strong> for field crews who need pockets and heavier fabric, and a <strong>printed t-shirt</strong> for warehouse, shop, and event teams. Most companies end up with two or three shirts, priced per group on one written quote.</p>
+        <ul class="mt-5 list-none space-y-2 text-base leading-relaxed text-charcoal">
+          <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><a href="#compare" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Side-by-side comparison</a> of the three shirts.</span></li>
+          <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><a href="#by-role" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Shirt by role</a> for a typical company.</span></li>
+          <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><a href="#fabric" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Fabric choice</a> for heat, washing, and wear.</span></li>
+        </ul>
+      </aside>
+
+      <h2 id="compare" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">How do polos, work shirts, and t-shirts compare?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">The three shirts differ in how formal they look, how much abuse they take, and how the logo goes on. Polos look polished and are usually embroidered. Work shirts are the toughest and carry pockets. T-shirts cost the least and take printing well. The table below compares them on the points buyers ask about most.</p>
+      <div class="my-6 overflow-x-auto border border-hairline bg-panel">
+        <table class="w-full text-base text-charcoal">
+          <thead class="bg-panel text-left text-xs font-mono uppercase tracking-wider text-gold-600">
+            <tr><th class="px-5 py-3">Factor</th><th class="px-5 py-3">Polo</th><th class="px-5 py-3">Button-down work shirt</th><th class="px-5 py-3">T-shirt</th></tr>
+          </thead>
+          <tbody class="divide-y divide-hairline">
+            <tr><td class="px-5 py-3 font-bold">Looks</td><td class="px-5 py-3">Polished, customer-facing</td><td class="px-5 py-3">Trade uniform, service tech</td><td class="px-5 py-3">Casual team shirt</td></tr>
+            <tr><td class="px-5 py-3 font-bold">Durability</td><td class="px-5 py-3">Good for indoor and light field use</td><td class="px-5 py-3">Highest; built for tools and rough surfaces</td><td class="px-5 py-3">Varies with fabric weight</td></tr>
+            <tr><td class="px-5 py-3 font-bold">Pockets</td><td class="px-5 py-3">Sometimes one chest pocket</td><td class="px-5 py-3">Usually two chest pockets, often a pen slot</td><td class="px-5 py-3">Usually none</td></tr>
+            <tr><td class="px-5 py-3 font-bold">Usual decoration</td><td class="px-5 py-3">Embroidery, left chest</td><td class="px-5 py-3">Embroidery or sewn patch</td><td class="px-5 py-3">Screen print or DTF</td></tr>
+            <tr><td class="px-5 py-3 font-bold">Name on shirt</td><td class="px-5 py-3">Right chest embroidery</td><td class="px-5 py-3">Name patch or embroidery</td><td class="px-5 py-3">Rare</td></tr>
+            <tr><td class="px-5 py-3 font-bold">Relative cost</td><td class="px-5 py-3">Middle</td><td class="px-5 py-3">Middle to high</td><td class="px-5 py-3">Lowest</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="polo" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">When is a polo the right company shirt?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Choose a polo for anyone whose job puts them in front of customers: sales reps, front desk staff, account managers, estimators, and owners on site visits. A polo with an embroidered left chest logo looks like a uniform without looking stiff, and it works in an office, at a trade show, and on a short jobsite walk.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Polos come in cotton pique, polyester performance knits, and blends. Performance polos suit heat and movement, and snag-resistant knits help staff who brush against rough surfaces. Check that the style comes in women's cuts and big and tall sizes before you settle on it. Our <a href="/custom-polo-shirts/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">custom polo shirts</a> page compares fabrics, and <a href="/blog/port-authority-polos-vs-alternatives/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Port Authority polos vs alternatives</a> covers common brands.</p>
+
+      <h2 id="work-shirt" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">When does a work shirt beat a polo?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">A button-down work shirt beats a polo when the job is physical. Techs, installers, service crews, and drivers need pockets for pens, gauges, and phones, a heavier woven fabric that resists snags and stains, and a collar that stays put. Work shirts also take a sewn name patch, which is easy to swap when someone leaves.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">The logo usually goes on the left chest above the pocket, with the employee's name on the right. Pocket flaps limit how big the logo can be, so plan for a slightly smaller mark than on a polo. Industrial work shirts from brands such as Red Kap are built for this. See our <a href="/blog/red-kap-industrial-work-shirts-buyer-guide/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Red Kap work shirt guide</a>, <a href="/embroidery-vs-patches-uniforms/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">embroidery vs patches</a>, or browse <a href="/catalog/work-shirts/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">work shirts in the catalog</a>.</p>
+
+      <h2 id="t-shirt" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">When is a t-shirt enough for employees?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">A t-shirt is enough for warehouse, shop, kitchen-prep, event, and volunteer teams where comfort and cost matter more than formality. Tees take screen printing well, so a large back print with your company name is easy and makes staff visible across a floor or event. They are also the simplest shirt to hand out to new hires.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Fabric weight decides how long a tee lasts. A heavier cotton or blend holds its shape through more washes than a thin fashion tee. For crews outside in heat, a performance tee or a long-sleeve sun shirt may be the better pick. If the job requires hi-vis or flame-resistant clothing, start with a compliant garment chosen by your safety lead. More options are in our <a href="/blog/custom-embroidered-t-shirts-buyer-guide/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">embroidered t-shirt buyer guide</a>.</p>
+
+      <h2 id="by-role" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Which shirt fits each role?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Match the shirt to what each person does all day. Customer-facing roles get a polo or button-up, hands-on field roles get a work shirt, and floor or event roles get a tee. Most companies land on two or three shirts total. The table below is a starting point you can adjust for your business.</p>
+      <div class="my-6 overflow-x-auto border border-hairline bg-panel">
+        <table class="w-full text-base text-charcoal">
+          <thead class="bg-panel text-left text-xs font-mono uppercase tracking-wider text-gold-600">
+            <tr><th class="px-5 py-3">Role</th><th class="px-5 py-3">Shirt</th><th class="px-5 py-3">Logo</th></tr>
+          </thead>
+          <tbody class="divide-y divide-hairline">
+            <tr><td class="px-5 py-3">Sales, front desk, account managers</td><td class="px-5 py-3 font-bold">Polo</td><td class="px-5 py-3">Embroidered left chest</td></tr>
+            <tr><td class="px-5 py-3">Managers, office, hospitality</td><td class="px-5 py-3 font-bold">Button-up or polo</td><td class="px-5 py-3">Embroidered left chest</td></tr>
+            <tr><td class="px-5 py-3">Service techs, installers, drivers</td><td class="px-5 py-3 font-bold">Button-down work shirt</td><td class="px-5 py-3">Embroidery or patch, name on right</td></tr>
+            <tr><td class="px-5 py-3">Warehouse, shop, prep</td><td class="px-5 py-3 font-bold">T-shirt</td><td class="px-5 py-3">Printed chest and back</td></tr>
+            <tr><td class="px-5 py-3">Events, trade shows, volunteers</td><td class="px-5 py-3 font-bold">T-shirt or polo</td><td class="px-5 py-3">Large back print or chest logo</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">For more on building a program around roles, see our <a href="/company-uniforms/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">company uniforms</a> page.</p>
+
+      <h2 id="fabric" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Cotton, polyester, or a blend: which fabric should you pick?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Cotton feels soft and traditional but holds sweat and can shrink. Polyester performance fabric dries fast, resists fading, and suits heat and movement. Poly-cotton blends sit between the two and handle frequent washing well. Pick by where people work: indoor staff can wear cotton, while outdoor and active crews usually do better in performance or blend fabric.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Fabric also affects decoration. Thin performance knits need a lighter, simpler logo so the embroidery does not pucker, while heavy work shirts and pique polos hold denser stitching. Screen printing on polyester uses different inks than on cotton. Tell us the fabric you are leaning toward along with your logo, and the quote will reflect what works on it.</p>
+
+      <h2 id="mix" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">How do you keep a mix of shirts looking like one brand?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Use one logo file, one set of thread or ink colors, and one placement rule across every shirt. Pick a shared base color family, such as navy or charcoal, so the polo, work shirt, and tee read as one team. Write those choices down with the style numbers so reorders and new locations match.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Name a backup style for anything you plan to reorder for years, since garments get discontinued. If you hire steadily, a <a href="/company-stores/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">company store</a> lets each employee order the approved shirt for their role in their own size.</p>
+
+      <h2 id="get-quote" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">How do you get a quote for a mix of company shirts?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Send your logo, the roles you need to outfit, a rough headcount per role, your in-hand date, and where the shirts ship. If you have not picked shirts yet, tell us the roles and we will suggest one per group. Bighorn Threads works with production partners who decorate the shirts and ships to any US address.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">See all shirt options on our <a href="/custom-company-shirts/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">custom company shirts</a> page, or <a href="/get-a-quote/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">send your logo and roles for a quote.</a></p>
+
+      <!-- FAQ -->
+      <div class="mt-16 space-y-6">
+        <h2 class="font-heading text-2xl font-bold tracking-tight">Frequently Asked Questions</h2>
+        {faqs.map((faq) => (
+          <div class="border border-hairline bg-panel p-6">
+            <h3 class="mb-3 font-semibold text-charcoal">{faq.q}</h3>
+            <p class="text-charcoal leading-relaxed">{faq.a}</p>
+          </div>
+        ))}
+      </div>
+
+      <NationalLinks heading='Related product guides' links={[{ href: '/custom-company-shirts/', label: 'Custom company shirts' }, { href: '/custom-polo-shirts/', label: 'Custom polo shirts' }, { href: '/company-uniforms/', label: 'Company uniforms' }]} />
+ <!-- Related -->
+      <div class="mt-16 border-t border-hairline pt-12">
+        <p class="mb-6 text-xs font-bold uppercase tracking-widest text-gold-600">Related Reading</p>
+        <ul class="space-y-3 text-lg">
+          <li><a href="/blog/how-to-order-company-logo-shirts/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">How to Order Company Shirts With Your Logo</a></li>
+          <li><a href="/blog/what-is-a-company-shirt/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">What Is a Company Shirt?</a></li>
+          <li><a href="/blog/red-kap-industrial-work-shirts-buyer-guide/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Red Kap Industrial Work Shirts: Buyer's Guide</a></li>
+          <li><a href="/blog/how-much-to-embroider-a-polo/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">How Much Does It Cost to Embroider a Polo?</a></li>
+        </ul>
+      </div>
+
+    </BlogBody>
+  </article>
+<BlogRelated />
+</BaseLayout>

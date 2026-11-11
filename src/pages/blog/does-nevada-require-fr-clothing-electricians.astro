@@ -1,0 +1,152 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import BlogLead from '@/components/blog/BlogLead.astro'
+import BlogBody from '@/components/blog/BlogBody.astro'
+import BlogRelated from '@/components/blog/BlogRelated.astro'
+
+const post = {
+ title: 'Does Nevada Require FR Clothing? Rules for Electricians and Construction Crews',
+ description:
+ 'Does Nevada require FR clothing for electricians and construction workers? Nevada has no blanket FR shirt law. Nevada OSHA enforces federal rules that require flame-resistant or arc-rated clothing when the employer\'s hazard assessment finds flame or arc exposure.',
+ category: 'Compliance',
+ readTime: '8 min read',
+ date: 'November 11, 2026',
+ isoDate: '2026-11-11',
+ image: '/images/og-default.jpg',
+ slug: 'does-nevada-require-fr-clothing-electricians',
+}
+
+const link = 'text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600'
+
+const faqs = [
+ { q: 'Are electricians in Nevada required to wear FR clothing?', a: 'Not in every task. Nevada OSHA enforces OSHA electrical rules that require the employer to assess flame and arc hazards. When an electrician is exposed to an arc with estimated incident energy above 2.0 cal/cm², arc-rated clothing with a rating at least equal to that estimate is required under 29 CFR 1910.269 and 1926.960.' },
+ { q: 'Does Nevada require flame-resistant shirts on construction sites?', a: 'Nevada has no general rule that every construction worker wear FR shirts. FR or arc-rated clothing is required when the employer\'s hazard assessment identifies flame, flash-fire, or electric-arc exposure. General contractors and owners can also require FR in their site rules and contracts.' },
+ { q: 'Is NFPA 70E the law in Nevada?', a: 'NFPA 70E is a consensus standard, not a statute. OSHA rules set the legal duty, and OSHA has long pointed to NFPA 70E as a recognized way to meet its electrical safety requirements. Many employers and project owners write NFPA 70E into their safety programs and contracts.' },
+ { q: 'What clothing does OSHA prohibit around electric arcs?', a: 'Under 29 CFR 1910.269(l)(8)(iii), employees exposed to flames or electric arcs may not wear clothing that could melt onto skin or ignite and keep burning. The note lists acetate, nylon, polyester, rayon, and polypropylene, alone or in blends, unless the employer shows the fabric is treated for the conditions.' },
+ { q: 'Who decides which FR shirt a crew wears?', a: 'The employer decides, based on its hazard assessment, incident energy estimates, and the garment label. Bighorn Threads supplies and brands the garment the employer specifies. Bighorn does not perform hazard assessments, arc studies, or garment inspections.' },
+ { q: 'Can I put a company logo on an FR shirt?', a: 'Often, yes, when the garment manufacturer allows it and the decoration method, thread, and backing are approved for that exact product. Standard polyester thread and ordinary heat transfers can melt. Ask for the manufacturer\'s decoration guidance before ordering.' },
+]
+
+const schema = {
+ '@context': 'https://schema.org',
+ '@graph': [
+ { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: '2026-11-11', author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
+ { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' }, { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` }] },
+ { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+ ],
+}
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ name: post.title,
+ speakable: {
+  '@type': 'SpeakableSpecification',
+  cssSelector: ['h1','.speakable-answer'],
+ },
+}
+---
+
+<BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
+ <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
+ <article class="bg-concrete">
+ <header class="post-head">
+ <div class="post-head-inner">
+ <div>
+ <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-600">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-600">Blog</a></nav>
+ <span class="kicker mb-3">{post.category}</span>
+ <h1 class="mb-6 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl lg:text-5xl">{post.title}</h1>
+ <p class="mb-8 text-xl leading-relaxed text-ash">What Nevada OSHA enforces, when OSHA rules require flame-resistant or arc-rated clothing, and how employers turn that into a crew uniform order.</p>
+ <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
+ </div>
+ <BlogLead />
+ </div>
+ </header>
+ <BlogBody>
+
+ <aside class="mb-10 border border-hairline bg-panel p-7">
+ <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Quick Answer</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Nevada has no law that puts every electrician or construction worker in FR shirts. Nevada OSHA enforces OSHA rules that require flame-resistant or arc-rated clothing when the employer's hazard assessment finds flame or electric-arc exposure. Bighorn Threads supplies and brands the FR garments the employer specifies, using production partners.</p>
+ </aside>
+
+ <aside class="mb-10 border-l-4 border-gold-500 bg-paper p-6">
+ <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Key Takeaways</p>
+ <ul class="list-disc pl-6 space-y-2 text-lg leading-relaxed text-charcoal">
+ <li>The legal trigger is the hazard, not the job title or the state.</li>
+ <li>Above 2.0 cal/cm² of estimated incident energy, OSHA requires arc-rated clothing at or above that estimate.</li>
+ <li>Melting fabrics such as polyester and nylon are prohibited for workers exposed to flames or arcs unless treated for the conditions.</li>
+ <li>Project owners and general contractors often require FR on site even when a task-level rule does not.</li>
+ </ul>
+ </aside>
+
+ <h2 id="nevada-law" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Does Nevada Have Its Own FR Clothing Law?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Nevada does not have a separate statute that names FR shirts for a trade. Nevada runs an <a href="https://www.osha.gov/stateplans/nv" rel="noopener" class={link}>OSHA-approved State Plan</a>, and <a href="https://dir.nv.gov/OSHA/Home/" rel="noopener" class={link}>Nevada OSHA</a> enforces workplace safety rules for most private and public employers in the state. Its electrical and PPE requirements track the federal OSHA standards, so the federal text is where the FR clothing rules live.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">That means the answer to "is FR required in Las Vegas" is the same answer a safety manager in Phoenix or Denver gets: it depends on what the employer's hazard assessment finds for each task. Check Nevada OSHA directly for any state-specific changes before relying on this summary.</p>
+
+ <h2 id="osha-rules" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Which OSHA Rules Require FR or Arc-Rated Clothing?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Three OSHA rules carry most of the weight. The general PPE rule requires a hazard assessment. The electric power rules for general industry and construction set specific clothing duties when flame or arc hazards exist. Electrical work outside power generation and distribution falls under OSHA's general electrical safety-related work practices, where NFPA 70E is the usual reference.</p>
+
+ <div class="mb-8 overflow-x-auto border border-hairline">
+ <table class="w-full text-base text-charcoal">
+ <thead class="bg-panel text-left text-xs font-mono uppercase tracking-wider text-gold-600">
+ <tr><th class="px-5 py-3">Rule</th><th class="px-5 py-3">Who it covers</th><th class="px-5 py-3">What it says about clothing</th></tr>
+ </thead>
+ <tbody class="divide-y divide-hairline">
+ <tr><td class="px-5 py-3 font-bold"><a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.132" rel="noopener" class={link}>29 CFR 1910.132</a></td><td class="px-5 py-3">General industry employers</td><td class="px-5 py-3">Employer must assess hazards and select PPE that protects against them</td></tr>
+ <tr><td class="px-5 py-3 font-bold"><a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.269" rel="noopener" class={link}>29 CFR 1910.269(l)(8)</a></td><td class="px-5 py-3">Power generation, transmission, and distribution work</td><td class="px-5 py-3">Assess flame and arc hazards, estimate incident energy, ban melting fabrics, require FR outer layer and arc-rated clothing in set conditions</td></tr>
+ <tr><td class="px-5 py-3 font-bold"><a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.960" rel="noopener" class={link}>29 CFR 1926.960(g)</a></td><td class="px-5 py-3">Construction work on power transmission and distribution</td><td class="px-5 py-3">Parallel clothing duties to 1910.269(l)(8)</td></tr>
+ <tr><td class="px-5 py-3 font-bold"><a href="https://www.nfpa.org/codes-and-standards/all-codes-and-standards/list-of-codes-and-standards/detail?code=70E" rel="noopener" class={link}>NFPA 70E</a></td><td class="px-5 py-3">Electrical work in workplaces, by reference in safety programs</td><td class="px-5 py-3">Arc flash risk assessment and arc-rated PPE selection, including PPE categories</td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <h2 id="thresholds" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">When Does OSHA Require an FR Outer Layer?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Under 1910.269(l)(8)(iv), the outer layer of clothing must be flame resistant when an employee contacts energized parts above 600 volts, when an arc could ignite nearby flammable material, when molten metal or arcs from faulted conductors could ignite clothing, or when estimated incident energy exceeds 2.0 cal/cm². Paragraph (l)(8)(v) then requires arc-rated protection at or above the estimate.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">The same section, at (l)(8)(iii), bars clothing that could melt onto skin or ignite and continue to burn. OSHA's note names acetate, nylon, polyester, rayon, and polypropylene, alone or in blends. That is why a standard poly-blend company polo is a problem for an electrician exposed to an arc, even under an FR jacket that comes off at lunch.</p>
+
+ <h2 id="electricians" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Are Electricians in Las Vegas Required to Wear FR?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">An electrician working on or near exposed energized parts where an arc flash is possible needs arc-rated clothing selected from an arc flash risk assessment. An electrician pulling wire in a de-energized building may not. The employer documents which tasks fall where, and many Las Vegas electrical contractors simplify the program by putting every field electrician in daily-wear arc-rated shirts.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">NFPA 70E groups arc-rated PPE into four categories with minimum arc ratings of 4, 8, 25, and 40 cal/cm². Most daily-wear FR shirts are built for the first two. Our <a href="/blog/nfpa-70e-fr-shirts-vegas-electricians/" class={link}>NFPA 70E FR shirt guide</a> covers category selection and label reading in more depth.</p>
+
+ <h2 id="construction" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Do General Construction Workers Need FR Clothing?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Most general construction tasks do not trigger an FR clothing rule. FR enters the picture through specific hazards: welding and cutting, hot work near flammables, work around energized equipment, and some fuel, gas, and process environments where flash fire is a risk. NFPA 2112 garments address flash fire; arc-rated garments address electrical arcs.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Site rules matter too. Data center, utility, casino back-of-house, and industrial owners in Southern Nevada often write FR requirements into contractor safety manuals. Those contract requirements can be stricter than the OSHA minimum, and they are enforced at the gate. Read the project's safety manual before you size the order.</p>
+
+ <h2 id="label" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">How Do You Read an FR Garment Label?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Start with the label sewn into the garment. An arc-rated garment shows its arc rating in cal/cm², stated as ATPV or EBT, and usually references ASTM F1506. A flash-fire garment states certification to NFPA 2112. A garment can carry both. If the rating your assessment requires is not on the label, the garment does not meet it.</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
+ <li><strong>Arc rating.</strong> Must equal or exceed the estimated incident energy for the task.</li>
+ <li><strong>Standard references.</strong> <a href="https://store.astm.org/f1506-25.html" rel="noopener" class={link}>ASTM F1506</a> for arc-rated textiles; <a href="https://www.nfpa.org/codes-and-standards/all-codes-and-standards/list-of-codes-and-standards/detail?code=2112" rel="noopener" class={link}>NFPA 2112</a> for flash fire.</li>
+ <li><strong>Care instructions.</strong> Follow them exactly; some laundry products can affect FR performance.</li>
+ </ul>
+
+ <h2 id="branding" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Can You Brand FR Shirts Without Losing the Rating?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Usually, if the decoration follows the garment manufacturer's rules. Small embroidered logos are the common choice. The thread, backing, and placement need to be approved for that exact product, and ordinary polyester thread or standard heat transfers may not be acceptable. Bighorn confirms the method in writing before production. See our <a href="/safety-compliance/nfpa-70e-embroidery-guide/" class={link}>NFPA 70E embroidery guide</a>.</p>
+
+ <h2 id="ordering" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">What Should an Employer Send Before Ordering FR Uniforms?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Send the written specification: required arc rating or NFPA 2112 certification by role, any site or owner requirements, preferred brands, sizes, and the logo file. Bighorn Threads sources the specified garments through production partners, applies approved decoration, and ships to job sites in Las Vegas or anywhere in the country. Browse <a href="/catalog/fr-clothing/" class={link}>FR clothing in the catalog</a> or see our <a href="/industries/electrical-contractors-las-vegas/" class={link}>electrical contractor apparel</a> page.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Bighorn does not perform hazard assessments, arc flash studies, laundering, repair, or garment inspection. Those stay with the employer and its safety advisors. This article is educational and is not legal or safety advice.</p>
+
+ <section class="mt-12">
+ <h2 class="mb-6 font-heading text-3xl font-bold tracking-tight text-charcoal">Frequently Asked Questions</h2>
+ <dl class="divide-y divide-hairline border-y border-hairline">
+ {faqs.map((f) => (
+ <div class="py-6">
+ <dt class="mb-2 font-heading text-lg font-bold text-charcoal">{f.q}</dt>
+ <dd class="text-lg leading-relaxed text-ash">{f.a}</dd>
+ </div>
+ ))}
+ </dl>
+ </section>
+
+ <div class="mt-12 border border-hairline bg-panel p-7 sm:p-9">
+ <h2 class="mb-3 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal">Branded FR shirts for your crew</h2>
+ <p class="mb-5 text-lg leading-relaxed text-ash">Send your FR specification and logo. Bighorn Threads quotes the specified garments, approved decoration, and delivery in writing.</p>
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote →</a>
+ </div>
+ </BlogBody>
+ </article>
+<BlogRelated />
+</BaseLayout>

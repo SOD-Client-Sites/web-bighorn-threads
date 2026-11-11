@@ -1,0 +1,146 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import BlogLead from '@/components/blog/BlogLead.astro'
+import BlogBody from '@/components/blog/BlogBody.astro'
+import BlogRelated from '@/components/blog/BlogRelated.astro'
+
+const post = {
+ title: 'What to Wear for Construction Work in Las Vegas Heat: Fabric, Color, Sun Protection, and PPE',
+ description:
+ 'What should construction crews wear in Las Vegas heat? Lightweight, light-colored, loose-fitting clothing, UPF-rated long sleeves, and the lightest hi-vis or FR garment that meets the hazard. A workwear guide for Nevada summer job sites.',
+ category: 'Compliance',
+ readTime: '8 min read',
+ date: 'November 11, 2026',
+ isoDate: '2026-11-11',
+ image: '/images/og-default.jpg',
+ slug: 'what-to-wear-construction-las-vegas-heat',
+}
+
+const link = 'text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600'
+
+const faqs = [
+ { q: 'What should construction workers wear in Las Vegas heat?', a: 'OSHA advises lightweight, light-colored, loose-fitting clothing. In practice that means a vented, moisture-wicking long-sleeve shirt with a UPF rating, a hat or hard hat with a brim or shade attachment, and the lightest hi-vis or FR garment that still meets the hazard assessment.' },
+ { q: 'Are long sleeves or short sleeves better in desert heat?', a: 'Light long sleeves usually work better outdoors in the Las Vegas sun. They block direct sun on the arms and cut sunburn risk. A thin, loose, wicking fabric keeps the trade-off small. Short sleeves can make sense in shaded or indoor work.' },
+ { q: 'What does a UPF rating on a work shirt mean?', a: 'UPF measures how much ultraviolet radiation a fabric blocks. ASTM D6603 labeling groups UPF 15 to 24 as good, 25 to 39 as very good, and 40 to 50+ as excellent protection. A typical light cotton tee offers much less than a UPF-rated shirt.' },
+ { q: 'Does Nevada law say what workers must wear in the heat?', a: 'Nevada\'s heat illness regulation, R131-24, requires covered employers to complete a written job hazard analysis for heat exposure and to address controls. It does not prescribe a specific shirt. Clothing choices belong in the employer\'s plan alongside water, rest, shade, and training.' },
+ { q: 'Is there FR clothing made for hot weather?', a: 'Yes. Several brands make lighter-weight FR and arc-rated shirts with vented designs for hot climates. The arc rating or NFPA 2112 certification on the label still has to meet the hazard assessment. A lighter shirt that falls below the required rating is not a substitute.' },
+ { q: 'Do cooling towels and vests replace a heat plan?', a: 'No. Cooling accessories can add comfort, but water, rest, shade, acclimatization, training, and emergency response remain the core of heat illness prevention. Clothing is one input, not the plan.' },
+]
+
+const schema = {
+ '@context': 'https://schema.org',
+ '@graph': [
+ { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: '2026-11-11', author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
+ { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' }, { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` }] },
+ { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+ ],
+}
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ name: post.title,
+ speakable: {
+  '@type': 'SpeakableSpecification',
+  cssSelector: ['h1','.speakable-answer'],
+ },
+}
+---
+
+<BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
+ <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
+ <article class="bg-concrete">
+ <header class="post-head">
+ <div class="post-head-inner">
+ <div>
+ <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-600">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-600">Blog</a></nav>
+ <span class="kicker mb-3">{post.category}</span>
+ <h1 class="mb-6 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl lg:text-5xl">{post.title}</h1>
+ <p class="mb-8 text-xl leading-relaxed text-ash">A garment-by-garment guide for Southern Nevada summers, from shirt fabric and color to hi-vis, FR, and headwear.</p>
+ <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
+ </div>
+ <BlogLead />
+ </div>
+ </header>
+ <BlogBody>
+
+ <aside class="mb-10 border border-hairline bg-panel p-7">
+ <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Quick Answer</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">For Las Vegas heat, crews do best in lightweight, light-colored, loose-fitting clothing: a vented, moisture-wicking, UPF-rated long-sleeve shirt, a brimmed hat or hard hat shade, and the lightest hi-vis or FR garment that meets the hazard. Bighorn Threads supplies and brands these summer workwear pieces.</p>
+ </aside>
+
+ <aside class="mb-10 border-l-4 border-gold-500 bg-paper p-6">
+ <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Key Takeaways</p>
+ <ul class="list-disc pl-6 space-y-2 text-lg leading-relaxed text-charcoal">
+ <li>OSHA's heat guidance calls for lightweight, light-colored, loose-fitting clothes.</li>
+ <li>Light long sleeves with a UPF label usually beat short sleeves in direct desert sun.</li>
+ <li>Required hi-vis and FR stay on in the heat; choose lighter constructions that still meet the rating.</li>
+ <li>Clothing supports a heat plan. Water, rest, shade, and training are the plan.</li>
+ </ul>
+ </aside>
+
+ <h2 id="guidance" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">What Does OSHA Say Workers Should Wear in the Heat?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">OSHA's <a href="https://www.osha.gov/sites/default/files/publications/OSHA3154.pdf" rel="noopener" class={link}>heat safety card</a> tells workers to wear lightweight, light-colored, loose-fitting clothes. Its <a href="https://www.osha.gov/sites/default/files/publications/3431_WKSITEPOSTER_EN.pdf" rel="noopener" class={link}>heat illness worksite poster</a> adds a hat. Those three traits come from how heat moves: light colors reflect more sunlight, light fabric holds less heat, and a loose fit lets air move across the skin so sweat can evaporate.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Nevada adds a planning duty. <a href="https://www.leg.state.nv.us/Register/2024Register/R131-24AP.pdf" rel="noopener" class={link}>Regulation R131-24</a> requires covered employers to perform a written job hazard analysis for occupational heat exposure, and <a href="https://dir.nv.gov/uploadedFiles/dirnvgov/content/OSHA/Guidance/2025-01-29%20%28Heat%20Illness%20Prevention%20Guidance%29.pdf" rel="noopener" class={link}>Nevada OSHA's guidance</a> explains what that analysis covers. Our <a href="/blog/nevada-osha-heat-rules-2026-workwear/" class={link}>Nevada OSHA heat rules guide</a> walks through it. The regulation does not name a specific shirt, so clothing choices belong inside that written analysis.</p>
+
+ <h2 id="garments" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Which Workwear Features Matter Most in Desert Heat?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Five features do most of the work: fabric weight, moisture handling, venting, sun protection, and color. Use the table to compare garments before you pick a summer uniform. Ask for the manufacturer's spec sheet, since fabric weight and UPF vary by style, not just brand.</p>
+
+ <div class="mb-8 overflow-x-auto border border-hairline">
+ <table class="w-full text-base text-charcoal">
+ <thead class="bg-panel text-left text-xs font-mono uppercase tracking-wider text-gold-600">
+ <tr><th class="px-5 py-3">Feature</th><th class="px-5 py-3">What to look for</th><th class="px-5 py-3">Why it helps</th></tr>
+ </thead>
+ <tbody class="divide-y divide-hairline">
+ <tr><td class="px-5 py-3 font-bold">Fabric weight</td><td class="px-5 py-3">Lower oz/yd² for the style category</td><td class="px-5 py-3">Less fabric holds less heat and dries faster</td></tr>
+ <tr><td class="px-5 py-3 font-bold">Moisture handling</td><td class="px-5 py-3">Wicking performance knit or treated blend</td><td class="px-5 py-3">Moves sweat to the surface so it can evaporate</td></tr>
+ <tr><td class="px-5 py-3 font-bold">Venting</td><td class="px-5 py-3">Mesh back or underarm panels, vented yokes</td><td class="px-5 py-3">Lets air move through the garment</td></tr>
+ <tr><td class="px-5 py-3 font-bold">Sun protection</td><td class="px-5 py-3">UPF label per ASTM D6603, long sleeves, collar</td><td class="px-5 py-3">Blocks UV on arms and neck</td></tr>
+ <tr><td class="px-5 py-3 font-bold">Color</td><td class="px-5 py-3">White, khaki, light gray, or fluorescent hi-vis</td><td class="px-5 py-3">Light colors absorb less sunlight than dark ones</td></tr>
+ <tr><td class="px-5 py-3 font-bold">Fit</td><td class="px-5 py-3">Relaxed, not baggy near moving equipment</td><td class="px-5 py-3">Airflow without snag hazards</td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <h2 id="sleeves" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Should Crews Wear Long Sleeves or Short Sleeves in Las Vegas?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">For outdoor work in direct sun, a thin long-sleeve shirt is usually the better choice. It keeps sun off the forearms, which take the most exposure on many trades, and a loose wicking fabric feels cooler than sunburned skin. Look for a UPF label. Under <a href="https://store.astm.org/d6603-19.html" rel="noopener" class={link}>ASTM D6603</a>, UPF 40 to 50+ is labeled excellent protection.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Short sleeves still have a place on shaded, indoor, or night shifts. Many contractors issue both and let the supervisor set the daily call. Long sleeves are also a common site rule for hot work and electrical tasks, so check the project's safety manual first.</p>
+
+ <h2 id="hivis" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">How Do You Keep Hi-Vis Workers Cool?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Hi-vis requirements do not pause for summer, but the garment can change. A hi-vis T-shirt or long-sleeve performance shirt that meets the required ANSI/ISEA 107 class often runs cooler than a vest over a cotton shirt, because it removes a layer. Mesh vests help when a vest is the right choice. Confirm the class on the garment label.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Fluorescent yellow-green and orange are light, bright colors, so they work with the heat guidance. Class 3 tops typically have sleeves, which fits the long-sleeve advice. See our <a href="/blog/ansi-107-class-2-vs-class-3-hi-vis-las-vegas/" class={link}>Class 2 vs Class 3 guide</a> and the <a href="/catalog/hi-vis/" class={link}>hi-vis catalog</a>.</p>
+
+ <h2 id="fr" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">What About FR Clothing in the Summer?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">When the hazard assessment calls for FR or arc-rated clothing, it stays on in July. The fix is a lighter FR garment that still meets the required rating. Several brands make lightweight, vented FR shirts for hot climates. Compare the arc rating or NFPA 2112 certification on each label against the requirement, then pick the lightest option that meets it.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Do not layer a non-FR poly-blend undershirt under FR for comfort. OSHA prohibits clothing that can melt onto skin for workers exposed to flames or arcs. Our post on <a href="/blog/does-nevada-require-fr-clothing-electricians/" class={link}>whether Nevada requires FR clothing</a> covers those rules.</p>
+
+ <h2 id="head" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">What Headwear Works Best for Heat?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Where hard hats are not required, a light-colored, wide-brim or boonie-style hat shades the face, ears, and neck. Where they are required, a full-brim hard hat or a sun shade attachment approved by the hard hat manufacturer does a similar job. Avoid modifying the shell; follow the manufacturer's accessory list.</p>
+
+ <h2 id="order" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">How Do You Build a Summer Uniform Kit?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Build it by role. A typical outdoor kit is two to three light long-sleeve performance shirts, a hi-vis layer at the required class, a brimmed hat or hard hat shade, and FR pieces only for roles that need them. Small embroidered or lightweight printed logos add little weight. Browse <a href="/custom-work-shirts-las-vegas/" class={link}>custom work shirts</a> to compare styles.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Bighorn Threads sources garments through production partners and ships branded workwear to job sites in Las Vegas and nationwide. Pricing, minimums, and timing are listed on the written quote. This article is educational and is not medical or safety advice.</p>
+
+ <section class="mt-12">
+ <h2 class="mb-6 font-heading text-3xl font-bold tracking-tight text-charcoal">Frequently Asked Questions</h2>
+ <dl class="divide-y divide-hairline border-y border-hairline">
+ {faqs.map((f) => (
+ <div class="py-6">
+ <dt class="mb-2 font-heading text-lg font-bold text-charcoal">{f.q}</dt>
+ <dd class="text-lg leading-relaxed text-ash">{f.a}</dd>
+ </div>
+ ))}
+ </dl>
+ </section>
+
+ <div class="mt-12 border border-hairline bg-panel p-7 sm:p-9">
+ <h2 class="mb-3 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal">Summer workwear for Las Vegas crews</h2>
+ <p class="mb-5 text-lg leading-relaxed text-ash">Send your role list, safety requirements, and logo. Bighorn Threads quotes light, branded workwear in writing.</p>
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote →</a>
+ </div>
+ </BlogBody>
+ </article>
+<BlogRelated />
+</BaseLayout>

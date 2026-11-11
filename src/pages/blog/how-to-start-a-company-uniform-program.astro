@@ -1,0 +1,204 @@
+---
+import NationalLinks from '@/components/NationalLinks.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import BlogLead from '@/components/blog/BlogLead.astro'
+import BlogBody from '@/components/blog/BlogBody.astro'
+import BlogRelated from '@/components/blog/BlogRelated.astro'
+
+const post = {
+  title: 'How to Start a Company Uniform Program: A Planning Guide',
+  description:
+    'Plan a company uniform program step by step: garments by role, a one-page uniform standard, pieces per employee, buy vs rent, new hires, and several locations.',
+  category: 'Operations',
+  readTime: '8 min read',
+  date: 'November 11, 2026',
+  isoDate: '2026-11-11',
+  image: '/images/og-default.jpg',
+  slug: 'how-to-start-a-company-uniform-program',
+}
+
+const faqs = [
+  { q: 'What is a company uniform program?', a: 'A company uniform program is the set of rules for what each role wears, how many pieces each person gets, how often items are replaced, and how new hires and reorders are handled. It covers garments, logo standards, budget, and ordering, not just the first purchase.' },
+  { q: 'How many uniforms does each employee need?', a: 'Count the days each person works between washes. Someone on five shifts with weekly laundry needs five shirts. Add a layer for cold weather if the job calls for it, plus a few spares in your most common sizes for new hires and replacements.' },
+  { q: 'Is it better to rent or buy company uniforms?', a: 'Rental usually bundles laundering and a service contract. Buying means you own the garments and your team or a laundry washes them. Teams that can wash their own uniforms often compare buying first. Bighorn Threads sells uniforms you buy and keep, with no rental contract.' },
+  { q: 'How do you handle uniforms for new hires?', a: 'Keep a few spares in common sizes for day one, or set up a company store where new hires order the approved items for their role in their own size. Decide in advance how many pieces a new hire gets and who approves extra items.' },
+  { q: 'Can one uniform program cover several locations?', a: 'Yes. Use one uniform standard for every location: the same garment styles, logo file, thread colors, and placement. Bighorn Threads ships to any US address and can price shipping to each location on one quote.' },
+]
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: post.title,
+      description: post.description,
+      image: `https://bighornthreads.com${post.image}`,
+      datePublished: post.isoDate,
+      dateModified: '2026-11-11',
+      author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' },
+      publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } },
+      mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/`,
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' },
+        { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+    },
+  ],
+}
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ name: post.title,
+ speakable: {
+  '@type': 'SpeakableSpecification',
+  cssSelector: ['h1','.speakable-answer'],
+ },
+}
+---
+
+<BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
+
+  <article class="bg-concrete">
+    <header class="post-head">
+ <div class="post-head-inner">
+ <div>
+        <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-gold-700">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-700">Blog</a>
+        </nav>
+        <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-600">{post.category}</span>
+        <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
+        <p class="mb-8 text-xl leading-relaxed text-ash">A company uniform program starts with garments by role, a one-page logo and color standard, a set number of pieces per person, and a plan for new hires and reorders. Bighorn Threads helps companies plan uniforms they buy and keep, priced by role and shipped to any US address.</p>
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash">
+          <span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time>
+        </div>
+      </div>
+ <BlogLead />
+ </div>
+ </header>
+
+    <BlogBody>
+
+      <!-- Answer-first TL;DR -->
+      <h2 id="start" class="mb-4 font-heading text-3xl font-bold tracking-tight">How do you start a company uniform program?</h2>
+      <aside class="mb-12 border border-hairline bg-panel p-6">
+        <p class="mb-2 text-xs font-bold uppercase tracking-widest text-gold-600">Quick Answer</p>
+        <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">To start a uniform program with Bighorn Threads, list your roles and pick a garment for each, write a one-page standard for the logo, colors, and placement, set how many pieces each person gets, and decide how new hires and reorders work. Then send the roles and headcounts for a quote priced <strong>role by role</strong>.</p>
+        <ul class="mt-5 list-none space-y-2 text-base leading-relaxed text-charcoal">
+          <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><a href="#roles" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Garments by role</a>, not one shirt for everyone.</span></li>
+          <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><a href="#standard" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">A uniform standard</a> that keeps every location matched.</span></li>
+          <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><a href="#buy-rent" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Buy, rent, or run a store</a>, compared.</span></li>
+          <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><a href="#steps" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Rollout steps</a> from first quote to reorders.</span></li>
+        </ul>
+      </aside>
+
+      <h2 id="what" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">What is a company uniform program?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">A uniform program is the set of rules behind your uniforms: what each role wears, how many pieces each person gets, when items are replaced, and how people order. The first order is the part people remember, but reorders, replacements, and new hires are where the program either holds together or drifts.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">A program is different from a company store. The program decides what people wear. A <a href="/company-stores/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">company store</a> is one way to let people order it. You can run a program through bulk orders, a store, or both.</p>
+
+      <h2 id="roles" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">How do you choose uniforms for each role?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Group employees by what they do all day, then pick one garment set per group. Office and client-facing staff usually get polos or button-ups. Field crews get work shirts with pockets. Warehouse and shop teams get tees. Add a jacket or hoodie layer where the weather or job calls for it. Most companies end up with two to four sets.</p>
+      <div class="my-6 overflow-x-auto border border-hairline bg-panel">
+        <table class="w-full text-base text-charcoal">
+          <thead class="bg-panel text-left text-xs font-mono uppercase tracking-wider text-gold-600">
+            <tr><th class="px-5 py-3">Role group</th><th class="px-5 py-3">Core garment</th><th class="px-5 py-3">Common add-ons</th></tr>
+          </thead>
+          <tbody class="divide-y divide-hairline">
+            <tr><td class="px-5 py-3">Office, front desk, sales</td><td class="px-5 py-3 font-bold">Polo or button-up</td><td class="px-5 py-3">Quarter-zip or softshell</td></tr>
+            <tr><td class="px-5 py-3">Field service and install</td><td class="px-5 py-3 font-bold">Button-down work shirt</td><td class="px-5 py-3">Name patch, cap, work jacket</td></tr>
+            <tr><td class="px-5 py-3">Warehouse and shop</td><td class="px-5 py-3 font-bold">T-shirt</td><td class="px-5 py-3">Hoodie, beanie</td></tr>
+            <tr><td class="px-5 py-3">Hospitality and food service</td><td class="px-5 py-3 font-bold">Polo, button-up, or tee</td><td class="px-5 py-3">Apron</td></tr>
+            <tr><td class="px-5 py-3">Crews needing safety gear</td><td class="px-5 py-3 font-bold">Hi-vis or FR garment chosen by your safety lead</td><td class="px-5 py-3">Hard hat decals</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Bighorn Threads arranges the logo on safety garments the way the garment maker allows, but does not certify garments; your safety lead decides what the job requires. For a deeper comparison of shirt types, read <a href="/blog/polo-vs-work-shirt-vs-t-shirt-for-employees/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">polo vs work shirt vs t-shirt</a>, and see <a href="/company-uniforms/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">company uniforms</a> for garments by role.</p>
+
+      <h2 id="standard" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">What goes in a uniform standard?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">A uniform standard is one page that keeps every order matching. It lists each garment's style number and color, the logo file, the thread or ink colors, the placement and logo width, and who is allowed to reorder. Keep it in a shared folder with the signed proof and stitch file.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Without a standard, uniforms drift. One office orders a slightly different navy, another shrinks the logo, and within a year nothing matches. Name a backup style for anything you plan to reorder for years, because garments get discontinued. Our guide to <a href="/blog/logo-placement-size-guide-company-shirts/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">logo placement and size</a> covers what to write on the proof.</p>
+
+      <h2 id="how-many" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">How many uniform pieces does each employee need?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Count the days each person works between washes. Someone on five shifts with weekly laundry needs five shirts; someone who washes twice a week can get by with fewer. Add one cold-weather layer where needed, and a few spares in your most common sizes for new hires and damaged items.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Also decide how often items get replaced. Field crews wear through shirts faster than office staff, so a replacement rule by role (for example, a set number of new shirts per year, or replacement when an item is damaged) keeps requests fair and predictable. See <a href="/blog/how-many-shirts-per-crew-member-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">how many shirts per crew member</a> for the full math.</p>
+
+      <h2 id="buy-rent" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Should you buy, rent, or run uniforms through a company store?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Rental programs usually bundle garments, laundering, and a service contract. Buying means you own the garments and your team or a laundry washes them. A company store is a way of buying where employees order approved items themselves. Teams that can wash their own uniforms often compare buying first.</p>
+      <div class="my-6 overflow-x-auto border border-hairline bg-panel">
+        <table class="w-full text-base text-charcoal">
+          <thead class="bg-panel text-left text-xs font-mono uppercase tracking-wider text-gold-600">
+            <tr><th class="px-5 py-3">Factor</th><th class="px-5 py-3">Rental service</th><th class="px-5 py-3">Buy in bulk</th><th class="px-5 py-3">Buy through a store</th></tr>
+          </thead>
+          <tbody class="divide-y divide-hairline">
+            <tr><td class="px-5 py-3 font-bold">Who owns garments</td><td class="px-5 py-3">The rental company</td><td class="px-5 py-3">You</td><td class="px-5 py-3">You</td></tr>
+            <tr><td class="px-5 py-3 font-bold">Laundering</td><td class="px-5 py-3">Usually included</td><td class="px-5 py-3">Your team or a laundry</td><td class="px-5 py-3">Your team or a laundry</td></tr>
+            <tr><td class="px-5 py-3 font-bold">Contract</td><td class="px-5 py-3">Usually a service term</td><td class="px-5 py-3">None; pay per order</td><td class="px-5 py-3">None; pay per order</td></tr>
+            <tr><td class="px-5 py-3 font-bold">Who picks sizes</td><td class="px-5 py-3">Fitted by the service</td><td class="px-5 py-3">One person collects them</td><td class="px-5 py-3">Each employee</td></tr>
+            <tr><td class="px-5 py-3 font-bold">Best for</td><td class="px-5 py-3">Heavy soil, no laundry option</td><td class="px-5 py-3">One start date, stable team</td><td class="px-5 py-3">Steady hiring, several locations</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Bighorn Threads sells uniforms you buy and keep, with no rental contract. If you are weighing a rental service, our <a href="/cintas-unifirst-aramark-alternatives-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">owning vs renting comparison</a> goes into the trade-offs, and <a href="/blog/company-store-vs-bulk-ordering/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">company store vs bulk ordering</a> compares the two ways to buy.</p>
+
+      <h2 id="new-hires" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">How do you handle new hires and turnover?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Decide before launch how many pieces a new hire gets, who approves extras, and what happens to uniforms when someone leaves. Keep a few spares in common sizes for day one, or let new hires order from a company store. A sewn name patch, instead of a stitched name, lets you reuse a shirt for the next person.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">In a store, employees see only the products you approved for their role and enter their own sizes. That removes the size-list chase and keeps reorders matched. Compare name options in <a href="/embroidery-vs-patches-uniforms/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">embroidery vs patches for uniforms</a>.</p>
+
+      <h2 id="budget" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">How do you budget for a uniform program?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Budget per employee per year, not per order. The garment sets most of the price, and a basic tee and a name-brand jacket are far apart. Decoration, quantity, and shipping make up the rest. Count replacements and new hires, since those reorders add up over a year more than the first order does.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">A quote priced role by role shows where the money goes, so changing the warehouse shirt does not touch the office polos. Read <a href="/uniform-program-cost-per-employee/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">what shapes uniform program cost per employee</a> to estimate your own number before you ask for a quote.</p>
+
+      <h2 id="steps" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">What are the steps to roll out a uniform program?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Roll out in order: roles first, then garments, then the standard, then sizes, then the first order, then the reorder process. Skipping the standard or the reorder plan is what causes mismatched uniforms later. The list below is the sequence most companies follow.</p>
+      <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
+        <li>List roles and headcount per role, by location.</li>
+        <li>Pick a core garment and any layers for each role.</li>
+        <li>Write the one-page uniform standard: styles, colors, logo, placement, who may reorder.</li>
+        <li>Set pieces per person and a replacement rule.</li>
+        <li>Choose bulk orders, a company store, or both.</li>
+        <li>Request a quote, approve the proof, and collect sizes.</li>
+        <li>Save the proof and stitch file with the standard for every reorder.</li>
+      </ol>
+
+      <h2 id="get-quote" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">How do you get a uniform program quote from Bighorn Threads?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Send your logo, the roles you need to outfit, headcount per role, the locations, and your target start date. If you have not picked garments, send the roles and we will suggest a set for each. Bighorn Threads is run from Las Vegas, works with selected production partners who decorate the garments, and ships to any US address.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">See our <a href="/company-uniforms/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">company uniforms</a> page for garments by role, or <a href="/get-a-quote/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">send your roles and headcount for a quote.</a></p>
+
+      <!-- FAQ -->
+      <div class="mt-16 space-y-6">
+        <h2 class="font-heading text-2xl font-bold tracking-tight">Frequently Asked Questions</h2>
+        {faqs.map((faq) => (
+          <div class="border border-hairline bg-panel p-6">
+            <h3 class="mb-3 font-semibold text-charcoal">{faq.q}</h3>
+            <p class="text-charcoal leading-relaxed">{faq.a}</p>
+          </div>
+        ))}
+      </div>
+
+      <NationalLinks heading='Related product guides' links={[{ href: '/company-uniforms/', label: 'Company uniforms' }, { href: '/company-stores/', label: 'Company stores' }, { href: '/custom-company-shirts/', label: 'Custom company shirts' }]} />
+ <!-- Related -->
+      <div class="mt-16 border-t border-hairline pt-12">
+        <p class="mb-6 text-xs font-bold uppercase tracking-widest text-gold-600">Related Reading</p>
+        <ul class="space-y-3 text-lg">
+          <li><a href="/blog/company-store-vs-bulk-ordering/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Company Store vs Bulk Ordering</a></li>
+          <li><a href="/uniform-program-cost-per-employee/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Uniform Program Cost per Employee</a></li>
+          <li><a href="/blog/polo-vs-work-shirt-vs-t-shirt-for-employees/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Polo, Work Shirt or T-Shirt: Which Company Shirt Should Employees Wear?</a></li>
+          <li><a href="/blog/how-to-order-company-logo-shirts/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">How to Order Company Shirts With Your Logo</a></li>
+        </ul>
+      </div>
+
+    </BlogBody>
+  </article>
+<BlogRelated />
+</BaseLayout>

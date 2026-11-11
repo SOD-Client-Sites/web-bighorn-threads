@@ -1,0 +1,148 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import BlogLead from '@/components/blog/BlogLead.astro'
+import BlogBody from '@/components/blog/BlogBody.astro'
+import BlogRelated from '@/components/blog/BlogRelated.astro'
+
+const post = {
+ title: 'Who Pays for Work Uniforms and PPE in Nevada? OSHA and NRS 608.165 Explained',
+ description:
+ 'Who pays for work uniforms and PPE in Nevada? OSHA 29 CFR 1910.132(h) makes employers pay for most required PPE, and NRS 608.165 requires employers to furnish distinctive uniforms at no cost. Here is what each rule covers and what it excludes.',
+ category: 'Compliance',
+ readTime: '8 min read',
+ date: 'November 11, 2026',
+ isoDate: '2026-11-11',
+ image: '/images/og-default.jpg',
+ slug: 'who-pays-for-work-uniforms-ppe-nevada',
+}
+
+const link = 'text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600'
+
+const faqs = [
+ { q: 'Do Nevada employers have to pay for work uniforms?', a: 'Yes, when the uniform is distinctive. NRS 608.165 says all uniforms or accessories distinctive as to style, color, or material must be furnished without cost to employees. If the uniform needs a special cleaning process and cannot be easily laundered by the employee, the employer must clean it at no cost.' },
+ { q: 'Does OSHA require employers to pay for PPE?', a: 'Yes, for most PPE. Under 29 CFR 1910.132(h)(1), protective equipment used to comply with OSHA standards must be provided at no cost to employees. The construction rule at 29 CFR 1926.95(d) works the same way. Listed exceptions include non-specialty safety-toe boots and prescription safety glasses worn off the job.' },
+ { q: 'Who pays for FR shirts required by an employer?', a: 'When flame-resistant or arc-rated clothing is required as PPE under an OSHA standard, it falls under the employer payment rule. It is not treated as everyday clothing. Employers should confirm the specific standard for the hazard, because another standard\'s payment terms can control.' },
+ { q: 'Can an employer deduct the cost of a uniform from a paycheck in Nevada?', a: 'For a distinctive uniform, NRS 608.165 requires the employer to furnish it without cost, so charging the employee conflicts with the statute. Federal wage law separately limits uniform deductions that cut into minimum wage. Check with the Nevada Labor Commissioner for a specific situation.' },
+ { q: 'Does the employer have to pay for replacement PPE?', a: 'Yes, under 1910.132(h)(5), except when the employee lost or intentionally damaged it. Worn-out or damaged-in-use PPE is replaced at the employer\'s cost.' },
+ { q: 'Does Bighorn Threads help employers budget a uniform program?', a: 'Bighorn Threads quotes branded uniforms, hi-vis, and FR garments for an employer to buy and issue to its crew. Pricing, minimums, and timing are listed on the written quote. Bighorn does not give legal advice on wage or OSHA questions.' },
+]
+
+const schema = {
+ '@context': 'https://schema.org',
+ '@graph': [
+ { '@type': 'Article', headline: post.title, description: post.description, image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: '2026-11-11', author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
+ { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' }, { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` }] },
+ { '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+ ],
+}
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ name: post.title,
+ speakable: {
+  '@type': 'SpeakableSpecification',
+  cssSelector: ['h1','.speakable-answer'],
+ },
+}
+---
+
+<BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
+ <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
+ <article class="bg-concrete">
+ <header class="post-head">
+ <div class="post-head-inner">
+ <div>
+ <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-600">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-600">Blog</a></nav>
+ <span class="kicker mb-3">{post.category}</span>
+ <h1 class="mb-6 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl lg:text-5xl">{post.title}</h1>
+ <p class="mb-8 text-xl leading-relaxed text-ash">The two rules that decide who pays for workwear in Nevada, what each one excludes, and how to plan a uniform program around them.</p>
+ <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
+ </div>
+ <BlogLead />
+ </div>
+ </header>
+ <BlogBody>
+
+ <aside class="mb-10 border border-hairline bg-panel p-7">
+ <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Quick Answer</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">In Nevada, the employer pays for most required PPE under OSHA rule 29 CFR 1910.132(h) and must furnish any uniform distinctive in style, color, or material at no cost under NRS 608.165. Bighorn Threads supplies the branded uniforms, hi-vis, and FR garments employers buy and issue to their crews.</p>
+ </aside>
+
+ <aside class="mb-10 border-l-4 border-gold-500 bg-paper p-6">
+ <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Key Takeaways</p>
+ <ul class="list-disc pl-6 space-y-2 text-lg leading-relaxed text-charcoal">
+ <li>Required PPE is the employer's cost, with a short list of exceptions.</li>
+ <li>A logo shirt in company colors is likely a "distinctive" uniform under Nevada law.</li>
+ <li>Ordinary clothing and weather gear are excluded from the OSHA payment rule.</li>
+ <li>Replacement PPE is on the employer unless the worker lost or intentionally damaged it.</li>
+ </ul>
+ </aside>
+
+ <h2 id="two-rules" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Which Laws Decide Who Pays for Workwear in Nevada?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Two separate rules apply. Federal OSHA's PPE payment rule, enforced in Nevada by <a href="https://dir.nv.gov/OSHA/Home/" rel="noopener" class={link}>Nevada OSHA</a>, covers protective equipment required by safety standards. Nevada's wage statute, <a href="https://www.leg.state.nv.us/NRS/NRS-608.html#NRS608Sec165" rel="noopener" class={link}>NRS 608.165</a>, covers uniforms. A single garment, such as a branded hi-vis shirt, can fall under both.</p>
+
+ <div class="mb-8 overflow-x-auto border border-hairline">
+ <table class="w-full text-base text-charcoal">
+ <thead class="bg-panel text-left text-xs font-mono uppercase tracking-wider text-gold-600">
+ <tr><th class="px-5 py-3">Item</th><th class="px-5 py-3">Rule that applies</th><th class="px-5 py-3">Who pays</th></tr>
+ </thead>
+ <tbody class="divide-y divide-hairline">
+ <tr><td class="px-5 py-3 font-bold">Hard hat, hi-vis vest, FR or arc-rated clothing required as PPE</td><td class="px-5 py-3">29 CFR 1910.132(h) / 1926.95(d)</td><td class="px-5 py-3">Employer</td></tr>
+ <tr><td class="px-5 py-3 font-bold">Logo polo or work shirt in company colors</td><td class="px-5 py-3">NRS 608.165</td><td class="px-5 py-3">Employer (distinctive uniform)</td></tr>
+ <tr><td class="px-5 py-3 font-bold">Plain jeans or long-sleeve shirt the worker can wear anywhere</td><td class="px-5 py-3">1910.132(h)(4)(ii) exclusion</td><td class="px-5 py-3">Not required of employer</td></tr>
+ <tr><td class="px-5 py-3 font-bold">Non-specialty steel-toe boots worn off the job</td><td class="px-5 py-3">1910.132(h)(2) exception</td><td class="px-5 py-3">Not required of employer</td></tr>
+ <tr><td class="px-5 py-3 font-bold">Winter coat, rain gear, ordinary sunglasses, sunscreen</td><td class="px-5 py-3">1910.132(h)(4)(iii) exclusion</td><td class="px-5 py-3">Not required of employer</td></tr>
+ <tr><td class="px-5 py-3 font-bold">Replacement for worn or damaged PPE</td><td class="px-5 py-3">1910.132(h)(5)</td><td class="px-5 py-3">Employer, unless lost or intentionally damaged</td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <h2 id="osha-ppe" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">What Does OSHA's PPE Payment Rule Say?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal"><a href="https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-I/section-1910.132" rel="noopener" class={link}>29 CFR 1910.132(h)(1)</a> says protective equipment, including PPE, used to comply with OSHA standards must be provided by the employer at no cost to employees. The rule took effect in 2008. Construction employers follow the matching requirement at <a href="https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926/subpart-E/section-1926.95" rel="noopener" class={link}>29 CFR 1926.95(d)</a>.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">The employer also may not require a worker to provide or pay for their own PPE unless the item is one of the listed exceptions. A worker can choose to use adequate PPE they already own, and then the employer does not have to reimburse it. When another OSHA standard states its own payment terms for specific equipment, that standard controls.</p>
+
+ <h2 id="exceptions" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">What PPE Is the Employer Not Required to Pay For?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">OSHA lists the exceptions. Employers do not have to pay for non-specialty safety-toe footwear or non-specialty prescription safety eyewear when workers may wear them off the job. Everyday clothing such as long-sleeve shirts, long pants, street shoes, and normal work boots is excluded, as are items used only for weather protection, such as winter coats, rain gear, hats, ordinary sunglasses, and sunscreen.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">The weather exclusion has limits. A plain winter jacket is excluded, but a hi-vis jacket required because a worker is exposed to traffic is PPE, because it protects against a workplace hazard rather than the weather. Read the hazard first, then the garment.</p>
+
+ <h2 id="nevada-uniforms" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">What Does Nevada's Uniform Law Require?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">NRS 608.165 states that all uniforms or accessories distinctive as to style, color, or material shall be furnished without cost to employees by their employer. If a uniform or accessory needs a special cleaning process and cannot be easily laundered by the employee, the employer must clean it at no cost. The Nevada Labor Commissioner includes the same rule in its <a href="https://labor.nv.gov/uploadedFiles/labornvgov/content/Employer/Rules%20to%20be%20Observed%20by%20Employers%2001.16.2025.pdf" rel="noopener" class={link}>Rules to be Observed by Employers</a> poster.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Nevada's administrative code has a section interpreting "uniform" (NAC 608.090). Before charging employees for any workwear or setting a deposit policy, read the current statute and regulation or ask the <a href="https://labor.nv.gov/" rel="noopener" class={link}>Labor Commissioner's office</a>. This article is educational and is not legal advice.</p>
+
+ <h2 id="branded" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">Is a Branded Company Shirt a Distinctive Uniform?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">A shirt with an embroidered company logo in assigned colors is hard to call ordinary clothing. Workers cannot easily wear it elsewhere, and it identifies the employer. Most Las Vegas contractors and hospitality employers treat branded tops, caps, and jackets as company-paid and plan the budget that way. When in doubt, the cautious path is to furnish them at no cost.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Laundering is the second cost to plan for. Branded cotton polos and work shirts are usually washable at home. FR garments with strict care instructions may count as needing a special cleaning process. Bighorn does not launder, repair, or inspect garments, so employers that need FR laundry use a separate service.</p>
+
+ <h2 id="budget" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">How Should an Employer Budget a Compliant Uniform Program?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Start with a role list. For each role, separate required PPE (hi-vis class, FR rating, hard hat), branded uniform pieces, and optional extras such as hoodies. Set issue quantities per new hire and a replacement rule for worn items. Our guide to <a href="/blog/how-many-shirts-per-crew-member-vegas/" class={link}>how many shirts per crew member</a> covers issue counts.</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
+ <li><strong>Buy instead of rent.</strong> Owning garments avoids rental contracts and lets the company control replacements. See our <a href="/cintas-unifirst-aramark-alternatives-las-vegas/" class={link}>Cintas and UniFirst alternatives</a> page.</li>
+ <li><strong>Issue by role.</strong> A <a href="/company-uniforms/" class={link}>company uniform program</a> or online company store keeps orders tied to approved items.</li>
+ <li><strong>Document it.</strong> Record what was issued and when. That helps with replacement under 1910.132(h)(5).</li>
+ </ul>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Bighorn Threads sources garments through production partners and ships branded workwear nationwide. Pricing, minimums, and timing depend on the order and are listed on the written quote.</p>
+
+ <section class="mt-12">
+ <h2 class="mb-6 font-heading text-3xl font-bold tracking-tight text-charcoal">Frequently Asked Questions</h2>
+ <dl class="divide-y divide-hairline border-y border-hairline">
+ {faqs.map((f) => (
+ <div class="py-6">
+ <dt class="mb-2 font-heading text-lg font-bold text-charcoal">{f.q}</dt>
+ <dd class="text-lg leading-relaxed text-ash">{f.a}</dd>
+ </div>
+ ))}
+ </dl>
+ </section>
+
+ <div class="mt-12 border border-hairline bg-panel p-7 sm:p-9">
+ <h2 class="mb-3 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal">Plan a company-paid uniform program</h2>
+ <p class="mb-5 text-lg leading-relaxed text-ash">Send your role list and logo. Bighorn Threads quotes branded uniforms, hi-vis, and FR garments in writing.</p>
+ <a href="/get-a-quote/" class="btn-primary text-base">Get a Quote →</a>
+ </div>
+ </BlogBody>
+ </article>
+<BlogRelated />
+</BaseLayout>

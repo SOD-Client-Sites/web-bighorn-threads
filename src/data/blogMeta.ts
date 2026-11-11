@@ -7,6 +7,14 @@ const items = (...keys: Key[]): Lead[] => keys.map((k) => ({ ...p[k], product: t
 
 // Supplier product photography matched to each article.
 const leads: Record<string, Lead[]> = {
+  'how-to-order-company-logo-shirts': items('polo', 'workShirt'),
+  'polo-vs-work-shirt-vs-t-shirt-for-employees': items('polo', 'workShirt'),
+  'logo-placement-size-guide-company-shirts': items('polo', 'cap'),
+  'how-to-start-a-company-uniform-program': items('workShirt', 'polo'),
+  'does-nevada-require-fr-clothing-electricians': items('fr', 'frKhaki'),
+  'who-pays-for-work-uniforms-ppe-nevada': items('workShirt', 'vest'),
+  'what-to-wear-construction-las-vegas-heat': items('hivisLong', 'boonie'),
+  'camisas-fr-ropa-ignifuga-normas': items('fr', 'frCoverall'),
   'ansi-107-class-2-vs-class-3-hi-vis-las-vegas': items('vest', 'hivisLong'),
   'apprentice-journeyman-uniforms-differentiation': items('workShirt', 'hardHatCap'),
   'branded-workwear-data-center-contractors-las-vegas': items('frKhaki', 'hardHat'),

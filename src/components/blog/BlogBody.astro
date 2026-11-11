@@ -41,7 +41,7 @@ const body = toc.length >= 3
   .post-lead-product { aspect-ratio: 1; object-fit: contain; background: #fff; padding: 1rem; max-height: 340px; }
   .post-lead-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
 
-  .post-grid { display: grid; gap: 1.5rem; max-width: 72rem; margin: 0 auto; padding: 2.5rem 1rem 4rem; }
+  .post-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; max-width: 72rem; margin: 0 auto; padding: 2.5rem 1rem 4rem; }
   @media (min-width: 1024px) { .post-grid { grid-template-columns: 15rem minmax(0, 44rem); gap: 4rem; padding: 3.5rem 2rem 5rem; justify-content: center; } }
   .post-toc { border: 1px solid var(--color-hairline); background: var(--color-panel); padding: 1rem 1.25rem; align-self: start; }
   @media (min-width: 1024px) { .post-toc { position: sticky; top: 6rem; border: 0; border-top: 2px solid var(--color-charcoal); background: none; padding: 0.75rem 0 0; max-height: calc(100vh - 7rem); overflow: auto; } }

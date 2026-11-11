@@ -1,0 +1,202 @@
+---
+import NationalLinks from '@/components/NationalLinks.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import BlogLead from '@/components/blog/BlogLead.astro'
+import BlogBody from '@/components/blog/BlogBody.astro'
+import BlogRelated from '@/components/blog/BlogRelated.astro'
+
+const post = {
+  title: 'Where to Put a Logo on a Company Shirt: Placement and Size Guide',
+  description:
+    'Standard logo placements and typical sizes for embroidered polos, work shirts, tees, jackets, and hats, plus how to lock placement so every reorder matches.',
+  category: 'Decoration Methods',
+  readTime: '7 min read',
+  date: 'November 11, 2026',
+  isoDate: '2026-11-11',
+  image: '/images/og-default.jpg',
+  slug: 'logo-placement-size-guide-company-shirts',
+}
+
+const faqs = [
+  { q: 'Where does the logo go on a company polo?', a: 'The left chest is the standard placement, on the wearer\'s left side of the button placket. Keep the logo clear of the placket. The right chest is common for an employee name, and the sleeve or back collar are common second placements.' },
+  { q: 'What size should a left chest logo be?', a: 'A left chest logo usually runs about three to four inches wide. A wide wordmark sits near the top of that range, and a square icon or monogram often looks right a little smaller. Women\'s and fitted styles may need a slightly smaller logo. The proof should state the exact width.' },
+  { q: 'How small can embroidered text be?', a: 'Lettering under about a quarter inch tall tends to fill in when stitched. If your logo has a tagline or fine print, it usually comes off the left chest version or gets enlarged. Simple, bold shapes stitch cleanest at small sizes.' },
+  { q: 'Does adding a second logo placement cost more?', a: 'Yes. Each placement is its own decoration with its own price, because the garment is hooped or set up again. A right chest name, sleeve mark, or back logo is priced separately on the quote, so decide on extras before you compare suppliers.' },
+  { q: 'Where does the logo go on a hat?', a: 'The front center panel is the standard spot for a hat logo. Side and back placements are smaller and usually used for a second mark, a website, or a location. Structured caps hold front embroidery best because the panel stays firm.' },
+]
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: post.title,
+      description: post.description,
+      image: `https://bighornthreads.com${post.image}`,
+      datePublished: post.isoDate,
+      dateModified: '2026-11-11',
+      author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' },
+      publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } },
+      mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/`,
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' },
+        { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+    },
+  ],
+}
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ name: post.title,
+ speakable: {
+  '@type': 'SpeakableSpecification',
+  cssSelector: ['h1','.speakable-answer'],
+ },
+}
+---
+
+<BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
+
+  <article class="bg-concrete">
+    <header class="post-head">
+ <div class="post-head-inner">
+ <div>
+        <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-gold-700">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-700">Blog</a>
+        </nav>
+        <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-600">{post.category}</span>
+        <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
+        <p class="mb-8 text-xl leading-relaxed text-ash">The standard spot for a company logo is the left chest, usually about three to four inches wide. Names go on the right chest, and sleeves, the back yoke, and the full back are second placements. Bighorn Threads writes the exact width and position on your proof so every reorder matches.</p>
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash">
+          <span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time>
+        </div>
+      </div>
+ <BlogLead />
+ </div>
+ </header>
+
+    <BlogBody>
+
+      <!-- Answer-first TL;DR -->
+      <h2 id="where" class="mb-4 font-heading text-3xl font-bold tracking-tight">Where should a logo go on a company shirt?</h2>
+      <aside class="mb-12 border border-hairline bg-panel p-6">
+        <p class="mb-2 text-xs font-bold uppercase tracking-widest text-gold-600">Quick Answer</p>
+        <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Put the main logo on the <strong>left chest</strong>, at about three to four inches wide. That is the standard Bighorn Threads uses on polos, work shirts, and button-ups. Add an employee name on the <strong>right chest</strong>, and use a <strong>sleeve</strong>, <strong>back yoke</strong>, or <strong>full back</strong> only when you want a second mark. Each extra placement is priced on its own.</p>
+        <ul class="mt-5 list-none space-y-2 text-base leading-relaxed text-charcoal">
+          <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><a href="#chart" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Placement and size chart</a> by garment.</span></li>
+          <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><a href="#small-text" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">How small text can go</a> before embroidery fills in.</span></li>
+          <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><a href="#lock" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Locking placement</a> so reorders match.</span></li>
+        </ul>
+      </aside>
+
+      <h2 id="chart" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">What are the standard logo placements and sizes?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Most company apparel uses five placements: left chest, right chest, sleeve, back yoke (just below the back collar), and full back. Left chest carries the main logo. The others hold a name, a second mark, or a large back print. The sizes below are starting points; your proof sets the exact numbers.</p>
+      <div class="my-6 overflow-x-auto border border-hairline bg-panel">
+        <table class="w-full text-base text-charcoal">
+          <thead class="bg-panel text-left text-xs font-mono uppercase tracking-wider text-gold-600">
+            <tr><th class="px-5 py-3">Placement</th><th class="px-5 py-3">Typical width</th><th class="px-5 py-3">Common on</th><th class="px-5 py-3">Used for</th></tr>
+          </thead>
+          <tbody class="divide-y divide-hairline">
+            <tr><td class="px-5 py-3 font-bold">Left chest</td><td class="px-5 py-3">About 3 to 4 in</td><td class="px-5 py-3">Polos, work shirts, button-ups, tees, jackets</td><td class="px-5 py-3">Main company logo</td></tr>
+            <tr><td class="px-5 py-3 font-bold">Right chest</td><td class="px-5 py-3">About 3 to 4 in</td><td class="px-5 py-3">Work shirts, polos, jackets</td><td class="px-5 py-3">Employee name or title</td></tr>
+            <tr><td class="px-5 py-3 font-bold">Sleeve</td><td class="px-5 py-3">About 2 to 3 in</td><td class="px-5 py-3">Polos, tees, jackets</td><td class="px-5 py-3">Second mark, flag, location</td></tr>
+            <tr><td class="px-5 py-3 font-bold">Back yoke</td><td class="px-5 py-3">About 3 to 5 in</td><td class="px-5 py-3">Polos, work shirts, tees</td><td class="px-5 py-3">Website, short wordmark</td></tr>
+            <tr><td class="px-5 py-3 font-bold">Full back</td><td class="px-5 py-3">About 10 to 12 in</td><td class="px-5 py-3">Tees, hoodies, work jackets</td><td class="px-5 py-3">Company name for visibility</td></tr>
+            <tr><td class="px-5 py-3 font-bold">Hat front</td><td class="px-5 py-3">About 2 in tall</td><td class="px-5 py-3">Caps, beanies</td><td class="px-5 py-3">Main logo</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="left-chest" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">How big should a left chest logo be?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">A left chest logo usually runs about three to four inches wide. Wide wordmarks sit near four inches, while square icons and monograms often look right closer to three. Women's and fitted styles have narrower chest panels, so the logo may need to come down slightly. The goal is a mark that reads from across a room without crowding the collar or placket.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">On a polo, keep the logo clear of the button placket so it does not look crooked when the shirt is buttoned. On a work shirt with chest pockets, the logo usually sits above the pocket or on the pocket flap, which limits its height. Size also affects price: a bigger, denser logo takes more stitches. See <a href="/blog/how-much-to-embroider-a-polo/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">what drives polo embroidery cost</a>.</p>
+
+      <h2 id="small-text" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">How small can embroidered text and detail be?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Lettering under about a quarter inch tall tends to fill in when stitched. At left chest size, a tagline that reads fine on your website usually turns to mush. The fix is a simplified version of the logo for small placements: drop the tagline, thicken thin strokes, and reduce fine gradients.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Printing holds finer detail than embroidery, so a detailed logo may suit a printed tee better than a stitched polo. Your logo gets digitized into a stitch file before embroidery, and a good file is what keeps edges clean. Read <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">logo digitizing 101</a> before you approve small lettering.</p>
+
+      <h2 id="second" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">When should you add a second placement?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Add a second placement when it does a job. A right chest name helps customers address a tech by name. A full back print makes crews visible on a busy site or event floor. A sleeve mark can show a location or department. Each one is a separate decoration with its own price, so add only the ones you will use.</p>
+      <ul class="mb-6 list-none space-y-3 text-lg leading-relaxed text-charcoal">
+        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Right chest name:</strong> common on service and field shirts. A sewn name patch lets you reuse the shirt when someone leaves; compare <a href="/embroidery-vs-patches-uniforms/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">embroidery vs patches</a>.</span></li>
+        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Back yoke:</strong> a small wordmark or website just below the collar. Reads well on polos and work shirts.</span></li>
+        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Full back:</strong> usually printed on tees and hoodies. Embroidered or patched on heavier work jackets.</span></li>
+        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Sleeve:</strong> a modest add for a small extra mark.</span></li>
+      </ul>
+
+      <h2 id="garments" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">How does placement change by garment?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Each garment has its own limits. Polos use left chest because the placket splits the center. Work shirts work around pockets and flaps. Hoodies with a front pouch keep the chest logo above the pocket seam. Jackets have seams and zippers that limit where a hoop can go. Hats put the logo on the front panel.</p>
+      <div class="my-6 overflow-x-auto border border-hairline bg-panel">
+        <table class="w-full text-base text-charcoal">
+          <thead class="bg-panel text-left text-xs font-mono uppercase tracking-wider text-gold-600">
+            <tr><th class="px-5 py-3">Garment</th><th class="px-5 py-3">Main placement</th><th class="px-5 py-3">Watch for</th></tr>
+          </thead>
+          <tbody class="divide-y divide-hairline">
+            <tr><td class="px-5 py-3 font-bold">Polo</td><td class="px-5 py-3">Left chest</td><td class="px-5 py-3">Keep clear of the placket; light knits need simpler logos</td></tr>
+            <tr><td class="px-5 py-3 font-bold">Work shirt</td><td class="px-5 py-3">Left chest above pocket</td><td class="px-5 py-3">Pocket flaps limit height</td></tr>
+            <tr><td class="px-5 py-3 font-bold">T-shirt</td><td class="px-5 py-3">Left chest or full front</td><td class="px-5 py-3">Large back prints suit events and crews</td></tr>
+            <tr><td class="px-5 py-3 font-bold">Hoodie</td><td class="px-5 py-3">Left chest or center chest</td><td class="px-5 py-3">Stay above the pouch pocket seam</td></tr>
+            <tr><td class="px-5 py-3 font-bold">Jacket or softshell</td><td class="px-5 py-3">Left chest</td><td class="px-5 py-3">Seams and zippers limit hoop position</td></tr>
+            <tr><td class="px-5 py-3 font-bold">Cap</td><td class="px-5 py-3">Front center</td><td class="px-5 py-3">Structured fronts hold stitches best</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">For hats, see our <a href="/custom-embroidered-hats/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">custom embroidered hats</a> page. For polos, <a href="/custom-polo-shirts/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">custom polo shirts</a> covers fabric and thread choices.</p>
+
+      <h2 id="lock" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">How do you keep logo placement the same on every reorder?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Write the logo width, the placement, and the thread color numbers on the approved proof, and keep it with the stitch file and garment style number. When the next order is placed, it is matched to that record. Without it, the logo drifts a little bigger or smaller each time and different locations stop matching.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Companies with several sites should use one logo file, one placement, and one set of colors on every garment. Put those on one page in a shared folder along with who may reorder. A <a href="/company-stores/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">company store</a> makes this simpler, since employees can only order the approved items.</p>
+
+      <h2 id="mistakes" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">What logo placement mistakes should you avoid?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Most placement problems come from using one logo file for every size and garment, or from leaving the size unstated. A website logo shrunk to left chest loses its tagline. A logo that is too big crowds the collar. Unstated sizes mean each reorder comes out a little different. All of these are caught at the proof stage.</p>
+      <ul class="mb-6 list-none space-y-3 text-lg leading-relaxed text-charcoal">
+        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span>Approving a proof that does not state the logo width.</span></li>
+        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span>Keeping a tagline or fine print in a left chest logo.</span></li>
+        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span>Using a dense, heavy logo on a thin performance polo.</span></li>
+        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span>Adding placements after the quote, which changes the price.</span></li>
+      </ul>
+
+      <h2 id="get-quote" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">How do you get a quote with the right placement?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Send your logo, the garments, every placement you want, a rough quantity, your date, and the ship-to address. If you are unsure about size or placement, say so and the proof will show a recommendation. Bighorn Threads works with production partners who do the embroidery and printing, and ships to any US address.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Ordering for a team in Nevada? See our <a href="/services/embroidery-las-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">embroidery service in Las Vegas</a>. Anywhere else, <a href="/get-a-quote/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">send your logo and placements for a quote.</a></p>
+
+      <!-- FAQ -->
+      <div class="mt-16 space-y-6">
+        <h2 class="font-heading text-2xl font-bold tracking-tight">Frequently Asked Questions</h2>
+        {faqs.map((faq) => (
+          <div class="border border-hairline bg-panel p-6">
+            <h3 class="mb-3 font-semibold text-charcoal">{faq.q}</h3>
+            <p class="text-charcoal leading-relaxed">{faq.a}</p>
+          </div>
+        ))}
+      </div>
+
+      <NationalLinks heading='Related product guides' links={[{ href: '/custom-polo-shirts/', label: 'Custom polo shirts' }, { href: '/custom-embroidered-hats/', label: 'Custom embroidered hats' }, { href: '/custom-company-shirts/', label: 'Custom company shirts' }]} />
+ <!-- Related -->
+      <div class="mt-16 border-t border-hairline pt-12">
+        <p class="mb-6 text-xs font-bold uppercase tracking-widest text-gold-600">Related Reading</p>
+        <ul class="space-y-3 text-lg">
+          <li><a href="/blog/how-much-to-embroider-a-polo/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">How Much Does It Cost to Embroider a Polo?</a></li>
+          <li><a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Logo Digitizing 101: What It Is and Why It Matters</a></li>
+          <li><a href="/blog/embroidery-file-formats-explained/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Embroidery File Formats Explained</a></li>
+          <li><a href="/blog/how-to-order-company-logo-shirts/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">How to Order Company Shirts With Your Logo</a></li>
+        </ul>
+      </div>
+
+    </BlogBody>
+  </article>
+<BlogRelated />
+</BaseLayout>

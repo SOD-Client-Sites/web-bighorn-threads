@@ -1,0 +1,202 @@
+---
+import NationalLinks from '@/components/NationalLinks.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import BlogLead from '@/components/blog/BlogLead.astro'
+import BlogBody from '@/components/blog/BlogBody.astro'
+import BlogRelated from '@/components/blog/BlogRelated.astro'
+
+const post = {
+  title: 'How to Order Company Shirts With Your Logo: A Step-by-Step Guide',
+  description:
+    'How to order company logo shirts for a team: pick the shirt, match the decoration to your logo, collect sizes, check the proof, and keep reorders matching.',
+  category: 'How-To',
+  readTime: '7 min read',
+  date: 'November 11, 2026',
+  isoDate: '2026-11-11',
+  image: '/images/og-default.jpg',
+  slug: 'how-to-order-company-logo-shirts',
+}
+
+const faqs = [
+  { q: 'How do I order shirts with my company logo?', a: 'Decide who wears the shirts and pick a shirt type for each group. Send your logo file, a size count, your in-hand date, and the ship-to address. You get a written quote and a proof that shows the logo size, placement, and colors. Production starts after you approve the proof.' },
+  { q: 'What file do I need to put my logo on a shirt?', a: 'A vector file (AI, EPS, SVG, or a PDF saved from a design program) is best for both printing and embroidery. A PNG or JPG is fine for getting a quote. For embroidery, the logo is digitized into a stitch file, and that file gets reused on reorders.' },
+  { q: 'Should company shirts be embroidered or printed?', a: 'Embroidery usually suits polos, button-ups, and work shirts, and it reads as a uniform. Screen printing usually suits larger t-shirt runs and big back designs. DTF can suit full-color artwork on smaller runs. Many companies use embroidery for customer-facing staff and printing for everyone else.' },
+  { q: 'How many company shirts should I order per person?', a: 'Count the days each person works between washes. Someone on five shifts with weekly laundry needs five shirts. Add a few spares in your most common sizes for new hires and replacements.' },
+  { q: 'Can Bighorn Threads ship company shirts outside Las Vegas?', a: 'Yes. Bighorn Threads is run from Las Vegas and ships to any US address, including several locations on one order. Production partners decorate the shirts, and your quote lists the price, minimum, and timing for your order.' },
+]
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: post.title,
+      description: post.description,
+      image: `https://bighornthreads.com${post.image}`,
+      datePublished: post.isoDate,
+      dateModified: '2026-11-11',
+      author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' },
+      publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } },
+      mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/`,
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bighornthreads.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' },
+        { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+    },
+  ],
+}
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ name: post.title,
+ speakable: {
+  '@type': 'SpeakableSpecification',
+  cssSelector: ['h1','.speakable-answer'],
+ },
+}
+---
+
+<BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
+
+  <article class="bg-concrete">
+    <header class="post-head">
+ <div class="post-head-inner">
+ <div>
+        <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb">
+          <a href="/" class="hover:text-gold-700">Home</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-700">Blog</a>
+        </nav>
+        <span class="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-gold-600">{post.category}</span>
+        <h1 class="mb-6 font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">{post.title}</h1>
+        <p class="mb-8 text-xl leading-relaxed text-ash">Ordering company shirts with your logo takes five steps: pick a shirt for each group, match the decoration to your logo, send a clean logo file, collect sizes, and approve a proof. Bighorn Threads quotes each group on its own line and ships to any US address.</p>
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash">
+          <span class="text-gold-600">Bighorn Threads Team</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time>
+        </div>
+      </div>
+ <BlogLead />
+ </div>
+ </header>
+
+    <BlogBody>
+
+      <!-- Answer-first TL;DR -->
+      <h2 id="order" class="mb-4 font-heading text-3xl font-bold tracking-tight">How do you order company shirts with your logo?</h2>
+      <aside class="mb-12 border border-hairline bg-panel p-6">
+        <p class="mb-2 text-xs font-bold uppercase tracking-widest text-gold-600">Quick Answer</p>
+        <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">To order company logo shirts from Bighorn Threads, send your logo, the shirt you want (or who will wear it), a size count, your in-hand date, and the ship-to address. You get a <strong>written quote</strong> with the price, minimum, and timing, then a <strong>proof</strong> showing logo size, placement, and colors. Production starts after you approve the proof.</p>
+        <ul class="mt-5 list-none space-y-2 text-base leading-relaxed text-charcoal">
+          <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><a href="#decide" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Decide who wears what</a> before you compare prices.</span></li>
+          <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><a href="#method" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Match the method</a> to the shirt and the logo.</span></li>
+          <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><a href="#sizes" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Collect sizes</a> from one list, with spares.</span></li>
+          <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><a href="#proof" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Check the proof</a> and keep it for reorders.</span></li>
+        </ul>
+      </aside>
+
+      <h2 id="decide" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">What should you decide before you ask for a quote?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Decide who will wear the shirts and where. A sales team meeting clients, a warehouse crew, and field techs need different shirts, and each group gets priced on its own line. Knowing the groups, a rough headcount for each, and your in-hand date lets a supplier quote the right shirt the first time.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Few companies put everyone in one shirt. A common split is an embroidered polo for anyone who meets customers and a printed tee for everyone else. Field crews often get a button-down work shirt with pockets. Write down three things per group: the role, how many people, and whether they work indoors, outdoors, or both. That is enough to start. Our guide to <a href="/blog/what-is-a-company-shirt/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">what counts as a company shirt</a> covers the main shirt types if you are starting from zero.</p>
+
+      <h2 id="method" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Which shirt and decoration method fit your logo?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">The shirt usually points to the method. Embroidery suits polos, button-ups, and work shirts because the heavier fabric holds stitches. Screen printing suits larger t-shirt runs and big back designs. DTF suits full-color artwork on smaller runs. Your logo's detail and color count can shift the choice, so send it with the request.</p>
+      <div class="my-6 overflow-x-auto border border-hairline bg-panel">
+        <table class="w-full text-base text-charcoal">
+          <thead class="bg-panel text-left text-xs font-mono uppercase tracking-wider text-gold-600">
+            <tr><th class="px-5 py-3">Shirt</th><th class="px-5 py-3">Usually worn by</th><th class="px-5 py-3">Usual decoration</th><th class="px-5 py-3">Watch for</th></tr>
+          </thead>
+          <tbody class="divide-y divide-hairline">
+            <tr><td class="px-5 py-3 font-bold">Polo</td><td class="px-5 py-3">Sales, front desk, account managers</td><td class="px-5 py-3">Embroidery, left chest</td><td class="px-5 py-3">Small taglines fill in at left chest size</td></tr>
+            <tr><td class="px-5 py-3 font-bold">Button-down work shirt</td><td class="px-5 py-3">Field techs, installers, service crews</td><td class="px-5 py-3">Embroidery or sewn patch</td><td class="px-5 py-3">Pocket flaps limit where the logo can go</td></tr>
+            <tr><td class="px-5 py-3 font-bold">T-shirt</td><td class="px-5 py-3">Warehouse, shop, events, volunteers</td><td class="px-5 py-3">Screen print or DTF</td><td class="px-5 py-3">Screen print setup is per color</td></tr>
+            <tr><td class="px-5 py-3 font-bold">Dress button-up</td><td class="px-5 py-3">Managers, office, hospitality</td><td class="px-5 py-3">Embroidery, left chest</td><td class="px-5 py-3">Thin fabric needs a lighter, simpler logo</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">If you are torn between two methods, ask for the price both ways. For the full comparison, see <a href="/screen-printing-vs-dtg-vs-embroidery/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">screen printing vs DTG vs embroidery</a>, or browse shirt options on our <a href="/custom-company-shirts/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">custom company shirts</a> page.</p>
+
+      <h2 id="logo-file" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">What logo file do you need for company shirts?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Send the cleanest version you have. A vector file such as AI, EPS, SVG, or a PDF exported from a design program works best for both printing and embroidery. A PNG or JPG is fine for a quote. For embroidery, your logo gets digitized into a stitch file, which is reused every time you reorder.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Two things trip people up. First, lettering under about a quarter inch tall tends to fill in when stitched, so a long tagline usually comes off the left chest version. Second, brand colors are matched to the closest thread or ink, not reproduced exactly, so ask what color numbers will be used. <a href="/blog/vector-logo-file-setup-for-embroidery/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Vector logo setup for embroidery</a> and <a href="/blog/logo-digitizing-101-embroidery/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">logo digitizing 101</a> go into more detail.</p>
+
+      <h2 id="sizes" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">How do you collect shirt sizes for a team order?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Put one person in charge of a single size list with each name, size, and fit (men's, women's, or tall). Ask people to check a shirt they already own rather than guess. Add a few spares in your most common sizes for new hires. One late swap from a large to an XL can hold up a whole box.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Check that the shirt you like comes in women's cuts and big and tall sizes before you commit to it, because many styles do not. For quantity per person, count the days each person works between washes: five shifts with weekly laundry means five shirts. Our guide on <a href="/blog/how-many-shirts-per-crew-member-vegas/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">how many shirts per crew member</a> walks through the math.</p>
+
+      <h2 id="proof" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">What should you check on the proof?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">The proof is the last chance to catch mistakes before production. Check the logo width and position, the thread or ink colors, the spelling of any names or text, the shirt style and color, and the size breakdown. Once you approve it, that proof becomes the record your reorders are matched against.</p>
+      <ul class="mb-6 list-none space-y-3 text-lg leading-relaxed text-charcoal">
+        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Size and placement:</strong> the proof should list the logo width and where it sits, such as left chest.</span></li>
+        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Colors:</strong> thread or ink color numbers, written down, so the next order uses the same ones.</span></li>
+        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Garment:</strong> the style number and color name, not just "navy polo."</span></li>
+        <li class="flex gap-3"><span class="text-gold-600 font-bold">→</span><span><strong>Extras:</strong> any name, sleeve, or back placement, each listed separately.</span></li>
+      </ul>
+
+      <h2 id="reorders" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">How do you keep reorders matching the first order?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Save the signed proof, the stitch file, the shirt style number and color, and the thread numbers in one shared folder. Name a backup shirt in case the style gets discontinued. With those on file, a reorder six months later matches the first box instead of coming back a slightly different navy.</p>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">This matters most for companies with more than one location. When each office buys on its own, the logo size drifts and the colors stop matching within a year. One page with the garment, logo file, colors, placement, and who may reorder fixes that. Our <a href="/company-uniforms/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">company uniforms</a> page covers how to plan shirts by role across sites.</p>
+
+      <h2 id="bulk-or-store" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">Should you place one bulk order or use a company store?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">A single bulk order suits a team with one start date, such as a launch, an event, or a rebrand. A company store suits teams that hire steadily or run several locations. In a store, employees see only the approved shirts and enter their own sizes, so you stop chasing size lists and every reorder matches.</p>
+      <div class="my-6 overflow-x-auto border border-hairline bg-panel">
+        <table class="w-full text-base text-charcoal">
+          <thead class="bg-panel text-left text-xs font-mono uppercase tracking-wider text-gold-600">
+            <tr><th class="px-5 py-3">Question</th><th class="px-5 py-3">Bulk order</th><th class="px-5 py-3">Company store</th></tr>
+          </thead>
+          <tbody class="divide-y divide-hairline">
+            <tr><td class="px-5 py-3">Who collects sizes?</td><td class="px-5 py-3">One person, up front</td><td class="px-5 py-3">Each employee, when they order</td></tr>
+            <tr><td class="px-5 py-3">Best for</td><td class="px-5 py-3">One start date, one event</td><td class="px-5 py-3">Steady hiring, several locations</td></tr>
+            <tr><td class="px-5 py-3">New hires</td><td class="px-5 py-3">Pulled from spares or a new order</td><td class="px-5 py-3">Order from the store</td></tr>
+            <tr><td class="px-5 py-3">Keeping it matched</td><td class="px-5 py-3">Your saved proof and specs</td><td class="px-5 py-3">Only approved items are shown</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">See how <a href="/company-stores/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">company stores</a> work, or read <a href="/blog/company-store-vs-bulk-ordering/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">company store vs bulk ordering</a> for the full comparison.</p>
+
+      <h2 id="get-quote" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight">What do you send Bighorn Threads for a quote?</h2>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Send five things and the quote can be written in one pass. Cost comes down to the shirt, the decoration method, your logo's colors or stitch count, and quantity, and the quote lists the price and minimum for each group. Read <a href="/blog/minimum-order-quantity-embroidery-screen-printing/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">why minimums vary</a> if you are ordering a small run.</p>
+      <ol class="mb-6 list-decimal pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
+        <li>Your logo file (any format works for a quote)</li>
+        <li>The shirt for each group, or the roles and we will suggest one</li>
+        <li>A rough size count per group</li>
+        <li>The date you need the shirts in hand</li>
+        <li>The ship-to address, or a list of locations</li>
+      </ol>
+      <p class="mb-6 text-lg leading-relaxed text-charcoal">Bighorn Threads is run from Las Vegas, works with selected production partners who decorate the shirts, and ships to any US address. <a href="/get-a-quote/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Send your logo and headcount for a quote.</a></p>
+
+      <!-- FAQ -->
+      <div class="mt-16 space-y-6">
+        <h2 class="font-heading text-2xl font-bold tracking-tight">Frequently Asked Questions</h2>
+        {faqs.map((faq) => (
+          <div class="border border-hairline bg-panel p-6">
+            <h3 class="mb-3 font-semibold text-charcoal">{faq.q}</h3>
+            <p class="text-charcoal leading-relaxed">{faq.a}</p>
+          </div>
+        ))}
+      </div>
+
+      <NationalLinks heading='Related product guides' links={[{ href: '/custom-company-shirts/', label: 'Custom company shirts' }, { href: '/company-uniforms/', label: 'Company uniforms' }, { href: '/company-stores/', label: 'Company stores' }, { href: '/custom-polo-shirts/', label: 'Custom polo shirts' }]} />
+ <!-- Related -->
+      <div class="mt-16 border-t border-hairline pt-12">
+        <p class="mb-6 text-xs font-bold uppercase tracking-widest text-gold-600">Related Reading</p>
+        <ul class="space-y-3 text-lg">
+          <li><a href="/blog/what-is-a-company-shirt/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">What Is a Company Shirt?</a></li>
+          <li><a href="/blog/polo-vs-work-shirt-vs-t-shirt-for-employees/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Polo, Work Shirt or T-Shirt: Which Company Shirt Should Employees Wear?</a></li>
+          <li><a href="/blog/logo-placement-size-guide-company-shirts/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Where to Put a Logo on a Company Shirt: Placement and Size Guide</a></li>
+          <li><a href="/blog/company-store-vs-bulk-ordering/" class="text-gold-600 underline decoration-gold-600/40 underline-offset-4 hover:decoration-gold-600">Company Store vs Bulk Ordering</a></li>
+        </ul>
+      </div>
+
+    </BlogBody>
+  </article>
+<BlogRelated />
+</BaseLayout>

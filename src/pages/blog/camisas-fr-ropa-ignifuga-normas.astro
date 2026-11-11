@@ -1,0 +1,151 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import BlogLead from '@/components/blog/BlogLead.astro'
+import BlogBody from '@/components/blog/BlogBody.astro'
+import BlogRelated from '@/components/blog/BlogRelated.astro'
+
+const post = {
+ title: 'Camisas FR y Ropa Ignífuga: Normas, Etiquetas y Cómo Elegirlas',
+ description:
+ 'Guía de camisas FR y ropa FR (resistente al fuego) para empresas: qué significan FR y AR, las normas NFPA 70E, NFPA 2112 y ASTM F1506, cómo leer la etiqueta y cómo bordar el logo sin afectar la protección.',
+ category: 'Compliance',
+ readTime: '8 min de lectura',
+ date: '11 de noviembre de 2026',
+ isoDate: '2026-11-11',
+ image: '/images/og-default.jpg',
+ slug: 'camisas-fr-ropa-ignifuga-normas',
+}
+
+const link = 'text-gold-700 underline decoration-gold-500/40 underline-offset-4 hover:decoration-gold-600'
+
+const faqs = [
+ { q: '¿Qué significa FR en una camisa?', a: 'FR significa "flame resistant", es decir, resistente a la llama. Una camisa FR está hecha de tela que resiste encenderse y deja de arder cuando se retira la fuente de fuego. No es lo mismo que una camisa a prueba de fuego; ninguna prenda lo es.' },
+ { q: '¿Cuál es la diferencia entre ropa FR y ropa AR?', a: 'La ropa AR (arc-rated, con clasificación de arco) es ropa FR que además fue probada contra arco eléctrico y tiene un valor en cal/cm². Toda prenda AR es FR, pero no toda prenda FR tiene clasificación de arco. Para riesgo eléctrico se necesita AR.' },
+ { q: '¿Qué norma aplica a las camisas FR para electricistas?', a: 'La norma NFPA 70E guía la selección de equipo de protección contra arco eléctrico, y la tela se prueba según ASTM F1506. En Estados Unidos, la obligación legal viene de las reglas de OSHA, como 29 CFR 1910.269 y 1926.960, que exigen ropa con clasificación de arco cuando la energía incidente estimada supera 2.0 cal/cm².' },
+ { q: '¿Qué es una camisa FR NFPA 2112?', a: 'Es una prenda certificada según NFPA 2112, la norma para ropa industrial que protege contra exposición breve a fuego repentino (flash fire). Se usa en petróleo, gas, combustibles y plantas de proceso. Protege contra fuego repentino, no necesariamente contra arco eléctrico.' },
+ { q: '¿Se puede bordar el logo de la empresa en una camisa FR?', a: 'Muchas veces sí, si el fabricante de la prenda lo permite y aprueba el hilo, el respaldo y la ubicación para ese modelo. El hilo de poliéster común y las transferencias de calor normales pueden derretirse. Bighorn Threads confirma el método por escrito antes de producir.' },
+ { q: '¿Quién paga la ropa FR en el trabajo?', a: 'Cuando la ropa FR o AR es equipo de protección personal exigido por una norma de OSHA, el empleador la paga según 29 CFR 1910.132(h). En Nevada, además, los uniformes distintivos deben ser gratuitos para el empleado según NRS 608.165.' },
+]
+
+const schema = {
+ '@context': 'https://schema.org',
+ '@graph': [
+ { '@type': 'Article', headline: post.title, description: post.description, inLanguage: 'es', image: `https://bighornthreads.com${post.image}`, datePublished: post.isoDate, dateModified: '2026-11-11', author: { '@type': 'Organization', name: 'Bighorn Threads', url: 'https://bighornthreads.com/' }, publisher: { '@type': 'Organization', name: 'Bighorn Threads', logo: { '@type': 'ImageObject', url: 'https://bighornthreads.com/images/logos/bighorn-logo-color.png' } }, mainEntityOfPage: `https://bighornthreads.com/blog/${post.slug}/` },
+ { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://bighornthreads.com/' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bighornthreads.com/blog/' }, { '@type': 'ListItem', position: 3, name: post.title, item: `https://bighornthreads.com/blog/${post.slug}/` }] },
+ { '@type': 'FAQPage', inLanguage: 'es', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+ ],
+}
+
+const speakableSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'WebPage',
+ url: `https://bighornthreads.com/blog/${post.slug}/`,
+ name: post.title,
+ inLanguage: 'es',
+ speakable: {
+  '@type': 'SpeakableSpecification',
+  cssSelector: ['h1','.speakable-answer'],
+ },
+}
+---
+
+<BaseLayout title={post.title} description={post.description} canonical={`https://bighornthreads.com/blog/${post.slug}/`} ogImage={post.image} type="article" publishedDate={post.isoDate} lang="es">
+ <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ <script type="application/ld+json" set:html={JSON.stringify(speakableSchema)} />
+ <article class="bg-concrete">
+ <header class="post-head">
+ <div class="post-head-inner">
+ <div>
+ <nav class="mb-6 font-mono text-xs text-ash" aria-label="Breadcrumb"><a href="/" class="hover:text-gold-600">Inicio</a><span class="px-2">/</span><a href="/blog/" class="hover:text-gold-600">Blog</a></nav>
+ <span class="kicker mb-3">Normas y seguridad</span>
+ <h1 class="mb-6 font-heading text-3xl font-extrabold uppercase leading-tight tracking-tight text-charcoal sm:text-4xl lg:text-5xl">{post.title}</h1>
+ <p class="mb-8 text-xl leading-relaxed text-ash">Qué significan FR y AR, qué normas aplican, cómo leer la etiqueta y cómo poner el logo de su empresa en ropa resistente al fuego.</p>
+ <div class="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-hairline pt-6 font-mono text-sm text-ash"><span class="text-gold-600">Equipo de Bighorn Threads</span><span aria-hidden="true">&middot;</span><span>{post.readTime}</span><span aria-hidden="true">&middot;</span><time datetime={post.isoDate}>{post.date}</time></div>
+ </div>
+ <BlogLead />
+ </div>
+ </header>
+ <BlogBody>
+
+ <aside class="mb-10 border border-hairline bg-panel p-7">
+ <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Respuesta rápida</p>
+ <p class="text-lg leading-relaxed text-charcoal sm:text-xl speakable-answer">Las camisas FR son prendas de tela resistente a la llama que dejan de arder al retirar el fuego. Para arco eléctrico se necesita ropa AR con valor en cal/cm² (NFPA 70E, ASTM F1506); para fuego repentino, ropa certificada NFPA 2112. Bighorn Threads suministra y borda la ropa FR que su empresa especifica.</p>
+ </aside>
+
+ <aside class="mb-10 border-l-4 border-gold-500 bg-paper p-6">
+ <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gold-700">Puntos clave</p>
+ <ul class="list-disc pl-6 space-y-2 text-lg leading-relaxed text-charcoal">
+ <li>FR es resistente a la llama, no a prueba de fuego.</li>
+ <li>Para riesgo eléctrico, la etiqueta debe mostrar una clasificación de arco en cal/cm².</li>
+ <li>El empleador elige la prenda según su evaluación de riesgos.</li>
+ <li>El logo se aplica solo con el método que aprueba el fabricante de la prenda.</li>
+ </ul>
+ </aside>
+
+ <h2 id="que-es" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">¿Qué es una camisa FR?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Una camisa FR (del inglés "flame resistant") está hecha de tela que resiste encenderse y se apaga sola cuando se retira la llama. Puede ser algodón tratado o una mezcla de fibras con resistencia propia, como aramidas o modacrílico. Ninguna camisa es a prueba de fuego; la ropa FR reduce la gravedad de las quemaduras y da tiempo para escapar.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">En español también se le llama ropa ignífuga, retardante de llama o ropa ininflamable. En las obras de Las Vegas y en todo Estados Unidos, la mayoría de los supervisores y fabricantes usan simplemente "FR".</p>
+
+ <h2 id="fr-vs-ar" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">¿Cuál es la diferencia entre FR y AR?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">AR significa "arc-rated", con clasificación de arco. Una prenda AR es ropa FR que además se probó contra arco eléctrico y tiene un valor de protección en calorías por centímetro cuadrado (cal/cm²), expresado como ATPV o EBT. Toda prenda AR es FR, pero una prenda FR sin valor de arco no sirve para trabajo con riesgo de arco eléctrico.</p>
+
+ <h2 id="normas" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">¿Qué normas aplican a la ropa FR?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Tres normas aparecen en casi todas las etiquetas y manuales de seguridad. Cada una cubre un riesgo distinto, y una prenda puede cumplir más de una. La obligación legal en el trabajo viene de OSHA; en Nevada la aplica <a href="https://dir.nv.gov/OSHA/Home/" rel="noopener" class={link}>Nevada OSHA</a>.</p>
+
+ <div class="mb-8 overflow-x-auto border border-hairline">
+ <table class="w-full text-base text-charcoal">
+ <thead class="bg-panel text-left text-xs font-mono uppercase tracking-wider text-gold-600">
+ <tr><th class="px-5 py-3">Norma</th><th class="px-5 py-3">Riesgo que cubre</th><th class="px-5 py-3">Qué buscar en la etiqueta</th></tr>
+ </thead>
+ <tbody class="divide-y divide-hairline">
+ <tr><td class="px-5 py-3 font-bold"><a href="https://www.nfpa.org/codes-and-standards/all-codes-and-standards/list-of-codes-and-standards/detail?code=70E" rel="noopener" class={link}>NFPA 70E</a></td><td class="px-5 py-3">Seguridad eléctrica y arco eléctrico</td><td class="px-5 py-3">Valor de arco en cal/cm² y categoría de EPP</td></tr>
+ <tr><td class="px-5 py-3 font-bold"><a href="https://store.astm.org/f1506-25.html" rel="noopener" class={link}>ASTM F1506</a></td><td class="px-5 py-3">Especificación de desempeño para ropa FR y AR expuesta a llama y arco</td><td class="px-5 py-3">Referencia a ASTM F1506 junto al valor de arco</td></tr>
+ <tr><td class="px-5 py-3 font-bold"><a href="https://www.nfpa.org/codes-and-standards/all-codes-and-standards/list-of-codes-and-standards/detail?code=2112" rel="noopener" class={link}>NFPA 2112</a></td><td class="px-5 py-3">Fuego repentino (flash fire) en industria</td><td class="px-5 py-3">Certificación NFPA 2112</td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <h2 id="categorias" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">¿Qué son las categorías de EPP de NFPA 70E?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">NFPA 70E agrupa el equipo de protección contra arco en cuatro categorías, con valores mínimos de arco de 4, 8, 25 y 40 cal/cm². La mayoría de las camisas FR de uso diario están hechas para las categorías 1 y 2. Antes se usaba el término HRC; las ediciones actuales usan "categoría de EPP" (PPE category).</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">El empleador decide la categoría o el valor de arco según su evaluación de riesgo de arco eléctrico. Según <a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.269" rel="noopener" class={link}>29 CFR 1910.269(l)(8)</a>, cuando la energía incidente estimada supera 2.0 cal/cm², la ropa debe tener un valor de arco igual o mayor que esa estimación.</p>
+
+ <h2 id="telas" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">¿Qué telas están prohibidas cerca de llama o arco?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">OSHA prohíbe que los trabajadores expuestos a llama o arco eléctrico usen ropa que pueda derretirse sobre la piel o seguir ardiendo. La nota de 1910.269(l)(8)(iii) menciona acetato, nailon, poliéster, rayón y polipropileno, solos o en mezclas, salvo que el empleador demuestre que la tela está tratada para esas condiciones. Por eso una playera común de poliéster debajo de la camisa FR es un problema.</p>
+
+ <h2 id="etiqueta" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">¿Cómo se lee la etiqueta de una camisa FR?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Busque la etiqueta cosida dentro de la prenda. Para riesgo eléctrico debe mostrar el valor de arco en cal/cm² (ATPV o EBT) y normalmente la referencia a ASTM F1506 o NFPA 70E. Para fuego repentino debe decir que está certificada según NFPA 2112. Si el valor que exige su evaluación no aparece en la etiqueta, la prenda no lo cumple.</p>
+ <ul class="mb-6 list-disc pl-6 space-y-3 text-lg leading-relaxed text-charcoal">
+ <li><strong>Valor de arco.</strong> Igual o mayor que la energía incidente estimada.</li>
+ <li><strong>Certificaciones.</strong> NFPA 2112 si hay riesgo de fuego repentino.</li>
+ <li><strong>Instrucciones de lavado.</strong> Sígalas al pie de la letra; algunos productos de lavandería afectan la protección.</li>
+ </ul>
+
+ <h2 id="logo" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">¿Se puede bordar el logo en ropa FR?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">En muchos casos sí, siempre que el fabricante de la prenda lo permita. El hilo, el respaldo y la ubicación deben estar aprobados para ese modelo exacto. El hilo de poliéster común y las transferencias de calor normales pueden derretirse. Un logo bordado pequeño en el pecho es la opción más común. Bighorn Threads confirma el método por escrito antes de producir.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Para más detalles en inglés, vea nuestra <a href="/blog/nfpa-70e-fr-shirts-vegas-electricians/" class={link}>guía de camisas FR NFPA 70E</a> y el <a href="/catalog/fr-clothing/" class={link}>catálogo de ropa FR</a>.</p>
+
+ <h2 id="pedido" class="mt-12 mb-4 font-heading text-3xl font-bold tracking-tight text-charcoal">¿Cómo pedir camisas FR con logo para su equipo?</h2>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Envíe la especificación por escrito: valor de arco o certificación NFPA 2112 por puesto, requisitos del proyecto o del dueño de la obra, marcas preferidas, tallas y el archivo del logo. Bighorn Threads consigue las prendas especificadas con sus socios de producción, aplica la decoración aprobada y envía a obras en Las Vegas y en todo Estados Unidos. Vea también nuestros <a href="/es/uniformes-personalizados-las-vegas/" class={link}>uniformes personalizados en Las Vegas</a>.</p>
+ <p class="mb-6 text-lg leading-relaxed text-charcoal">Precios, mínimos y tiempos dependen del pedido y aparecen en la cotización por escrito. Bighorn no hace evaluaciones de riesgo, estudios de arco, lavado, reparación ni inspección de prendas. Este artículo es informativo y no constituye asesoría legal ni de seguridad.</p>
+
+ <section class="mt-12">
+ <h2 class="mb-6 font-heading text-3xl font-bold tracking-tight text-charcoal">Preguntas frecuentes</h2>
+ <dl class="divide-y divide-hairline border-y border-hairline">
+ {faqs.map((f) => (
+ <div class="py-6">
+ <dt class="mb-2 font-heading text-lg font-bold text-charcoal">{f.q}</dt>
+ <dd class="text-lg leading-relaxed text-ash">{f.a}</dd>
+ </div>
+ ))}
+ </dl>
+ </section>
+
+ <div class="mt-12 border border-hairline bg-panel p-7 sm:p-9">
+ <h2 class="mb-3 font-heading text-2xl font-extrabold uppercase tracking-tight text-charcoal">Camisas FR con el logo de su empresa</h2>
+ <p class="mb-5 text-lg leading-relaxed text-ash">Envíe su especificación FR y su logo. Bighorn Threads le cotiza las prendas, la decoración aprobada y la entrega por escrito.</p>
+ <a href="/get-a-quote/" class="btn-primary text-base">Solicitar cotización →</a>
+ </div>
+ </BlogBody>
+ </article>
+<BlogRelated />
+</BaseLayout>
