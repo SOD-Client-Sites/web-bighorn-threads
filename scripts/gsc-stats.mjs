@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// Default to the seo-cli service account (has Search Console access to bighornthreads.com).
+process.env.GOOGLE_SERVICE_ACCOUNT_KEY ||= `${process.env.HOME}/Library/Application Support/Sales On Demand/seo-cli/service-account.json`;
 // Pull search performance from GSC — last 28 days: totals + top queries + top pages + indexed count.
 // Run: node scripts/gsc-stats.mjs
 

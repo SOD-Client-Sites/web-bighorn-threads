@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// Default to the seo-cli service account (has Search Console access to bighornthreads.com).
+process.env.GOOGLE_SERVICE_ACCOUNT_KEY ||= `${process.env.HOME}/Library/Application Support/Sales On Demand/seo-cli/service-account.json`;
 // Real index coverage via URL Inspection API. Samples sitemap URLs (or all with --all).
 // Run: node scripts/gsc-inspect.mjs [--all]
 
