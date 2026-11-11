@@ -129,7 +129,7 @@ export const bighornCategories: BighornCategory[] = [
       'Industrial laundry compatibility for fleet uniform programs',
       'Sizing audit forms for accurate first orders',
     ],
-    search: { keywords: 'work shirt uniform industrial mechanic' },
+    search: { categories: 'Shirts', keywords: 'industrial work shirt' },
     sort: 'BESTMATCH',
   },
   {
