@@ -60,10 +60,12 @@ export const onRequestPost = async (context) => {
     label: 'art-request',
     required: ['service', 'email'],
     limits: { service: 50, details: 5_000 },
-    build: (d) => {
+    // Runs after the bot check and before the contact save, so tag-triggered workflows already see the file link.
+    build: async (d) => {
       const id = str(d.service, 50)
       if (!Object.hasOwn(artServices, id)) return { error: 'Choose a service' }
       const service = artServices[id]
+      const url = await uploadArtwork(file, context.env.GHL_PIT_TOKEN)
       return {
         name: str(d.contact, 200),
         company: str(d.company, 200),
@@ -71,14 +73,16 @@ export const onRequestPost = async (context) => {
         fields: {
           [CF.product]: `${service.label} — $${service.price}`,
           [CF.message]: str(d.details),
+          [CF.artwork]: url || `UPLOAD FAILED: ${file.name}`,
         },
         pageUrl: d.sourceUrl,
         service,
+        url,
         details: str(d.details),
       }
     },
     after: async ({ contactId, token, lead }) => {
-      const url = await uploadArtwork(file, token)
+      const { url } = lead
       const note = [
         `Vector/digitizing request: ${lead.service.label} — $${lead.service.price} (no payment taken)`,
         url ? `Artwork: ${url}` : `Artwork upload FAILED (${file.name}). Ask the customer to email the file.`,

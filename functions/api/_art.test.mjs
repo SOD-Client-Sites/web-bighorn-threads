@@ -55,3 +55,11 @@ test('ad UTMs land in Original Source and Original Source Detail', async () => {
   assert.equal(value('1x3FBbe1ETiX3b3aQ9OL'), 'facebook / paid')
   assert.equal(value('hGMW3LfcGIAXOZL2bRim'), 'bht-vector | vector-magic | /offers/vector-digitizing/')
 })
+
+test('the file link is saved on the contact before tags fire workflows', async () => {
+  const { calls } = await submit()
+  const upsertIndex = calls.findIndex((c) => c.url.endsWith('/contacts/upsert'))
+  assert.ok(calls.findIndex((c) => c.url.endsWith('/medias/upload-file')) < upsertIndex)
+  const fields = calls[upsertIndex].body.customFields
+  assert.equal(fields.find((f) => f.id === 'pLLcRHWh2ocWf4KK1bGS')?.field_value, 'https://files.example/logo.png')
+})

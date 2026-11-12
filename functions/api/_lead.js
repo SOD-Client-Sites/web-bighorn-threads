@@ -17,6 +17,7 @@ export const CF = {
   quantity: 'AuP8x0F7NvKOzWX0xxRh', // Quantity Estimate
   message: 'BPFPC44V1QiiHdrTKpUN', // Quote Message
   product: 'sjfsg4TTMK4zutyPULCE', // Product
+  artwork: 'pLLcRHWh2ocWf4KK1bGS', // Artwork File URL
   trade: 'J4iXDY0OMNiGcdWDjPXg', // Trade (dropdown)
   crewSize: 'Ok0V5AleRwGALakbqWnN', // Crew Size
 }
@@ -100,7 +101,7 @@ export async function handleLead(context, spec) {
   const email = str(data.email, 320)
   if (!EMAIL_RE.test(email)) return fail('Invalid email format', 400)
 
-  const lead = spec.build(data)
+  const lead = await spec.build(data)
   if (lead.error) return fail(lead.error, 400)
 
   const locationId = env.GHL_LOCATION_ID
