@@ -29,6 +29,12 @@ const labelCls = 'mb-1 block font-mono text-[11px] font-bold uppercase tracking-
       <p class="mt-6 max-w-md text-lg leading-relaxed text-ash">Upload any version of your logo, even a blurry screenshot. We redraw it by hand as clean vector art or a stitch-ready embroidery file. No auto-trace. Free edits.</p>
       <a href="#request" class="btn-primary mt-6 inline-flex lg:hidden">Send my artwork ↓</a>
 
+      <ol class="mt-8 max-w-md space-y-3 text-base">
+        <li><strong>1. Upload your logo.</strong> A screenshot, photo or old file works.</li>
+        <li><strong>2. We confirm the price.</strong> Nothing is billed until you approve.</li>
+        <li><strong>3. Get your files.</strong> We revise them free until they match your artwork.</li>
+      </ol>
+
       <table class="mt-8 w-full max-w-md border-collapse text-left">
         <caption class="sr-only">Prices</caption>
         <tbody>
@@ -67,7 +73,6 @@ const labelCls = 'mb-1 block font-mono text-[11px] font-bold uppercase tracking-
           <div><label for="art-phone" class={labelCls}>Mobile phone</label><input id="art-phone" name="phone" type="tel" autocomplete="tel" maxlength="20" class={inputCls} /></div>
         </div>
         <div><label for="art-email" class={labelCls}>Email *</label><input id="art-email" name="email" type="email" required autocomplete="email" maxlength="120" class={inputCls} /></div>
-        <div><label for="art-company" class={labelCls}>Company</label><input id="art-company" name="company" type="text" autocomplete="organization" maxlength="100" class={inputCls} /></div>
         <div><label for="art-details" class={labelCls}>What do you need?</label><textarea id="art-details" name="details" maxlength="1000" class={inputCls + ' min-h-[104px]'} placeholder="Colors, size, what it's going on, deadline."></textarea></div>
         <SmsConsentFields tone="compact" />
         <div class="cf-turnstile" data-sitekey="0x4AAAAAADW_K97ZyhlAHC4I" data-theme="light"></div>

@@ -39,7 +39,7 @@ export function leadSource(data) {
   else if (/(^|\.)(bing|duckduckgo|yahoo)\./.test(ref)) source = `${ref.split('.').at(-2)} / organic`
   else if (/facebook|instagram/.test(ref)) source = 'facebook / social'
   else if (ref) source = `${ref} / referral`
-  const detail = [str(data?.utm_campaign, 200), str(data?.landing, 300)].filter(Boolean).join(' | ')
+  const detail = [str(data?.utm_campaign, 200), str(data?.utm_content, 200), str(data?.landing, 300)].filter(Boolean).join(' | ')
   return { source, detail }
 }
 

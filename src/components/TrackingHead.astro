@@ -59,6 +59,7 @@
         utm_source: param('utm_source', 120),
         utm_medium: param('utm_medium', 120),
         utm_campaign: param('utm_campaign', 200),
+        utm_content: param('utm_content', 200),
         click: params.has('gclid') ? 'gclid' : params.has('fbclid') ? 'fbclid' : '',
         referrer,
         landing: window.location.pathname.slice(0, 300),

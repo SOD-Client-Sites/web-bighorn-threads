@@ -47,3 +47,11 @@ test('rejects a missing file, wrong type, or unknown service before GHL', async 
     assert.equal(calls.some((c) => c.url.includes('leadconnectorhq.com')), false)
   }
 })
+
+test('ad UTMs land in Original Source and Original Source Detail', async () => {
+  const { calls } = await submit({ fields: { utm_source: 'facebook', utm_medium: 'paid', utm_campaign: 'bht-vector', utm_content: 'vector-magic', landing: '/offers/vector-digitizing/' } })
+  const fields = calls.find((c) => c.url.endsWith('/contacts/upsert')).body.customFields
+  const value = (id) => fields.find((f) => f.id === id)?.field_value
+  assert.equal(value('1x3FBbe1ETiX3b3aQ9OL'), 'facebook / paid')
+  assert.equal(value('hGMW3LfcGIAXOZL2bRim'), 'bht-vector | vector-magic | /offers/vector-digitizing/')
+})
