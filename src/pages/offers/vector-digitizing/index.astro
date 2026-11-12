@@ -1,0 +1,115 @@
+---
+import LandingLayout from '@/layouts/LandingLayout.astro'
+import SmsConsentFields from '@/components/SmsConsentFields.astro'
+import { ART_FILE_TYPES, artServices } from '@/data/artServices.js'
+
+const services = Object.entries(artServices)
+const accept = ART_FILE_TYPES.map((ext) => `.${ext}`).join(',')
+const faqs = [
+  { q: 'Is this auto-traced?', a: 'No. A designer redraws your artwork by hand. Auto-trace leaves wobbly edges and extra points that print and stitch badly.' },
+  { q: 'What files do I get back?', a: 'Vector orders come back as AI, EPS, SVG and PDF files. Digitizing orders come back as the stitch file your machine needs, such as DST or PES.' },
+  { q: 'Are edits included?', a: 'Yes. We revise the file until it matches your artwork, at no extra charge.' },
+  { q: 'When do I pay?', a: 'Not today. We review your file, confirm the price and timing, and only bill you after you approve the order.' },
+]
+const inputCls = 'w-full rounded border border-hairline bg-panel px-4 py-2.5 text-base text-charcoal placeholder:text-ash focus:border-gold-500 focus:outline-none focus:ring-2 focus:ring-gold-500/25'
+const labelCls = 'mb-1 block font-mono text-[11px] font-bold uppercase tracking-[0.15em] text-gold-700'
+---
+
+<LandingLayout
+  title="Vector Art & Embroidery Digitizing From $49 | Bighorn Threads"
+  description="Send your logo. A real designer redraws it as clean vector art or an embroidery stitch file. From $49, free edits, no payment until you approve."
+  canonical="https://bighornthreads.com/offers/vector-digitizing/"
+  noindex={true}
+  standalone={true}
+>
+  <div class="mx-auto grid max-w-6xl gap-12 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_1.05fr] lg:py-16">
+    <section aria-labelledby="art-heading">
+      <p class="font-mono text-[13px] font-semibold uppercase tracking-[0.08em] text-gold-700">Vector art · Embroidery digitizing</p>
+      <h1 id="art-heading" class="mt-4 font-heading text-5xl font-extrabold uppercase leading-[0.98] tracking-tight text-charcoal sm:text-6xl">Your logo, redrawn by a real designer.</h1>
+      <p class="mt-6 max-w-md text-lg leading-relaxed text-ash">Upload any version of your logo, even a blurry screenshot. We redraw it by hand as clean vector art or a stitch-ready embroidery file. No auto-trace. Free edits.</p>
+      <a href="#request" class="btn-primary mt-6 inline-flex lg:hidden">Send my artwork ↓</a>
+
+      <table class="mt-8 w-full max-w-md border-collapse text-left">
+        <caption class="sr-only">Prices</caption>
+        <tbody>
+          {services.map(([, s]) => (
+            <tr class="border-t border-hairline"><th scope="row" class="py-3 pr-4 font-normal">{s.label}</th><td class="py-3 text-right font-heading text-xl font-extrabold">${s.price}</td></tr>
+          ))}
+        </tbody>
+      </table>
+      <p class="mt-3 text-sm text-ash">No payment today. We confirm the price before any work starts.</p>
+
+      <div class="mt-10 max-w-md">
+        <h2 class="font-heading text-2xl font-extrabold uppercase tracking-tight">Before you order</h2>
+        {faqs.map(({ q, a }) => <details class="border-t border-hairline py-3"><summary class="cursor-pointer font-semibold">{q}</summary><p class="mt-2 text-ash">{a}</p></details>)}
+      </div>
+    </section>
+
+    <section id="request" class="border border-hairline bg-paper p-7 sm:p-8" aria-labelledby="form-heading">
+      <h2 id="form-heading" class="mb-2 font-heading text-2xl font-extrabold uppercase tracking-tight">Send your artwork</h2>
+      <p class="mb-6 text-sm text-ash">Pick a service, attach your file and tell us what you need.</p>
+
+      <form id="art-form" class="space-y-4" enctype="multipart/form-data" novalidate>
+        <input type="text" name="bh_hp_field" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+        <div>
+          <label for="art-service" class={labelCls}>Service *</label>
+          <select id="art-service" name="service" required class={inputCls}>
+            <option value="">Choose one</option>
+            {services.map(([id, s]) => <option value={id}>{s.label} (${s.price})</option>)}
+          </select>
+        </div>
+        <div>
+          <label for="art-file" class={labelCls}>Logo or design file * (10 MB max)</label>
+          <input id="art-file" name="artwork" type="file" required accept={accept} class={inputCls} />
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div><label for="art-contact" class={labelCls}>First name</label><input id="art-contact" name="contact" type="text" autocomplete="given-name" maxlength="80" class={inputCls} /></div>
+          <div><label for="art-phone" class={labelCls}>Mobile phone</label><input id="art-phone" name="phone" type="tel" autocomplete="tel" maxlength="20" class={inputCls} /></div>
+        </div>
+        <div><label for="art-email" class={labelCls}>Email *</label><input id="art-email" name="email" type="email" required autocomplete="email" maxlength="120" class={inputCls} /></div>
+        <div><label for="art-company" class={labelCls}>Company</label><input id="art-company" name="company" type="text" autocomplete="organization" maxlength="100" class={inputCls} /></div>
+        <div><label for="art-details" class={labelCls}>What do you need?</label><textarea id="art-details" name="details" maxlength="1000" class={inputCls + ' min-h-[104px]'} placeholder="Colors, size, what it's going on, deadline."></textarea></div>
+        <SmsConsentFields tone="compact" />
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAADW_K97ZyhlAHC4I" data-theme="light"></div>
+        <button type="submit" id="art-submit" class="btn-primary mt-2 w-full justify-center text-base disabled:opacity-60">Send my artwork →</button>
+        <p id="art-error" class="hidden text-sm text-red-700" role="alert"></p>
+        <p class="text-center font-mono text-[10px] uppercase tracking-[0.15em] text-ash">Request only · No payment taken</p>
+      </form>
+
+      <div id="art-success" class="hidden border border-gold-500 bg-panel p-6 text-center" role="status" tabindex="-1">
+        <h3 class="font-heading text-xl font-extrabold uppercase">Your artwork is in.</h3>
+        <p class="mt-2 text-sm text-ash">We'll review it and reply with your price and timing. No payment has been taken.</p>
+      </div>
+    </section>
+  </div>
+</LandingLayout>
+
+<script>
+  const form = document.getElementById('art-form') as HTMLFormElement | null
+  const button = document.getElementById('art-submit') as HTMLButtonElement | null
+  const errorBox = document.getElementById('art-error')
+  const success = document.getElementById('art-success')
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault()
+    if (!form.checkValidity()) { form.reportValidity(); return }
+    if (button) { button.disabled = true; button.textContent = 'Uploading…' }
+    errorBox?.classList.add('hidden')
+    try {
+      // The formdata listener in TrackingHead adds the lead source fields.
+      const body = new FormData(form)
+      body.set('sourceUrl', `${location.origin}${location.pathname}`)
+      const res = await fetch('/api/art-request', { method: 'POST', body, signal: AbortSignal.timeout(90000) })
+      const data = await res.json().catch(() => ({}))
+      if (!res.ok || !data.ok) throw new Error(data.error || `HTTP ${res.status}`)
+      if (!data.spam) (window as any).bighornTracking?.trackLead?.('art_request')
+      form.classList.add('hidden')
+      success?.classList.remove('hidden')
+      success?.focus()
+    } catch (err) {
+      ;(window as any).turnstile?.reset?.()
+      if (errorBox) { errorBox.textContent = `${(err as Error).message} You can also call 702.904.8923.`; errorBox.classList.remove('hidden') }
+      if (button) { button.disabled = false; button.textContent = 'Try again →' }
+    }
+  })
+</script>
